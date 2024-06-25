@@ -61,7 +61,7 @@ async function submit() {
 
 			<div class="hidden bg-muted lg:block">
 				<img
-					src="https://via.placeholder.com/250"
+					src="/images/register.png"
 					alt="Image"
 					class="h-full w-full object-cover"
 				>

@@ -54,7 +54,7 @@ const $pt = usePageTranslate();
 
 			<div class="h-1/2 lg:h-full">
 				<img
-					src="https://via.placeholder.com/250"
+					src="/images/hero.png"
 					alt="placeholder"
 					class="w-full h-full object-cover"
 				>
