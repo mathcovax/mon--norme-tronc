@@ -90,51 +90,51 @@ function deletePromotion(promotion: Promotion) {
 }
 </script>
 <template>
-	<section class="h-screen-no-header">
+	<section>
+		<h1 class="mb-12 text-2xl font-semibold">
+			{{ $pt("title") }}
+		</h1>
+
 		<div 
-			class="container h-[calc(100%-3rem)] mt-12 lg:mt-16 flex flex-col gap-12"
+			class="flex flex-col items-center w-full gap-6 p-6"
 		>
-			<h1 class="text-2xl font-bold lg:text-3xl">
-				{{ $pt("title") }}
-			</h1>
+			<h2 class="text-xl font-semibold">
+				{{ $pt("form.title") }}
+			</h2>
 
-			<div 
-				class="flex flex-col items-center w-full gap-6 p-6"
+			<FormPromotionAdd
+				@submit="submit"
+				class="max-w-[500px] w-[80%]"
 			>
-				<FormPromotionAdd
-					@submit="submit"
-					class="max-w-[500px] w-[80%]"
+				<PrimaryButton
+					type="submit"
+					class="col-span-12"
 				>
-					<PrimaryButton
-						type="submit"
-						class="col-span-12"
-					>
-						{{ $t("button.validate") }}
-					</PrimaryButton>
-				</FormPromotionAdd>
+					{{ $t("button.validate") }}
+				</PrimaryButton>
+			</FormPromotionAdd>
 
-				<BigTable
-					:items="promotions"
-					:cols="cols"
-					:current-page="currentPage + 1"
-					:action-label="$pt('table.col.actions')"
-					@click-next="next"
-					@click-previous="previous"
-				>
-					<template #actions="{item}">
-						<WithValidation
-							:title="$pt('popup.title')"
-							:content="$pt('popup.content')"
-							class="col-span-4"
-							@validate="deletePromotion(item)"
-						>
-							<SecondaryButton>
-								<TheIcon icon="delete" />
-							</SecondaryButton>
-						</WithValidation>
-					</template>
-				</BigTable>
-			</div>
+			<BigTable
+				:items="promotions"
+				:cols="cols"
+				:current-page="currentPage + 1"
+				:action-label="$pt('table.col.actions')"
+				@click-next="next"
+				@click-previous="previous"
+			>
+				<template #actions="{item}">
+					<WithValidation
+						:title="$pt('popup.title')"
+						:content="$pt('popup.content')"
+						class="col-span-4"
+						@validate="deletePromotion(item)"
+					>
+						<SecondaryButton>
+							<TheIcon icon="delete" />
+						</SecondaryButton>
+					</WithValidation>
+				</template>
+			</BigTable>
 		</div>
 	</section>
 </template>
