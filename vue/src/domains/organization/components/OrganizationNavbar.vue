@@ -5,6 +5,12 @@ import { useOrganizationUserStore } from "@/domains/organization/stores/organiza
 
 const { 
 	ORGANIZATION_HOME,
+	ORGANIZATION_MANAGE_USER,
+	ORGANIZATION_EDIT,
+	ORGANIZATION_MANAGE_PRODUCT,
+	ORGANIZATION_GET_PRODUCT_SHEET,
+	ORGANIZATION_GET_WAREHOUSE,
+	ORGANIZATION_ANALYTICS
 } = routerPageName;
 const route = useRoute();
 const organizationUserStore = useOrganizationUserStore();
@@ -113,6 +119,129 @@ const onglets: Onglet[] = [
 							/>
 
 							{{ $t(`layout.organization.nav.${onglet.pageName}`) }}
+						</RouterLink>
+
+						<RouterLink
+							v-if="organizationUserStore.hasRole('OWNER')"
+							:to="{ name: ORGANIZATION_EDIT }"
+							class="flex items-center gap-3 px-3 py-2 transition-all rounded-lg hover:text-primary"
+							:class="
+								route.name === ORGANIZATION_EDIT ?
+									'bg-muted text-primary'
+									:
+									'text-muted-foreground'
+							"
+						>
+							<TheIcon
+								icon="store-edit"
+								size="2xl"
+							/>
+							{{ $t("layout.organization.nav.organizationEdit") }}
+						</RouterLink>
+
+						<RouterLink
+							v-if="organizationUserStore.hasRole('STORE_KEEPER')"
+							to="#"
+							class="flex items-center gap-3 px-3 py-2 transition-all rounded-lg hover:text-primary"
+							:class="
+								!route.name ?
+									'bg-muted text-primary'
+									:
+									'text-muted-foreground'
+							"
+						>
+							<TheIcon
+								icon="cart-outline"
+								size="2xl"
+							/>
+							{{ $t("layout.organization.nav.orders") }}
+						</RouterLink>
+
+						<RouterLink
+							v-if="organizationUserStore.hasRole('PRODUCT_SHEET_MANAGER')"
+							:to="{name: ORGANIZATION_GET_PRODUCT_SHEET}"
+							class="flex items-center gap-3 px-3 py-2 transition-all rounded-lg hover:text-primary"
+							:class="
+								route.name === ORGANIZATION_GET_PRODUCT_SHEET 
+									? 'bg-muted text-primary'
+									: 'text-muted-foreground'
+							"
+						>
+							<TheIcon
+								icon="text-box-multiple-outline"
+								size="2xl"
+							/>
+							{{ $t("layout.organization.nav.productSheets") }}
+						</RouterLink>
+
+						<RouterLink
+							v-if="organizationUserStore.hasRole('STORE_KEEPER')"
+							:to="{name: ORGANIZATION_MANAGE_PRODUCT}"
+							class="px-3 py-2 flex items-center gap-3 rounded-lg transition-all hover:text-primary"
+							:class="
+								route.name === ORGANIZATION_MANAGE_PRODUCT 
+									? 'bg-muted text-primary'
+									: 'text-muted-foreground'
+							"
+						>
+							<TheIcon
+								icon="package-variant-closed"
+								size="2xl"
+							/>
+							{{ $t("layout.organization.nav.products") }}
+						</RouterLink>
+
+						<RouterLink
+							v-if="organizationUserStore.hasRole('OWNER')"
+							:to="{ name: ORGANIZATION_MANAGE_USER }"
+							class="flex items-center gap-3 px-3 py-2 transition-all rounded-lg hover:text-primary"
+							:class="
+								route.name === ORGANIZATION_MANAGE_USER 
+									? 'bg-muted text-primary'
+									: 'text-muted-foreground'
+							"
+						>
+							<TheIcon
+								icon="account"
+								size="2xl"
+							/>
+							{{ $t("layout.organization.nav.users") }}
+						</RouterLink>
+
+						<RouterLink
+							v-if="organizationUserStore.hasRole('OWNER')"
+							:to="{ name: ORGANIZATION_GET_WAREHOUSE }"
+							class="px-3 py-2 flex items-center gap-3 rounded-lg transition-all hover:text-primary"
+							:class="
+								route.name === ORGANIZATION_GET_WAREHOUSE ?
+									'bg-muted text-primary'
+									:
+									'text-muted-foreground'
+							"
+						>
+							<TheIcon
+								icon="warehouse"
+								size="2xl"
+							/>
+							{{ $t("layout.organization.nav.warehouse") }}
+						</RouterLink>
+
+						<RouterLink
+							v-if="organizationUserStore.hasRole('ACCOUNTANT')"
+							:to="{ name: ORGANIZATION_ANALYTICS }"
+							class="flex items-center gap-3 px-3 py-2 transition-all rounded-lg hover:text-primary"
+							:class="
+								route.name === ORGANIZATION_ANALYTICS ?
+									'bg-muted text-primary'
+									:
+									'text-muted-foreground'
+							"
+						>
+							<TheIcon
+								icon="chart-line"
+								size="2xl"
+							/>
+							{{ $t("layout.organization.nav.analytics") }}
 						</RouterLink>
 					</template>
 				</nav>

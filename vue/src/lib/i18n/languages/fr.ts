@@ -461,6 +461,9 @@ export default {
 			},
 			emptyProductSheet: "Plus de fiche produit à vérifier.",
 		},
+		[routerPageName.ORGANIZATION_ANALYTICS]: {
+			title: "Analytiques",
+		},
 	},
 	filters: {
 		title: "Filtres",

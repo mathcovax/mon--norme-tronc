@@ -20,7 +20,7 @@ onMounted(() => {
 	const selector = `.${BulletLegend.selectors.item}`;
 	nextTick(() => {
 		const elements = elRef.value?.querySelectorAll(selector);
-		const classes = buttonVariants({ variant: "ghost", size: "sm" }).split(" ");
+		const classes = buttonVariants({ variant: "ghost", size: "xs" }).split(" ");
 		elements?.forEach(el => el.classList.add(...classes, "!inline-flex", "!mr-2"));
 	});
 });
@@ -35,11 +35,7 @@ function onLegendItemClick(d: BulletLegendItemInterface, i: number) {
 	}
 	else {
 		// apply selection, set other item as inactive
-		emits("update:items", 
-			props.items.map(item => item.name === d.name 
-				? ({ ...d, inactive: false }) 
-				: { ...item, inactive: true })
-		);
+		emits("update:items", props.items.map(item => item.name === d.name ? ({ ...d, inactive: false }) : { ...item, inactive: true }));
 	}
 }
 </script>

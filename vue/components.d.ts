@@ -159,6 +159,7 @@ declare module 'vue' {
     TheTextarea: typeof import('./src/components/ui/textarea/TheTextarea.vue')['default']
     TheToast: typeof import('./src/components/ui/toast/TheToast.vue')['default']
     TheToaster: typeof import('./src/components/ui/toast/TheToaster.vue')['default']
+    TheToggle: typeof import('./src/components/TheToggle.vue')['default']
     ToastAction: typeof import('./src/components/ui/toast/ToastAction.vue')['default']
     ToastClose: typeof import('./src/components/ui/toast/ToastClose.vue')['default']
     ToastDescription: typeof import('./src/components/ui/toast/ToastDescription.vue')['default']
