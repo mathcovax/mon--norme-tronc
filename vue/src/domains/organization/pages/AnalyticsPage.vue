@@ -7,21 +7,6 @@ const draggable = ref(true);
 const resizable = ref(true);
 const responsive = ref(true);
 
-const layout = reactive([
-	{
-		x: 0, y: 0, w: 12, h: 3, i: "AreaChart" 
-	},
-	{
-		x: 0, y: 1, w: 12, h: 3, i: "LineChart" 
-	},
-	{
-		x: 0, y: 2, w: 12, h: 3, i: "BarChart" 
-	},
-	{
-		x: 0, y: 3, w: 12, h: 3, i: "DonutChart" 
-	}
-]);
-
 // TODO: Replace with real data
 const dataArea = [
 	{ name: "Jan", total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },
@@ -315,6 +300,37 @@ const dataDonut = [
 	{ name: "Jun", total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },
 ];
 //
+
+function saveLayout(layout: object) {
+	const layoutEnChaine = JSON.stringify(layout);
+
+	localStorage.setItem("monLayout", layoutEnChaine);
+}
+
+function loadLayout() {
+	const layoutEnChaine = localStorage.getItem("monLayout");
+
+	if (layoutEnChaine) {
+		return JSON.parse(layoutEnChaine);
+	}
+
+	return [
+		{
+			x: 0, y: 0, w: 12, h: 3, i: "AreaChart" 
+		},
+		{
+			x: 0, y: 1, w: 12, h: 3, i: "LineChart" 
+		},
+		{
+			x: 0, y: 2, w: 12, h: 3, i: "BarChart" 
+		},
+		{
+			x: 0, y: 3, w: 12, h: 3, i: "DonutChart" 
+		}
+	];
+}
+
+const layout = reactive(loadLayout());
 </script>
 
 <template>
@@ -329,6 +345,7 @@ const dataDonut = [
 				:is-draggable="draggable"
 				:is-resizable="resizable"
 				:responsive="responsive"
+				@layout-updated="saveLayout"
 			>
 				<template #item="{ item }">
 					<div class="w-full h-full p-4 flex justify-center items-center border">
