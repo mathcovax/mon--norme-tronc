@@ -3,6 +3,15 @@ import { GridLayout } from "grid-layout-plus";
 
 const $pt = usePageTranslate();
 
+interface LayoutItem {
+	x: number;
+	y: number;
+	w: number;
+	h: number;
+	i: string;
+}
+
+
 const draggable = ref(true);
 const resizable = ref(true);
 const responsive = ref(true);
@@ -301,17 +310,17 @@ const dataDonut = [
 ];
 //
 
-function saveLayout(layout: object) {
-	const layoutEnChaine = JSON.stringify(layout);
+function saveLayout(layout: LayoutItem) {
+	const layoutData = JSON.stringify(layout);
 
-	localStorage.setItem("monLayout", layoutEnChaine);
+	localStorage.setItem("myLayout", layoutData);
 }
 
 function loadLayout() {
-	const layoutEnChaine = localStorage.getItem("monLayout");
+	const layoutData = localStorage.getItem("myLayout");
 
-	if (layoutEnChaine) {
-		return JSON.parse(layoutEnChaine);
+	if (layoutData) {
+		return JSON.parse(layoutData);
 	}
 
 	return [
