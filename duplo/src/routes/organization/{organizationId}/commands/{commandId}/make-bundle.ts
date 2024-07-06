@@ -1,3 +1,4 @@
+import { commandExistCheck } from "@checkers/command";
 import { hasOrganizationRoleByOrganizationId } from "@security/hasOrganizationRole/byOrganizationId";
 
 /* METHOD : POST, PATH : /organization/{organizationId}/commands/{commandId}/make-bundle */
@@ -16,10 +17,18 @@ export const POST = (method: Methods, path: string) =>
 				}).strip().array().min(1),
 			})
 		})
+		.check(
+			commandExistCheck,
+			{
+				input: p => p("commandId"),
+				...commandExistCheck.preCompletions.mustExist
+			},
+			new IHaveSentThis(NotFoundHttpException.code, "command.notfound")
+		)
 		.cut(
 			async ({ pickup }) => {
 				const { bundleItems } = pickup("body");
-				const commandId = pickup("commandId");
+				const command = pickup("command");
 				const { id: organizationId } = pickup("organization");
 
 				const bundleNeededDatas = await Promise.all(
@@ -40,7 +49,7 @@ export const POST = (method: Methods, path: string) =>
 							}),
 							prisma.command_item.findUnique({
 								where: { id: bundleItem.commandItemId },
-								include: { command: true, productSheet: true }
+								include: { productSheet: true }
 							}).then((commandItem) => {
 								if (!commandItem) {
 									throw new NotFoundHttpException("commandItem.missing");
@@ -50,7 +59,7 @@ export const POST = (method: Methods, path: string) =>
 									throw new ConflictHttpException("commandItem.alreadyCompleted");
 								}
 
-								if (commandItem.commandId !== commandId) {
+								if (commandItem.commandId !== command.id) {
 									throw new BadRequestHttpException("commandItem.wrong.commandId");
 								}
 
@@ -60,9 +69,8 @@ export const POST = (method: Methods, path: string) =>
 							if (product.productSheetId !== commandItemWithMore.productSheetId) {
 								throw new BadRequestHttpException("commandItem.wrong.product");
 							}
-							const { command, productSheet, ...commandItem } = commandItemWithMore;
+							const { productSheet, ...commandItem } = commandItemWithMore;
 							return {
-								command, 
 								productSheet, 
 								commandItem, 
 								product
@@ -106,7 +114,7 @@ export const POST = (method: Methods, path: string) =>
 		)
 		.handler(
 			async ({ pickup }) => {
-				const commandId = pickup("commandId");
+				const command = pickup("command");
 				const bundleNeededDatas = pickup("bundleNeededDatas");
 				const computedProcessQuantity = pickup("computedProcessQuantity");
 				const { id: creatorId } = pickup("user");
@@ -116,9 +124,10 @@ export const POST = (method: Methods, path: string) =>
 				const bundle = await prisma.bundle.create({
 					data: {
 						idShip,
-						commandId,
 						creatorId,
-						status: "created",
+						userId: command.userId,
+						commandId: command.id,
+						carrierName: "LA_POSTE",
 					}
 				});
 
@@ -149,13 +158,13 @@ export const POST = (method: Methods, path: string) =>
 				);
 
 				const commandItems = await prisma.command_item.findMany({
-					where: { commandId },
+					where: { commandId: command.id },
 					select: { quantity: true, processQuantity: true },
 				});
 
 				if (commandItems.every(commandItem => commandItem.quantity === commandItem.processQuantity)) {
 					await prisma.command.update({
-						where: { id: commandId },
+						where: { id: command.id },
 						data: { status: "DONE" }
 					});
 				}

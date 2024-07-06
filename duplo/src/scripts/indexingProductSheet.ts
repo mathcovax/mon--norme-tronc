@@ -1,12 +1,12 @@
 import "./setup";
 import { FindSlice } from "@utils/findSlice";
 import { mongoose } from "./setup/mongoose";
-import { prisma } from "./setup/prismaClient";
 import { fullProductSheetModel } from "@mongoose/model";
 import { FullProductSheetSchema } from "@schemas/fullProductSheet";
 import { facetTypeTuple } from "@schemas/facet";
 import { facet_type } from "@prisma/client";
 import { LastTime } from "./setup/lastTime";
+import { PromiseList } from "./setup/promiseList";
 
 const newLastIndexing = new Date();
 const lastTime = new LastTime("indexingProductSheet");
@@ -84,7 +84,7 @@ const productSheetGenerator = FindSlice(
 	})
 );
 
-let promiseList: unknown[] = [];
+const promiseList = new PromiseList(1000);
 
 for await (const productSheet of productSheetGenerator) {
 	if (productSheet.images.length === 0) {
@@ -115,22 +115,16 @@ for await (const productSheet of productSheetGenerator) {
 		)
 	};
 	
-	promiseList.push(
+	await promiseList.append(
 		fullProductSheetModel.findOneAndUpdate(
 			{ id: productSheet.id }, 
 			fullProductSheet, 
 			{ new: true, upsert: true }
 		)
 	);
-
-	if (promiseList.length > 1000) {
-		await Promise.all(promiseList);
-		promiseList = [];
-	}
 }
 
-await Promise.all(promiseList);
-promiseList = [];
+await promiseList.clear();
 await lastTime.set(newLastIndexing);
 
 await fullProductSheetModel.updateMany(
@@ -179,7 +173,7 @@ for await (const promotion of promotionGenerator) {
 		continue;
 	}
 
-	promiseList.push(
+	await promiseList.append(
 		prisma.promotion.findFirstOrThrow({
 			where: {
 				productSheetId: promotion.productSheetId,
@@ -213,15 +207,9 @@ for await (const promotion of promotionGenerator) {
 			)
 		)
 	);
-
-	if (promiseList.length > 1000) {
-		await Promise.all(promiseList);
-		promiseList = [];
-	}
 }
 
-await Promise.all(promiseList);
-
+await promiseList.clear();
 
 mongoose.connection.close();
 

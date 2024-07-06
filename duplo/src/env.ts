@@ -34,6 +34,7 @@ export default global.ENV = zod
 		STRIPE_API_KEY: zod.string(),
 		STRIPE_API_WEBHOOK_SECRET: zod.string(),
 		ORIGIN: zod.string().url(),
+		LA_POSTE_KEY: zod.string(),
 	})
 	.readonly()
 	.parse(process.env);

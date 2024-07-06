@@ -19,6 +19,9 @@ export const MetConfig = {
 	},
 	stripe: {
 		timestampSession: 30*60, // 30 min
+	},
+	bundle: {
+		pullingInterval: 5000 
 	}
 };
 //@ts-expect-error var 'global' cause type error.

@@ -50,7 +50,7 @@ export const GET = (method: Methods, path: string) => mustBeConnected({ pickup: 
 					END AS price,
 					COALESCE((psi."imageUrl"), '') AS "imageUrl"
 				FROM userArticle AS ua
-				INNER JOIN "product_sheet" AS ps ON ps."id" = ua."productSheetId"
+				INNER JOIN product_sheet AS ps ON ps."id" = ua."productSheetId"
 				LEFT JOIN promotions AS p ON p."rowNumber" = 1 AND p."productSheetId" = ua."productSheetId"
 				LEFT JOIN productSheetImage AS psi ON psi."rowNumber" = 1 AND psi."productSheetId" = ua."productSheetId"
 			`;
