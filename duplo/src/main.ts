@@ -72,14 +72,22 @@ else {
 		throw new BadRequestHttpException(`TYPE_ERROR.${type}.${index}`);
 	});
 }
-
 duplo.use(
 	duploRoutesDirectory, 
 	{
-		path: ["routes", "providers"].map((path) => `src/${path}`),
+		path: ["mocks", "providers"].map((path) => `src/${path}`),
 		matchs: [matchScriptFile],
 		ignores: ["**.test.ts"]
 	}
+).then(
+	() => duplo.use(
+		duploRoutesDirectory, 
+		{
+			path: ["routes"].map((path) => `src/${path}`),
+			matchs: [matchScriptFile],
+			ignores: ["**.test.ts"]
+		}
+	)
 ).then(() => {
 	duplo.launch(() => { 
 		console.log(`Ready on ${ENV.ENVIRONMENT}:${ENV.HOST}:${ENV.PORT}`); 

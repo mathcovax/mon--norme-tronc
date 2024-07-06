@@ -31,26 +31,14 @@ export const SSEAbstractRoute =
 		.cut(
 			(floor, res, req) => {
 				const SSE = {
-					write: (value: string) => {
-						return new Promise(
-							(resolve, reject) => {
-								res.rawResponse.write(value, error => {
-									if (error instanceof Error) {
-										reject(error);
-									}
-									else {
-										resolve(error);
-									}
-								});
-							}
-						);
-					},
+					write: (value: string) => res.rawResponse.write(`data: ${value}\n\n`),
 					onClose: (callBack: () => void) => {
 						req.rawRequest.on("close", callBack);
 					},
 					onStart: (callBack: () => void) => {
 						req._onStart = callBack;
-					}
+					},
+					close: () => res.rawResponse.end()
 				};
 
 				return { SSE };

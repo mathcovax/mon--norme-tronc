@@ -4,6 +4,7 @@ export const routerPageNameUser = Object.freeze({
 	USER_EDIT_PROFIL: "edit-profile",
 	USER_ORGANIZATIONS: "my-organizations",	
 	USER_CART: "cart",
+	USER_BUNDLE: "user-bundle",
 });
 
 export default (): RouteRecordRaw[] => [
@@ -21,5 +22,10 @@ export default (): RouteRecordRaw[] => [
 		name: routerPageNameUser.USER_ORGANIZATIONS,
 		path: "/my-organizations",
 		component: () => import("./pages/UserOrganizations.vue"),
+	},
+	{
+		name: routerPageNameUser.USER_BUNDLE,
+		path: "/bundle/:bundleId",
+		component: () => import("./pages/BundlePage.vue"),
 	},
 ];

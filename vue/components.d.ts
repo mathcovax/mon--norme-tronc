@@ -85,6 +85,7 @@ declare module 'vue' {
     PrimarySelect: typeof import('./src/components/PrimarySelect.vue')['default']
     PrimaryTagsInput: typeof import('./src/components/PrimaryTagsInput.vue')['default']
     PrimaryTextarea: typeof import('./src/components/PrimaryTextarea.vue')['default']
+    ProductImage: typeof import('./src/components/ProductImage.vue')['default']
     RadioFilter: typeof import('./src/components/ui/products-filter/RadioFilter.vue')['default']
     RadioGroup: typeof import('./src/components/ui/radio-group/RadioGroup.vue')['default']
     RadioGroupItem: typeof import('./src/components/ui/radio-group/RadioGroupItem.vue')['default']

@@ -2,9 +2,9 @@ import ZodAccelerator from "@duplojs/zod-accelerator";
 import { bundle, bundle_status } from "@prisma/client";
 
 export class LaPosteCarrier {
-	static updateBundled(bundle: bundle) {
+	static fetchDetails(idShip: string) {
 		return fetch(
-			`https://api.laposte.fr/suivi/v2/idships/${bundle.id}?lang=fr_FR`,
+			`https://api.laposte.fr/suivi/v2/idships/${idShip}?lang=fr_FR`,
 			{
 				method: "GET",
 				headers: { "X-Okapi-Key": ENV.LA_POSTE_KEY }
@@ -12,33 +12,40 @@ export class LaPosteCarrier {
 		).then(
 			response => {
 				if (!response.ok) {
-					throw new Error(`${response.status} when geting status of bundle ${bundle.id}`);
+					throw new Error(`${response.status} when geting details of idShip ${idShip}`);
 				}
-	
+
 				return response.json();
 			} 
 		).then(
 			payload => LaPosteCarrier.zodSchemaResponse.parse(payload)
-		).then(
-			currentCode => {
-				const newStatus: bundle_status | undefined = LaPosteCarrier.codeMapper[currentCode];
+		);
+	}
+
+	static updateBundled(bundle: bundle) {
+		return LaPosteCarrier
+			.fetchDetails(bundle.idShip)
+			.then(
+				details => {
+					const currentCode = details.event[0]?.code ?? "";
+					const newStatus: bundle_status | undefined = LaPosteCarrier.codeMapper[currentCode];
 	
-				if (newStatus && newStatus !== bundle.status) {
-					return prisma.bundle.update({
-						where: {
-							id: bundle.id
-						},
-						data: {
-							status: newStatus
-						}
-					});
+					if (newStatus && newStatus !== bundle.status) {
+						return prisma.bundle.update({
+							where: {
+								id: bundle.id
+							},
+							data: {
+								status: newStatus
+							}
+						});
+					}
+					return bundle;
 				}
+			).catch(error => {
+				console.log(error);
 				return bundle;
-			}
-		).catch(error => {
-			console.log(error);
-			return bundle;
-		});
+			});
 	}
 
 	static codeMapper: Record<string, bundle_status| undefined> = {
@@ -69,13 +76,12 @@ export class LaPosteCarrier {
 
 	static zodSchemaResponse = ZodAccelerator.build(
 		zod.object({
-			shipment: zod.object({
-				event: zod.object({
-					code: zod.string(),
-				}).array()
-			})
+			event: zod.object({
+				code: zod.string(),
+			}).array(),
+			timeline: zod.object({
+				shortLabel: zod.string()
+			}).array(),
 		})
-			.transform(value => value.shipment.event[0]?.code)
-			.refine(value => !!value)
 	);
 }

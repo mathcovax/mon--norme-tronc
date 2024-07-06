@@ -174,3 +174,8 @@ export type OrganizationCommandDetailes = GetResponseByInfo<
 	GetDef<"GET", "/organization/{organizationId}/commands/{commandId}/details">,
 	"organizationCommandDetailes"
 >["body"]
+
+export type Bundle = GetResponseByInfo<
+	GetDef<"GET", "/bundles/{bundleId}">,
+	"bundle"
+>["body"]

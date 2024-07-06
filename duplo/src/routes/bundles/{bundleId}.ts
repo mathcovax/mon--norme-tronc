@@ -38,7 +38,11 @@ export const GET = (method: Methods, path: string) =>
 				`;
 
 				const bundle: BundleSchema = {
+					id: bundleEntity.id,
 					idShip: bundleEntity.idShip,
+					carrierName: bundleEntity.carrierName,
+					commandId: bundleEntity.commandId,
+					status: bundleEntity.status,
 					bundleProducts: bundleProducts,
 				};
 

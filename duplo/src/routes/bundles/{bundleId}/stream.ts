@@ -17,19 +17,28 @@ export const GET = (method: Methods, path: string) =>
 				const bundle = pickup("bundle");
 
 				SSE.onStart(() => {
+					const intervalCallback = async () => {
+						let lastTimeLineSend: string;
+						await LaPosteCarrier
+							.fetchDetails(bundle.idShip)
+							.then(details => {
+								const lastTimeline = details.timeline.pop()?.shortLabel;
+								if (lastTimeline && lastTimeLineSend !== lastTimeline) {
+									return SSE.write(lastTimeLineSend = lastTimeline);
+								}
+							});
+					};
+
 					const interval = setInterval(
-						() => {
-							LaPosteCarrier
-								.updateBundled(bundle)
-								.then(updatedBundle => {
-									if (updatedBundle.status !== bundle.status) {
-										SSE.write(updatedBundle.status);
-									}
-								});
-						},
+						intervalCallback,
 						MetConfig.bundle.pullingInterval
 					);
-					SSE.onClose(() => clearInterval(interval));
+					
+					SSE.onClose(() => {
+						clearInterval(interval);
+					});
+
+					intervalCallback();
 				});
 
 				throw new OkHttpException("bundle.status.stream");
