@@ -5,6 +5,9 @@ export const routerPageNameEdito = Object.freeze({
 	EDITO_CGU: "cgu",
 	EDIT_TO_PRIVACY_POLICY: "privacy-policy",
 	EDIT_TO_DELIVERY_DETAILS: "delivery-details",
+	EDIT_TO_FAQ_ACCOUNT: "faq-account",
+	EDIT_TO_FAQ_ORDERS: "faq-orders",
+	EDIT_TO_FAQ_PAYMENTS: "faq-payments",
 });
 
 export default (): RouteRecordRaw[] => [
@@ -27,6 +30,21 @@ export default (): RouteRecordRaw[] => [
 		name: routerPageNameEdito.EDIT_TO_DELIVERY_DETAILS,
 		path: "/delivery-details",
 		component: () => import("./pages/DeliveryDetails.vue"),
+	},
+	{
+		name: routerPageNameEdito.EDIT_TO_FAQ_ACCOUNT,
+		path: "/faq-account",
+		component: () => import("./pages/FAQAccount.vue"),
+	},
+	{
+		name: routerPageNameEdito.EDIT_TO_FAQ_ORDERS,
+		path: "/faq-orders",
+		component: () => import("./pages/FAQOrders.vue"),
+	},
+	{
+		name: routerPageNameEdito.EDIT_TO_FAQ_PAYMENTS,
+		path: "/faq-payments",
+		component: () => import("./pages/FAQPayments.vue"),
 	}
 ];
 

@@ -1,5 +1,14 @@
 <script setup lang="ts">
-const { EDITO_HOME, EDITO_CGU, EDIT_TO_PRIVACY_POLICY, EDIT_TO_DELIVERY_DETAILS } = routerPageName;
+const {
+	EDITO_HOME,
+	EDITO_CGU,
+	EDIT_TO_PRIVACY_POLICY,
+	EDIT_TO_DELIVERY_DETAILS,
+	EDIT_TO_FAQ_ACCOUNT,
+	EDIT_TO_FAQ_ORDERS,
+	EDIT_TO_FAQ_PAYMENTS,
+	CATEGORIES_PAGE
+} = routerPageName;
 
 const currentYear = ref(new Date().getFullYear());
 </script>
@@ -102,19 +111,19 @@ const currentYear = ref(new Date().getFullYear());
 						<nav>
 							<ul class="flex flex-col gap-6 opacity-60">
 								<li>
-									<RouterLink to="#">
+									<RouterLink :to="{ name: EDIT_TO_FAQ_ACCOUNT }">
 										{{ $t("layout.default.footer.faqNav.account") }}
 									</RouterLink>
 								</li>
 
 								<li>
-									<RouterLink to="#">
+									<RouterLink :to="{ name: EDIT_TO_FAQ_ORDERS }">
 										{{ $t("layout.default.footer.faqNav.orders") }}
 									</RouterLink>
 								</li>
 
 								<li>
-									<RouterLink to="#">
+									<RouterLink :to="{ name: EDIT_TO_FAQ_PAYMENTS }">
 										{{ $t("layout.default.footer.faqNav.payements") }}
 									</RouterLink>
 								</li>
@@ -130,7 +139,7 @@ const currentYear = ref(new Date().getFullYear());
 						<nav>
 							<ul class="flex flex-col gap-6 opacity-60">
 								<li>
-									<RouterLink to="/">
+									<RouterLink :to="{ name: EDITO_HOME }">
 										{{ $t("layout.default.footer.pageNav.home") }}
 									</RouterLink>
 								</li>
@@ -148,8 +157,8 @@ const currentYear = ref(new Date().getFullYear());
 								</li>
 
 								<li>
-									<RouterLink to="#">
-										{{ $t("layout.default.footer.pageNav.products") }}
+									<RouterLink :to="{ name: CATEGORIES_PAGE }">
+										{{ $t("layout.default.footer.pageNav.categories") }}
 									</RouterLink>
 								</li>
 							</ul>

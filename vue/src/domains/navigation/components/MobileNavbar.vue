@@ -53,7 +53,7 @@ const { CATEGORY_PAGE } = routerPageName;
 							class="border-b-0"
 							:value="item.parentCategoryName"
 						>
-							<AccordionTrigger class="hover:no-underline	">
+							<AccordionTrigger class="hover:no-underline">
 								{{ item.parentCategoryName }}
 							</AccordionTrigger>
 

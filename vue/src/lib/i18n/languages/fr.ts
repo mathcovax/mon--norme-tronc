@@ -443,7 +443,7 @@ export default {
 					home: "Accueil",
 					bestSeller: "Meilleures ventes",
 					new: "Contact",
-					products: "Produits",
+					categories: "Catégories",
 				},
 				copyrights: "Tous droits réservés."
 			}
