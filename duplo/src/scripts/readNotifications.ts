@@ -1,7 +1,7 @@
 import "./setup";
 import { FindSlice } from "@utils/findSlice";
 import { LastTime } from "./setup/lastTime";
-import { prisma } from "./setup/prismaClient";
+import { PromiseList } from "./setup/promiseList";
 
 const newLastReadNotification = new Date();
 const lastTime = new LastTime("readNotification");
@@ -21,10 +21,10 @@ const generator = FindSlice(
 	})
 );
 
-let promiseList: unknown[] = [];
+const promiseList = new PromiseList(1000);
 
 for await (const notification of generator) {
-	promiseList.push(
+	await promiseList.append(
 		prisma.command.updateMany({
 			where: {
 				id: notification.commandId,
@@ -37,12 +37,7 @@ for await (const notification of generator) {
 			}
 		})
 	);
-
-	if (promiseList.length > 1000) {
-		await Promise.all(promiseList);
-		promiseList = [];
-	}
 }
 
-await Promise.all(promiseList);
+await promiseList.clear();
 lastTime.set(newLastReadNotification);

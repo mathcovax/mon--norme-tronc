@@ -3,7 +3,7 @@ import { PipelineStage } from "mongoose";
 export class SearchService {
 	static searchQuerySchema = zod.object({
 		search: zod.string().optional(),
-		searchByRegex: zod.string().regex(/^[A-zÀ-ÿ0-9_\- ]+$/).optional(),
+		searchByRegex: zod.string().regex(/^[A-zÀ-ÿ0-9_\- ']+$/).optional().catch(undefined),
 		categoryName: zod.string().optional(),
 	});
 

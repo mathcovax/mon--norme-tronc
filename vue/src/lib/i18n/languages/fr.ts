@@ -1,3 +1,5 @@
+import type { Bundle, Facet } from "@/lib/utils";
+
 export default {
 	page: {
 		[routerPageName.EDITO_HOME]: {
@@ -324,7 +326,19 @@ export default {
 				butonSku: "Selectioner un produit",
 				placeholderSku: "Mon super sku",
 			}
-		}
+		},
+		[routerPageName.USER_BUNDLE]: {
+			transport: "Transporteur du colis :",
+			idShip: "Numéro de suivie : {value}",
+			status: "Status du colis :",
+			content: "Contenu du colis :",
+			action: "Action en cours : {value}",
+			table: {
+				image: "",
+				name: "Nom",
+				quantity: "quantité"
+			}
+		},
 	},
 	filters: {
 		title: "Filtres",
@@ -583,9 +597,22 @@ export default {
 		DIAMETER: "Diamètre",
 		TARGET: "Cible",
 		ACCESSORY: "Accessoire",
-		MATERIAL: "Marértiau",
+		MATERIAL: "Matériaux",
 		STIMULATION: "Stimulation",
-	},
+	} satisfies Record<Facet["type"], string>,
+	carrierName: {
+		LA_POSTE: "La poste"
+	} satisfies Record<Bundle["carrierName"], string>,
+	bundleStatus: {
+		CREATED: "Créer",
+		BACK: "Retour à l'entrepot",
+		BACK_DONE: "Arrivé a l'entrepot",
+		CARRIER_SUPPORTED: "Colis pris en charge par le transporteur.",
+		CARRIER_PROCESS: "En cours de traitement par le transporteur",
+		UNDELIVERABLE: "Non livrable",
+		DONE: "livrée",
+		DONE_OFFICE: "livrée au point relé",
+	} satisfies Record<Bundle["status"], string>,
 	response: {
 		organization: {
 			alreadyExist: "Une organisation avec ce nom existe déjà.",
