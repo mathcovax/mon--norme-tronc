@@ -1,3 +1,4 @@
+import { fullCommandSchema } from "@schemas/command";
 import { fullProductSheetSchema } from "@schemas/fullProductSheet";
 import { productStatusChangeSchema } from "@schemas/productStatusChange";
 import { zodToMongooseSchema } from "@utils/zodToMongooseSchema";
@@ -18,3 +19,11 @@ export const productStatusChangeModel = model(
 	"productStatusChange",
 	productStatusChangeMongooseSchema
 );
+
+const fullCommandMongooseSchema = zodToMongooseSchema(fullCommandSchema);
+export const fullCommandModel = model(
+	"FullCommand",
+	fullCommandMongooseSchema
+);
+
+

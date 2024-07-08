@@ -155,6 +155,16 @@ export type Cart = GetResponseByInfo<
 	"cart.fetched"
 >["body"]
 
+export type Command = GetResponseByInfo<
+	GetDef<"GET", "/commands">,
+	"userCommands"
+>["body"]
+
+export type FullCommand = GetResponseByInfo<
+	GetDef<"GET", "/commands/{commandId}">,
+	"command.found"
+>["body"]
+
 export type ComputedFilter = GetResponseByInfo<
 GetDef<"GET", "/computed-filters">,
 "filters"

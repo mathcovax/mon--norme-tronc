@@ -107,6 +107,27 @@ export default {
 				content: "Si vous validez, ce produit sera retiré de votre panier."
 			}
 		},
+		[routerPageName.USER_COMMANDS]: {
+			title: "Vos commandes",
+			command: {
+				label: {
+					date: "COMMANDE EFFECTUÉE LE",
+					total: "TOTAL",
+					address: "LIVRAISON À",
+					commandNumber: "N° DE COMMANDE",
+					status: "STATUT DE LA COMMANDE",
+					reBuy: "Acheter à nouveau"
+				},
+				quantity: "Quantité : {value}",
+				price: "{value} €",
+				status: {
+					CANCELED: "Annulée",
+					WAITING_PAYMENT: "En attente de paiement",
+					IN_PROGRESS: "En cours de livraison",
+					DONE: "Livrée",
+				},
+			}
+		},
 		[routerPageName.ORDER_PAGE]: {
 			title: "Ma commande",
 			stepTitle: {
@@ -412,6 +433,7 @@ export default {
 				products: "Produits",
 				dropdown: {
 					myAccount: "Mon compte",
+					myCommands: "Mes commandes",
 					editProfil: "Editer mon profil",
 					myOrganizations: "Mes organisations",
 					support: "Support",
@@ -645,6 +667,9 @@ export default {
 			notfound: "La fiche produit n'existe pas.",
 			edited: "La fiche a correctement été éditée.",
 			created: "La fiche a correctement été créée."
+		},
+		command: {
+			notfound: "La commande n'existe pas.",
 		},
 		promotion: {
 			created: "La promotion a correctement été créée.",

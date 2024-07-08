@@ -5,7 +5,8 @@ const {
 	USER_EDIT_PROFIL,
 	USER_ORGANIZATIONS,
 	ADMIN_PANEL_HOME,
-	CONTENT_PANEL_HOME
+	CONTENT_PANEL_HOME,
+	USER_COMMANDS
 } = routerPageName;
 </script>
 
@@ -30,6 +31,12 @@ const {
 			</DropdownMenuLabel>
 
 			<DropdownMenuSeparator />
+
+			<DropdownMenuItem>
+				<RouterLink :to="{ name: USER_COMMANDS }">
+					{{ $t("layout.default.header.dropdown.myCommands") }}
+				</RouterLink>
+			</DropdownMenuItem>
 
 			<DropdownMenuItem>
 				<RouterLink :to="{ name: USER_EDIT_PROFIL }">

@@ -237,7 +237,7 @@ model command {
 enum command_status {
     CANCELED
     WAITING_PAYMENT
-    IN_PROGESS
+    IN_PROGRESS
     DONE
 }
 

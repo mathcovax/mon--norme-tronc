@@ -48,7 +48,7 @@ export const GET = (method: Methods, path: string) =>
 						c."createdAt"
 					FROM organizationCommandItems AS oci
 					INNER JOIN command AS c ON c.id = oci."commandId"
-					WHERE c.status = 'IN_PROGESS'
+					WHERE c.status = 'IN_PROGRESS'
 					GROUP BY oci."commandId", c."createdAt"
 					ORDER BY c."createdAt"
 					OFFSET ${page * 10}

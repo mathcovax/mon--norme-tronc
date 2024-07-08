@@ -1,4 +1,4 @@
-import { fullProductSheetModel, productStatusChangeModel } from "@mongoose/model";
+import { fullCommandModel, fullProductSheetModel, productStatusChangeModel } from "@mongoose/model";
 import mongooseClient from "mongoose";
 
 declare global {
@@ -12,4 +12,5 @@ duplo.addHook("beforeListenHttpServer", async () => {
 	mongoose = global.mongoose = await mongooseClient.connect(ENV.MONGO_DATABASE_URL);
 	fullProductSheetModel.base = mongoose;
 	productStatusChangeModel.base = mongoose;
+	fullCommandModel.base = mongoose;
 });

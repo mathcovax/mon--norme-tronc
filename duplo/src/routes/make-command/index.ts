@@ -1,5 +1,6 @@
 import { addressValidCheck } from "@checkers/address";
-import { fullProductSheetModel } from "@mongoose/model";
+import { fullCommandModel, fullProductSheetModel } from "@mongoose/model";
+import { FullCommandSchema } from "@schemas/command";
 import { sessionSchema } from "@schemas/session";
 import { mustBeConnected } from "@security/mustBeConnected";
 import { CartService } from "@services/cart";
@@ -94,22 +95,49 @@ export const POST = (method: Methods, path: string) =>
 				});
 
 				await Promise.all([
-					...articlesInCart.map(
-						aic =>
-							fullProductSheetModel
-								.findOne({ id: aic.productSheetId })
-								.then(
-									fps => prisma.command_item.create({
-										data: {
-											commandId,
-											userId: user.id,
-											productSheetId: aic.productSheetId,
-											quantity: aic.quantity,
-											freezeProductSheet: JSON.stringify(fps),
+					Promise.all(
+						articlesInCart.map(
+							aic =>
+								fullProductSheetModel
+									.findOne({ id: aic.productSheetId })
+									.then(fps => {
+										if (!fps) {
+											throw new Error("missing full product sheet");
 										}
+
+										return fps;
 									})
-								)
-							
+									.then(
+										fps => prisma.command_item.create({
+											data: {
+												commandId,
+												userId: user.id,
+												productSheetId: aic.productSheetId,
+												quantity: aic.quantity,
+												freezeProductSheet: JSON.stringify(fps),
+											}
+										}).then(commandItem => [commandItem, fps] as const),
+									)
+						),
+					).then(
+						commandItemsAndFps => fullCommandModel.create({
+							id: commandId,
+							firstname,
+							lastname,
+							status: "WAITING_PAYMENT",
+							userId: user.id,
+							deliveryAddress: address,
+							createdDate: new Date(),
+							price: parseInt(computedPrice) / 100,
+							items: commandItemsAndFps.map(([commandItem, fps]): FullCommandSchema["items"][number] => ({
+								quantity: commandItem.quantity,
+								productSheetId: commandItem.productSheetId,
+								productSheetName: fps.name,
+								productSheetPrice: fps.price,
+								productSheetFirstImageUrl: fps.images[0] ?? "",
+								productSheetOrganizationName: fps.organization.name,
+							})),
+						})
 					),
 					prisma.article.deleteMany({
 						where: {

@@ -209,7 +209,7 @@ export const selfEntry =
 		mustBeConnected({ pickup: ["accessTokenContent"] })
 			.declareRoute(
 				"GET",
-				["/entry/edit-profile", "/entry/my-organizations", "/entry/order"]
+				["/entry/edit-profile", "/entry/my-organizations", "/entry/order", "/entry/commands"]
 			)
 			.handler(
 				async () => {
