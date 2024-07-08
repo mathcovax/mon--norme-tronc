@@ -35,9 +35,9 @@ export default (): RouteRecordRaw[] => [
 		path: "/commands",
 		component: () => import("./pages/CommandsPage.vue")
 	},
-	{
-		name: routerPageNameUser.USER_COMMAND,
-		path: "/commands/:commandId",
-		component: () => import("./pages/CommandPage.vue")
-	},
+	// {
+	// 	name: routerPageNameUser.USER_COMMAND,
+	// 	path: "/commands/:commandId",
+	// 	component: () => import("./pages/CommandPage.vue")
+	// },
 ];

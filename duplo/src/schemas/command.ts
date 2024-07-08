@@ -14,7 +14,7 @@ export const fullCommandSchema = zod.object({
 	status: zod.enum(commandStatusTuple),
 	userId: zod.string(),
 	deliveryAddress: zod.string(),
-	createdDate: zod.string(),
+	createdDate: zod.date(),
 	price: zod.number(),
 	items: zod.object({
 		quantity: zod.number(),

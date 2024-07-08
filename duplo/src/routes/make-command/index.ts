@@ -59,21 +59,43 @@ export const POST = (method: Methods, path: string) =>
 			async ({ pickup }) => {
 				const user = pickup("user");
 				const articlesInCart = pickup("articlesInCart");
-				const computedPrice = await pickup("cartService").computedPrice();
 				const commandId = uuidv7();
 				const { firstname, lastname, address } = pickup("body");
 
-				const price = await stripe.prices.create({
-					currency: "eur",
-					unit_amount_decimal: computedPrice,
-					product_data: {
-						name: "Mon énorme tronc"
-					}
-				});
+				const articlesInCartAndfullProductSheets = await Promise.all(
+					articlesInCart.map(
+						aic => fullProductSheetModel.findOne({ id: aic.productSheetId })
+							.then(fps => {
+								if (!fps) {
+									throw new Error(`missing full product sheet ${aic.productSheetId}`);
+								}
+
+								return fps.toJSON();
+							})
+							.then(fps => {
+								fps.promotion = aic.promotion;
+								fps.hasPromotion = !!aic.promotion;
+								fps.price = aic.price;
+
+								return [aic, fps] as const;
+							})
+					)
+				);
 
 				const session = await stripe.checkout.sessions.create({
 					mode: "payment",
-					line_items: [{ price: price.id, quantity: 1 }],
+					line_items: articlesInCartAndfullProductSheets.map(
+						([aic, fps]) => ({
+							price_data: {
+								currency: "eur",
+								product_data: {
+									name: fps.name,
+								},
+								unit_amount: fps.price * 100
+							},
+							quantity: aic.quantity, 
+						}),
+					),
 					success_url: `${ENV.ORIGIN}/order?sessionId={CHECKOUT_SESSION_ID}`,
 					cancel_url: `${ENV.ORIGIN}/order?commandId=${commandId}`,
 					customer_email: user.email,
@@ -96,28 +118,16 @@ export const POST = (method: Methods, path: string) =>
 
 				await Promise.all([
 					Promise.all(
-						articlesInCart.map(
-							aic =>
-								fullProductSheetModel
-									.findOne({ id: aic.productSheetId })
-									.then(fps => {
-										if (!fps) {
-											throw new Error("missing full product sheet");
-										}
-
-										return fps;
-									})
-									.then(
-										fps => prisma.command_item.create({
-											data: {
-												commandId,
-												userId: user.id,
-												productSheetId: aic.productSheetId,
-												quantity: aic.quantity,
-												freezeProductSheet: JSON.stringify(fps),
-											}
-										}).then(commandItem => [commandItem, fps] as const),
-									)
+						articlesInCartAndfullProductSheets.map(
+							([aic, fps]) => prisma.command_item.create({
+								data: {
+									commandId,
+									userId: user.id,
+									productSheetId: aic.productSheetId,
+									quantity: aic.quantity,
+									freezeProductSheet: JSON.stringify(fps),
+								}
+							}).then(commandItem => [commandItem, fps] as const)
 						),
 					).then(
 						commandItemsAndFps => fullCommandModel.create({
@@ -128,8 +138,8 @@ export const POST = (method: Methods, path: string) =>
 							userId: user.id,
 							deliveryAddress: address,
 							createdDate: new Date(),
-							price: parseInt(computedPrice) / 100,
-							items: commandItemsAndFps.map(([commandItem, fps]): FullCommandSchema["items"][number] => ({
+							price: commandItemsAndFps.reduce((pv, [ci, fps]) => pv + (ci.quantity * fps.price), 0),
+							items: commandItemsAndFps.map(([commandItem, fps]) => ({
 								quantity: commandItem.quantity,
 								productSheetId: commandItem.productSheetId,
 								productSheetName: fps.name,
@@ -137,7 +147,7 @@ export const POST = (method: Methods, path: string) =>
 								productSheetFirstImageUrl: fps.images[0] ?? "",
 								productSheetOrganizationName: fps.organization.name,
 							})),
-						})
+						} satisfies FullCommandSchema)
 					),
 					prisma.article.deleteMany({
 						where: {
