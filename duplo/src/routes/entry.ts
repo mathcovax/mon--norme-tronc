@@ -210,7 +210,7 @@ export const selfEntry =
 			.declareRoute(
 				"GET",
 				[
-					"/entry/edit-profile", "/entry/my-organizations", "/entry/order", "/entry/commands"
+					"/entry/edit-profile", "/entry/my-organizations", "/entry/order", "/entry/commands", "/entry/commands/{commandId}"
 				]
 			)
 			.handler(

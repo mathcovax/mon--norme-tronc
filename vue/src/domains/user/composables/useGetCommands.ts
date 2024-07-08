@@ -9,10 +9,7 @@ export function useGetCommands() {
 				"/commands",
 			)
 			.info("userCommands", (data) => {
-				commands.value = data.map(c => {
-					c.createdDate = new Date(c.createdDate).toLocaleDateString();
-					return c;
-				});
+				commands.value = data;
 			});
 	}
 

@@ -45,7 +45,7 @@ const cols: BigTableColDef<Bundle["bundleProducts"][number]>[] = [
 <template>
 	<section
 		v-if="bundle"
-		class="w-full flex flex-col gap-4 p-4 items-center "
+		class="flex flex-col items-center w-full gap-4 p-4 "
 	>
 		<div>
 			<p>

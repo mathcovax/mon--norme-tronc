@@ -1,4 +1,5 @@
 import { commandExistCheck } from "@checkers/command";
+import { fullCommandModel } from "@mongoose/model";
 import { hasOrganizationRoleByOrganizationId } from "@security/hasOrganizationRole/byOrganizationId";
 
 /* METHOD : POST, PATH : /organization/{organizationId}/commands/{commandId}/make-bundle */
@@ -163,10 +164,16 @@ export const POST = (method: Methods, path: string) =>
 				});
 
 				if (commandItems.every(commandItem => commandItem.quantity === commandItem.processQuantity)) {
-					await prisma.command.update({
-						where: { id: command.id },
-						data: { status: "DONE" }
-					});
+					await Promise.all([
+						prisma.command.update({
+							where: { id: command.id },
+							data: { status: "DONE" }
+						}),
+						fullCommandModel.updateOne(
+							{ id: command.id },
+							{ status: "DONE" }
+						)
+					]);
 				}
 				
 				throw new OkHttpException("makeBundle");

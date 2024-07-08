@@ -115,10 +115,7 @@ export default {
 					total: "TOTAL",
 					address: "LIVRAISON À",
 					commandNumber: "N° DE COMMANDE",
-					status: "STATUT DE LA COMMANDE",
-					reBuy: "Acheter à nouveau"
 				},
-				quantity: "Quantité : {value}",
 				price: "{value} €",
 				status: {
 					CANCELED: "Annulée",
@@ -126,6 +123,38 @@ export default {
 					IN_PROGRESS: "En cours de livraison",
 					DONE: "Livrée",
 				},
+			},
+			product: {
+				quantity: "Quantité : {value}",
+				selledBy: "Vendu par : {value}",
+				price: "Prix : {value} €",
+				reBuy: "Acheter à nouveau",
+			}
+		},
+		[routerPageName.USER_COMMAND]: {
+			title: "Détails de la commande",
+			command: {
+				label: {
+					date: "Commandé le {value}",
+					commandNumber: "N° de commande : { value }",
+				},
+				seeInvoice: "Voir la facture",
+				deliveryAddress: "Adresse de livraison",
+				recapCommand: "Récapitulatif de la commande",
+				boughtProducts: "Produits acheté(s) : {value}",
+				totalPrice: "Montant total TTC : {value} €",
+				status: {
+					CANCELED: "Annulée",
+					WAITING_PAYMENT: "En attente de paiement",
+					IN_PROGRESS: "En cours de livraison",
+					DONE: "Livrée",
+				},
+			},
+			product: {
+				quantity: "Quantité : {value}",
+				selledBy: "Vendu par : {value}",
+				price: "Prix : {value} €",
+				reBuy: "Acheter à nouveau",
 			}
 		},
 		[routerPageName.ORDER_PAGE]: {
