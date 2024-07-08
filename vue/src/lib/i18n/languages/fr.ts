@@ -133,6 +133,7 @@ export default {
 		},
 		[routerPageName.USER_COMMAND]: {
 			title: "Détails de la commande",
+			returnBack: "Retour",
 			command: {
 				label: {
 					date: "Commandé le {value}",
