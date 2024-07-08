@@ -52,13 +52,14 @@ function addLogo() {
 	};
 }
 </script>
+
 <template>
-	<div class="flex flex-col items-start gap-24 w-ful">
+	<section>
 		<h1 class="mb-12 text-2xl font-semibold">
 			Modification de l'organisation
 		</h1>
 
-		<div class="flex flex-col items-center w-full">
+		<div class="p-6 flex flex-col items-center w-full">
 			<FormOrganizationEdit
 				@submit="submit"
 				class="max-w-[500px] w-[80%]"
@@ -104,5 +105,5 @@ function addLogo() {
 				</PrimaryButton>
 			</FormOrganizationEdit>
 		</div>
-	</div>
+	</section>
 </template>

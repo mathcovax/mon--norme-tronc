@@ -1,21 +1,40 @@
 <script setup lang="ts">
-import type { Category } from "@/lib/utils";
+import { useGetCategories } from "../composables/useGetCategories";
+import { useGetCategoriesCount } from "../composables/useGetCategoriesCount";
+import ProductPagination from "../components/ProductPagination.vue";
 import CategoryCard from "../components/CategoryCard.vue";
 
+const router = useRouter();
 const { EDITO_HOME } = routerPageName;
 const $pt = usePageTranslate();
 
-const categories = ref<Category[]>([]);
+const query = useRouteQuery({
+	page: zod.coerce.number().default(1)
+});
 
-function getCategories() {
-	duploTo.enriched.
-		get("/categories")
-		.info("categories", (data) => {
-			categories.value = data;
-		});
-}
+const {
+	categories,
+	getCategories
+} = useGetCategories({
+	page: query.value.page - 1,
+});
+const {
+	categoriesCount,
+} = useGetCategoriesCount();
 
-getCategories();
+const currentPage = computed({
+	get: () => query.value.page,
+	set: (value: number) => {
+		router.push({ query: { page: value } });
+	}
+});
+
+watch(
+	() => query.value.page,
+	() => {
+		getCategories({ page: query.value.page - 1 });
+	}
+);
 </script>
 
 <template>
@@ -24,15 +43,32 @@ getCategories();
 			{{ $pt("title") }}
 		</h1>
 
-		<div
-			v-if="categories.length > 0"
-			class="my-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
-		>
-			<CategoryCard
-				v-for="category in categories"
-				:category="category"
-				:key="category.name"
-				class="w-full max-w-80 mx-auto"
+		<div v-if="categories && categories.length">
+			<ProductPagination 
+				v-if="currentPage > 1"
+				:total="categoriesCount"
+				:current-page="currentPage"
+				:product-per-page="12"
+				@update="page => currentPage = page"
+				:key="'top-pagination-' + currentPage"
+			/>
+
+			<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+				<CategoryCard
+					v-for="(category, index) in categories"
+					:category="category"
+					:key="index"
+					class="w-full max-w-80 mx-auto"
+				/>
+			</div>
+
+			<ProductPagination 
+				v-if="categoriesCount > 12"
+				:total="categoriesCount"
+				:current-page="currentPage"
+				:product-per-page="12"
+				@update="page => currentPage = page"
+				:key="'bottom-pagination-' + currentPage"
 			/>
 		</div>
 

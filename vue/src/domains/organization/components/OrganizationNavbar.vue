@@ -86,7 +86,7 @@ getOrganization();
 						:to="{ name: ORGANIZATION_COMMANDS }"
 						class="flex items-center gap-3 px-3 py-2 transition-all rounded-lg hover:text-primary"
 						:class="
-							!route.name ?
+							route.name === ORGANIZATION_COMMANDS ?
 								'bg-muted text-primary'
 								:
 								'text-muted-foreground'
@@ -101,7 +101,7 @@ getOrganization();
 
 					<RouterLink
 						v-if="organizationUserStore.hasRole('PRODUCT_SHEET_MANAGER')"
-						:to="{name: ORGANIZATION_GET_PRODUCT_SHEET}"
+						:to="{ name: ORGANIZATION_GET_PRODUCT_SHEET }"
 						class="flex items-center gap-3 px-3 py-2 transition-all rounded-lg hover:text-primary"
 						:class="
 							route.name === ORGANIZATION_GET_PRODUCT_SHEET 
@@ -118,7 +118,7 @@ getOrganization();
 
 					<RouterLink
 						v-if="organizationUserStore.hasRole('STORE_KEEPER')"
-						:to="{name: ORGANIZATION_MANAGE_PRODUCT}"
+						:to="{ name: ORGANIZATION_MANAGE_PRODUCT }"
 						class="flex items-center gap-3 px-3 py-2 transition-all rounded-lg hover:text-primary"
 						:class="
 							route.name === ORGANIZATION_MANAGE_PRODUCT 
@@ -135,7 +135,7 @@ getOrganization();
 
 					<RouterLink
 						v-if="organizationUserStore.hasRole('PRODUCT_SHEET_MANAGER')"
-						:to="{name: ORGANIZATION_MANAGE_PROMOTION}"
+						:to="{ name: ORGANIZATION_MANAGE_PROMOTION }"
 						class="flex items-center gap-3 px-3 py-2 transition-all rounded-lg hover:text-primary"
 						:class="
 							route.name === ORGANIZATION_MANAGE_PROMOTION 
@@ -148,6 +148,24 @@ getOrganization();
 							size="2xl"
 						/>
 						{{ $t("layout.organization.nav.promotions") }}
+					</RouterLink>
+
+					<RouterLink
+						v-if="organizationUserStore.hasRole('OWNER')"
+						:to="{ name: ORGANIZATION_GET_WAREHOUSE }"
+						class="flex items-center gap-3 px-3 py-2 transition-all rounded-lg hover:text-primary"
+						:class="
+							route.name === ORGANIZATION_GET_WAREHOUSE ?
+								'bg-muted text-primary'
+								:
+								'text-muted-foreground'
+						"
+					>
+						<TheIcon
+							icon="warehouse"
+							size="2xl"
+						/>
+						{{ $t("layout.organization.nav.warehouse") }}
 					</RouterLink>
 
 					<RouterLink
@@ -183,24 +201,6 @@ getOrganization();
 							size="2xl"
 						/>
 						{{ $t("layout.organization.nav.analytics") }}
-					</RouterLink>
-
-					<RouterLink
-						v-if="organizationUserStore.hasRole('OWNER')"
-						:to="{ name: ORGANIZATION_GET_WAREHOUSE }"
-						class="flex items-center gap-3 px-3 py-2 transition-all rounded-lg hover:text-primary"
-						:class="
-							route.name === ORGANIZATION_GET_WAREHOUSE ?
-								'bg-muted text-primary'
-								:
-								'text-muted-foreground'
-						"
-					>
-						<TheIcon
-							icon="warehouse"
-							size="2xl"
-						/>
-						{{ $t("layout.organization.nav.warehouse") }}
 					</RouterLink>
 				</nav>
 			</div>

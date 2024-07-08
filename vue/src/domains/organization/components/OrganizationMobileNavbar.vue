@@ -8,7 +8,9 @@ const {
 	ORGANIZATION_EDIT,
 	ORGANIZATION_MANAGE_PRODUCT,
 	ORGANIZATION_GET_PRODUCT_SHEET,
-	ORGANIZATION_GET_WAREHOUSE
+	ORGANIZATION_GET_WAREHOUSE,
+	ORGANIZATION_COMMANDS,
+	ORGANIZATION_MANAGE_PROMOTION,
 } = routerPageName;
 const route = useRoute();
 const organizationUserStore = useOrganizationUserStore();
@@ -101,8 +103,14 @@ getOrganization();
 				<SheetClose as-child>
 					<RouterLink
 						v-if="organizationUserStore.hasRole('STORE_KEEPER')"
-						to="#"
-						class="mx-[-0.65rem] flex items-center gap-4 rounded-xl bg-muted px-3 py-2 text-foreground hover:text-foreground"
+						:to="{ name: ORGANIZATION_COMMANDS }"
+						class="mx-[-0.65rem] px-3 py-2 flex items-center gap-4 rounded-xl hover:text-foreground"
+						:class="
+							route.name === ORGANIZATION_COMMANDS ?
+								'bg-muted text-foreground'
+								:
+								'text-muted-foreground'
+						"
 					>
 						<TheIcon
 							icon="cart-outline"
@@ -151,9 +159,50 @@ getOrganization();
 						{{ $t("layout.organization.nav.products") }}
 					</RouterLink>
 				</SheetClose>
+
+				<SheetClose as-child>
+					<RouterLink
+						v-if="organizationUserStore.hasRole('PRODUCT_SHEET_MANAGER')"
+						:to="{ name: ORGANIZATION_MANAGE_PROMOTION }"
+						class="mx-[-0.65rem] px-3 py-2 flex items-center gap-4 rounded-xl hover:text-foreground"
+						:class="
+							route.name === ORGANIZATION_MANAGE_PROMOTION ?
+								'bg-muted text-foreground'
+								:
+								'text-muted-foreground'
+						"
+					>
+						<TheIcon
+							icon="brightness-percent"
+							size="2xl"
+						/>
+						{{ $t("layout.organization.nav.promotions") }}
+					</RouterLink>
+				</SheetClose>
 				
 				<SheetClose as-child>
 					<RouterLink
+						v-if="organizationUserStore.hasRole('OWNER')"
+						:to="{ name: ORGANIZATION_GET_WAREHOUSE }"
+						class="mx-[-0.65rem] px-3 py-2 flex items-center gap-4 rounded-xl hover:text-foreground"
+						:class="
+							route.name === ORGANIZATION_GET_WAREHOUSE ?
+								'bg-muted text-foreground'
+								:
+								'text-muted-foreground'
+						"
+					>
+						<TheIcon
+							icon="warehouse"
+							size="2xl"
+						/>
+						{{ $t("layout.organization.nav.warehouse") }}
+					</RouterLink>
+				</SheetClose>
+
+				<SheetClose as-child>
+					<RouterLink
+						v-if="organizationUserStore.hasRole('OWNER')"
 						:to="{ name: ORGANIZATION_MANAGE_USER }"
 						class="mx-[-0.65rem] px-3 py-2 flex items-center gap-4 rounded-xl hover:text-foreground"
 						:class="
@@ -173,21 +222,21 @@ getOrganization();
 
 				<SheetClose as-child>
 					<RouterLink
-						v-if="organizationUserStore.hasRole('OWNER')"
-						:to="{ name: ORGANIZATION_GET_WAREHOUSE }"
+						v-if="organizationUserStore.hasRole('ACCOUNTANT')"
+						to="#"
 						class="mx-[-0.65rem] px-3 py-2 flex items-center gap-4 rounded-xl hover:text-foreground"
 						:class="
-							route.name === ORGANIZATION_GET_WAREHOUSE ?
+							!route.name ?
 								'bg-muted text-foreground'
 								:
 								'text-muted-foreground'
 						"
 					>
 						<TheIcon
-							icon="warehouse"
+							icon="chart-line"
 							size="2xl"
 						/>
-						{{ $t("layout.organization.nav.warehouse") }}
+						{{ $t("layout.organization.nav.analytics") }}
 					</RouterLink>
 				</SheetClose>
 			</nav>

@@ -25,8 +25,8 @@ describe("GET /categories", () => {
 			
 		expect(res.information).toBe("categories");
 		expect(spy).lastCalledWith({
-			skip: 20,
-			take: 10,
+			skip: 24,
+			take: 12,
 			where: {
 				disabled: undefined,
 				name: {
@@ -47,7 +47,7 @@ describe("GET /categories", () => {
 		expect(res.information).toBe("categories");
 		expect(spy).lastCalledWith({
 			skip: 0,
-			take: 10,
+			take: 12,
 			where: {
 				disabled: false,
 				name: undefined

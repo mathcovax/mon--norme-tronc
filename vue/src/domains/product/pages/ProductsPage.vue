@@ -125,6 +125,7 @@ watch(
 					v-if="currentPage > 1"
 					:total="fullProductSheetCount"
 					:current-page="currentPage"
+					:product-per-page="40"
 					@update="page => currentPage = page"
 					:key="'top-pagination-' + currentPage"
 				/>
@@ -142,6 +143,7 @@ watch(
 					v-if="fullProductSheetCount >= 40"
 					:total="fullProductSheetCount"
 					:current-page="currentPage"
+					:product-per-page="40"
 					@update="page => currentPage = page"
 					:key="'bottom-pagination-' + currentPage"
 				/>

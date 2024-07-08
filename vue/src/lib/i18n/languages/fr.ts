@@ -64,6 +64,7 @@ export default {
 				}
 			},
 			form: {
+				title: "Créer une promotion",
 				endDateGteStartDate: "La date de début doit être inférieure à la date de fin.",
 				endDateEStartDate: "La date de début doit être différente de la date de fin.",
 			},
@@ -543,7 +544,7 @@ export default {
 		birthDate: "Date de naissance",
 		address: "Adresse",
 		productSheet: "Fiche produit",
-		percentage: "Pourcentage (format: 10 pour 10%)",
+		percentage: "Pourcentage (%)",
 		startDate: "Date de début",
 		endDate: "Date de fin",
 		delivreryAddress: "Adresse de livraison",
@@ -562,7 +563,7 @@ export default {
 		title: "Titre",
 	},
 	placeholder: {
-		address: "Cherchez votre adresse",
+		address: "Chercher votre adresse",
 		productSheet: "Chercher une fiche produit",
 		search: "Chercher",
 	},
