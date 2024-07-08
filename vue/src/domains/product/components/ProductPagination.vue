@@ -8,6 +8,7 @@ const emit = defineEmits<{
 defineProps<{
 	total: number,
 	currentPage: number,
+	productPerPage: number
 }>();
 
 const update = (page: number) => {
@@ -18,7 +19,7 @@ const update = (page: number) => {
 <template>
 	<ThePagination
 		v-slot="{ page }"
-		:total="total*10/40"
+		:total="total * 10 / productPerPage"
 		:sibling-count="1"
 		show-edges
 		:page="currentPage"

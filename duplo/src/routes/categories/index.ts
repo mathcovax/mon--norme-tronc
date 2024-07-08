@@ -7,12 +7,13 @@ export const GET = (method: Methods, path: string) => duplo
 		query: zod.object({
 			name: zod.string().optional(),
 			page: zod.coerce.number().default(0),
+			take: zod.coerce.number().min(1).max(12).default(12),
 			withDisabled: zod.coerce.boolean().optional()
 		}).strip().default({})
 	})
 	.handler(
 		async ({ pickup }) => {
-			const { name, withDisabled, page } = pickup("query");
+			const { name, withDisabled, page, take } = pickup("query");
 
 			const categories = await prisma.category.findMany({
 				where: {
@@ -26,8 +27,8 @@ export const GET = (method: Methods, path: string) => duplo
 						? undefined
 						: false
 				},
-				skip: page * 10,
-				take: 10,
+				skip: page * take,
+				take: take,
 			});
 
 			throw new OkHttpException("categories", categories);
