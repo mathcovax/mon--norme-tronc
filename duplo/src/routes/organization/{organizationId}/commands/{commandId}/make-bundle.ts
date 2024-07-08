@@ -10,7 +10,7 @@ export const POST = (method: Methods, path: string) =>
 				commandId: zod.string()
 			},
 			body: zod.object({
-				idShip: zod.string(),
+				idShip: zod.string().min(11).max(15),
 				bundleItems: zod.object({
 					commandItemId: zod.number(),
 					sku: zod.string(),

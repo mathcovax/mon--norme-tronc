@@ -69,7 +69,6 @@ effect(() => {
 
 const commandDetailes = ref<OrganizationCommandDetailes>([]);
 function openPopup(commandId: string) {
-
 	duploTo.enriched
 		.get(
 			"/organization/{organizationId}/commands/{commandId}/details",

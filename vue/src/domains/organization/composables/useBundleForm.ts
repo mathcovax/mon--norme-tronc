@@ -7,7 +7,10 @@ export function useBundleForm(organizationId: string) {
 		idShip: {
 			type: "text",
 			label: $pt("form.idShip"),
-			zodSchema: zod.string({ message: $t("form.rule.required") })
+			zodSchema: zod
+				.string({ message: $t("form.rule.required") })
+				.min(11, { message: $t("form.rules.minLength", { value: 1 }) })
+				.min(15, { message: $t("form.rules.maxLength", { value: 15 }) })
 		},
 		bundleItems: {
 			type: "custom",
