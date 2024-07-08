@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { EDITO_HOME, EDITO_CGU, EDIT_TO_PRIVACY_POLICY, EDIT_TO_DELIVERY_DETAILS } = routerPageName;
+
 const currentYear = ref(new Date().getFullYear());
 </script>
 
@@ -8,7 +10,7 @@ const currentYear = ref(new Date().getFullYear());
 			<div class="container flex flex-col lg:flex-row gap-16 lg:gap-0 justify-between">
 				<div class="flex flex-col gap-6">
 					<RouterLink
-						to="/"
+						:to="{ name: EDITO_HOME }"
 						class="text-2xl font-bold"
 					>
 						MET
@@ -72,19 +74,19 @@ const currentYear = ref(new Date().getFullYear());
 								</li>
 
 								<li>
-									<RouterLink to="#">
+									<RouterLink :to="{ name: EDIT_TO_DELIVERY_DETAILS }">
 										{{ $t("layout.default.footer.helpNav.deliveryDetails") }}
 									</RouterLink>
 								</li>
 
 								<li>
-									<RouterLink to="#">
+									<RouterLink :to="{ name: EDITO_CGU }">
 										{{ $t("layout.default.footer.helpNav.generalConditions") }}
 									</RouterLink>
 								</li>
 
 								<li>
-									<RouterLink to="#">
+									<RouterLink :to="{ name: EDIT_TO_PRIVACY_POLICY }">
 										{{ $t("layout.default.footer.helpNav.confidentialityPolicy") }}
 									</RouterLink>
 								</li>
