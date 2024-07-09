@@ -238,6 +238,7 @@ enum command_status {
     CANCELED
     WAITING_PAYMENT
     IN_PROGRESS
+    IN_DELIVERY
     DONE
 }
 
@@ -271,7 +272,7 @@ model bundle {
     command     command             @relation(fields: [commandId], references: [id])
     commandId   String
     idShip      String              @unique @db.VarChar(15)
-    product     product_to_bundle[]
+    products    product_to_bundle[]
     status      bundle_status       @default(CREATED)
     creator     user                @relation(name: "create", fields: [creatorId], references: [id])
     creatorId   String

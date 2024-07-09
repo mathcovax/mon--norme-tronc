@@ -1,4 +1,5 @@
 import "./setup";
+import { mongoose } from "./setup/mongoose";
 import { FindSlice } from "@utils/findSlice";
 import { LastTime } from "./setup/lastTime";
 import { PromiseList } from "./setup/promiseList";
@@ -41,12 +42,14 @@ for await (const notification of generator) {
 		})
 	);
 	await promiseList.append(
-		fullCommandModel.updateMany({
-			id: notification.commandId,
-			status: commandStatus
-		})
+		fullCommandModel.updateOne(
+			{ id: notification.commandId },
+			{ status: commandStatus }
+		)
 	);
 }
 
 await promiseList.clear();
 lastTime.set(newLastReadNotification);
+
+mongoose.connection.close();

@@ -1,4 +1,4 @@
-import { BundleSchema, bundleSchema } from "@schemas/bundle";
+import { bundleWithDetailsSchema, bundleWithDetailsSchema } from "@schemas/bundle";
 import { userBelongsBundle } from "@security/userBelongsBundle";
 
 /* METHOD : GET, PATH : /bundles/{bundleId} */
@@ -9,7 +9,7 @@ export const GET = (method: Methods, path: string) =>
 			async ({ pickup }) => {
 				const bundleEntity = pickup("bundle");
 
-				const bundleProducts = await prisma.$queryRaw<BundleSchema["bundleProducts"]>`
+				const bundleProducts = await prisma.$queryRaw<bundleWithDetailsSchema["bundleProducts"]>`
 					WITH productQuantity AS (
 						SELECT 
 							p."productSheetId" AS "productSheetId",
@@ -37,7 +37,7 @@ export const GET = (method: Methods, path: string) =>
 					LEFT JOIN productSheetImage AS psi ON psi."rowNumber" = 1 AND psi."productSheetId" = pq."productSheetId"
 				`;
 
-				const bundle: BundleSchema = {
+				const bundle: bundleWithDetailsSchema = {
 					id: bundleEntity.id,
 					idShip: bundleEntity.idShip,
 					carrierName: bundleEntity.carrierName,
@@ -48,5 +48,5 @@ export const GET = (method: Methods, path: string) =>
 
 				throw new OkHttpException("bundle", bundle);
 			},
-			new IHaveSentThis(OkHttpException.code, "bundle", bundleSchema)
+			new IHaveSentThis(OkHttpException.code, "bundle", bundleWithDetailsSchema)
 		);

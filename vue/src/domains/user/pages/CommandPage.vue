@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { FullCommand } from "@/lib/utils";
+import type { Bundle, FullCommand } from "@/lib/utils";
 import ProductCommand from "../components/ProductCommand.vue";
 
 const $pt = usePageTranslate();
@@ -10,6 +10,19 @@ const params = useRouteParams({
 const router = useRouter();
 const { USER_COMMANDS } = routerPageName;
 const command = ref<FullCommand | null>(null);
+const bundles = ref<Bundle[]>([]);
+
+function getCommandBundles() {
+	return duploTo.enriched
+		.get(
+			"/commands/{commandId}/bundles",
+			{ params: { commandId: params.value.commandId } }
+		)
+		.info("bundles.found", (data) => {
+			bundles.value = data;
+		})
+		.result;
+}
 
 function getCommandData() {
 	return duploTo.enriched
@@ -18,7 +31,6 @@ function getCommandData() {
 			{ params: { commandId: params.value.commandId } }
 		)
 		.info("command.found", (data) => {
-			data.createdDate = new Date(data.createdDate).toLocaleDateString();
 			command.value = data;
 		})
 		.e(() => {
@@ -28,8 +40,9 @@ function getCommandData() {
 }
 
 getCommandData();
+getCommandBundles();
 
-watch(() => params.value.commandId, () => { getCommandData(); });
+watch(() => params.value.commandId, () => { getCommandData(), getCommandBundles(); });
 </script>
 <template>
 	<section class="container my-12 min-h-screen-nhm-mobile lg:min-h-screen-nhm-desktop lg:my-16">
@@ -52,7 +65,7 @@ watch(() => params.value.commandId, () => { getCommandData(); });
 
 			<div class="flex justify-between">
 				<div class="flex gap-2">
-					<span>{{ $pt("command.label.date", { value: command?.createdDate }) }}</span>
+					<span>{{ $pt("command.label.date", { value: command?.createdDate.toString().split("T")[0] }) }}</span>
 
 					<span class="text-gray-300">|</span>
 
@@ -83,7 +96,7 @@ watch(() => params.value.commandId, () => { getCommandData(); });
 					<div class="flex flex-col">
 						<span>{{ $pt("command.boughtProducts", { value: command?.items.length }) }}</span>
 
-						<span>{{ $pt(`command.status.${command?.status}`) }}</span>
+						<span>{{ $t(`commandStatus.${command?.status}`) }}</span>
 
 						<span class="font-bold">{{ $pt("command.totalPrice", { value: command?.price }) }}</span>
 					</div>

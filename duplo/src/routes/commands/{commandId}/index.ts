@@ -1,28 +1,14 @@
-import { commandExistCheck } from "@checkers/command";
 import { fullCommandModel } from "@mongoose/model";
 import { fullCommandSchema } from "@schemas/command";
-import { mustBeConnected } from "@security/mustBeConnected";
+import { userBelongsCommand } from "@security/userBelongsCommand";
 
 /* METHOD : GET, PATH : /commands/{commandId} */
 export const GET = (method: Methods, path: string) => 
-	mustBeConnected({ pickup: ["accessTokenContent"] })
+	userBelongsCommand({ pickup: ["command"] })
 		.declareRoute(method, path)
-		.extract({
-			params: {
-				commandId: zod.string()
-			}
-		})
-		.check(
-			commandExistCheck,
-			{
-				input: p => p("commandId"),
-				...commandExistCheck.preCompletions.mustExist
-			},
-			new IHaveSentThis(NotFoundHttpException.code, "command.notfound")
-		)
 		.handler(
 			async ({ pickup }) => {
-				const commandId = pickup("commandId");
+				const { id: commandId } = pickup("command");
 				const fullCommand = await fullCommandModel.findOne({ id: commandId });
 
 				throw new OkHttpException("command.found", fullCommand);

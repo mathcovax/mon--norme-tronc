@@ -20,7 +20,7 @@ export const bundleProductSchema = zod.object({
 	quantity: zod.number(),
 });
 
-export const bundleSchema = zod.object({
+export const bundleWithDetailsSchema = zod.object({
 	id: zod.number(),
 	idShip: zod.string(),
 	carrierName: zod.enum(carrierNameBundleTuple),
@@ -29,4 +29,13 @@ export const bundleSchema = zod.object({
 	bundleProducts: bundleProductSchema.array()
 });
 
-export type BundleSchema = Zod.infer<typeof bundleSchema>
+export const bundleSchema = zod.object({
+	id: zod.number(),
+	idShip: zod.string(),
+	carrierName: zod.enum(carrierNameBundleTuple),
+	commandId: zod.string(),
+	status: zod.enum(bundleStatusTuple),
+	productCount: zod.number()
+});
+
+export type bundleWithDetailsSchema = Zod.infer<typeof bundleWithDetailsSchema>

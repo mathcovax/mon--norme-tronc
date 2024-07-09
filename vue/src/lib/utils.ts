@@ -158,7 +158,17 @@ export type Cart = GetResponseByInfo<
 export type Command = GetResponseByInfo<
 	GetDef<"GET", "/commands">,
 	"userCommands"
->["body"]
+>["body"][number]
+
+export type CommandStatus = Command["status"];
+
+export const commandStatus: TuplifyUnion<CommandStatus> = [
+	"CANCELED",
+	"WAITING_PAYMENT",
+	"IN_PROGRESS",
+	"IN_DELIVERY",
+	"DONE"
+];
 
 export type FullCommand = GetResponseByInfo<
 	GetDef<"GET", "/commands/{commandId}">,

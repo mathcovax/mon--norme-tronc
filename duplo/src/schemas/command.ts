@@ -4,6 +4,7 @@ export const commandStatusTuple: TuplifyUnion<command_status> = [
 	"CANCELED",
 	"WAITING_PAYMENT",
 	"IN_PROGRESS",
+	"IN_DELIVERY",
 	"DONE"
 ];
 
@@ -14,7 +15,7 @@ export const fullCommandSchema = zod.object({
 	status: zod.enum(commandStatusTuple),
 	userId: zod.string(),
 	deliveryAddress: zod.string(),
-	createdDate: zod.string(),
+	createdDate: zod.coerce.date(),
 	price: zod.number(),
 	items: zod.object({
 		quantity: zod.number(),

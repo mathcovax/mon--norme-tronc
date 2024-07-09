@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { FullCommand } from "@/lib/utils";
+import type { FullCommand, CommandStatus } from "@/lib/utils";
 import ProductCommand from "./ProductCommand.vue";
 
 const $pt = usePageTranslate();
@@ -10,20 +10,13 @@ interface Props {
 }
 defineProps<Props>();
 
-function getColorByStatus(status: string) {
-	switch (status) {
-	case "IN_PROGRESS":
-		return "bg-yellow-500";
-	case "WAITING_PAYMENT":
-		return "bg-blue-500";
-	case "DONE":
-		return "bg-green-500";
-	case "CANCELED":
-		return "bg-red-500";
-	default:
-		return "bg-slate-500";
-	}
-}
+const colorsMapper: Record<CommandStatus, string> = {
+	"CANCELED": "bg-red-500",
+	"WAITING_PAYMENT": "bg-blue-500",
+	"IN_PROGRESS": "bg-yellow-500",
+	"IN_DELIVERY": "bg-yellow-500",
+	"DONE": "bg-green-500"
+};
 </script>
 <template>
 	<TheCard>
@@ -80,8 +73,8 @@ function getColorByStatus(status: string) {
 
 						<span
 							class="p-2 text-white border rounded-lg"
-							:class="getColorByStatus(command.status)"
-						>{{ $pt(`command.status.${command.status}`).toUpperCase() }}</span>
+							:class="colorsMapper[command.status]"
+						>{{ $t(`commandStatus.${command.status}`).toUpperCase() }}</span>
 					</div>
 				</div>
 			</div>

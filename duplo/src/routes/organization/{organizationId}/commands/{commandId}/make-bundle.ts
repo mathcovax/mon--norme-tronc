@@ -167,11 +167,11 @@ export const POST = (method: Methods, path: string) =>
 					await Promise.all([
 						prisma.command.update({
 							where: { id: command.id },
-							data: { status: "DONE" }
+							data: { status: "IN_DELIVERY" }
 						}),
 						fullCommandModel.updateOne(
 							{ id: command.id },
-							{ status: "DONE" }
+							{ status: "IN_DELIVERY" }
 						)
 					]);
 				}

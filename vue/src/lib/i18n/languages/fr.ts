@@ -1,4 +1,4 @@
-import type { Bundle, Facet } from "@/lib/utils";
+import type { Bundle, CommandStatus, Facet } from "@/lib/utils";
 
 export default {
 	page: {
@@ -117,12 +117,6 @@ export default {
 					commandNumber: "N° DE COMMANDE",
 				},
 				price: "{value} €",
-				status: {
-					CANCELED: "Annulée",
-					WAITING_PAYMENT: "En attente de paiement",
-					IN_PROGRESS: "En cours de livraison",
-					DONE: "Livrée",
-				},
 			},
 			product: {
 				quantity: "Quantité : {value}",
@@ -144,12 +138,6 @@ export default {
 				recapCommand: "Récapitulatif de la commande",
 				boughtProducts: "Produits acheté(s) : {value}",
 				totalPrice: "Montant total TTC : {value} €",
-				status: {
-					CANCELED: "Annulée",
-					WAITING_PAYMENT: "En attente de paiement",
-					IN_PROGRESS: "En cours de livraison",
-					DONE: "Livrée",
-				},
 			},
 			product: {
 				quantity: "Quantité : {value}",
@@ -666,6 +654,13 @@ export default {
 		DONE: "livrée",
 		DONE_OFFICE: "livrée au point relé",
 	} satisfies Record<Bundle["status"], string>,
+	commandStatus: {
+		CANCELED: "Annulée",
+		WAITING_PAYMENT: "En attente de paiement",
+		IN_PROGRESS: "En cours de traitement",
+		IN_DELIVERY: "En cours de livraison",
+		DONE: "Livrée"
+	} satisfies Record<CommandStatus, string>,
 	response: {
 		organization: {
 			alreadyExist: "Une organisation avec ce nom existe déjà.",
