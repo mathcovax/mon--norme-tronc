@@ -14,8 +14,8 @@ if (ENV.ENVIRONMENT === "DEV") {
 		}
 		else {
 			details = {
-				event: [{ code: "" }],
-				timeline: []
+				event: [{ code: "PC1" }],
+				timeline: [{ shortLabel: "Pris en charge" }]
 			};
 			await db.push(`/${idship}`, details);
 		}

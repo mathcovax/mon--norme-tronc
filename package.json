@@ -2,12 +2,14 @@
 	"name": "mon-enorme-tronc",
 	"workspaces": [
 		"vue",
-		"duplo"
+		"duplo",
+		"cron"
 	],
 	"scripts": {
 		"test:duplo": "npm -w duplo run test:tu:watch",
 		"dev:duplo": "npm -w duplo run dev",
 		"dev:vue": "npm -w vue run dev",
+		"cron": "npm -w cron run start",
 		"dev": "docker compose up",
 		"generate:types": "npm -w duplo run generate:types",
 		"generate:prisma": "npx prisma generate",

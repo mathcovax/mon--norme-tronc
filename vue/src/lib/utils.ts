@@ -163,11 +163,11 @@ export type Command = GetResponseByInfo<
 export type CommandStatus = Command["status"];
 
 export const commandStatus: TuplifyUnion<CommandStatus> = [
-	"CANCELED",
-	"WAITING_PAYMENT",
-	"IN_PROGRESS",
-	"IN_DELIVERY",
-	"DONE"
+	"DONE", 
+	"CANCELED", 
+	"WAITING_PAYMENT", 
+	"IN_PROGRESS", 
+	"IN_DELIVERY"
 ];
 
 export type FullCommand = GetResponseByInfo<
@@ -198,4 +198,9 @@ export type OrganizationCommandDetailes = GetResponseByInfo<
 export type Bundle = GetResponseByInfo<
 	GetDef<"GET", "/bundles/{bundleId}">,
 	"bundle"
+>["body"]
+
+export type BundleCollection = GetResponseByInfo<
+	GetDef<"GET", "/commands/{commandId}/bundles">,
+	"bundles.found"
 >["body"]

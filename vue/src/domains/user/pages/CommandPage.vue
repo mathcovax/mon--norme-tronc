@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Bundle, FullCommand } from "@/lib/utils";
+import type { BundleCollection, FullCommand } from "@/lib/utils";
 import ProductCommand from "../components/ProductCommand.vue";
 
 const $pt = usePageTranslate();
@@ -10,7 +10,7 @@ const params = useRouteParams({
 const router = useRouter();
 const { USER_COMMANDS } = routerPageName;
 const command = ref<FullCommand | null>(null);
-const bundles = ref<Bundle[]>([]);
+const bundles = ref<BundleCollection>([]);
 
 function getCommandBundles() {
 	return duploTo.enriched

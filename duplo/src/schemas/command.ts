@@ -1,11 +1,11 @@
 import { command_status } from "@prisma/client";
 
 export const commandStatusTuple: TuplifyUnion<command_status> = [
-	"CANCELED",
-	"WAITING_PAYMENT",
-	"IN_PROGRESS",
-	"IN_DELIVERY",
-	"DONE"
+	"DONE", 
+	"CANCELED", 
+	"WAITING_PAYMENT", 
+	"IN_PROGRESS", 
+	"IN_DELIVERY"
 ];
 
 export const fullCommandSchema = zod.object({

@@ -96,6 +96,7 @@ export const POST = (method: Methods, path: string) =>
 							quantity: aic.quantity, 
 						}),
 					),
+					payment_method_types: ["paypal"],
 					success_url: `${ENV.ORIGIN}/order?sessionId={CHECKOUT_SESSION_ID}`,
 					cancel_url: `${ENV.ORIGIN}/order?commandId=${commandId}`,
 					customer_email: user.email,

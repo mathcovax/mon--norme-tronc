@@ -1,5 +1,8 @@
 export const organizationCommandCollectionSchema = zod.object({
 	commandId: zod.string(),
+	firstname: zod.string(),
+	lastname: zod.string(),
+	address: zod.string(),
 	quantity: zod.number(),
 	createdAt: zod.coerce.string(),
 }).array();

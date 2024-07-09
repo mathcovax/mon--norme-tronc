@@ -33,6 +33,7 @@ export const GET = (method: Methods, path: string) =>
 							})
 					)
 				);
+				
 				throw new OkHttpException("bundles.found", bundles);
 			},
 			new IHaveSentThis(OkHttpException.code, "bundles.found", bundleSchema.array())

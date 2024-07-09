@@ -3,13 +3,13 @@ import { bundle_status, carrier_name } from "@prisma/client";
 export const carrierNameBundleTuple: TuplifyUnion<carrier_name> = ["LA_POSTE"];
 
 export const bundleStatusTuple: TuplifyUnion<bundle_status> = [
+	"DONE", 
 	"CREATED", 
-	"CARRIER_SUPPORTED",
+	"CARRIER_SUPPORTED", 
 	"CARRIER_PROCESS", 
 	"UNDELIVERABLE", 
-	"DONE", 
 	"DONE_OFFICE", 
-	"BACK",
+	"BACK", 
 	"BACK_DONE"
 ];
 
@@ -35,7 +35,7 @@ export const bundleSchema = zod.object({
 	carrierName: zod.enum(carrierNameBundleTuple),
 	commandId: zod.string(),
 	status: zod.enum(bundleStatusTuple),
-	productCount: zod.number()
+	productsCount: zod.number()
 });
 
-export type bundleWithDetailsSchema = Zod.infer<typeof bundleWithDetailsSchema>
+export type BundleWithDetailsSchema = Zod.infer<typeof bundleWithDetailsSchema>

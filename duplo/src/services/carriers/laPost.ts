@@ -1,4 +1,5 @@
 import ZodAccelerator from "@duplojs/zod-accelerator";
+import { fullCommandModel } from "@mongoose/model";
 import { bundle, bundle_status } from "@prisma/client";
 
 export class LaPosteCarrier {
@@ -22,7 +23,7 @@ export class LaPosteCarrier {
 		);
 	}
 
-	static updateBundled(bundle: bundle) {
+	static updateBundled(bundle: bundle): Promise<unknown> {
 		return LaPosteCarrier
 			.fetchDetails(bundle.idShip)
 			.then(
@@ -38,9 +39,44 @@ export class LaPosteCarrier {
 							data: {
 								status: newStatus
 							}
+						}).then(() => {
+							if (["DONE", "DONE_OFFICE"].includes(newStatus)) {
+								return Promise.all([
+									prisma.bundle.findFirst({
+										where: {
+											commandId: bundle.commandId,
+											status: {
+												notIn: ["DONE", "DONE_OFFICE"],
+											}
+										}
+									}),
+									prisma.command.findFirst({
+										where: {
+											id: bundle.commandId,
+											status: {
+												not: "IN_DELIVERY",
+											}
+										}
+									})
+								]).then(([findedBundle, findendCommand]) => {
+									if (!findedBundle && !findendCommand) {
+										return Promise.all([
+											prisma.command.update({
+												where: { id: bundle.commandId },
+												data: {
+													status: "DONE"
+												}
+											}),
+											fullCommandModel.updateOne(
+												{ id: bundle.commandId },
+												{ status: "DONE" }
+											)
+										]);
+									}
+								});
+							}
 						});
 					}
-					return bundle;
 				}
 			).catch(error => {
 				console.log(error);
