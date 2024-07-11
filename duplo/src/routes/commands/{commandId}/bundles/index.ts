@@ -9,7 +9,7 @@ export const GET = (method: Methods, path: string) =>
 			async ({ pickup }) => {
 				const { id: commandId } = pickup("command");
 				const bundles = await prisma.bundle.findMany(
-					{ 
+					{
 						where: { commandId },
 						select: {
 							id: true,

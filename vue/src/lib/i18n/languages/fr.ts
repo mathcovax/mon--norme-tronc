@@ -141,10 +141,14 @@ export default {
 				totalPrice: "Montant total TTC : {value} €",
 			},
 			product: {
+				title: "Produit(s)",
 				quantity: "Quantité : {value}",
 				selledBy: "Vendu par : {value}",
 				price: "Prix : {value} €",
 				reBuy: "Acheter à nouveau",
+			},
+			bundle: {
+				title: "Colis associé(s)",
 			}
 		},
 		[routerPageName.ORDER_PAGE]: {

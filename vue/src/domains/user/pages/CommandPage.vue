@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { BundleCollection, FullCommand } from "@/lib/utils";
+import BundleCard from "../components/BundleCard.vue";
 import ProductCommand from "../components/ProductCommand.vue";
 
 const $pt = usePageTranslate();
@@ -45,7 +46,10 @@ getCommandBundles();
 watch(() => params.value.commandId, () => { getCommandData(), getCommandBundles(); });
 </script>
 <template>
-	<section class="container my-12 min-h-screen-nhm-mobile lg:min-h-screen-nhm-desktop lg:my-16">
+	<section
+		v-if="command"
+		class="container my-12 min-h-screen-nhm-mobile lg:min-h-screen-nhm-desktop lg:my-16"
+	>
 		<div class="flex flex-col gap-2 p-2">
 			<RouterLink
 				:to="{ name: USER_COMMANDS }"
@@ -104,6 +108,12 @@ watch(() => params.value.commandId, () => { getCommandData(), getCommandBundles(
 			</CardContent>
 		</TheCard>
 
+		<h1
+			class="text-xl font-bold lg:text-2xl"
+		>
+			{{ $pt("product.title") }}
+		</h1>
+
 		<TheCard>
 			<CardContent class="flex flex-col gap-8 p-4">
 				<ProductCommand
@@ -113,5 +123,21 @@ watch(() => params.value.commandId, () => { getCommandData(), getCommandBundles(
 				/>
 			</CardContent>
 		</TheCard>
+
+		<h1
+			class="text-xl font-bold lg:text-2xl"
+		>
+			{{ $pt("bundle.title") }}
+		</h1>
+
+		<TheCard>
+			<CardContent class="flex flex-col gap-8 p-4">
+				<BundleCard
+					v-for="bundle in bundles"
+					:bundle="bundle"
+					:key="bundle.id"
+				/>
+			</CardContent>
+		</thecard>
 	</section>
 </template>

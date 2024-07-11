@@ -207,7 +207,7 @@ async function createBundle() {
 							<div
 								v-for="(bundleItem, index) of modelValue"
 								:key="index"
-								class="grid gap-3 grid-cols-12"
+								class="grid grid-cols-12 gap-3"
 							>
 								<PrimarySelect
 									class="col-span-5"

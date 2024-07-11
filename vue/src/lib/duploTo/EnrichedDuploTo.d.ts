@@ -66,28 +66,6 @@ export type response_1_1 = {
 } & {body: response_body_1_1};
 
 export type parameters_2 = {
-    query?: {
-        name?: string | undefined;
-        page?: number;
-        take?: number;
-        withDisabled?: boolean | undefined;
-    };
-}
-
-export type response_body_2_0 = {
-    name: string;
-    disabled: boolean;
-    imageKey: string | null;
-    imageUrl: string | null;
-}[]
-
-export type response_2_0 = {
-    code: 200;
-    ok: true;
-    info: "categories";
-} & {body: response_body_2_0};
-
-export type parameters_3 = {
     params: {
         categoryName: string;
     };
@@ -96,13 +74,13 @@ export type parameters_3 = {
     } | undefined;
 }
 
-export type response_3_0 = {
+export type response_2_0 = {
     code: 404;
     ok: false;
     info: "category.notfound";
 } & {body: undefined};
 
-export type response_body_3_1 = {
+export type response_body_2_1 = {
     id: string;
     name: string;
     description: string;
@@ -114,11 +92,33 @@ export type response_body_3_1 = {
     warehouseId: string;
 }[]
 
-export type response_3_1 = {
+export type response_2_1 = {
     code: 200;
     ok: true;
     info: "category.products";
-} & {body: response_body_3_1};
+} & {body: response_body_2_1};
+
+export type parameters_3 = {
+    query?: {
+        name?: string | undefined;
+        page?: number;
+        take?: number;
+        withDisabled?: boolean | undefined;
+    };
+}
+
+export type response_body_3_0 = {
+    name: string;
+    disabled: boolean;
+    imageKey: string | null;
+    imageUrl: string | null;
+}[]
+
+export type response_3_0 = {
+    code: 200;
+    ok: true;
+    info: "categories";
+} & {body: response_body_3_0};
 
 export type parameters_4 = {
     query?: {
@@ -448,89 +448,6 @@ export type response_16_0 = {
 export type request_body_17 = string
 
 export type response_17_0 = {
-<<<<<<< Updated upstream
-    code: 404;
-    ok: false;
-    info: "category.notfound";
-} & {body: undefined};
-
-export type response_17_1 = {
-    code: 403;
-    ok: false;
-    info: "category.disabled";
-} & {body: undefined};
-
-export type response_body_17_2 = {
-    id: string;
-    name: string;
-    price: number;
-    shortDescription: string;
-    description: string;
-    quantity: number;
-    categories: string[];
-    images: string[];
-    hasPromotion?: boolean | undefined;
-    promotion?: {
-        id: number;
-        originalPrice: number;
-        percentage: number;
-        startDate: Date;
-        endDate: Date;
-    } | undefined;
-    organization: {
-        id: string;
-        name: string;
-        label?: string | undefined;
-        logoUrl?: string | undefined;
-    };
-    facets: {
-        ACCESSORY?: string | undefined;
-        COLOR?: string | undefined;
-        DIAMETER?: string | undefined;
-        MATERIAL?: string | undefined;
-        SIZE?: string | undefined;
-        STIMULATION?: string | undefined;
-        TARGET?: string | undefined;
-    };
-}[]
-
-export type response_17_2 = {
-    code: 200;
-    ok: true;
-    info: "fullProductSheets";
-} & {body: response_body_17_2};
-
-export type parameters_18 = {
-    query?: ({} & {
-        color?: (string | string[]) | undefined;
-        size?: string | undefined;
-        diameter?: string | undefined;
-        target?: string | undefined;
-        accessory?: any | undefined;
-        material?: (string | string[]) | undefined;
-        stimulation?: (string | string[]) | undefined;
-        promotion?: any | undefined;
-        price?: [
-            number,
-            number
-        ] | undefined;
-    }) & {
-        search?: string | undefined;
-        searchByRegex?: any;
-        categoryName?: string | undefined;
-    };
-}
-
-export type response_body_18_0 = string
-
-export type response_18_0 = {
-    code: 200;
-    ok: true;
-    info: "fullProductSheetCount";
-} & {body: response_body_18_0};
-
-export type request_body_19 = string
-=======
     code: 401;
     ok: false;
     info: "firebase.token.invalid";
@@ -557,7 +474,6 @@ export type request_body_18 = {
     address: string;
     dateOfBirth: Date;
 }
->>>>>>> Stashed changes
 
 export type response_18_0 = {
     code: 401;
@@ -565,10 +481,6 @@ export type response_18_0 = {
     info: "firebase.token.invalid";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-export type response_19_1 = {
-    code: 404;
-=======
 export type response_18_1 = {
     code: 409;
     ok: false;
@@ -583,64 +495,114 @@ export type response_18_2 = {
 
 export type response_18_3 = {
     code: 400;
->>>>>>> Stashed changes
+    ok: false;
+    info: "user.dateOfBirth.invalid";
+} & {body: undefined};
+
+export type response_body_18_4 = string
+
+export type response_18_4 = {
+    code: 201;
+    ok: true;
+    info: "user.registered";
+} & {body: response_body_18_4};
+
+export type request_body_19 = {
+    productSheetId: string;
+    quantity?: number;
+}
+
+export type response_19_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_19_1 = {
+    code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-export type response_body_19_2 = string
-
 export type response_19_2 = {
-    code: 200;
-    ok: true;
-    info: "user.logged";
-} & {body: response_body_19_2};
+    code: 404;
+    ok: false;
+    info: "productSheet.notfound";
+} & {body: undefined};
 
-export type parameters_20 = {
-    query?: ({} & {
-        color?: (string | string[]) | undefined;
-        size?: string | undefined;
-        diameter?: string | undefined;
-        target?: string | undefined;
-        accessory?: any | undefined;
-        material?: (string | string[]) | undefined;
-        stimulation?: (string | string[]) | undefined;
-        promotion?: any | undefined;
-        price?: [
-            number,
-            number
-        ] | undefined;
-    }) & {
-        search?: string | undefined;
-        searchByRegex?: any;
-        categoryName?: string | undefined;
-    };
+export type response_19_3 = {
+    code: 401;
+    ok: false;
+    info: "cart.article.limit";
+} & {body: undefined};
+
+export type response_19_4 = {
+    code: 401;
+    ok: false;
+    info: "cart.quantity.limit";
+} & {body: undefined};
+
+export type response_19_5 = {
+    code: 409;
+    ok: false;
+    info: "product.unavailable";
+} & {body: undefined};
+
+export type response_body_19_6 = {
+    userId: string;
+    productSheetId: string;
+    quantity: number;
+    createdAt?: string;
 }
 
-export type response_body_20_0 = ({
-    type: "CHECKBOX" | "RADIO";
-    name: string;
-    values: {
-        value: string;
-        quantity: number;
-    }[];
-} | {
-    type: "TOGGLE";
-    name: string;
-    quantity: number;
-} | {
-    type: "RANGE";
-    name: string;
-    min: number;
-    max: number;
-})[]
+export type response_19_6 = {
+    code: 201;
+    ok: true;
+    info: "article.created";
+} & {body: response_body_19_6};
+
+export type parameters_20 = {
+    query?: {
+        page?: number;
+    } | undefined;
+}
 
 export type response_20_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_20_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_body_20_2 = {
+    id: string;
+    firstname: string;
+    lastname: string;
+    status: "DONE" | "CANCELED" | "WAITING_PAYMENT" | "IN_PROGRESS" | "IN_DELIVERY";
+    userId: string;
+    deliveryAddress: string;
+    createdDate: Date;
+    price: number;
+    items: {
+        quantity: number;
+        productSheetId: string;
+        productSheetName: string;
+        productSheetFirstImageUrl: string;
+        productSheetOrganizationName: string;
+        productSheetPrice: number;
+    }[];
+}[]
+
+export type response_20_2 = {
     code: 200;
     ok: true;
-    info: "filters";
-} & {body: response_body_20_0};
+    info: "userCommands";
+} & {body: response_body_20_2};
 
 export type parameters_21 = {
     params: {
@@ -672,247 +634,19 @@ export type response_21_3 = {
     info: "article.deleted";
 } & {body: undefined};
 
-export type request_body_22 = {
-    fireBaseIdToken: string;
-    lastname: string;
-    firstname: string;
-    address: string;
-    dateOfBirth: Date;
-}
-
 export type response_22_0 = {
     code: 401;
     ok: false;
-    info: "firebase.token.invalid";
+    info: "access.token.invalid";
 } & {body: undefined};
 
 export type response_22_1 = {
-    code: 409;
-    ok: false;
-    info: "user.alreadyExist";
-} & {body: undefined};
-
-export type response_22_2 = {
-    code: 400;
-    ok: false;
-    info: "user.address.invalid";
-} & {body: undefined};
-
-export type response_22_3 = {
-    code: 400;
-    ok: false;
-    info: "user.dateOfBirth.invalid";
-} & {body: undefined};
-
-export type response_body_22_4 = string
-
-export type response_22_4 = {
-    code: 201;
-    ok: true;
-    info: "user.registered";
-} & {body: response_body_22_4};
-
-export type parameters_23 = {
-=======
-export type response_body_18_4 = string
-
-export type response_18_4 = {
-    code: 201;
-    ok: true;
-    info: "user.registered";
-} & {body: response_body_18_4};
-
-export type parameters_19 = {
->>>>>>> Stashed changes
-    query?: {
-        page?: number;
-    } | undefined;
-}
-
-export type response_19_0 = {
-    code: 401;
-    ok: false;
-    info: "access.token.invalid";
-} & {body: undefined};
-
-export type response_19_1 = {
     code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
-export type response_body_19_2 = {
-    id: string;
-    firstname: string;
-    lastname: string;
-    status: "DONE" | "CANCELED" | "WAITING_PAYMENT" | "IN_PROGRESS" | "IN_DELIVERY";
-    userId: string;
-    deliveryAddress: string;
-    createdDate: Date;
-    price: number;
-    items: {
-        quantity: number;
-        productSheetId: string;
-        productSheetName: string;
-        productSheetFirstImageUrl: string;
-        productSheetOrganizationName: string;
-        productSheetPrice: number;
-    }[];
-}[]
-
-export type response_19_2 = {
-    code: 200;
-    ok: true;
-    info: "userCommands";
-} & {body: response_body_19_2};
-
-<<<<<<< Updated upstream
-export type request_body_24 = {
-=======
-export type parameters_20 = {
-    params: {
-        productSheetId: string;
-    };
-}
-
-export type response_20_0 = {
-    code: 401;
-    ok: false;
-    info: "access.token.invalid";
-} & {body: undefined};
-
-export type response_20_1 = {
-    code: 404;
-    ok: false;
-    info: "user.notfound";
-} & {body: undefined};
-
-export type response_20_2 = {
-    code: 404;
-    ok: false;
-    info: "productSheet.notfound";
-} & {body: undefined};
-
-export type response_20_3 = {
-    code: 200;
-    ok: true;
-    info: "article.deleted";
-} & {body: undefined};
-
-export type request_body_21 = {
->>>>>>> Stashed changes
-    productSheetId: string;
-    quantity?: number;
-}
-
-<<<<<<< Updated upstream
-export type response_24_0 = {
-=======
-export type response_21_0 = {
->>>>>>> Stashed changes
-    code: 401;
-    ok: false;
-    info: "access.token.invalid";
-} & {body: undefined};
-
-<<<<<<< Updated upstream
-export type response_24_1 = {
-=======
-export type response_21_1 = {
->>>>>>> Stashed changes
-    code: 404;
-    ok: false;
-    info: "user.notfound";
-} & {body: undefined};
-
-<<<<<<< Updated upstream
-export type response_24_2 = {
-=======
-export type response_21_2 = {
->>>>>>> Stashed changes
-    code: 404;
-    ok: false;
-    info: "productSheet.notfound";
-} & {body: undefined};
-
-<<<<<<< Updated upstream
-export type response_24_3 = {
-=======
-export type response_21_3 = {
->>>>>>> Stashed changes
-    code: 401;
-    ok: false;
-    info: "cart.article.limit";
-} & {body: undefined};
-
-<<<<<<< Updated upstream
-export type response_24_4 = {
-=======
-export type response_21_4 = {
->>>>>>> Stashed changes
-    code: 401;
-    ok: false;
-    info: "cart.quantity.limit";
-} & {body: undefined};
-
-<<<<<<< Updated upstream
-export type response_24_5 = {
-=======
-export type response_21_5 = {
->>>>>>> Stashed changes
-    code: 409;
-    ok: false;
-    info: "product.unavailable";
-} & {body: undefined};
-
-<<<<<<< Updated upstream
-export type response_body_24_6 = {
-=======
-export type response_body_21_6 = {
->>>>>>> Stashed changes
-    userId: string;
-    productSheetId: string;
-    quantity: number;
-    createdAt?: string;
-}
-
-<<<<<<< Updated upstream
-export type response_24_6 = {
-    code: 201;
-    ok: true;
-    info: "article.created";
-} & {body: response_body_24_6};
-
-export type response_25_0 = {
-=======
-export type response_21_6 = {
-    code: 201;
-    ok: true;
-    info: "article.created";
-} & {body: response_body_21_6};
-
-export type response_22_0 = {
->>>>>>> Stashed changes
-    code: 401;
-    ok: false;
-    info: "access.token.invalid";
-} & {body: undefined};
-
-<<<<<<< Updated upstream
-export type response_25_1 = {
-=======
-export type response_22_1 = {
->>>>>>> Stashed changes
-    code: 404;
-    ok: false;
-    info: "user.notfound";
-} & {body: undefined};
-
-<<<<<<< Updated upstream
-export type response_body_25_2 = {
-=======
 export type response_body_22_2 = {
->>>>>>> Stashed changes
     productSheetId: string;
     quantity: number;
     name: string;
@@ -922,18 +656,6 @@ export type response_body_22_2 = {
     imageUrl: string;
 }[]
 
-<<<<<<< Updated upstream
-export type response_25_2 = {
-    code: 200;
-    ok: true;
-    info: "cart.fetched";
-} & {body: response_body_25_2};
-
-export type request_body_26 = {
-    lastname: string;
-    firstname: string;
-    address: string;
-=======
 export type response_22_2 = {
     code: 200;
     ok: true;
@@ -944,7 +666,6 @@ export type parameters_23 = {
     params: {
         imageProductSheetId: string;
     };
->>>>>>> Stashed changes
 }
 
 export type response_23_0 = {
@@ -959,27 +680,12 @@ export type response_23_1 = {
     info: "user.notfound";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-export type response_26_2 = {
-    code: 400;
-=======
 export type response_23_2 = {
     code: 404;
->>>>>>> Stashed changes
     ok: false;
-    info: "user.address.invalid";
+    info: "imageProductSheet.notfound";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-export type response_26_3 = {
-    code: 409;
-    ok: false;
-    info: "cart.empty";
-} & {body: undefined};
-
-export type response_26_4 = {
-    code: 409;
-=======
 export type response_23_3 = {
     code: 204;
     ok: true;
@@ -988,27 +694,10 @@ export type response_23_3 = {
 
 export type response_23_4 = {
     code: 406;
->>>>>>> Stashed changes
     ok: false;
-    info: "products.unavailable";
+    info: "organization.hasNotUser";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-export type response_body_26_5 = {
-    sessionUrl: string;
-}
-
-export type response_26_5 = {
-    code: 201;
-    ok: true;
-    info: "session";
-} & {body: response_body_26_5};
-
-export type parameters_27 = {
-    params: {
-        imageProductSheetId: string;
-    };
-=======
 export type response_23_5 = {
     code: 403;
     ok: false;
@@ -1019,7 +708,6 @@ export type request_body_24 = {
     lastname: string;
     firstname: string;
     address: string;
->>>>>>> Stashed changes
 }
 
 export type response_24_0 = {
@@ -1037,38 +725,6 @@ export type response_24_1 = {
 export type response_24_2 = {
     code: 400;
     ok: false;
-<<<<<<< Updated upstream
-    info: "imageProductSheet.notfound";
-} & {body: undefined};
-
-export type response_27_3 = {
-    code: 204;
-    ok: true;
-    info: "imageProductSheet.deleted";
-} & {body: undefined};
-
-export type response_27_4 = {
-    code: 406;
-    ok: false;
-    info: "organization.hasNotUser";
-} & {body: undefined};
-
-export type response_27_5 = {
-    code: 403;
-    ok: false;
-    info: "user.role.organization.invalid";
-} & {body: undefined};
-
-export type request_body_28 = {
-    organizationRole?: ("STORE_KEEPER" | "PRODUCT_SHEET_MANAGER" | "ACCOUNTANT") | undefined;
-}
-
-export type parameters_28 = {
-    params: {
-        organizationId: string;
-        userId: string;
-    };
-=======
     info: "user.address.invalid";
 } & {body: undefined};
 
@@ -1096,7 +752,6 @@ export type response_24_5 = {
 
 export type request_body_25 = {
     commandId: string;
->>>>>>> Stashed changes
 }
 
 export type response_25_0 = {
@@ -1111,37 +766,6 @@ export type response_25_1 = {
     info: "user.notfound";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-export type response_28_2 = {
-    code: 406;
-    ok: false;
-    info: "organization.hasNotUser";
-} & {body: undefined};
-
-export type response_28_3 = {
-    code: 401;
-    ok: false;
-    info: "organization.user.organizationRole.owner";
-} & {body: undefined};
-
-export type response_28_4 = {
-    code: 204;
-    ok: true;
-    info: "organization.user.edited";
-} & {body: undefined};
-
-export type response_28_5 = {
-    code: 406;
-    ok: false;
-    info: "organization.hasNotUser";
-} & {body: undefined};
-
-export type response_28_6 = {
-    code: 403;
-    ok: false;
-    info: "user.role.organization.invalid";
-} & {body: undefined};
-=======
 export type response_25_2 = {
     code: 404;
     ok: false;
@@ -1163,12 +787,10 @@ export type response_25_4 = {
     ok: true;
     info: "session";
 } & {body: response_body_25_4};
->>>>>>> Stashed changes
 
 export type parameters_26 = {
     params: {
         organizationId: string;
-        userId: string;
     };
 }
 
@@ -1190,36 +812,6 @@ export type response_26_2 = {
     info: "organization.hasNotUser";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-export type response_29_3 = {
-    code: 401;
-    ok: false;
-    info: "organization.user.organizationRole.owner";
-} & {body: undefined};
-
-export type response_29_4 = {
-    code: 204;
-    ok: true;
-    info: "organization.user.deleted";
-} & {body: undefined};
-
-export type response_29_5 = {
-    code: 406;
-    ok: false;
-    info: "organization.hasNotUser";
-} & {body: undefined};
-
-export type response_29_6 = {
-    code: 403;
-    ok: false;
-    info: "user.role.organization.invalid";
-} & {body: undefined};
-
-export type parameters_30 = {
-    query?: {
-        page?: number;
-    } | undefined;
-=======
 export type response_body_26_3 = {
     id: string;
     email: string;
@@ -1245,7 +837,6 @@ export type parameters_27 = {
     params: {
         organizationId: string;
     };
->>>>>>> Stashed changes
 }
 
 export type response_27_0 = {
@@ -1263,23 +854,6 @@ export type response_27_1 = {
 export type response_27_2 = {
     code: 404;
     ok: false;
-<<<<<<< Updated upstream
-    info: "user.notfound";
-} & {body: undefined};
-
-export type response_body_30_3 = {
-    id: string;
-    name: string;
-    label: string | null;
-    ownerId: string;
-    suspended: boolean;
-    logoKey: string | null;
-    logoUrl: string | null;
-}[]
-
-export type response_30_3 = {
-    code: 200;
-=======
     info: "organization.notfound";
 } & {body: undefined};
 
@@ -1309,22 +883,19 @@ export type response_27_6 = {
 
 export type response_27_7 = {
     code: 201;
->>>>>>> Stashed changes
     ok: true;
-    info: "user.organizations";
-} & {body: response_body_30_3};
+    info: "organization.user.add";
+} & {body: undefined};
 
-<<<<<<< Updated upstream
-export type parameters_31 = {
+export type request_body_28 = {
+    organizationRole?: ("STORE_KEEPER" | "PRODUCT_SHEET_MANAGER" | "ACCOUNTANT") | undefined;
+}
+
+export type parameters_28 = {
     params: {
         organizationId: string;
+        userId: string;
     };
-=======
-export type parameters_28 = {
-    query?: {
-        page?: number;
-    } | undefined;
->>>>>>> Stashed changes
 }
 
 export type response_28_0 = {
@@ -1339,49 +910,40 @@ export type response_28_1 = {
     info: "user.notfound";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-export type response_31_2 = {
-    code: 406;
-=======
 export type response_28_2 = {
-    code: 404;
->>>>>>> Stashed changes
+    code: 406;
     ok: false;
     info: "organization.hasNotUser";
 } & {body: undefined};
 
-export type response_body_28_3 = {
-    id: string;
-    email: string;
-    lastname: string;
-    firstname: string;
-    organizationRole: "STORE_KEEPER" | "PRODUCT_SHEET_MANAGER" | "ACCOUNTANT" | "OWNER";
-}
-
 export type response_28_3 = {
-    code: 200;
+    code: 401;
+    ok: false;
+    info: "organization.user.organizationRole.owner";
+} & {body: undefined};
+
+export type response_28_4 = {
+    code: 204;
     ok: true;
-<<<<<<< Updated upstream
-    info: "organization.user";
-} & {body: response_body_31_3};
+    info: "organization.user.edited";
+} & {body: undefined};
 
-export type request_body_32 = {
-    email: string;
-    firstname: string;
-    lastname: string;
-    organizationRole: "STORE_KEEPER" | "PRODUCT_SHEET_MANAGER" | "ACCOUNTANT";
-=======
-    info: "user.organizations";
-} & {body: response_body_28_3};
+export type response_28_5 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
 
-export type request_body_29 = {
-    organizationRole?: ("STORE_KEEPER" | "PRODUCT_SHEET_MANAGER" | "ACCOUNTANT") | undefined;
->>>>>>> Stashed changes
-}
+export type response_28_6 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
 
 export type parameters_29 = {
     params: {
         organizationId: string;
+        userId: string;
     };
 }
 
@@ -1397,72 +959,40 @@ export type response_29_1 = {
     info: "user.notfound";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-export type response_32_2 = {
-    code: 404;
-=======
 export type response_29_2 = {
     code: 406;
->>>>>>> Stashed changes
-    ok: false;
-    info: "organization.notfound";
-} & {body: undefined};
-
-<<<<<<< Updated upstream
-export type response_32_3 = {
-    code: 406;
-=======
-export type response_29_3 = {
-    code: 401;
->>>>>>> Stashed changes
     ok: false;
     info: "organization.hasNotUser";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-export type response_32_4 = {
+export type response_29_3 = {
+    code: 401;
+    ok: false;
+    info: "organization.user.organizationRole.owner";
+} & {body: undefined};
+
+export type response_29_4 = {
+    code: 204;
+    ok: true;
+    info: "organization.user.deleted";
+} & {body: undefined};
+
+export type response_29_5 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_29_6 = {
     code: 403;
     ok: false;
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-export type response_32_5 = {
-    code: 404;
-=======
-export type response_29_4 = {
-    code: 204;
-    ok: true;
-    info: "organization.user.edited";
-} & {body: undefined};
-
-export type response_29_5 = {
-    code: 406;
->>>>>>> Stashed changes
-    ok: false;
-    info: "user.notfound";
-} & {body: undefined};
-
-<<<<<<< Updated upstream
-export type response_32_6 = {
-    code: 409;
-=======
-export type response_29_6 = {
-    code: 403;
->>>>>>> Stashed changes
-    ok: false;
-    info: "organization.hasAlreadyUser";
-} & {body: undefined};
-
-export type response_32_7 = {
-    code: 201;
-    ok: true;
-    info: "organization.user.add";
-} & {body: undefined};
-
 export type parameters_30 = {
-    params: {
-        promotionId: number;
-    };
+    query?: {
+        page?: number;
+    } | undefined;
 }
 
 export type response_30_0 = {
@@ -1477,62 +1007,35 @@ export type response_30_1 = {
     info: "user.notfound";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-export type response_33_2 = {
-    code: 404;
-=======
 export type response_30_2 = {
-    code: 406;
->>>>>>> Stashed changes
+    code: 404;
     ok: false;
-    info: "promotion.notfound";
+    info: "user.notfound";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-export type response_33_3 = {
-=======
+export type response_body_30_3 = {
+    id: string;
+    name: string;
+    label: string | null;
+    ownerId: string;
+    suspended: boolean;
+    logoKey: string | null;
+    logoUrl: string | null;
+}[]
+
 export type response_30_3 = {
-    code: 401;
-    ok: false;
-    info: "organization.user.organizationRole.owner";
-} & {body: undefined};
-
-export type response_30_4 = {
->>>>>>> Stashed changes
-    code: 204;
+    code: 200;
     ok: true;
-    info: "promotion.deleted";
-} & {body: undefined};
+    info: "user.organizations";
+} & {body: response_body_30_3};
 
-<<<<<<< Updated upstream
-export type response_33_4 = {
-=======
-export type response_30_5 = {
->>>>>>> Stashed changes
-    code: 406;
-    ok: false;
-    info: "organization.hasNotUser";
-} & {body: undefined};
-
-<<<<<<< Updated upstream
-export type response_33_5 = {
-=======
-export type response_30_6 = {
->>>>>>> Stashed changes
-    code: 403;
-    ok: false;
-    info: "user.role.organization.invalid";
-} & {body: undefined};
-
-<<<<<<< Updated upstream
-export type request_body_34 = {
-    commandId: string;
+export type parameters_31 = {
+    params: {
+        promotionId: number;
+    };
 }
 
-export type response_34_0 = {
-=======
 export type response_31_0 = {
->>>>>>> Stashed changes
     code: 401;
     ok: false;
     info: "access.token.invalid";
@@ -1547,54 +1050,28 @@ export type response_31_1 = {
 export type response_31_2 = {
     code: 404;
     ok: false;
-    info: "command.notfound";
+    info: "promotion.notfound";
 } & {body: undefined};
-
-<<<<<<< Updated upstream
-export type response_34_3 = {
-    code: 401;
-    ok: false;
-    info: "command.wrong.user";
-} & {body: undefined};
-
-export type response_body_34_4 = {
-    sessionUrl: string;
-}
-
-export type response_34_4 = {
-    code: 201;
-    ok: true;
-    info: "session";
-} & {body: response_body_34_4};
-
-export type response_35_0 = {
-=======
-export type response_body_31_3 = {
-    id: string;
-    email: string;
-    lastname: string;
-    firstname: string;
-    dateOfBirth?: string;
-    address: string;
-    primordialRole: "CUSTOMER" | "MODERATOR" | "CONTENTS_MASTER" | "ADMIN";
-    muted: boolean;
-    hasOrganization: boolean;
-}
 
 export type response_31_3 = {
-    code: 200;
+    code: 204;
     ok: true;
-    info: "user";
-} & {body: response_body_31_3};
+    info: "promotion.deleted";
+} & {body: undefined};
 
-export type request_body_32 = {
-    lastname?: string | undefined;
-    firstname?: string | undefined;
-    address?: string | undefined;
-}
+export type response_31_4 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_31_5 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
 
 export type response_32_0 = {
->>>>>>> Stashed changes
     code: 401;
     ok: false;
     info: "access.token.invalid";
@@ -1606,19 +1083,13 @@ export type response_32_1 = {
     info: "user.notfound";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-export type response_35_2 = {
-    code: 404;
-=======
 export type response_32_2 = {
-    code: 400;
->>>>>>> Stashed changes
+    code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-export type response_body_35_3 = {
+export type response_body_32_3 = {
     id: string;
     email: string;
     lastname: string;
@@ -1630,30 +1101,16 @@ export type response_body_35_3 = {
     hasOrganization: boolean;
 }
 
-export type response_35_3 = {
+export type response_32_3 = {
     code: 200;
     ok: true;
     info: "user";
-} & {body: response_body_35_3};
+} & {body: response_body_32_3};
 
-export type request_body_36 = {
+export type request_body_33 = {
     lastname?: string | undefined;
     firstname?: string | undefined;
     address?: string | undefined;
-=======
-export type response_body_32_3 = string
-
-export type response_32_3 = {
-    code: 201;
-    ok: true;
-    info: "user.edited";
-} & {body: response_body_32_3};
-
-export type parameters_33 = {
-    params: {
-        promotionId: number;
-    };
->>>>>>> Stashed changes
 }
 
 export type response_33_0 = {
@@ -1668,44 +1125,19 @@ export type response_33_1 = {
     info: "user.notfound";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-export type response_36_2 = {
-    code: 400;
-=======
 export type response_33_2 = {
-    code: 404;
->>>>>>> Stashed changes
+    code: 400;
     ok: false;
     info: "user.address.invalid";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-export type response_body_36_3 = string
+export type response_body_33_3 = string
 
-export type response_36_3 = {
+export type response_33_3 = {
     code: 201;
     ok: true;
     info: "user.edited";
-} & {body: response_body_36_3};
-=======
-export type response_33_3 = {
-    code: 204;
-    ok: true;
-    info: "promotion.deleted";
-} & {body: undefined};
-
-export type response_33_4 = {
-    code: 406;
-    ok: false;
-    info: "organization.hasNotUser";
-} & {body: undefined};
-
-export type response_33_5 = {
-    code: 403;
-    ok: false;
-    info: "user.role.organization.invalid";
-} & {body: undefined};
->>>>>>> Stashed changes
+} & {body: response_body_33_3};
 
 export type request_body_34 = {
     name: string;
@@ -1749,12 +1181,6 @@ export type response_34_4 = {
     info: "category.created";
 } & {body: response_body_34_4};
 
-<<<<<<< Updated upstream
-export type parameters_38 = {
-    params?: {
-        commandId?: string;
-    } | undefined;
-=======
 export type request_body_35 = {
     name?: string | undefined;
     disabled?: boolean | undefined;
@@ -1889,19 +1315,8 @@ export type response_37_4 = {
 } & {body: undefined};
 
 export type request_body_38 = {
-    priority: number;
-    type: "PARENT_CATEGORY";
-    parentCategoryName: string;
-} | {
-    priority: number;
-    type: "CATEGORY";
-    categoryName: string;
-} | {
-    priority: number;
-    type: "LINK";
-    url: string;
-    title: string;
->>>>>>> Stashed changes
+    name: string;
+    ownerId: string;
 }
 
 export type response_38_0 = {
@@ -1917,67 +1332,49 @@ export type response_38_1 = {
 } & {body: undefined};
 
 export type response_38_2 = {
-    code: 404;
+    code: 403;
     ok: false;
-    info: "command.notfound";
+    info: "user.role.invalid";
 } & {body: undefined};
 
 export type response_38_3 = {
-<<<<<<< Updated upstream
-    code: 401;
-    ok: false;
-    info: "command.wrong.user";
-} & {body: undefined};
-
-export type response_body_38_4 = {
-    id: number;
-    idShip: string;
-    carrierName: "LA_POSTE";
-    commandId: string;
-    status: "DONE" | "CREATED" | "CARRIER_SUPPORTED" | "CARRIER_PROCESS" | "UNDELIVERABLE" | "DONE_OFFICE" | "BACK" | "BACK_DONE";
-    productsCount: number;
-}[]
-
-export type response_38_4 = {
-    code: 200;
-    ok: true;
-    info: "bundles.found";
-} & {body: response_body_38_4};
-
-export type parameters_39 = {
-    params?: {
-        commandId?: string;
-    } | undefined;
-=======
     code: 409;
     ok: false;
-    info: "navigationItem.limit";
+    info: "organization.alreadyExist";
 } & {body: undefined};
 
-export type response_body_38_4 = {
-    id: string;
+export type response_38_4 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_38_5 = {
+    code: 409;
+    ok: false;
+    info: "user.alreadyOwner";
+} & {body: undefined};
+
+export type response_38_6 = {
+    code: 201;
+    ok: true;
+    info: "organization.created";
+} & {body: undefined};
+
+export type request_body_39 = {
     priority: number;
     type: "PARENT_CATEGORY";
     parentCategoryName: string;
 } | {
-    id: string;
     priority: number;
     type: "CATEGORY";
     categoryName: string;
 } | {
-    id: string;
     priority: number;
     type: "LINK";
     url: string;
     title: string;
->>>>>>> Stashed changes
 }
-
-export type response_38_4 = {
-    code: 201;
-    ok: true;
-    info: "navigationItem.created";
-} & {body: response_body_38_4};
 
 export type response_39_0 = {
     code: 401;
@@ -1992,99 +1389,40 @@ export type response_39_1 = {
 } & {body: undefined};
 
 export type response_39_2 = {
-    code: 404;
+    code: 403;
     ok: false;
-    info: "command.notfound";
+    info: "user.role.invalid";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
 export type response_39_3 = {
-    code: 401;
+    code: 409;
     ok: false;
-    info: "command.wrong.user";
+    info: "navigationItem.limit";
 } & {body: undefined};
 
 export type response_body_39_4 = {
     id: string;
-    firstname: string;
-    lastname: string;
-    status: "DONE" | "CANCELED" | "WAITING_PAYMENT" | "IN_PROGRESS" | "IN_DELIVERY";
-    userId: string;
-    deliveryAddress: string;
-    createdDate: Date;
-    price: number;
-    items: {
-        quantity: number;
-        productSheetId: string;
-        productSheetName: string;
-        productSheetFirstImageUrl: string;
-        productSheetOrganizationName: string;
-        productSheetPrice: number;
-    }[];
+    priority: number;
+    type: "PARENT_CATEGORY";
+    parentCategoryName: string;
+} | {
+    id: string;
+    priority: number;
+    type: "CATEGORY";
+    categoryName: string;
+} | {
+    id: string;
+    priority: number;
+    type: "LINK";
+    url: string;
+    title: string;
 }
 
 export type response_39_4 = {
-    code: 200;
+    code: 201;
     ok: true;
-    info: "command.found";
+    info: "navigationItem.created";
 } & {body: response_body_39_4};
-
-export type parameters_40 = {
-    headers: {
-        "content-type": string;
-        "content-length": number;
-    };
-    params: {
-        categoryName: string;
-=======
-export type response_body_39_3 = ({
-    id: string;
-    priority: number;
-    type: "PARENT_CATEGORY";
-    parentCategoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "CATEGORY";
-    categoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "LINK";
-    url: string;
-    title: string;
-})[]
-
-export type response_39_3 = {
-    code: 200;
-    ok: true;
-    info: "navigationItems";
-} & {body: response_body_39_3};
-
-export type request_body_40 = {
-    id: string;
-    priority: number;
-    type: "PARENT_CATEGORY";
-    parentCategoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "CATEGORY";
-    categoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "LINK";
-    url: string;
-    title: string;
-}
-
-export type parameters_40 = {
-    params: {
-        navigationItemId: string;
->>>>>>> Stashed changes
-    };
-}
 
 export type response_40_0 = {
     code: 401;
@@ -2104,43 +1442,47 @@ export type response_40_2 = {
     info: "user.role.invalid";
 } & {body: undefined};
 
+export type response_body_40_3 = ({
+    id: string;
+    priority: number;
+    type: "PARENT_CATEGORY";
+    parentCategoryName: string;
+} | {
+    id: string;
+    priority: number;
+    type: "CATEGORY";
+    categoryName: string;
+} | {
+    id: string;
+    priority: number;
+    type: "LINK";
+    url: string;
+    title: string;
+})[]
+
 export type response_40_3 = {
-    code: 404;
-    ok: false;
-<<<<<<< Updated upstream
-    info: "category.notfound";
-=======
-    info: "navigationItem.notfound";
->>>>>>> Stashed changes
-} & {body: undefined};
-
-export type response_40_4 = {
-    code: 400;
-    ok: false;
-<<<<<<< Updated upstream
-    info: "category.image.missing";
-} & {body: undefined};
-
-export type response_40_5 = {
-    code: 204;
+    code: 200;
     ok: true;
-    info: "category.image.updated";
-=======
-    info: "category.notfound";
-} & {body: undefined};
+    info: "navigationItems";
+} & {body: response_body_40_3};
 
-export type response_40_5 = {
-    code: 404;
-    ok: false;
-    info: "parentCategory.notfound";
-} & {body: undefined};
-
-export type response_40_6 = {
-    code: 204;
-    ok: true;
-    info: "navigationItem.edited";
->>>>>>> Stashed changes
-} & {body: undefined};
+export type request_body_41 = {
+    id: string;
+    priority: number;
+    type: "PARENT_CATEGORY";
+    parentCategoryName: string;
+} | {
+    id: string;
+    priority: number;
+    type: "CATEGORY";
+    categoryName: string;
+} | {
+    id: string;
+    priority: number;
+    type: "LINK";
+    url: string;
+    title: string;
+}
 
 export type parameters_41 = {
     params: {
@@ -2173,22 +1515,26 @@ export type response_41_3 = {
 } & {body: undefined};
 
 export type response_41_4 = {
-    code: 204;
-    ok: true;
-    info: "navigationItem.delete";
+    code: 404;
+    ok: false;
+    info: "category.notfound";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-export type request_body_42 = {
-    name?: string | undefined;
-    disabled?: boolean | undefined;
-} | undefined
+export type response_41_5 = {
+    code: 404;
+    ok: false;
+    info: "parentCategory.notfound";
+} & {body: undefined};
 
-=======
->>>>>>> Stashed changes
+export type response_41_6 = {
+    code: 204;
+    ok: true;
+    info: "navigationItem.edited";
+} & {body: undefined};
+
 export type parameters_42 = {
     params: {
-        categoryName: string;
+        navigationItemId: string;
     };
 }
 
@@ -2213,47 +1559,23 @@ export type response_42_2 = {
 export type response_42_3 = {
     code: 404;
     ok: false;
-    info: "category.notfound";
+    info: "navigationItem.notfound";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
 export type response_42_4 = {
-    code: 409;
-    ok: false;
-    info: "category.alreadyExist";
-} & {body: undefined};
-=======
-export type response_body_42_4 = {
-    name: string;
-    disabled: boolean;
-    imageKey: string | null;
-    imageUrl: string | null;
-}[]
->>>>>>> Stashed changes
-
-export type response_42_4 = {
-    code: 200;
+    code: 204;
     ok: true;
-<<<<<<< Updated upstream
-    info: "category.edited";
+    info: "navigationItem.delete";
 } & {body: undefined};
 
-export type parameters_43 = {
-    query?: {
-        page?: number;
-        name?: string | undefined;
-        withCategories?: ("true" | "false") | undefined;
-    } | undefined;
-=======
-    info: "parentCategory.categories";
-} & {body: response_body_42_4};
+export type request_body_43 = {
+    categoryName: string;
+}
 
 export type parameters_43 = {
     params: {
         parentCategoryName: string;
-        categoryName: string;
     };
->>>>>>> Stashed changes
 }
 
 export type response_43_0 = {
@@ -2274,24 +1596,6 @@ export type response_43_2 = {
     info: "user.role.invalid";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-export type response_body_43_3 = {
-    name: string;
-    categories?: {
-        categoryName: string;
-    }[] | undefined;
-}[]
-
-export type response_43_3 = {
-    code: 200;
-    ok: true;
-    info: "parentCategories";
-} & {body: response_body_43_3};
-
-export type request_body_44 = {
-    name: string;
-    ownerId: string;
-=======
 export type response_43_3 = {
     code: 404;
     ok: false;
@@ -2299,20 +1603,27 @@ export type response_43_3 = {
 } & {body: undefined};
 
 export type response_43_4 = {
-    code: 200;
-    ok: true;
-    info: "parentCategory.category.untied";
+    code: 404;
+    ok: false;
+    info: "category.notfound";
 } & {body: undefined};
 
-export type request_body_44 = {
-    categoryName: string;
-}
+export type response_43_5 = {
+    code: 409;
+    ok: false;
+    info: "parentCategory.categories.limit";
+} & {body: undefined};
+
+export type response_43_6 = {
+    code: 204;
+    ok: true;
+    info: "parentCategory.category.linked";
+} & {body: undefined};
 
 export type parameters_44 = {
     params: {
         parentCategoryName: string;
     };
->>>>>>> Stashed changes
 }
 
 export type response_44_0 = {
@@ -2334,55 +1645,29 @@ export type response_44_2 = {
 } & {body: undefined};
 
 export type response_44_3 = {
-    code: 409;
-    ok: false;
-    info: "organization.alreadyExist";
-} & {body: undefined};
-
-export type response_44_4 = {
     code: 404;
     ok: false;
-<<<<<<< Updated upstream
-    info: "user.notfound";
-=======
-    info: "category.notfound";
->>>>>>> Stashed changes
+    info: "parentCategory.notfound";
 } & {body: undefined};
 
-export type response_44_5 = {
-    code: 409;
-    ok: false;
-<<<<<<< Updated upstream
-    info: "user.alreadyOwner";
-} & {body: undefined};
-
-export type response_44_6 = {
-    code: 201;
-    ok: true;
-    info: "organization.created";
-} & {body: undefined};
-
-export type request_body_45 = {
+export type response_body_44_4 = {
     name: string;
-=======
-    info: "parentCategory.categories.limit";
-} & {body: undefined};
+    disabled: boolean;
+    imageKey: string | null;
+    imageUrl: string | null;
+}[]
 
-export type response_44_6 = {
-    code: 204;
+export type response_44_4 = {
+    code: 200;
     ok: true;
-    info: "parentCategory.category.linked";
-} & {body: undefined};
-
-export type request_body_45 = {
-    name?: string | undefined;
-}
+    info: "parentCategory.categories";
+} & {body: response_body_44_4};
 
 export type parameters_45 = {
     params: {
         parentCategoryName: string;
+        categoryName: string;
     };
->>>>>>> Stashed changes
 }
 
 export type response_45_0 = {
@@ -2404,47 +1689,23 @@ export type response_45_2 = {
 } & {body: undefined};
 
 export type response_45_3 = {
-    code: 409;
+    code: 404;
     ok: false;
-    info: "parentCategory.name.alreadyUse";
+    info: "parentCategory.notfound";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-export type response_body_45_4 = {
-    name: string;
-}
-
 export type response_45_4 = {
-    code: 201;
+    code: 200;
     ok: true;
-    info: "parentCategory.created";
-} & {body: response_body_45_4};
-
-export type request_body_46 = {
-    categoryName: string;
-}
+    info: "parentCategory.category.untied";
+} & {body: undefined};
 
 export type parameters_46 = {
-    params: {
-        parentCategoryName: string;
-    };
-=======
-export type response_45_4 = {
-    code: 409;
-    ok: false;
-    info: "parentCategory.name.alreadyUse";
-} & {body: undefined};
-
-export type response_45_5 = {
-    code: 204;
-    ok: true;
-    info: "parentCategory.edited";
-} & {body: undefined};
-
-export type request_body_46 = {
-    name: string;
-    ownerId: string;
->>>>>>> Stashed changes
+    query?: {
+        page?: number;
+        name?: string | undefined;
+        withCategories?: ("true" | "false") | undefined;
+    } | undefined;
 }
 
 export type response_46_0 = {
@@ -2465,53 +1726,24 @@ export type response_46_2 = {
     info: "user.role.invalid";
 } & {body: undefined};
 
+export type response_body_46_3 = {
+    name: string;
+    categories?: {
+        categoryName: string;
+    }[] | undefined;
+}[]
+
 export type response_46_3 = {
-    code: 409;
-    ok: false;
-<<<<<<< Updated upstream
-    info: "parentCategory.notfound";
-=======
-    info: "organization.alreadyExist";
->>>>>>> Stashed changes
-} & {body: undefined};
-
-export type response_46_4 = {
-    code: 404;
-    ok: false;
-    info: "user.notfound";
-} & {body: undefined};
-
-export type response_46_5 = {
-    code: 409;
-    ok: false;
-<<<<<<< Updated upstream
-    info: "parentCategory.categories.limit";
-=======
-    info: "user.alreadyOwner";
->>>>>>> Stashed changes
-} & {body: undefined};
-
-export type response_46_6 = {
-    code: 201;
+    code: 200;
     ok: true;
-<<<<<<< Updated upstream
-    info: "parentCategory.category.linked";
-} & {body: undefined};
-
-export type parameters_47 = {
-    params: {
-        parentCategoryName: string;
-    };
-=======
-    info: "organization.created";
-} & {body: undefined};
+    info: "parentCategories";
+} & {body: response_body_46_3};
 
 export type parameters_47 = {
     query?: {
         page?: number;
         name?: string | undefined;
     } | undefined;
->>>>>>> Stashed changes
 }
 
 export type response_47_0 = {
@@ -2543,43 +1775,20 @@ export type response_body_47_3 = {
 }[]
 
 export type response_47_3 = {
-<<<<<<< Updated upstream
-    code: 404;
-    ok: false;
-    info: "parentCategory.notfound";
-} & {body: undefined};
-
-export type response_body_47_4 = {
-    name: string;
-    disabled: boolean;
-    imageKey: string | null;
-    imageUrl: string | null;
-}[]
-
-export type response_47_4 = {
-    code: 200;
-    ok: true;
-    info: "parentCategory.categories";
-} & {body: response_body_47_4};
-
-export type parameters_48 = {
-    params: {
-        parentCategoryName: string;
-        categoryName: string;
-    };
-=======
     code: 200;
     ok: true;
     info: "organizations";
 } & {body: response_body_47_3};
 
+export type request_body_48 = {
+    primordialRole?: ("CUSTOMER" | "CONTENTS_MASTER" | "MODERATOR") | undefined;
+    muted?: boolean | undefined;
+}
+
 export type parameters_48 = {
-    query?: {
-        page?: number;
-        name?: string | undefined;
-        withCategories?: ("true" | "false") | undefined;
-    } | undefined;
->>>>>>> Stashed changes
+    params: {
+        userId: string;
+    };
 }
 
 export type response_48_0 = {
@@ -2600,27 +1809,22 @@ export type response_48_2 = {
     info: "user.role.invalid";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-=======
-export type response_body_48_3 = {
-    name: string;
-    categories?: {
-        categoryName: string;
-    }[] | undefined;
-}[]
-
->>>>>>> Stashed changes
 export type response_48_3 = {
     code: 404;
     ok: false;
-    info: "parentCategory.notfound";
+    info: "user.notfound";
 } & {body: undefined};
 
 export type response_48_4 = {
-    code: 200;
+    code: 401;
+    ok: false;
+    info: "user.primordialRole.admin";
+} & {body: undefined};
+
+export type response_48_5 = {
+    code: 204;
     ok: true;
-<<<<<<< Updated upstream
-    info: "parentCategory.category.untied";
+    info: "user.edited";
 } & {body: undefined};
 
 export type request_body_49 = {
@@ -2631,13 +1835,6 @@ export type parameters_49 = {
     params: {
         parentCategoryName: string;
     };
-=======
-    info: "parentCategories";
-} & {body: response_body_48_3};
-
-export type request_body_49 = {
-    name: string;
->>>>>>> Stashed changes
 }
 
 export type response_49_0 = {
@@ -2670,7 +1867,6 @@ export type response_49_4 = {
     info: "parentCategory.name.alreadyUse";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
 export type response_49_5 = {
     code: 204;
     ok: true;
@@ -2678,40 +1874,9 @@ export type response_49_5 = {
 } & {body: undefined};
 
 export type request_body_50 = {
-    priority: number;
-    type: "PARENT_CATEGORY";
-    parentCategoryName: string;
-} | {
-    priority: number;
-    type: "CATEGORY";
-    categoryName: string;
-} | {
-    priority: number;
-    type: "LINK";
-    url: string;
-    title: string;
-}
-
-=======
-export type response_body_49_4 = {
     name: string;
 }
 
-export type response_49_4 = {
-    code: 201;
-    ok: true;
-    info: "parentCategory.created";
-} & {body: response_body_49_4};
-
-export type parameters_50 = {
-    query?: {
-        page?: number;
-        email?: string | undefined;
-        primordialRole?: (("CUSTOMER" | "MODERATOR" | "CONTENTS_MASTER" | "ADMIN") | ("CUSTOMER" | "MODERATOR" | "CONTENTS_MASTER" | "ADMIN")[]) | undefined;
-    } | undefined;
-}
-
->>>>>>> Stashed changes
 export type response_50_0 = {
     code: 401;
     ok: false;
@@ -2730,85 +1895,28 @@ export type response_50_2 = {
     info: "user.role.invalid";
 } & {body: undefined};
 
-export type response_body_50_3 = {
-    id: string;
-    email: string;
-    lastname: string;
-    firstname: string;
-    dateOfBirth?: string;
-    address: string;
-    primordialRole: "CUSTOMER" | "MODERATOR" | "CONTENTS_MASTER" | "ADMIN";
-    muted: boolean;
-}[]
-
 export type response_50_3 = {
-<<<<<<< Updated upstream
     code: 409;
     ok: false;
-    info: "navigationItem.limit";
+    info: "parentCategory.name.alreadyUse";
 } & {body: undefined};
 
 export type response_body_50_4 = {
-    id: string;
-    priority: number;
-    type: "PARENT_CATEGORY";
-    parentCategoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "CATEGORY";
-    categoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "LINK";
-    url: string;
-    title: string;
+    name: string;
 }
 
 export type response_50_4 = {
     code: 201;
     ok: true;
-    info: "navigationItem.created";
+    info: "parentCategory.created";
 } & {body: response_body_50_4};
 
-export type request_body_51 = {
-    id: string;
-    priority: number;
-    type: "PARENT_CATEGORY";
-    parentCategoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "CATEGORY";
-    categoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "LINK";
-    url: string;
-    title: string;
-}
-
 export type parameters_51 = {
-    params: {
-        navigationItemId: string;
-=======
-    code: 200;
-    ok: true;
-    info: "users";
-} & {body: response_body_50_3};
-
-export type request_body_51 = {
-    primordialRole?: ("CUSTOMER" | "CONTENTS_MASTER" | "MODERATOR") | undefined;
-    muted?: boolean | undefined;
-}
-
-export type parameters_51 = {
-    params: {
-        userId: string;
->>>>>>> Stashed changes
-    };
+    query?: {
+        page?: number;
+        email?: string | undefined;
+        primordialRole?: (("CUSTOMER" | "MODERATOR" | "CONTENTS_MASTER" | "ADMIN") | ("CUSTOMER" | "MODERATOR" | "CONTENTS_MASTER" | "ADMIN")[]) | undefined;
+    } | undefined;
 }
 
 export type response_51_0 = {
@@ -2829,56 +1937,27 @@ export type response_51_2 = {
     info: "user.role.invalid";
 } & {body: undefined};
 
+export type response_body_51_3 = {
+    id: string;
+    email: string;
+    lastname: string;
+    firstname: string;
+    dateOfBirth?: string;
+    address: string;
+    primordialRole: "CUSTOMER" | "MODERATOR" | "CONTENTS_MASTER" | "ADMIN";
+    muted: boolean;
+}[]
+
 export type response_51_3 = {
-    code: 404;
-    ok: false;
-<<<<<<< Updated upstream
-    info: "navigationItem.notfound";
-} & {body: undefined};
-
-export type response_51_4 = {
-    code: 404;
-    ok: false;
-    info: "category.notfound";
-} & {body: undefined};
-
-export type response_51_5 = {
-    code: 404;
-    ok: false;
-    info: "parentCategory.notfound";
-} & {body: undefined};
-
-export type response_51_6 = {
-    code: 204;
+    code: 200;
     ok: true;
-    info: "navigationItem.edited";
-} & {body: undefined};
+    info: "users";
+} & {body: response_body_51_3};
 
 export type parameters_52 = {
     params: {
-        navigationItemId: string;
+        productSheetId: string;
     };
-=======
-    info: "user.notfound";
-} & {body: undefined};
-
-export type response_51_4 = {
-    code: 401;
-    ok: false;
-    info: "user.primordialRole.admin";
-} & {body: undefined};
-
-export type response_51_5 = {
-    code: 204;
-    ok: true;
-    info: "user.edited";
-} & {body: undefined};
-
-export type parameters_52 = {
-    params?: {
-        commandId?: string;
-    } | undefined;
->>>>>>> Stashed changes
 }
 
 export type response_52_0 = {
@@ -2896,54 +1975,38 @@ export type response_52_1 = {
 export type response_52_2 = {
     code: 404;
     ok: false;
-    info: "command.notfound";
+    info: "productSheet.notfound";
 } & {body: undefined};
 
 export type response_52_3 = {
-<<<<<<< Updated upstream
-    code: 404;
+    code: 406;
     ok: false;
-    info: "navigationItem.notfound";
+    info: "organization.hasNotUser";
 } & {body: undefined};
 
 export type response_52_4 = {
-    code: 204;
-    ok: true;
-    info: "navigationItem.delete";
-} & {body: undefined};
-
-export type parameters_53 = {
-    query?: {
-        page?: number;
-        name?: string | undefined;
-    } | undefined;
-=======
-    code: 401;
+    code: 403;
     ok: false;
-    info: "command.wrong.user";
+    info: "user.role.organization.invalid";
 } & {body: undefined};
 
-export type response_body_52_4 = {
-    id: number;
-    idShip: string;
-    carrierName: "LA_POSTE";
-    commandId: string;
-    status: "CREATED" | "CARRIER_SUPPORTED" | "CARRIER_PROCESS" | "UNDELIVERABLE" | "DONE" | "DONE_OFFICE" | "BACK" | "BACK_DONE";
-    productCount: number;
+export type response_body_52_5 = {
+    name: string;
+    disabled: boolean;
+    imageKey: string | null;
+    imageUrl: string | null;
 }[]
 
-export type response_52_4 = {
+export type response_52_5 = {
     code: 200;
     ok: true;
-    info: "bundles.found";
-} & {body: response_body_52_4};
+    info: "productSheet.categories";
+} & {body: response_body_52_5};
 
 export type parameters_53 = {
-    params: {
-        productSheetId: string;
-        categoryName: string;
-    };
->>>>>>> Stashed changes
+    params?: {
+        commandId?: string;
+    } | undefined;
 }
 
 export type response_53_0 = {
@@ -2961,62 +2024,44 @@ export type response_53_1 = {
 export type response_53_2 = {
     code: 404;
     ok: false;
-    info: "productSheet.notfound";
+    info: "command.notfound";
 } & {body: undefined};
 
 export type response_53_3 = {
-    code: 406;
+    code: 401;
     ok: false;
-    info: "organization.hasNotUser";
+    info: "command.wrong.user";
 } & {body: undefined};
+
+export type response_body_53_4 = {
+    id: string;
+    firstname: string;
+    lastname: string;
+    status: "DONE" | "CANCELED" | "WAITING_PAYMENT" | "IN_PROGRESS" | "IN_DELIVERY";
+    userId: string;
+    deliveryAddress: string;
+    createdDate: Date;
+    price: number;
+    items: {
+        quantity: number;
+        productSheetId: string;
+        productSheetName: string;
+        productSheetFirstImageUrl: string;
+        productSheetOrganizationName: string;
+        productSheetPrice: number;
+    }[];
+}
 
 export type response_53_4 = {
-    code: 403;
-    ok: false;
-    info: "user.role.organization.invalid";
-} & {body: undefined};
-
-<<<<<<< Updated upstream
-export type response_body_53_3 = {
-    id: string;
-    name: string;
-    label: string | null;
-    ownerId: string;
-    suspended: boolean;
-    logoKey: string | null;
-    logoUrl: string | null;
-}[]
-=======
-export type response_53_5 = {
-    code: 404;
-    ok: false;
-    info: "category.notfound";
-} & {body: undefined};
->>>>>>> Stashed changes
-
-export type response_53_6 = {
     code: 200;
     ok: true;
-<<<<<<< Updated upstream
-    info: "organizations";
-} & {body: response_body_53_3};
-=======
-    info: "productSheet.category.untied";
-} & {body: undefined};
->>>>>>> Stashed changes
-
-export type request_body_54 = {
-    primordialRole?: ("CUSTOMER" | "CONTENTS_MASTER" | "MODERATOR") | undefined;
-    muted?: boolean | undefined;
-}
+    info: "command.found";
+} & {body: response_body_53_4};
 
 export type parameters_54 = {
     params: {
-<<<<<<< Updated upstream
-        userId: string;
-=======
         productSheetId: string;
->>>>>>> Stashed changes
+        categoryName: string;
     };
 }
 
@@ -3033,30 +2078,8 @@ export type response_54_1 = {
 } & {body: undefined};
 
 export type response_54_2 = {
-    code: 403;
-    ok: false;
-<<<<<<< Updated upstream
-    info: "user.role.invalid";
-} & {body: undefined};
-
-export type response_54_3 = {
     code: 404;
     ok: false;
-    info: "user.notfound";
-} & {body: undefined};
-
-export type response_54_4 = {
-    code: 401;
-    ok: false;
-    info: "user.primordialRole.admin";
-} & {body: undefined};
-
-export type response_54_5 = {
-    code: 204;
-    ok: true;
-    info: "user.edited";
-} & {body: undefined};
-=======
     info: "productSheet.notfound";
 } & {body: undefined};
 
@@ -3072,30 +2095,21 @@ export type response_54_4 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-export type response_body_54_5 = {
-    id: string;
-    name: string;
-    description: string;
-    shortDescription: string;
-    price: number;
-    createdAt?: string;
-    updatedAt?: string;
-    organizationId: string;
-    warehouseId: string;
-}
-
 export type response_54_5 = {
+    code: 404;
+    ok: false;
+    info: "category.notfound";
+} & {body: undefined};
+
+export type response_54_6 = {
     code: 200;
     ok: true;
-    info: "productSheet.found";
-} & {body: response_body_54_5};
+    info: "productSheet.category.untied";
+} & {body: undefined};
 
 export type request_body_55 = {
-    name?: string | undefined;
-    description?: string | undefined;
-    shortDescription?: string | undefined;
-    price?: number | undefined;
-    warehouseId?: string | undefined;
+    type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
+    value: string;
 }
 
 export type parameters_55 = {
@@ -3103,7 +2117,6 @@ export type parameters_55 = {
         productSheetId: string;
     };
 }
->>>>>>> Stashed changes
 
 export type response_55_0 = {
     code: 401;
@@ -3118,43 +2131,6 @@ export type response_55_1 = {
 } & {body: undefined};
 
 export type response_55_2 = {
-<<<<<<< Updated upstream
-    code: 403;
-    ok: false;
-    info: "user.role.invalid";
-} & {body: undefined};
-
-export type response_body_55_3 = ({
-    id: string;
-    priority: number;
-    type: "PARENT_CATEGORY";
-    parentCategoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "CATEGORY";
-    categoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "LINK";
-    url: string;
-    title: string;
-})[]
-
-export type response_55_3 = {
-    code: 200;
-    ok: true;
-    info: "navigationItems";
-} & {body: response_body_55_3};
-
-export type parameters_56 = {
-    query?: {
-        page?: number;
-        email?: string | undefined;
-        primordialRole?: (("CUSTOMER" | "MODERATOR" | "CONTENTS_MASTER" | "ADMIN") | ("CUSTOMER" | "MODERATOR" | "CONTENTS_MASTER" | "ADMIN")[]) | undefined;
-    } | undefined;
-=======
     code: 404;
     ok: false;
     info: "productSheet.notfound";
@@ -3172,29 +2148,28 @@ export type response_55_4 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-export type response_body_55_5 = {
-    id: string;
-    name: string;
-    description: string;
-    shortDescription: string;
-    price: number;
-    createdAt?: string;
-    updatedAt?: string;
-    organizationId: string;
-    warehouseId: string;
+export type response_55_5 = {
+    code: 409;
+    ok: false;
+    info: "productSheet.facet.alreadyExist";
+} & {body: undefined};
+
+export type response_body_55_6 = {
+    type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
+    productSheetId: string;
+    value: string;
 }
 
-export type response_55_5 = {
+export type response_55_6 = {
     code: 201;
     ok: true;
-    info: "productSheet.edited";
-} & {body: response_body_55_5};
+    info: "facet.created";
+} & {body: response_body_55_6};
 
 export type parameters_56 = {
     params: {
         productSheetId: string;
     };
->>>>>>> Stashed changes
 }
 
 export type response_56_0 = {
@@ -3210,8 +2185,6 @@ export type response_56_1 = {
 } & {body: undefined};
 
 export type response_56_2 = {
-<<<<<<< Updated upstream
-=======
     code: 404;
     ok: false;
     info: "productSheet.notfound";
@@ -3224,40 +2197,23 @@ export type response_56_3 = {
 } & {body: undefined};
 
 export type response_56_4 = {
->>>>>>> Stashed changes
     code: 403;
     ok: false;
-    info: "user.role.invalid";
+    info: "user.role.organization.invalid";
 } & {body: undefined};
 
-export type response_body_56_3 = {
+export type response_body_56_5 = {
     id: string;
-<<<<<<< Updated upstream
-    email: string;
-    lastname: string;
-    firstname: string;
-    dateOfBirth?: string;
-    address: string;
-    primordialRole: "CUSTOMER" | "MODERATOR" | "CONTENTS_MASTER" | "ADMIN";
-    muted: boolean;
-}[]
-=======
     name: string;
     address: string;
     organizationId: string;
 }
->>>>>>> Stashed changes
 
-export type response_56_3 = {
+export type response_56_5 = {
     code: 200;
     ok: true;
-<<<<<<< Updated upstream
-    info: "users";
-} & {body: response_body_56_3};
-=======
     info: "productSheet.warehouse";
 } & {body: response_body_56_5};
->>>>>>> Stashed changes
 
 export type parameters_57 = {
     params: {
@@ -3295,47 +2251,33 @@ export type response_57_4 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-export type response_57_5 = {
-    code: 404;
-    ok: false;
-    info: "warehouse.notfound";
-} & {body: undefined};
-
-export type response_body_57_6 = {
-    commandId: string;
-    firstname: string;
-    lastname: string;
-    address: string;
-    quantity: number;
-    createdAt?: string;
-=======
 export type response_body_57_5 = {
     id: string;
-    productSheetId: string;
+    name: string;
+    description: string;
+    shortDescription: string;
+    price: number;
+    createdAt?: string;
+    updatedAt?: string;
     organizationId: string;
-    url: string;
-    key: string;
-    alt: string | null;
->>>>>>> Stashed changes
-}[]
+    warehouseId: string;
+}
 
 export type response_57_5 = {
     code: 200;
     ok: true;
-<<<<<<< Updated upstream
-    info: "organizationCommandCollection";
-} & {body: response_body_57_6};
-=======
-    info: "productSheet.images";
+    info: "productSheet.found";
 } & {body: response_body_57_5};
->>>>>>> Stashed changes
+
+export type request_body_58 = {
+    name?: string | undefined;
+    description?: string | undefined;
+    shortDescription?: string | undefined;
+    price?: number | undefined;
+    warehouseId?: string | undefined;
+}
 
 export type parameters_58 = {
-    headers: {
-        "content-type": string;
-        "content-length": number;
-    };
     params: {
         productSheetId: string;
     };
@@ -3371,62 +2313,32 @@ export type response_58_4 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
 export type response_body_58_5 = {
     id: string;
     name: string;
-    label: string | null;
-    ownerId: string;
-    suspended: boolean;
-    logoKey: string | null;
-    logoUrl: string | null;
+    description: string;
+    shortDescription: string;
+    price: number;
+    createdAt?: string;
+    updatedAt?: string;
+    organizationId: string;
+    warehouseId: string;
 }
 
 export type response_58_5 = {
-    code: 200;
+    code: 201;
     ok: true;
-    info: "organization.found";
+    info: "productSheet.edited";
 } & {body: response_body_58_5};
 
 export type request_body_59 = {
-    label?: (string | null) | undefined;
-=======
-export type response_58_5 = {
-    code: 409;
-    ok: false;
-    info: "product.images.limit";
-} & {body: undefined};
-
-export type response_58_6 = {
-    code: 400;
-    ok: false;
-    info: "productSheet.image.missing";
-} & {body: undefined};
-
-export type response_body_58_7 = {
-    id: string;
-    productSheetId: string;
-    organizationId: string;
-    url: string;
-    key: string;
-    alt: string | null;
-}
-
-export type response_58_7 = {
-    code: 201;
-    ok: true;
-    info: "productSheet.image.create";
-} & {body: response_body_58_7};
-
-export type request_body_59 = {
-    type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
-    value: string;
->>>>>>> Stashed changes
+    value?: string | undefined;
 }
 
 export type parameters_59 = {
     params: {
         productSheetId: string;
+        facetType: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
     };
 }
 
@@ -3461,46 +2373,21 @@ export type response_59_4 = {
 } & {body: undefined};
 
 export type response_59_5 = {
-<<<<<<< Updated upstream
-    code: 204;
-    ok: true;
-    info: "organization.edited";
-} & {body: undefined};
-=======
-    code: 409;
+    code: 404;
     ok: false;
-    info: "productSheet.facet.alreadyExist";
+    info: "facet.notfound";
 } & {body: undefined};
-
-export type response_body_59_6 = {
-    type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
-    productSheetId: string;
-    value: string;
-}
 
 export type response_59_6 = {
-    code: 201;
+    code: 204;
     ok: true;
-    info: "facet.created";
-} & {body: response_body_59_6};
-
-export type request_body_60 = {
-    value?: string | undefined;
-}
->>>>>>> Stashed changes
+    info: "facet.edited";
+} & {body: undefined};
 
 export type parameters_60 = {
-    headers: {
-        "content-type": string;
-        "content-length": number;
-    };
     params: {
-<<<<<<< Updated upstream
-        organizationId: string;
-=======
         productSheetId: string;
         facetType: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
->>>>>>> Stashed changes
     };
 }
 
@@ -3535,38 +2422,20 @@ export type response_60_4 = {
 } & {body: undefined};
 
 export type response_60_5 = {
-    code: 400;
+    code: 404;
     ok: false;
-<<<<<<< Updated upstream
-    info: "organization.logo.missing";
-=======
     info: "facet.notfound";
->>>>>>> Stashed changes
 } & {body: undefined};
 
 export type response_60_6 = {
     code: 204;
     ok: true;
-<<<<<<< Updated upstream
-    info: "organization.logo.edited";
-} & {body: undefined};
-
-export type request_body_61 = {
-    status?: ("IN_STOCK" | "WRONG") | undefined;
-}
-
-export type parameters_61 = {
-    params: {
-        sku: string;
-=======
-    info: "facet.edited";
+    info: "facet.deleted";
 } & {body: undefined};
 
 export type parameters_61 = {
     params: {
         productSheetId: string;
-        facetType: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
->>>>>>> Stashed changes
     };
 }
 
@@ -3585,11 +2454,7 @@ export type response_61_1 = {
 export type response_61_2 = {
     code: 404;
     ok: false;
-<<<<<<< Updated upstream
-    info: "product.notfound";
-=======
     info: "productSheet.notfound";
->>>>>>> Stashed changes
 } & {body: undefined};
 
 export type response_61_3 = {
@@ -3604,51 +2469,26 @@ export type response_61_4 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
 export type response_body_61_5 = {
-    sku: string;
-    status: "WRONG" | "SOLD" | "IN_STOCK";
-    organizationId: string;
+    type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
     productSheetId: string;
-    productSheetName: string;
-    productSheetFirstImageUrl?: string | undefined;
-    warehouseId: string;
-    warehouseName: string;
-    createdAt: string;
-    updatedAt: string;
-}
+    value: string;
+}[]
 
 export type response_61_5 = {
     code: 200;
     ok: true;
-    info: "product.edited";
+    info: "productSheet.facets";
 } & {body: response_body_61_5};
 
 export type parameters_62 = {
-    params: {
-        organizationId: string;
+    headers: {
+        "content-type": string;
+        "content-length": number;
     };
-    query?: {
-        page?: number;
-    } | undefined;
-=======
-export type response_61_5 = {
-    code: 404;
-    ok: false;
-    info: "facet.notfound";
-} & {body: undefined};
-
-export type response_61_6 = {
-    code: 204;
-    ok: true;
-    info: "facet.deleted";
-} & {body: undefined};
-
-export type parameters_62 = {
     params: {
         productSheetId: string;
     };
->>>>>>> Stashed changes
 }
 
 export type response_62_0 = {
@@ -3666,11 +2506,7 @@ export type response_62_1 = {
 export type response_62_2 = {
     code: 404;
     ok: false;
-<<<<<<< Updated upstream
-    info: "organization.notfound";
-=======
     info: "productSheet.notfound";
->>>>>>> Stashed changes
 } & {body: undefined};
 
 export type response_62_3 = {
@@ -3684,51 +2520,38 @@ export type response_62_4 = {
     ok: false;
     info: "user.role.organization.invalid";
 } & {body: undefined};
-<<<<<<< Updated upstream
-
-export type response_body_62_5 = {
-    id: number;
-    percentage: number;
-    startDate?: string;
-    endDate?: string;
-    productSheetName: string;
-    productSheetId: string;
-}[]
 
 export type response_62_5 = {
-    code: 200;
-    ok: true;
-    info: "organization.promotions";
-=======
+    code: 409;
+    ok: false;
+    info: "product.images.limit";
+} & {body: undefined};
 
-export type response_body_62_5 = {
-    type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
+export type response_62_6 = {
+    code: 400;
+    ok: false;
+    info: "productSheet.image.missing";
+} & {body: undefined};
+
+export type response_body_62_7 = {
+    id: string;
     productSheetId: string;
-    value: string;
-}[]
+    organizationId: string;
+    url: string;
+    key: string;
+    alt: string | null;
+}
 
-export type response_62_5 = {
-    code: 200;
+export type response_62_7 = {
+    code: 201;
     ok: true;
-    info: "productSheet.facets";
->>>>>>> Stashed changes
-} & {body: response_body_62_5};
+    info: "productSheet.image.create";
+} & {body: response_body_62_7};
 
 export type parameters_63 = {
     params: {
-        organizationId: string;
-<<<<<<< Updated upstream
-=======
+        productSheetId: string;
     };
-    query: {
-        warehouseId: string;
-        page?: number;
->>>>>>> Stashed changes
-    };
-    query?: {
-        page?: number;
-        name?: string | undefined;
-    } | undefined;
 }
 
 export type response_63_0 = {
@@ -3746,7 +2569,7 @@ export type response_63_1 = {
 export type response_63_2 = {
     code: 404;
     ok: false;
-    info: "organization.notfound";
+    info: "productSheet.notfound";
 } & {body: undefined};
 
 export type response_63_3 = {
@@ -3763,53 +2586,26 @@ export type response_63_4 = {
 
 export type response_body_63_5 = {
     id: string;
-    name: string;
-    description: string;
-    shortDescription: string;
-    price: number;
-    createdAt?: string;
-    updatedAt?: string;
+    productSheetId: string;
     organizationId: string;
-    warehouseId: string;
+    url: string;
+    key: string;
+    alt: string | null;
 }[]
 
 export type response_63_5 = {
-<<<<<<< Updated upstream
     code: 200;
     ok: true;
-    info: "productSheets.found";
+    info: "productSheet.images";
 } & {body: response_body_63_5};
-
-export type request_body_64 = {
-    name: string;
-    description: string;
-    shortDescription: string;
-    price: number;
-    warehouseId: string;
-}
-=======
-    code: 404;
-    ok: false;
-    info: "warehouse.notfound";
-} & {body: undefined};
->>>>>>> Stashed changes
-
-export type response_body_63_6 = {
-    commandId: string;
-    quantity: number;
-    createdAt?: string;
-}[]
-
-export type response_63_6 = {
-    code: 200;
-    ok: true;
-    info: "organizationCommandCollection";
-} & {body: response_body_63_6};
 
 export type parameters_64 = {
     params: {
         organizationId: string;
-        commandId: string;
+    };
+    query: {
+        warehouseId: string;
+        page?: number;
     };
 }
 
@@ -3846,73 +2642,36 @@ export type response_64_4 = {
 export type response_64_5 = {
     code: 404;
     ok: false;
-<<<<<<< Updated upstream
     info: "warehouse.notfound";
 } & {body: undefined};
 
 export type response_body_64_6 = {
-    id: string;
+    commandId: string;
+    firstname: string;
+    lastname: string;
+    address: string;
+    quantity: number;
+    createdAt?: string;
+}[]
+
+export type response_64_6 = {
+    code: 200;
+    ok: true;
+    info: "organizationCommandCollection";
+} & {body: response_body_64_6};
+
+export type request_body_65 = {
     name: string;
     description: string;
     shortDescription: string;
     price: number;
-    createdAt?: string;
-    updatedAt?: string;
-    organizationId: string;
     warehouseId: string;
 }
-
-export type response_64_6 = {
-    code: 201;
-    ok: true;
-    info: "productSheet.created";
-} & {body: response_body_64_6};
-=======
-    info: "command.notfound";
-} & {body: undefined};
-
-export type response_64_6 = {
-    code: 404;
-    ok: false;
-    info: "commandItem.missing";
-} & {body: undefined};
-
-export type response_body_64_7 = {
-    commandItemId: number;
-    commandId: string;
-    quantity: number;
-    processQuantity: number;
-    productSheetName: string;
-    productSheetId: string;
-    productSheetFirstImageUrl: string;
-}[]
-
-export type response_64_7 = {
-    code: 200;
-    ok: true;
-    info: "organizationCommandDetailes";
-} & {body: response_body_64_7};
-
-export type request_body_65 = {
-    idShip: string;
-    bundleItems: {
-        commandItemId: number;
-        sku: string;
-    }[];
-}
->>>>>>> Stashed changes
 
 export type parameters_65 = {
     params: {
         organizationId: string;
-        commandId: string;
     };
-    query?: {
-        page?: number;
-        sku?: string | undefined;
-        productSheetId?: string | undefined;
-        status?: ("WRONG" | "SOLD" | "IN_STOCK") | undefined;
-    } | undefined;
 }
 
 export type response_65_0 = {
@@ -3945,87 +2704,35 @@ export type response_65_4 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-export type response_body_65_5 = {
-    sku: string;
-    status: "WRONG" | "SOLD" | "IN_STOCK";
-    organizationId: string;
-    productSheetId: string;
-    productSheetName: string;
-    productSheetFirstImageUrl?: string | undefined;
-    warehouseId: string;
-    warehouseName: string;
-    createdAt: string;
-    updatedAt: string;
-}[]
-
-=======
->>>>>>> Stashed changes
 export type response_65_5 = {
     code: 404;
     ok: false;
-    info: "command.notfound";
+    info: "warehouse.notfound";
 } & {body: undefined};
+
+export type response_body_65_6 = {
+    id: string;
+    name: string;
+    description: string;
+    shortDescription: string;
+    price: number;
+    createdAt?: string;
+    updatedAt?: string;
+    organizationId: string;
+    warehouseId: string;
+}
 
 export type response_65_6 = {
-    code: 400;
-    ok: false;
-    info: "commandItem.wrong.product";
-} & {body: undefined};
-
-export type response_65_7 = {
-    code: 400;
-    ok: false;
-    info: "organization.wrong.product";
-} & {body: undefined};
-
-export type response_65_8 = {
-    code: 400;
-    ok: false;
-    info: "commandItem.wrong.commandId";
-} & {body: undefined};
-
-export type response_65_9 = {
-    code: 404;
-    ok: false;
-    info: "commandItem.missing";
-} & {body: undefined};
-
-export type response_65_10 = {
-    code: 404;
-    ok: false;
-    info: "product.missing";
-} & {body: undefined};
-
-export type response_65_11 = {
-    code: 409;
-    ok: false;
-    info: "commandItem.alreadyCompleted";
-} & {body: undefined};
-
-export type response_65_12 = {
-    code: 409;
-    ok: false;
-    info: "commandItem.tooMuch.product";
-} & {body: undefined};
-
-export type response_65_13 = {
-    code: 200;
+    code: 201;
     ok: true;
-<<<<<<< Updated upstream
-    info: "products.found";
-} & {body: response_body_65_5};
-
-export type request_body_66 = {
-    name: string;
-    address: string;
-}
-=======
-    info: "makeBundle";
-} & {body: undefined};
->>>>>>> Stashed changes
+    info: "productSheet.created";
+} & {body: response_body_65_6};
 
 export type parameters_66 = {
+    headers: {
+        "content-type": string;
+        "content-length": number;
+    };
     params: {
         organizationId: string;
     };
@@ -4061,57 +2768,26 @@ export type response_66_4 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-export type response_body_66_5 = {
-    id: string;
-    name: string;
-    label: string | null;
-    ownerId: string;
-    suspended: boolean;
-    logoKey: string | null;
-    logoUrl: string | null;
-}
-
 export type response_66_5 = {
-<<<<<<< Updated upstream
     code: 400;
     ok: false;
-    info: "warehouse.address.invalid";
+    info: "organization.logo.missing";
 } & {body: undefined};
-=======
-    code: 200;
-    ok: true;
-    info: "organization.found";
-} & {body: response_body_66_5};
-
-export type request_body_67 = {
-    label?: (string | null) | undefined;
-}
->>>>>>> Stashed changes
-
-export type response_body_66_6 = {
-    id: string;
-    name: string;
-    address: string;
-    organizationId: string;
-}
 
 export type response_66_6 = {
-    code: 201;
+    code: 204;
     ok: true;
-    info: "warehouse.created";
-} & {body: response_body_66_6};
+    info: "organization.logo.edited";
+} & {body: undefined};
 
 export type parameters_67 = {
     params: {
         organizationId: string;
     };
-<<<<<<< Updated upstream
     query?: {
         page?: number;
-        email?: string | undefined;
+        name?: string | undefined;
     } | undefined;
-=======
->>>>>>> Stashed changes
 }
 
 export type response_67_0 = {
@@ -4144,37 +2820,32 @@ export type response_67_4 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
 export type response_body_67_5 = {
     id: string;
-    email: string;
-    lastname: string;
-    firstname: string;
-    organizationRole: "STORE_KEEPER" | "PRODUCT_SHEET_MANAGER" | "ACCOUNTANT" | "OWNER";
+    name: string;
+    description: string;
+    shortDescription: string;
+    price: number;
+    createdAt?: string;
+    updatedAt?: string;
+    organizationId: string;
+    warehouseId: string;
 }[]
 
-=======
->>>>>>> Stashed changes
 export type response_67_5 = {
-    code: 204;
+    code: 200;
     ok: true;
-<<<<<<< Updated upstream
-    info: "organization.users";
+    info: "productSheets.found";
 } & {body: response_body_67_5};
 
 export type parameters_68 = {
     params: {
         organizationId: string;
-        commandId: string;
-=======
-    info: "organization.edited";
-} & {body: undefined};
-
-export type parameters_68 = {
-    params: {
-        productSheetId: string;
->>>>>>> Stashed changes
     };
+    query?: {
+        page?: number;
+        name?: string | undefined;
+    } | undefined;
 }
 
 export type response_68_0 = {
@@ -4192,7 +2863,7 @@ export type response_68_1 = {
 export type response_68_2 = {
     code: 404;
     ok: false;
-    info: "productSheet.notfound";
+    info: "organization.notfound";
 } & {body: undefined};
 
 export type response_68_3 = {
@@ -4207,64 +2878,28 @@ export type response_68_4 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-export type response_68_5 = {
-    code: 404;
-    ok: false;
-    info: "command.notfound";
-} & {body: undefined};
-
-export type response_68_6 = {
-    code: 404;
-    ok: false;
-    info: "commandItem.missing";
-} & {body: undefined};
-
-export type response_body_68_7 = {
-    commandItemId: number;
-    commandId: string;
-    quantity: number;
-    processQuantity: number;
-    productSheetName: string;
-    productSheetId: string;
-    productSheetFirstImageUrl: string;
-}[]
-
-export type response_68_7 = {
-    code: 200;
-    ok: true;
-    info: "organizationCommandDetailes";
-} & {body: response_body_68_7};
-=======
 export type response_body_68_5 = {
+    id: string;
     name: string;
-    disabled: boolean;
-    imageKey: string | null;
-    imageUrl: string | null;
+    address: string;
+    organizationId: string;
 }[]
 
 export type response_68_5 = {
     code: 200;
     ok: true;
-    info: "productSheet.categories";
+    info: "warehouses.found";
 } & {body: response_body_68_5};
 
 export type request_body_69 = {
-    categoryName: string;
+    name: string;
+    address: string;
 }
->>>>>>> Stashed changes
 
 export type parameters_69 = {
     params: {
-        productSheetId: string;
+        organizationId: string;
     };
-<<<<<<< Updated upstream
-    query?: {
-        page?: number;
-        name?: string | undefined;
-    } | undefined;
-=======
->>>>>>> Stashed changes
 }
 
 export type response_69_0 = {
@@ -4282,7 +2917,7 @@ export type response_69_1 = {
 export type response_69_2 = {
     code: 404;
     ok: false;
-    info: "productSheet.notfound";
+    info: "organization.notfound";
 } & {body: undefined};
 
 export type response_69_3 = {
@@ -4297,34 +2932,24 @@ export type response_69_4 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-export type response_body_69_5 = {
+export type response_69_5 = {
+    code: 400;
+    ok: false;
+    info: "warehouse.address.invalid";
+} & {body: undefined};
+
+export type response_body_69_6 = {
     id: string;
     name: string;
     address: string;
     organizationId: string;
-}[]
-
-=======
->>>>>>> Stashed changes
-export type response_69_5 = {
-    code: 404;
-    ok: false;
-    info: "category.notfound";
-} & {body: undefined};
+}
 
 export type response_69_6 = {
-    code: 409;
-    ok: false;
-    info: "productSheet.categories.limit";
-} & {body: undefined};
-
-export type response_69_7 = {
-    code: 200;
+    code: 201;
     ok: true;
-<<<<<<< Updated upstream
-    info: "warehouses.found";
-} & {body: response_body_69_5};
+    info: "warehouse.created";
+} & {body: response_body_69_6};
 
 export type request_body_70 = {
     idShip: string;
@@ -4339,15 +2964,6 @@ export type parameters_70 = {
         organizationId: string;
         commandId: string;
     };
-=======
-    info: "productSheet.category.linked";
-} & {body: undefined};
-
-export type parameters_70 = {
-    params?: {
-        commandId?: string;
-    } | undefined;
->>>>>>> Stashed changes
 }
 
 export type response_70_0 = {
@@ -4365,20 +2981,21 @@ export type response_70_1 = {
 export type response_70_2 = {
     code: 404;
     ok: false;
-<<<<<<< Updated upstream
     info: "organization.notfound";
-=======
-    info: "command.notfound";
->>>>>>> Stashed changes
 } & {body: undefined};
 
 export type response_70_3 = {
-    code: 401;
+    code: 406;
     ok: false;
-    info: "command.wrong.user";
+    info: "organization.hasNotUser";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
+export type response_70_4 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
 export type response_70_5 = {
     code: 404;
     ok: false;
@@ -4432,44 +3049,11 @@ export type response_70_13 = {
     ok: true;
     info: "makeBundle";
 } & {body: undefined};
-=======
-export type response_body_70_4 = {
-    id: string;
-    firstname: string;
-    lastname: string;
-    status: "CANCELED" | "WAITING_PAYMENT" | "IN_PROGRESS" | "IN_DELIVERY" | "DONE";
-    userId: string;
-    deliveryAddress: string;
-    createdDate: Date;
-    price: number;
-    items: {
-        quantity: number;
-        productSheetId: string;
-        productSheetName: string;
-        productSheetFirstImageUrl: string;
-        productSheetOrganizationName: string;
-        productSheetPrice: number;
-    }[];
-}
-
-export type response_70_4 = {
-    code: 200;
-    ok: true;
-    info: "command.found";
-} & {body: response_body_70_4};
->>>>>>> Stashed changes
 
 export type parameters_71 = {
-    headers: {
-        "content-type": string;
-        "content-length": number;
-    };
     params: {
-<<<<<<< Updated upstream
-        productSheetId: string;
-=======
         organizationId: string;
->>>>>>> Stashed changes
+        commandId: string;
     };
 }
 
@@ -4503,41 +3087,38 @@ export type response_71_4 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-export type response_body_71_5 = {
-    name: string;
-    disabled: boolean;
-    imageKey: string | null;
-    imageUrl: string | null;
-}[]
-
 export type response_71_5 = {
-    code: 200;
-    ok: true;
-    info: "productSheet.categories";
-} & {body: response_body_71_5};
-=======
-export type response_71_5 = {
-    code: 400;
+    code: 404;
     ok: false;
-    info: "organization.logo.missing";
+    info: "command.notfound";
 } & {body: undefined};
 
 export type response_71_6 = {
-    code: 204;
-    ok: true;
-    info: "organization.logo.edited";
+    code: 404;
+    ok: false;
+    info: "commandItem.missing";
 } & {body: undefined};
->>>>>>> Stashed changes
+
+export type response_body_71_7 = {
+    commandItemId: number;
+    commandId: string;
+    quantity: number;
+    processQuantity: number;
+    productSheetName: string;
+    productSheetId: string;
+    productSheetFirstImageUrl: string;
+}[]
+
+export type response_71_7 = {
+    code: 200;
+    ok: true;
+    info: "organizationCommandDetailes";
+} & {body: response_body_71_7};
 
 export type parameters_72 = {
     params: {
         organizationId: string;
     };
-    query?: {
-        page?: number;
-        name?: string | undefined;
-    } | undefined;
 }
 
 export type response_72_0 = {
@@ -4573,27 +3154,21 @@ export type response_72_4 = {
 export type response_body_72_5 = {
     id: string;
     name: string;
-    description: string;
-    shortDescription: string;
-    price: number;
-    createdAt?: string;
-    updatedAt?: string;
-    organizationId: string;
-    warehouseId: string;
-}[]
+    label: string | null;
+    ownerId: string;
+    suspended: boolean;
+    logoKey: string | null;
+    logoUrl: string | null;
+}
 
 export type response_72_5 = {
     code: 200;
     ok: true;
-    info: "productSheets.found";
+    info: "organization.found";
 } & {body: response_body_72_5};
 
 export type request_body_73 = {
-    name: string;
-    description: string;
-    shortDescription: string;
-    price: number;
-    warehouseId: string;
+    label?: (string | null) | undefined;
 }
 
 export type parameters_73 = {
@@ -4632,51 +3207,15 @@ export type response_73_4 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-export type response_body_73_5 = {
-    id: string;
-    name: string;
-    address: string;
-    organizationId: string;
-=======
 export type response_73_5 = {
-    code: 404;
-    ok: false;
-    info: "warehouse.notfound";
-} & {body: undefined};
-
-export type response_body_73_6 = {
-    id: string;
-    name: string;
-    description: string;
-    shortDescription: string;
-    price: number;
-    createdAt?: string;
-    updatedAt?: string;
-    organizationId: string;
-    warehouseId: string;
->>>>>>> Stashed changes
-}
-
-export type response_73_6 = {
-    code: 201;
+    code: 204;
     ok: true;
-<<<<<<< Updated upstream
-    info: "productSheet.warehouse";
-} & {body: response_body_73_5};
-
-export type parameters_74 = {
-    params: {
-        productSheetId: string;
-        categoryName: string;
-=======
-    info: "productSheet.created";
-} & {body: response_body_73_6};
+    info: "organization.edited";
+} & {body: undefined};
 
 export type parameters_74 = {
     params: {
         organizationId: string;
->>>>>>> Stashed changes
     };
     query?: {
         page?: number;
@@ -4714,8 +3253,6 @@ export type response_74_4 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-=======
 export type response_body_74_5 = {
     id: string;
     email: string;
@@ -4724,36 +3261,20 @@ export type response_body_74_5 = {
     organizationRole: "STORE_KEEPER" | "PRODUCT_SHEET_MANAGER" | "ACCOUNTANT" | "OWNER";
 }[]
 
->>>>>>> Stashed changes
 export type response_74_5 = {
-    code: 404;
-    ok: false;
-    info: "category.notfound";
-} & {body: undefined};
-
-export type response_74_6 = {
     code: 200;
     ok: true;
-<<<<<<< Updated upstream
-    info: "productSheet.category.untied";
-} & {body: undefined};
-
-export type request_body_75 = {
-    type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
-    value: string;
-=======
     info: "organization.users";
 } & {body: response_body_74_5};
 
 export type request_body_75 = {
-    name: string;
-    address: string;
->>>>>>> Stashed changes
+    name?: string | undefined;
+    address?: string | undefined;
 }
 
 export type parameters_75 = {
     params: {
-        organizationId: string;
+        warehouseId: string;
     };
 }
 
@@ -4772,7 +3293,7 @@ export type response_75_1 = {
 export type response_75_2 = {
     code: 404;
     ok: false;
-    info: "organization.notfound";
+    info: "warehouse.notfound";
 } & {body: undefined};
 
 export type response_75_3 = {
@@ -4788,48 +3309,21 @@ export type response_75_4 = {
 } & {body: undefined};
 
 export type response_75_5 = {
-<<<<<<< Updated upstream
-    code: 409;
-    ok: false;
-    info: "productSheet.facet.alreadyExist";
-} & {body: undefined};
-
-export type response_body_75_6 = {
-    type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
-    productSheetId: string;
-    value: string;
-=======
     code: 400;
     ok: false;
     info: "warehouse.address.invalid";
 } & {body: undefined};
 
-export type response_body_75_6 = {
-    id: string;
-    name: string;
-    address: string;
-    organizationId: string;
->>>>>>> Stashed changes
-}
-
 export type response_75_6 = {
-    code: 201;
+    code: 204;
     ok: true;
-<<<<<<< Updated upstream
-    info: "facet.created";
-=======
-    info: "warehouse.created";
->>>>>>> Stashed changes
-} & {body: response_body_75_6};
+    info: "warehouse.edited";
+} & {body: undefined};
 
 export type parameters_76 = {
     params: {
-        organizationId: string;
+        bundleId: number;
     };
-    query?: {
-        page?: number;
-        name?: string | undefined;
-    } | undefined;
 }
 
 export type response_76_0 = {
@@ -4847,57 +3341,21 @@ export type response_76_1 = {
 export type response_76_2 = {
     code: 404;
     ok: false;
-    info: "organization.notfound";
+    info: "bundle.notfound";
 } & {body: undefined};
 
 export type response_76_3 = {
-    code: 406;
+    code: 401;
     ok: false;
-    info: "organization.hasNotUser";
+    info: "bundle.wrong.user";
 } & {body: undefined};
 
 export type response_76_4 = {
-    code: 403;
-    ok: false;
-    info: "user.role.organization.invalid";
-} & {body: undefined};
-
-export type response_body_76_5 = {
-    id: string;
-    name: string;
-    description: string;
-    shortDescription: string;
-    price: number;
-    createdAt?: string;
-    updatedAt?: string;
-    organizationId: string;
-<<<<<<< Updated upstream
-    warehouseId: string;
-}
-=======
-}[]
->>>>>>> Stashed changes
-
-export type response_76_5 = {
     code: 200;
     ok: true;
-<<<<<<< Updated upstream
-    info: "productSheet.found";
-} & {body: response_body_76_5};
+    info: "bundle.status.stream";
+} & {body: undefined};
 
-export type request_body_77 = {
-    name?: string | undefined;
-    description?: string | undefined;
-    shortDescription?: string | undefined;
-    price?: number | undefined;
-    warehouseId?: string | undefined;
-}
-
-=======
-    info: "warehouses.found";
-} & {body: response_body_76_5};
-
->>>>>>> Stashed changes
 export type parameters_77 = {
     params: {
         bundleId: number;
@@ -4923,42 +3381,6 @@ export type response_77_2 = {
 } & {body: undefined};
 
 export type response_77_3 = {
-<<<<<<< Updated upstream
-    code: 406;
-    ok: false;
-    info: "organization.hasNotUser";
-} & {body: undefined};
-
-export type response_77_4 = {
-    code: 403;
-    ok: false;
-    info: "user.role.organization.invalid";
-} & {body: undefined};
-
-export type response_body_77_5 = {
-    id: string;
-    name: string;
-    description: string;
-    shortDescription: string;
-    price: number;
-    createdAt?: string;
-    updatedAt?: string;
-    organizationId: string;
-    warehouseId: string;
-}
-
-export type response_77_5 = {
-    code: 201;
-    ok: true;
-    info: "productSheet.edited";
-} & {body: response_body_77_5};
-
-export type request_body_78 = {
-    percentage: number;
-    startDate: Date;
-    endDate: Date;
-}
-=======
     code: 401;
     ok: false;
     info: "bundle.wrong.user";
@@ -4969,7 +3391,7 @@ export type response_body_77_4 = {
     idShip: string;
     carrierName: "LA_POSTE";
     commandId: string;
-    status: "CREATED" | "CARRIER_SUPPORTED" | "CARRIER_PROCESS" | "UNDELIVERABLE" | "DONE" | "DONE_OFFICE" | "BACK" | "BACK_DONE";
+    status: "DONE" | "CREATED" | "CARRIER_SUPPORTED" | "CARRIER_PROCESS" | "UNDELIVERABLE" | "DONE_OFFICE" | "BACK" | "BACK_DONE";
     bundleProducts: {
         name: string;
         productSheetId: string;
@@ -4983,11 +3405,14 @@ export type response_77_4 = {
     ok: true;
     info: "bundle";
 } & {body: response_body_77_4};
->>>>>>> Stashed changes
+
+export type request_body_78 = {
+    categoryName: string;
+}
 
 export type parameters_78 = {
     params: {
-        bundleId: number;
+        productSheetId: string;
     };
 }
 
@@ -5006,66 +3431,43 @@ export type response_78_1 = {
 export type response_78_2 = {
     code: 404;
     ok: false;
-    info: "bundle.notfound";
+    info: "productSheet.notfound";
 } & {body: undefined};
 
 export type response_78_3 = {
-    code: 401;
+    code: 406;
     ok: false;
-    info: "bundle.wrong.user";
+    info: "organization.hasNotUser";
 } & {body: undefined};
 
 export type response_78_4 = {
-<<<<<<< Updated upstream
     code: 403;
     ok: false;
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
 export type response_78_5 = {
-    code: 400;
+    code: 404;
     ok: false;
-    info: "promotion.date.invalid";
+    info: "category.notfound";
 } & {body: undefined};
-
-export type response_body_78_6 = {
-    id: number;
-    percentage: number;
-    startDate?: string;
-    endDate?: string;
-    productSheetName: string;
-    productSheetId: string;
-}
 
 export type response_78_6 = {
-    code: 201;
-    ok: true;
-    info: "promotion.created";
-} & {body: response_body_78_6};
-
-export type request_body_79 = {
-    value?: string | undefined;
-=======
-    code: 200;
-    ok: true;
-    info: "bundle.status.stream";
+    code: 409;
+    ok: false;
+    info: "productSheet.categories.limit";
 } & {body: undefined};
 
-export type request_body_79 = {
-    name?: string | undefined;
-    address?: string | undefined;
->>>>>>> Stashed changes
-}
+export type response_78_7 = {
+    code: 200;
+    ok: true;
+    info: "productSheet.category.linked";
+} & {body: undefined};
 
 export type parameters_79 = {
-    params: {
-<<<<<<< Updated upstream
-        productSheetId: string;
-        facetType: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
-=======
-        warehouseId: string;
->>>>>>> Stashed changes
-    };
+    params?: {
+        commandId?: string;
+    } | undefined;
 }
 
 export type response_79_0 = {
@@ -5083,106 +3485,31 @@ export type response_79_1 = {
 export type response_79_2 = {
     code: 404;
     ok: false;
-    info: "warehouse.notfound";
+    info: "command.notfound";
 } & {body: undefined};
 
 export type response_79_3 = {
-    code: 406;
-    ok: false;
-    info: "organization.hasNotUser";
-} & {body: undefined};
-
-export type response_79_4 = {
-    code: 403;
-    ok: false;
-    info: "user.role.organization.invalid";
-} & {body: undefined};
-
-export type response_79_5 = {
-<<<<<<< Updated upstream
-    code: 404;
-    ok: false;
-    info: "facet.notfound";
-=======
-    code: 400;
-    ok: false;
-    info: "warehouse.address.invalid";
->>>>>>> Stashed changes
-} & {body: undefined};
-
-export type response_79_6 = {
-    code: 204;
-    ok: true;
-<<<<<<< Updated upstream
-    info: "facet.edited";
-=======
-    info: "warehouse.edited";
->>>>>>> Stashed changes
-} & {body: undefined};
-
-export type parameters_80 = {
-    params: {
-        organizationId: string;
-    };
-    query?: {
-        page?: number;
-    } | undefined;
-}
-
-export type response_80_0 = {
     code: 401;
     ok: false;
-    info: "access.token.invalid";
+    info: "command.wrong.user";
 } & {body: undefined};
 
-export type response_80_1 = {
-    code: 404;
-    ok: false;
-    info: "user.notfound";
-} & {body: undefined};
-
-export type response_80_2 = {
-    code: 404;
-    ok: false;
-    info: "organization.notfound";
-} & {body: undefined};
-
-export type response_80_3 = {
-    code: 406;
-    ok: false;
-    info: "organization.hasNotUser";
-} & {body: undefined};
-
-export type response_80_4 = {
-    code: 403;
-    ok: false;
-    info: "user.role.organization.invalid";
-} & {body: undefined};
-
-export type response_body_80_5 = {
+export type response_body_79_4 = {
     id: number;
-    percentage: number;
-    startDate?: string;
-    endDate?: string;
-    productSheetName: string;
-    productSheetId: string;
+    idShip: string;
+    carrierName: "LA_POSTE";
+    commandId: string;
+    status: "DONE" | "CREATED" | "CARRIER_SUPPORTED" | "CARRIER_PROCESS" | "UNDELIVERABLE" | "DONE_OFFICE" | "BACK" | "BACK_DONE";
+    productsCount: number;
 }[]
 
-export type response_80_5 = {
+export type response_79_4 = {
     code: 200;
     ok: true;
-<<<<<<< Updated upstream
-    info: "facet.deleted";
-} & {body: undefined};
+    info: "bundles.found";
+} & {body: response_body_79_4};
 
-export type parameters_81 = {
-    params: {
-        productSheetId: string;
-=======
-    info: "organization.promotions";
-} & {body: response_body_80_5};
-
-export type parameters_81 = {
+export type parameters_80 = {
     query?: ({
         available?: ("true" | "false") | undefined;
         page?: number;
@@ -5204,36 +3531,22 @@ export type parameters_81 = {
         search?: string | undefined;
         searchByRegex?: any;
         categoryName?: string | undefined;
->>>>>>> Stashed changes
     };
 }
 
-export type response_81_0 = {
+export type response_80_0 = {
     code: 404;
     ok: false;
     info: "category.notfound";
 } & {body: undefined};
 
-export type response_81_1 = {
+export type response_80_1 = {
     code: 403;
     ok: false;
     info: "category.disabled";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-export type response_body_81_5 = {
-    type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
-    productSheetId: string;
-    value: string;
-}[]
-
-export type response_81_5 = {
-    code: 200;
-    ok: true;
-    info: "productSheet.facets";
-} & {body: response_body_81_5};
-=======
-export type response_body_81_2 = {
+export type response_body_80_2 = {
     id: string;
     name: string;
     price: number;
@@ -5267,18 +3580,82 @@ export type response_body_81_2 = {
     };
 }[]
 
-export type response_81_2 = {
+export type response_80_2 = {
     code: 200;
     ok: true;
     info: "fullProductSheets";
-} & {body: response_body_81_2};
+} & {body: response_body_80_2};
+
+export type request_body_81 = {
+    sku: string;
+}
+
+export type parameters_81 = {
+    params: {
+        productSheetId: string;
+    };
+}
+
+export type response_81_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_81_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_81_2 = {
+    code: 404;
+    ok: false;
+    info: "productSheet.notfound";
+} & {body: undefined};
+
+export type response_81_3 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_81_4 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type response_81_5 = {
+    code: 409;
+    ok: false;
+    info: "product.sku.alreadyUse";
+} & {body: undefined};
+
+export type response_body_81_6 = {
+    sku: string;
+    status: "WRONG" | "SOLD" | "IN_STOCK";
+    organizationId: string;
+    productSheetId: string;
+    productSheetName: string;
+    productSheetFirstImageUrl?: string | undefined;
+    warehouseId: string;
+    warehouseName: string;
+    createdAt: string;
+    updatedAt: string;
+}
+
+export type response_81_6 = {
+    code: 201;
+    ok: true;
+    info: "product.created";
+} & {body: response_body_81_6};
 
 export type request_body_82 = {
     percentage: number;
     startDate: Date;
     endDate: Date;
 }
->>>>>>> Stashed changes
 
 export type parameters_82 = {
     params: {
@@ -5378,61 +3755,6 @@ export type response_83_4 = {
 } & {body: undefined};
 
 export type response_body_83_5 = {
-<<<<<<< Updated upstream
-    id: string;
-    productSheetId: string;
-    organizationId: string;
-    url: string;
-    key: string;
-    alt: string | null;
-}[]
-
-export type response_83_5 = {
-    code: 200;
-    ok: true;
-    info: "productSheet.images";
-} & {body: response_body_83_5};
-
-export type parameters_84 = {
-    params: {
-        bundleId: number;
-    };
-}
-
-export type response_84_0 = {
-    code: 401;
-    ok: false;
-    info: "access.token.invalid";
-} & {body: undefined};
-
-export type response_84_1 = {
-    code: 404;
-    ok: false;
-    info: "user.notfound";
-} & {body: undefined};
-
-export type response_84_2 = {
-    code: 404;
-    ok: false;
-    info: "bundle.notfound";
-} & {body: undefined};
-
-export type response_84_3 = {
-    code: 401;
-    ok: false;
-    info: "bundle.wrong.user";
-} & {body: undefined};
-
-export type response_84_4 = {
-    code: 200;
-    ok: true;
-    info: "bundle.status.stream";
-} & {body: undefined};
-
-export type request_body_85 = {
-    sku: string;
-}
-=======
     sku: string;
     status: "WRONG" | "SOLD" | "IN_STOCK";
     organizationId: string;
@@ -5450,15 +3772,10 @@ export type response_83_5 = {
     ok: true;
     info: "product.edited";
 } & {body: response_body_83_5};
->>>>>>> Stashed changes
 
 export type parameters_84 = {
     params: {
-<<<<<<< Updated upstream
-        productSheetId: string;
-=======
         organizationId: string;
->>>>>>> Stashed changes
     };
     query?: {
         page?: number;
@@ -5483,11 +3800,7 @@ export type response_84_1 = {
 export type response_84_2 = {
     code: 404;
     ok: false;
-<<<<<<< Updated upstream
-    info: "productSheet.notfound";
-=======
     info: "organization.notfound";
->>>>>>> Stashed changes
 } & {body: undefined};
 
 export type response_84_3 = {
@@ -5502,32 +3815,6 @@ export type response_84_4 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-export type response_85_5 = {
-    code: 409;
-    ok: false;
-    info: "product.sku.alreadyUse";
-} & {body: undefined};
-
-export type response_body_85_6 = {
-    sku: string;
-    status: "WRONG" | "SOLD" | "IN_STOCK";
-    organizationId: string;
-    productSheetId: string;
-    productSheetName: string;
-    productSheetFirstImageUrl?: string | undefined;
-    warehouseId: string;
-    warehouseName: string;
-    createdAt: string;
-    updatedAt: string;
-}
-
-export type response_85_6 = {
-    code: 201;
-    ok: true;
-    info: "product.created";
-} & {body: response_body_85_6};
-=======
 export type response_body_84_5 = {
     sku: string;
     status: "WRONG" | "SOLD" | "IN_STOCK";
@@ -5592,15 +3879,13 @@ export type response_85_0 = {
     info: "filters";
 } & {body: response_body_85_0};
 
-export type request_body_86 = {
-    sku: string;
-}
->>>>>>> Stashed changes
-
 export type parameters_86 = {
     params: {
-        productSheetId: string;
+        organizationId: string;
     };
+    query?: {
+        page?: number;
+    } | undefined;
 }
 
 export type response_86_0 = {
@@ -5618,7 +3903,7 @@ export type response_86_1 = {
 export type response_86_2 = {
     code: 404;
     ok: false;
-    info: "productSheet.notfound";
+    info: "organization.notfound";
 } & {body: undefined};
 
 export type response_86_3 = {
@@ -5627,103 +3912,26 @@ export type response_86_3 = {
     info: "organization.hasNotUser";
 } & {body: undefined};
 
-<<<<<<< Updated upstream
-export type response_body_86_4 = {
-    id: number;
-    idShip: string;
-    carrierName: "LA_POSTE";
-    commandId: string;
-    status: "DONE" | "CREATED" | "CARRIER_SUPPORTED" | "CARRIER_PROCESS" | "UNDELIVERABLE" | "DONE_OFFICE" | "BACK" | "BACK_DONE";
-    bundleProducts: {
-        name: string;
-        productSheetId: string;
-        imageUrl: string;
-        quantity: number;
-    }[];
-}
-
-export type response_86_4 = {
-    code: 200;
-    ok: true;
-    info: "bundle";
-} & {body: response_body_86_4};
-
-export type request_body_87 = {
-    name?: string | undefined;
-    address?: string | undefined;
-}
-
-export type parameters_87 = {
-    params: {
-        warehouseId: string;
-    };
-}
-
-export type response_87_0 = {
-    code: 401;
-=======
 export type response_86_4 = {
     code: 403;
->>>>>>> Stashed changes
     ok: false;
     info: "user.role.organization.invalid";
 } & {body: undefined};
+
+export type response_body_86_5 = {
+    id: number;
+    percentage: number;
+    startDate?: string;
+    endDate?: string;
+    productSheetName: string;
+    productSheetId: string;
+}[]
 
 export type response_86_5 = {
-    code: 409;
-    ok: false;
-    info: "product.sku.alreadyUse";
-} & {body: undefined};
-
-<<<<<<< Updated upstream
-export type response_87_2 = {
-    code: 404;
-    ok: false;
-    info: "warehouse.notfound";
-} & {body: undefined};
-
-export type response_87_3 = {
-    code: 406;
-    ok: false;
-    info: "organization.hasNotUser";
-} & {body: undefined};
-
-export type response_87_4 = {
-    code: 403;
-    ok: false;
-    info: "user.role.organization.invalid";
-} & {body: undefined};
-
-export type response_87_5 = {
-    code: 400;
-    ok: false;
-    info: "warehouse.address.invalid";
-} & {body: undefined};
-
-export type response_87_6 = {
-    code: 204;
+    code: 200;
     ok: true;
-    info: "warehouse.edited";
-} & {body: undefined};
-=======
-export type response_body_86_6 = {
-    sku: string;
-    status: "WRONG" | "SOLD" | "IN_STOCK";
-    organizationId: string;
-    productSheetId: string;
-    productSheetName: string;
-    productSheetFirstImageUrl?: string | undefined;
-    warehouseId: string;
-    warehouseName: string;
-    createdAt: string;
-    updatedAt: string;
-}
-
-export type response_86_6 = {
-    code: 201;
-    ok: true;
-    info: "product.created";
-} & {body: response_body_86_6};
+    info: "organization.promotions";
+} & {body: response_body_86_5};
 
 export type parameters_87 = {
     query?: ({} & {
@@ -5753,7 +3961,6 @@ export type response_87_0 = {
     ok: true;
     info: "fullProductSheetCount";
 } & {body: response_body_87_0};
->>>>>>> Stashed changes
 
 export type GetDef<
 	method extends DefEnrichedDuplojsTo["method"],
@@ -5811,18 +4018,18 @@ export type DefEnrichedDuplojsTo = {
 	response: response_1_0
 		| response_1_1,
 } | {
-	path: "/categories",
-	method: "GET",
-	body: unknown,
-	parameters: parameters_2,
-	response: response_2_0,
-} | {
 	path: "/category/{categoryName}/product-sheets",
 	method: "GET",
 	body: unknown,
+	parameters: parameters_2,
+	response: response_2_0
+		| response_2_1,
+} | {
+	path: "/categories",
+	method: "GET",
+	body: unknown,
 	parameters: parameters_3,
-	response: response_3_0
-		| response_3_1,
+	response: response_3_0,
 } | {
 	path: "/geocoder",
 	method: "GET",
@@ -5941,21 +4148,6 @@ export type DefEnrichedDuplojsTo = {
 		| response_17_1
 		| response_17_2,
 } | {
-<<<<<<< Updated upstream
-	path: "/full-product-sheets-count",
-	method: "GET",
-	body: unknown,
-	parameters: parameters_18,
-	response: response_18_0,
-} | {
-	path: "/login",
-	method: "POST",
-	body: request_body_19,
-	parameters: undefined,
-	response: response_19_0
-		| response_19_1
-		| response_19_2,
-=======
 	path: "/register",
 	method: "POST",
 	body: request_body_18,
@@ -5965,48 +4157,36 @@ export type DefEnrichedDuplojsTo = {
 		| response_18_2
 		| response_18_3
 		| response_18_4,
->>>>>>> Stashed changes
+} | {
+	path: "/article",
+	method: "POST",
+	body: request_body_19,
+	parameters: undefined,
+	response: response_19_0
+		| response_19_1
+		| response_19_2
+		| response_19_3
+		| response_19_4
+		| response_19_5
+		| response_19_6,
 } | {
 	path: "/commands",
 	method: "GET",
 	body: unknown,
-	parameters: parameters_19,
-	response: response_19_0
-		| response_19_1
-		| response_19_2,
+	parameters: parameters_20,
+	response: response_20_0
+		| response_20_1
+		| response_20_2,
 } | {
 	path: "/article/{productSheetId}",
 	method: "DELETE",
 	body: unknown,
-	parameters: parameters_20,
-	response: response_20_0
-		| response_20_1
-		| response_20_2
-		| response_20_3,
-} | {
-	path: "/article",
-	method: "POST",
-	body: request_body_21,
-	parameters: undefined,
+	parameters: parameters_21,
 	response: response_21_0
 		| response_21_1
 		| response_21_2
-		| response_21_3
-		| response_21_4
-		| response_21_5
-		| response_21_6,
+		| response_21_3,
 } | {
-<<<<<<< Updated upstream
-	path: "/register",
-	method: "POST",
-	body: request_body_22,
-	parameters: undefined,
-	response: response_22_0
-		| response_22_1
-		| response_22_2
-		| response_22_3
-		| response_22_4,
-=======
 	path: "/cart",
 	method: "GET",
 	body: unknown,
@@ -6014,7 +4194,6 @@ export type DefEnrichedDuplojsTo = {
 	response: response_22_0
 		| response_22_1
 		| response_22_2,
->>>>>>> Stashed changes
 } | {
 	path: "/image-product-sheet/{imageProductSheetId}",
 	method: "DELETE",
@@ -6027,11 +4206,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_23_4
 		| response_23_5,
 } | {
-<<<<<<< Updated upstream
-	path: "/article",
-=======
 	path: "/make-command",
->>>>>>> Stashed changes
 	method: "POST",
 	body: request_body_24,
 	parameters: undefined,
@@ -6040,23 +4215,6 @@ export type DefEnrichedDuplojsTo = {
 		| response_24_2
 		| response_24_3
 		| response_24_4
-<<<<<<< Updated upstream
-		| response_24_5
-		| response_24_6,
-} | {
-	path: "/cart",
-	method: "GET",
-	body: unknown,
-	parameters: undefined,
-	response: response_25_0
-		| response_25_1
-		| response_25_2,
-} | {
-	path: "/make-command",
-	method: "POST",
-	body: request_body_26,
-	parameters: undefined,
-=======
 		| response_24_5,
 } | {
 	path: "/retry-command",
@@ -6073,47 +4231,31 @@ export type DefEnrichedDuplojsTo = {
 	method: "GET",
 	body: unknown,
 	parameters: parameters_26,
->>>>>>> Stashed changes
 	response: response_26_0
 		| response_26_1
 		| response_26_2
 		| response_26_3,
 } | {
-<<<<<<< Updated upstream
-	path: "/image-product-sheet/{imageProductSheetId}",
-	method: "DELETE",
-	body: unknown,
-=======
 	path: "/organization/{organizationId}/user",
 	method: "POST",
 	body: request_body_27,
->>>>>>> Stashed changes
 	parameters: parameters_27,
 	response: response_27_0
 		| response_27_1
 		| response_27_2
 		| response_27_3
 		| response_27_4
-<<<<<<< Updated upstream
-		| response_27_5,
-} | {
-	path: "/organization/{organizationId}/user/{userId}",
-	method: "PATCH",
-	body: request_body_28,
-=======
 		| response_27_5
 		| response_27_6
 		| response_27_7,
 } | {
-	path: "/user/organizations",
-	method: "GET",
-	body: unknown,
->>>>>>> Stashed changes
+	path: "/organization/{organizationId}/user/{userId}",
+	method: "PATCH",
+	body: request_body_28,
 	parameters: parameters_28,
 	response: response_28_0
 		| response_28_1
 		| response_28_2
-<<<<<<< Updated upstream
 		| response_28_3
 		| response_28_4
 		| response_28_5
@@ -6122,13 +4264,6 @@ export type DefEnrichedDuplojsTo = {
 	path: "/organization/{organizationId}/user/{userId}",
 	method: "DELETE",
 	body: unknown,
-=======
-		| response_28_3,
-} | {
-	path: "/organization/{organizationId}/user/{userId}",
-	method: "PATCH",
-	body: request_body_29,
->>>>>>> Stashed changes
 	parameters: parameters_29,
 	response: response_29_0
 		| response_29_1
@@ -6138,76 +4273,45 @@ export type DefEnrichedDuplojsTo = {
 		| response_29_5
 		| response_29_6,
 } | {
-<<<<<<< Updated upstream
 	path: "/user/organizations",
 	method: "GET",
-=======
-	path: "/organization/{organizationId}/user/{userId}",
-	method: "DELETE",
->>>>>>> Stashed changes
 	body: unknown,
 	parameters: parameters_30,
 	response: response_30_0
 		| response_30_1
 		| response_30_2
-<<<<<<< Updated upstream
 		| response_30_3,
-} | {
-	path: "/organization/{organizationId}/user",
-=======
-		| response_30_3
-		| response_30_4
-		| response_30_5
-		| response_30_6,
-} | {
-	path: "/user",
->>>>>>> Stashed changes
-	method: "GET",
-	body: unknown,
-	parameters: undefined,
-	response: response_31_0
-		| response_31_1
-		| response_31_2
-		| response_31_3,
-} | {
-<<<<<<< Updated upstream
-	path: "/organization/{organizationId}/user",
-	method: "POST",
-=======
-	path: "/user",
-	method: "PATCH",
->>>>>>> Stashed changes
-	body: request_body_32,
-	parameters: undefined,
-	response: response_32_0
-		| response_32_1
-		| response_32_2
-<<<<<<< Updated upstream
-		| response_32_3
-		| response_32_4
-		| response_32_5
-		| response_32_6
-		| response_32_7,
-=======
-		| response_32_3,
->>>>>>> Stashed changes
 } | {
 	path: "/promotions/{promotionId}",
 	method: "DELETE",
 	body: unknown,
-	parameters: parameters_33,
+	parameters: parameters_31,
+	response: response_31_0
+		| response_31_1
+		| response_31_2
+		| response_31_3
+		| response_31_4
+		| response_31_5,
+} | {
+	path: "/user",
+	method: "GET",
+	body: unknown,
+	parameters: undefined,
+	response: response_32_0
+		| response_32_1
+		| response_32_2
+		| response_32_3,
+} | {
+	path: "/user",
+	method: "PATCH",
+	body: request_body_33,
+	parameters: undefined,
 	response: response_33_0
 		| response_33_1
 		| response_33_2
-		| response_33_3
-		| response_33_4
-		| response_33_5,
+		| response_33_3,
 } | {
-<<<<<<< Updated upstream
-	path: "/retry-command",
-=======
 	path: "/category",
->>>>>>> Stashed changes
 	method: "POST",
 	body: request_body_34,
 	parameters: undefined,
@@ -6217,17 +4321,10 @@ export type DefEnrichedDuplojsTo = {
 		| response_34_3
 		| response_34_4,
 } | {
-<<<<<<< Updated upstream
-	path: "/user",
-	method: "GET",
-	body: unknown,
-	parameters: undefined,
-=======
 	path: "/category/{categoryName}",
 	method: "PATCH",
 	body: request_body_35,
 	parameters: parameters_35,
->>>>>>> Stashed changes
 	response: response_35_0
 		| response_35_1
 		| response_35_2
@@ -6235,21 +4332,16 @@ export type DefEnrichedDuplojsTo = {
 		| response_35_4
 		| response_35_5,
 } | {
-<<<<<<< Updated upstream
-	path: "/user",
-	method: "PATCH",
-	body: request_body_36,
-	parameters: undefined,
-=======
 	path: "/category/{categoryName}/image",
 	method: "PUT",
 	body: unknown,
 	parameters: parameters_36,
->>>>>>> Stashed changes
 	response: response_36_0
 		| response_36_1
 		| response_36_2
-		| response_36_3,
+		| response_36_3
+		| response_36_4
+		| response_36_5,
 } | {
 	path: "/organization/{organizationId}@admin",
 	method: "PATCH",
@@ -6261,75 +4353,52 @@ export type DefEnrichedDuplojsTo = {
 		| response_37_3
 		| response_37_4,
 } | {
-<<<<<<< Updated upstream
-	path: "/commands/{commandId}/bundles",
-	method: "GET",
-	body: unknown,
-	parameters: parameters_38,
-=======
-	path: "/navigation-item",
+	path: "/organization",
 	method: "POST",
 	body: request_body_38,
 	parameters: undefined,
->>>>>>> Stashed changes
 	response: response_38_0
 		| response_38_1
 		| response_38_2
 		| response_38_3
-		| response_38_4,
+		| response_38_4
+		| response_38_5
+		| response_38_6,
 } | {
-<<<<<<< Updated upstream
-	path: "/commands/{commandId}",
-=======
-	path: "/navigation-items",
->>>>>>> Stashed changes
-	method: "GET",
-	body: unknown,
+	path: "/navigation-item",
+	method: "POST",
+	body: request_body_39,
 	parameters: undefined,
 	response: response_39_0
 		| response_39_1
 		| response_39_2
-<<<<<<< Updated upstream
 		| response_39_3
 		| response_39_4,
 } | {
-	path: "/category/{categoryName}/image",
-	method: "PUT",
+	path: "/navigation-items",
+	method: "GET",
 	body: unknown,
-=======
-		| response_39_3,
-} | {
-	path: "/navigation-item/{navigationItemId}",
-	method: "PATCH",
-	body: request_body_40,
->>>>>>> Stashed changes
-	parameters: parameters_40,
+	parameters: undefined,
 	response: response_40_0
 		| response_40_1
 		| response_40_2
-		| response_40_3
-		| response_40_4
-		| response_40_5,
+		| response_40_3,
 } | {
 	path: "/navigation-item/{navigationItemId}",
-	method: "DELETE",
-	body: unknown,
+	method: "PATCH",
+	body: request_body_41,
 	parameters: parameters_41,
 	response: response_41_0
 		| response_41_1
 		| response_41_2
 		| response_41_3
-		| response_41_4,
+		| response_41_4
+		| response_41_5
+		| response_41_6,
 } | {
-<<<<<<< Updated upstream
-	path: "/category/{categoryName}",
-	method: "PATCH",
-	body: request_body_42,
-=======
-	path: "/parent-category/{parentCategoryName}/categories",
-	method: "GET",
+	path: "/navigation-item/{navigationItemId}",
+	method: "DELETE",
 	body: unknown,
->>>>>>> Stashed changes
 	parameters: parameters_42,
 	response: response_42_0
 		| response_42_1
@@ -6337,81 +4406,48 @@ export type DefEnrichedDuplojsTo = {
 		| response_42_3
 		| response_42_4,
 } | {
-<<<<<<< Updated upstream
-	path: "/parent-categories",
-	method: "GET",
-=======
-	path: "/parent-category/{parentCategoryName}/category/{categoryName}",
-	method: "DELETE",
->>>>>>> Stashed changes
-	body: unknown,
+	path: "/parent-category/{parentCategoryName}/category",
+	method: "POST",
+	body: request_body_43,
 	parameters: parameters_43,
 	response: response_43_0
 		| response_43_1
 		| response_43_2
-<<<<<<< Updated upstream
-		| response_43_3,
-} | {
-	path: "/organization",
-	method: "POST",
-	body: request_body_44,
-	parameters: undefined,
-=======
 		| response_43_3
-		| response_43_4,
+		| response_43_4
+		| response_43_5
+		| response_43_6,
 } | {
-	path: "/parent-category/{parentCategoryName}/category",
-	method: "POST",
-	body: request_body_44,
+	path: "/parent-category/{parentCategoryName}/categories",
+	method: "GET",
+	body: unknown,
 	parameters: parameters_44,
->>>>>>> Stashed changes
 	response: response_44_0
 		| response_44_1
 		| response_44_2
 		| response_44_3
-		| response_44_4
-		| response_44_5
-		| response_44_6,
+		| response_44_4,
 } | {
-<<<<<<< Updated upstream
-	path: "/parent-category",
-	method: "POST",
-	body: request_body_45,
-	parameters: undefined,
-=======
-	path: "/parent-category/{parentCategoryName}",
-	method: "PATCH",
-	body: request_body_45,
+	path: "/parent-category/{parentCategoryName}/category/{categoryName}",
+	method: "DELETE",
+	body: unknown,
 	parameters: parameters_45,
->>>>>>> Stashed changes
 	response: response_45_0
 		| response_45_1
 		| response_45_2
 		| response_45_3
-		| response_45_4
-		| response_45_5,
+		| response_45_4,
 } | {
-<<<<<<< Updated upstream
-	path: "/parent-category/{parentCategoryName}/category",
-=======
-	path: "/organization",
->>>>>>> Stashed changes
-	method: "POST",
-	body: request_body_46,
-	parameters: undefined,
+	path: "/parent-categories",
+	method: "GET",
+	body: unknown,
+	parameters: parameters_46,
 	response: response_46_0
 		| response_46_1
 		| response_46_2
-		| response_46_3
-		| response_46_4
-		| response_46_5
-		| response_46_6,
+		| response_46_3,
 } | {
-<<<<<<< Updated upstream
-	path: "/parent-category/{parentCategoryName}/categories",
-=======
 	path: "/organizations",
->>>>>>> Stashed changes
 	method: "GET",
 	body: unknown,
 	parameters: parameters_47,
@@ -6420,28 +4456,19 @@ export type DefEnrichedDuplojsTo = {
 		| response_47_2
 		| response_47_3,
 } | {
-<<<<<<< Updated upstream
-	path: "/parent-category/{parentCategoryName}/category/{categoryName}",
-	method: "DELETE",
-=======
-	path: "/parent-categories",
-	method: "GET",
->>>>>>> Stashed changes
-	body: unknown,
+	path: "/user/{userId}@admin",
+	method: "PATCH",
+	body: request_body_48,
 	parameters: parameters_48,
 	response: response_48_0
 		| response_48_1
 		| response_48_2
 		| response_48_3
-		| response_48_4,
+		| response_48_4
+		| response_48_5,
 } | {
-<<<<<<< Updated upstream
 	path: "/parent-category/{parentCategoryName}",
 	method: "PATCH",
-=======
-	path: "/parent-category",
-	method: "POST",
->>>>>>> Stashed changes
 	body: request_body_49,
 	parameters: parameters_49,
 	response: response_49_0
@@ -6451,103 +4478,60 @@ export type DefEnrichedDuplojsTo = {
 		| response_49_4
 		| response_49_5,
 } | {
-<<<<<<< Updated upstream
-	path: "/navigation-item",
+	path: "/parent-category",
 	method: "POST",
 	body: request_body_50,
 	parameters: undefined,
-=======
-	path: "/users",
-	method: "GET",
-	body: unknown,
-	parameters: parameters_50,
->>>>>>> Stashed changes
 	response: response_50_0
 		| response_50_1
 		| response_50_2
-		| response_50_3,
+		| response_50_3
+		| response_50_4,
 } | {
-<<<<<<< Updated upstream
-	path: "/navigation-item/{navigationItemId}",
-=======
-	path: "/user/{userId}@admin",
->>>>>>> Stashed changes
-	method: "PATCH",
-	body: request_body_51,
+	path: "/users",
+	method: "GET",
+	body: unknown,
 	parameters: parameters_51,
 	response: response_51_0
 		| response_51_1
 		| response_51_2
-		| response_51_3
-		| response_51_4
-<<<<<<< Updated upstream
-		| response_51_5
-		| response_51_6,
+		| response_51_3,
 } | {
-	path: "/navigation-item/{navigationItemId}",
-	method: "DELETE",
-=======
-		| response_51_5,
-} | {
-	path: "/commands/{commandId}/bundles",
+	path: "/product-sheet/{productSheetId}/categories",
 	method: "GET",
->>>>>>> Stashed changes
 	body: unknown,
 	parameters: parameters_52,
 	response: response_52_0
 		| response_52_1
 		| response_52_2
 		| response_52_3
-		| response_52_4,
+		| response_52_4
+		| response_52_5,
 } | {
-<<<<<<< Updated upstream
-	path: "/organizations",
+	path: "/commands/{commandId}",
 	method: "GET",
-=======
-	path: "/product-sheet/{productSheetId}/category/{categoryName}",
-	method: "DELETE",
->>>>>>> Stashed changes
 	body: unknown,
 	parameters: parameters_53,
 	response: response_53_0
 		| response_53_1
 		| response_53_2
 		| response_53_3
-		| response_53_4
-		| response_53_5
-		| response_53_6,
+		| response_53_4,
 } | {
-<<<<<<< Updated upstream
-	path: "/user/{userId}@admin",
-	method: "PATCH",
-	body: request_body_54,
-=======
-	path: "/product-sheet/{productSheetId}",
-	method: "GET",
+	path: "/product-sheet/{productSheetId}/category/{categoryName}",
+	method: "DELETE",
 	body: unknown,
->>>>>>> Stashed changes
 	parameters: parameters_54,
 	response: response_54_0
 		| response_54_1
 		| response_54_2
 		| response_54_3
 		| response_54_4
-		| response_54_5,
+		| response_54_5
+		| response_54_6,
 } | {
-<<<<<<< Updated upstream
-	path: "/navigation-items",
-	method: "GET",
-	body: unknown,
-	parameters: undefined,
-	response: response_55_0
-		| response_55_1
-		| response_55_2
-		| response_55_3,
-} | {
-	path: "/users",
-=======
-	path: "/product-sheet/{productSheetId}",
-	method: "PATCH",
+	path: "/product-sheet/{productSheetId}/facet",
+	method: "POST",
 	body: request_body_55,
 	parameters: parameters_55,
 	response: response_55_0
@@ -6555,19 +4539,21 @@ export type DefEnrichedDuplojsTo = {
 		| response_55_2
 		| response_55_3
 		| response_55_4
-		| response_55_5,
+		| response_55_5
+		| response_55_6,
 } | {
 	path: "/product-sheet/{productSheetId}/warehouse",
->>>>>>> Stashed changes
 	method: "GET",
 	body: unknown,
 	parameters: parameters_56,
 	response: response_56_0
 		| response_56_1
 		| response_56_2
-		| response_56_3,
+		| response_56_3
+		| response_56_4
+		| response_56_5,
 } | {
-	path: "/product-sheet/{productSheetId}/images",
+	path: "/product-sheet/{productSheetId}",
 	method: "GET",
 	body: unknown,
 	parameters: parameters_57,
@@ -6578,33 +4564,19 @@ export type DefEnrichedDuplojsTo = {
 		| response_57_4
 		| response_57_5,
 } | {
-<<<<<<< Updated upstream
-	path: "/organization/{organizationId}",
-	method: "GET",
-=======
-	path: "/product-sheet/{productSheetId}/image",
-	method: "POST",
->>>>>>> Stashed changes
-	body: unknown,
+	path: "/product-sheet/{productSheetId}",
+	method: "PATCH",
+	body: request_body_58,
 	parameters: parameters_58,
 	response: response_58_0
 		| response_58_1
 		| response_58_2
 		| response_58_3
 		| response_58_4
-<<<<<<< Updated upstream
 		| response_58_5,
 } | {
-	path: "/organization/{organizationId}",
+	path: "/product-sheet/{productSheetId}/facet/{facetType}",
 	method: "PATCH",
-=======
-		| response_58_5
-		| response_58_6
-		| response_58_7,
-} | {
-	path: "/product-sheet/{productSheetId}/facet",
-	method: "POST",
->>>>>>> Stashed changes
 	body: request_body_59,
 	parameters: parameters_59,
 	response: response_59_0
@@ -6612,17 +4584,12 @@ export type DefEnrichedDuplojsTo = {
 		| response_59_2
 		| response_59_3
 		| response_59_4
-		| response_59_5,
+		| response_59_5
+		| response_59_6,
 } | {
-<<<<<<< Updated upstream
-	path: "/organization/{organizationId}/logo",
-	method: "PUT",
-	body: unknown,
-=======
 	path: "/product-sheet/{productSheetId}/facet/{facetType}",
-	method: "PATCH",
-	body: request_body_60,
->>>>>>> Stashed changes
+	method: "DELETE",
+	body: unknown,
 	parameters: parameters_60,
 	response: response_60_0
 		| response_60_1
@@ -6632,30 +4599,19 @@ export type DefEnrichedDuplojsTo = {
 		| response_60_5
 		| response_60_6,
 } | {
-<<<<<<< Updated upstream
-	path: "/product/{sku}",
-	method: "PATCH",
-	body: request_body_61,
-=======
-	path: "/product-sheet/{productSheetId}/facet/{facetType}",
-	method: "DELETE",
+	path: "/product-sheet/{productSheetId}/facets",
+	method: "GET",
 	body: unknown,
->>>>>>> Stashed changes
 	parameters: parameters_61,
 	response: response_61_0
 		| response_61_1
 		| response_61_2
 		| response_61_3
 		| response_61_4
-		| response_61_5
-		| response_61_6,
+		| response_61_5,
 } | {
-<<<<<<< Updated upstream
-	path: "/organization/{organizationId}/promotions",
-=======
-	path: "/product-sheet/{productSheetId}/facets",
->>>>>>> Stashed changes
-	method: "GET",
+	path: "/product-sheet/{productSheetId}/image",
+	method: "POST",
 	body: unknown,
 	parameters: parameters_62,
 	response: response_62_0
@@ -6663,13 +4619,11 @@ export type DefEnrichedDuplojsTo = {
 		| response_62_2
 		| response_62_3
 		| response_62_4
-		| response_62_5,
+		| response_62_5
+		| response_62_6
+		| response_62_7,
 } | {
-<<<<<<< Updated upstream
-	path: "/organization/{organizationId}/product-sheets",
-=======
-	path: "/organization/{organizationId}/commands",
->>>>>>> Stashed changes
+	path: "/product-sheet/{productSheetId}/images",
 	method: "GET",
 	body: unknown,
 	parameters: parameters_63,
@@ -6678,18 +4632,11 @@ export type DefEnrichedDuplojsTo = {
 		| response_63_2
 		| response_63_3
 		| response_63_4
-		| response_63_5
-		| response_63_6,
+		| response_63_5,
 } | {
-<<<<<<< Updated upstream
-	path: "/organization/{organizationId}/product-sheet",
-	method: "POST",
-	body: request_body_64,
-=======
-	path: "/organization/{organizationId}/commands/{commandId}/details",
+	path: "/organization/{organizationId}/commands",
 	method: "GET",
 	body: unknown,
->>>>>>> Stashed changes
 	parameters: parameters_64,
 	response: response_64_0
 		| response_64_1
@@ -6697,20 +4644,11 @@ export type DefEnrichedDuplojsTo = {
 		| response_64_3
 		| response_64_4
 		| response_64_5
-<<<<<<< Updated upstream
 		| response_64_6,
 } | {
-	path: "/organization/{organizationId}/products",
-	method: "GET",
-	body: unknown,
-=======
-		| response_64_6
-		| response_64_7,
-} | {
-	path: "/organization/{organizationId}/commands/{commandId}/make-bundle",
+	path: "/organization/{organizationId}/product-sheet",
 	method: "POST",
 	body: request_body_65,
->>>>>>> Stashed changes
 	parameters: parameters_65,
 	response: response_65_0
 		| response_65_1
@@ -6718,24 +4656,11 @@ export type DefEnrichedDuplojsTo = {
 		| response_65_3
 		| response_65_4
 		| response_65_5
-		| response_65_6
-		| response_65_7
-		| response_65_8
-		| response_65_9
-		| response_65_10
-		| response_65_11
-		| response_65_12
-		| response_65_13,
+		| response_65_6,
 } | {
-<<<<<<< Updated upstream
-	path: "/organization/{organizationId}/warehouse",
-	method: "POST",
-	body: request_body_66,
-=======
-	path: "/organization/{organizationId}",
-	method: "GET",
+	path: "/organization/{organizationId}/logo",
+	method: "PUT",
 	body: unknown,
->>>>>>> Stashed changes
 	parameters: parameters_66,
 	response: response_66_0
 		| response_66_1
@@ -6745,15 +4670,9 @@ export type DefEnrichedDuplojsTo = {
 		| response_66_5
 		| response_66_6,
 } | {
-<<<<<<< Updated upstream
-	path: "/organization/{organizationId}/users",
+	path: "/organization/{organizationId}/product-sheets",
 	method: "GET",
 	body: unknown,
-=======
-	path: "/organization/{organizationId}",
-	method: "PATCH",
-	body: request_body_67,
->>>>>>> Stashed changes
 	parameters: parameters_67,
 	response: response_67_0
 		| response_67_1
@@ -6762,11 +4681,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_67_4
 		| response_67_5,
 } | {
-<<<<<<< Updated upstream
-	path: "/organization/{organizationId}/commands/{commandId}/details",
-=======
-	path: "/product-sheet/{productSheetId}/categories",
->>>>>>> Stashed changes
+	path: "/organization/{organizationId}/warehouses",
 	method: "GET",
 	body: unknown,
 	parameters: parameters_68,
@@ -6775,21 +4690,11 @@ export type DefEnrichedDuplojsTo = {
 		| response_68_2
 		| response_68_3
 		| response_68_4
-<<<<<<< Updated upstream
-		| response_68_5
-		| response_68_6
-		| response_68_7,
-} | {
-	path: "/organization/{organizationId}/warehouses",
-	method: "GET",
-	body: unknown,
-=======
 		| response_68_5,
 } | {
-	path: "/product-sheet/{productSheetId}/category",
+	path: "/organization/{organizationId}/warehouse",
 	method: "POST",
 	body: request_body_69,
->>>>>>> Stashed changes
 	parameters: parameters_69,
 	response: response_69_0
 		| response_69_1
@@ -6797,24 +4702,16 @@ export type DefEnrichedDuplojsTo = {
 		| response_69_3
 		| response_69_4
 		| response_69_5
-		| response_69_6
-		| response_69_7,
+		| response_69_6,
 } | {
-<<<<<<< Updated upstream
 	path: "/organization/{organizationId}/commands/{commandId}/make-bundle",
 	method: "POST",
 	body: request_body_70,
-=======
-	path: "/commands/{commandId}",
-	method: "GET",
-	body: unknown,
->>>>>>> Stashed changes
 	parameters: parameters_70,
 	response: response_70_0
 		| response_70_1
 		| response_70_2
 		| response_70_3
-<<<<<<< Updated upstream
 		| response_70_4
 		| response_70_5
 		| response_70_6
@@ -6826,14 +4723,8 @@ export type DefEnrichedDuplojsTo = {
 		| response_70_12
 		| response_70_13,
 } | {
-	path: "/product-sheet/{productSheetId}/categories",
+	path: "/organization/{organizationId}/commands/{commandId}/details",
 	method: "GET",
-=======
-		| response_70_4,
-} | {
-	path: "/organization/{organizationId}/logo",
-	method: "PUT",
->>>>>>> Stashed changes
 	body: unknown,
 	parameters: parameters_71,
 	response: response_71_0
@@ -6841,9 +4732,11 @@ export type DefEnrichedDuplojsTo = {
 		| response_71_2
 		| response_71_3
 		| response_71_4
-		| response_71_5,
+		| response_71_5
+		| response_71_6
+		| response_71_7,
 } | {
-	path: "/organization/{organizationId}/product-sheets",
+	path: "/organization/{organizationId}",
 	method: "GET",
 	body: unknown,
 	parameters: parameters_72,
@@ -6854,31 +4747,19 @@ export type DefEnrichedDuplojsTo = {
 		| response_72_4
 		| response_72_5,
 } | {
-<<<<<<< Updated upstream
-	path: "/product-sheet/{productSheetId}/warehouse",
-	method: "GET",
-	body: unknown,
-=======
-	path: "/organization/{organizationId}/product-sheet",
-	method: "POST",
+	path: "/organization/{organizationId}",
+	method: "PATCH",
 	body: request_body_73,
->>>>>>> Stashed changes
 	parameters: parameters_73,
 	response: response_73_0
 		| response_73_1
 		| response_73_2
 		| response_73_3
 		| response_73_4
-		| response_73_5
-		| response_73_6,
+		| response_73_5,
 } | {
-<<<<<<< Updated upstream
-	path: "/product-sheet/{productSheetId}/category/{categoryName}",
-	method: "DELETE",
-=======
 	path: "/organization/{organizationId}/users",
 	method: "GET",
->>>>>>> Stashed changes
 	body: unknown,
 	parameters: parameters_74,
 	response: response_74_0
@@ -6886,15 +4767,10 @@ export type DefEnrichedDuplojsTo = {
 		| response_74_2
 		| response_74_3
 		| response_74_4
-		| response_74_5
-		| response_74_6,
+		| response_74_5,
 } | {
-<<<<<<< Updated upstream
-	path: "/product-sheet/{productSheetId}/facet",
-=======
-	path: "/organization/{organizationId}/warehouse",
->>>>>>> Stashed changes
-	method: "POST",
+	path: "/warehouse/{warehouseId}",
+	method: "PATCH",
 	body: request_body_75,
 	parameters: parameters_75,
 	response: response_75_0
@@ -6905,11 +4781,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_75_5
 		| response_75_6,
 } | {
-<<<<<<< Updated upstream
-	path: "/product-sheet/{productSheetId}",
-=======
-	path: "/organization/{organizationId}/warehouses",
->>>>>>> Stashed changes
+	path: "/bundles/{bundleId}/stream",
 	method: "GET",
 	body: unknown,
 	parameters: parameters_76,
@@ -6917,98 +4789,60 @@ export type DefEnrichedDuplojsTo = {
 		| response_76_1
 		| response_76_2
 		| response_76_3
-		| response_76_4
-		| response_76_5,
+		| response_76_4,
 } | {
-<<<<<<< Updated upstream
-	path: "/product-sheet/{productSheetId}",
-	method: "PATCH",
-	body: request_body_77,
-=======
 	path: "/bundles/{bundleId}",
 	method: "GET",
 	body: unknown,
->>>>>>> Stashed changes
 	parameters: parameters_77,
 	response: response_77_0
 		| response_77_1
 		| response_77_2
 		| response_77_3
-<<<<<<< Updated upstream
-		| response_77_4
-		| response_77_5,
-} | {
-	path: "/product-sheet/{productSheetId}/promotions",
-	method: "POST",
-	body: request_body_78,
-=======
 		| response_77_4,
 } | {
-	path: "/bundles/{bundleId}/stream",
-	method: "GET",
-	body: unknown,
->>>>>>> Stashed changes
+	path: "/product-sheet/{productSheetId}/category",
+	method: "POST",
+	body: request_body_78,
 	parameters: parameters_78,
 	response: response_78_0
 		| response_78_1
 		| response_78_2
 		| response_78_3
-<<<<<<< Updated upstream
 		| response_78_4
 		| response_78_5
-		| response_78_6,
+		| response_78_6
+		| response_78_7,
 } | {
-	path: "/product-sheet/{productSheetId}/facet/{facetType}",
-=======
-		| response_78_4,
-} | {
-	path: "/warehouse/{warehouseId}",
->>>>>>> Stashed changes
-	method: "PATCH",
-	body: request_body_79,
+	path: "/commands/{commandId}/bundles",
+	method: "GET",
+	body: unknown,
 	parameters: parameters_79,
 	response: response_79_0
 		| response_79_1
 		| response_79_2
 		| response_79_3
-		| response_79_4
-		| response_79_5
-		| response_79_6,
+		| response_79_4,
 } | {
-<<<<<<< Updated upstream
-	path: "/product-sheet/{productSheetId}/facet/{facetType}",
-	method: "DELETE",
-=======
-	path: "/organization/{organizationId}/promotions",
+	path: "/full-product-sheets",
 	method: "GET",
->>>>>>> Stashed changes
 	body: unknown,
 	parameters: parameters_80,
 	response: response_80_0
 		| response_80_1
-		| response_80_2
-		| response_80_3
-		| response_80_4
-		| response_80_5,
+		| response_80_2,
 } | {
-<<<<<<< Updated upstream
-	path: "/product-sheet/{productSheetId}/facets",
-=======
-	path: "/full-product-sheets",
->>>>>>> Stashed changes
-	method: "GET",
-	body: unknown,
+	path: "/product-sheet/{productSheetId}/product",
+	method: "POST",
+	body: request_body_81,
 	parameters: parameters_81,
 	response: response_81_0
 		| response_81_1
-<<<<<<< Updated upstream
 		| response_81_2
 		| response_81_3
 		| response_81_4
-		| response_81_5,
-=======
-		| response_81_2,
->>>>>>> Stashed changes
+		| response_81_5
+		| response_81_6,
 } | {
 	path: "/product-sheet/{productSheetId}/promotions",
 	method: "POST",
@@ -7033,11 +4867,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_83_4
 		| response_83_5,
 } | {
-<<<<<<< Updated upstream
-	path: "/bundles/{bundleId}/stream",
-=======
 	path: "/organization/{organizationId}/products",
->>>>>>> Stashed changes
 	method: "GET",
 	body: unknown,
 	parameters: parameters_84,
@@ -7045,24 +4875,8 @@ export type DefEnrichedDuplojsTo = {
 		| response_84_1
 		| response_84_2
 		| response_84_3
-<<<<<<< Updated upstream
-		| response_84_4,
-} | {
-	path: "/product-sheet/{productSheetId}/product",
-	method: "POST",
-	body: request_body_85,
-	parameters: parameters_85,
-	response: response_85_0
-		| response_85_1
-		| response_85_2
-		| response_85_3
-		| response_85_4
-		| response_85_5
-		| response_85_6,
-=======
 		| response_84_4
 		| response_84_5,
->>>>>>> Stashed changes
 } | {
 	path: "/computed-filters",
 	method: "GET",
@@ -7070,37 +4884,22 @@ export type DefEnrichedDuplojsTo = {
 	parameters: parameters_85,
 	response: response_85_0,
 } | {
-	path: "/product-sheet/{productSheetId}/product",
-	method: "POST",
-	body: request_body_86,
+	path: "/organization/{organizationId}/promotions",
+	method: "GET",
+	body: unknown,
 	parameters: parameters_86,
 	response: response_86_0
 		| response_86_1
 		| response_86_2
 		| response_86_3
 		| response_86_4
-		| response_86_5
-		| response_86_6,
+		| response_86_5,
 } | {
-<<<<<<< Updated upstream
-	path: "/warehouse/{warehouseId}",
-	method: "PATCH",
-	body: request_body_87,
-	parameters: parameters_87,
-	response: response_87_0
-		| response_87_1
-		| response_87_2
-		| response_87_3
-		| response_87_4
-		| response_87_5
-		| response_87_6,
-=======
 	path: "/full-product-sheets-count",
 	method: "GET",
 	body: unknown,
 	parameters: parameters_87,
 	response: response_87_0,
->>>>>>> Stashed changes
 };
 
 
@@ -7210,20 +5009,20 @@ export interface EnrichedDuploTo<
 	>
 
 	get(
-		path: "/categories", 
-		parameters ?: parameters_2 & BaseRequestParameters,
+		path: "/category/{categoryName}/product-sheets", 
+		parameters : parameters_2 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_2_0
+		| response_2_1
 	>
 
 	get(
-		path: "/category/{categoryName}/product-sheets", 
-		parameters : parameters_3 & BaseRequestParameters,
+		path: "/categories", 
+		parameters ?: parameters_3 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_3_0
-		| response_3_1
 	>
 
 	get(
@@ -7373,20 +5172,6 @@ export interface EnrichedDuploTo<
 		| response_17_2
 	>
 
-<<<<<<< Updated upstream
-	get(
-		path: "/full-product-sheets-count", 
-		parameters ?: parameters_18 & BaseRequestParameters,
-		interceptorParams?: interceptorParameter
-	): EnrichedRequestor<
-		response_18_0
-	>
-
-	post(
-		path: "/login", 
-		body: request_body_19,
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
-=======
 	post(
 		path: "/register", 
 		body: request_body_18,
@@ -7400,62 +5185,50 @@ export interface EnrichedDuploTo<
 		| response_18_4
 	>
 
-	get(
-		path: "/commands", 
-		parameters ?: parameters_19 & BaseRequestParameters,
->>>>>>> Stashed changes
+	post(
+		path: "/article", 
+		body: request_body_19,
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_19_0
 		| response_19_1
 		| response_19_2
+		| response_19_3
+		| response_19_4
+		| response_19_5
+		| response_19_6
 	>
 
-	delete(
-		path: "/article/{productSheetId}", 
-		parameters : parameters_20 & BaseRequestParameters,
+	get(
+		path: "/commands", 
+		parameters ?: parameters_20 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_20_0
 		| response_20_1
 		| response_20_2
-		| response_20_3
 	>
 
-	post(
-		path: "/article", 
-		body: request_body_21,
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+	delete(
+		path: "/article/{productSheetId}", 
+		parameters : parameters_21 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_21_0
 		| response_21_1
 		| response_21_2
 		| response_21_3
-		| response_21_4
-		| response_21_5
-		| response_21_6
 	>
 
-<<<<<<< Updated upstream
-	post(
-		path: "/register", 
-		body: request_body_22,
-=======
 	get(
 		path: "/cart", 
->>>>>>> Stashed changes
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_22_0
 		| response_22_1
 		| response_22_2
-<<<<<<< Updated upstream
-		| response_22_3
-		| response_22_4
-=======
->>>>>>> Stashed changes
 	>
 
 	delete(
@@ -7472,11 +5245,7 @@ export interface EnrichedDuploTo<
 	>
 
 	post(
-<<<<<<< Updated upstream
-		path: "/article", 
-=======
 		path: "/make-command", 
->>>>>>> Stashed changes
 		body: request_body_24,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
@@ -7487,33 +5256,17 @@ export interface EnrichedDuploTo<
 		| response_24_3
 		| response_24_4
 		| response_24_5
-<<<<<<< Updated upstream
-		| response_24_6
-	>
-
-	get(
-		path: "/cart", 
-=======
 	>
 
 	post(
 		path: "/retry-command", 
 		body: request_body_25,
->>>>>>> Stashed changes
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_25_0
 		| response_25_1
 		| response_25_2
-<<<<<<< Updated upstream
-	>
-
-	post(
-		path: "/make-command", 
-		body: request_body_26,
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
-=======
 		| response_25_3
 		| response_25_4
 	>
@@ -7521,7 +5274,6 @@ export interface EnrichedDuploTo<
 	get(
 		path: "/organization/{organizationId}/user", 
 		parameters : parameters_26 & BaseRequestParameters,
->>>>>>> Stashed changes
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_26_0
@@ -7530,14 +5282,9 @@ export interface EnrichedDuploTo<
 		| response_26_3
 	>
 
-<<<<<<< Updated upstream
-	delete(
-		path: "/image-product-sheet/{imageProductSheetId}", 
-=======
 	post(
 		path: "/organization/{organizationId}/user", 
 		body: request_body_27,
->>>>>>> Stashed changes
 		parameters : parameters_27 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -7547,29 +5294,20 @@ export interface EnrichedDuploTo<
 		| response_27_3
 		| response_27_4
 		| response_27_5
-<<<<<<< Updated upstream
+		| response_27_6
+		| response_27_7
 	>
 
 	patch(
 		path: "/organization/{organizationId}/user/{userId}", 
 		body: request_body_28,
 		parameters : parameters_28 & BaseRequestParameters,
-=======
-		| response_27_6
-		| response_27_7
-	>
-
-	get(
-		path: "/user/organizations", 
-		parameters ?: parameters_28 & BaseRequestParameters,
->>>>>>> Stashed changes
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_28_0
 		| response_28_1
 		| response_28_2
 		| response_28_3
-<<<<<<< Updated upstream
 		| response_28_4
 		| response_28_5
 		| response_28_6
@@ -7577,13 +5315,6 @@ export interface EnrichedDuploTo<
 
 	delete(
 		path: "/organization/{organizationId}/user/{userId}", 
-=======
-	>
-
-	patch(
-		path: "/organization/{organizationId}/user/{userId}", 
-		body: request_body_29,
->>>>>>> Stashed changes
 		parameters : parameters_29 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -7596,53 +5327,32 @@ export interface EnrichedDuploTo<
 		| response_29_6
 	>
 
-<<<<<<< Updated upstream
 	get(
 		path: "/user/organizations", 
 		parameters ?: parameters_30 & BaseRequestParameters,
-=======
-	delete(
-		path: "/organization/{organizationId}/user/{userId}", 
-		parameters : parameters_30 & BaseRequestParameters,
->>>>>>> Stashed changes
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_30_0
 		| response_30_1
 		| response_30_2
 		| response_30_3
-<<<<<<< Updated upstream
 	>
 
-	get(
-		path: "/organization/{organizationId}/user", 
+	delete(
+		path: "/promotions/{promotionId}", 
 		parameters : parameters_31 & BaseRequestParameters,
-=======
-		| response_30_4
-		| response_30_5
-		| response_30_6
-	>
-
-	get(
-		path: "/user", 
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
->>>>>>> Stashed changes
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_31_0
 		| response_31_1
 		| response_31_2
 		| response_31_3
+		| response_31_4
+		| response_31_5
 	>
 
-<<<<<<< Updated upstream
-	post(
-		path: "/organization/{organizationId}/user", 
-=======
-	patch(
+	get(
 		path: "/user", 
->>>>>>> Stashed changes
-		body: request_body_32,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -7650,34 +5360,22 @@ export interface EnrichedDuploTo<
 		| response_32_1
 		| response_32_2
 		| response_32_3
-<<<<<<< Updated upstream
-		| response_32_4
-		| response_32_5
-		| response_32_6
-		| response_32_7
-=======
->>>>>>> Stashed changes
 	>
 
-	delete(
-		path: "/promotions/{promotionId}", 
-		parameters : parameters_33 & BaseRequestParameters,
+	patch(
+		path: "/user", 
+		body: request_body_33,
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_33_0
 		| response_33_1
 		| response_33_2
 		| response_33_3
-		| response_33_4
-		| response_33_5
 	>
 
 	post(
-<<<<<<< Updated upstream
-		path: "/retry-command", 
-=======
 		path: "/category", 
->>>>>>> Stashed changes
 		body: request_body_34,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
@@ -7689,16 +5387,10 @@ export interface EnrichedDuploTo<
 		| response_34_4
 	>
 
-<<<<<<< Updated upstream
-	get(
-		path: "/user", 
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
-=======
 	patch(
 		path: "/category/{categoryName}", 
 		body: request_body_35,
 		parameters : parameters_35 & BaseRequestParameters,
->>>>>>> Stashed changes
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_35_0
@@ -7709,23 +5401,18 @@ export interface EnrichedDuploTo<
 		| response_35_5
 	>
 
-<<<<<<< Updated upstream
-	patch(
-		path: "/user", 
-		body: request_body_36,
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
-=======
 	put(
 		path: "/category/{categoryName}/image", 
 		body: unknown,
 		parameters : parameters_36 & BaseRequestParameters,
->>>>>>> Stashed changes
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_36_0
 		| response_36_1
 		| response_36_2
 		| response_36_3
+		| response_36_4
+		| response_36_5
 	>
 
 	patch(
@@ -7741,16 +5428,10 @@ export interface EnrichedDuploTo<
 		| response_37_4
 	>
 
-<<<<<<< Updated upstream
-	get(
-		path: "/commands/{commandId}/bundles", 
-		parameters ?: parameters_38 & BaseRequestParameters,
-=======
 	post(
-		path: "/navigation-item", 
+		path: "/organization", 
 		body: request_body_38,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
->>>>>>> Stashed changes
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_38_0
@@ -7758,49 +5439,37 @@ export interface EnrichedDuploTo<
 		| response_38_2
 		| response_38_3
 		| response_38_4
+		| response_38_5
+		| response_38_6
 	>
 
-	get(
-<<<<<<< Updated upstream
-		path: "/commands/{commandId}", 
-		parameters ?: parameters_39 & BaseRequestParameters,
-=======
-		path: "/navigation-items", 
+	post(
+		path: "/navigation-item", 
+		body: request_body_39,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
->>>>>>> Stashed changes
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_39_0
 		| response_39_1
 		| response_39_2
 		| response_39_3
-<<<<<<< Updated upstream
 		| response_39_4
 	>
 
-	put(
-		path: "/category/{categoryName}/image", 
-		body: unknown,
-=======
-	>
-
-	patch(
-		path: "/navigation-item/{navigationItemId}", 
-		body: request_body_40,
->>>>>>> Stashed changes
-		parameters : parameters_40 & BaseRequestParameters,
+	get(
+		path: "/navigation-items", 
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_40_0
 		| response_40_1
 		| response_40_2
 		| response_40_3
-		| response_40_4
-		| response_40_5
 	>
 
-	delete(
+	patch(
 		path: "/navigation-item/{navigationItemId}", 
+		body: request_body_41,
 		parameters : parameters_41 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -7809,16 +5478,12 @@ export interface EnrichedDuploTo<
 		| response_41_2
 		| response_41_3
 		| response_41_4
+		| response_41_5
+		| response_41_6
 	>
 
-<<<<<<< Updated upstream
-	patch(
-		path: "/category/{categoryName}", 
-		body: request_body_42,
-=======
-	get(
-		path: "/parent-category/{parentCategoryName}/categories", 
->>>>>>> Stashed changes
+	delete(
+		path: "/navigation-item/{navigationItemId}", 
 		parameters : parameters_42 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -7829,37 +5494,24 @@ export interface EnrichedDuploTo<
 		| response_42_4
 	>
 
-<<<<<<< Updated upstream
-	get(
-		path: "/parent-categories", 
-		parameters ?: parameters_43 & BaseRequestParameters,
-=======
-	delete(
-		path: "/parent-category/{parentCategoryName}/category/{categoryName}", 
+	post(
+		path: "/parent-category/{parentCategoryName}/category", 
+		body: request_body_43,
 		parameters : parameters_43 & BaseRequestParameters,
->>>>>>> Stashed changes
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_43_0
 		| response_43_1
 		| response_43_2
 		| response_43_3
-<<<<<<< Updated upstream
-	>
-
-	post(
-		path: "/organization", 
-		body: request_body_44,
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
-=======
 		| response_43_4
+		| response_43_5
+		| response_43_6
 	>
 
-	post(
-		path: "/parent-category/{parentCategoryName}/category", 
-		body: request_body_44,
+	get(
+		path: "/parent-category/{parentCategoryName}/categories", 
 		parameters : parameters_44 & BaseRequestParameters,
->>>>>>> Stashed changes
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_44_0
@@ -7867,21 +5519,11 @@ export interface EnrichedDuploTo<
 		| response_44_2
 		| response_44_3
 		| response_44_4
-		| response_44_5
-		| response_44_6
 	>
 
-<<<<<<< Updated upstream
-	post(
-		path: "/parent-category", 
-		body: request_body_45,
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
-=======
-	patch(
-		path: "/parent-category/{parentCategoryName}", 
-		body: request_body_45,
+	delete(
+		path: "/parent-category/{parentCategoryName}/category/{categoryName}", 
 		parameters : parameters_45 & BaseRequestParameters,
->>>>>>> Stashed changes
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_45_0
@@ -7889,36 +5531,22 @@ export interface EnrichedDuploTo<
 		| response_45_2
 		| response_45_3
 		| response_45_4
-		| response_45_5
 	>
 
-	post(
-<<<<<<< Updated upstream
-		path: "/parent-category/{parentCategoryName}/category", 
-=======
-		path: "/organization", 
->>>>>>> Stashed changes
-		body: request_body_46,
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+	get(
+		path: "/parent-categories", 
+		parameters ?: parameters_46 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_46_0
 		| response_46_1
 		| response_46_2
 		| response_46_3
-		| response_46_4
-		| response_46_5
-		| response_46_6
 	>
 
 	get(
-<<<<<<< Updated upstream
-		path: "/parent-category/{parentCategoryName}/categories", 
-		parameters : parameters_47 & BaseRequestParameters,
-=======
 		path: "/organizations", 
 		parameters ?: parameters_47 & BaseRequestParameters,
->>>>>>> Stashed changes
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_47_0
@@ -7927,15 +5555,10 @@ export interface EnrichedDuploTo<
 		| response_47_3
 	>
 
-<<<<<<< Updated upstream
-	delete(
-		path: "/parent-category/{parentCategoryName}/category/{categoryName}", 
+	patch(
+		path: "/user/{userId}@admin", 
+		body: request_body_48,
 		parameters : parameters_48 & BaseRequestParameters,
-=======
-	get(
-		path: "/parent-categories", 
-		parameters ?: parameters_48 & BaseRequestParameters,
->>>>>>> Stashed changes
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_48_0
@@ -7943,15 +5566,11 @@ export interface EnrichedDuploTo<
 		| response_48_2
 		| response_48_3
 		| response_48_4
+		| response_48_5
 	>
 
-<<<<<<< Updated upstream
 	patch(
 		path: "/parent-category/{parentCategoryName}", 
-=======
-	post(
-		path: "/parent-category", 
->>>>>>> Stashed changes
 		body: request_body_49,
 		parameters : parameters_49 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
@@ -7964,54 +5583,33 @@ export interface EnrichedDuploTo<
 		| response_49_5
 	>
 
-<<<<<<< Updated upstream
 	post(
-		path: "/navigation-item", 
+		path: "/parent-category", 
 		body: request_body_50,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
-=======
-	get(
-		path: "/users", 
-		parameters ?: parameters_50 & BaseRequestParameters,
->>>>>>> Stashed changes
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_50_0
 		| response_50_1
 		| response_50_2
 		| response_50_3
+		| response_50_4
 	>
 
-	patch(
-<<<<<<< Updated upstream
-		path: "/navigation-item/{navigationItemId}", 
-=======
-		path: "/user/{userId}@admin", 
->>>>>>> Stashed changes
-		body: request_body_51,
-		parameters : parameters_51 & BaseRequestParameters,
+	get(
+		path: "/users", 
+		parameters ?: parameters_51 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_51_0
 		| response_51_1
 		| response_51_2
 		| response_51_3
-		| response_51_4
-		| response_51_5
-<<<<<<< Updated upstream
-		| response_51_6
-	>
-
-	delete(
-		path: "/navigation-item/{navigationItemId}", 
-		parameters : parameters_52 & BaseRequestParameters,
-=======
 	>
 
 	get(
-		path: "/commands/{commandId}/bundles", 
-		parameters ?: parameters_52 & BaseRequestParameters,
->>>>>>> Stashed changes
+		path: "/product-sheet/{productSheetId}/categories", 
+		parameters : parameters_52 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_52_0
@@ -8019,17 +5617,12 @@ export interface EnrichedDuploTo<
 		| response_52_2
 		| response_52_3
 		| response_52_4
+		| response_52_5
 	>
 
-<<<<<<< Updated upstream
 	get(
-		path: "/organizations", 
+		path: "/commands/{commandId}", 
 		parameters ?: parameters_53 & BaseRequestParameters,
-=======
-	delete(
-		path: "/product-sheet/{productSheetId}/category/{categoryName}", 
-		parameters : parameters_53 & BaseRequestParameters,
->>>>>>> Stashed changes
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_53_0
@@ -8037,18 +5630,10 @@ export interface EnrichedDuploTo<
 		| response_53_2
 		| response_53_3
 		| response_53_4
-		| response_53_5
-		| response_53_6
 	>
 
-<<<<<<< Updated upstream
-	patch(
-		path: "/user/{userId}@admin", 
-		body: request_body_54,
-=======
-	get(
-		path: "/product-sheet/{productSheetId}", 
->>>>>>> Stashed changes
+	delete(
+		path: "/product-sheet/{productSheetId}/category/{categoryName}", 
 		parameters : parameters_54 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -8058,49 +5643,39 @@ export interface EnrichedDuploTo<
 		| response_54_3
 		| response_54_4
 		| response_54_5
+		| response_54_6
 	>
 
-<<<<<<< Updated upstream
-	get(
-		path: "/navigation-items", 
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
-=======
-	patch(
-		path: "/product-sheet/{productSheetId}", 
+	post(
+		path: "/product-sheet/{productSheetId}/facet", 
 		body: request_body_55,
 		parameters : parameters_55 & BaseRequestParameters,
->>>>>>> Stashed changes
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_55_0
 		| response_55_1
 		| response_55_2
 		| response_55_3
-<<<<<<< Updated upstream
-	>
-
-	get(
-		path: "/users", 
-		parameters ?: parameters_56 & BaseRequestParameters,
-=======
 		| response_55_4
 		| response_55_5
+		| response_55_6
 	>
 
 	get(
 		path: "/product-sheet/{productSheetId}/warehouse", 
 		parameters : parameters_56 & BaseRequestParameters,
->>>>>>> Stashed changes
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_56_0
 		| response_56_1
 		| response_56_2
 		| response_56_3
+		| response_56_4
+		| response_56_5
 	>
 
 	get(
-		path: "/product-sheet/{productSheetId}/images", 
+		path: "/product-sheet/{productSheetId}", 
 		parameters : parameters_57 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -8112,14 +5687,9 @@ export interface EnrichedDuploTo<
 		| response_57_5
 	>
 
-<<<<<<< Updated upstream
-	get(
-		path: "/organization/{organizationId}", 
-=======
-	post(
-		path: "/product-sheet/{productSheetId}/image", 
-		body: unknown,
->>>>>>> Stashed changes
+	patch(
+		path: "/product-sheet/{productSheetId}", 
+		body: request_body_58,
 		parameters : parameters_58 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -8129,19 +5699,10 @@ export interface EnrichedDuploTo<
 		| response_58_3
 		| response_58_4
 		| response_58_5
-<<<<<<< Updated upstream
 	>
 
 	patch(
-		path: "/organization/{organizationId}", 
-=======
-		| response_58_6
-		| response_58_7
-	>
-
-	post(
-		path: "/product-sheet/{productSheetId}/facet", 
->>>>>>> Stashed changes
+		path: "/product-sheet/{productSheetId}/facet/{facetType}", 
 		body: request_body_59,
 		parameters : parameters_59 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
@@ -8152,17 +5713,11 @@ export interface EnrichedDuploTo<
 		| response_59_3
 		| response_59_4
 		| response_59_5
+		| response_59_6
 	>
 
-<<<<<<< Updated upstream
-	put(
-		path: "/organization/{organizationId}/logo", 
-		body: unknown,
-=======
-	patch(
+	delete(
 		path: "/product-sheet/{productSheetId}/facet/{facetType}", 
-		body: request_body_60,
->>>>>>> Stashed changes
 		parameters : parameters_60 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -8175,14 +5730,8 @@ export interface EnrichedDuploTo<
 		| response_60_6
 	>
 
-<<<<<<< Updated upstream
-	patch(
-		path: "/product/{sku}", 
-		body: request_body_61,
-=======
-	delete(
-		path: "/product-sheet/{productSheetId}/facet/{facetType}", 
->>>>>>> Stashed changes
+	get(
+		path: "/product-sheet/{productSheetId}/facets", 
 		parameters : parameters_61 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -8192,15 +5741,11 @@ export interface EnrichedDuploTo<
 		| response_61_3
 		| response_61_4
 		| response_61_5
-		| response_61_6
 	>
 
-	get(
-<<<<<<< Updated upstream
-		path: "/organization/{organizationId}/promotions", 
-=======
-		path: "/product-sheet/{productSheetId}/facets", 
->>>>>>> Stashed changes
+	post(
+		path: "/product-sheet/{productSheetId}/image", 
+		body: unknown,
 		parameters : parameters_62 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -8210,14 +5755,12 @@ export interface EnrichedDuploTo<
 		| response_62_3
 		| response_62_4
 		| response_62_5
+		| response_62_6
+		| response_62_7
 	>
 
 	get(
-<<<<<<< Updated upstream
-		path: "/organization/{organizationId}/product-sheets", 
-=======
-		path: "/organization/{organizationId}/commands", 
->>>>>>> Stashed changes
+		path: "/product-sheet/{productSheetId}/images", 
 		parameters : parameters_63 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -8227,17 +5770,10 @@ export interface EnrichedDuploTo<
 		| response_63_3
 		| response_63_4
 		| response_63_5
-		| response_63_6
 	>
 
-<<<<<<< Updated upstream
-	post(
-		path: "/organization/{organizationId}/product-sheet", 
-		body: request_body_64,
-=======
 	get(
-		path: "/organization/{organizationId}/commands/{commandId}/details", 
->>>>>>> Stashed changes
+		path: "/organization/{organizationId}/commands", 
 		parameters : parameters_64 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -8248,19 +5784,11 @@ export interface EnrichedDuploTo<
 		| response_64_4
 		| response_64_5
 		| response_64_6
-<<<<<<< Updated upstream
-	>
-
-	get(
-		path: "/organization/{organizationId}/products", 
-=======
-		| response_64_7
 	>
 
 	post(
-		path: "/organization/{organizationId}/commands/{commandId}/make-bundle", 
+		path: "/organization/{organizationId}/product-sheet", 
 		body: request_body_65,
->>>>>>> Stashed changes
 		parameters : parameters_65 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -8271,23 +5799,11 @@ export interface EnrichedDuploTo<
 		| response_65_4
 		| response_65_5
 		| response_65_6
-		| response_65_7
-		| response_65_8
-		| response_65_9
-		| response_65_10
-		| response_65_11
-		| response_65_12
-		| response_65_13
 	>
 
-<<<<<<< Updated upstream
-	post(
-		path: "/organization/{organizationId}/warehouse", 
-		body: request_body_66,
-=======
-	get(
-		path: "/organization/{organizationId}", 
->>>>>>> Stashed changes
+	put(
+		path: "/organization/{organizationId}/logo", 
+		body: unknown,
 		parameters : parameters_66 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -8300,14 +5816,8 @@ export interface EnrichedDuploTo<
 		| response_66_6
 	>
 
-<<<<<<< Updated upstream
 	get(
-		path: "/organization/{organizationId}/users", 
-=======
-	patch(
-		path: "/organization/{organizationId}", 
-		body: request_body_67,
->>>>>>> Stashed changes
+		path: "/organization/{organizationId}/product-sheets", 
 		parameters : parameters_67 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -8320,11 +5830,7 @@ export interface EnrichedDuploTo<
 	>
 
 	get(
-<<<<<<< Updated upstream
-		path: "/organization/{organizationId}/commands/{commandId}/details", 
-=======
-		path: "/product-sheet/{productSheetId}/categories", 
->>>>>>> Stashed changes
+		path: "/organization/{organizationId}/warehouses", 
 		parameters : parameters_68 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -8334,20 +5840,11 @@ export interface EnrichedDuploTo<
 		| response_68_3
 		| response_68_4
 		| response_68_5
-<<<<<<< Updated upstream
-		| response_68_6
-		| response_68_7
-	>
-
-	get(
-		path: "/organization/{organizationId}/warehouses", 
-=======
 	>
 
 	post(
-		path: "/product-sheet/{productSheetId}/category", 
+		path: "/organization/{organizationId}/warehouse", 
 		body: request_body_69,
->>>>>>> Stashed changes
 		parameters : parameters_69 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -8358,19 +5855,12 @@ export interface EnrichedDuploTo<
 		| response_69_4
 		| response_69_5
 		| response_69_6
-		| response_69_7
 	>
 
-<<<<<<< Updated upstream
 	post(
 		path: "/organization/{organizationId}/commands/{commandId}/make-bundle", 
 		body: request_body_70,
 		parameters : parameters_70 & BaseRequestParameters,
-=======
-	get(
-		path: "/commands/{commandId}", 
-		parameters ?: parameters_70 & BaseRequestParameters,
->>>>>>> Stashed changes
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_70_0
@@ -8378,7 +5868,6 @@ export interface EnrichedDuploTo<
 		| response_70_2
 		| response_70_3
 		| response_70_4
-<<<<<<< Updated upstream
 		| response_70_5
 		| response_70_6
 		| response_70_7
@@ -8391,14 +5880,7 @@ export interface EnrichedDuploTo<
 	>
 
 	get(
-		path: "/product-sheet/{productSheetId}/categories", 
-=======
-	>
-
-	put(
-		path: "/organization/{organizationId}/logo", 
-		body: unknown,
->>>>>>> Stashed changes
+		path: "/organization/{organizationId}/commands/{commandId}/details", 
 		parameters : parameters_71 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -8408,10 +5890,12 @@ export interface EnrichedDuploTo<
 		| response_71_3
 		| response_71_4
 		| response_71_5
+		| response_71_6
+		| response_71_7
 	>
 
 	get(
-		path: "/organization/{organizationId}/product-sheets", 
+		path: "/organization/{organizationId}", 
 		parameters : parameters_72 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -8423,14 +5907,9 @@ export interface EnrichedDuploTo<
 		| response_72_5
 	>
 
-<<<<<<< Updated upstream
-	get(
-		path: "/product-sheet/{productSheetId}/warehouse", 
-=======
-	post(
-		path: "/organization/{organizationId}/product-sheet", 
+	patch(
+		path: "/organization/{organizationId}", 
 		body: request_body_73,
->>>>>>> Stashed changes
 		parameters : parameters_73 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -8440,16 +5919,10 @@ export interface EnrichedDuploTo<
 		| response_73_3
 		| response_73_4
 		| response_73_5
-		| response_73_6
 	>
 
-<<<<<<< Updated upstream
-	delete(
-		path: "/product-sheet/{productSheetId}/category/{categoryName}", 
-=======
 	get(
 		path: "/organization/{organizationId}/users", 
->>>>>>> Stashed changes
 		parameters : parameters_74 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -8459,15 +5932,10 @@ export interface EnrichedDuploTo<
 		| response_74_3
 		| response_74_4
 		| response_74_5
-		| response_74_6
 	>
 
-	post(
-<<<<<<< Updated upstream
-		path: "/product-sheet/{productSheetId}/facet", 
-=======
-		path: "/organization/{organizationId}/warehouse", 
->>>>>>> Stashed changes
+	patch(
+		path: "/warehouse/{warehouseId}", 
 		body: request_body_75,
 		parameters : parameters_75 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
@@ -8482,11 +5950,7 @@ export interface EnrichedDuploTo<
 	>
 
 	get(
-<<<<<<< Updated upstream
-		path: "/product-sheet/{productSheetId}", 
-=======
-		path: "/organization/{organizationId}/warehouses", 
->>>>>>> Stashed changes
+		path: "/bundles/{bundleId}/stream", 
 		parameters : parameters_76 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -8495,17 +5959,10 @@ export interface EnrichedDuploTo<
 		| response_76_2
 		| response_76_3
 		| response_76_4
-		| response_76_5
 	>
 
-<<<<<<< Updated upstream
-	patch(
-		path: "/product-sheet/{productSheetId}", 
-		body: request_body_77,
-=======
 	get(
 		path: "/bundles/{bundleId}", 
->>>>>>> Stashed changes
 		parameters : parameters_77 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -8514,19 +5971,11 @@ export interface EnrichedDuploTo<
 		| response_77_2
 		| response_77_3
 		| response_77_4
-<<<<<<< Updated upstream
-		| response_77_5
 	>
 
 	post(
-		path: "/product-sheet/{productSheetId}/promotions", 
+		path: "/product-sheet/{productSheetId}/category", 
 		body: request_body_78,
-=======
-	>
-
-	get(
-		path: "/bundles/{bundleId}/stream", 
->>>>>>> Stashed changes
 		parameters : parameters_78 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -8535,21 +5984,14 @@ export interface EnrichedDuploTo<
 		| response_78_2
 		| response_78_3
 		| response_78_4
-<<<<<<< Updated upstream
 		| response_78_5
 		| response_78_6
+		| response_78_7
 	>
 
-	patch(
-		path: "/product-sheet/{productSheetId}/facet/{facetType}", 
-=======
-	>
-
-	patch(
-		path: "/warehouse/{warehouseId}", 
->>>>>>> Stashed changes
-		body: request_body_79,
-		parameters : parameters_79 & BaseRequestParameters,
+	get(
+		path: "/commands/{commandId}/bundles", 
+		parameters ?: parameters_79 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_79_0
@@ -8557,47 +5999,31 @@ export interface EnrichedDuploTo<
 		| response_79_2
 		| response_79_3
 		| response_79_4
-		| response_79_5
-		| response_79_6
 	>
 
-<<<<<<< Updated upstream
-	delete(
-		path: "/product-sheet/{productSheetId}/facet/{facetType}", 
-=======
 	get(
-		path: "/organization/{organizationId}/promotions", 
->>>>>>> Stashed changes
-		parameters : parameters_80 & BaseRequestParameters,
+		path: "/full-product-sheets", 
+		parameters ?: parameters_80 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_80_0
 		| response_80_1
 		| response_80_2
-		| response_80_3
-		| response_80_4
-		| response_80_5
 	>
 
-	get(
-<<<<<<< Updated upstream
-		path: "/product-sheet/{productSheetId}/facets", 
+	post(
+		path: "/product-sheet/{productSheetId}/product", 
+		body: request_body_81,
 		parameters : parameters_81 & BaseRequestParameters,
-=======
-		path: "/full-product-sheets", 
-		parameters ?: parameters_81 & BaseRequestParameters,
->>>>>>> Stashed changes
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_81_0
 		| response_81_1
 		| response_81_2
-<<<<<<< Updated upstream
 		| response_81_3
 		| response_81_4
 		| response_81_5
-=======
->>>>>>> Stashed changes
+		| response_81_6
 	>
 
 	post(
@@ -8630,11 +6056,7 @@ export interface EnrichedDuploTo<
 	>
 
 	get(
-<<<<<<< Updated upstream
-		path: "/bundles/{bundleId}/stream", 
-=======
 		path: "/organization/{organizationId}/products", 
->>>>>>> Stashed changes
 		parameters : parameters_84 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -8643,29 +6065,19 @@ export interface EnrichedDuploTo<
 		| response_84_2
 		| response_84_3
 		| response_84_4
-<<<<<<< Updated upstream
-	>
-
-	post(
-		path: "/product-sheet/{productSheetId}/product", 
-		body: request_body_85,
-		parameters : parameters_85 & BaseRequestParameters,
-=======
 		| response_84_5
 	>
 
 	get(
 		path: "/computed-filters", 
 		parameters ?: parameters_85 & BaseRequestParameters,
->>>>>>> Stashed changes
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_85_0
 	>
 
-	post(
-		path: "/product-sheet/{productSheetId}/product", 
-		body: request_body_86,
+	get(
+		path: "/organization/{organizationId}/promotions", 
 		parameters : parameters_86 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -8675,31 +6087,14 @@ export interface EnrichedDuploTo<
 		| response_86_3
 		| response_86_4
 		| response_86_5
-		| response_86_6
 	>
 
-<<<<<<< Updated upstream
-	patch(
-		path: "/warehouse/{warehouseId}", 
-		body: request_body_87,
-		parameters : parameters_87 & BaseRequestParameters,
-		interceptorParams?: interceptorParameter
-	): EnrichedRequestor<
-		response_87_0
-		| response_87_1
-		| response_87_2
-		| response_87_3
-		| response_87_4
-		| response_87_5
-		| response_87_6
-=======
 	get(
 		path: "/full-product-sheets-count", 
 		parameters ?: parameters_87 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_87_0
->>>>>>> Stashed changes
 	>
 
 }

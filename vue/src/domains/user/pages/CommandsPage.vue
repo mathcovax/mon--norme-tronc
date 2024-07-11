@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Command } from "@/lib/utils";
+import type { Command } from "@/lib/utils";
 import CommandCard from "../components/CommandCard.vue";
 
 const $pt = usePageTranslate();
