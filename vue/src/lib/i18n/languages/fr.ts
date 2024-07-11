@@ -123,7 +123,8 @@ export default {
 				selledBy: "Vendu par : {value}",
 				price: "Prix : {value} €",
 				reBuy: "Acheter à nouveau",
-			}
+			},
+			noMoreCommands: "Vous n'avez plus de commandes.",
 		},
 		[routerPageName.USER_COMMAND]: {
 			title: "Détails de la commande",

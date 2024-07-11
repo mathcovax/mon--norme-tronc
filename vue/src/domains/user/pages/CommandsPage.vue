@@ -1,9 +1,28 @@
 <script setup lang="ts">
+import { Command } from "@/lib/utils";
 import CommandCard from "../components/CommandCard.vue";
-import { useGetCommands } from "../composables/useGetCommands";
 
 const $pt = usePageTranslate();
-const { commands } = useGetCommands();
+
+const commands = ref<Command[]>([]);
+const page = ref(0);
+const canSeeMore = ref(true);
+
+function getCommands(page: number) {
+	return duploTo.enriched
+		.get(
+			"/commands",
+			{ query: { page } }
+		)
+		.info("userCommands", (data) => {
+			if (data.length < 2) {
+				canSeeMore.value = false;
+			}
+			commands.value.push(...data);	
+		});
+}
+
+getCommands(page.value);
 
 </script>
 <template>
@@ -17,5 +36,19 @@ const { commands } = useGetCommands();
 			:command="command"
 			:key="command.id"
 		/>
+
+		<PrimaryButton
+			v-if="canSeeMore"
+			class="self-center"
+			@click="getCommands(++page)"
+		>
+			Voir plus
+		</PrimaryButton>
+
+		<span
+			v-else
+		>
+			{{ $pt("noMoreCommands") }}
+		</span>
 	</section>
 </template>
