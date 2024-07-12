@@ -76,7 +76,7 @@ export class CartService {
 									}
 									: undefined,
 								price: promotion 
-									? Number((ps.price * promotion.percentage / 100).toFixed(2))
+									? Number((ps.price - (ps.price * promotion.percentage / 100)).toFixed(2))
 									: ps.price
 							};
 						}

@@ -46,7 +46,7 @@ export const GET = (method: Methods, path: string) => mustBeConnected({ pickup: 
 					ps."shortDescription",
 					CASE
 						WHEN p.percentage IS NULL THEN ps."price"
-						ELSE ps."price" * p.percentage / 100
+						ELSE round((ps."price" - (ps."price" * p.percentage / 100))::numeric, 2)
 					END AS price,
 					COALESCE((psi."imageUrl"), '') AS "imageUrl"
 				FROM userArticle AS ua

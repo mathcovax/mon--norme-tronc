@@ -201,7 +201,10 @@ for await (const promotion of promotionGenerator) {
 							endDate: promotion.endDate,
 						} satisfies FullProductSheetSchema["promotion"],
 						price: Number(
-							(promotion.productSheet.price * promotion.percentage / 100).toFixed(2)
+							(
+								promotion.productSheet.price - 
+									(promotion.productSheet.price * promotion.percentage / 100)
+							).toFixed(2)
 						),
 					}
 				}
