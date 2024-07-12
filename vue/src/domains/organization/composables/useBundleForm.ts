@@ -31,7 +31,7 @@ export function useBundleForm(organizationId: string) {
 		BundleForm: Form,
 		resetBundleForm: resetForm,
 		findProducts: computed(() => products.value.map(p => p.sku)),
-		getProducts: (sku: string, productSheetId?: string) => getProducts(0, sku, productSheetId, "IN_STOCK"),
+		getProducts: (sku: string, productSheetId?: string) => getProducts({ sku, productSheetId, status: "IN_STOCK" }),
 		checkBundleForm: checkForm
 	};
 }

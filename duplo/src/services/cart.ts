@@ -62,7 +62,7 @@ export class CartService {
 					}).then(
 						ps => {
 							const promotion = ps.promotions[0];
-
+							
 							return { 
 								productSheetId: aic.productSheetId,
 								quantity: aic._count.productSheetId, 

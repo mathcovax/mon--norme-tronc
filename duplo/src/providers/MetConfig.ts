@@ -15,7 +15,10 @@ export const MetConfig = {
 	},
 	productSheet: {
 		imagesLimit: 6,
-		categoriesLimit: 5
+		categoriesLimit: 5,
+		full: {
+			organizationLimit: 10,
+		}
 	},
 	stripe: {
 		timestampSession: 30*60, // 30 min

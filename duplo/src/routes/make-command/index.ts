@@ -91,9 +91,9 @@ export const POST = (method: Methods, path: string) =>
 								product_data: {
 									name: fps.name,
 								},
-								unit_amount: fps.price * 100
+								unit_amount: Number((fps.price * 100).toFixed(0))
 							},
-							quantity: aic.quantity, 
+							quantity: aic.quantity,
 						}),
 					),
 					success_url: `${ENV.ORIGIN}/order?sessionId={CHECKOUT_SESSION_ID}`,

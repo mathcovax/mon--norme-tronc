@@ -338,7 +338,10 @@ export default {
 		[routerPageName.ORGANIZATION_MANAGE_PRODUCT]: {
 			title: "Liste des produits",
 			table: {
-				ref: "Ref",
+				ref: "Reférence",
+				sku: "SKU",
+				name: "Nom",
+				quantity: "Stock",
 				productSheetName: "Fiche Produit",
 				lastEdit: "Modifiée le",
 				status: "Status",

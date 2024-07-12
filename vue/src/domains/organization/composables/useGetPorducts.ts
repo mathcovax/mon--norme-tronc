@@ -1,20 +1,24 @@
-import type { Product, ProductStatus } from "@/lib/utils";
+import type { GetDef } from "@/lib/duploTo/EnrichedDuploTo";
+import type { Product } from "@/lib/utils";
+
+type Query = Exclude<
+	GetDef<
+		"GET",
+		"/organization/{organizationId}/products"
+	>["parameters"]["query"],
+	undefined
+>
 
 export function useGetProducts(organizationId: string) {
 	const products = ref<Product[]>([]);
 
-	function getProducts(page: number, sku: string, productSheetId?: string, status?: ProductStatus) {
+	function getProducts(query: Query = {}) {
 		return duploTo.enriched
 			.get(
 				"/organization/{organizationId}/products",
 				{ 
 					params: { organizationId }, 
-					query: {
-						page, 
-						sku,
-						productSheetId,
-						status,
-					} 
+					query, 
 				},
 				{ disabledLoader: true }
 			)

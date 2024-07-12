@@ -40,6 +40,9 @@ export const GET = (method: Methods, path: string) =>
 					take: 10,
 					skip: page * 10,
 					select: productSelect,
+					orderBy: {
+						createdAt: "desc",
+					}
 				}).then(
 					productEntitys => productEntitys.map(productEntityformater)
 				);

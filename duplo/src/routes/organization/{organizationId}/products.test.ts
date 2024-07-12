@@ -33,6 +33,8 @@ describe("GET /organization/{organizationId}/products", () => {
 		expect(spy).lastCalledWith({
 			where: {
 				organizationId: "eee",
+				productSheetId: undefined,
+				status: undefined,
 				sku: {
 					contains: "eeee",
 					mode: "insensitive",
@@ -41,6 +43,9 @@ describe("GET /organization/{organizationId}/products", () => {
 			skip: 0,
 			take: 10,
 			select: {},
+			orderBy: {
+				createdAt: "desc"
+			}
 		});
 		expect(res.information).toBe("products.found");
 	});
