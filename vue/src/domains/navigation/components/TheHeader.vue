@@ -12,11 +12,11 @@ const { items } = useGetNavigationBar();
 </script>
 
 <template>
-	<header class="sticky w-full top-0 z-10 bg-white shadow-md">
-		<div class="h-24 container flex items-center gap-4">
+	<header class="sticky top-0 z-10 w-full bg-white shadow-md">
+		<div class="container flex items-center h-24 gap-4">
 			<MobileNavbar :navigation-items="items" />
 
-			<div class="flex-1 flex gap-10 justify-between md:justify-center items-center">
+			<div class="flex items-center justify-between flex-1 gap-10 md:justify-center">
 				<RouterLink
 					:to="{ name: EDITO_HOME }"
 					class="text-2xl font-bold"
@@ -24,7 +24,7 @@ const { items } = useGetNavigationBar();
 					MET
 				</RouterLink>
 
-				<div class="md:flex-1 flex gap-6 justify-between items-center">
+				<div class="flex items-center justify-between gap-6 md:flex-1">
 					<TheNavbar
 						class="hidden md:block"
 						:navigation-items="items"
@@ -32,7 +32,7 @@ const { items } = useGetNavigationBar();
 
 					<TheSearch />
 
-					<div class="flex gap-6 items-center">
+					<div class="flex items-center gap-6">
 						<MobileSearch />
 
 						<RouterLink to="/cart">

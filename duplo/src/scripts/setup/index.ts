@@ -6,3 +6,5 @@ import { prisma } from "./prismaClient";
 global.zod = zod;
 //@ts-expect-error var 'global' cause type error.
 global.prisma = prisma;
+
+await import("../../mocks/laPoste");

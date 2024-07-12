@@ -1,4 +1,5 @@
 import { commandExistCheck } from "@checkers/command";
+import { fullCommandModel } from "@mongoose/model";
 import { hasOrganizationRoleByOrganizationId } from "@security/hasOrganizationRole/byOrganizationId";
 
 /* METHOD : POST, PATH : /organization/{organizationId}/commands/{commandId}/make-bundle */
@@ -131,8 +132,8 @@ export const POST = (method: Methods, path: string) =>
 					}
 				});
 
-				await Promise.all(
-					bundleNeededDatas.map(
+				await Promise.all([
+					...bundleNeededDatas.map(
 						bnd => Promise.all([
 							prisma.product.update({
 								where: { sku: bnd.product.sku },
@@ -145,28 +146,65 @@ export const POST = (method: Methods, path: string) =>
 								}
 							})
 						])
-					)
-				);
-
-				await Promise.all(
-					Object.entries(computedProcessQuantity).map(
-						([commandItemId, processQuantity]) => prisma.command_item.update({
-							where: { id: Number(commandItemId) },
-							data: { processQuantity }
-						})
-					)
-				);
+					),
+					...Object.entries(computedProcessQuantity).map(
+						([commandItemId, processQuantity]) => 
+							prisma.command_item.update({
+								where: { id: Number(commandItemId) },
+								data: { processQuantity }
+							})
+					),
+				]);
 
 				const commandItems = await prisma.command_item.findMany({
 					where: { commandId: command.id },
-					select: { quantity: true, processQuantity: true },
+					select: { productSheetId: true, quantity: true, processQuantity: true },
 				});
 
+				await fullCommandModel.findOne({ id: command.id })
+					.then(fcm => {
+						if (!fcm) {
+							throw new Error("Missing full commad");
+						}
+						return fcm.toJSON();
+					})
+					.then(
+						fullCommand => fullCommandModel.updateOne(
+							{ id: command.id },
+							{
+								$set: {
+									items: fullCommand.items.map(
+										item => {
+											const ci = commandItems.find(
+												ci => ci.productSheetId === item.productSheetId
+											);
+
+											if (!ci) {
+												throw new Error("Missing command");
+											}
+
+											return {
+												...item,
+												processQuantity: ci.processQuantity,
+											};
+										}
+									)
+								}
+							}
+						)
+					);
+
 				if (commandItems.every(commandItem => commandItem.quantity === commandItem.processQuantity)) {
-					await prisma.command.update({
-						where: { id: command.id },
-						data: { status: "DONE" }
-					});
+					await Promise.all([
+						prisma.command.update({
+							where: { id: command.id },
+							data: { status: "IN_DELIVERY" }
+						}),
+						fullCommandModel.updateOne(
+							{ id: command.id },
+							{ status: "IN_DELIVERY" }
+						)
+					]);
 				}
 				
 				throw new OkHttpException("makeBundle");

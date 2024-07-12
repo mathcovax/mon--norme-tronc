@@ -9,8 +9,8 @@ export function useBundleForm(organizationId: string) {
 			label: $pt("form.idShip"),
 			zodSchema: zod
 				.string({ message: $t("form.rule.required") })
-				.min(11, { message: $t("form.rules.minLength", { value: 1 }) })
-				.min(15, { message: $t("form.rules.maxLength", { value: 15 }) })
+				.min(11, { message: $t("form.rule.minLength", { value: 11 }) })
+				.max(15, { message: $t("form.rule.maxLength", { value: 15 }) })
 		},
 		bundleItems: {
 			type: "custom",

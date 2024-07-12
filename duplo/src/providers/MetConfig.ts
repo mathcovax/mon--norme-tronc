@@ -3,7 +3,7 @@ declare global {
 }
 
 export const MetConfig = {
-	Cart: {
+	cart: {
 		articlesLimit: 10,
 		quantityLimit: 15,
 	},
@@ -22,6 +22,9 @@ export const MetConfig = {
 	},
 	bundle: {
 		pullingInterval: 5000 
+	},
+	command: {
+		commandLimit: 10
 	}
 };
 //@ts-expect-error var 'global' cause type error.

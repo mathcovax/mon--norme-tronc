@@ -13,6 +13,10 @@ const currentPage = ref(0);
 const searchName = ref("");
 const cols: BigTableColDef<ProductSheet>[] = [
 	{
+		title: $t("label.ref"),
+		getter: i => i.ref
+	},
+	{
 		title: $t("label.lastname"),
 		getter: i => i.name
 	},
@@ -23,10 +27,6 @@ const cols: BigTableColDef<ProductSheet>[] = [
 	{
 		title: $pt("price"),
 		getter: i => i.price
-	},
-	{
-		title: $t("label.createdAt"),
-		getter: i => i.createdAt?.split("T")[0]
 	},
 	{
 		title: $t("label.updatedAt"),

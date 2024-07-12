@@ -1,4 +1,5 @@
 import "./setup";
+import { mongoose } from "./setup/mongoose";
 import { FindSlice } from "@utils/findSlice";
 import { PromiseList } from "./setup/promiseList";
 import { bundle, carrier_name } from "@prisma/client";
@@ -34,3 +35,5 @@ for await (const bundle of bundleGenerator) {
 }
 
 await promiseList.clear();
+
+mongoose.connection.close();

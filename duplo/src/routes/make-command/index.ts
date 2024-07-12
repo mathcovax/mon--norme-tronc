@@ -1,5 +1,6 @@
 import { addressValidCheck } from "@checkers/address";
-import { fullProductSheetModel } from "@mongoose/model";
+import { fullCommandModel, fullProductSheetModel } from "@mongoose/model";
+import { FullCommandSchema } from "@schemas/command";
 import { sessionSchema } from "@schemas/session";
 import { mustBeConnected } from "@security/mustBeConnected";
 import { CartService } from "@services/cart";
@@ -58,21 +59,43 @@ export const POST = (method: Methods, path: string) =>
 			async ({ pickup }) => {
 				const user = pickup("user");
 				const articlesInCart = pickup("articlesInCart");
-				const computedPrice = await pickup("cartService").computedPrice();
 				const commandId = uuidv7();
 				const { firstname, lastname, address } = pickup("body");
 
-				const price = await stripe.prices.create({
-					currency: "eur",
-					unit_amount_decimal: computedPrice,
-					product_data: {
-						name: "Mon énorme tronc"
-					}
-				});
+				const articlesInCartAndfullProductSheets = await Promise.all(
+					articlesInCart.map(
+						aic => fullProductSheetModel.findOne({ id: aic.productSheetId })
+							.then(fps => {
+								if (!fps) {
+									throw new Error(`missing full product sheet ${aic.productSheetId}`);
+								}
+
+								return fps.toJSON();
+							})
+							.then(fps => {
+								fps.promotion = aic.promotion;
+								fps.hasPromotion = !!aic.promotion;
+								fps.price = aic.price;
+
+								return [aic, fps] as const;
+							})
+					)
+				);
 
 				const session = await stripe.checkout.sessions.create({
 					mode: "payment",
-					line_items: [{ price: price.id, quantity: 1 }],
+					line_items: articlesInCartAndfullProductSheets.map(
+						([aic, fps]) => ({
+							price_data: {
+								currency: "eur",
+								product_data: {
+									name: fps.name,
+								},
+								unit_amount: fps.price * 100
+							},
+							quantity: aic.quantity, 
+						}),
+					),
 					success_url: `${ENV.ORIGIN}/order?sessionId={CHECKOUT_SESSION_ID}`,
 					cancel_url: `${ENV.ORIGIN}/order?commandId=${commandId}`,
 					customer_email: user.email,
@@ -94,22 +117,38 @@ export const POST = (method: Methods, path: string) =>
 				});
 
 				await Promise.all([
-					...articlesInCart.map(
-						aic =>
-							fullProductSheetModel
-								.findOne({ id: aic.productSheetId })
-								.then(
-									fps => prisma.command_item.create({
-										data: {
-											commandId,
-											userId: user.id,
-											productSheetId: aic.productSheetId,
-											quantity: aic.quantity,
-											freezeProductSheet: JSON.stringify(fps),
-										}
-									})
-								)
-							
+					Promise.all(
+						articlesInCartAndfullProductSheets.map(
+							([aic, fps]) => prisma.command_item.create({
+								data: {
+									commandId,
+									userId: user.id,
+									productSheetId: aic.productSheetId,
+									quantity: aic.quantity,
+									freezeProductSheet: JSON.stringify(fps),
+								}
+							}).then(commandItem => [commandItem, fps] as const)
+						),
+					).then(
+						commandItemsAndFps => fullCommandModel.create({
+							id: commandId,
+							firstname,
+							lastname,
+							status: "WAITING_PAYMENT",
+							userId: user.id,
+							deliveryAddress: address,
+							createdDate: new Date(),
+							price: commandItemsAndFps.reduce((pv, [ci, fps]) => pv + (ci.quantity * fps.price), 0),
+							items: commandItemsAndFps.map(([commandItem, fps]) => ({
+								quantity: commandItem.quantity,
+								processQuantity: commandItem.processQuantity,
+								productSheetId: commandItem.productSheetId,
+								productSheetName: fps.name,
+								productSheetPrice: fps.price,
+								productSheetFirstImageUrl: fps.images[0] ?? "",
+								productSheetOrganizationName: fps.organization.name,
+							})),
+						} satisfies FullCommandSchema)
 					),
 					prisma.article.deleteMany({
 						where: {

@@ -2,6 +2,7 @@ import { facet_type } from "@prisma/client";
 
 export const fullProductSheetSchema = zod.object({
 	id: zod.string(),
+	ref: zod.string(),
 	name: zod.string(),
 	price: zod.number(),
 	shortDescription: zod.string(),

@@ -35,6 +35,7 @@ export class ProductAvailability {
 					command_item AS ci
 				WHERE 
 					ci."productSheetId" = ${productSheetId}
+					AND ci.canceled = false
 					AND ci."processQuantity" != ci.quantity
 				GROUP BY ci."productSheetId"
 			)

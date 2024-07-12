@@ -32,6 +32,7 @@ export const GET = (method: Methods, path: string) =>
 						ci."processQuantity" AS "processQuantity",
 						ps.name AS "productSheetName",
 						ps.id AS "productSheetId",
+						ps.ref as "productSheetRef",
 						(SELECT ips.url AS url FROM image_product_sheet AS ips WHERE ips."productSheetId" = ps.id LIMIT 1) AS "productSheetFirstImageUrl"
 					FROM command_item AS ci
 					INNER JOIN product_sheet AS ps ON ps.id = ci."productSheetId"

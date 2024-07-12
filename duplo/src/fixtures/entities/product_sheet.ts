@@ -13,6 +13,7 @@ export const makeProductSheet = (
 			description: productSheet?.description || faker.commerce.productDescription(),
 			shortDescription: productSheet?.shortDescription || faker.commerce.productDescription(),
 			price: productSheet?.price || parseFloat(faker.commerce.price()),
+			ref: productSheet?.ref || faker.commerce.isbn(),
 			warehouseId: warehouse.id,
 			organizationId: organizationId,
 		}

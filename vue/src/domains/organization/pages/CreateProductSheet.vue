@@ -31,6 +31,7 @@ async function submit() {
 		.post(
 			"/organization/{organizationId}/product-sheet",
 			{
+				ref: formFields.ref,
 				name: formFields.name,
 				description: formFields.description,
 				shortDescription: formFields.shortDescription,

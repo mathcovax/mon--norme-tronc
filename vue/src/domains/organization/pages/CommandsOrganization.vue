@@ -48,6 +48,7 @@ const {
 	resetBundleForm, 
 	checkBundleForm,
 } = useBundleForm(params.value.organizationId);
+const currentCommand = ref<null | OrganizationCommandCollection[number]>(null);
 
 function next() {
 	if (organizationCommandCollection.value.length < 10) {
@@ -68,14 +69,14 @@ effect(() => {
 });
 
 const commandDetailes = ref<OrganizationCommandDetailes>([]);
-function openPopup(commandId: string) {
+function openPopup(command: OrganizationCommandCollection[number]) {
 	duploTo.enriched
 		.get(
 			"/organization/{organizationId}/commands/{commandId}/details",
 			{
 				params: {
 					organizationId: params.value.organizationId,
-					commandId,
+					commandId: command.commandId,
 				}
 			}
 		)
@@ -83,8 +84,10 @@ function openPopup(commandId: string) {
 			commandDetailes.value = data;
 			resetBundleForm();
 			popup.value?.open();
+			currentCommand.value = command;
 		})
 		.info("commandItem.missing", () => {
+			currentCommand.value = null;
 			popup.value?.close();
 			refreshCommand();
 		});
@@ -92,9 +95,9 @@ function openPopup(commandId: string) {
 
 async function createBundle() {
 	const formfield = await checkBundleForm();
-	const commandId = commandDetailes.value[0].commandId;
+	const command = currentCommand.value;
 
-	if (!formfield || !commandId) {
+	if (!formfield || !command) {
 		return;
 	}
 
@@ -105,11 +108,11 @@ async function createBundle() {
 			{
 				params: {
 					organizationId: params.value.organizationId,
-					commandId,
+					commandId: command.commandId,
 				}
 			}
 		)
-		.then(() => openPopup(commandId));
+		.then(() => openPopup(command));
 	
 }
 
@@ -141,7 +144,7 @@ async function createBundle() {
 				:current-page="currentPage + 1"
 				@click-next="next"
 				@click-previous="previous"
-				@click-on-row="i => openPopup(i.commandId)"
+				@click-on-row="i => openPopup(i)"
 			/>
 		</div>
 
@@ -151,6 +154,14 @@ async function createBundle() {
 			@close="refreshCommand"
 		>
 			<template #popupContent>
+				<div>
+					<p>{{ $t("label.address") }} : {{ currentCommand?.address }}</p>
+
+					<p>{{ $t("label.lastname") }} : {{ currentCommand?.lastname }}</p>
+
+					<p>{{ $t("label.firstname") }} : {{ currentCommand?.firstname }}</p>
+				</div>
+
 				<BigTable
 					:items="commandDetailes"
 					:cols="[
@@ -163,8 +174,8 @@ async function createBundle() {
 							getter: i => i.productSheetName
 						},
 						{
-							title: $pt('table.productSheetId'),
-							getter: i => i.productSheetId
+							title: $pt('table.productSheetRef'),
+							getter: i => i.productSheetRef
 						},
 						{
 							title: $pt('table.quantityRest'),
@@ -196,7 +207,7 @@ async function createBundle() {
 							<div
 								v-for="(bundleItem, index) of modelValue"
 								:key="index"
-								class="grid gap-3 grid-cols-12"
+								class="grid grid-cols-12 gap-3"
 							>
 								<PrimarySelect
 									class="col-span-5"

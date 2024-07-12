@@ -1,5 +1,6 @@
 export const productSheetSchema = zod.object({
 	id: zod.string(),
+	ref: zod.string(),
 	name: zod.string(),
 	description: zod.string(),
 	shortDescription: zod.string(),

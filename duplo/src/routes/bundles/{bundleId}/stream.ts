@@ -17,8 +17,8 @@ export const GET = (method: Methods, path: string) =>
 				const bundle = pickup("bundle");
 
 				SSE.onStart(() => {
+					let lastTimeLineSend: string;
 					const intervalCallback = async () => {
-						let lastTimeLineSend: string;
 						await LaPosteCarrier
 							.fetchDetails(bundle.idShip)
 							.then(details => {

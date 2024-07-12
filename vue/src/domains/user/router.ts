@@ -5,6 +5,8 @@ export const routerPageNameUser = Object.freeze({
 	USER_ORGANIZATIONS: "my-organizations",	
 	USER_CART: "cart",
 	USER_BUNDLE: "user-bundle",
+	USER_COMMANDS: "commands",
+	USER_COMMAND: "command",
 });
 
 export default (): RouteRecordRaw[] => [
@@ -27,5 +29,15 @@ export default (): RouteRecordRaw[] => [
 		name: routerPageNameUser.USER_BUNDLE,
 		path: "/bundle/:bundleId",
 		component: () => import("./pages/BundlePage.vue"),
+	},
+	{
+		name: routerPageNameUser.USER_COMMANDS,
+		path: "/commands",
+		component: () => import("./pages/CommandsPage.vue")
+	},
+	{
+		name: routerPageNameUser.USER_COMMAND,
+		path: "/commands/:commandId",
+		component: () => import("./pages/CommandPage.vue")
 	},
 ];

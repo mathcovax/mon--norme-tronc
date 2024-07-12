@@ -2,6 +2,7 @@ import { FullProductSheetSchema } from "@schemas/fullProductSheet";
 
 export const fullProductSheetData: FullProductSheetSchema = {
 	id: "b458aa83-b75e-4fcb-9056-ce8cc7910381",
+	ref: "19112",
 	categories: ["le cul de la daron a liam"],
 	description: "",
 	facets: {

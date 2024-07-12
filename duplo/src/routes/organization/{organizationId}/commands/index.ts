@@ -45,11 +45,14 @@ export const GET = (method: Methods, path: string) =>
 					SELECT 
 						oci."commandId" AS "commandId",
 						SUM(oci.quantity)::INT AS quantity,
-						c."createdAt"
+						c."createdAt",
+						c.firstname AS firstname,
+						c.lastname AS lastname,
+						c.address AS address
 					FROM organizationCommandItems AS oci
 					INNER JOIN command AS c ON c.id = oci."commandId"
-					WHERE c.status = 'IN_PROGESS'
-					GROUP BY oci."commandId", c."createdAt"
+					WHERE c.status = 'IN_PROGRESS'
+					GROUP BY oci."commandId", c."createdAt", c.firstName, c.lastname, c.address
 					ORDER BY c."createdAt"
 					OFFSET ${page * 10}
 					LIMIT 10

@@ -93,6 +93,7 @@ for await (const productSheet of productSheetGenerator) {
 
 	const fullProductSheet: FullProductSheetSchema = {
 		id: productSheet.id,
+		ref: productSheet.ref,
 		name: productSheet.name,
 		description: productSheet.description,
 		shortDescription: productSheet.shortDescription,

@@ -1,7 +1,10 @@
 import "./setup";
+import { mongoose } from "./setup/mongoose";
 import { FindSlice } from "@utils/findSlice";
 import { LastTime } from "./setup/lastTime";
 import { PromiseList } from "./setup/promiseList";
+import { fullCommandModel } from "@mongoose/model";
+import { command_status } from "@prisma/client";
 
 const newLastReadNotification = new Date();
 const lastTime = new LastTime("readNotification");
@@ -24,20 +27,37 @@ const generator = FindSlice(
 const promiseList = new PromiseList(1000);
 
 for await (const notification of generator) {
+	const commandStatus: command_status = notification.type === "checkout.session.completed"
+		? "IN_PROGRESS"
+		: "CANCELED";
 	await promiseList.append(
-		prisma.command.updateMany({
-			where: {
-				id: notification.commandId,
-				status: "WAITING_PAYMENT",
-			},
-			data: {
-				status: notification.type === "checkout.session.completed"
-					? "IN_PROGESS"
-					: "CANCELED"
-			}
-		})
+		Promise.all([
+			prisma.command.update({
+				where: {
+					id: notification.commandId,
+					status: "WAITING_PAYMENT",
+				},
+				data: {
+					status: commandStatus,
+				}
+			}),
+			fullCommandModel.updateOne(
+				{ id: notification.commandId },
+				{ status: commandStatus }
+			),
+			prisma.command_item.updateMany({
+				where: {
+					commandId: notification.commandId,
+				},
+				data: {
+					canceled: true
+				}
+			})
+		])
 	);
 }
 
 await promiseList.clear();
 lastTime.set(newLastReadNotification);
+
+mongoose.connection.close();

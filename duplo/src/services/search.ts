@@ -7,7 +7,9 @@ export class SearchService {
 		categoryName: zod.string().optional(),
 	});
 
-	static indexes = ["name", "description", "shortDescription"];
+	static indexes = [
+		"name", "shortDescription", "description", "ref"
+	];
 
 	static makePipelinesStage(
 		{

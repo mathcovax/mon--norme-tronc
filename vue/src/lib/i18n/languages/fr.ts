@@ -1,4 +1,4 @@
-import type { Bundle, Facet } from "@/lib/utils";
+import type { Bundle, CommandStatus, Facet } from "@/lib/utils";
 
 export default {
 	page: {
@@ -106,6 +106,54 @@ export default {
 				title: "Voulez-vous vraiment supprimer ce produit ?",
 				content: "Si vous validez, ce produit sera retiré de votre panier."
 			}
+		},
+		[routerPageName.USER_COMMANDS]: {
+			title: "Vos commandes",
+			command: {
+				label: {
+					date: "COMMANDE EFFECTUÉE LE",
+					total: "TOTAL",
+					address: "LIVRAISON À",
+					commandNumber: "N° DE COMMANDE",
+				},
+				price: "{value} €",
+			},
+			product: {
+				quantity: "Quantité : {value}",
+				processQuantity: "Quantité traiter : {value}",
+				selledBy: "Vendu par : {value}",
+				price: "Prix : {value} €",
+				reBuy: "Acheter à nouveau",
+			},
+			noMoreCommands: "Vous n'avez plus de commandes.",
+		},
+		get [routerPageName.USER_COMMAND]() {
+			return {
+				title: "Détails de la commande",
+				returnBack: "Retour",
+				command: {
+					label: {
+						date: "Commandé le {value}",
+						commandNumber: "N° de commande : { value }",
+					},
+					seeInvoice: "Voir la facture",
+					deliveryAddress: "Adresse de livraison",
+					recapCommand: "Récapitulatif de la commande",
+					boughtProducts: "Produits acheté(s) : {value}",
+					totalPrice: "Montant total TTC : {value} €",
+				},
+				product: {
+					...this[routerPageName.USER_COMMANDS].product,
+					title: "Produit(s)",
+				},
+				bundle: {
+					title: "Colis associé(s)",
+					id: "identifiant du Paquet : {id}",
+					carrierName: "Nom du transporteur : ",
+					status: "Status : ",
+					productsCount: "Nombre de produit dans le paquet : {value}",
+				}
+			};
 		},
 		[routerPageName.ORDER_PAGE]: {
 			title: "Ma commande",
@@ -312,8 +360,8 @@ export default {
 				date: "Date de la commande",
 				quantity: "Quantité de produit",
 				id: "ID de la commande",
-				quantityRest: "produit a trétais",
-				productSheetId: "ID de la fiche produit",
+				quantityRest: "Produit a trétais",
+				productSheetRef: "Référence produit",
 				productSheetName: "Nom du produit",
 				image: "Image du produit",
 			},
@@ -334,6 +382,7 @@ export default {
 			status: "Status du colis :",
 			content: "Contenu du colis :",
 			action: "Action en cours : {value}",
+			carrierSite: "Voire le site du transporteur", 
 			table: {
 				image: "",
 				name: "Nom",
@@ -412,6 +461,7 @@ export default {
 				products: "Produits",
 				dropdown: {
 					myAccount: "Mon compte",
+					myCommands: "Mes commandes",
 					editProfil: "Editer mon profil",
 					myOrganizations: "Mes organisations",
 					support: "Support",
@@ -561,6 +611,7 @@ export default {
 		image: "Image",
 		type: "Type",
 		title: "Titre",
+		ref: "Référence",
 	},
 	placeholder: {
 		address: "Chercher votre adresse",
@@ -614,6 +665,13 @@ export default {
 		DONE: "livrée",
 		DONE_OFFICE: "livrée au point relé",
 	} satisfies Record<Bundle["status"], string>,
+	commandStatus: {
+		CANCELED: "Annulée",
+		WAITING_PAYMENT: "En attente de paiement",
+		IN_PROGRESS: "En cours de traitement",
+		IN_DELIVERY: "En cours de livraison",
+		DONE: "Livrée"
+	} satisfies Record<CommandStatus, string>,
 	response: {
 		organization: {
 			alreadyExist: "Une organisation avec ce nom existe déjà.",
@@ -644,7 +702,13 @@ export default {
 		productSheet: {
 			notfound: "La fiche produit n'existe pas.",
 			edited: "La fiche a correctement été éditée.",
-			created: "La fiche a correctement été créée."
+			created: "La fiche a correctement été créée.",
+			ref: {
+				alreadyUse: "Cette Reférence est déjà utilisais."
+			}
+		},
+		command: {
+			notfound: "La commande n'existe pas.",
 		},
 		promotion: {
 			created: "La promotion a correctement été créée.",

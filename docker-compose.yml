@@ -91,6 +91,20 @@ services:
       - ./stripe:/home
     entrypoint: /bin/sh
     command: /home/cp.sh
+
+  cron: 
+    image: node:20.11.1
+    environment:
+      npm_config_cache: /home/node/cache
+    user: 1000:1000
+    env_file: ./duplo/.env
+    working_dir: /home/node/project
+    volumes:
+      - ./:/home/node/project
+    command: npm run cron
+    depends_on:
+      node-installer:
+        condition: service_completed_successfully
     
 volumes:
   postgres_data:
