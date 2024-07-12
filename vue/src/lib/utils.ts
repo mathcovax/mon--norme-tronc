@@ -204,3 +204,5 @@ export type BundleCollection = GetResponseByInfo<
 	GetDef<"GET", "/commands/{commandId}/bundles">,
 	"bundles.found"
 >["body"]
+
+export type CarrierName = Bundle["carrierName"]

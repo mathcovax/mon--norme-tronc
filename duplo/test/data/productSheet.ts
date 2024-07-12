@@ -1,6 +1,7 @@
 import { product_sheet } from "@prisma/client";
 
 export const productSheetData: product_sheet = {
+	ref: "19112",
 	id: "",
 	name: "",
 	description: "",

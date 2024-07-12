@@ -44,6 +44,8 @@ defineProps<Props>();
 				<div class="flex items-center justify-between gap-4">
 					<span>{{ $pt("product.quantity", { value: product.quantity }) }}</span>
 
+					<span>{{ $pt("product.processQuantity", { value: product.processQuantity }) }}</span>
+
 					<span>{{ $pt("product.selledBy", { value: product.productSheetOrganizationName }) }}</span>
 				</div>
 			</div>

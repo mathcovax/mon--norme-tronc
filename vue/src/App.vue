@@ -19,7 +19,7 @@ watch(
 
 	<div
 		ref="container"
-		class="w-full h-[100vh] overflow-auto"
+		class="w-full h-full overflow-auto"
 	>
 		<RouterView />
 	</div>

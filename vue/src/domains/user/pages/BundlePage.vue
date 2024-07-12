@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Bundle } from "@/lib/utils";
+import type { Bundle, CarrierName,  } from "@/lib/utils";
 import { useGetBundle } from "../composables/useGetBundle";
 import { fetchEventSource } from "@microsoft/fetch-event-source";
 
@@ -40,6 +40,10 @@ const cols: BigTableColDef<Bundle["bundleProducts"][number]>[] = [
 	},
 ];
 
+const linkByCarrierNameMapper: Record<CarrierName, (value: string) => string> = {
+	LA_POSTE: (value) => `https://www.laposte.fr/outils/suivre-vos-envois?code=${value}`
+};
+
 </script>
 
 <template>
@@ -63,6 +67,13 @@ const cols: BigTableColDef<Bundle["bundleProducts"][number]>[] = [
 			<p>
 				{{ $pt("action", {value: currentTimeLine}) }}
 			</p>
+
+			<a
+				:href="linkByCarrierNameMapper[bundle.carrierName](bundle.idShip)"
+				class="underline"
+			>
+				{{ $pt("carrierSite") }}
+			</a>
 		</div>
 
 		<div class="flex flex-col w-full">

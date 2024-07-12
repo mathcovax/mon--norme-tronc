@@ -58,9 +58,6 @@ export const GET = (method: Methods, path: string) =>
 					LIMIT 10
 				` as Zod.infer<typeof organizationCommandCollectionSchema>;
 
-				console.log(organizationCommandCollection);
-				
-
 				throw new OkHttpException("organizationCommandCollection", organizationCommandCollection);
 			},
 			new IHaveSentThis(OkHttpException.code, "organizationCommandCollection", organizationCommandCollectionSchema)

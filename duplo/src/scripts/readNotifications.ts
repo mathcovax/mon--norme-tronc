@@ -31,21 +31,29 @@ for await (const notification of generator) {
 		? "IN_PROGRESS"
 		: "CANCELED";
 	await promiseList.append(
-		prisma.command.updateMany({
-			where: {
-				id: notification.commandId,
-				status: "WAITING_PAYMENT",
-			},
-			data: {
-				status: commandStatus
-			}
-		})
-	);
-	await promiseList.append(
-		fullCommandModel.updateOne(
-			{ id: notification.commandId },
-			{ status: commandStatus }
-		)
+		Promise.all([
+			prisma.command.update({
+				where: {
+					id: notification.commandId,
+					status: "WAITING_PAYMENT",
+				},
+				data: {
+					status: commandStatus,
+				}
+			}),
+			fullCommandModel.updateOne(
+				{ id: notification.commandId },
+				{ status: commandStatus }
+			),
+			prisma.command_item.updateMany({
+				where: {
+					commandId: notification.commandId,
+				},
+				data: {
+					canceled: true
+				}
+			})
+		])
 	);
 }
 

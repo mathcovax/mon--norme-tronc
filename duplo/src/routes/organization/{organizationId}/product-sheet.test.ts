@@ -16,6 +16,7 @@ describe("POST /organization/{organizationId}/product-sheet", () => {
 			.setDefaultFloorValue({ organization: organizationData })
 			.setRequestProperties({
 				body: {
+					ref: "119112",
 					name: "test",
 					description: "test",
 					shortDescription: "test",
@@ -35,12 +36,14 @@ describe("POST /organization/{organizationId}/product-sheet", () => {
 	it("post product sheet created", async () => {
 		const spy = vi.fn(() => productSheetData);
 		MockPrisma.set("product_sheet", "create", spy);
+		MockPrisma.set("product_sheet", "count", () => 0);
 
 		const res = await duploTesting
 			.testRoute(POST("POST", "/organization/1234/product-sheet"))
 			.setDefaultFloorValue({ organization: organizationData })
 			.setRequestProperties({
 				body: {
+					ref: "119112",
 					name: "test",
 					description: "test",
 					shortDescription: "test",
@@ -57,6 +60,7 @@ describe("POST /organization/{organizationId}/product-sheet", () => {
 		expect(res.information).toBe("productSheet.created");
 		expect(spy).lastCalledWith({
 			data: {
+				ref: "119112",
 				description: "test",
 				name: "test",
 				organizationId: "eee",

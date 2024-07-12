@@ -15,7 +15,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-	<div class="grid h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
+	<div class="grid h-full w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr] overflow-hidden">
 		<OrganizationNavbar class="h-full" />
 
 		<div class="flex flex-col h-full overflow-hidden">

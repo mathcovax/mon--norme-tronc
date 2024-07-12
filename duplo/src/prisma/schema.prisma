@@ -99,6 +99,7 @@ model category_to_parent_category {
 
 model product_sheet {
     id               String                      @id @default(uuid())
+    ref              String                      @db.VarChar(20)
     name             String                      @db.VarChar(255)
     description      String                      @db.Text
     shortDescription String                      @db.VarChar(255)
@@ -117,6 +118,8 @@ model product_sheet {
     images           image_product_sheet[]
     categories       product_sheet_to_category[]
     promotions       promotion[]
+
+    @@unique([ref, organizationId])
 }
 
 enum product_sheet_status {
@@ -253,6 +256,7 @@ model command_item {
     quantity           Int
     processQuantity    Int           @default(0)
     freezeProductSheet String
+    canceled           Boolean       @default(false)
     createdAt          DateTime      @default(now())
     updatedAt          DateTime      @updatedAt
 }

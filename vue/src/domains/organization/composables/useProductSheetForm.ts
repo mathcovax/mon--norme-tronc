@@ -37,6 +37,18 @@ export function useProductSheetForm(organizationId: string, productSheetId?: str
 	onSearchCategories();
 
 	const { Form, checkForm, resetForm, values } = useFormBuilder({
+		ref: {
+			type: "text",
+			label: $t("label.ref"),
+			cols: 12,
+			defaultValue: "",
+			inputProps: {
+				disabled: !!productSheetId,
+			},
+			zodSchema: zod.string({ message: $t("form.rule.required") })
+				.max(20, { message: $t("form.rule.maxLength", { value: 20 }) })
+				.min(5, { message: $t("form.rule.minLength", { value: 5 }) })
+		},
 		name: {
 			type: "text",
 			label: $t("label.lastname"),

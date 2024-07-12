@@ -20,7 +20,6 @@ export function useRouteParams<
 		
 		if (!result.success) {
 			router.push({ name: routerPageName.EDITO_HOME });
-			console.log(result);
 			
 			throw new Error("Params is invalid.");
 		}

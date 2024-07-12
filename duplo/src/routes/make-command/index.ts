@@ -96,7 +96,6 @@ export const POST = (method: Methods, path: string) =>
 							quantity: aic.quantity, 
 						}),
 					),
-					payment_method_types: ["paypal"],
 					success_url: `${ENV.ORIGIN}/order?sessionId={CHECKOUT_SESSION_ID}`,
 					cancel_url: `${ENV.ORIGIN}/order?commandId=${commandId}`,
 					customer_email: user.email,
@@ -142,6 +141,7 @@ export const POST = (method: Methods, path: string) =>
 							price: commandItemsAndFps.reduce((pv, [ci, fps]) => pv + (ci.quantity * fps.price), 0),
 							items: commandItemsAndFps.map(([commandItem, fps]) => ({
 								quantity: commandItem.quantity,
+								processQuantity: commandItem.processQuantity,
 								productSheetId: commandItem.productSheetId,
 								productSheetName: fps.name,
 								productSheetPrice: fps.price,

@@ -8,18 +8,19 @@ interface Props {
 }
 
 defineProps<Props>();
+const $pt = usePageTranslate();
 
 </script>
 <template>
 	<RouterLink
 		:to="{ name: USER_BUNDLE, params: { bundleId: bundle.id } }"
 	>
-		<h1>Paquet n°{{ bundle.id }}</h1>
+		<h1>{{ $pt("bundle.id", {id: bundle.id}) }}</h1>
 		
-		<p>Nom du transporteur : {{ $t(`carrierName.${bundle.carrierName}`) }}</p>
+		<p>{{ $pt("bundle.carrierName") }} {{ $t(`carrierName.${bundle.carrierName}`) }}</p>
 
-		<p>Status : {{ $t(`bundleStatus.${bundle.status}`) }}</p>
+		<p>{{ $pt("bundle.status") }} {{ $t(`bundleStatus.${bundle.status}`) }}</p>
 
-		<p>Nombre de produit dans le paquet : {{ bundle.productsCount }}</p>
+		<p>{{ $pt("bundle.productsCount", {value: bundle.productsCount}) }}</p>
 	</RouterLink>
 </template>

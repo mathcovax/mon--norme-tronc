@@ -30,7 +30,7 @@ export const POST = (method: Methods, path: string) => mustBeConnected({ pickup:
 
 			if (
 				!articleInCard &&
-				articlesInCard.length >= MetConfig.Cart.articlesLimit
+				articlesInCard.length >= MetConfig.cart.articlesLimit
 			) {
 				throw new UnauthorizedHttpException("cart.article.limit");
 			}
@@ -46,8 +46,8 @@ export const POST = (method: Methods, path: string) => mustBeConnected({ pickup:
 			const { quantity } = pickup("body");
 
 			if (
-				quantity > MetConfig.Cart.quantityLimit ||
-				articleInCard.quantity + quantity > MetConfig.Cart.quantityLimit
+				quantity > MetConfig.cart.quantityLimit ||
+				articleInCard.quantity + quantity > MetConfig.cart.quantityLimit
 			) {
 				throw new UnauthorizedHttpException("cart.quantity.limit");
 			}

@@ -11,6 +11,7 @@ export const fullProductSheetModel = model(
 		name: "text", 
 		shortDescription: "text",
 		description: "text",
+		ref: "text",
 	})
 );
 

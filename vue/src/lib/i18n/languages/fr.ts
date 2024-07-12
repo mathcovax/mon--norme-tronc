@@ -120,36 +120,40 @@ export default {
 			},
 			product: {
 				quantity: "Quantité : {value}",
+				processQuantity: "Quantité traiter : {value}",
 				selledBy: "Vendu par : {value}",
 				price: "Prix : {value} €",
 				reBuy: "Acheter à nouveau",
 			},
 			noMoreCommands: "Vous n'avez plus de commandes.",
 		},
-		[routerPageName.USER_COMMAND]: {
-			title: "Détails de la commande",
-			returnBack: "Retour",
-			command: {
-				label: {
-					date: "Commandé le {value}",
-					commandNumber: "N° de commande : { value }",
+		get [routerPageName.USER_COMMAND]() {
+			return {
+				title: "Détails de la commande",
+				returnBack: "Retour",
+				command: {
+					label: {
+						date: "Commandé le {value}",
+						commandNumber: "N° de commande : { value }",
+					},
+					seeInvoice: "Voir la facture",
+					deliveryAddress: "Adresse de livraison",
+					recapCommand: "Récapitulatif de la commande",
+					boughtProducts: "Produits acheté(s) : {value}",
+					totalPrice: "Montant total TTC : {value} €",
 				},
-				seeInvoice: "Voir la facture",
-				deliveryAddress: "Adresse de livraison",
-				recapCommand: "Récapitulatif de la commande",
-				boughtProducts: "Produits acheté(s) : {value}",
-				totalPrice: "Montant total TTC : {value} €",
-			},
-			product: {
-				title: "Produit(s)",
-				quantity: "Quantité : {value}",
-				selledBy: "Vendu par : {value}",
-				price: "Prix : {value} €",
-				reBuy: "Acheter à nouveau",
-			},
-			bundle: {
-				title: "Colis associé(s)",
-			}
+				product: {
+					...this[routerPageName.USER_COMMANDS].product,
+					title: "Produit(s)",
+				},
+				bundle: {
+					title: "Colis associé(s)",
+					id: "identifiant du Paquet : {id}",
+					carrierName: "Nom du transporteur : ",
+					status: "Status : ",
+					productsCount: "Nombre de produit dans le paquet : {value}",
+				}
+			};
 		},
 		[routerPageName.ORDER_PAGE]: {
 			title: "Ma commande",
@@ -356,8 +360,8 @@ export default {
 				date: "Date de la commande",
 				quantity: "Quantité de produit",
 				id: "ID de la commande",
-				quantityRest: "produit a trétais",
-				productSheetId: "ID de la fiche produit",
+				quantityRest: "Produit a trétais",
+				productSheetRef: "Référence produit",
 				productSheetName: "Nom du produit",
 				image: "Image du produit",
 			},
@@ -378,6 +382,7 @@ export default {
 			status: "Status du colis :",
 			content: "Contenu du colis :",
 			action: "Action en cours : {value}",
+			carrierSite: "Voire le site du transporteur", 
 			table: {
 				image: "",
 				name: "Nom",
@@ -606,6 +611,7 @@ export default {
 		image: "Image",
 		type: "Type",
 		title: "Titre",
+		ref: "Référence",
 	},
 	placeholder: {
 		address: "Chercher votre adresse",
@@ -696,7 +702,10 @@ export default {
 		productSheet: {
 			notfound: "La fiche produit n'existe pas.",
 			edited: "La fiche a correctement été éditée.",
-			created: "La fiche a correctement été créée."
+			created: "La fiche a correctement été créée.",
+			ref: {
+				alreadyUse: "Cette Reférence est déjà utilisais."
+			}
 		},
 		command: {
 			notfound: "La commande n'existe pas.",

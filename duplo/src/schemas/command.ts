@@ -19,6 +19,7 @@ export const fullCommandSchema = zod.object({
 	price: zod.number(),
 	items: zod.object({
 		quantity: zod.number(),
+		processQuantity: zod.number(), 
 		productSheetId: zod.string(),
 		productSheetName: zod.string(),
 		productSheetFirstImageUrl: zod.string(),

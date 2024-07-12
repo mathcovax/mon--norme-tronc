@@ -8,6 +8,7 @@ export const organizationCommandCollectionSchema = zod.object({
 }).array();
 
 export const organizationCommandDetailesSchema = zod.object({
+	productSheetRef: zod.string(),
 	commandItemId: zod.number(),
 	commandId: zod.string(),
 	quantity: zod.number(),

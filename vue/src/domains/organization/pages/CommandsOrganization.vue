@@ -174,8 +174,8 @@ async function createBundle() {
 							getter: i => i.productSheetName
 						},
 						{
-							title: $pt('table.productSheetId'),
-							getter: i => i.productSheetId
+							title: $pt('table.productSheetRef'),
+							getter: i => i.productSheetRef
 						},
 						{
 							title: $pt('table.quantityRest'),

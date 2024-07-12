@@ -3,7 +3,7 @@ declare global {
 }
 
 export const MetConfig = {
-	Cart: {
+	cart: {
 		articlesLimit: 10,
 		quantityLimit: 15,
 	},

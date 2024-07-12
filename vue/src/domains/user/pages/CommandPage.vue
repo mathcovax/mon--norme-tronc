@@ -69,11 +69,11 @@ watch(() => params.value.commandId, () => { getCommandData(), getCommandBundles(
 
 			<div class="flex justify-between">
 				<div class="flex gap-2">
-					<span>{{ $pt("command.label.date", { value: command?.createdDate.toString().split("T")[0] }) }}</span>
+					<span>{{ $pt("command.label.date", { value: command.createdDate.toString().split("T")[0] }) }}</span>
 
 					<span class="text-gray-300">|</span>
 
-					<span>{{ $pt("command.label.commandNumber", { value: command?.id }) }}</span>
+					<span>{{ $pt("command.label.commandNumber", { value: command.id }) }}</span>
 				</div>
 
 				<RouterLink to="#">
@@ -88,9 +88,9 @@ watch(() => params.value.commandId, () => { getCommandData(), getCommandBundles(
 					<span class="font-bold">{{ $pt("command.deliveryAddress") }}</span>
 
 					<div class="flex flex-col">
-						<span>{{ command?.lastname + " " + command?.firstname }}</span>
+						<span>{{ command.lastname + " " + command?.firstname }}</span>
 
-						<span>{{ command?.deliveryAddress }}</span>
+						<span>{{ command.deliveryAddress }}</span>
 					</div>
 				</div>
 
@@ -98,11 +98,11 @@ watch(() => params.value.commandId, () => { getCommandData(), getCommandBundles(
 					<span class="font-bold">{{ $pt("command.recapCommand") }}</span>
 
 					<div class="flex flex-col">
-						<span>{{ $pt("command.boughtProducts", { value: command?.items.length }) }}</span>
+						<span>{{ $pt("command.boughtProducts", { value: command.items.length }) }}</span>
 
 						<span>{{ $t(`commandStatus.${command?.status}`) }}</span>
 
-						<span class="font-bold">{{ $pt("command.totalPrice", { value: command?.price }) }}</span>
+						<span class="font-bold">{{ $pt("command.totalPrice", { value: command.price }) }}</span>
 					</div>
 				</div>
 			</CardContent>
@@ -117,7 +117,7 @@ watch(() => params.value.commandId, () => { getCommandData(), getCommandBundles(
 		<TheCard>
 			<CardContent class="flex flex-col gap-8 p-4">
 				<ProductCommand
-					v-for="product in command?.items"
+					v-for="product in command.items"
 					:product="product"
 					:key="product.productSheetId"
 				/>
