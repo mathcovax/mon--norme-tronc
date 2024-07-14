@@ -206,3 +206,8 @@ export type BundleCollection = GetResponseByInfo<
 >["body"]
 
 export type CarrierName = Bundle["carrierName"]
+
+export type ProductReturn = GetResponseByInfo<
+	GetDef<"GET",  "/organization/{organizationId}/product-returns">,
+	"productReturns"
+>["body"][number]

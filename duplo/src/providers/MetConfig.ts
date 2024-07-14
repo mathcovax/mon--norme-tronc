@@ -28,6 +28,9 @@ export const MetConfig = {
 	},
 	command: {
 		commandLimit: 10
+	},
+	productReturn: {
+		productReturnLimit: 10,
 	}
 };
 //@ts-expect-error var 'global' cause type error.

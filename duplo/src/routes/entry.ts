@@ -111,8 +111,9 @@ export const organizationStoreKeeperEntry =
 		.declareRoute(
 			"GET", 
 			[
-				"/organization-panel/{organizationId}/products",
-				"/organization-panel/{organizationId}/commands",
+				"/entry/organization-panel/{organizationId}/products",
+				"/entry/organization-panel/{organizationId}/commands",
+				"/entry/organization-panel/{organizationId}/product-return",
 			]
 		)
 		.extract({
@@ -210,7 +211,11 @@ export const selfEntry =
 			.declareRoute(
 				"GET",
 				[
-					"/entry/edit-profile", "/entry/my-organizations", "/entry/order", "/entry/commands", "/entry/commands/{commandId}"
+					"/entry/edit-profile", 
+					"/entry/my-organizations", 
+					"/entry/order", 
+					"/entry/commands", 
+					"/entry/commands/{commandId}"
 				]
 			)
 			.handler(

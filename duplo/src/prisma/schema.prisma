@@ -53,6 +53,7 @@ model organization {
     logoUrl            String?                @db.VarChar(400)
     products           product[]
     promotions         promotion[]
+    product_return     product_return[]
 }
 
 model user_to_organization {
@@ -185,6 +186,7 @@ model product {
     productToBundles product_to_bundle[]
     createdAt        DateTime            @default(now())
     updatedAt        DateTime            @updatedAt
+    productReturns   product_return[]
 }
 
 enum product_status {
@@ -259,6 +261,8 @@ model command_item {
     canceled           Boolean       @default(false)
     createdAt          DateTime      @default(now())
     updatedAt          DateTime      @updatedAt
+
+    @@unique([commandId, productSheetId])
 }
 
 model stripe_notification_checkout {
@@ -301,10 +305,11 @@ enum bundle_status {
 }
 
 model product_to_bundle {
-    bundle     bundle  @relation(fields: [bundleId], references: [id])
+    bundle     bundle   @relation(fields: [bundleId], references: [id])
     bundleId   Int
-    product    product @relation(fields: [productSku], references: [sku])
-    productSku String  @db.VarChar(255)
+    product    product  @relation(fields: [productSku], references: [sku])
+    productSku String
+    createdAt  DateTime @default(now())
 
     @@id([bundleId, productSku])
 }
@@ -318,4 +323,22 @@ model promotion {
     percentage     Int
     startDate      DateTime
     endDate        DateTime
+    createdAt      DateTime      @default(now())
+}
+
+model product_return {
+    id             Int                   @id @default(autoincrement())
+    product        product               @relation(fields: [productSku], references: [sku])
+    productSku     String
+    status         product_return_status @default(WAITING_RETURN)
+    organization   organization          @relation(fields: [organizationId], references: [id])
+    organizationId String
+    createdAt      DateTime              @default(now())
+    reason         String                @db.VarChar(255)
+}
+
+enum product_return_status {
+    WAITING_RETURN
+    REFUNDED
+    INVALID
 }
