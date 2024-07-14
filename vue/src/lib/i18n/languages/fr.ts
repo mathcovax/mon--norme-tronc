@@ -1,4 +1,4 @@
-import type { Bundle, CommandStatus, Facet } from "@/lib/utils";
+import type { Bundle, CommandStatus, Facet, ProductReturn } from "@/lib/utils";
 
 export default {
 	page: {
@@ -392,6 +392,16 @@ export default {
 				quantity: "quantité"
 			}
 		},
+		[routerPageName.ORGANIZATION_PRODUCT_RETURN]: {
+			label: {
+				reason: "Raison"
+			},
+			button: {
+				refund: "Remboursé",
+				invalid: "Invalidé",
+				putInWaiting: "Mettre en attente",
+			}
+		},
 	},
 	filters: {
 		title: "Filtres",
@@ -520,15 +530,15 @@ export default {
 		organization: {
 			title: "Mon organisation",
 			nav: {
-				dashboard: "Tableau de bord",
-				organizationEdit: "Modifier l'organisation",
-				orders: "Commandes",
-				products: "Produits",
-				promotions: "Promotions",
-				users: "Utilisateurs",
-				analytics: "Analytiques",
-				warehouse: "Entrepôts",
-				productSheets: "Fiche produits"
+				"organization-panel": "Tableau de bord",
+				"organization-panel-organization-edit": "Modifier l'organisation",
+				"organization-commands": "Commandes",
+				"organization-panel-manage-product": "Produits",
+				"organization-panel-manage-promotion": "Promotions",
+				"organization-panel-manage-user": "Utilisateurs",
+				"organization-panel-get-warehouse": "Entrepôts",
+				"organization-panel-get-product-sheet": "Fiche produits",
+				"organization-product-return": "Retour Produit",
 			},
 		},
 		content: {
@@ -615,6 +625,8 @@ export default {
 		type: "Type",
 		title: "Titre",
 		ref: "Référence",
+		sku: "sku",
+		status: "status",
 	},
 	placeholder: {
 		address: "Chercher votre adresse",
@@ -675,6 +687,11 @@ export default {
 		IN_DELIVERY: "En cours de livraison",
 		DONE: "Livrée"
 	} satisfies Record<CommandStatus, string>,
+	productReturnStatus: {
+		INVALID: "Retour produit invalide",
+		REFUNDED: "produit remborsé.",
+		WAITING_RETURN: "En attente du retoure du produit.",
+	} satisfies Record<ProductReturn["status"], string>,
 	response: {
 		organization: {
 			alreadyExist: "Une organisation avec ce nom existe déjà.",
@@ -739,7 +756,10 @@ export default {
 			unavailable: "Le produit n'est pas disponible duans la quantité souhaitée.",
 			sku: {
 				alreadyUse: "Ce sku est déjà utilisé.",
-			}
+			},
+			alreadyInRefundProcess: "Le produit est déjà dans un process de rembourcement",
+			refound: "Le produit a bien étais remboursé."
+
 		},
 		products: {
 			unavailable: "Un ou plusieurs produits dans votre panier ne sont plus disponibles dans les quantités souhaitées.",
@@ -754,6 +774,10 @@ export default {
 			article: {
 				limit: "Vous ne pouvez pas avoir plus de 10 article dans votre panier."
 			}
+		},
+		productReturn: {
+			created: "Le retoure a correctement étais créer.",
+			edited: "La modification a bien étais prise en compte.",
 		},
 		makeBundle: "Le bundle a correctement étais créer.",
 		TYPE_ERROR: "L'une des données envoyées est erronée. (Erreur provenant du site)",
