@@ -40,7 +40,7 @@ export class FilterService {
 					if (result?.success) {
 						return {
 							$match: {
-								[filterDef.path]: { $regex: new RegExp(result.data, "i") }
+								[filterDef.path]: { $regex: new RegExp(`^${result.data}$`, "i") }
 							},
 						};
 					}

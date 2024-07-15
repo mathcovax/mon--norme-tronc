@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type TheSheet from "@/components/ui/sheet/TheSheet.vue";
-import { useGetCategoryProductSheets } from "@/domains/product/composables/useGetCategoryProductSheets";
+import { useGetFullProductSheets } from "@/domains/product/composables/useGetFullProductSheets";
 
 const { SEARCH_PAGE, PRODUCT_PAGE } = routerPageName;
 const router = useRouter();
@@ -8,7 +8,7 @@ const params = useRouteParams({
 	productSheetName: zod.string().optional(),
 });
 const open = ref<boolean>(false);
-const { getCategoryProductSheets, productSheets } = useGetCategoryProductSheets({
+const { getCategoryProductSheets, productSheets } = useGetFullProductSheets({
 	available: "true",
 	searchByRegex: params.value.productSheetName,
 	take: 3,

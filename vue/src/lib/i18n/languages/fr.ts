@@ -6,7 +6,8 @@ export default {
 			heroTitle: "Faites vous\u00A0plaisir tout en restant naturel",
 			heroSubtitle: "Des produits naturels et bio pour prendre soin de vous.",
 			sectionNewTitle: "Nouveautés",
-			sectionBestSellerTitle: "Meilleures ventes",
+			sectionWomanTitle: "Pour les femmes",
+			sectionManTitle: "Pour les Hommes",
 			sectionPackTitle: "Notre pack Plaisir",
 			button: {
 				discover: "Découvrir",
@@ -84,7 +85,7 @@ export default {
 			return {
 				...this[routerPageName.CATEGORY_PAGE],
 				emptyTitle: "Aucun produit trouvé.",
-				buttonBack: "Revenir à l'accueil",
+				buttonBack: "Revenir aux catégories",
 				title: "Resultat pour \"{value}\"",
 			};
 		},
@@ -93,8 +94,8 @@ export default {
 			label: {
 				productDetails: "Détails du produit",
 				comments: "Commentaires",
-			}
-
+			},
+			relatedProducts: "Produits similaires",
 		},
 		[routerPageName.USER_CART]: {
 			title: "Mon panier",

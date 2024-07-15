@@ -6,7 +6,7 @@ type Query = GetDef<
 	"/full-product-sheets"
 >["parameters"]["query"]
 
-export function useGetCategoryProductSheets(query?: Query) {
+export function useGetFullProductSheets(query?: Query) {
 	const productSheets = ref<FullProductSheet[] | false>([]);
 
 	let abortController: AbortController | undefined;

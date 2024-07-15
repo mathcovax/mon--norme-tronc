@@ -58,7 +58,7 @@ async function googleSign() {
 
 			<div class="hidden bg-muted lg:block">
 				<img
-					src="https://via.placeholder.com/250"
+					src="/images/login.png"
 					alt="Image"
 					class="object-cover w-full h-full"
 				>
