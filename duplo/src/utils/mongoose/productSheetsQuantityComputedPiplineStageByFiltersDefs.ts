@@ -15,7 +15,7 @@ export const productSheetsQuantityComputedPiplineStageByFiltersDefs = transform(
 							if: {
 								$regexMatch: { 
 									input: `$${filterDef.path}`, 
-									regex: new RegExp(value, "i")
+									regex: new RegExp(filterDef.type === "CHECKBOX" ? value :`^${value}$`, "i")
 								}
 							},
 							then: 1,

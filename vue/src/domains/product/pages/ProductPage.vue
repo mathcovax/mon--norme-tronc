@@ -3,6 +3,7 @@ import { marked } from "marked";
 import type { FullProductSheet } from "@/lib/utils";
 import ProductSlider from "../components/ProductSlider.vue";
 import ProductSheetQuantity from "../components/ProductSheetQuantity.vue";
+import ProductSuggestion from "../components/ProductSuggestion.vue";
 
 const { CATEGORY_PAGE } = routerPageName;
 
@@ -182,5 +183,23 @@ watch(() => params.value.productSheetId, () => { getProductData(); });
 				Les commentaires arrivent bientôt !
 			</TabsContent>
 		</TheTabs>
+	</section>
+
+	<section
+		v-if="product"
+		class="container my-12 lg:my-16"
+	>
+		<h2 class="mb-4 text-2xl font-bold">
+			{{ $pt("relatedProducts") }}
+		</h2>
+
+		<ProductSuggestion
+			:query="{
+				ignoreProductSheetId: product.id,
+				target: product?.facets.TARGET,
+				material: product?.facets.MATERIAL,
+				stimulation: product?.facets.STIMULATION
+			}"
+		/>
 	</section>
 </template>

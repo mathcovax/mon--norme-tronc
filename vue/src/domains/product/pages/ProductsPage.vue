@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useGetCategoryProductSheets } from "../composables/useGetCategoryProductSheets";
+import { useGetFullProductSheets } from "../composables/useGetFullProductSheets";
 import ProductPagination from "../components/ProductPagination.vue";
 import ProductCard from "../components/ProductCard.vue";
 import TheFilters from "../components/TheFilters.vue";
@@ -9,7 +9,7 @@ import type { QueryFilters } from "@/lib/utils";
 
 const router = useRouter();
 const $pt = usePageTranslate();
-const { CATEGORIES_PAGE, SEARCH_PAGE } = routerPageName;
+const { CATEGORIES_PAGE } = routerPageName;
 
 const params = useRouteParams({ 
 	categoryName: zod.string().optional(), 
@@ -23,7 +23,7 @@ const query = useRouteQuery({
 const { 
 	productSheets, 
 	categoryProductSheetsRefQuery
-} = useGetCategoryProductSheets({
+} = useGetFullProductSheets({
 	page: query.value.page, 
 	categoryName: params.value.categoryName,
 	searchByRegex: params.value.productSheetName,
@@ -165,7 +165,7 @@ watch(
 					class="mt-4"
 					as-child
 				>
-					<RouterLink :to="{ name: params.categoryName ? CATEGORIES_PAGE : SEARCH_PAGE }">
+					<RouterLink :to="{ name: CATEGORIES_PAGE }">
 						{{ $pt("buttonBack") }}
 					</RouterLink>
 				</TheButton>
