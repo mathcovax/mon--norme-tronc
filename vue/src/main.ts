@@ -8,6 +8,7 @@ import router from "./router";
 import { i18n } from "./lib/i18n";
 
 import { useUserStore } from "@/stores/user";
+import "@/stores/cart";
 
 const app = createApp(App);
 

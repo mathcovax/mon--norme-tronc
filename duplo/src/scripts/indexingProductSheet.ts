@@ -43,6 +43,9 @@ const productSheetGenerator = FindSlice(
 			images: {
 				select: {
 					url: true
+				},
+				orderBy: {
+					id: "desc",
 				}
 			},
 			promotions: {

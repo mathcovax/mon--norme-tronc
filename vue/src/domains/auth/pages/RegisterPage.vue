@@ -3,7 +3,10 @@ import { useSignUpForm } from "../composables/useSignUpForm";
 
 const $pt = usePageTranslate(); 
 const { SignUpForm, checkSignUpForm } = useSignUpForm();
-const query = useRouteQuery({ fireBaseIdToken: zod.string() });
+const query = useRouteQuery({ 
+	fireBaseIdToken: zod.string(),
+	redirect: zod.string().optional(),
+});
 const router = useRouter();
 const { setAccessToken, fetchUserValue } = useUserStore();
 
@@ -27,7 +30,7 @@ async function submit() {
 		.info("user.registered", (accessToken) => {
 			setAccessToken(accessToken);
 			fetchUserValue();
-			router.push({ name: routerPageName.EDITO_HOME });
+			router.push({ name: query.value.redirect ?? routerPageName.EDITO_HOME });
 		})
 		.result;
 }

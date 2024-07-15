@@ -7,6 +7,9 @@ const provider = new GoogleAuthProvider();
 const auth = getAuth(firebaseApp);
 const router = useRouter();
 const { setAccessToken, fetchUserValue } = useUserStore();
+const query = useRouteQuery({ 
+	redirect: zod.string().optional(), 
+});
 
 async function googleSign() {
 	try {
@@ -17,10 +20,16 @@ async function googleSign() {
 			.info("user.logged", accessToken => {
 				setAccessToken(accessToken);
 				fetchUserValue();
-				router.push({ name: routerPageName.EDITO_HOME });
+				router.push({ name: query.value.redirect ?? routerPageName.EDITO_HOME });
 			})
 			.info("user.notfound", () => {
-				router.push({ name: routerPageName.AUTH_REGISTER, query: { fireBaseIdToken } });
+				router.push({ 
+					name: routerPageName.AUTH_REGISTER, 
+					query: { 
+						fireBaseIdToken, 
+						redirect: query.value.redirect 
+					} 
+				});
 			})
 			.result;	
 	}

@@ -1,34 +1,22 @@
 <script setup lang="ts">
+import type { Cart } from "@/lib/utils";
 import ArticleCard from "../components/ArticleCard.vue";
-import { useGetCart } from "../composables/useGetCart";
 
 const { 
 	CATEGORIES_PAGE,
 	ORDER_PAGE,
+	AUTH_LOGIN,
 } = routerPageName;
 const $pt = usePageTranslate();
+const cartStore = useCartStore();
+const userStore = useUserStore();
 
-const { cart, getCart } = useGetCart();
-
-const addArticle = (productSheetId: string) => 
-	duploTo.enriched
-		.post(
-			"/article",
-			{
-				productSheetId,
-			},
-			undefined,
-			{ disabledToast: ["article.created"] }
-		)
-		.then(getCart);
+const addArticle = ({ quantity, ...addedArticle }: Cart[number]) => 
+	cartStore.addArticle(addedArticle, 1, ["article.created"]);
 
 const removeArticle = (productSheetId: string) =>
-	duploTo.enriched
-		.delete(
-			"/article/{productSheetId}",
-			{ params: { productSheetId } }
-		)
-		.then(getCart);
+	cartStore.removeArticle(productSheetId);
+	
 </script>
 
 <template>
@@ -39,17 +27,23 @@ const removeArticle = (productSheetId: string) =>
 			</h1>
 
 			<PrimaryButton
-				v-if="cart.length > 0"
+				v-if="cartStore.cart.length > 0"
 				as-child
 			>
-				<RouterLink :to="{ name: ORDER_PAGE }">
+				<RouterLink
+					:to="
+						userStore.isConnected
+							? {name: ORDER_PAGE}
+							: {name: AUTH_LOGIN, query: {redirect: ORDER_PAGE}}
+					"
+				>
 					{{ $pt("orderButton") }}
 				</RouterLink>
 			</PrimaryButton>
 		</div>
 
 		<div
-			v-if="cart.length === 0"
+			v-if="cartStore.cart.length === 0"
 			class="flex-1 flex flex-col justify-center items-center gap-1 text-center"
 		>
 			<h2 class="text-2xl font-bold tracking-tight">
@@ -75,12 +69,12 @@ const removeArticle = (productSheetId: string) =>
 			class="border-dashed flex flex-col rounded-lg border shadow-sm p-4 gap-4 min-h-[60vh]"
 		>
 			<li
-				v-for="article in cart"
+				v-for="article in cartStore.cart"
 				:key="article.productSheetId"
 			>
 				<ArticleCard 
 					:article="article"
-					@add-article="addArticle(article.productSheetId)"
+					@add-article="addArticle(article)"
 					@remove-article="removeArticle(article.productSheetId)"
 				/>
 			</li>
