@@ -8,5 +8,9 @@ export const userData: user = {
 	dateOfBirth: new Date(2002, 8, 13),
 	address: "test",
 	primordialRole: "ADMIN",
-	muted: false
+	muted: false,
+	emailNotifcationsNewsletter: true,
+	emailNotifcationsProductStock: true,
+	emailNotifcationsPromotion: true,
+	emailNotifcationsNewProductsInCategory: true,
 };

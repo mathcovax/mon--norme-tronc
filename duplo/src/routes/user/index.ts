@@ -40,6 +40,10 @@ export const PATCH = (method: Methods, path: string) => mustBeConnected({ pickup
 				lastname: zod.string().min(2).max(255).optional(),
 				firstname: zod.string().min(2).max(255).optional(),
 				address: zod.string().optional(),
+				emailNotifcationsNewsletter: zod.boolean().optional(),
+				emailNotifcationsProductStock: zod.boolean().optional(),
+				emailNotifcationsPromotion: zod.boolean().optional(),
+				emailNotifcationsNewProductsInCategory: zod.boolean().optional(),
 			}).strip().default({}),
 		}
 	)
@@ -59,7 +63,15 @@ export const PATCH = (method: Methods, path: string) => mustBeConnected({ pickup
 	.handler(
 		async ({ pickup }) => {
 			const { id } = pickup("accessTokenContent");
-			const { lastname, firstname, address } = pickup("body");
+			const {
+				lastname,
+				firstname,
+				address,
+				emailNotifcationsNewsletter,
+				emailNotifcationsProductStock,
+				emailNotifcationsPromotion,
+				emailNotifcationsNewProductsInCategory
+			} = pickup("body");
 
 			await prisma.user.update({
 				where: {
@@ -69,6 +81,10 @@ export const PATCH = (method: Methods, path: string) => mustBeConnected({ pickup
 					lastname,
 					firstname,
 					address,
+					emailNotifcationsNewsletter,
+					emailNotifcationsProductStock,
+					emailNotifcationsPromotion,
+					emailNotifcationsNewProductsInCategory,
 				},
 			});
 

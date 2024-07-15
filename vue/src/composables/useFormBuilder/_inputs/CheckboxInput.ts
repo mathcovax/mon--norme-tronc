@@ -62,7 +62,7 @@ export const CheckboxInput = defineComponent({
 					? h(
 						"label", 
 						{
-							class: "",
+							class: "cursor-pointer",
 							for: `${props.name}-${props.formId}`,
 						},
 						props.label

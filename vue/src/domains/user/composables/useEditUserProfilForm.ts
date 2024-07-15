@@ -30,6 +30,30 @@ export function useEditUserProfilForm(userId?: string) {
 			textButton: $t("button.add"),
 			onUpdateSearchTerm: searchAddresses
 		})),
+		emailNotifcationsNewsletter: {
+			cols: 6,
+			type: "checkbox",
+			label: $t("label.newsletter"),
+			zodSchema: zod.boolean().optional(),
+		},
+		emailNotifcationsProductStock: {
+			cols: 6,
+			type: "checkbox",
+			label: $t("label.productStock"),
+			zodSchema: zod.boolean().optional(),
+		},
+		emailNotifcationsPromotion: {
+			cols: 6,
+			type: "checkbox",
+			label: $t("label.promotions"),
+			zodSchema: zod.boolean().optional(),
+		},
+		emailNotifcationsNewProductsInCategory: {
+			cols: 6,
+			type: "checkbox",
+			label: $t("label.newProductsInCategory"),
+			zodSchema: zod.boolean().optional(),
+		},
 	});
 
 	if (userId) {
@@ -41,6 +65,10 @@ export function useEditUserProfilForm(userId?: string) {
 				values.lastname.value = data.lastname;
 				values.firstname.value = data.firstname;
 				values.address.value = address;
+				values.emailNotifcationsNewsletter.value = data.emailNotifcationsNewsletter;
+				values.emailNotifcationsProductStock.value = data.emailNotifcationsProductStock;
+				values.emailNotifcationsPromotion.value = data.emailNotifcationsPromotion;
+				values.emailNotifcationsNewProductsInCategory.value = data.emailNotifcationsNewProductsInCategory;
 			});
 	}
 
