@@ -13,6 +13,7 @@ const { EDITO_HOME } = routerPageName;
 
 const product = ref<FullProductSheet | null>(null);
 const productQuantity = ref(1);
+const cartStore = useCartStore();
 
 const params = useRouteParams({ 
 	productSheetId: zod.string(), 
@@ -34,12 +35,20 @@ function getProductData() {
 }
 
 function createArticle() {
-	duploTo.enriched.post(
-		"/article",
-		{ 
-			productSheetId: params.value.productSheetId,
-			quantity: productQuantity.value
-		}
+	if (!product.value) {
+		return; 
+	}
+
+	cartStore.addArticle(
+		{
+			name: product.value.name,
+			productSheetId: product.value.id,
+			price: product.value.price,
+			description: product.value.description,
+			shortDescription: product.value.shortDescription,
+			imageUrl: product.value.images[0]
+		}, 
+		productQuantity.value
 	);
 
 	productQuantity.value = 1;
