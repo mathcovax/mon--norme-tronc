@@ -3,12 +3,12 @@ import { useEditUserProfilForm } from "../composables/useEditUserProfilForm";
 
 const $pt = usePageTranslate();
 
-const user = useUserStore().user;
+const userStore = useUserStore();
 
 const {
 	EditUserProfilForm,
 	checkEditUserProfilForm,
-} = useEditUserProfilForm(user?.id);
+} = useEditUserProfilForm();
 
 async function submit() {
 	const formFields = await checkEditUserProfilForm();
@@ -32,6 +32,15 @@ async function submit() {
 		)
 		.result;
 }
+
+function deleteUser() {
+	return duploTo.enriched
+		.delete("/user")
+		.info("user.delete", () => {
+			userStore.removeAccessToken();
+		})
+		.result;
+}
 </script>
 
 <template>
@@ -50,7 +59,7 @@ async function submit() {
 				</div>
 
 				<div class="text-center">
-					{{ user?.firstname }} {{ user?.lastname }}
+					{{ userStore.user?.firstname }} {{ userStore.user?.lastname }}
 				</div>
 			</aside>
 
@@ -64,6 +73,21 @@ async function submit() {
 					>
 						{{ $t("button.save") }}
 					</PrimaryButton>
+
+					<WithValidation
+						class="col-span-12"
+						:title="$pt('deletePopup.title')"
+						:content="$pt('deletePopup.content')"
+						@validate="deleteUser"
+					>
+						<TheButton
+							class="w-full"
+							variant="destructive"
+							type="button"
+						>
+							{{ $pt("btnDelete") }}
+						</TheButton>
+					</WithValidation>
 				</EditUserProfilForm>
 			</div>
 		</div>

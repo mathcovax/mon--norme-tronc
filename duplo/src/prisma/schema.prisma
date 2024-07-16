@@ -14,25 +14,26 @@ datasource db {
 }
 
 model user {
-    id                 						String                 		@id @default(uuid())
-    email              						String                 		@unique @db.VarChar(320)
-    lastname           						String                 		@db.VarChar(32)
-    firstname          						String                		@db.VarChar(36)
-    dateOfBirth        						DateTime               		@db.Date
-    address            						String                 		@db.VarChar(400)
-    primordialRole     						primordial_role        		@default(CUSTOMER)
-    organization       						organization?
-    muted              						Boolean                		@default(false)
-    userToOrganization 						user_to_organization[]
-    article            						article[]
-    command            						command[]
-    commandItems       						command_item[]
-    createdBundle      						bundle[]               		@relation("create")
-    havedBundle        						bundle[]               		@relation("have")
-	emailNotifcationsNewsletter				Boolean						@default(false)
-	emailNotifcationsProductStock			Boolean						@default(true)
-	emailNotifcationsPromotion				Boolean						@default(true)
-	emailNotifcationsNewProductInCategory	Boolean						@default(true)
+    id                                    String                 @id @default(uuid())
+    email                                 String                 @unique @db.VarChar(320)
+    lastname                              String                 @db.VarChar(32)
+    firstname                             String                 @db.VarChar(36)
+    dateOfBirth                           DateTime               @db.Date
+    address                               String                 @db.VarChar(400)
+    primordialRole                        primordial_role        @default(CUSTOMER)
+    organization                          organization?
+    muted                                 Boolean                @default(false)
+    userToOrganization                    user_to_organization[]
+    article                               article[]
+    command                               command[]
+    commandItems                          command_item[]
+    createdBundle                         bundle[]               @relation("create")
+    havedBundle                           bundle[]               @relation("have")
+    emailNotifcationsNewsletter           Boolean                @default(false)
+    emailNotifcationsProductStock         Boolean                @default(true)
+    emailNotifcationsPromotion            Boolean                @default(true)
+    emailNotifcationsNewProductInCategory Boolean                @default(true)
+    deleted                               Boolean                @default(false)
 }
 
 enum primordial_role {

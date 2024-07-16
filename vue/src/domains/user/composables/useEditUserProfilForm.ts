@@ -1,4 +1,4 @@
-export function useEditUserProfilForm(userId?: string) {
+export function useEditUserProfilForm() {
 	const { searchAddresses, addresses } = useSearchAddresses();
 	const { Form, checkForm, values } = useFormBuilder({
 		lastname: {
@@ -56,21 +56,19 @@ export function useEditUserProfilForm(userId?: string) {
 		},
 	});
 
-	if (userId) {
-		duploTo.enriched
-			.get("/user")
-			.info("user", (data) => {
-				const address = { label: data.address, identifier: data.address }; 
+	duploTo.enriched
+		.get("/user")
+		.info("user", (data) => {
+			const address = { label: data.address, identifier: data.address }; 
 
-				values.lastname.value = data.lastname;
-				values.firstname.value = data.firstname;
-				values.address.value = address;
-				values.emailNotifcationsNewsletter.value = data.emailNotifcationsNewsletter;
-				values.emailNotifcationsProductStock.value = data.emailNotifcationsProductStock;
-				values.emailNotifcationsPromotion.value = data.emailNotifcationsPromotion;
-				values.emailNotifcationsNewProductInCategory.value = data.emailNotifcationsNewProductInCategory;
-			});
-	}
+			values.lastname.value = data.lastname;
+			values.firstname.value = data.firstname;
+			values.address.value = address;
+			values.emailNotifcationsNewsletter.value = data.emailNotifcationsNewsletter;
+			values.emailNotifcationsProductStock.value = data.emailNotifcationsProductStock;
+			values.emailNotifcationsPromotion.value = data.emailNotifcationsPromotion;
+			values.emailNotifcationsNewProductInCategory.value = data.emailNotifcationsNewProductInCategory;
+		});
 
 	return {
 		EditUserProfilForm: Form,
