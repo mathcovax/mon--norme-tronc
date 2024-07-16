@@ -1,3 +1,4 @@
+import { FullProductSheetSchema } from "@schemas/fullProductSheet";
 import { ProductAvailability } from "./productAvailability";
 
 export class CartService {
@@ -73,7 +74,8 @@ export class CartService {
 										percentage: promotion.percentage,
 										startDate: promotion.startDate,
 										endDate: promotion.endDate,
-									}
+										reason: promotion.reason,
+									} satisfies FullProductSheetSchema["promotion"]
 									: undefined,
 								price: promotion 
 									? Number((ps.price - (ps.price * promotion.percentage / 100)).toFixed(2))

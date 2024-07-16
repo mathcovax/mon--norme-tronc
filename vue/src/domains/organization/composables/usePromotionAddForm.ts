@@ -45,6 +45,11 @@ export function usePromotionAddForm(organizationId: string) {
 					endDate => endDate.getTime() !== new Date(startDate.value).getTime(),
 					{ message: $pt("form.endDateEStartDate") }
 				)
+		},
+		reason: {
+			type: "text",
+			label: $t("label.reason"),
+			zodSchema: zod.string({ message: $t("form.rule.required") }),
 		}
 	});
 

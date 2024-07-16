@@ -11,6 +11,7 @@ export const POST = (method: Methods, path: string) =>
 				percentage: zod.number().min(1).max(100),
 				startDate: zod.coerce.date(),
 				endDate: zod.coerce.date(),
+				reason: zod.string(),
 			}).strip(),
 		})
 		.cut(
@@ -28,7 +29,7 @@ export const POST = (method: Methods, path: string) =>
 		)
 		.handler(
 			async ({ pickup }) => {
-				const { percentage, startDate, endDate } = pickup("body");
+				const { percentage, startDate, endDate, reason } = pickup("body");
 				const { id: productSheetId, organizationId } = pickup("productSheet");
 
 				const promotion = await prisma.promotion.create({
@@ -36,6 +37,7 @@ export const POST = (method: Methods, path: string) =>
 						percentage,
 						startDate,
 						endDate,
+						reason,
 						organizationId: organizationId,
 						productSheetId: productSheetId,
 					},

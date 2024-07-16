@@ -125,6 +125,13 @@ watch(() => params.value.productSheetId, () => { getProductData(); });
 					(<span :class="{ 'text-red-600' : product.quantity < 10 }">{{ product.quantity < 10 ? "Plus que " : "" }}{{ product.quantity }}{{ product.quantity < 10 ? " !" : "" }}</span>)
 				</span>
 
+				<p
+					class="mt-1"
+					v-if="product.promotion"
+				>
+					{{ product.promotion.reason }}
+				</p>
+
 				<p class="mt-1 opacity-50">
 					{{ product.shortDescription }}
 				</p>
