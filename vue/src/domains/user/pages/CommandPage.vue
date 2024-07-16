@@ -44,6 +44,21 @@ getCommandData();
 getCommandBundles();
 
 watch(() => params.value.commandId, () => { getCommandData(), getCommandBundles(); });
+
+function redirectToInvoiseUrl() {
+	return duploTo.enriched
+		.get(
+			"/commands/{commandId}/invoice",
+			{
+				params: { commandId: params.value.commandId }
+			}
+		)
+		.info("command.invoice", data => {
+			location.href = data;
+		})
+		.result;
+}
+
 </script>
 <template>
 	<section
@@ -76,9 +91,12 @@ watch(() => params.value.commandId, () => { getCommandData(), getCommandBundles(
 					<span>{{ $pt("command.label.commandNumber", { value: command.id }) }}</span>
 				</div>
 
-				<RouterLink to="#">
+				<p
+					@click="redirectToInvoiseUrl"
+					class="cursor-pointer select-none"
+				>
 					{{ $pt("command.seeInvoice") }}
-				</RouterLink>
+				</p>
 			</div>
 		</div>
 

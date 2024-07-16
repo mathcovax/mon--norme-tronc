@@ -84,7 +84,7 @@ const updateQuantity = (amount: number) => {
 			</div>
 
 			<p class="text-lg font-semibold">
-				{{ article.price * article.quantity }}&nbsp;€
+				{{ (article.price * article.quantity).toFixed(2) }}&nbsp;€
 			</p>
 		</CardFooter>
 	</TheCard>

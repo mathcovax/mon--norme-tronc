@@ -96,12 +96,15 @@ export const POST = (method: Methods, path: string) =>
 							quantity: aic.quantity,
 						}),
 					),
+					invoice_creation: {
+						enabled: true,
+					},
 					success_url: `${ENV.ORIGIN}/order?sessionId={CHECKOUT_SESSION_ID}`,
 					cancel_url: `${ENV.ORIGIN}/order?commandId=${commandId}`,
 					customer_email: user.email,
 					expires_at: Math.floor(Date.now() / 1000) + MetConfig.stripe.timestampSession,
 					metadata: {
-						commandId
+						commandId,
 					},
 				});
 				
@@ -138,7 +141,12 @@ export const POST = (method: Methods, path: string) =>
 							userId: user.id,
 							deliveryAddress: address,
 							createdDate: new Date(),
-							price: commandItemsAndFps.reduce((pv, [ci, fps]) => pv + (ci.quantity * fps.price), 0),
+							price: Number(
+								commandItemsAndFps.reduce(
+									(pv, [ci, fps]) => pv + (ci.quantity * fps.price), 
+									0
+								).toFixed(2)
+							),
 							items: commandItemsAndFps.map(([commandItem, fps]) => ({
 								quantity: commandItem.quantity,
 								processQuantity: commandItem.processQuantity,
