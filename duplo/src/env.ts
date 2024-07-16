@@ -29,12 +29,13 @@ export default global.ENV = zod
 		FIREBASE_CREDENTIAL_PATH: zod.string(),
 		JWT_KEY: zod.string(),
 		JWT_TIME: zod.string(),
-		MAIL_HOST: zod.string(),
 		MAIL_FROM: zod.string(),
 		STRIPE_API_KEY: zod.string(),
 		STRIPE_API_WEBHOOK_SECRET: zod.string(),
 		ORIGIN: zod.string().url(),
 		LA_POSTE_KEY: zod.string(),
+		BREVO_KEY: zod.string(),
+		BREVO_USER: zod.string(),
 	})
 	.readonly()
 	.parse(process.env);

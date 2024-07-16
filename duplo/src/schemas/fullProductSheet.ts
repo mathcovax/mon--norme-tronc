@@ -17,6 +17,7 @@ export const fullProductSheetSchema = zod.object({
 		percentage: zod.number(),
 		startDate: zod.coerce.date(),
 		endDate: zod.coerce.date(),
+		reason: zod.string(),
 	}).optional(),
 	organization: zod.object({
 		id: zod.string(),

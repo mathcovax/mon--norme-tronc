@@ -323,6 +323,7 @@ model promotion {
     percentage     Int
     startDate      DateTime
     endDate        DateTime
+    reason         String        @db.VarChar(255)
     createdAt      DateTime      @default(now())
 }
 

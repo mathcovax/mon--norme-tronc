@@ -202,6 +202,7 @@ for await (const promotion of promotionGenerator) {
 							percentage: promotion.percentage,
 							startDate: promotion.startDate,
 							endDate: promotion.endDate,
+							reason: promotion.reason,
 						} satisfies FullProductSheetSchema["promotion"],
 						price: Number(
 							(

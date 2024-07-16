@@ -628,6 +628,7 @@ export default {
 		ref: "Référence",
 		sku: "sku",
 		status: "status",
+		reason: "Raison",
 	},
 	placeholder: {
 		address: "Chercher votre adresse",

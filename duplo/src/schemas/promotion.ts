@@ -5,6 +5,7 @@ export const promotionSchema = zod.object({
 	endDate: zod.coerce.string(),
 	productSheetName: zod.string(),
 	productSheetId: zod.string(),
+	reason: zod.string(),
 });
 
 export type PromotionSchema = Zod.infer<typeof promotionSchema>

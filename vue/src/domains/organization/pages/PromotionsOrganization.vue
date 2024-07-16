@@ -21,6 +21,10 @@ const cols: BigTableColDef<Promotion>[] = [
 		getter: i => i.productSheetName
 	},
 	{
+		title: $t("label.reason"),
+		getter: i => i.reason
+	},
+	{
 		title: $pt("table.col.percentage"),
 		getter: i => $pt("table.percentage", { value: i.percentage }),
 	},
@@ -69,6 +73,7 @@ async function submit() {
 				percentage: formFields.percentage,
 				startDate: formFields.startDate,
 				endDate: formFields.endDate,
+				reason: formFields.reason,
 			},
 			{ params: { productSheetId: formFields.productSheet } }
 		)
