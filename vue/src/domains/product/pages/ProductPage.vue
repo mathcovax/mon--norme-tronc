@@ -27,6 +27,7 @@ function getProductData() {
 		)
 		.info("fullProductSheet", (data) => {
 			product.value = data;
+			console.log(data);
 		})
 		.e(() => {
 			router.push({ name: EDITO_HOME });
@@ -73,7 +74,7 @@ watch(() => params.value.productSheetId, () => { getProductData(); });
 			v-if="product"
 			class="flex flex-col gap-10 sm:flex-row"
 		>
-			<div class="w-full lg:shrink-0 max-w-80 aspect-square sm:aspect-portrait">
+			<div class="w-full max-h-[430px] lg:shrink-0 max-w-80 aspect-portrait">
 				<ProductSlider
 					v-if="product.images.length > 0"
 					:image-urls="product.images"
@@ -135,6 +136,15 @@ watch(() => params.value.productSheetId, () => { getProductData(); });
 				<p class="mt-1 opacity-50">
 					{{ product.shortDescription }}
 				</p>
+
+				<ul class="flex flex-col gap-2">
+					<li
+						v-for="(value, facet) in product.facets"
+						:key="facet"
+					>
+						<strong>{{ $t(`facetType.${facet}`) }}</strong> : {{ value }}
+					</li>
+				</ul>
 
 				<div class="flex items-center gap-12 mt-4">
 					<productSheetQuantity
