@@ -13,8 +13,7 @@ const {
 <template>
 	<DropdownMenu>
 		<DropdownMenuTrigger as-child>
-			<TheButton
-				variant="secondary"
+			<SecondaryButton
 				size="icon"
 				class="rounded-full"
 			>
@@ -22,7 +21,7 @@ const {
 					icon="account-outline"
 					size="2xl"
 				/>
-			</TheButton>
+			</SecondaryButton>
 		</DropdownMenuTrigger>
 
 		<DropdownMenuContent align="end">

@@ -2,6 +2,7 @@
 import TheNavbar from "./TheNavbar.vue";
 import TheSearch from "./TheSearch.vue";
 import AccountDropdown from "../components/AccountDropdown.vue";
+import NotificationsDropdown from "../components/NotificationsDropdown.vue";
 import MobileNavbar from "../components/MobileNavbar.vue";
 import MobileSearch from "../components/MobileSearch.vue";
 import { useGetNavigationBar } from "../composables/useGetNavigationBar";
@@ -58,7 +59,14 @@ const { items } = useGetNavigationBar();
 							</TheButton>
 						</Routerlink>
 
-						<AccountDropdown v-else />
+						<div
+							v-else
+							class="flex gap-4"
+						>
+							<AccountDropdown />
+
+							<NotificationsDropdown />
+						</div>
 					</div>
 				</div>
 			</div>

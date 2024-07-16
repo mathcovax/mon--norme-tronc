@@ -20,6 +20,10 @@ export const userSchema = zod.object({
 	address: zod.string(),
 	primordialRole: zod.enum(primordialRolesTuple),
 	muted: zod.boolean(),
+	emailNotifcationsNewsletter: zod.boolean(),
+	emailNotifcationsProductStock: zod.boolean(),
+	emailNotifcationsPromotion: zod.boolean(),
+	emailNotifcationsNewProductInCategory: zod.boolean(),
 });
 
 export const selfUserSchema = userSchema.extend({

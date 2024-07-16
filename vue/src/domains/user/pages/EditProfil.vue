@@ -24,6 +24,10 @@ async function submit() {
 				lastname: formFields.lastname,
 				firstname: formFields.firstname,
 				address: formFields.address,
+				emailNotifcationsNewsletter: formFields.emailNotifcationsNewsletter,
+				emailNotifcationsProductStock: formFields.emailNotifcationsProductStock,
+				emailNotifcationsPromotion: formFields.emailNotifcationsPromotion,
+				emailNotifcationsNewProductInCategory: formFields.emailNotifcationsNewProductInCategory,
 			},
 		)
 		.result;

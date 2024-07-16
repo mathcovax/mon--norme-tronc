@@ -484,7 +484,8 @@ export default {
 					organizations: "Organisations",
 					content: "Contenu",
 					login: "Connexion",
-					logout: "Déconnexion"
+					logout: "Déconnexion",
+					notifications: "Notification(s)",
 				},
 			},
 			footer: {
@@ -607,6 +608,10 @@ export default {
 		firstname: "Prénom",
 		birthDate: "Date de naissance",
 		address: "Adresse",
+		newsletter: "S'abonner à la newsletter",
+		productStock: "Être notifié des restocks",
+		promotions: "Être notifié des promotions",
+		newProductsInCategory: "Être notifié des nouveautés",
 		productSheet: "Fiche produit",
 		percentage: "Pourcentage (%)",
 		startDate: "Date de début",

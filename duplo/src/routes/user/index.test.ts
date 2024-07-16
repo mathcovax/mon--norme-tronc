@@ -91,7 +91,11 @@ describe("/user", () => {
 					body: {
 						lastname: "ROSBOULE",
 						firstname: "Megue",
-						address: "15 rue du Ketchup"
+						address: "15 rue du Ketchup",
+						emailNotifcationsNewsletter: true,
+						emailNotifcationsProductStock: true,
+						emailNotifcationsPromotion: true,
+						emailNotifcationsNewProductInCategory: true
 					}
 				})
 				.mockChecker(
@@ -111,7 +115,11 @@ describe("/user", () => {
 				data: {
 					lastname: "ROSBOULE",
 					firstname: "Megue",
-					address: "15 rue du Ketchup"
+					address: "15 rue du Ketchup",
+					emailNotifcationsNewsletter: true,
+					emailNotifcationsProductStock: true,
+					emailNotifcationsPromotion: true,
+					emailNotifcationsNewProductInCategory: true
 				}
 			});
 		});
