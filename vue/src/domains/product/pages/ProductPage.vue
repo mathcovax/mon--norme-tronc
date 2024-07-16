@@ -2,6 +2,7 @@
 import { marked } from "marked";
 import type { FullProductSheet } from "@/lib/utils";
 import ProductSlider from "../components/ProductSlider.vue";
+import TheRate from "../components/TheRate.vue";
 import ProductSheetQuantity from "../components/ProductSheetQuantity.vue";
 import ProductSuggestion from "../components/ProductSuggestion.vue";
 
@@ -33,6 +34,12 @@ function getProductData() {
 			router.push({ name: EDITO_HOME });
 		})
 		.result;
+}
+
+const productRate = ref(Math.ceil(2.6)); // TODO: replace with real data
+
+function updateRate(newRate: number) {
+	productRate.value = Math.ceil(newRate);
 }
 
 function createArticle() {
@@ -113,18 +120,25 @@ watch(() => params.value.productSheetId, () => { getProductData(); });
 					</RouterLink>
 				</div>
 
-				<span class="text-xl font-semibold">
-					{{ product.price }} €
+				<div class="flex gap-4 items-center">
+					<span class="text-xl font-semibold">
+						{{ product.price }} €
 
-					<span
-						v-if="product.promotion"
-						class="line-through text-gray-500"
-					>
-						{{ product.promotion.originalPrice }} €
+						<span
+							v-if="product.promotion"
+							class="line-through text-gray-500"
+						>
+							{{ product.promotion.originalPrice }} €
+						</span>
+
+						(<span :class="{ 'text-red-600' : product.quantity < 10 }">{{ product.quantity < 10 ? "Plus que " : "" }}{{ product.quantity }}{{ product.quantity < 10 ? " !" : "" }}</span>)
 					</span>
 
-					(<span :class="{ 'text-red-600' : product.quantity < 10 }">{{ product.quantity < 10 ? "Plus que " : "" }}{{ product.quantity }}{{ product.quantity < 10 ? " !" : "" }}</span>)
-				</span>
+					<TheRate
+						:rating="productRate"
+						@update:rate="updateRate"
+					/>
+				</div>
 
 				<p
 					class="mt-1"
