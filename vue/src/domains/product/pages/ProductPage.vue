@@ -28,7 +28,6 @@ function getProductData() {
 		)
 		.info("fullProductSheet", (data) => {
 			product.value = data;
-			console.log(data);
 		})
 		.e(() => {
 			router.push({ name: EDITO_HOME });
@@ -136,7 +135,7 @@ watch(() => params.value.productSheetId, () => { getProductData(); });
 
 					<TheRate
 						:rating="productRate"
-						@update:rate="updateRate"
+						@update:rating="updateRate"
 					/>
 				</div>
 
