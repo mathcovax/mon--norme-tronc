@@ -13,4 +13,5 @@ export const userData: user = {
 	emailNotifcationsProductStock: true,
 	emailNotifcationsPromotion: true,
 	emailNotifcationsNewProductInCategory: true,
+	deleted: false
 };

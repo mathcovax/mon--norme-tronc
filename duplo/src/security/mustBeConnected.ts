@@ -29,5 +29,19 @@ export const mustBeConnected = duplo
 		},
 		new IHaveSentThis(NotFoundHttpException.code, "user.notfound")
 	)
-	.cut(({ pickup }) => ({ userId: pickup("user").id }), ["userId"])
+	.cut(
+		({ pickup }) => {
+			const user = pickup("user");
+
+			if (user.deleted === true) {
+				throw new UnauthorizedHttpException("user.deleted");
+			}
+
+			return { 
+				userId: user.id 
+			};
+		},
+		["userId"],
+		new IHaveSentThis(UnauthorizedHttpException.code, "user.deleted")
+	)
 	.build(["accessTokenContent", "user", "userId"]);

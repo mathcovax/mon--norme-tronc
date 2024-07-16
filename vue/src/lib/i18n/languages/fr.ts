@@ -24,6 +24,11 @@ export default {
 		},
 		[routerPageName.USER_EDIT_PROFIL]: {
 			title: "Mon profil",
+			btnDelete: "Supprimé le compte",
+			deletePopup: {
+				title: "Etes vous sur de vouloir supprimé le compte.",
+				content: "Cette action est iréversible et entrénera la perte de toute vos donner."
+			}
 		},
 		[routerPageName.USER_ORGANIZATIONS]: {
 			title: "Mes organisations",

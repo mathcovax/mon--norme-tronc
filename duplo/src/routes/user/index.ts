@@ -92,3 +92,30 @@ export const PATCH = (method: Methods, path: string) => mustBeConnected({ pickup
 		},
 		new IHaveSentThis(CreatedHttpException.code, "user.edited", zod.string())
 	);
+
+/* METHOD : DELETE, PATH : /user */
+export const DELETE = (method: Methods, path: string) => 
+	mustBeConnected({ pickup: ["user"] })
+		.declareRoute(method, path)
+		.handler(
+			async ({ pickup }) => {
+				const user = pickup("user");
+
+				await prisma.user.update({
+					where: {
+						id: user.id
+					},
+					data: {
+						address: "####",
+						firstname: "####",
+						lastname: "####",
+						email: Date.now().toString(),
+						deleted: true,
+					}
+				});
+
+				throw new NoContentHttpException("user.delete");
+			},
+			new IHaveSentThis(NoContentHttpException.code, "user.delete"),
+		);
+
