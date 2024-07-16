@@ -23,7 +23,7 @@ export const userSchema = zod.object({
 	emailNotifcationsNewsletter: zod.boolean(),
 	emailNotifcationsProductStock: zod.boolean(),
 	emailNotifcationsPromotion: zod.boolean(),
-	emailNotifcationsNewProductsInCategory: zod.boolean(),
+	emailNotifcationsNewProductInCategory: zod.boolean(),
 });
 
 export const selfUserSchema = userSchema.extend({

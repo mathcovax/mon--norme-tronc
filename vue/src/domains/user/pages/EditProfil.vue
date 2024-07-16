@@ -27,7 +27,7 @@ async function submit() {
 				emailNotifcationsNewsletter: formFields.emailNotifcationsNewsletter,
 				emailNotifcationsProductStock: formFields.emailNotifcationsProductStock,
 				emailNotifcationsPromotion: formFields.emailNotifcationsPromotion,
-				emailNotifcationsNewProductsInCategory: formFields.emailNotifcationsNewProductsInCategory,
+				emailNotifcationsNewProductInCategory: formFields.emailNotifcationsNewProductInCategory,
 			},
 		)
 		.result;

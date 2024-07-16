@@ -95,7 +95,7 @@ describe("/user", () => {
 						emailNotifcationsNewsletter: true,
 						emailNotifcationsProductStock: true,
 						emailNotifcationsPromotion: true,
-						emailNotifcationsNewProductsInCategory: true
+						emailNotifcationsNewProductInCategory: true
 					}
 				})
 				.mockChecker(
@@ -119,7 +119,7 @@ describe("/user", () => {
 					emailNotifcationsNewsletter: true,
 					emailNotifcationsProductStock: true,
 					emailNotifcationsPromotion: true,
-					emailNotifcationsNewProductsInCategory: true
+					emailNotifcationsNewProductInCategory: true
 				}
 			});
 		});

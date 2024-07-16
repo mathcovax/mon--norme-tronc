@@ -43,7 +43,7 @@ export const PATCH = (method: Methods, path: string) => mustBeConnected({ pickup
 				emailNotifcationsNewsletter: zod.boolean().optional(),
 				emailNotifcationsProductStock: zod.boolean().optional(),
 				emailNotifcationsPromotion: zod.boolean().optional(),
-				emailNotifcationsNewProductsInCategory: zod.boolean().optional(),
+				emailNotifcationsNewProductInCategory: zod.boolean().optional(),
 			}).strip().default({}),
 		}
 	)
@@ -70,7 +70,7 @@ export const PATCH = (method: Methods, path: string) => mustBeConnected({ pickup
 				emailNotifcationsNewsletter,
 				emailNotifcationsProductStock,
 				emailNotifcationsPromotion,
-				emailNotifcationsNewProductsInCategory
+				emailNotifcationsNewProductInCategory
 			} = pickup("body");
 
 			await prisma.user.update({
@@ -84,7 +84,7 @@ export const PATCH = (method: Methods, path: string) => mustBeConnected({ pickup
 					emailNotifcationsNewsletter,
 					emailNotifcationsProductStock,
 					emailNotifcationsPromotion,
-					emailNotifcationsNewProductsInCategory,
+					emailNotifcationsNewProductInCategory,
 				},
 			});
 

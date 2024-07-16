@@ -48,7 +48,7 @@ export function useEditUserProfilForm(userId?: string) {
 			label: $t("label.promotions"),
 			zodSchema: zod.boolean().optional(),
 		},
-		emailNotifcationsNewProductsInCategory: {
+		emailNotifcationsNewProductInCategory: {
 			cols: 6,
 			type: "checkbox",
 			label: $t("label.newProductsInCategory"),
@@ -68,7 +68,7 @@ export function useEditUserProfilForm(userId?: string) {
 				values.emailNotifcationsNewsletter.value = data.emailNotifcationsNewsletter;
 				values.emailNotifcationsProductStock.value = data.emailNotifcationsProductStock;
 				values.emailNotifcationsPromotion.value = data.emailNotifcationsPromotion;
-				values.emailNotifcationsNewProductsInCategory.value = data.emailNotifcationsNewProductsInCategory;
+				values.emailNotifcationsNewProductInCategory.value = data.emailNotifcationsNewProductInCategory;
 			});
 	}
 

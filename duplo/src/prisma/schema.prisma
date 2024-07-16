@@ -32,7 +32,7 @@ model user {
 	emailNotifcationsNewsletter				Boolean						@default(false)
 	emailNotifcationsProductStock			Boolean						@default(true)
 	emailNotifcationsPromotion				Boolean						@default(true)
-	emailNotifcationsNewProductsInCategory	Boolean						@default(true)
+	emailNotifcationsNewProductInCategory	Boolean						@default(true)
 }
 
 enum primordial_role {
