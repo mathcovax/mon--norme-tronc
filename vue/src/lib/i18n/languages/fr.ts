@@ -484,7 +484,8 @@ export default {
 					organizations: "Organisations",
 					content: "Contenu",
 					login: "Connexion",
-					logout: "Déconnexion"
+					logout: "Déconnexion",
+					notifications: "Notification(s)",
 				},
 			},
 			footer: {
