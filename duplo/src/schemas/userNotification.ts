@@ -12,7 +12,7 @@ export const notificationTypeEnum: UninonToEnum<notification_type> = {
 	PRODUCT_RESTOCK: "PRODUCT_RESTOCK",
 };
 
-export const fullNotificationsSchema = zod.object({
+export const fullNotificationSchema = zod.object({
 	title: zod.string(),
 	subtitle: zod.string().optional(),
 	redirect: zod.string().optional(),
@@ -21,7 +21,10 @@ export const fullNotificationsSchema = zod.object({
 	userId: zod.string(),
 });
 
+export type FullNotification = Zod.infer<typeof fullNotificationSchema>;
+
 export const notificationSchema = zod.object({
+	id: zod.number(),
 	productSheetId: zod.string().or(zod.null()),
 	userId: zod.string(),
 	categoryName: zod.string().or(zod.null()),

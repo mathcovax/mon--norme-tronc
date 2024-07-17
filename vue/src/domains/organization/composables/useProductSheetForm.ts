@@ -167,6 +167,7 @@ export function useProductSheetForm(organizationId: string, productSheetId?: str
 				values.description.value = data.description;
 				values.shortDescription.value = data.shortDescription;
 				values.price.value = data.price;
+				values.ref.value = data.ref;
 				values.variationGroup.value = data.variationGroup ?? undefined;
 				values.variationName.value = data.variationName ?? undefined;
 			});

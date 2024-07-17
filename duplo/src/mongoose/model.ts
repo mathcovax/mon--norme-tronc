@@ -2,7 +2,7 @@ import { fullCommandSchema } from "@schemas/command";
 import { fullProductSheetSchema } from "@schemas/fullProductSheet";
 import { productSheetReviewSchema } from "@schemas/productSheetReview";
 import { productStatusChangeSchema } from "@schemas/productStatusChange";
-import { fullNotificationsSchema } from "@schemas/userNotification";
+import { fullNotificationSchema } from "@schemas/userNotification";
 import { zodToMongooseSchema } from "@utils/zodToMongooseSchema";
 import { productStockSchema } from "@schemas/ProductStock";
 import { model } from "mongoose";
@@ -30,7 +30,7 @@ export const fullCommandModel = model(
 	fullCommandMongooseSchema
 );
 
-const fullNotificationsMongooseSchema = zodToMongooseSchema(fullNotificationsSchema);
+const fullNotificationsMongooseSchema = zodToMongooseSchema(fullNotificationSchema);
 export const fullNotificationsModel = model(
 	"UserNotification",
 	fullNotificationsMongooseSchema	

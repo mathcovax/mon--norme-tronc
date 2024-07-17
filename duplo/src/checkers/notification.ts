@@ -34,9 +34,6 @@ export const notificationExistCheck = duplo
 		const notification = await prisma.subscribeProductNotifications.findFirst({
 			where
 		});
-
-		console.log(notification);
-
 		if (notification) {
 			return output("notification.exist", notification);
 		}

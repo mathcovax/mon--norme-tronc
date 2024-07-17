@@ -155,6 +155,7 @@ model product_sheet_to_category {
     categoryName   String
     productSheet   product_sheet @relation(fields: [productSheetId], references: [id])
     category       category      @relation(fields: [categoryName], references: [name])
+    createdAt      DateTime      @default(now())
 
     @@unique([categoryName, productSheetId])
 }
