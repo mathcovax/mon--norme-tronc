@@ -9,7 +9,7 @@ describe("/product-sheet/{productSheetId}", () => {
 	});
 
 	describe("PATCH", () => {
-		it("update porduct sheet", async () => {
+		it("update product sheet", async () => {
 			const spy = vi.fn(() => productSheetData);
 			MockPrisma.set("product_sheet", "update", spy);
 	

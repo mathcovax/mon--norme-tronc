@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useGetProducts } from "../composables/useGetPorducts";
+import { useGetProducts } from "../composables/useGetProducts";
 import type { FullProductSheet, Product, ProductStatus } from "@/lib/utils";
 import { useProductForm } from "../composables/useProductForm";
 import WithValidation from "@/components/WithValidation.vue";

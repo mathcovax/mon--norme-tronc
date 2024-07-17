@@ -1,4 +1,4 @@
-import { useGetProducts } from "./useGetPorducts";
+import { useGetProducts } from "./useGetProducts";
 
 export function useBundleForm(organizationId: string) {
 	const $pt = usePageTranslate();
