@@ -16,6 +16,7 @@ export const GET = (method: Methods, path: string) =>
 			async ({ pickup }) => {
 				const { id: userId } = pickup("accessTokenContent");
 				const page = pickup("page");
+
 				const productSheetName = pickup("productSheetName");
 
 				const fullCommands = await fullCommandModel.aggregate([

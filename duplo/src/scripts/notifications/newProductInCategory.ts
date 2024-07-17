@@ -58,7 +58,8 @@ for await (const newProductInCategory of newProductInCategoryGenerator) {
 			subtitle: `Découvrez le produit ${newProductInCategory.productSheet.name}`,
 			redirect: `/product/${newProductInCategory.productSheetId}`,
 			imageUrl: newProductInCategory.category.imageUrl ?? "",
-			userId: subscribeNotification.userId
+			userId: subscribeNotification.userId,
+			createdAt: new Date()
 		};
 		await promiseList.append(
 			fullNotificationsModel.create(fullNotification)

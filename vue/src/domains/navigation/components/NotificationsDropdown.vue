@@ -1,30 +1,26 @@
 <script setup lang="ts">
-const unreadNotifications = ref([
-	{
-		type: "newsletters",
-		title: "Nouvelle newsletter",
-		description: "Découvrez notre nouvelle newsletter",
-		date: "2021-09-01T00:00:00.000Z"
-	},
-	{
-		type: "productStock",
-		title: "Produit en stock",
-		description: "Le produit que vous attendiez est en stock",
-		date: "2021-09-01T00:00:00.000Z"
-	},
-	{
-		type: "productPromotion",
-		title: "Promotion",
-		description: "Profitez de notre promotion sur les produits de la rentrée",
-		date: "2021-09-01T00:00:00.000Z"
-	},
-	{
-		type: "newProducts",
-		title: "Nouveaux produits",
-		description: "Découvrez nos nouveaux produits",
-		date: "2021-09-01T00:00:00.000Z"
-	}
-]);
+import type { FullNotification } from "@/lib/utils";
+
+
+const fullNotifications = ref<FullNotification[]>([]);
+const page = ref(0);
+const canSeeMore = ref(true);
+
+function getUserNotifications(page: number) {
+	return duploTo.enriched
+		.get(
+			"/user/notifications",
+			{ query: { page } }
+		)
+		.info("userNotifications", (data) => {
+			if (data.length < 10) {
+				canSeeMore.value = false;
+			}
+			fullNotifications.value.push(...data);
+		});
+}
+
+getUserNotifications(page.value);
 </script>
 
 <template>
@@ -35,7 +31,7 @@ const unreadNotifications = ref([
 				class="rounded-full"
 			>
 				<TheIcon
-					:icon="unreadNotifications.length ? 'bell-ring' : 'bell-outline'"
+					:icon="fullNotifications.length ? 'bell-ring' : 'bell-outline'"
 					size="2xl"
 				/>
 			</SecondaryButton>
@@ -43,7 +39,7 @@ const unreadNotifications = ref([
 
 		<DropdownMenuContent
 			align="end"
-			class="w-full max-w-80"
+			class="w-full max-w-100"
 		>
 			<DropdownMenuLabel>
 				{{ $t("layout.default.header.dropdown.notifications") }}
@@ -52,30 +48,51 @@ const unreadNotifications = ref([
 			<DropdownMenuSeparator />
 
 			<ScrollArea class="h-96">
-				<DropdownMenuItem
-					v-for="(notification, index) in unreadNotifications"
-					:key="index"
-					class="flex gap-4 items-center"
-				>
-					<TheIcon 
-						:icon="notification.type === 'newsletters' ? 'email-newsletter' :
-							notification.type === 'productStock' ? 'archive-plus' :
-							notification.type === 'productPromotion' ? 'sale' : 'new-box'"
-						size="2xl"
-					/>
+				<div class="flex flex-col gap-4 mb-6">
+					<DropdownMenuItem
+						v-for="(notification, index) in fullNotifications"
+						:key="index"
+						class="flex items-center gap-4"
+					>
+						<img
+							:src="notification.imageUrl"
+							:alt="notification.title"
+							class="w-12 h-12 rounded-sm"
+						>
 
-					<div>
-						<p class="font-bold">
-							{{ notification.title }}
-						</p>
+						<div>
+							<p class="font-bold">
+								{{ notification.title }}
+							</p>
 
-						<p>{{ notification.description }}</p>
+							<RouterLink
+								v-if="notification.redirect"
+								:to="notification.redirect"
+								class="text-blue-500"
+							>
+								Voir plus
+							</RouterLink>
 
-						<p class="text-xs text-gray-500">
-							{{ notification.date }}
-						</p>
-					</div>
-				</DropdownMenuItem>
+							<p
+								v-if="notification.subtitle"
+							>	
+								{{ notification.subtitle }}
+							</p>
+
+							<p class="text-xs text-gray-500">
+								{{ notification.createdAt.toString().split("T")[0] }}
+							</p>
+						</div>
+					</DropdownMenuItem>
+
+					<PrimaryButton
+						v-if="canSeeMore"
+						class="self-center"
+						@click="getUserNotifications(++page)"
+					>
+						Voir plus
+					</PrimaryButton>
+				</div>
 
 				<ScrollBar orientation="vertical" />
 			</ScrollArea>

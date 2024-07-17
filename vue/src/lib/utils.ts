@@ -66,6 +66,11 @@ export type Notifications = GetResponseByInfo<
 	"notifications"
 >["body"][number];
 
+export type FullNotification = GetResponseByInfo<
+	GetDef<"GET", "/user/notifications">,
+	"userNotifications"
+>["body"][number];
+
 export type FullProductSheet = GetResponseByInfo<
     GetDef<"GET", "/full-product-sheets">,
     "fullProductSheets"

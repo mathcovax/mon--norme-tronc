@@ -69,7 +69,8 @@ for await (const product of productGenerator) {
 			subtitle: `Stock ajouté : ${product._count._all}`,
 			imageUrl: productSheet.images[0]?.url,
 			redirect: `/product/${product.productSheetId}`,
-			userId: subscribeNotification.userId
+			userId: subscribeNotification.userId,
+			createdAt: new Date()
 		};
 		await promiseList.append(
 			fullNotificationsModel.create(fullNotification)

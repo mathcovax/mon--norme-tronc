@@ -6,21 +6,24 @@ import { mustBeConnected } from "@security/mustBeConnected";
 export const GET = (method: Methods, path: string) =>
 	mustBeConnected({ pickup: ["accessTokenContent"] })
 		.declareRoute(method, path)
-		.cut(
-			async ({ pickup }) => {
-				const { id: userId } = pickup("accessTokenContent");				
-
-				const notifications = fullNotificationsModel.aggregate([{ $match: { userId } }]);
-				
-				return { notifications };
-			},
-			["notifications"]
-		)
+		.extract({
+			query: {
+				page: zod.coerce.number().default(0)
+			}
+		})
 		.handler(
 			async ({ pickup }) => {
-				const notifications = pickup("notifications");
+				const { id: userId } = pickup("accessTokenContent");
+				const page = pickup("page");				
 
-				throw new OkHttpException("userNotifications", notifications);
+				const userNotifications = await fullNotificationsModel.aggregate([
+					{ $match: { userId } },
+					{ $sort: { createdAt: -1 } },
+					{ $skip: page * 10 },
+					{ $limit: 10 }
+				]);
+
+				throw new OkHttpException("userNotifications", userNotifications);
 			},
 			new IHaveSentThis(OkHttpException.code, "userNotifications", fullNotificationSchema.array())
 		);

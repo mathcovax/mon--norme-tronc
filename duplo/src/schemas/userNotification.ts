@@ -19,6 +19,7 @@ export const fullNotificationSchema = zod.object({
 	imageUrl: zod.string().optional(),
 	icon: zod.string().optional(),
 	userId: zod.string(),
+	createdAt: zod.coerce.date(),
 });
 
 export type FullNotification = Zod.infer<typeof fullNotificationSchema>;
