@@ -39,12 +39,6 @@ function getProductData() {
 		.result;
 }
 
-const productRate = ref(Math.ceil(2.6)); // TODO: replace with real data
-
-function updateRate(newRate: number) {
-	productRate.value = Math.ceil(newRate);
-}
-
 function createArticle() {
 	if (!product.value) {
 		return; 
@@ -131,7 +125,7 @@ function getReview(owne?: boolean) {
 				return;
 			}
 
-			reviews.value = data;
+			reviews.value.push(...data);
 			if (data.length < 10) {
 				pageReviews.value = -1;
 			}
@@ -241,10 +235,14 @@ watch(
 						(<span :class="{ 'text-red-600' : product.quantity < 10 }">{{ product.quantity < 10 ? "Plus que " : "" }}{{ product.quantity }}{{ product.quantity < 10 ? " !" : "" }}</span>)
 					</span>
 
-					<TheRate
-						:rating="productRate"
-						@update:rating="updateRate"
-					/>
+					<div class="flex gap-2 items-center">
+						<TheRate
+							v-model:rate="product.avgRate"
+							disabled
+						/>
+
+						({{ product.countRate }})
+					</div>
 				</div>
 
 				<p
@@ -257,15 +255,6 @@ watch(
 				<p class="mt-1 opacity-50">
 					{{ product.shortDescription }}
 				</p>
-
-				<ul class="flex flex-col gap-2">
-					<li
-						v-for="(value, facet) in product.facets"
-						:key="facet"
-					>
-						<strong>{{ $t(`facetType.${facet}`) }}</strong> : {{ value }}
-					</li>
-				</ul>
 
 				<div class="flex items-center gap-12 mt-4">
 					<productSheetQuantity
@@ -319,7 +308,22 @@ watch(
 				</TabsTrigger>
 			</TabsList>
 
-			<TabsContent value="product-details">
+			<TabsContent
+				value="product-details"
+				class="flex flex-col gap-4"
+			>
+				<ul
+					class="flex flex-col gap-2"
+					v-if="product"
+				>
+					<li
+						v-for="(value, facet) in product.facets"
+						:key="facet"
+					>
+						<strong>{{ $t(`facetType.${facet}`) }}</strong> : {{ value }}
+					</li>
+				</ul>
+
 				<div 
 					class="prose" 
 					v-html="renderDescription"
@@ -334,6 +338,13 @@ watch(
 					v-if="userStore.user?.muted === false && !owneReview"
 					@submit="sendReview"
 				>
+					<template #rate="{modelValue, onUpdate}">
+						<TheRate
+							:rate="modelValue"
+							@update:rate="onUpdate"
+						/>
+					</template>
+
 					<div class="col-span-12">
 						<PrimaryButton type="sumbite">
 							{{ $t("button.send") }}

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { FullProductSheet } from "@/lib/utils";
+import TheRate from "./TheRate.vue";
 
 const { PRODUCT_PAGE } = routerPageName;
 
@@ -53,15 +54,26 @@ defineProps<{
 			</CardContent>
 
 			<CardFooter class="justify-end">
-				<div class="flex gap-2">
-					<span>{{ product.price }} €</span>
+				<div class="flex flex-col items-end">
+					<div class="flex gap-2 items-center">
+						<TheRate
+							:rate="product.avgRate"
+							disabled
+						/>
+						
+						({{ product.countRate }})
+					</div>
 
-					<span
-						v-if="product.promotion"
-						class="line-through text-gray-500"
-					>
-						{{ product.promotion.originalPrice }} €
-					</span>
+					<div class="flex gap-2 ">
+						<span>{{ product.price }} €</span>
+
+						<span
+							v-if="product.promotion"
+							class="line-through text-gray-500"
+						>
+							{{ product.promotion.originalPrice }} €
+						</span>
+					</div>
 				</div>
 			</CardFooter>
 		</RouterLink>

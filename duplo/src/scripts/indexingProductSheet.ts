@@ -85,66 +85,70 @@ for await (const productSheet of productSheetGenerator) {
 		);
 		continue;
 	}
-
-	const [groupReview] = await productSheetReviewModel.aggregate<{avgRate?: number} | undefined>([
-		{ $match: { productSheetId: productSheet.id } },
-		{
-			$group: {
-				_id: "$productSheetId",
-				avgRate: {
-					$avg: "$rate"
-				}
-			}
-		},
-	]);
-
-	const promotion = productSheet.promotions[0];
-
-	const fullProductSheet: FullProductSheetSchema = {
-		id: productSheet.id,
-		ref: productSheet.ref,
-		name: productSheet.name,
-		description: productSheet.description,
-		shortDescription: productSheet.shortDescription,
-		price: promotion 
-			? formatPrice(productSheet.price - (productSheet.price * promotion.percentage / 100))
-			: productSheet.price,
-		quantity: productSheet._count.products,
-		categories: productSheet.categories.map(c => c.categoryName),
-		images: productSheet.images.map(i => i.url),
-		organization: {
-			id: productSheet.organizationId,
-			name: productSheet.organization.name,
-			label: productSheet.organization.label ?? undefined,
-			logoUrl: productSheet.organization.logoUrl ?? undefined
-		},
-		facets: facetTypeTuple.reduce(
-			(pv, ft) => ({
-				...pv, 
-				[ft]: productSheet.facets.find(f => f.type === ft)?.value
-			}),
-			{} as { [P in facet_type]?: string}
-		),
-		hasPromotion: !!promotion,
-		promotion: promotion 
-			? {
-				id: promotion.id,
-				originalPrice: productSheet.price,
-				percentage: promotion.percentage,
-				startDate: promotion.startDate,
-				endDate: promotion.endDate,
-				reason: promotion.reason,
-			}
-			: undefined,
-		avgRate: Math.round(groupReview?.avgRate ?? -1).toString(),
-		status: productSheet.status,
-	};
-
+	
 	await promiseList.append(
-		fullProductSheetModel.findOneAndUpdate(
-			{ id: productSheet.id }, 
-			fullProductSheet, 
-			{ new: true, upsert: true }
+		productSheetReviewModel.aggregate<{avgRate?: number, countRate?: number} | undefined>([
+			{ $match: { productSheetId: productSheet.id } },
+			{
+				$group: {
+					_id: "$productSheetId",
+					avgRate: {
+						$avg: "$rate"
+					},
+					countRate: {
+						$count: {}
+					},
+				}
+			},
+		]).then(([groupReview]): FullProductSheetSchema => {
+			const promotion = productSheet.promotions[0];
+
+			return {
+				id: productSheet.id,
+				ref: productSheet.ref,
+				name: productSheet.name,
+				description: productSheet.description,
+				shortDescription: productSheet.shortDescription,
+				price: promotion 
+					? formatPrice(productSheet.price - (productSheet.price * promotion.percentage / 100))
+					: productSheet.price,
+				quantity: productSheet._count.products,
+				categories: productSheet.categories.map(c => c.categoryName),
+				images: productSheet.images.map(i => i.url),
+				organization: {
+					id: productSheet.organizationId,
+					name: productSheet.organization.name,
+					label: productSheet.organization.label ?? undefined,
+					logoUrl: productSheet.organization.logoUrl ?? undefined
+				},
+				facets: facetTypeTuple.reduce(
+					(pv, ft) => ({
+						...pv, 
+						[ft]: productSheet.facets.find(f => f.type === ft)?.value
+					}),
+				{} as { [P in facet_type]?: string}
+				),
+				hasPromotion: !!promotion,
+				promotion: promotion 
+					? {
+						id: promotion.id,
+						originalPrice: productSheet.price,
+						percentage: promotion.percentage,
+						startDate: promotion.startDate,
+						endDate: promotion.endDate,
+						reason: promotion.reason,
+					}
+					: undefined,
+				avgRate: Math.round(groupReview?.avgRate ?? -1).toString(),
+				countRate: groupReview?.countRate ?? 0,
+				status: productSheet.status,
+			};
+		}).then(
+			fullProductSheet => fullProductSheetModel.findOneAndUpdate(
+				{ id: productSheet.id }, 
+				fullProductSheet, 
+				{ new: true, upsert: true }
+			)
 		)
 	);
 }

@@ -13,6 +13,7 @@ export const fullProductSheetSchema = zod.object({
 	images: zod.string().array(),
 	hasPromotion: zod.boolean().optional(),
 	avgRate: zod.string(),
+	countRate: zod.number(),
 	status: zod.enum(productSheetStatusTuple),
 	promotion: zod.object({
 		id: zod.number(),

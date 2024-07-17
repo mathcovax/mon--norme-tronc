@@ -10,6 +10,7 @@ import categoryData from "./data/category.json";
 import productData from "./data/product.json";
 import facetsData from "./data/facets.json";
 import { facetType, makeFacet } from "./entities/facet";
+import "../scripts/setup";
 import { mongoose } from "../scripts/setup/mongoose";
 import { productSheetReviewModel } from "@mongoose/model";
 import { faker } from "@faker-js/faker";

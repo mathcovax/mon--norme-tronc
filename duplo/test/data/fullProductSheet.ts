@@ -20,5 +20,6 @@ export const fullProductSheetData: FullProductSheetSchema = {
 	quantity: 0,
 	shortDescription: "gros uc",
 	avgRate: "-1",
+	countRate: 12,
 	status: "VERIFIED",
 };

@@ -74,6 +74,15 @@ function patchProductSheet(status: FullProductSheet["status"]) {
 					
 					{{ currentFullProductSheet.shortDescription }}
 
+					<ul class="flex flex-col gap-2">
+						<li
+							v-for="(value, facet) in currentFullProductSheet.facets"
+							:key="facet"
+						>
+							<strong>{{ $t(`facetType.${facet}`) }}</strong> : {{ value }}
+						</li>
+					</ul>
+
 					<div v-html="marked.parse(currentFullProductSheet.description)" />
 				</div>
 			</div>

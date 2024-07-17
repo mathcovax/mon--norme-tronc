@@ -1,5 +1,11 @@
 export function useReviewForm() {
 	const { Form, checkForm, resetForm } = useFormBuilder({
+		rate: {
+			type: "custom",
+			label: $t("label.rate"),
+			defaultValue: 5 as string | number,
+			zodSchema: zod.coerce.number().min(1).max(5).int().default(5),
+		},
 		pseudo: {
 			type: "text",
 			label: $t("label.pseudo"),
@@ -17,10 +23,6 @@ export function useReviewForm() {
 				.max(30, { message: $t("form.rule.maxLength", { value: 500 }) })
 				.default("")
 		},
-		rate: {
-			type: "custom",
-			zodSchema: zod.number().min(1).max(5).int().default(5)
-		}
 	});
 
 	return {
