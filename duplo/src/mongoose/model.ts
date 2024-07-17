@@ -1,5 +1,6 @@
 import { fullCommandSchema } from "@schemas/command";
 import { fullProductSheetSchema } from "@schemas/fullProductSheet";
+import { productSheetReviewSchema } from "@schemas/productSheetReview";
 import { productStatusChangeSchema } from "@schemas/productStatusChange";
 import { zodToMongooseSchema } from "@utils/zodToMongooseSchema";
 import { productStockSchema } from "@schemas/ProductStock";
@@ -32,4 +33,10 @@ const productStockMongooseSchema = zodToMongooseSchema(productStockSchema);
 export const productStockModel = model(
 	"ProductStock",
 	productStockMongooseSchema
+);
+
+const productSheetReviewMongooseSchema = zodToMongooseSchema(productSheetReviewSchema.omit({ _id: true }));
+export const productSheetReviewModel = model(
+	"productSheetReview",
+	productSheetReviewMongooseSchema
 );

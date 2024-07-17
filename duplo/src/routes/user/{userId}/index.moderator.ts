@@ -1,21 +1,15 @@
 import { inputUser, userExistCheck } from "@checkers/user";
-import { primordialRolesEnum } from "@schemas/user";
 import { hasPrimordialRole } from "@security/hasPrimordialRole";
 
 /* METHOD : PATCH, PATH : /user/{userId} */
 export const PATCH = (method: Methods, path: string) => 
-	hasPrimordialRole({ options: { primordialRole: "ADMIN" } })
-		.declareRoute(method, `${path}@admin`)
+	hasPrimordialRole({ options: { primordialRole: "MODERATOR" } })
+		.declareRoute(method, `${path}@moderator`)
 		.extract({
 			params: {
 				userId: zod.string(),
 			},
 			body: zod.object({
-				primordialRole: zod.enum([
-					primordialRolesEnum.CUSTOMER,
-					primordialRolesEnum.CONTENTS_MASTER,
-					primordialRolesEnum.MODERATOR
-				]).optional(),
 				muted: zod.boolean().optional(),
 			}).default({})
 		})
@@ -43,14 +37,13 @@ export const PATCH = (method: Methods, path: string) =>
 		.handler(
 			async ({ pickup }) => {
 				const userId = pickup("userId");
-				const { primordialRole, muted } = pickup("body");
+				const { muted } = pickup("body");
 
 				await prisma.user.update({
 					where: {
 						id: userId
 					},
 					data: {
-						primordialRole,
 						muted
 					}
 				});

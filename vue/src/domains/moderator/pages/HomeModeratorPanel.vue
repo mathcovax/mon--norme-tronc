@@ -4,7 +4,6 @@
 
 <template>
 	<div>
-		store keeper layout
-		<RouterView />
+		moderator panel
 	</div>
 </template>

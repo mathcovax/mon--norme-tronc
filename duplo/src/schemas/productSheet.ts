@@ -1,3 +1,11 @@
+import { product_sheet_status } from "@prisma/client";
+
+export const productSheetStatusTuple: TuplifyUnion<product_sheet_status> = [
+	"VERIFIED",
+	"UNVERIFIED",
+	"REMOVE",
+]; 
+
 export const productSheetSchema = zod.object({
 	id: zod.string(),
 	ref: zod.string(),

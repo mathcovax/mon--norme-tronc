@@ -408,11 +408,27 @@ export default {
 				putInWaiting: "Mettre en attente",
 			}
 		},
+		[routerPageName.MODERATOR_PANEL_CHECK_PRODUCT_SHEET_REVIEW]: {
+			button: {
+				delete: "Supprimer le commentaire",
+				deleteAndMute: "Supprimer le commentaire & Muter l'utilisateur",
+				check: "Validé le commentaire",
+				refresh: "Retrouver un commentaire",
+			},
+			emptyReview: "Plus de commentaire a vérifier.",
+		},
+		[routerPageName.MODERATOR_PANEL_CHECK_PRODUCT_SHEET]: {
+			button: {
+				check: "Validé la fiche produit",
+				refresh: "Retrouver une fiche produit",
+			},
+			emptyProductSheet: "Plus de fiche produit a vérifier.",
+		},
 	},
 	filters: {
 		title: "Filtres",
 		name: {
-			price: "Prix",
+			price: "Prix",	
 			color: "Couleur",
 			size: "Taille",
 			diameter: "Diamètre",
@@ -420,7 +436,8 @@ export default {
 			accessory: "Accessoire",
 			material: "Matériau",
 			stimulation: "Stimulation",
-			promotion: "En promo"
+			promotion: "En promo",
+			rate: "Avis", 
 		},
 		type: {
 			range: {
@@ -468,6 +485,11 @@ export default {
 				vaginal: "Vaginale",
 				clitoral: "Clitorale",
 				prostate: "Prostate"
+			},
+			rate: {
+				5: "5 étoile",
+				4: "4 étoile",
+				3: "3 étoile",
 			}
 		}
 	},
@@ -486,6 +508,7 @@ export default {
 					support: "Support",
 					management: "Gestion",
 					admin: "Administration",
+					moderator: "Modération",
 					organizations: "Organisations",
 					content: "Contenu",
 					login: "Connexion",
@@ -564,6 +587,14 @@ export default {
 				backHome: "Retour à l'accueil",
 				logout: "Déconnexion"
 			}
+		},
+		moderator: {
+			nav: {
+				"moderator-panel-home": "Home",
+				"moderator-panel-check-product-sheet-review": "Check Review",
+				"moderator-panel-check-product-sheet": "Check Product Sheet",
+				"home": "Accueil"
+			}
 		}
 	},
 	productStatus: {
@@ -639,6 +670,9 @@ export default {
 		sku: "sku",
 		status: "status",
 		reason: "Raison",
+		pseudo: "Pseudo",
+		content: "Contenu",
+		rate: "Note"
 	},
 	placeholder: {
 		address: "Chercher votre adresse",
@@ -664,6 +698,7 @@ export default {
 		delete: "Supprimer",
 		back: "Retour",
 		backToHome: "Retourner à l'accueil",
+		seeMore: "Voir plus",
 	},
 	navigationItemType: {
 		PARENT_CATEGORY: "Catégorie parent",
@@ -790,6 +825,11 @@ export default {
 		productReturn: {
 			created: "Le retoure a correctement étais créer.",
 			edited: "La modification a bien étais prise en compte.",
+		},
+		productSheetReview: {
+			created: "Commentaire envoyer.",
+			deleted: "Commentaire supprimer.",
+			edited: "Commentaire modifier.",
 		},
 		makeBundle: "Le bundle a correctement étais créer.",
 		TYPE_ERROR: "L'une des données envoyées est erronée. (Erreur provenant du site)",

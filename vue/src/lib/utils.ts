@@ -216,3 +216,8 @@ export type ProductStockStory = GetResponseByInfo<
 	GetDef<"GET", "/product-sheet/{productSheetId}/stock-story">,
 	"product.stockStory"
 >["body"]
+
+export type ProductSheetReview = GetResponseByInfo<
+	GetDef<"GET",  "/product-sheet/{productSheetId}/reviews">,
+	"productSheetReviews"
+>["body"][number]

@@ -97,6 +97,12 @@ export const filterDefs = defineFilters([
 		name: "price",
 		path: "price"
 	},
+	{
+		type: "RADIO",
+		name: "rate",
+		path: "avgRate",
+		values: ["5", "4", "3"]
+	},
 ]);
 
 //@ts-expect-error var 'global' cause type error.

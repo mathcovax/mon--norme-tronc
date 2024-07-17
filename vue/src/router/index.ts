@@ -8,6 +8,7 @@ import organization from "@/domains/organization/router";
 import payment from "@/domains/payment/router";
 import { loaderPush, type LoaderItem } from "@/lib/loader";
 import user from "@/domains/user/router";
+import moderator from "@/domains/moderator/router";
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,6 +29,7 @@ const router = createRouter({
 		...organization(),
 		...admin(),
 		...organization(),
+		...moderator(),
 		notFound(),
 	],
 });

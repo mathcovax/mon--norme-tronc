@@ -53,11 +53,7 @@ export const GET = (method: Methods, path: string) =>
 					...filters,
 					...(available ? [{ $match: { quantity: { $gt: 0 } } }] : []),
 					...(ignoreProductSheetId
-						? [
-							{ 
-								$match: { id: { $nin: ignoreProductSheetId } } 
-							}
-						]
+						? [{ $match: { id: { $nin: ignoreProductSheetId } } }]
 						: []
 					),
 					{ $skip: page * take },

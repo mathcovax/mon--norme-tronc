@@ -28,6 +28,18 @@ export const contentPanelEntry =
 			new SwaggerIgnore(),
 		);
 
+export const moderatorEntry = 
+		hasPrimordialRole({ options: { primordialRole: "MODERATOR" } })
+			.declareRoute("GET", "/entry/moderator-panel*")
+			.handler(
+				() => {
+					throw new NoContentHttpException("entry.accepted");
+				},
+				new IHaveSentThis(NoContentHttpException.code, "entry.accepted"),
+				new SwaggerIgnore(),
+			);
+	
+
 export const organizationOwnerEntry = 
 	mustBeConnected({ pickup: ["accessTokenContent"] })
 		.declareRoute(

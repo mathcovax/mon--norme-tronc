@@ -1,4 +1,5 @@
 import { facet_type } from "@prisma/client";
+import { productSheetStatusTuple } from "./productSheet";
 
 export const fullProductSheetSchema = zod.object({
 	id: zod.string(),
@@ -11,6 +12,9 @@ export const fullProductSheetSchema = zod.object({
 	categories: zod.string().array(),
 	images: zod.string().array(),
 	hasPromotion: zod.boolean().optional(),
+	avgRate: zod.string(),
+	countRate: zod.number(),
+	status: zod.enum(productSheetStatusTuple),
 	promotion: zod.object({
 		id: zod.number(),
 		originalPrice: zod.number(),
