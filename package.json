@@ -19,6 +19,7 @@
 		"indexing:productSheet": "docker compose exec duplo npm -w duplo run indexing:productSheet",
 		"readNotifications": "docker compose exec duplo npm -w duplo run readNotifications",
 		"followBundle": "docker compose exec duplo npm -w duplo run followBundle",
+		"computeProductStock": "docker compose exec duplo npm -w duplo run computeProductStock",
 		"fixture": "docker compose exec duplo npm -w duplo run fixture",
 		"stripe:listen": "bash stripe/listen.sh",
 		"stripe:trigger": "bash stripe/trigger.sh"

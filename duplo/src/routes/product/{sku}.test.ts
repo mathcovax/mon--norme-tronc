@@ -13,7 +13,7 @@ describe("PATCH /product/{sku}", () => {
 		MockPrisma.reset();
 	});
 
-	it("update porduct", async () => {
+	it("update product", async () => {
 		const spy = vi.fn(async () => undefined);
 		MockPrisma.set("product", "update", spy);
 	

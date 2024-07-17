@@ -14,7 +14,9 @@
   "dependencies": {
     "@duplojs/to": "^1.0.1",
     "@tailwindcss/typography": "^0.5.13",
-    "@vueuse/core": "^10.9.0",
+    "@unovis/ts": "^1.4.2",
+    "@unovis/vue": "^1.4.2",
+    "@vueuse/core": "^10.11.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "firebase": "^10.11.0",

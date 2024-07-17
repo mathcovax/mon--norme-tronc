@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { useGetProducts } from "../composables/useGetPorducts";
+import { useGetProducts } from "../composables/useGetProducts";
+import { useGetProductStockStory } from "../composables/useGetProductStockStory";
 import type { FullProductSheet, Product, ProductStatus } from "@/lib/utils";
 import { useProductForm } from "../composables/useProductForm";
 import WithValidation from "@/components/WithValidation.vue";
@@ -12,6 +13,7 @@ const params = useRouteParams({
 const { products, getProducts } = useGetProducts(params.value.organizationId);
 const { ProductForm, checkProductForm, resetProductForm } = useProductForm();
 const { fullProductSheet, fullProductSheetQuery } = useGetFullProductSheet(params.value.organizationId);
+const { productStockStory, getProductStockStory } = useGetProductStockStory();
 const currentPage = ref(0);
 const searchRef = ref("");
 const $pt = usePageTranslate();
@@ -146,11 +148,20 @@ watch(
 
 const popup = ref<typeof ThePopup>();
 const currentFullProductSheet = ref<FullProductSheet>();
+const startDate = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000); // 7 days ago
 function openPopup(fullProductSheet: FullProductSheet) {
 	currentFullProductSheet.value = fullProductSheet;
 	getProducts();
+	getProductStockStory(fullProductSheet.id, { startDate: startDate });
 	popup.value?.open();
 }
+
+const formatedProductStockStory = computed(() => {
+	return productStockStory.value?.map(pss => ({
+		...pss,
+		date: pss.date.toString().split("T")[0]
+	})) ?? [];
+});
 </script>
 
 <template>
@@ -187,13 +198,20 @@ function openPopup(fullProductSheet: FullProductSheet) {
 
 		<ThePopup
 			ref="popup"
-			class="max-h-[90%] overflow-auto"
+			class="w-[90%] max-h-[90%] overflow-auto"
 		>
 			<template #popupContent>
 				<div class="w-full flex flex-col items-center p-6 gap-6">
 					<h2 class="text-xl font-semibold">
 						{{ $pt("form.title") }}
 					</h2>
+
+					<LineChart
+						title="Stock story"
+						:data="formatedProductStockStory"
+						index="date"
+						:categories="['quantity']"
+					/>
 
 					<ProductForm
 						@submit="submitPost"

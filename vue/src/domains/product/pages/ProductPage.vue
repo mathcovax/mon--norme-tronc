@@ -2,6 +2,7 @@
 import { marked } from "marked";
 import type { FullProductSheet } from "@/lib/utils";
 import ProductSlider from "../components/ProductSlider.vue";
+import TheRate from "../components/TheRate.vue";
 import ProductSheetQuantity from "../components/ProductSheetQuantity.vue";
 import ProductSuggestion from "../components/ProductSuggestion.vue";
 
@@ -32,6 +33,12 @@ function getProductData() {
 			router.push({ name: EDITO_HOME });
 		})
 		.result;
+}
+
+const productRate = ref(Math.ceil(2.6)); // TODO: replace with real data
+
+function updateRate(newRate: number) {
+	productRate.value = Math.ceil(newRate);
 }
 
 function createArticle() {
@@ -73,7 +80,7 @@ watch(() => params.value.productSheetId, () => { getProductData(); });
 			v-if="product"
 			class="flex flex-col gap-10 sm:flex-row"
 		>
-			<div class="w-full lg:shrink-0 max-w-80 aspect-square sm:aspect-portrait">
+			<div class="w-full max-h-[430px] lg:shrink-0 max-w-80 aspect-portrait">
 				<ProductSlider
 					v-if="product.images.length > 0"
 					:image-urls="product.images"
@@ -112,18 +119,25 @@ watch(() => params.value.productSheetId, () => { getProductData(); });
 					</RouterLink>
 				</div>
 
-				<span class="text-xl font-semibold">
-					{{ product.price }} €
+				<div class="flex gap-4 items-center">
+					<span class="text-xl font-semibold">
+						{{ product.price }} €
 
-					<span
-						v-if="product.promotion"
-						class="line-through text-gray-500"
-					>
-						{{ product.promotion.originalPrice }} €
+						<span
+							v-if="product.promotion"
+							class="line-through text-gray-500"
+						>
+							{{ product.promotion.originalPrice }} €
+						</span>
+
+						(<span :class="{ 'text-red-600' : product.quantity < 10 }">{{ product.quantity < 10 ? "Plus que " : "" }}{{ product.quantity }}{{ product.quantity < 10 ? " !" : "" }}</span>)
 					</span>
 
-					(<span :class="{ 'text-red-600' : product.quantity < 10 }">{{ product.quantity < 10 ? "Plus que " : "" }}{{ product.quantity }}{{ product.quantity < 10 ? " !" : "" }}</span>)
-				</span>
+					<TheRate
+						:rating="productRate"
+						@update:rating="updateRate"
+					/>
+				</div>
 
 				<p
 					class="mt-1"
@@ -135,6 +149,15 @@ watch(() => params.value.productSheetId, () => { getProductData(); });
 				<p class="mt-1 opacity-50">
 					{{ product.shortDescription }}
 				</p>
+
+				<ul class="flex flex-col gap-2">
+					<li
+						v-for="(value, facet) in product.facets"
+						:key="facet"
+					>
+						<strong>{{ $t(`facetType.${facet}`) }}</strong> : {{ value }}
+					</li>
+				</ul>
 
 				<div class="flex items-center gap-12 mt-4">
 					<productSheetQuantity
