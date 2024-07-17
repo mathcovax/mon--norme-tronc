@@ -30,8 +30,23 @@ export const GET = (method: Methods, path: string) =>
 							date: 1
 						}
 					},
+					{
+						$densify: {
+							field: "date",
+							range: {
+								step: 1,
+								unit: "day",
+								bounds: [startDate, new Date()]
+							}
+						}
+					},
+					{
+						$addFields: {
+							productSheetId: productSheetId,
+							quantity: { $ifNull: ["$quantity", 0] }
+						}
+					}
 				]);
-
 				throw new OkHttpException("product.stockStory", stockStory);
 			},
 			new IHaveSentThis(OkHttpException.code, "product.stockStory", productStockSchema.array())
