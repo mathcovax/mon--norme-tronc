@@ -18,5 +18,7 @@ export const fullProductSheetData: FullProductSheetSchema = {
 	},
 	price: 12,
 	quantity: 0,
-	shortDescription: "gros uc"
+	shortDescription: "gros uc",
+	avgRate: "-1",
+	status: "VERIFIED",
 };

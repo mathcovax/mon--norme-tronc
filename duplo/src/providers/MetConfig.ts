@@ -18,7 +18,8 @@ export const MetConfig = {
 		categoriesLimit: 5,
 		full: {
 			organizationLimit: 10,
-		}
+		},
+		reviewLimit: 10,
 	},
 	stripe: {
 		timestampSession: 30*60, // 30 min

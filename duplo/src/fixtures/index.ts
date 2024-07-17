@@ -10,6 +10,9 @@ import categoryData from "./data/category.json";
 import productData from "./data/product.json";
 import facetsData from "./data/facets.json";
 import { facetType, makeFacet } from "./entities/facet";
+import { mongoose } from "../scripts/setup/mongoose";
+import { productSheetReviewModel } from "@mongoose/model";
+import { faker } from "@faker-js/faker";
 
 const repeater = <
 	F extends ((index: number) => Promise<unknown>)
@@ -105,8 +108,22 @@ for (let round = 0; round < numberOf.productSheetRound; round++) {
 						value,
 						facetsData[value][index % facetsData[value].length]
 					)
+				),
+				repeater(
+					Math.floor(Math.random() * 50),
+					(ii) => productSheetReviewModel.create({
+						userId: users[(index + ii) % users.length].id,
+						check: false,
+						rate: 1 + Math.floor(Math.random() * 4),
+						content: faker.lorem.text(),
+						pseudo: faker.person.firstName(),
+						productSheetId: productSheet.id,
+						createdAt: new Date(),
+					})
 				)
 			]));
 		}
 	);
 }
+
+mongoose.connection.close();

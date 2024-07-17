@@ -1,5 +1,4 @@
 import { promotionExistCheck } from "@checkers/promotion";
-import { fullProductSheetModel } from "@mongoose/model";
 import { hasOrganizationRole } from "@security/hasOrganizationRole";
 import { mustBeConnected } from "@security/mustBeConnected";
 
@@ -34,26 +33,11 @@ export const DELETE = (method: Methods, path: string) =>
 			async ({ pickup }) => {
 				const promotionId = pickup("promotionId");
 
-				await Promise.all([
-					prisma.promotion.delete({
-						where: {
-							id: promotionId
-						}
-					}),
-					fullProductSheetModel.updateOne(
-						{ "promotion.id": promotionId },
-						[
-							{
-								$set: {
-									price: "$promotion.originalPrice"
-								},
-							},
-							{
-								$unset: ["promotion", "hasPromotion"]
-							}
-						]
-					)
-				]);
+				prisma.promotion.delete({
+					where: {
+						id: promotionId
+					}
+				});
 
 				throw new NoContentHttpException("promotion.deleted");
 			},
