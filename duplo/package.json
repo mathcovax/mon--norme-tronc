@@ -15,6 +15,7 @@
 		"indexing:productSheet": "tsx src/scripts/indexingProductSheet",
 		"readNotifications": "tsx src/scripts/readNotifications",
 		"followBundle": "tsx src/scripts/followBundle",
+		"computeProductStock" : "tsx src/scripts/computeProductStock",
 		"fixture": "tsx src/fixtures"
 	},
 	"prisma": {
