@@ -21,14 +21,15 @@ const newProductInCategoryGenerator = FindSlice(
 		include: {
 			productSheet: {
 				select: {
-					name: true
+					name: true,
+					images: {
+						select: {
+							url: true
+						},
+						take: 1
+					}
 				}
 			},
-			category: {
-				select: {
-					imageUrl: true
-				}
-			}
 		},
 		skip: slice * size,
 		take: size
@@ -57,7 +58,7 @@ for await (const newProductInCategory of newProductInCategoryGenerator) {
 			title: `Nouveau produit dans la catégorie ${newProductInCategory.categoryName}`,
 			subtitle: `Découvrez le produit ${newProductInCategory.productSheet.name}`,
 			redirect: `/product/${newProductInCategory.productSheetId}`,
-			imageUrl: newProductInCategory.category.imageUrl ?? "",
+			imageUrl: newProductInCategory.productSheet.images[0]?.url ?? "",
 			userId: subscribeNotification.userId,
 			type: "NEW_PRODUCT_IN_CATEGORY",
 			createdAt: new Date()

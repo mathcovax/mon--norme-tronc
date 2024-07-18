@@ -59,7 +59,7 @@ for await (const promotion of promotionGenerator) {
 		const fullNotification: FullNotification = {
 			title: `Promotion pour le produit ${promotion.productSheet.name}`,
 			subtitle: `Promotion de ${promotion.percentage}%`,
-			imageUrl: promotion.productSheet.images[0]?.url,
+			imageUrl: promotion.productSheet.images[0]?.url ?? "",
 			redirect: `/product/${promotion.productSheetId}`,
 			userId: subscribeNotification.userId,
 			type: "PRODUCT_PROMOTION",

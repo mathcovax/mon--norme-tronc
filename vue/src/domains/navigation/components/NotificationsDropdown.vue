@@ -7,6 +7,7 @@ const page = ref(0);
 const canSeeMore = ref(true);
 const lastNotificationTimestamp = ref<number>(Number(localStorage.getItem("timestampNotification") ?? Date.now()));
 const showPellet = ref(false);
+const isDropdownOpen = ref(false);
 
 function getUserNotifications(page: number, push: boolean) {
 	return duploTo.enriched
@@ -26,30 +27,46 @@ function getUserNotifications(page: number, push: boolean) {
 		});
 }
 
-function setNewTimestampNotification() {
-	if (fullNotifications.value[0]) {
-		if (showPellet.value === true) {
-			showPellet.value = false;
-			lastNotificationTimestamp.value = new Date(fullNotifications.value[0].createdAt).getTime();	
+watch(
+	isDropdownOpen,
+	() => {
+		if (isDropdownOpen.value === false) {
+			if (fullNotifications.value[0]) {
+				if (showPellet.value === true) {
+					showPellet.value = false;
+					lastNotificationTimestamp.value = new Date(fullNotifications.value[0].createdAt).getTime();
+				}
+			}		
 		}
 	}
-}
+);
 
-watch(lastNotificationTimestamp, () => {
-	localStorage.setItem("timestampNotification", lastNotificationTimestamp.value.toString());
-}, { immediate: true });
+watch(
+	lastNotificationTimestamp,
+	() => localStorage.setItem("timestampNotification", lastNotificationTimestamp.value.toString()),
+	{ immediate: true }
+);
 
-watch(fullNotifications, () => {
-	if (fullNotifications.value[0]) {
-		if (new Date(fullNotifications.value[0].createdAt).getTime() !== lastNotificationTimestamp.value) {
-			showPellet.value = true;
+watch(
+	fullNotifications,
+	() => {
+		if (fullNotifications.value[0]) {
+			if (new Date(fullNotifications.value[0].createdAt).getTime() !== lastNotificationTimestamp.value) {
+				showPellet.value = true;
+			}
 		}
-	}
-}, { immediate: true });
+	},
+	{ immediate: true }
+);
 
 setInterval(
-	() => getUserNotifications(0, false),
-	1000 * 60 * 2
+	() => {
+		if (isDropdownOpen.value === false) {
+			getUserNotifications(0, false);
+			canSeeMore.value = true;
+		}
+	},
+	10000
 );
 
 getUserNotifications(page.value, false);
@@ -57,7 +74,7 @@ getUserNotifications(page.value, false);
 
 <template>
 	<DropdownMenu
-		@update:open="isOpen => !isOpen || setNewTimestampNotification()"
+		v-model:open="isDropdownOpen"
 	>
 		<DropdownMenuTrigger as-child>
 			<SecondaryButton
@@ -96,9 +113,18 @@ getUserNotifications(page.value, false);
 						>
 
 						<div>
-							<p class="font-bold">
-								{{ notification.title }}
-							</p>
+							<div class="flex items-center gap-2">
+								<p class="font-bold">
+									{{ notification.title }}
+								</p>
+
+								<TheIcon
+									v-if="new Date(notification.createdAt).getTime() > lastNotificationTimestamp"
+									icon="new-box"
+									size="3xl"
+									class="text-yellow-500"
+								/>
+							</div>
 
 							<RouterLink
 								v-if="notification.redirect"

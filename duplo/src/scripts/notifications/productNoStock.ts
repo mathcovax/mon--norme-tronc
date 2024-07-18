@@ -61,7 +61,7 @@ for await (const product of productPutStockGenerator) {
 			subtitle: `Le produit ${product.name} a un stock de ${product.quantity} unités !`,
 			redirect: `/organization-panel/${storeKeeperUser.organizationId}/products`,
 			type: "PRODUCT_NO_STOCK",
-			imageUrl: product.images[0],
+			imageUrl: product.images[0] ?? "",
 			userId: storeKeeperUser.userId,
 			createdAt: new Date()
 		};

@@ -67,7 +67,7 @@ for await (const product of productGenerator) {
 		const fullNotification: FullNotification = {
 			title: `Restock pour le produit ${productSheet.name}`,
 			subtitle: `Stock ajouté : ${product._count._all}`,
-			imageUrl: productSheet.images[0]?.url,
+			imageUrl: productSheet.images[0]?.url ?? "",
 			redirect: `/product/${product.productSheetId}`,
 			userId: subscribeNotification.userId,
 			type: "PRODUCT_RESTOCK",
