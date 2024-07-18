@@ -3,7 +3,8 @@ const {
 	CONTENT_PANEL_HOME,
 	CONTENT_PANEL_NAVIGATION_BAR,
 	CONTENT_PANEL_PARENT_CATEGORIES,
-	CONTENT_PANEL_CATEGORIES
+	CONTENT_PANEL_CATEGORIES,
+	CONTENT_PANEL_NEWSLETTERS
 } = routerPageName;
 const route = useRoute();
 </script>
@@ -33,7 +34,7 @@ const route = useRoute();
 						:to="{ name: CONTENT_PANEL_HOME }"
 						class="mb-6 text-center text-2xl font-bold"
 					>
-						<span>{{ $t("layout.admin.title") }}</span>
+						<span>{{ $t("layout.content.title") }}</span>
 					</RouterLink>
 				</SheetClose>
 
@@ -52,7 +53,7 @@ const route = useRoute();
 							icon="home-outline"
 							size="2xl"
 						/>
-						{{ $t("layout.admin.nav.home") }}
+						{{ $t("layout.content.nav.dashboard") }}
 					</RouterLink>
 				</SheetClose>
 				
@@ -110,6 +111,25 @@ const route = useRoute();
 							size="2xl"
 						/>
 						{{ $t("layout.content.nav.categories") }}
+					</RouterLink>
+				</SheetClose>
+
+				<SheetClose as-child>
+					<RouterLink
+						:to="{ name: CONTENT_PANEL_NEWSLETTERS }"
+						class="mx-[-0.65rem] px-3 py-2 flex items-center gap-4 rounded-xl hover:text-foreground"
+						:class="
+							route.name === CONTENT_PANEL_NEWSLETTERS ?
+								'bg-muted text-foreground'
+								:
+								'text-muted-foreground'
+						"
+					>
+						<TheIcon
+							icon="text-box-multiple-outline"
+							size="2xl"
+						/>
+						{{ $t("layout.content.nav.newsletters") }}
 					</RouterLink>
 				</SheetClose>
 			</nav>
