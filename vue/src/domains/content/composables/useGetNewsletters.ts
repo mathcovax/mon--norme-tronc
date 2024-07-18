@@ -10,7 +10,7 @@ export function useGetNewsletters() {
 	const newsletters = ref<Newsletter[]>([]);
 	let abortController: AbortController | undefined;
 
-	function getNewsletters(page?: number, title?: string) {
+	function getNewsletters(page?: number, object?: string) {
 		if (abortController) {
 			abortController.abort();
 		}
@@ -23,7 +23,7 @@ export function useGetNewsletters() {
 				{ 
 					query: { 
 						page,
-						title
+						object
 					}, 
 					signal: abortController.signal
 				}
@@ -39,7 +39,7 @@ export function useGetNewsletters() {
 
 	const newslettersQuery = reactive<Query>({
 		page: 0,
-		title: "",
+		object: "",
 	});
 
 	watchEffect(
@@ -47,7 +47,7 @@ export function useGetNewsletters() {
 			refreshSignal.value;
 			getNewsletters(
 				newslettersQuery.page, 
-				newslettersQuery.title
+				newslettersQuery.object
 			);
 		}
 	);

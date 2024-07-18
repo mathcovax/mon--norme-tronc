@@ -540,6 +540,7 @@ export type response_17_0 = {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 export type parameters_18 = {
     query?: ({
         ignoreProductSheetId?: (string | string[]) | undefined;
@@ -570,6 +571,8 @@ export type parameters_18 = {
 export type response_18_0 = {
     code: 404;
 =======
+=======
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 export type request_body_18 = {
     fireBaseIdToken: string;
     lastname: string;
@@ -577,9 +580,12 @@ export type request_body_18 = {
     address: string;
     dateOfBirth: Date;
 }
+<<<<<<< HEAD
 =======
 export type request_body_18 = string
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 
 export type response_18_0 = {
     code: 401;
@@ -588,26 +594,32 @@ export type response_18_0 = {
 } & {body: undefined};
 
 export type response_18_1 = {
-    code: 404;
+    code: 409;
     ok: false;
-    info: "user.notfound";
+    info: "user.alreadyExist";
 } & {body: undefined};
 
-export type response_body_18_2 = string
-
 export type response_18_2 = {
-    code: 200;
-    ok: true;
-    info: "user.logged";
-} & {body: response_body_18_2};
+    code: 400;
+    ok: false;
+    info: "user.address.invalid";
+} & {body: undefined};
 
-export type request_body_19 = {
-    fireBaseIdToken: string;
-    lastname: string;
-    firstname: string;
-    address: string;
-    dateOfBirth: Date;
-}
+export type response_18_3 = {
+    code: 400;
+    ok: false;
+    info: "user.dateOfBirth.invalid";
+} & {body: undefined};
+
+export type response_body_18_4 = string
+
+export type response_18_4 = {
+    code: 201;
+    ok: true;
+    info: "user.registered";
+} & {body: response_body_18_4};
+
+export type request_body_19 = string
 
 export type response_19_0 = {
     code: 401;
@@ -616,30 +628,18 @@ export type response_19_0 = {
 } & {body: undefined};
 
 export type response_19_1 = {
-    code: 409;
+    code: 404;
     ok: false;
-    info: "user.alreadyExist";
+    info: "user.notfound";
 } & {body: undefined};
+
+export type response_body_19_2 = string
 
 export type response_19_2 = {
-    code: 400;
-    ok: false;
-    info: "user.address.invalid";
-} & {body: undefined};
-
-export type response_19_3 = {
-    code: 400;
-    ok: false;
-    info: "user.dateOfBirth.invalid";
-} & {body: undefined};
-
-export type response_body_19_4 = string
-
-export type response_19_4 = {
-    code: 201;
+    code: 200;
     ok: true;
-    info: "user.registered";
-} & {body: response_body_19_4};
+    info: "user.logged";
+} & {body: response_body_19_2};
 
 export type parameters_20 = {
     params: {
@@ -727,6 +727,11 @@ export type response_21_3 = {
     info: "userCommands";
 } & {body: response_body_21_3};
 
+export type request_body_22 = {
+    productSheetId: string;
+    quantity?: number;
+}
+
 export type response_22_0 = {
     code: 401;
 >>>>>>> 15b4030 (feat(142): add newsletters)
@@ -754,27 +759,42 @@ export type response_22_2 = {
     info: "user.deleted";
 } & {body: undefined};
 
-export type response_body_22_3 = {
+export type response_22_3 = {
+    code: 404;
+    ok: false;
+    info: "productSheet.notfound";
+} & {body: undefined};
+
+export type response_22_4 = {
+    code: 401;
+    ok: false;
+    info: "cart.article.limit";
+} & {body: undefined};
+
+export type response_22_5 = {
+    code: 401;
+    ok: false;
+    info: "cart.quantity.limit";
+} & {body: undefined};
+
+export type response_22_6 = {
+    code: 409;
+    ok: false;
+    info: "product.unavailable";
+} & {body: undefined};
+
+export type response_body_22_7 = {
+    userId: string;
     productSheetId: string;
     quantity: number;
-    name: string;
-    description: string;
-    shortDescription: string;
-    price: number;
-    imageUrl: string;
-}[]
-
-export type response_22_3 = {
-    code: 200;
-    ok: true;
-    info: "cart.fetched";
-} & {body: response_body_22_3};
-
-export type parameters_23 = {
-    params: {
-        imageProductSheetId: string;
-    };
+    createdAt?: string;
 }
+
+export type response_22_7 = {
+    code: 201;
+    ok: true;
+    info: "article.created";
+} & {body: response_body_22_7};
 
 export type response_23_0 = {
     code: 401;
@@ -794,34 +814,26 @@ export type response_23_2 = {
     info: "user.deleted";
 } & {body: undefined};
 
+export type response_body_23_3 = {
+    productSheetId: string;
+    quantity: number;
+    name: string;
+    description: string;
+    shortDescription: string;
+    price: number;
+    imageUrl: string;
+}[]
+
 export type response_23_3 = {
-    code: 404;
-    ok: false;
-    info: "imageProductSheet.notfound";
-} & {body: undefined};
-
-export type response_23_4 = {
-    code: 204;
+    code: 200;
     ok: true;
-    info: "imageProductSheet.deleted";
-} & {body: undefined};
+    info: "cart.fetched";
+} & {body: response_body_23_3};
 
-export type response_23_5 = {
-    code: 406;
-    ok: false;
-    info: "organization.hasNotUser";
-} & {body: undefined};
-
-export type response_23_6 = {
-    code: 403;
-    ok: false;
-    info: "user.role.organization.invalid";
-} & {body: undefined};
-
-export type request_body_24 = {
-    lastname: string;
-    firstname: string;
-    address: string;
+export type parameters_24 = {
+    params: {
+        imageProductSheetId: string;
+    };
 }
 
 export type response_24_0 = {
@@ -843,36 +855,33 @@ export type response_24_2 = {
 } & {body: undefined};
 
 export type response_24_3 = {
-    code: 400;
+    code: 404;
     ok: false;
-    info: "user.address.invalid";
+    info: "imageProductSheet.notfound";
 } & {body: undefined};
 
 export type response_24_4 = {
-    code: 409;
-    ok: false;
-    info: "cart.empty";
+    code: 204;
+    ok: true;
+    info: "imageProductSheet.deleted";
 } & {body: undefined};
 
 export type response_24_5 = {
-    code: 409;
+    code: 406;
     ok: false;
-    info: "products.unavailable";
+    info: "organization.hasNotUser";
 } & {body: undefined};
 
-export type response_body_24_6 = {
-    sessionUrl: string;
-}
-
 export type response_24_6 = {
-    code: 201;
-    ok: true;
-    info: "session";
-} & {body: response_body_24_6};
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
 
 export type request_body_25 = {
-    productSheetId: string;
-    quantity?: number;
+    lastname: string;
+    firstname: string;
+    address: string;
 }
 
 export type response_25_0 = {
@@ -894,41 +903,32 @@ export type response_25_2 = {
 } & {body: undefined};
 
 export type response_25_3 = {
-    code: 404;
+    code: 400;
     ok: false;
-    info: "productSheet.notfound";
+    info: "user.address.invalid";
 } & {body: undefined};
 
 export type response_25_4 = {
-    code: 401;
+    code: 409;
     ok: false;
-    info: "cart.article.limit";
+    info: "cart.empty";
 } & {body: undefined};
 
 export type response_25_5 = {
-    code: 401;
-    ok: false;
-    info: "cart.quantity.limit";
-} & {body: undefined};
-
-export type response_25_6 = {
     code: 409;
     ok: false;
-    info: "product.unavailable";
+    info: "products.unavailable";
 } & {body: undefined};
 
-export type response_body_25_7 = {
-    userId: string;
-    productSheetId: string;
-    quantity: number;
-    createdAt?: string;
+export type response_body_25_6 = {
+    sessionUrl: string;
 }
 
-export type response_25_7 = {
+export type response_25_6 = {
     code: 201;
     ok: true;
-    info: "article.created";
-} & {body: response_body_25_7};
+    info: "session";
+} & {body: response_body_25_6};
 
 export type request_body_26 = {
     commandId: string;
@@ -1085,15 +1085,10 @@ export type response_28_8 = {
     info: "organization.user.add";
 } & {body: undefined};
 
-export type request_body_29 = {
-    organizationRole?: ("STORE_KEEPER" | "PRODUCT_SHEET_MANAGER" | "ACCOUNTANT") | undefined;
-}
-
 export type parameters_29 = {
-    params: {
-        organizationId: string;
-        userId: string;
-    };
+    query?: {
+        page?: number;
+    } | undefined;
 }
 
 export type response_29_0 = {
@@ -1115,34 +1110,30 @@ export type response_29_2 = {
 } & {body: undefined};
 
 export type response_29_3 = {
-    code: 406;
+    code: 404;
     ok: false;
-    info: "organization.hasNotUser";
+    info: "user.notfound";
 } & {body: undefined};
+
+export type response_body_29_4 = {
+    id: string;
+    name: string;
+    label: string | null;
+    ownerId: string;
+    suspended: boolean;
+    logoKey: string | null;
+    logoUrl: string | null;
+}[]
 
 export type response_29_4 = {
-    code: 401;
-    ok: false;
-    info: "organization.user.organizationRole.owner";
-} & {body: undefined};
-
-export type response_29_5 = {
-    code: 204;
+    code: 200;
     ok: true;
-    info: "organization.user.edited";
-} & {body: undefined};
+    info: "user.organizations";
+} & {body: response_body_29_4};
 
-export type response_29_6 = {
-    code: 406;
-    ok: false;
-    info: "organization.hasNotUser";
-} & {body: undefined};
-
-export type response_29_7 = {
-    code: 403;
-    ok: false;
-    info: "user.role.organization.invalid";
-} & {body: undefined};
+export type request_body_30 = {
+    organizationRole?: ("STORE_KEEPER" | "PRODUCT_SHEET_MANAGER" | "ACCOUNTANT") | undefined;
+}
 
 export type parameters_30 = {
     params: {
@@ -1184,7 +1175,7 @@ export type response_30_4 = {
 export type response_30_5 = {
     code: 204;
     ok: true;
-    info: "organization.user.deleted";
+    info: "organization.user.edited";
 } & {body: undefined};
 
 export type response_30_6 = {
@@ -1201,6 +1192,61 @@ export type response_30_7 = {
 
 export type parameters_31 = {
     params: {
+        organizationId: string;
+        userId: string;
+    };
+}
+
+export type response_31_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_31_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_31_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_31_3 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_31_4 = {
+    code: 401;
+    ok: false;
+    info: "organization.user.organizationRole.owner";
+} & {body: undefined};
+
+export type response_31_5 = {
+    code: 204;
+    ok: true;
+    info: "organization.user.deleted";
+} & {body: undefined};
+
+export type response_31_6 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_31_7 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type parameters_32 = {
+    params: {
         productSheetId: string;
     };
     query?: {
@@ -1209,13 +1255,13 @@ export type parameters_31 = {
     } | undefined;
 }
 
-export type response_31_0 = {
+export type response_32_0 = {
     code: 404;
     ok: false;
     info: "prodcutSheet.notfound";
 } & {body: undefined};
 
-export type response_body_31_1 = {
+export type response_body_32_1 = {
     _id: string;
     userId: string;
     productSheetId: string;
@@ -1226,81 +1272,22 @@ export type response_body_31_1 = {
     check: boolean;
 }[]
 
-export type response_31_1 = {
+export type response_32_1 = {
     code: 200;
     ok: true;
     info: "productSheetReviews";
-} & {body: response_body_31_1};
+} & {body: response_body_32_1};
 
-export type request_body_32 = {
+export type request_body_33 = {
     pseudo: string;
     content: string;
     rate: number;
 }
 
-export type parameters_32 = {
+export type parameters_33 = {
     params: {
         productSheetId: string;
     };
-}
-
-export type response_32_0 = {
-    code: 401;
-    ok: false;
-    info: "access.token.invalid";
-} & {body: undefined};
-
-export type response_32_1 = {
-    code: 404;
-    ok: false;
-    info: "user.notfound";
-} & {body: undefined};
-
-export type response_32_2 = {
-    code: 401;
-    ok: false;
-    info: "user.deleted";
-} & {body: undefined};
-
-export type response_32_3 = {
-    code: 403;
-    ok: false;
-    info: "user.muted";
-} & {body: undefined};
-
-export type response_32_4 = {
-    code: 404;
-    ok: false;
-    info: "prodcutSheet.notfound";
-} & {body: undefined};
-
-export type response_32_5 = {
-    code: 409;
-    ok: false;
-    info: "productSheetReview.alreadyExist";
-} & {body: undefined};
-
-export type response_body_32_6 = {
-    _id: string;
-    userId: string;
-    productSheetId: string;
-    pseudo: string;
-    content?: string | undefined;
-    createdAt: Date;
-    rate: number;
-    check: boolean;
-}
-
-export type response_32_6 = {
-    code: 201;
-    ok: true;
-    info: "productSheetReview.created";
-} & {body: response_body_32_6};
-
-export type parameters_33 = {
-    query?: {
-        page?: number;
-    } | undefined;
 }
 
 export type response_33_0 = {
@@ -1322,26 +1309,39 @@ export type response_33_2 = {
 } & {body: undefined};
 
 export type response_33_3 = {
-    code: 404;
+    code: 403;
     ok: false;
-    info: "user.notfound";
+    info: "user.muted";
 } & {body: undefined};
 
-export type response_body_33_4 = {
-    id: string;
-    name: string;
-    label: string | null;
-    ownerId: string;
-    suspended: boolean;
-    logoKey: string | null;
-    logoUrl: string | null;
-}[]
-
 export type response_33_4 = {
-    code: 200;
+    code: 404;
+    ok: false;
+    info: "prodcutSheet.notfound";
+} & {body: undefined};
+
+export type response_33_5 = {
+    code: 409;
+    ok: false;
+    info: "productSheetReview.alreadyExist";
+} & {body: undefined};
+
+export type response_body_33_6 = {
+    _id: string;
+    userId: string;
+    productSheetId: string;
+    pseudo: string;
+    content?: string | undefined;
+    createdAt: Date;
+    rate: number;
+    check: boolean;
+}
+
+export type response_33_6 = {
+    code: 201;
     ok: true;
-    info: "user.organizations";
-} & {body: response_body_33_4};
+    info: "productSheetReview.created";
+} & {body: response_body_33_6};
 
 export type parameters_34 = {
     params: {
@@ -1433,11 +1433,6 @@ export type response_35_6 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-export type request_body_36 = {
-    name: string;
-    disabled: boolean;
-}
-
 export type response_36_0 = {
     code: 401;
     ok: false;
@@ -1457,29 +1452,42 @@ export type response_36_2 = {
 } & {body: undefined};
 
 export type response_36_3 = {
-    code: 403;
+    code: 404;
     ok: false;
-    info: "user.role.invalid";
+    info: "user.notfound";
 } & {body: undefined};
 
-export type response_36_4 = {
-    code: 409;
-    ok: false;
-    info: "category.alreadyExist";
-} & {body: undefined};
-
-export type response_body_36_5 = {
-    name: string;
-    disabled: boolean;
-    imageKey: string | null;
-    imageUrl: string | null;
+export type response_body_36_4 = {
+    id: string;
+    email: string;
+    lastname: string;
+    firstname: string;
+    dateOfBirth?: string;
+    address: string;
+    primordialRole: "CUSTOMER" | "MODERATOR" | "CONTENTS_MASTER" | "ADMIN";
+    muted: boolean;
+    emailNotifcationsNewsletter: boolean;
+    emailNotifcationsProductStock: boolean;
+    emailNotifcationsPromotion: boolean;
+    emailNotifcationsNewProductInCategory: boolean;
+    hasOrganization: boolean;
 }
 
-export type response_36_5 = {
-    code: 201;
+export type response_36_4 = {
+    code: 200;
     ok: true;
-    info: "category.created";
-} & {body: response_body_36_5};
+    info: "user";
+} & {body: response_body_36_4};
+
+export type request_body_37 = {
+    lastname?: string | undefined;
+    firstname?: string | undefined;
+    address?: string | undefined;
+    emailNotifcationsNewsletter?: boolean | undefined;
+    emailNotifcationsProductStock?: boolean | undefined;
+    emailNotifcationsPromotion?: boolean | undefined;
+    emailNotifcationsNewProductInCategory?: boolean | undefined;
+}
 
 export type response_37_0 = {
     code: 401;
@@ -1500,42 +1508,18 @@ export type response_37_2 = {
 } & {body: undefined};
 
 export type response_37_3 = {
-    code: 404;
+    code: 400;
     ok: false;
-    info: "user.notfound";
+    info: "user.address.invalid";
 } & {body: undefined};
 
-export type response_body_37_4 = {
-    id: string;
-    email: string;
-    lastname: string;
-    firstname: string;
-    dateOfBirth?: string;
-    address: string;
-    primordialRole: "CUSTOMER" | "MODERATOR" | "CONTENTS_MASTER" | "ADMIN";
-    muted: boolean;
-    emailNotifcationsNewsletter: boolean;
-    emailNotifcationsProductStock: boolean;
-    emailNotifcationsPromotion: boolean;
-    emailNotifcationsNewProductInCategory: boolean;
-    hasOrganization: boolean;
-}
+export type response_body_37_4 = string
 
 export type response_37_4 = {
-    code: 200;
+    code: 201;
     ok: true;
-    info: "user";
+    info: "user.edited";
 } & {body: response_body_37_4};
-
-export type request_body_38 = {
-    lastname?: string | undefined;
-    firstname?: string | undefined;
-    address?: string | undefined;
-    emailNotifcationsNewsletter?: boolean | undefined;
-    emailNotifcationsProductStock?: boolean | undefined;
-    emailNotifcationsPromotion?: boolean | undefined;
-    emailNotifcationsNewProductInCategory?: boolean | undefined;
-}
 
 export type response_38_0 = {
     code: 401;
@@ -1556,18 +1540,15 @@ export type response_38_2 = {
 } & {body: undefined};
 
 export type response_38_3 = {
-    code: 400;
-    ok: false;
-    info: "user.address.invalid";
+    code: 204;
+    ok: true;
+    info: "user.delete";
 } & {body: undefined};
 
-export type response_body_38_4 = string
-
-export type response_38_4 = {
-    code: 201;
-    ok: true;
-    info: "user.edited";
-} & {body: response_body_38_4};
+export type request_body_39 = {
+    name: string;
+    disabled: boolean;
+}
 
 export type response_39_0 = {
     code: 401;
@@ -1588,6 +1569,7 @@ export type response_39_2 = {
 } & {body: undefined};
 
 export type response_39_3 = {
+<<<<<<< HEAD
 <<<<<<< HEAD
     code: 403;
     ok: false;
@@ -2616,7 +2598,31 @@ export type response_39_4 = {
 >>>>>>> 8c76664 (feat(142): add checker)
     ok: true;
     info: "user.delete";
+=======
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 } & {body: undefined};
+
+export type response_39_4 = {
+    code: 409;
+    ok: false;
+    info: "category.alreadyExist";
+} & {body: undefined};
+
+export type response_body_39_5 = {
+    name: string;
+    disabled: boolean;
+    imageKey: string | null;
+    imageUrl: string | null;
+}
+
+export type response_39_5 = {
+    code: 201;
+    ok: true;
+    info: "category.created";
+} & {body: response_body_39_5};
 
 export type request_body_40 = {
     name?: string | undefined;
@@ -2871,12 +2877,13 @@ export type request_body_43 = {
 >>>>>>> 15b4030 (feat(142): add newsletters)
 
 export type parameters_43 = {
-    query?: {
-        random?: ("true" | "false") | undefined;
-        check?: ("true" | "false") | undefined;
-        page?: number | undefined;
-        take?: number;
-    } | undefined;
+    headers: {
+        "content-type": string;
+        "content-length": number;
+    };
+    params: {
+        categoryName: string;
+    };
 }
 
 export type response_43_0 = {
@@ -2903,22 +2910,23 @@ export type response_43_3 = {
     info: "user.role.invalid";
 } & {body: undefined};
 
-export type response_body_43_4 = {
-    _id: string;
-    userId: string;
-    productSheetId: string;
-    pseudo: string;
-    content?: string | undefined;
-    createdAt: Date;
-    rate: number;
-    check: boolean;
-}[]
-
 export type response_43_4 = {
-    code: 200;
+    code: 404;
+    ok: false;
+    info: "category.notfound";
+} & {body: undefined};
+
+export type response_43_5 = {
+    code: 400;
+    ok: false;
+    info: "category.image.missing";
+} & {body: undefined};
+
+export type response_43_6 = {
+    code: 204;
     ok: true;
-    info: "productSheetReviews";
-} & {body: response_body_43_4};
+    info: "category.image.updated";
+} & {body: undefined};
 
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2932,9 +2940,19 @@ export type parameters_44 = {
     } | undefined;
 =======
 export type request_body_44 = {
+<<<<<<< HEAD
     name: string;
     ownerId: string;
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+    suspended?: boolean | undefined;
+}
+
+export type parameters_44 = {
+    params: {
+        organizationId: string;
+    };
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 }
 
 >>>>>>> 15b4030 (feat(142): add newsletters)
@@ -3023,26 +3041,15 @@ export type response_body_44_4 = {
 =======
 >>>>>>> 8c76664 (feat(142): add checker)
 export type response_44_4 = {
-    code: 409;
+    code: 404;
     ok: false;
-    info: "organization.alreadyExist";
+    info: "organization.notfound";
 } & {body: undefined};
 
 export type response_44_5 = {
-    code: 404;
-    ok: false;
-    info: "user.notfound";
-} & {body: undefined};
-
-export type response_44_6 = {
-    code: 409;
-    ok: false;
-    info: "user.alreadyOwner";
-} & {body: undefined};
-
-export type response_44_7 = {
-    code: 201;
+    code: 204;
     ok: true;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     info: "fullProductSheets";
@@ -3067,17 +3074,25 @@ export type parameters_45 = {
 >>>>>>> 15b4030 (feat(142): add newsletters)
 =======
     info: "organization.created";
+=======
+    info: "organization.edited";
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 } & {body: undefined};
 
-export type request_body_45 = {
-    muted?: boolean | undefined;
-}
-
 export type parameters_45 = {
+<<<<<<< HEAD
     params: {
         userId: string;
     };
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+    query?: {
+        random?: ("true" | "false") | undefined;
+        check?: ("true" | "false") | undefined;
+        page?: number | undefined;
+        take?: number;
+    } | undefined;
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 }
 
 export type response_45_0 = {
@@ -3108,7 +3123,19 @@ export type response_45_3 = {
     info: "user.role.invalid";
 } & {body: undefined};
 
+export type response_body_45_4 = {
+    _id: string;
+    userId: string;
+    productSheetId: string;
+    pseudo: string;
+    content?: string | undefined;
+    createdAt: Date;
+    rate: number;
+    check: boolean;
+}[]
+
 export type response_45_4 = {
+<<<<<<< HEAD
     code: 404;
     ok: false;
 <<<<<<< HEAD
@@ -3143,11 +3170,15 @@ export type response_45_5 = {
 export type response_45_6 = {
     code: 204;
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+    code: 200;
+>>>>>>> 38b35f0 (feat(142): update newsletters)
     ok: true;
-    info: "user.edited";
-} & {body: undefined};
+    info: "productSheetReviews";
+} & {body: response_body_45_4};
 
 export type request_body_46 = {
+<<<<<<< HEAD
 <<<<<<< HEAD
     suspended?: boolean | undefined;
 >>>>>>> 15b4030 (feat(142): add newsletters)
@@ -3168,19 +3199,30 @@ export type parameters_46 = {
         categoryName: string;
     };
 =======
+=======
+    id: string;
+>>>>>>> 38b35f0 (feat(142): update newsletters)
     priority: number;
     type: "PARENT_CATEGORY";
     parentCategoryName: string;
 } | {
+    id: string;
     priority: number;
     type: "CATEGORY";
     categoryName: string;
 } | {
+    id: string;
     priority: number;
     type: "LINK";
     url: string;
     title: string;
 >>>>>>> 8c76664 (feat(142): add checker)
+}
+
+export type parameters_46 = {
+    params: {
+        navigationItemId: string;
+    };
 }
 
 export type response_46_0 = {
@@ -3208,34 +3250,21 @@ export type response_46_3 = {
 } & {body: undefined};
 
 export type response_46_4 = {
-    code: 409;
+    code: 404;
     ok: false;
+<<<<<<< HEAD
 <<<<<<< HEAD
     info: "category.notfound";
 =======
     info: "navigationItem.limit";
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+    info: "navigationItem.notfound";
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 } & {body: undefined};
 
-export type response_body_46_5 = {
-    id: string;
-    priority: number;
-    type: "PARENT_CATEGORY";
-    parentCategoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "CATEGORY";
-    categoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "LINK";
-    url: string;
-    title: string;
-}
-
 export type response_46_5 = {
+<<<<<<< HEAD
 <<<<<<< HEAD
     code: 400;
     ok: false;
@@ -3268,6 +3297,30 @@ export type request_body_47 = {
     info: "navigationItem.created";
 } & {body: response_body_46_5};
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+    code: 404;
+    ok: false;
+    info: "category.notfound";
+} & {body: undefined};
+
+export type response_46_6 = {
+    code: 404;
+    ok: false;
+    info: "parentCategory.notfound";
+} & {body: undefined};
+
+export type response_46_7 = {
+    code: 204;
+    ok: true;
+    info: "navigationItem.edited";
+} & {body: undefined};
+
+export type parameters_47 = {
+    params: {
+        navigationItemId: string;
+    };
+}
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 
 export type response_47_0 = {
     code: 401;
@@ -3293,6 +3346,7 @@ export type response_47_3 = {
     info: "user.role.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 export type response_body_47_4 = {
     _id: string;
@@ -3368,18 +3422,28 @@ export type response_body_47_4 = ({
 =======
 })[]
 
+=======
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 export type response_47_4 = {
-    code: 200;
-    ok: true;
-    info: "navigationItems";
-} & {body: response_body_47_4};
+    code: 404;
+    ok: false;
+    info: "navigationItem.notfound";
+} & {body: undefined};
 
+<<<<<<< HEAD
 export type parameters_48 = {
     params: {
         parentCategoryName: string;
     };
 >>>>>>> 8c76664 (feat(142): add checker)
 }
+=======
+export type response_47_5 = {
+    code: 204;
+    ok: true;
+    info: "navigationItem.delete";
+} & {body: undefined};
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 
 export type response_48_0 = {
     code: 401;
@@ -3405,22 +3469,28 @@ export type response_48_3 = {
     info: "user.role.invalid";
 } & {body: undefined};
 
+export type response_body_48_4 = ({
+    id: string;
+    priority: number;
+    type: "PARENT_CATEGORY";
+    parentCategoryName: string;
+} | {
+    id: string;
+    priority: number;
+    type: "CATEGORY";
+    categoryName: string;
+} | {
+    id: string;
+    priority: number;
+    type: "LINK";
+    url: string;
+    title: string;
+})[]
+
 export type response_48_4 = {
-    code: 404;
-    ok: false;
-    info: "parentCategory.notfound";
-} & {body: undefined};
-
-export type response_body_48_5 = {
-    name: string;
-    disabled: boolean;
-    imageKey: string | null;
-    imageUrl: string | null;
-}[]
-
-export type response_48_5 = {
     code: 200;
     ok: true;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     info: "user.edited";
@@ -3446,10 +3516,14 @@ export type parameters_49 = {
 export type request_body_49 = {
     suspended?: boolean | undefined;
 }
+=======
+    info: "navigationItems";
+} & {body: response_body_48_4};
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 
 export type parameters_49 = {
     params: {
-        organizationId: string;
+        parentCategoryName: string;
     };
 }
 
@@ -3504,12 +3578,20 @@ export type response_body_49_4 = ({
 export type response_49_4 = {
     code: 404;
     ok: false;
-    info: "organization.notfound";
+    info: "parentCategory.notfound";
 } & {body: undefined};
 
+export type response_body_49_5 = {
+    name: string;
+    disabled: boolean;
+    imageKey: string | null;
+    imageUrl: string | null;
+}[]
+
 export type response_49_5 = {
-    code: 204;
+    code: 200;
     ok: true;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     info: "organization.edited";
@@ -3529,13 +3611,24 @@ export type request_body_50 = {
 >>>>>>> 8c76664 (feat(142): add checker)
 
 export type request_body_50 = {
-    categoryName: string;
-}
+=======
+    info: "parentCategory.categories";
+} & {body: response_body_49_5};
 
-export type parameters_50 = {
-    params: {
-        parentCategoryName: string;
-    };
+export type request_body_50 = {
+    priority: number;
+    type: "PARENT_CATEGORY";
+    parentCategoryName: string;
+} | {
+    priority: number;
+    type: "CATEGORY";
+>>>>>>> 38b35f0 (feat(142): update newsletters)
+    categoryName: string;
+} | {
+    priority: number;
+    type: "LINK";
+    url: string;
+    title: string;
 }
 
 export type response_50_0 = {
@@ -3563,6 +3656,7 @@ export type response_50_3 = {
 } & {body: undefined};
 
 export type response_50_4 = {
+<<<<<<< HEAD
 <<<<<<< HEAD
     code: 409;
     ok: false;
@@ -3607,18 +3701,14 @@ export type parameters_51 = {
 } & {body: undefined};
 
 export type response_50_6 = {
+=======
+>>>>>>> 38b35f0 (feat(142): update newsletters)
     code: 409;
     ok: false;
-    info: "parentCategory.categories.limit";
+    info: "navigationItem.limit";
 } & {body: undefined};
 
-export type response_50_7 = {
-    code: 204;
-    ok: true;
-    info: "parentCategory.category.linked";
-} & {body: undefined};
-
-export type request_body_51 = {
+export type response_body_50_5 = {
     id: string;
     priority: number;
     type: "PARENT_CATEGORY";
@@ -3636,9 +3726,19 @@ export type request_body_51 = {
     title: string;
 }
 
+export type response_50_5 = {
+    code: 201;
+    ok: true;
+    info: "navigationItem.created";
+} & {body: response_body_50_5};
+
+export type request_body_51 = {
+    name?: string | undefined;
+}
+
 export type parameters_51 = {
     params: {
-        navigationItemId: string;
+        parentCategoryName: string;
     };
 >>>>>>> 15b4030 (feat(142): add newsletters)
 }
@@ -3703,30 +3803,28 @@ export type request_body_52 = {
 export type response_51_4 = {
     code: 404;
     ok: false;
-    info: "navigationItem.notfound";
-} & {body: undefined};
-
-export type response_51_5 = {
-    code: 404;
-    ok: false;
-    info: "category.notfound";
-} & {body: undefined};
-
-export type response_51_6 = {
-    code: 404;
-    ok: false;
     info: "parentCategory.notfound";
 } & {body: undefined};
 
-export type response_51_7 = {
+export type response_51_5 = {
+    code: 409;
+    ok: false;
+    info: "parentCategory.name.alreadyUse";
+} & {body: undefined};
+
+export type response_51_6 = {
     code: 204;
     ok: true;
-    info: "navigationItem.edited";
+    info: "parentCategory.edited";
 } & {body: undefined};
+
+export type request_body_52 = {
+    categoryName: string;
+}
 
 export type parameters_52 = {
     params: {
-        navigationItemId: string;
+        parentCategoryName: string;
     };
 }
 
@@ -3760,6 +3858,7 @@ export type response_52_4 = {
     ok: false;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     info: "navigationItem.limit";
 } & {body: undefined};
 
@@ -3791,18 +3890,36 @@ export type response_52_5 = {
 =======
     info: "navigationItem.notfound";
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+    info: "parentCategory.notfound";
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 } & {body: undefined};
 
 export type response_52_5 = {
+    code: 404;
+    ok: false;
+    info: "category.notfound";
+} & {body: undefined};
+
+export type response_52_6 = {
+    code: 409;
+    ok: false;
+    info: "parentCategory.categories.limit";
+} & {body: undefined};
+
+export type response_52_7 = {
     code: 204;
     ok: true;
-    info: "navigationItem.delete";
+    info: "parentCategory.category.linked";
 } & {body: undefined};
+
+export type request_body_53 = {
+    muted?: boolean | undefined;
+}
 
 export type parameters_53 = {
     params: {
-        parentCategoryName: string;
-        categoryName: string;
+        userId: string;
     };
 }
 >>>>>>> 15b4030 (feat(142): add newsletters)
@@ -3868,16 +3985,23 @@ export type parameters_54 = {
 export type response_53_4 = {
     code: 404;
     ok: false;
-    info: "parentCategory.notfound";
+    info: "user.notfound";
 } & {body: undefined};
 
 export type response_53_5 = {
-    code: 200;
+    code: 401;
+    ok: false;
+    info: "user.primordialRole.admin";
+} & {body: undefined};
+
+export type response_53_6 = {
+    code: 204;
     ok: true;
-    info: "parentCategory.category.untied";
+    info: "user.edited";
 } & {body: undefined};
 
 export type request_body_54 = {
+<<<<<<< HEAD
 <<<<<<< HEAD
     title: string;
     content: string;
@@ -3891,6 +4015,11 @@ export type parameters_54 = {
         parentCategoryName: string;
     };
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+    object: string;
+    content: string;
+    sendAt: Date;
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 }
 
 export type response_54_0 = {
@@ -3917,6 +4046,7 @@ export type response_54_3 = {
     info: "user.role.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -3963,6 +4093,14 @@ export type response_body_54_4 = {
     content: string;
     createdAt: Date;
 >>>>>>> 15b4030 (feat(142): add newsletters)
+=======
+export type response_body_54_4 = {
+    id: string;
+    object: string;
+    content: string;
+    createdAt: Date;
+    sendAt: Date;
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 }
 
 export type response_54_4 = {
@@ -3972,6 +4110,7 @@ export type response_54_4 = {
 } & {body: response_body_54_4};
 
 export type parameters_55 = {
+<<<<<<< HEAD
 <<<<<<< HEAD
     params: {
         navigationItemId: string;
@@ -3986,6 +4125,12 @@ export type parameters_55 = {
     title: string;
     content: string;
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+    query?: {
+        page?: number;
+        name?: string | undefined;
+    } | undefined;
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 }
 
 export type response_55_0 = {
@@ -4014,6 +4159,7 @@ export type response_55_3 = {
 
 export type response_body_55_4 = {
     id: string;
+<<<<<<< HEAD
     title: string;
     content: string;
     createdAt: Date;
@@ -4059,11 +4205,20 @@ export type request_body_56 = {
 =======
 >>>>>>> 8c76664 (feat(142): add checker)
 }
+=======
+    name: string;
+    label: string | null;
+    ownerId: string;
+    suspended: boolean;
+    logoKey: string | null;
+    logoUrl: string | null;
+}[]
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 
 export type response_55_4 = {
-    code: 201;
+    code: 200;
     ok: true;
-    info: "newsletter.created";
+    info: "organizations";
 } & {body: response_body_55_4};
 
 export type parameters_56 = {
@@ -4075,7 +4230,8 @@ export type parameters_56 = {
 =======
     query?: {
         page?: number;
-        title?: string | undefined;
+        name?: string | undefined;
+        withCategories?: ("true" | "false") | undefined;
     } | undefined;
 >>>>>>> 8c76664 (feat(142): add checker)
 }
@@ -4105,10 +4261,10 @@ export type response_56_3 = {
 } & {body: undefined};
 
 export type response_body_56_4 = {
-    id: string;
-    title: string;
-    content: string;
-    createdAt: Date;
+    name: string;
+    categories?: {
+        categoryName: string;
+    }[] | undefined;
 }[]
 
 export type response_56_4 = {
@@ -4146,15 +4302,21 @@ export type response_56_6 = {
     code: 200;
 >>>>>>> 8c76664 (feat(142): add checker)
     ok: true;
-    info: "newsletters";
+    info: "parentCategories";
 } & {body: response_body_56_4};
 
 export type parameters_57 = {
+<<<<<<< HEAD
     query?: {
         page?: number;
         name?: string | undefined;
     } | undefined;
 >>>>>>> 15b4030 (feat(142): add newsletters)
+=======
+    params: {
+        newsletterId: string;
+    };
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 }
 
 export type response_57_0 = {
@@ -4181,6 +4343,7 @@ export type response_57_3 = {
     info: "user.role.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 export type response_57_4 = {
     code: 404;
@@ -4213,11 +4376,19 @@ export type response_body_57_4 = {
     logoUrl: string | null;
 }[]
 
+=======
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 export type response_57_4 = {
-    code: 200;
+    code: 404;
+    ok: false;
+    info: "newsletter.notfound";
+} & {body: undefined};
+
+export type response_57_5 = {
+    code: 204;
     ok: true;
-    info: "organizations";
-} & {body: response_body_57_4};
+    info: "newsletter.deleted";
+} & {body: undefined};
 
 <<<<<<< HEAD
 export type parameters_58 = {
@@ -4315,11 +4486,10 @@ export type response_58_5 = {
 } & {body: response_body_58_5};
 
 export type parameters_59 = {
-    query?: {
-        page?: number;
-        name?: string | undefined;
-        withCategories?: ("true" | "false") | undefined;
-    } | undefined;
+    params: {
+        parentCategoryName: string;
+        categoryName: string;
+    };
 }
 
 export type response_59_0 = {
@@ -4346,18 +4516,17 @@ export type response_59_3 = {
     info: "user.role.invalid";
 } & {body: undefined};
 
-export type response_body_59_4 = {
-    name: string;
-    categories?: {
-        categoryName: string;
-    }[] | undefined;
-}[]
-
 export type response_59_4 = {
+    code: 404;
+    ok: false;
+    info: "parentCategory.notfound";
+} & {body: undefined};
+
+export type response_59_5 = {
     code: 200;
     ok: true;
-    info: "parentCategories";
-} & {body: response_body_59_4};
+    info: "parentCategory.category.untied";
+} & {body: undefined};
 
 export type request_body_60 = {
     check?: boolean | undefined;
@@ -4650,6 +4819,7 @@ export type response_63_4 = {
 
 export type parameters_64 = {
 <<<<<<< HEAD
+<<<<<<< HEAD
     query?: {
         page?: number;
         email?: string | undefined;
@@ -4660,6 +4830,11 @@ export type parameters_64 = {
         newsletterId: string;
     };
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+    params?: {
+        commandId?: string;
+    } | undefined;
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 }
 
 export type response_64_0 = {
@@ -4681,9 +4856,9 @@ export type response_64_2 = {
 } & {body: undefined};
 
 export type response_64_3 = {
-    code: 403;
+    code: 404;
     ok: false;
-    info: "user.role.invalid";
+    info: "command.notfound";
 } & {body: undefined};
 
 export type response_body_64_4 = {
@@ -4704,6 +4879,7 @@ export type response_body_64_4 = {
 export type response_64_4 = {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     code: 200;
     ok: true;
     info: "users";
@@ -4713,13 +4889,26 @@ export type response_64_4 = {
 =======
     code: 404;
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+    code: 401;
+>>>>>>> 38b35f0 (feat(142): update newsletters)
     ok: false;
-    info: "newsletter.notfound";
+    info: "command.wrong.user";
 } & {body: undefined};
 
+export type response_body_64_5 = {
+    id: number;
+    idShip: string;
+    carrierName: "LA_POSTE";
+    commandId: string;
+    status: "DONE" | "CREATED" | "CARRIER_SUPPORTED" | "CARRIER_PROCESS" | "UNDELIVERABLE" | "DONE_OFFICE" | "BACK" | "BACK_DONE";
+    productsCount: number;
+}[]
+
 export type response_64_5 = {
-    code: 204;
+    code: 200;
     ok: true;
+<<<<<<< HEAD
 <<<<<<< HEAD
     info: "command.found";
 } & {body: response_body_64_5};
@@ -4728,6 +4917,10 @@ export type response_64_5 = {
     info: "newsletter.deleted";
 } & {body: undefined};
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+    info: "bundles.found";
+} & {body: response_body_64_5};
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 
 export type parameters_65 = {
     params?: {
@@ -4766,18 +4959,29 @@ export type response_65_4 = {
 } & {body: undefined};
 
 export type response_body_65_5 = {
-    id: number;
-    idShip: string;
-    carrierName: "LA_POSTE";
-    commandId: string;
-    status: "DONE" | "CREATED" | "CARRIER_SUPPORTED" | "CARRIER_PROCESS" | "UNDELIVERABLE" | "DONE_OFFICE" | "BACK" | "BACK_DONE";
-    productsCount: number;
-}[]
+    id: string;
+    firstname: string;
+    lastname: string;
+    status: "DONE" | "CANCELED" | "WAITING_PAYMENT" | "IN_PROGRESS" | "IN_DELIVERY";
+    userId: string;
+    deliveryAddress: string;
+    createdDate: Date;
+    price: number;
+    items: {
+        quantity: number;
+        processQuantity: number;
+        productSheetId: string;
+        productSheetName: string;
+        productSheetFirstImageUrl: string;
+        productSheetOrganizationName: string;
+        productSheetPrice: number;
+    }[];
+}
 
 export type response_65_5 = {
     code: 200;
     ok: true;
-    info: "bundles.found";
+    info: "command.found";
 } & {body: response_body_65_5};
 
 export type parameters_66 = {
@@ -4816,30 +5020,12 @@ export type response_66_4 = {
     info: "command.wrong.user";
 } & {body: undefined};
 
-export type response_body_66_5 = {
-    id: string;
-    firstname: string;
-    lastname: string;
-    status: "DONE" | "CANCELED" | "WAITING_PAYMENT" | "IN_PROGRESS" | "IN_DELIVERY";
-    userId: string;
-    deliveryAddress: string;
-    createdDate: Date;
-    price: number;
-    items: {
-        quantity: number;
-        processQuantity: number;
-        productSheetId: string;
-        productSheetName: string;
-        productSheetFirstImageUrl: string;
-        productSheetOrganizationName: string;
-        productSheetPrice: number;
-    }[];
-}
+export type response_body_66_5 = string
 
 export type response_66_5 = {
     code: 200;
     ok: true;
-    info: "command.found";
+    info: "command.invoice";
 } & {body: response_body_66_5};
 
 export type parameters_67 = {
@@ -4851,11 +5037,15 @@ export type parameters_67 = {
     params: {
         organizationId: string;
     };
-    query: {
-        warehouseId: string;
+    query?: {
         page?: number;
+<<<<<<< HEAD
     };
 >>>>>>> 15b4030 (feat(142): add newsletters)
+=======
+        ref?: string | undefined;
+    } | undefined;
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 }
 
 export type response_67_0 = {
@@ -4919,6 +5109,7 @@ export type response_67_5 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_67_6 = {
     code: 404;
     ok: false;
@@ -5011,6 +5202,9 @@ export type response_68_5 = {
 } & {body: undefined};
 
 export type response_body_68_6 = {
+=======
+export type response_body_67_6 = {
+>>>>>>> 38b35f0 (feat(142): update newsletters)
     id: string;
     ref: string;
     name: string;
@@ -5049,10 +5243,11 @@ export type response_body_68_6 = {
     };
 }[]
 
-export type response_68_6 = {
+export type response_67_6 = {
     code: 200;
     ok: true;
     info: "organization.fullProductSheet";
+<<<<<<< HEAD
 } & {body: response_body_68_6};
 >>>>>>> 15b4030 (feat(142): add newsletters)
 
@@ -5065,10 +5260,100 @@ export type parameters_69 = {
     params: {
         organizationId: string;
 <<<<<<< HEAD
+=======
+} & {body: response_body_67_6};
+
+export type request_body_68 = {
+    ref: string;
+    name: string;
+    description: string;
+    shortDescription: string;
+    price: number;
+    warehouseId: string;
+}
+
+export type parameters_68 = {
+    params: {
+        organizationId: string;
+    };
+}
+
+export type response_68_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_68_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_68_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_68_3 = {
+    code: 404;
+    ok: false;
+    info: "organization.notfound";
+} & {body: undefined};
+
+export type response_68_4 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_68_5 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type response_68_6 = {
+    code: 404;
+    ok: false;
+    info: "warehouse.notfound";
+} & {body: undefined};
+
+export type response_68_7 = {
+    code: 409;
+    ok: false;
+    info: "productSheet.ref.alreadyUse";
+} & {body: undefined};
+
+export type response_body_68_8 = {
+    id: string;
+    ref: string;
+    name: string;
+    description: string;
+    shortDescription: string;
+    price: number;
+    createdAt?: string;
+    updatedAt?: string;
+    organizationId: string;
+    warehouseId: string;
+}
+
+export type response_68_8 = {
+    code: 201;
+    ok: true;
+    info: "productSheet.created";
+} & {body: response_body_68_8};
+
+export type parameters_69 = {
+    params: {
+        organizationId: string;
+>>>>>>> 38b35f0 (feat(142): update newsletters)
     };
     query: {
         warehouseId: string;
         page?: number;
+<<<<<<< HEAD
 =======
 >>>>>>> 15b4030 (feat(142): add newsletters)
     };
@@ -5077,6 +5362,9 @@ export type parameters_69 = {
         commandId?: string;
     } | undefined;
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+    };
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 }
 
 export type response_69_0 = {
@@ -5100,19 +5388,20 @@ export type response_69_2 = {
 export type response_69_3 = {
     code: 404;
     ok: false;
-    info: "command.notfound";
+    info: "organization.notfound";
 } & {body: undefined};
 
 export type response_69_4 = {
-    code: 401;
+    code: 406;
     ok: false;
-    info: "command.wrong.user";
+    info: "organization.hasNotUser";
 } & {body: undefined};
-
-export type response_body_69_5 = string
 
 export type response_69_5 = {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 38b35f0 (feat(142): update newsletters)
     code: 403;
     ok: false;
     info: "user.role.organization.invalid";
@@ -5120,6 +5409,9 @@ export type response_69_5 = {
 
 export type response_69_6 = {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 38b35f0 (feat(142): update newsletters)
     code: 404;
     ok: false;
     info: "warehouse.notfound";
@@ -5135,6 +5427,7 @@ export type response_body_69_7 = {
 }[]
 
 export type response_69_7 = {
+<<<<<<< HEAD
     code: 200;
     ok: true;
     info: "organizationCommandCollection";
@@ -5166,15 +5459,16 @@ export type request_body_70 = {
     info: "command.invoice";
 } & {body: response_body_69_5};
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+    code: 200;
+    ok: true;
+    info: "organizationCommandCollection";
+} & {body: response_body_69_7};
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 
-export type parameters_70 = {
-    headers: {
-        "content-type": string;
-        "content-length": number;
-    };
-    params: {
-        organizationId: string;
-    };
+export type request_body_70 = {
+    name: string;
+    ownerId: string;
 }
 
 export type response_70_0 = {
@@ -5196,37 +5490,42 @@ export type response_70_2 = {
 } & {body: undefined};
 
 export type response_70_3 = {
-    code: 404;
+    code: 403;
     ok: false;
-    info: "organization.notfound";
+    info: "user.role.invalid";
 } & {body: undefined};
 
 export type response_70_4 = {
-    code: 406;
+    code: 409;
     ok: false;
-    info: "organization.hasNotUser";
+    info: "organization.alreadyExist";
 } & {body: undefined};
 
 export type response_70_5 = {
-    code: 403;
+    code: 404;
     ok: false;
-    info: "user.role.organization.invalid";
+    info: "user.notfound";
 } & {body: undefined};
 
 export type response_70_6 = {
-    code: 400;
+    code: 409;
     ok: false;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     info: "organization.logo.missing";
+=======
+    info: "user.alreadyOwner";
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 } & {body: undefined};
 
 export type response_70_7 = {
-    code: 204;
+    code: 201;
     ok: true;
-    info: "organization.logo.edited";
+    info: "organization.created";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type parameters_71 = {
     params: {
         organizationId: string;
@@ -5252,6 +5551,8 @@ export type request_body_71 = {
     warehouseId: string;
 }
 
+=======
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 export type parameters_71 = {
     params: {
 <<<<<<< HEAD
@@ -5262,6 +5563,10 @@ export type parameters_71 = {
         organizationId: string;
 >>>>>>> 8c76664 (feat(142): add checker)
     };
+    query?: {
+        page?: number;
+        name?: string | undefined;
+    } | undefined;
 }
 
 export type response_71_0 = {
@@ -5343,19 +5648,7 @@ export type request_body_72 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-export type response_71_6 = {
-    code: 404;
-    ok: false;
-    info: "warehouse.notfound";
-} & {body: undefined};
-
-export type response_71_7 = {
-    code: 409;
-    ok: false;
-    info: "productSheet.ref.alreadyUse";
-} & {body: undefined};
-
-export type response_body_71_8 = {
+export type response_body_71_6 = {
     id: string;
     ref: string;
     name: string;
@@ -5366,27 +5659,22 @@ export type response_body_71_8 = {
     updatedAt?: string;
     organizationId: string;
     warehouseId: string;
-}
+}[]
 
-export type response_71_8 = {
-    code: 201;
+export type response_71_6 = {
+    code: 200;
     ok: true;
-    info: "productSheet.created";
-} & {body: response_body_71_8};
-
-export type request_body_72 = {
-    idShip: string;
-    bundleItems: {
-        commandItemId: number;
-        sku: string;
-    }[];
-}
+    info: "productSheets.found";
+} & {body: response_body_71_6};
 
 >>>>>>> 8c76664 (feat(142): add checker)
 export type parameters_72 = {
+    headers: {
+        "content-type": string;
+        "content-length": number;
+    };
     params: {
         organizationId: string;
-        commandId: string;
     };
 }
 
@@ -5450,68 +5738,31 @@ export type response_body_72_6 = {
 =======
 >>>>>>> 8c76664 (feat(142): add checker)
 export type response_72_6 = {
-    code: 404;
+    code: 400;
     ok: false;
-    info: "command.notfound";
+    info: "organization.logo.missing";
 } & {body: undefined};
 
 export type response_72_7 = {
-    code: 400;
-    ok: false;
-    info: "commandItem.wrong.product";
-} & {body: undefined};
-
-export type response_72_8 = {
-    code: 400;
-    ok: false;
-    info: "organization.wrong.product";
-} & {body: undefined};
-
-export type response_72_9 = {
-    code: 400;
-    ok: false;
-    info: "commandItem.wrong.commandId";
-} & {body: undefined};
-
-export type response_72_10 = {
-    code: 404;
-    ok: false;
-    info: "commandItem.missing";
-} & {body: undefined};
-
-export type response_72_11 = {
-    code: 404;
-    ok: false;
-    info: "product.missing";
-} & {body: undefined};
-
-export type response_72_12 = {
-    code: 409;
-    ok: false;
-    info: "commandItem.alreadyCompleted";
-} & {body: undefined};
-
-export type response_72_13 = {
-    code: 409;
-    ok: false;
-    info: "commandItem.tooMuch.product";
-} & {body: undefined};
-
-export type response_72_14 = {
-    code: 200;
+    code: 204;
     ok: true;
+<<<<<<< HEAD
 <<<<<<< HEAD
     info: "productSheets.found";
 } & {body: response_body_72_6};
 >>>>>>> 15b4030 (feat(142): add newsletters)
 =======
     info: "makeBundle";
+=======
+    info: "organization.logo.edited";
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 } & {body: undefined};
 >>>>>>> 8c76664 (feat(142): add checker)
 
 export type parameters_73 = {
     params: {
         organizationId: string;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -5528,6 +5779,10 @@ export type parameters_73 = {
         name?: string | undefined;
 >>>>>>> 8c76664 (feat(142): add checker)
     } | undefined;
+=======
+        commandId: string;
+    };
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 }
 
 export type response_73_0 = {
@@ -5566,6 +5821,7 @@ export type response_73_5 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_body_73_6 = {
     id: string;
     ref: string;
@@ -5620,6 +5876,9 @@ export type response_73_6 = {
     info: "organization.fullProductSheet";
 } & {body: response_body_73_6};
 =======
+=======
+export type response_73_6 = {
+>>>>>>> 38b35f0 (feat(142): update newsletters)
     code: 404;
     ok: false;
     info: "command.notfound";
@@ -5640,6 +5899,7 @@ export type response_body_73_8 = {
     productSheetName: string;
     productSheetId: string;
     productSheetFirstImageUrl: string;
+<<<<<<< HEAD
 =======
     description: string;
     shortDescription: string;
@@ -5649,12 +5909,17 @@ export type response_body_73_8 = {
     organizationId: string;
     warehouseId: string;
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 }[]
 
-export type response_73_6 = {
+export type response_73_8 = {
     code: 200;
     ok: true;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 38b35f0 (feat(142): update newsletters)
     info: "organizationCommandDetailes";
 } & {body: response_body_73_8};
 
@@ -5665,11 +5930,14 @@ export type request_body_74 = {
         sku: string;
     }[];
 }
+<<<<<<< HEAD
 >>>>>>> 15b4030 (feat(142): add newsletters)
 =======
     info: "productSheets.found";
 } & {body: response_body_73_6};
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 
 export type parameters_74 = {
     params: {
@@ -5747,25 +6015,51 @@ export type response_74_6 = {
 } & {body: undefined};
 
 export type response_74_7 = {
+    code: 400;
+    ok: false;
+    info: "commandItem.wrong.product";
+} & {body: undefined};
+
+export type response_74_8 = {
+    code: 400;
+    ok: false;
+    info: "organization.wrong.product";
+} & {body: undefined};
+
+export type response_74_9 = {
+    code: 400;
+    ok: false;
+    info: "commandItem.wrong.commandId";
+} & {body: undefined};
+
+export type response_74_10 = {
     code: 404;
     ok: false;
     info: "commandItem.missing";
 } & {body: undefined};
 
-export type response_body_74_8 = {
-    productSheetRef: string;
-    commandItemId: number;
-    commandId: string;
-    quantity: number;
-    processQuantity: number;
-    productSheetName: string;
-    productSheetId: string;
-    productSheetFirstImageUrl: string;
-}[]
+export type response_74_11 = {
+    code: 404;
+    ok: false;
+    info: "product.missing";
+} & {body: undefined};
 
-export type response_74_8 = {
+export type response_74_12 = {
+    code: 409;
+    ok: false;
+    info: "commandItem.alreadyCompleted";
+} & {body: undefined};
+
+export type response_74_13 = {
+    code: 409;
+    ok: false;
+    info: "commandItem.tooMuch.product";
+} & {body: undefined};
+
+export type response_74_14 = {
     code: 200;
     ok: true;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     info: "productSheets.found";
@@ -5778,6 +6072,10 @@ export type response_74_8 = {
     info: "organizationCommandDetailes";
 } & {body: response_body_74_8};
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+    info: "makeBundle";
+} & {body: undefined};
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 
 export type parameters_75 = {
     params: {
@@ -6259,13 +6557,14 @@ export type response_79_9 = {
     info: "productReturn.created";
 } & {body: response_body_79_9};
 
+export type request_body_80 = {
+    name: string;
+    address: string;
+}
+
 export type parameters_80 = {
-    headers: {
-        "content-type": string;
-        "content-length": number;
-    };
     params: {
-        categoryName: string;
+        organizationId: string;
     };
     query?: {
         page?: number;
@@ -6292,21 +6591,21 @@ export type response_80_2 = {
 } & {body: undefined};
 
 export type response_80_3 = {
-    code: 403;
+    code: 404;
     ok: false;
-    info: "user.role.invalid";
+    info: "organization.notfound";
 } & {body: undefined};
 
 export type response_80_4 = {
-    code: 404;
+    code: 406;
     ok: false;
-    info: "category.notfound";
+    info: "organization.hasNotUser";
 } & {body: undefined};
 
 export type response_80_5 = {
-    code: 400;
+    code: 403;
     ok: false;
-    info: "category.image.missing";
+    info: "user.role.organization.invalid";
 } & {body: undefined};
 
 export type response_body_80_6 = {
@@ -6317,6 +6616,7 @@ export type response_body_80_6 = {
 }[]
 
 export type response_80_6 = {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     code: 200;
@@ -6360,17 +6660,30 @@ export type response_80_9 = {
     code: 204;
     ok: true;
     info: "category.image.updated";
+=======
+    code: 400;
+    ok: false;
+    info: "warehouse.address.invalid";
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 } & {body: undefined};
 
-export type request_body_81 = {
+export type response_body_80_7 = {
+    id: string;
     name: string;
     address: string;
+    organizationId: string;
 }
 >>>>>>> 8c76664 (feat(142): add checker)
 
+export type response_80_7 = {
+    code: 201;
+    ok: true;
+    info: "warehouse.created";
+} & {body: response_body_80_7};
+
 export type parameters_81 = {
     params: {
-        organizationId: string;
+        sku: string;
     };
 <<<<<<< HEAD
     query?: {
@@ -6408,7 +6721,7 @@ export type response_81_2 = {
 export type response_81_3 = {
     code: 404;
     ok: false;
-    info: "organization.notfound";
+    info: "product.notfound";
 } & {body: undefined};
 
 export type response_81_4 = {
@@ -6423,6 +6736,7 @@ export type response_81_5 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 export type response_body_81_6 = {
 <<<<<<< HEAD
@@ -6456,10 +6770,32 @@ export type response_body_81_7 = {
 =======
 }
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+export type response_body_81_6 = {
+    id: string;
+    firstname: string;
+    lastname: string;
+    status: "DONE" | "CANCELED" | "WAITING_PAYMENT" | "IN_PROGRESS" | "IN_DELIVERY";
+    userId: string;
+    deliveryAddress: string;
+    createdDate: Date;
+    price: number;
+    items: {
+        quantity: number;
+        processQuantity: number;
+        productSheetId: string;
+        productSheetName: string;
+        productSheetFirstImageUrl: string;
+        productSheetOrganizationName: string;
+        productSheetPrice: number;
+    }[];
+}[]
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 
-export type response_81_7 = {
-    code: 201;
+export type response_81_6 = {
+    code: 200;
     ok: true;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     info: "products.found";
@@ -6484,11 +6820,19 @@ export type parameters_82 = {
     params: {
         organizationId: string;
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+    info: "product.commandHistory";
+} & {body: response_body_81_6};
+
+export type request_body_82 = {
+    categoryName: string;
+}
+
+export type parameters_82 = {
+    params: {
+        productSheetId: string;
+>>>>>>> 38b35f0 (feat(142): update newsletters)
     };
-    query?: {
-        page?: number;
-        name?: string | undefined;
-    } | undefined;
 }
 
 export type response_82_0 = {
@@ -6514,6 +6858,7 @@ export type response_82_3 = {
     ok: false;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     info: "organization.notfound";
 =======
     info: "product.notfound";
@@ -6521,6 +6866,9 @@ export type response_82_3 = {
 =======
     info: "organization.notfound";
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+    info: "productSheet.notfound";
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 } & {body: undefined};
 
 export type response_82_4 = {
@@ -6535,6 +6883,7 @@ export type response_82_5 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 export type response_82_6 = {
     code: 404;
@@ -6555,9 +6904,24 @@ export type response_body_82_6 = {
     organizationId: string;
 }[]
 
+=======
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 export type response_82_6 = {
+    code: 404;
+    ok: false;
+    info: "category.notfound";
+} & {body: undefined};
+
+export type response_82_7 = {
+    code: 409;
+    ok: false;
+    info: "productSheet.categories.limit";
+} & {body: undefined};
+
+export type response_82_8 = {
     code: 200;
     ok: true;
+<<<<<<< HEAD
     info: "warehouses.found";
 } & {body: response_body_82_6};
 >>>>>>> 15b4030 (feat(142): add newsletters)
@@ -6590,6 +6954,14 @@ export type parameters_83 = {
 =======
         sku: string;
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+    info: "productSheet.category.linked";
+} & {body: undefined};
+
+export type parameters_83 = {
+    params: {
+        productSheetId: string;
+>>>>>>> 38b35f0 (feat(142): update newsletters)
     };
     query?: {
         page?: number;
@@ -6618,10 +6990,14 @@ export type response_83_3 = {
     code: 404;
     ok: false;
 <<<<<<< HEAD
+<<<<<<< HEAD
     info: "organization.notfound";
 =======
     info: "product.notfound";
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+    info: "productSheet.notfound";
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 } & {body: undefined};
 
 export type response_83_4 = {
@@ -6639,6 +7015,7 @@ export type response_83_5 = {
 export type response_body_83_6 = {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     id: number;
     percentage: number;
     startDate?: string;
@@ -6647,10 +7024,13 @@ export type response_body_83_6 = {
     productSheetId: string;
     reason: string;
 =======
+=======
+>>>>>>> 38b35f0 (feat(142): update newsletters)
     name: string;
     disabled: boolean;
     imageKey: string | null;
     imageUrl: string | null;
+<<<<<<< HEAD
 >>>>>>> 15b4030 (feat(142): add newsletters)
 =======
     id: string;
@@ -6671,11 +7051,14 @@ export type response_body_83_6 = {
         productSheetPrice: number;
     }[];
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 }[]
 
 export type response_83_6 = {
     code: 200;
     ok: true;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     info: "organization.promotions";
@@ -6698,20 +7081,23 @@ export type parameters_84 = {
 =======
     info: "product.commandHistory";
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+    info: "productSheet.categories";
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 } & {body: response_body_83_6};
-
-export type request_body_84 = {
-    categoryName: string;
-}
 
 export type parameters_84 = {
     params: {
         productSheetId: string;
 <<<<<<< HEAD
+<<<<<<< HEAD
         categoryName: string;
 >>>>>>> 15b4030 (feat(142): add newsletters)
 =======
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+        categoryName: string;
+>>>>>>> 38b35f0 (feat(142): update newsletters)
     };
 }
 
@@ -6814,15 +7200,9 @@ export type parameters_85 = {
 } & {body: undefined};
 
 export type response_84_7 = {
-    code: 409;
-    ok: false;
-    info: "productSheet.categories.limit";
-} & {body: undefined};
-
-export type response_84_8 = {
     code: 200;
     ok: true;
-    info: "productSheet.category.linked";
+    info: "productSheet.category.untied";
 } & {body: undefined};
 
 export type parameters_85 = {
@@ -6924,10 +7304,10 @@ export type response_85_6 = {
 >>>>>>> 8c76664 (feat(142): add checker)
 
 export type parameters_86 = {
-    params: {
-        productSheetId: string;
-        categoryName: string;
-    };
+    query?: {
+        page?: number;
+        object?: string | undefined;
+    } | undefined;
 }
 
 export type response_86_0 = {
@@ -6949,23 +7329,12 @@ export type response_86_2 = {
 } & {body: undefined};
 
 export type response_86_3 = {
-    code: 404;
-    ok: false;
-    info: "productSheet.notfound";
-} & {body: undefined};
-
-export type response_86_4 = {
-    code: 406;
-    ok: false;
-    info: "organization.hasNotUser";
-} & {body: undefined};
-
-export type response_86_5 = {
     code: 403;
     ok: false;
-    info: "user.role.organization.invalid";
+    info: "user.role.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 export type response_body_86_6 = {
 <<<<<<< HEAD
@@ -6987,10 +7356,20 @@ export type response_86_6 = {
     ok: false;
     info: "category.notfound";
 } & {body: undefined};
+=======
+export type response_body_86_4 = {
+    id: string;
+    object: string;
+    content: string;
+    createdAt: Date;
+    sendAt: Date;
+}[]
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 
-export type response_86_7 = {
+export type response_86_4 = {
     code: 200;
     ok: true;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     info: "productSheet.categories";
@@ -7010,6 +7389,15 @@ export type parameters_87 = {
     info: "productSheet.category.untied";
 } & {body: undefined};
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+    info: "newsletters";
+} & {body: response_body_86_4};
+
+export type request_body_87 = {
+    type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
+    value: string;
+}
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 
 export type parameters_87 = {
     params: {
@@ -7058,6 +7446,7 @@ export type response_87_5 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_body_87_6 = {
 <<<<<<< HEAD
     sku: string;
@@ -7076,11 +7465,24 @@ export type response_body_87_6 = {
     address: string;
     organizationId: string;
 >>>>>>> 15b4030 (feat(142): add newsletters)
+=======
+export type response_87_6 = {
+    code: 409;
+    ok: false;
+    info: "productSheet.facet.alreadyExist";
+} & {body: undefined};
+
+export type response_body_87_7 = {
+    type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
+    productSheetId: string;
+    value: string;
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 }
 
-export type response_87_6 = {
-    code: 200;
+export type response_87_7 = {
+    code: 201;
     ok: true;
+<<<<<<< HEAD
 <<<<<<< HEAD
     info: "product.edited";
 } & {body: response_body_87_6};
@@ -7092,6 +7494,10 @@ export type parameters_88 = {
 =======
     info: "productSheet.warehouse";
 } & {body: response_body_87_6};
+=======
+    info: "facet.created";
+} & {body: response_body_87_7};
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 
 export type parameters_88 = {
     params: {
@@ -7170,40 +7576,38 @@ export type response_body_88_7 = {
 =======
 export type response_body_88_6 = {
     id: string;
-    ref: string;
     name: string;
-    description: string;
-    shortDescription: string;
-    price: number;
-    createdAt?: string;
-    updatedAt?: string;
+    address: string;
     organizationId: string;
+<<<<<<< HEAD
     warehouseId: string;
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 }
 
 export type response_88_6 = {
     code: 200;
     ok: true;
-    info: "productSheet.found";
+    info: "productSheet.warehouse";
 } & {body: response_body_88_6};
 
 export type request_body_89 = {
-    name?: string | undefined;
-    description?: string | undefined;
-    shortDescription?: string | undefined;
-    price?: number | undefined;
-    warehouseId?: string | undefined;
+    value?: string | undefined;
 }
 
 export type parameters_89 = {
     params: {
         productSheetId: string;
 <<<<<<< HEAD
+<<<<<<< HEAD
         facetType: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
 >>>>>>> 15b4030 (feat(142): add newsletters)
 =======
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+        facetType: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
+>>>>>>> 38b35f0 (feat(142): update newsletters)
     };
 }
 
@@ -7244,6 +7648,7 @@ export type response_89_5 = {
 } & {body: undefined};
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export type response_89_6 = {
     code: 404;
     ok: false;
@@ -7283,18 +7688,35 @@ export type response_body_89_6 = {
     warehouseId: string;
 }
 
+=======
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 export type response_89_6 = {
-    code: 201;
+    code: 404;
+    ok: false;
+    info: "facet.notfound";
+} & {body: undefined};
+
+export type response_89_7 = {
+    code: 204;
     ok: true;
+<<<<<<< HEAD
     info: "productSheet.edited";
 } & {body: response_body_89_6};
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+    info: "facet.edited";
+} & {body: undefined};
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 
 export type parameters_90 = {
     params: {
         productSheetId: string;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        facetType: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
+>>>>>>> 38b35f0 (feat(142): update newsletters)
     };
     query?: {
         startDate?: Date | undefined;
@@ -7345,6 +7767,7 @@ export type response_90_5 = {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 export type response_body_90_6 = {
     productSheetId: string;
     quantity: number;
@@ -7390,6 +7813,19 @@ export type request_body_91 = {
     value: string;
 >>>>>>> 8c76664 (feat(142): add checker)
 }
+=======
+export type response_90_6 = {
+    code: 404;
+    ok: false;
+    info: "facet.notfound";
+} & {body: undefined};
+
+export type response_90_7 = {
+    code: 204;
+    ok: true;
+    info: "facet.deleted";
+} & {body: undefined};
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 
 export type parameters_91 = {
     params: {
@@ -7435,7 +7871,10 @@ export type response_91_5 = {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 export type response_body_91_6 = {
     id: string;
     ref: string;
@@ -7447,6 +7886,7 @@ export type response_body_91_6 = {
     updatedAt?: string;
     organizationId: string;
     warehouseId: string;
+<<<<<<< HEAD
 }
 
 >>>>>>> 15b4030 (feat(142): add newsletters)
@@ -7490,23 +7930,33 @@ export type response_body_91_7 = {
     type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
     productSheetId: string;
     value: string;
+=======
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 }
 
-export type response_91_7 = {
-    code: 201;
+export type response_91_6 = {
+    code: 200;
     ok: true;
+<<<<<<< HEAD
     info: "facet.created";
 } & {body: response_body_91_7};
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+    info: "productSheet.found";
+} & {body: response_body_91_6};
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 
 export type request_body_92 = {
-    value?: string | undefined;
+    name?: string | undefined;
+    description?: string | undefined;
+    shortDescription?: string | undefined;
+    price?: number | undefined;
+    warehouseId?: string | undefined;
 }
 
 export type parameters_92 = {
     params: {
         productSheetId: string;
-        facetType: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
     };
 }
 
@@ -7547,6 +7997,9 @@ export type response_92_5 = {
 } & {body: undefined};
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 export type response_body_92_6 = {
     id: string;
     ref: string;
@@ -7557,6 +8010,7 @@ export type response_body_92_6 = {
     createdAt?: string;
     updatedAt?: string;
     organizationId: string;
+<<<<<<< HEAD
     variationGroup: string | null;
     variationName: string | null;
     warehouseId: string;
@@ -7569,10 +8023,15 @@ export type response_92_6 = {
     ok: false;
     info: "facet.notfound";
 } & {body: undefined};
+=======
+    warehouseId: string;
+}
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 
-export type response_92_7 = {
-    code: 204;
+export type response_92_6 = {
+    code: 201;
     ok: true;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     info: "productSheet.found";
@@ -7595,12 +8054,19 @@ export type request_body_93 = {
     info: "facet.edited";
 } & {body: undefined};
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+    info: "productSheet.edited";
+} & {body: response_body_92_6};
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 
 >>>>>>> 15b4030 (feat(142): add newsletters)
 export type parameters_93 = {
+    headers: {
+        "content-type": string;
+        "content-length": number;
+    };
     params: {
         productSheetId: string;
-        facetType: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
     };
 }
 
@@ -7678,12 +8144,13 @@ export type request_body_94 = {
 =======
 >>>>>>> 8c76664 (feat(142): add checker)
 export type response_93_6 = {
-    code: 404;
+    code: 409;
     ok: false;
-    info: "facet.notfound";
+    info: "product.images.limit";
 } & {body: undefined};
 
 export type response_93_7 = {
+<<<<<<< HEAD
     code: 204;
     ok: true;
 <<<<<<< HEAD
@@ -7692,8 +8159,28 @@ export type response_93_7 = {
 >>>>>>> 15b4030 (feat(142): add newsletters)
 =======
     info: "facet.deleted";
+=======
+    code: 400;
+    ok: false;
+    info: "productSheet.image.missing";
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 } & {body: undefined};
 >>>>>>> 8c76664 (feat(142): add checker)
+
+export type response_body_93_8 = {
+    id: string;
+    productSheetId: string;
+    organizationId: string;
+    url: string;
+    key: string;
+    alt: string | null;
+}
+
+export type response_93_8 = {
+    code: 201;
+    ok: true;
+    info: "productSheet.image.create";
+} & {body: response_body_93_8};
 
 export type parameters_94 = {
     params: {
@@ -7863,18 +8350,23 @@ export type parameters_96 = {
     info: "productSheet.images";
 } & {body: response_body_95_6};
 
+export type request_body_96 = {
+    name?: string | undefined;
+    address?: string | undefined;
+}
+
 export type parameters_96 = {
-    headers: {
-        "content-type": string;
-        "content-length": number;
-    };
     params: {
+<<<<<<< HEAD
 <<<<<<< HEAD
         warehouseId: string;
 >>>>>>> 15b4030 (feat(142): add newsletters)
 =======
         productSheetId: string;
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+        warehouseId: string;
+>>>>>>> 38b35f0 (feat(142): update newsletters)
     };
 }
 
@@ -7901,6 +8393,7 @@ export type response_96_3 = {
     ok: false;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     info: "productSheet.notfound";
 =======
     info: "warehouse.notfound";
@@ -7908,6 +8401,9 @@ export type response_96_3 = {
 =======
     info: "productSheet.notfound";
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+    info: "warehouse.notfound";
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 } & {body: undefined};
 
 export type response_96_4 = {
@@ -7931,6 +8427,7 @@ export type response_body_96_6 = {
 export type response_96_6 = {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     code: 200;
     ok: true;
     info: "productSheet.facets";
@@ -7944,44 +8441,31 @@ export type parameters_97 = {
 =======
     code: 409;
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+    code: 400;
+>>>>>>> 38b35f0 (feat(142): update newsletters)
     ok: false;
-    info: "product.images.limit";
+    info: "warehouse.address.invalid";
 } & {body: undefined};
 
 export type response_96_7 = {
-    code: 400;
-    ok: false;
-    info: "productSheet.image.missing";
-} & {body: undefined};
-
-export type response_body_96_8 = {
-    id: string;
-    productSheetId: string;
-    organizationId: string;
-    url: string;
-    key: string;
-    alt: string | null;
-}
-
-export type response_96_8 = {
-    code: 201;
+    code: 204;
     ok: true;
-    info: "productSheet.image.create";
-} & {body: response_body_96_8};
-
-export type request_body_97 = {
-    name?: string | undefined;
-    address?: string | undefined;
-}
+    info: "warehouse.edited";
+} & {body: undefined};
 
 export type parameters_97 = {
     params: {
+<<<<<<< HEAD
 <<<<<<< HEAD
         bundleId: number;
 >>>>>>> 15b4030 (feat(142): add newsletters)
 =======
         warehouseId: string;
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+        bundleId: number;
+>>>>>>> 38b35f0 (feat(142): update newsletters)
     };
 }
 
@@ -8008,6 +8492,7 @@ export type response_97_3 = {
     ok: false;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     info: "productSheet.notfound";
 =======
     info: "bundle.notfound";
@@ -8015,15 +8500,19 @@ export type response_97_3 = {
 =======
     info: "warehouse.notfound";
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+    info: "bundle.notfound";
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 } & {body: undefined};
 
 export type response_97_4 = {
-    code: 406;
+    code: 401;
     ok: false;
-    info: "organization.hasNotUser";
+    info: "bundle.wrong.user";
 } & {body: undefined};
 
 export type response_97_5 = {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -8068,8 +8557,11 @@ export type response_97_6 = {
 export type response_97_7 = {
     code: 204;
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+    code: 200;
+>>>>>>> 38b35f0 (feat(142): update newsletters)
     ok: true;
-    info: "warehouse.edited";
+    info: "bundle.status.stream";
 } & {body: undefined};
 
 export type parameters_98 = {
@@ -8156,9 +8648,24 @@ export type response_98_4 = {
     info: "bundle.wrong.user";
 } & {body: undefined};
 
+export type response_body_98_5 = {
+    id: number;
+    idShip: string;
+    carrierName: "LA_POSTE";
+    commandId: string;
+    status: "DONE" | "CREATED" | "CARRIER_SUPPORTED" | "CARRIER_PROCESS" | "UNDELIVERABLE" | "DONE_OFFICE" | "BACK" | "BACK_DONE";
+    bundleProducts: {
+        name: string;
+        productSheetId: string;
+        imageUrl: string;
+        quantity: number;
+    }[];
+}
+
 export type response_98_5 = {
     code: 200;
     ok: true;
+<<<<<<< HEAD
 <<<<<<< HEAD
     info: "bundle";
 } & {body: response_body_98_5};
@@ -8183,7 +8690,19 @@ export type parameters_99 = {
     params: {
         bundleId: number;
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+    info: "bundle";
+} & {body: response_body_98_5};
+
+export type parameters_99 = {
+    params: {
+        organizationId: string;
+>>>>>>> 38b35f0 (feat(142): update newsletters)
     };
+    query?: {
+        page?: number;
+        name?: string | undefined;
+    } | undefined;
 }
 
 export type response_99_0 = {
@@ -8209,6 +8728,7 @@ export type response_99_3 = {
     ok: false;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     info: "productSheet.notfound";
 =======
     info: "user.role.invalid";
@@ -8216,14 +8736,18 @@ export type response_99_3 = {
 =======
     info: "bundle.notfound";
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+    info: "organization.notfound";
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 } & {body: undefined};
 
 export type response_99_4 = {
-    code: 401;
+    code: 406;
     ok: false;
-    info: "bundle.wrong.user";
+    info: "organization.hasNotUser";
 } & {body: undefined};
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 export type response_99_5 = {
     code: 409;
@@ -8357,10 +8881,26 @@ export type response_body_99_5 = {
 
 export type response_99_5 = {
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+export type response_99_5 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type response_body_99_6 = {
+    id: string;
+    name: string;
+    address: string;
+    organizationId: string;
+}[]
+
+export type response_99_6 = {
+>>>>>>> 38b35f0 (feat(142): update newsletters)
     code: 200;
     ok: true;
-    info: "bundle";
-} & {body: response_body_99_5};
+    info: "warehouses.found";
+} & {body: response_body_99_6};
 
 export type parameters_100 = {
     query?: ({
@@ -8504,13 +9044,20 @@ export type response_100_2 = {
 } & {body: response_body_100_2};
 
 export type request_body_101 = {
-    status?: ("IN_STOCK" | "WRONG") | undefined;
+    percentage: number;
+    startDate: Date;
+    endDate: Date;
+    reason: string;
 }
 
 export type parameters_101 = {
     params: {
+<<<<<<< HEAD
         sku: string;
 >>>>>>> 15b4030 (feat(142): add newsletters)
+=======
+        productSheetId: string;
+>>>>>>> 38b35f0 (feat(142): update newsletters)
     };
 }
 
@@ -8535,7 +9082,7 @@ export type response_101_2 = {
 export type response_101_3 = {
     code: 404;
     ok: false;
-    info: "product.notfound";
+    info: "productSheet.notfound";
 } & {body: undefined};
 
 export type response_101_4 = {
@@ -8550,24 +9097,27 @@ export type response_101_5 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-export type response_body_101_6 = {
-    sku: string;
-    status: "WRONG" | "SOLD" | "IN_STOCK";
-    organizationId: string;
-    productSheetId: string;
+export type response_101_6 = {
+    code: 400;
+    ok: false;
+    info: "promotion.date.invalid";
+} & {body: undefined};
+
+export type response_body_101_7 = {
+    id: number;
+    percentage: number;
+    startDate?: string;
+    endDate?: string;
     productSheetName: string;
-    productSheetFirstImageUrl?: string | undefined;
-    warehouseId: string;
-    warehouseName: string;
-    createdAt: string;
-    updatedAt: string;
+    productSheetId: string;
+    reason: string;
 }
 
-export type response_101_6 = {
-    code: 200;
+export type response_101_7 = {
+    code: 201;
     ok: true;
-    info: "product.edited";
-} & {body: response_body_101_6};
+    info: "promotion.created";
+} & {body: response_body_101_7};
 
 export type parameters_102 = {
     params: {
@@ -8650,15 +9200,21 @@ export type response_102_6 = {
     info: "products.found";
 } & {body: response_body_102_6};
 
+<<<<<<< HEAD
 export type request_body_103 = {
     sku: string;
 }
 >>>>>>> 15b4030 (feat(142): add newsletters)
 
+=======
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 export type parameters_103 = {
     params: {
-        productSheetId: string;
+        organizationId: string;
     };
+    query?: {
+        page?: number;
+    } | undefined;
 }
 
 export type response_103_0 = {
@@ -8682,7 +9238,7 @@ export type response_103_2 = {
 export type response_103_3 = {
     code: 404;
     ok: false;
-    info: "productSheet.notfound";
+    info: "organization.notfound";
 } & {body: undefined};
 
 export type response_103_4 = {
@@ -8718,41 +9274,29 @@ export type response_103_5 = {
 } & {body: undefined};
 >>>>>>> 15b4030 (feat(142): add newsletters)
 
-export type response_103_6 = {
-    code: 409;
-    ok: false;
-    info: "product.sku.alreadyUse";
-} & {body: undefined};
-
-export type response_body_103_7 = {
-    sku: string;
-    status: "WRONG" | "SOLD" | "IN_STOCK";
-    organizationId: string;
-    productSheetId: string;
+export type response_body_103_6 = {
+    id: number;
+    percentage: number;
+    startDate?: string;
+    endDate?: string;
     productSheetName: string;
-    productSheetFirstImageUrl?: string | undefined;
-    warehouseId: string;
-    warehouseName: string;
-    createdAt: string;
-    updatedAt: string;
-}
+    productSheetId: string;
+    reason: string;
+}[]
 
-export type response_103_7 = {
-    code: 201;
+export type response_103_6 = {
+    code: 200;
     ok: true;
-    info: "product.created";
-} & {body: response_body_103_7};
+    info: "organization.promotions";
+} & {body: response_body_103_6};
 
 export type request_body_104 = {
-    percentage: number;
-    startDate: Date;
-    endDate: Date;
-    reason: string;
+    status?: ("IN_STOCK" | "WRONG") | undefined;
 }
 
 export type parameters_104 = {
     params: {
-        productSheetId: string;
+        sku: string;
     };
 }
 
@@ -8777,7 +9321,7 @@ export type response_104_2 = {
 export type response_104_3 = {
     code: 404;
     ok: false;
-    info: "productSheet.notfound";
+    info: "product.notfound";
 } & {body: undefined};
 
 export type response_104_4 = {
@@ -8792,6 +9336,7 @@ export type response_104_5 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_104_6 = {
 <<<<<<< HEAD
     code: 200;
@@ -8936,45 +9481,97 @@ export type response_body_104_7 = {
     startDate?: string;
     endDate?: string;
     productSheetName: string;
+=======
+export type response_body_104_6 = {
+    sku: string;
+    status: "WRONG" | "SOLD" | "IN_STOCK";
+    organizationId: string;
+>>>>>>> 38b35f0 (feat(142): update newsletters)
     productSheetId: string;
-    reason: string;
+    productSheetName: string;
+    productSheetFirstImageUrl?: string | undefined;
+    warehouseId: string;
+    warehouseName: string;
+    createdAt: string;
+    updatedAt: string;
 }
 
-export type response_104_7 = {
-    code: 201;
+export type response_104_6 = {
+    code: 200;
     ok: true;
-    info: "promotion.created";
-} & {body: response_body_104_7};
+    info: "product.edited";
+} & {body: response_body_104_6};
+
+export type request_body_105 = {
+    sku: string;
+}
 
 export type parameters_105 = {
-    query?: ({} & {
-        color?: (string | string[]) | undefined;
-        size?: string | undefined;
-        diameter?: string | undefined;
-        target?: string | undefined;
-        accessory?: any | undefined;
-        material?: (string | string[]) | undefined;
-        stimulation?: (string | string[]) | undefined;
-        promotion?: any | undefined;
-        price?: [
-            number,
-            number
-        ] | undefined;
-        rate?: string | undefined;
-    }) & {
-        search?: string | undefined;
-        searchByRegex?: any;
-        categoryName?: string | undefined;
+    params: {
+        productSheetId: string;
     };
 }
 
-export type response_body_105_0 = string
-
 export type response_105_0 = {
-    code: 200;
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_105_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_105_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_105_3 = {
+    code: 404;
+    ok: false;
+    info: "productSheet.notfound";
+} & {body: undefined};
+
+export type response_105_4 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_105_5 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type response_105_6 = {
+    code: 409;
+    ok: false;
+    info: "product.sku.alreadyUse";
+} & {body: undefined};
+
+export type response_body_105_7 = {
+    sku: string;
+    status: "WRONG" | "SOLD" | "IN_STOCK";
+    organizationId: string;
+    productSheetId: string;
+    productSheetName: string;
+    productSheetFirstImageUrl?: string | undefined;
+    warehouseId: string;
+    warehouseName: string;
+    createdAt: string;
+    updatedAt: string;
+}
+
+export type response_105_7 = {
+    code: 201;
     ok: true;
-    info: "fullProductSheetCount";
-} & {body: response_body_105_0};
+    info: "product.created";
+} & {body: response_body_105_7};
 
 export type parameters_106 = {
     query?: ({} & {
@@ -8998,7 +9595,37 @@ export type parameters_106 = {
     };
 }
 
-export type response_body_106_0 = ({
+export type response_body_106_0 = string
+
+export type response_106_0 = {
+    code: 200;
+    ok: true;
+    info: "fullProductSheetCount";
+} & {body: response_body_106_0};
+
+export type parameters_107 = {
+    query?: ({} & {
+        color?: (string | string[]) | undefined;
+        size?: string | undefined;
+        diameter?: string | undefined;
+        target?: string | undefined;
+        accessory?: any | undefined;
+        material?: (string | string[]) | undefined;
+        stimulation?: (string | string[]) | undefined;
+        promotion?: any | undefined;
+        price?: [
+            number,
+            number
+        ] | undefined;
+        rate?: string | undefined;
+    }) & {
+        search?: string | undefined;
+        searchByRegex?: any;
+        categoryName?: string | undefined;
+    };
+}
+
+export type response_body_107_0 = ({
     type: "CHECKBOX" | "RADIO";
     name: string;
     values: {
@@ -9016,76 +9643,11 @@ export type response_body_106_0 = ({
     max: number;
 })[]
 
-export type response_106_0 = {
+export type response_107_0 = {
     code: 200;
     ok: true;
     info: "filters";
-} & {body: response_body_106_0};
-
-export type parameters_107 = {
-    params: {
-        organizationId: string;
-    };
-    query?: {
-        page?: number;
-    } | undefined;
-}
-
-export type response_107_0 = {
-    code: 401;
-    ok: false;
-    info: "access.token.invalid";
-} & {body: undefined};
-
-export type response_107_1 = {
-    code: 404;
-    ok: false;
-    info: "user.notfound";
-} & {body: undefined};
-
-export type response_107_2 = {
-    code: 401;
-    ok: false;
-    info: "user.deleted";
-} & {body: undefined};
-
-export type response_107_3 = {
-    code: 404;
-    ok: false;
-    info: "organization.notfound";
-} & {body: undefined};
-
-export type response_107_4 = {
-    code: 406;
-    ok: false;
-    info: "organization.hasNotUser";
-} & {body: undefined};
-
-export type response_107_5 = {
-    code: 403;
-    ok: false;
-    info: "user.role.organization.invalid";
-} & {body: undefined};
-
-export type response_body_107_6 = {
-    id: number;
-    percentage: number;
-    startDate?: string;
-    endDate?: string;
-    productSheetName: string;
-    productSheetId: string;
-    reason: string;
-}[]
-
-export type response_107_6 = {
-    code: 200;
-    ok: true;
-    info: "organization.promotions";
-} & {body: response_body_107_6};
-
-export type request_body_108 = {
-    productReturnStatus?: ("INVALID" | "WAITING_RETURN") | undefined;
-}
+} & {body: response_body_107_0};
 
 export type parameters_108 = {
     params: {
@@ -9135,20 +9697,15 @@ export type response_108_6 = {
     info: "productReturn.wrong.status";
 } & {body: undefined};
 
-export type response_body_108_7 = {
-    id: number;
-    productSku: string;
-    reason: string;
-    status: "WAITING_RETURN" | "REFUNDED" | "INVALID";
-    organizationId: string;
-    createdAt?: string;
-}
-
 export type response_108_7 = {
-    code: 200;
+    code: 204;
     ok: true;
-    info: "productReturn.edited";
-} & {body: response_body_108_7};
+    info: "product.refound";
+} & {body: undefined};
+
+export type request_body_109 = {
+    productReturnStatus?: ("INVALID" | "WAITING_RETURN") | undefined;
+}
 
 export type parameters_109 = {
     params: {
@@ -9198,11 +9755,20 @@ export type response_109_6 = {
     info: "productReturn.wrong.status";
 } & {body: undefined};
 
+export type response_body_109_7 = {
+    id: number;
+    productSku: string;
+    reason: string;
+    status: "WAITING_RETURN" | "REFUNDED" | "INVALID";
+    organizationId: string;
+    createdAt?: string;
+}
+
 export type response_109_7 = {
-    code: 204;
+    code: 200;
     ok: true;
-    info: "product.refound";
-} & {body: undefined};
+    info: "productReturn.edited";
+} & {body: response_body_109_7};
 
 export type GetDef<
 	method extends DefEnrichedDuplojsTo["method"],
@@ -9402,6 +9968,7 @@ export type DefEnrichedDuplojsTo = {
 } | {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/full-product-sheets",
 	method: "GET",
 	body: unknown,
@@ -9411,23 +9978,26 @@ export type DefEnrichedDuplojsTo = {
 =======
 	path: "/login",
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	path: "/register",
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	method: "POST",
 	body: request_body_18,
 	parameters: undefined,
 >>>>>>> 15b4030 (feat(142): add newsletters)
 	response: response_18_0
 		| response_18_1
-		| response_18_2,
+		| response_18_2
+		| response_18_3
+		| response_18_4,
 } | {
-	path: "/register",
+	path: "/login",
 	method: "POST",
 	body: request_body_19,
 	parameters: undefined,
 	response: response_19_0
 		| response_19_1
-		| response_19_2
-		| response_19_3
-		| response_19_4,
+		| response_19_2,
 } | {
 <<<<<<< HEAD
 	path: "/register",
@@ -9484,18 +10054,32 @@ export type DefEnrichedDuplojsTo = {
 		| response_21_2
 		| response_21_3,
 } | {
-	path: "/cart",
-	method: "GET",
-	body: unknown,
+	path: "/article",
+	method: "POST",
+	body: request_body_22,
 	parameters: undefined,
 	response: response_22_0
 		| response_22_1
 		| response_22_2
-		| response_22_3,
+		| response_22_3
+		| response_22_4
+		| response_22_5
+		| response_22_6
+		| response_22_7,
+} | {
+	path: "/cart",
+	method: "GET",
+	body: unknown,
+	parameters: undefined,
+	response: response_23_0
+		| response_23_1
+		| response_23_2
+		| response_23_3,
 } | {
 	path: "/image-product-sheet/{imageProductSheetId}",
 	method: "DELETE",
 	body: unknown,
+<<<<<<< HEAD
 	parameters: parameters_23,
 	response: response_23_0
 		| response_23_1
@@ -9510,6 +10094,9 @@ export type DefEnrichedDuplojsTo = {
 	body: request_body_24,
 	parameters: undefined,
 >>>>>>> 15b4030 (feat(142): add newsletters)
+=======
+	parameters: parameters_24,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	response: response_24_0
 		| response_24_1
 		| response_24_2
@@ -9520,6 +10107,7 @@ export type DefEnrichedDuplojsTo = {
 } | {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/cart",
 	method: "GET",
 	body: unknown,
@@ -9528,6 +10116,9 @@ export type DefEnrichedDuplojsTo = {
 =======
 	path: "/article",
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	path: "/make-command",
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	method: "POST",
 	body: request_body_25,
 >>>>>>> 15b4030 (feat(142): add newsletters)
@@ -9546,8 +10137,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_25_3
 		| response_25_4
 		| response_25_5
-		| response_25_6
-		| response_25_7,
+		| response_25_6,
 } | {
 <<<<<<< HEAD
 	path: "/organization/{organizationId}/user",
@@ -9624,6 +10214,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_28_7
 		| response_28_8,
 } | {
+<<<<<<< HEAD
 	path: "/organization/{organizationId}/user/{userId}",
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -9637,19 +10228,22 @@ export type DefEnrichedDuplojsTo = {
 	method: "PATCH",
 	body: request_body_29,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	path: "/user/organizations",
+	method: "GET",
+	body: unknown,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	parameters: parameters_29,
 	response: response_29_0
 		| response_29_1
 		| response_29_2
 		| response_29_3
-		| response_29_4
-		| response_29_5
-		| response_29_6
-		| response_29_7,
+		| response_29_4,
 } | {
 <<<<<<< HEAD
 <<<<<<< HEAD
 	path: "/organization/{organizationId}/user/{userId}",
+<<<<<<< HEAD
 	method: "DELETE",
 =======
 	path: "/user/organizations",
@@ -9660,6 +10254,10 @@ export type DefEnrichedDuplojsTo = {
 	method: "DELETE",
 >>>>>>> 8c76664 (feat(142): add checker)
 	body: unknown,
+=======
+	method: "PATCH",
+	body: request_body_30,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	parameters: parameters_30,
 	response: response_30_0
 		| response_30_1
@@ -9681,13 +10279,31 @@ export type DefEnrichedDuplojsTo = {
 =======
 >>>>>>> 8c76664 (feat(142): add checker)
 } | {
+<<<<<<< HEAD
 	path: "/product-sheet/{productSheetId}/reviews",
 >>>>>>> 15b4030 (feat(142): add newsletters)
 	method: "GET",
+=======
+	path: "/organization/{organizationId}/user/{userId}",
+	method: "DELETE",
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	body: unknown,
 	parameters: parameters_31,
 	response: response_31_0
-		| response_31_1,
+		| response_31_1
+		| response_31_2
+		| response_31_3
+		| response_31_4
+		| response_31_5
+		| response_31_6
+		| response_31_7,
+} | {
+	path: "/product-sheet/{productSheetId}/reviews",
+	method: "GET",
+	body: unknown,
+	parameters: parameters_32,
+	response: response_32_0
+		| response_32_1,
 } | {
 <<<<<<< HEAD
 	path: "/organization/{organizationId}/user",
@@ -9696,6 +10312,7 @@ export type DefEnrichedDuplojsTo = {
 =======
 	path: "/product-sheet/{productSheetId}/reviews",
 	method: "POST",
+<<<<<<< HEAD
 	body: request_body_32,
 >>>>>>> 15b4030 (feat(142): add newsletters)
 	parameters: parameters_32,
@@ -9718,11 +10335,15 @@ export type DefEnrichedDuplojsTo = {
 	method: "GET",
 	body: unknown,
 >>>>>>> 15b4030 (feat(142): add newsletters)
+=======
+	body: request_body_33,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	parameters: parameters_33,
 	response: response_33_0
 		| response_33_1
 		| response_33_2
 		| response_33_3
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_33_4
 		| response_33_5
@@ -9732,6 +10353,11 @@ export type DefEnrichedDuplojsTo = {
 		| response_33_8,
 =======
 		| response_33_4,
+=======
+		| response_33_4
+		| response_33_5
+		| response_33_6,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 } | {
 	path: "/product-sheet-reviews/{productSheetReviewId}",
 	method: "DELETE",
@@ -9756,14 +10382,15 @@ export type DefEnrichedDuplojsTo = {
 		| response_35_5
 		| response_35_6,
 } | {
-	path: "/category",
-	method: "POST",
-	body: request_body_36,
+	path: "/user",
+	method: "GET",
+	body: unknown,
 	parameters: undefined,
 	response: response_36_0
 		| response_36_1
 		| response_36_2
 		| response_36_3
+<<<<<<< HEAD
 		| response_36_4
 		| response_36_5,
 >>>>>>> 8c76664 (feat(142): add checker)
@@ -9790,6 +10417,13 @@ export type DefEnrichedDuplojsTo = {
 	path: "/retry-command",
 	method: "POST",
 	body: request_body_36,
+=======
+		| response_36_4,
+} | {
+	path: "/user",
+	method: "PATCH",
+	body: request_body_37,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	parameters: undefined,
 	response: response_36_0
 		| response_36_1
@@ -9856,17 +10490,22 @@ export type DefEnrichedDuplojsTo = {
 	method: "POST",
 =======
 	path: "/user",
+<<<<<<< HEAD
 	method: "PATCH",
 >>>>>>> 8c76664 (feat(142): add checker)
 	body: request_body_38,
 >>>>>>> 15b4030 (feat(142): add newsletters)
+=======
+	method: "DELETE",
+	body: unknown,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	parameters: undefined,
 	response: response_38_0
 		| response_38_1
 		| response_38_2
-		| response_38_3
-		| response_38_4,
+		| response_38_3,
 } | {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	path: "/user",
@@ -9881,11 +10520,18 @@ export type DefEnrichedDuplojsTo = {
 >>>>>>> 8c76664 (feat(142): add checker)
 	body: unknown,
 >>>>>>> 15b4030 (feat(142): add newsletters)
+=======
+	path: "/category",
+	method: "POST",
+	body: request_body_39,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	parameters: undefined,
 	response: response_39_0
 		| response_39_1
 		| response_39_2
-		| response_39_3,
+		| response_39_3
+		| response_39_4
+		| response_39_5,
 } | {
 <<<<<<< HEAD
 	path: "/user",
@@ -9944,16 +10590,19 @@ export type DefEnrichedDuplojsTo = {
 		| response_42_4
 		| response_42_5,
 } | {
-	path: "/product-sheet-reviews",
-	method: "GET",
+	path: "/category/{categoryName}/image",
+	method: "PUT",
 	body: unknown,
 	parameters: parameters_43,
 	response: response_43_0
 		| response_43_1
 		| response_43_2
 		| response_43_3
-		| response_43_4,
+		| response_43_4
+		| response_43_5
+		| response_43_6,
 } | {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	path: "/full-product-sheets@moderator",
@@ -9972,15 +10621,20 @@ export type DefEnrichedDuplojsTo = {
 	body: request_body_44,
 	parameters: undefined,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	path: "/organization/{organizationId}@admin",
+	method: "PATCH",
+	body: request_body_44,
+	parameters: parameters_44,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	response: response_44_0
 		| response_44_1
 		| response_44_2
 		| response_44_3
 		| response_44_4
-		| response_44_5
-		| response_44_6
-		| response_44_7,
+		| response_44_5,
 } | {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	path: "/product-sheet/{productSheetId}@moderator",
@@ -9996,6 +10650,11 @@ export type DefEnrichedDuplojsTo = {
 	method: "PATCH",
 	body: request_body_45,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	path: "/product-sheet-reviews",
+	method: "GET",
+	body: unknown,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	parameters: parameters_45,
 	response: response_45_0
 		| response_45_1
@@ -10015,22 +10674,40 @@ export type DefEnrichedDuplojsTo = {
 	parameters: parameters_46,
 =======
 		| response_45_3
-		| response_45_4
-		| response_45_5
-		| response_45_6,
+		| response_45_4,
 } | {
-	path: "/navigation-item",
-	method: "POST",
+	path: "/navigation-item/{navigationItemId}",
+	method: "PATCH",
 	body: request_body_46,
+<<<<<<< HEAD
 	parameters: undefined,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	parameters: parameters_46,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	response: response_46_0
 		| response_46_1
 		| response_46_2
 		| response_46_3
 		| response_46_4
 		| response_46_5
+<<<<<<< HEAD
 		| response_46_6,
+=======
+		| response_46_6
+		| response_46_7,
+} | {
+	path: "/navigation-item/{navigationItemId}",
+	method: "DELETE",
+	body: unknown,
+	parameters: parameters_47,
+	response: response_47_0
+		| response_47_1
+		| response_47_2
+		| response_47_3
+		| response_47_4
+		| response_47_5,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 } | {
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -10048,6 +10725,7 @@ export type DefEnrichedDuplojsTo = {
 	body: unknown,
 >>>>>>> 8c76664 (feat(142): add checker)
 	parameters: undefined,
+<<<<<<< HEAD
 >>>>>>> 15b4030 (feat(142): add newsletters)
 	response: response_47_0
 		| response_47_1
@@ -10070,13 +10748,15 @@ export type DefEnrichedDuplojsTo = {
 	method: "GET",
 	body: unknown,
 	parameters: parameters_48,
+=======
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	response: response_48_0
 		| response_48_1
 		| response_48_2
 		| response_48_3
-		| response_48_4
-		| response_48_5,
+		| response_48_4,
 } | {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -10084,6 +10764,11 @@ export type DefEnrichedDuplojsTo = {
 	path: "/organization/{organizationId}@admin",
 	method: "PATCH",
 	body: request_body_49,
+=======
+	path: "/parent-category/{parentCategoryName}/categories",
+	method: "GET",
+	body: unknown,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	parameters: parameters_49,
 <<<<<<< HEAD
 =======
@@ -10103,6 +10788,7 @@ export type DefEnrichedDuplojsTo = {
 } | {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/organization",
 	method: "POST",
 	body: request_body_50,
@@ -10117,15 +10803,20 @@ export type DefEnrichedDuplojsTo = {
 	body: request_body_50,
 	parameters: parameters_50,
 >>>>>>> 15b4030 (feat(142): add newsletters)
+=======
+	path: "/navigation-item",
+	method: "POST",
+	body: request_body_50,
+	parameters: undefined,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	response: response_50_0
 		| response_50_1
 		| response_50_2
 		| response_50_3
 		| response_50_4
-		| response_50_5
-		| response_50_6
-		| response_50_7,
+		| response_50_5,
 } | {
+<<<<<<< HEAD
 <<<<<<< HEAD
 	path: "/organizations",
 	method: "GET",
@@ -10136,6 +10827,9 @@ export type DefEnrichedDuplojsTo = {
 >>>>>>> 15b4030 (feat(142): add newsletters)
 	body: unknown,
 =======
+=======
+	path: "/parent-category/{parentCategoryName}",
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	method: "PATCH",
 	body: request_body_51,
 >>>>>>> 8c76664 (feat(142): add checker)
@@ -10158,13 +10852,18 @@ export type DefEnrichedDuplojsTo = {
 =======
 		| response_51_4
 		| response_51_5
-		| response_51_6
-		| response_51_7,
+		| response_51_6,
 } | {
+<<<<<<< HEAD
 	path: "/navigation-item/{navigationItemId}",
 	method: "DELETE",
 >>>>>>> 8c76664 (feat(142): add checker)
 	body: unknown,
+=======
+	path: "/parent-category/{parentCategoryName}/category",
+	method: "POST",
+	body: request_body_52,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	parameters: parameters_52,
 >>>>>>> 15b4030 (feat(142): add newsletters)
 	response: response_52_0
@@ -10172,8 +10871,11 @@ export type DefEnrichedDuplojsTo = {
 		| response_52_2
 		| response_52_3
 		| response_52_4
-		| response_52_5,
+		| response_52_5
+		| response_52_6
+		| response_52_7,
 } | {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	path: "/navigation-items",
@@ -10189,12 +10891,18 @@ export type DefEnrichedDuplojsTo = {
 	method: "DELETE",
 	body: unknown,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	path: "/user/{userId}@moderator",
+	method: "PATCH",
+	body: request_body_53,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	parameters: parameters_53,
 >>>>>>> 15b4030 (feat(142): add newsletters)
 	response: response_53_0
 		| response_53_1
 		| response_53_2
 		| response_53_3
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_53_4,
 } | {
@@ -10212,12 +10920,21 @@ export type DefEnrichedDuplojsTo = {
 	path: "/parent-category/{parentCategoryName}",
 	method: "PATCH",
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+		| response_53_4
+		| response_53_5
+		| response_53_6,
+} | {
+	path: "/newsletter",
+	method: "POST",
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	body: request_body_54,
-	parameters: parameters_54,
+	parameters: undefined,
 	response: response_54_0
 		| response_54_1
 		| response_54_2
 		| response_54_3
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 		| response_54_4
@@ -10245,6 +10962,14 @@ export type DefEnrichedDuplojsTo = {
 	body: request_body_55,
 	parameters: undefined,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+		| response_54_4,
+} | {
+	path: "/organizations",
+	method: "GET",
+	body: unknown,
+	parameters: parameters_55,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	response: response_55_0
 		| response_55_1
 		| response_55_2
@@ -10262,12 +10987,16 @@ export type DefEnrichedDuplojsTo = {
 		| response_55_4,
 } | {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/user/{userId}@moderator",
 	method: "PATCH",
 	body: request_body_56,
 >>>>>>> 15b4030 (feat(142): add newsletters)
 =======
 	path: "/newsletters",
+=======
+	path: "/parent-categories",
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	method: "GET",
 	body: unknown,
 >>>>>>> 8c76664 (feat(142): add checker)
@@ -10279,18 +11008,24 @@ export type DefEnrichedDuplojsTo = {
 		| response_56_4,
 } | {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/parent-category/{parentCategoryName}/category/{categoryName}",
 	method: "DELETE",
 =======
 	path: "/organizations",
 	method: "GET",
 >>>>>>> 15b4030 (feat(142): add newsletters)
+=======
+	path: "/newsletter/{newsletterId}",
+	method: "DELETE",
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	body: unknown,
 	parameters: parameters_57,
 	response: response_57_0
 		| response_57_1
 		| response_57_2
 		| response_57_3
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_57_4
 		| response_57_5,
@@ -10310,6 +11045,10 @@ export type DefEnrichedDuplojsTo = {
 =======
 		| response_57_4,
 >>>>>>> 15b4030 (feat(142): add newsletters)
+=======
+		| response_57_4
+		| response_57_5,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 } | {
 	path: "/parent-category",
 	method: "POST",
@@ -10322,15 +11061,16 @@ export type DefEnrichedDuplojsTo = {
 		| response_58_4
 		| response_58_5,
 } | {
-	path: "/parent-categories",
-	method: "GET",
+	path: "/parent-category/{parentCategoryName}/category/{categoryName}",
+	method: "DELETE",
 	body: unknown,
 	parameters: parameters_59,
 	response: response_59_0
 		| response_59_1
 		| response_59_2
 		| response_59_3
-		| response_59_4,
+		| response_59_4
+		| response_59_5,
 } | {
 <<<<<<< HEAD
 	path: "/parent-category",
@@ -10401,6 +11141,7 @@ export type DefEnrichedDuplojsTo = {
 } | {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/users",
 =======
 	path: "/commands/{commandId}",
@@ -10410,6 +11151,10 @@ export type DefEnrichedDuplojsTo = {
 	path: "/newsletter/{newsletterId}",
 	method: "DELETE",
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	path: "/commands/{commandId}/bundles",
+	method: "GET",
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	body: unknown,
 	parameters: parameters_64,
 	response: response_64_0
@@ -10418,7 +11163,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_64_3
 		| response_64_4,
 } | {
-	path: "/commands/{commandId}/bundles",
+	path: "/commands/{commandId}",
 	method: "GET",
 	body: unknown,
 	parameters: parameters_65,
@@ -10429,7 +11174,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_65_4
 		| response_65_5,
 } | {
-	path: "/commands/{commandId}",
+	path: "/commands/{commandId}/invoice",
 	method: "GET",
 	body: unknown,
 	parameters: parameters_66,
@@ -10441,10 +11186,14 @@ export type DefEnrichedDuplojsTo = {
 		| response_66_5,
 } | {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/commands/{commandId}",
 =======
 	path: "/organization/{organizationId}/commands",
 >>>>>>> 15b4030 (feat(142): add newsletters)
+=======
+	path: "/organization/{organizationId}/full-product-sheets",
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	method: "GET",
 	body: unknown,
 	parameters: parameters_67,
@@ -10459,19 +11208,25 @@ export type DefEnrichedDuplojsTo = {
 	path: "/commands/{commandId}/invoice",
 =======
 		| response_67_5
-		| response_67_6
-		| response_67_7,
+		| response_67_6,
 } | {
+<<<<<<< HEAD
 	path: "/organization/{organizationId}/full-product-sheets",
 >>>>>>> 15b4030 (feat(142): add newsletters)
 	method: "GET",
 	body: unknown,
+=======
+	path: "/organization/{organizationId}/product-sheet",
+	method: "POST",
+	body: request_body_68,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	parameters: parameters_68,
 	response: response_68_0
 		| response_68_1
 		| response_68_2
 		| response_68_3
 		| response_68_4
+<<<<<<< HEAD
 		| response_68_5,
 } | {
 <<<<<<< HEAD
@@ -10484,6 +11239,14 @@ export type DefEnrichedDuplojsTo = {
 >>>>>>> 15b4030 (feat(142): add newsletters)
 =======
 	path: "/commands/{commandId}/invoice",
+=======
+		| response_68_5
+		| response_68_6
+		| response_68_7
+		| response_68_8,
+} | {
+	path: "/organization/{organizationId}/commands",
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	method: "GET",
 >>>>>>> 8c76664 (feat(142): add checker)
 	body: unknown,
@@ -10493,8 +11256,11 @@ export type DefEnrichedDuplojsTo = {
 		| response_69_2
 		| response_69_3
 		| response_69_4
-		| response_69_5,
+		| response_69_5
+		| response_69_6
+		| response_69_7,
 } | {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	path: "/organization/{organizationId}/logo",
@@ -10511,6 +11277,12 @@ export type DefEnrichedDuplojsTo = {
 	body: unknown,
 >>>>>>> 8c76664 (feat(142): add checker)
 	parameters: parameters_70,
+=======
+	path: "/organization",
+	method: "POST",
+	body: request_body_70,
+	parameters: undefined,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	response: response_70_0
 		| response_70_1
 		| response_70_2
@@ -10520,6 +11292,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_70_6
 		| response_70_7,
 } | {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	path: "/organization/{organizationId}",
@@ -10534,6 +11307,11 @@ export type DefEnrichedDuplojsTo = {
 	method: "POST",
 	body: request_body_71,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	path: "/organization/{organizationId}/product-sheets",
+	method: "GET",
+	body: unknown,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	parameters: parameters_71,
 	response: response_71_0
 		| response_71_1
@@ -10557,14 +11335,18 @@ export type DefEnrichedDuplojsTo = {
 >>>>>>> 15b4030 (feat(142): add newsletters)
 =======
 		| response_71_5
-		| response_71_6
-		| response_71_7
-		| response_71_8,
+		| response_71_6,
 } | {
+<<<<<<< HEAD
 	path: "/organization/{organizationId}/commands/{commandId}/make-bundle",
 	method: "POST",
 	body: request_body_72,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	path: "/organization/{organizationId}/logo",
+	method: "PUT",
+	body: unknown,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	parameters: parameters_72,
 	response: response_72_0
 		| response_72_1
@@ -10573,15 +11355,9 @@ export type DefEnrichedDuplojsTo = {
 		| response_72_4
 		| response_72_5
 		| response_72_6
-		| response_72_7
-		| response_72_8
-		| response_72_9
-		| response_72_10
-		| response_72_11
-		| response_72_12
-		| response_72_13
-		| response_72_14,
+		| response_72_7,
 } | {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	path: "/organization/{organizationId}/full-product-sheets",
@@ -10591,6 +11367,9 @@ export type DefEnrichedDuplojsTo = {
 =======
 	path: "/organization/{organizationId}/product-sheets",
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	path: "/organization/{organizationId}/commands/{commandId}/details",
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	method: "GET",
 	body: unknown,
 	parameters: parameters_73,
@@ -10600,6 +11379,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_73_3
 		| response_73_4
 		| response_73_5
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 		| response_73_6,
@@ -10623,6 +11403,15 @@ export type DefEnrichedDuplojsTo = {
 	method: "GET",
 	body: unknown,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+		| response_73_6
+		| response_73_7
+		| response_73_8,
+} | {
+	path: "/organization/{organizationId}/commands/{commandId}/make-bundle",
+	method: "POST",
+	body: request_body_74,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	parameters: parameters_74,
 	response: response_74_0
 		| response_74_1
@@ -10632,7 +11421,13 @@ export type DefEnrichedDuplojsTo = {
 		| response_74_5
 		| response_74_6
 		| response_74_7
-		| response_74_8,
+		| response_74_8
+		| response_74_9
+		| response_74_10
+		| response_74_11
+		| response_74_12
+		| response_74_13
+		| response_74_14,
 } | {
 <<<<<<< HEAD
 	path: "/organization/{organizationId}/product-returns",
@@ -10756,10 +11551,16 @@ export type DefEnrichedDuplojsTo = {
 		| response_79_8
 		| response_79_9,
 } | {
+<<<<<<< HEAD
 	path: "/category/{categoryName}/image",
 	method: "PUT",
 	body: unknown,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	path: "/organization/{organizationId}/warehouse",
+	method: "POST",
+	body: request_body_80,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	parameters: parameters_80,
 	response: response_80_0
 		| response_80_1
@@ -10767,6 +11568,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_80_3
 		| response_80_4
 		| response_80_5
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 		| response_80_6,
@@ -10789,6 +11591,14 @@ export type DefEnrichedDuplojsTo = {
 	method: "POST",
 	body: request_body_81,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+		| response_80_6
+		| response_80_7,
+} | {
+	path: "/product/{sku}/commands-story",
+	method: "GET",
+	body: unknown,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	parameters: parameters_81,
 	response: response_81_0
 		| response_81_1
@@ -10796,9 +11606,9 @@ export type DefEnrichedDuplojsTo = {
 		| response_81_3
 		| response_81_4
 		| response_81_5
-		| response_81_6
-		| response_81_7,
+		| response_81_6,
 } | {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	path: "/organization/{organizationId}/commands/{commandId}/details",
@@ -10810,6 +11620,11 @@ export type DefEnrichedDuplojsTo = {
 >>>>>>> 8c76664 (feat(142): add checker)
 	method: "GET",
 	body: unknown,
+=======
+	path: "/product-sheet/{productSheetId}/category",
+	method: "POST",
+	body: request_body_82,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	parameters: parameters_82,
 	response: response_82_0
 		| response_82_1
@@ -10817,6 +11632,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_82_3
 		| response_82_4
 		| response_82_5
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_82_6
 		| response_82_7
@@ -10832,6 +11648,13 @@ export type DefEnrichedDuplojsTo = {
 =======
 	path: "/product/{sku}/commands-story",
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+		| response_82_6
+		| response_82_7
+		| response_82_8,
+} | {
+	path: "/product-sheet/{productSheetId}/categories",
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	method: "GET",
 	body: unknown,
 	parameters: parameters_83,
@@ -10843,6 +11666,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_83_5
 		| response_83_6,
 } | {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	path: "/organization/{organizationId}/commands/{commandId}/make-bundle",
@@ -10858,6 +11682,11 @@ export type DefEnrichedDuplojsTo = {
 	method: "POST",
 	body: request_body_84,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	path: "/product-sheet/{productSheetId}/category/{categoryName}",
+	method: "DELETE",
+	body: unknown,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	parameters: parameters_84,
 	response: response_84_0
 		| response_84_1
@@ -10866,6 +11695,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_84_4
 		| response_84_5
 		| response_84_6
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 		| response_84_7
@@ -10890,6 +11720,9 @@ export type DefEnrichedDuplojsTo = {
 =======
 		| response_84_7
 		| response_84_8,
+=======
+		| response_84_7,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 } | {
 	path: "/product-sheet/{productSheetId}/stock-story",
 	method: "GET",
@@ -10918,20 +11751,23 @@ export type DefEnrichedDuplojsTo = {
 =======
 		| response_85_6,
 } | {
+<<<<<<< HEAD
 	path: "/product-sheet/{productSheetId}/category/{categoryName}",
 	method: "DELETE",
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	path: "/newsletters",
+	method: "GET",
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	body: unknown,
 	parameters: parameters_86,
 	response: response_86_0
 		| response_86_1
 		| response_86_2
 		| response_86_3
-		| response_86_4
-		| response_86_5
-		| response_86_6
-		| response_86_7,
+		| response_86_4,
 } | {
+<<<<<<< HEAD
 <<<<<<< HEAD
 	path: "/product/{sku}",
 	method: "PATCH",
@@ -10941,6 +11777,11 @@ export type DefEnrichedDuplojsTo = {
 	method: "GET",
 	body: unknown,
 >>>>>>> 15b4030 (feat(142): add newsletters)
+=======
+	path: "/product-sheet/{productSheetId}/facet",
+	method: "POST",
+	body: request_body_87,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	parameters: parameters_87,
 	response: response_87_0
 		| response_87_1
@@ -10948,8 +11789,10 @@ export type DefEnrichedDuplojsTo = {
 		| response_87_3
 		| response_87_4
 		| response_87_5
-		| response_87_6,
+		| response_87_6
+		| response_87_7,
 } | {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	path: "/product-sheet/{productSheetId}/category/{categoryName}",
@@ -10962,6 +11805,9 @@ export type DefEnrichedDuplojsTo = {
 >>>>>>> 15b4030 (feat(142): add newsletters)
 =======
 	path: "/product-sheet/{productSheetId}",
+=======
+	path: "/product-sheet/{productSheetId}/warehouse",
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	method: "GET",
 	body: unknown,
 >>>>>>> 8c76664 (feat(142): add checker)
@@ -10976,6 +11822,7 @@ export type DefEnrichedDuplojsTo = {
 } | {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/product-sheet/{productSheetId}/category",
 	method: "POST",
 =======
@@ -10983,6 +11830,9 @@ export type DefEnrichedDuplojsTo = {
 =======
 	path: "/product-sheet/{productSheetId}",
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	path: "/product-sheet/{productSheetId}/facet/{facetType}",
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	method: "PATCH",
 >>>>>>> 15b4030 (feat(142): add newsletters)
 	body: request_body_89,
@@ -10993,6 +11843,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_89_3
 		| response_89_4
 		| response_89_5
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_89_6
 		| response_89_7
@@ -11011,6 +11862,13 @@ export type DefEnrichedDuplojsTo = {
 	path: "/product-sheet/{productSheetId}/categories",
 	method: "GET",
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+		| response_89_6
+		| response_89_7,
+} | {
+	path: "/product-sheet/{productSheetId}/facet/{facetType}",
+	method: "DELETE",
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	body: unknown,
 	parameters: parameters_90,
 	response: response_90_0
@@ -11019,8 +11877,10 @@ export type DefEnrichedDuplojsTo = {
 		| response_90_3
 		| response_90_4
 		| response_90_5
-		| response_90_6,
+		| response_90_6
+		| response_90_7,
 } | {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	path: "/product-sheet/{productSheetId}/product",
@@ -11036,6 +11896,11 @@ export type DefEnrichedDuplojsTo = {
 	method: "POST",
 	body: request_body_91,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	path: "/product-sheet/{productSheetId}",
+	method: "GET",
+	body: unknown,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	parameters: parameters_91,
 	response: response_91_0
 		| response_91_1
@@ -11043,9 +11908,9 @@ export type DefEnrichedDuplojsTo = {
 		| response_91_3
 		| response_91_4
 		| response_91_5
-		| response_91_6
-		| response_91_7,
+		| response_91_6,
 } | {
+<<<<<<< HEAD
 <<<<<<< HEAD
 	path: "/product-sheet/{productSheetId}",
 <<<<<<< HEAD
@@ -11055,6 +11920,9 @@ export type DefEnrichedDuplojsTo = {
 =======
 	path: "/product-sheet/{productSheetId}/facet/{facetType}",
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	path: "/product-sheet/{productSheetId}",
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	method: "PATCH",
 	body: request_body_92,
 >>>>>>> 15b4030 (feat(142): add newsletters)
@@ -11065,9 +11933,9 @@ export type DefEnrichedDuplojsTo = {
 		| response_92_3
 		| response_92_4
 		| response_92_5
-		| response_92_6
-		| response_92_7,
+		| response_92_6,
 } | {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	path: "/product-sheet/{productSheetId}",
@@ -11080,6 +11948,10 @@ export type DefEnrichedDuplojsTo = {
 	path: "/product-sheet/{productSheetId}/facet/{facetType}",
 	method: "DELETE",
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	path: "/product-sheet/{productSheetId}/image",
+	method: "POST",
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	body: unknown,
 >>>>>>> 15b4030 (feat(142): add newsletters)
 	parameters: parameters_93,
@@ -11090,7 +11962,8 @@ export type DefEnrichedDuplojsTo = {
 		| response_93_4
 		| response_93_5
 		| response_93_6
-		| response_93_7,
+		| response_93_7
+		| response_93_8,
 } | {
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -11138,6 +12011,7 @@ export type DefEnrichedDuplojsTo = {
 } | {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/product-sheet/{productSheetId}/facets",
 	method: "GET",
 	body: unknown,
@@ -11151,6 +12025,11 @@ export type DefEnrichedDuplojsTo = {
 	method: "POST",
 	body: unknown,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	path: "/warehouse/{warehouseId}",
+	method: "PATCH",
+	body: request_body_96,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	parameters: parameters_96,
 	response: response_96_0
 		| response_96_1
@@ -11164,9 +12043,9 @@ export type DefEnrichedDuplojsTo = {
 	path: "/product-sheet/{productSheetId}/images",
 =======
 		| response_96_6
-		| response_96_7
-		| response_96_8,
+		| response_96_7,
 } | {
+<<<<<<< HEAD
 <<<<<<< HEAD
 	path: "/bundles/{bundleId}/stream",
 >>>>>>> 15b4030 (feat(142): add newsletters)
@@ -11177,16 +12056,20 @@ export type DefEnrichedDuplojsTo = {
 	method: "PATCH",
 	body: request_body_97,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	path: "/bundles/{bundleId}/stream",
+	method: "GET",
+	body: unknown,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	parameters: parameters_97,
 	response: response_97_0
 		| response_97_1
 		| response_97_2
 		| response_97_3
 		| response_97_4
-		| response_97_5
-		| response_97_6
-		| response_97_7,
+		| response_97_5,
 } | {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	path: "/product-sheet/{productSheetId}/image",
@@ -11196,6 +12079,9 @@ export type DefEnrichedDuplojsTo = {
 =======
 	path: "/bundles/{bundleId}/stream",
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	path: "/bundles/{bundleId}",
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	method: "GET",
 >>>>>>> 15b4030 (feat(142): add newsletters)
 	body: unknown,
@@ -11217,12 +12103,16 @@ export type DefEnrichedDuplojsTo = {
 		| response_98_5,
 } | {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/parent-category/{parentCategoryName}",
 	method: "PATCH",
 >>>>>>> 15b4030 (feat(142): add newsletters)
 	body: request_body_99,
 =======
 	path: "/bundles/{bundleId}",
+=======
+	path: "/organization/{organizationId}/warehouses",
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	method: "GET",
 	body: unknown,
 >>>>>>> 8c76664 (feat(142): add checker)
@@ -11232,6 +12122,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_99_2
 		| response_99_3
 		| response_99_4
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_99_5
 		| response_99_6
@@ -11245,6 +12136,10 @@ export type DefEnrichedDuplojsTo = {
 	path: "/organization/{organizationId}/products",
 =======
 		| response_99_5,
+=======
+		| response_99_5
+		| response_99_6,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 } | {
 	path: "/full-product-sheets",
 >>>>>>> 8c76664 (feat(142): add checker)
@@ -11294,8 +12189,8 @@ export type DefEnrichedDuplojsTo = {
 =======
 		| response_100_2,
 } | {
-	path: "/product/{sku}",
-	method: "PATCH",
+	path: "/product-sheet/{productSheetId}/promotions",
+	method: "POST",
 	body: request_body_101,
 	parameters: parameters_101,
 	response: response_101_0
@@ -11304,7 +12199,8 @@ export type DefEnrichedDuplojsTo = {
 		| response_101_3
 		| response_101_4
 		| response_101_5
-		| response_101_6,
+		| response_101_6
+		| response_101_7,
 } | {
 	path: "/organization/{organizationId}/products",
 	method: "GET",
@@ -11326,10 +12222,16 @@ export type DefEnrichedDuplojsTo = {
 		| response_102_5
 		| response_102_6,
 } | {
+<<<<<<< HEAD
 	path: "/product-sheet/{productSheetId}/product",
 	method: "POST",
 	body: request_body_103,
 >>>>>>> 15b4030 (feat(142): add newsletters)
+=======
+	path: "/organization/{organizationId}/promotions",
+	method: "GET",
+	body: unknown,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	parameters: parameters_103,
 	response: response_103_0
 		| response_103_1
@@ -11337,11 +12239,10 @@ export type DefEnrichedDuplojsTo = {
 		| response_103_3
 		| response_103_4
 		| response_103_5
-		| response_103_6
-		| response_103_7,
+		| response_103_6,
 } | {
-	path: "/product-sheet/{productSheetId}/promotions",
-	method: "POST",
+	path: "/product/{sku}",
+	method: "PATCH",
 	body: request_body_104,
 	parameters: parameters_104,
 	response: response_104_0
@@ -11350,8 +12251,20 @@ export type DefEnrichedDuplojsTo = {
 		| response_104_3
 		| response_104_4
 		| response_104_5
-		| response_104_6
-		| response_104_7,
+		| response_104_6,
+} | {
+	path: "/product-sheet/{productSheetId}/product",
+	method: "POST",
+	body: request_body_105,
+	parameters: parameters_105,
+	response: response_105_0
+		| response_105_1
+		| response_105_2
+		| response_105_3
+		| response_105_4
+		| response_105_5
+		| response_105_6
+		| response_105_7,
 } | {
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -11377,6 +12290,7 @@ export type DefEnrichedDuplojsTo = {
 	path: "/full-product-sheets-count",
 	method: "GET",
 	body: unknown,
+<<<<<<< HEAD
 	parameters: parameters_105,
 	response: response_105_0,
 >>>>>>> 8c76664 (feat(142): add checker)
@@ -11384,13 +12298,16 @@ export type DefEnrichedDuplojsTo = {
 	path: "/computed-filters",
 	method: "GET",
 	body: unknown,
+=======
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	parameters: parameters_106,
 	response: response_106_0,
 } | {
-	path: "/organization/{organizationId}/promotions",
+	path: "/computed-filters",
 	method: "GET",
 	body: unknown,
 	parameters: parameters_107,
+<<<<<<< HEAD
 	response: response_107_0
 		| response_107_1
 		| response_107_2
@@ -11404,10 +12321,13 @@ export type DefEnrichedDuplojsTo = {
 =======
 		| response_107_6,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	response: response_107_0,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 } | {
-	path: "/product-returns/{productReturnId}",
-	method: "PATCH",
-	body: request_body_108,
+	path: "/product-returns/{productReturnId}/refound",
+	method: "POST",
+	body: unknown,
 	parameters: parameters_108,
 	response: response_108_0
 		| response_108_1
@@ -11418,9 +12338,9 @@ export type DefEnrichedDuplojsTo = {
 		| response_108_6
 		| response_108_7,
 } | {
-	path: "/product-returns/{productReturnId}/refound",
-	method: "POST",
-	body: unknown,
+	path: "/product-returns/{productReturnId}",
+	method: "PATCH",
+	body: request_body_109,
 	parameters: parameters_109,
 	response: response_109_0
 		| response_109_1
@@ -11717,7 +12637,7 @@ export interface EnrichedDuploTo<
 		parameters ?: parameters_18 & BaseRequestParameters,
 =======
 	post(
-		path: "/login", 
+		path: "/register", 
 		body: request_body_18,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 >>>>>>> 15b4030 (feat(142): add newsletters)
@@ -11726,10 +12646,12 @@ export interface EnrichedDuploTo<
 		response_18_0
 		| response_18_1
 		| response_18_2
+		| response_18_3
+		| response_18_4
 	>
 
 	post(
-		path: "/register", 
+		path: "/login", 
 		body: request_body_19,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
@@ -11737,8 +12659,6 @@ export interface EnrichedDuploTo<
 		response_19_0
 		| response_19_1
 		| response_19_2
-		| response_19_3
-		| response_19_4
 	>
 
 <<<<<<< HEAD
@@ -11786,8 +12706,9 @@ export interface EnrichedDuploTo<
 		| response_21_3
 	>
 
-	get(
-		path: "/cart", 
+	post(
+		path: "/article", 
+		body: request_body_22,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 >>>>>>> 15b4030 (feat(142): add newsletters)
 		interceptorParams?: interceptorParameter
@@ -11796,6 +12717,7 @@ export interface EnrichedDuploTo<
 		| response_22_1
 		| response_22_2
 		| response_22_3
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_22_4
 	>
@@ -11812,27 +12734,36 @@ export interface EnrichedDuploTo<
 		path: "/commands", 
 		parameters ?: parameters_24 & BaseRequestParameters,
 =======
+=======
+		| response_22_4
+		| response_22_5
+		| response_22_6
+		| response_22_7
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	>
 
-	delete(
-		path: "/image-product-sheet/{imageProductSheetId}", 
-		parameters : parameters_23 & BaseRequestParameters,
+	get(
+		path: "/cart", 
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_23_0
 		| response_23_1
 		| response_23_2
 		| response_23_3
-		| response_23_4
-		| response_23_5
-		| response_23_6
 	>
 
+<<<<<<< HEAD
 	post(
 		path: "/make-command", 
 		body: request_body_24,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 >>>>>>> 15b4030 (feat(142): add newsletters)
+=======
+	delete(
+		path: "/image-product-sheet/{imageProductSheetId}", 
+		parameters : parameters_24 & BaseRequestParameters,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_24_0
@@ -11849,7 +12780,7 @@ export interface EnrichedDuploTo<
 		path: "/cart", 
 =======
 	post(
-		path: "/article", 
+		path: "/make-command", 
 		body: request_body_25,
 >>>>>>> 15b4030 (feat(142): add newsletters)
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
@@ -11870,7 +12801,6 @@ export interface EnrichedDuploTo<
 		| response_25_4
 		| response_25_5
 		| response_25_6
-		| response_25_7
 	>
 
 <<<<<<< HEAD
@@ -11954,6 +12884,7 @@ export interface EnrichedDuploTo<
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	patch(
 		path: "/organization/{organizationId}/user/{userId}", 
 		body: request_body_29,
@@ -11967,6 +12898,11 @@ export interface EnrichedDuploTo<
 		body: request_body_29,
 >>>>>>> 8c76664 (feat(142): add checker)
 		parameters : parameters_29 & BaseRequestParameters,
+=======
+	get(
+		path: "/user/organizations", 
+		parameters ?: parameters_29 & BaseRequestParameters,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_29_0
@@ -11974,15 +12910,17 @@ export interface EnrichedDuploTo<
 		| response_29_2
 		| response_29_3
 		| response_29_4
-		| response_29_5
-		| response_29_6
-		| response_29_7
 	>
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	delete(
+=======
+	patch(
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		path: "/organization/{organizationId}/user/{userId}", 
+		body: request_body_30,
 		parameters : parameters_30 & BaseRequestParameters,
 =======
 	get(
@@ -12008,6 +12946,7 @@ export interface EnrichedDuploTo<
 		| response_30_7
 	>
 
+<<<<<<< HEAD
 	get(
 		path: "/user/organizations", 
 		parameters ?: parameters_31 & BaseRequestParameters,
@@ -12021,14 +12960,25 @@ export interface EnrichedDuploTo<
 
 	get(
 		path: "/product-sheet/{productSheetId}/reviews", 
+=======
+	delete(
+		path: "/organization/{organizationId}/user/{userId}", 
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		parameters : parameters_31 & BaseRequestParameters,
 >>>>>>> 15b4030 (feat(142): add newsletters)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_31_0
 		| response_31_1
+		| response_31_2
+		| response_31_3
+		| response_31_4
+		| response_31_5
+		| response_31_6
+		| response_31_7
 	>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 	get(
 		path: "/organization/{organizationId}/user", 
@@ -12037,11 +12987,16 @@ export interface EnrichedDuploTo<
 		path: "/product-sheet/{productSheetId}/reviews", 
 		body: request_body_32,
 >>>>>>> 15b4030 (feat(142): add newsletters)
+=======
+	get(
+		path: "/product-sheet/{productSheetId}/reviews", 
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		parameters : parameters_32 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_32_0
 		| response_32_1
+<<<<<<< HEAD
 		| response_32_2
 		| response_32_3
 		| response_32_4
@@ -12066,6 +13021,14 @@ export interface EnrichedDuploTo<
 		path: "/user/organizations", 
 		parameters ?: parameters_33 & BaseRequestParameters,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	>
+
+	post(
+		path: "/product-sheet/{productSheetId}/reviews", 
+		body: request_body_33,
+		parameters : parameters_33 & BaseRequestParameters,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_33_0
@@ -12073,6 +13036,7 @@ export interface EnrichedDuploTo<
 		| response_33_2
 		| response_33_3
 		| response_33_4
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_33_5
 		| response_33_6
@@ -12110,6 +13074,10 @@ export interface EnrichedDuploTo<
 		body: request_body_36,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 =======
+=======
+		| response_33_5
+		| response_33_6
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	>
 
 	delete(
@@ -12155,9 +13123,8 @@ export interface EnrichedDuploTo<
 		| response_35_6
 	>
 
-	post(
-		path: "/category", 
-		body: request_body_36,
+	get(
+		path: "/user", 
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -12166,11 +13133,11 @@ export interface EnrichedDuploTo<
 		| response_36_2
 		| response_36_3
 		| response_36_4
-		| response_36_5
 	>
 
-	get(
+	patch(
 		path: "/user", 
+		body: request_body_37,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -12181,6 +13148,7 @@ export interface EnrichedDuploTo<
 		| response_37_4
 	>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	get(
@@ -12194,6 +13162,10 @@ export interface EnrichedDuploTo<
 >>>>>>> 8c76664 (feat(142): add checker)
 		body: request_body_38,
 >>>>>>> 15b4030 (feat(142): add newsletters)
+=======
+	delete(
+		path: "/user", 
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -12201,9 +13173,9 @@ export interface EnrichedDuploTo<
 		| response_38_1
 		| response_38_2
 		| response_38_3
-		| response_38_4
 	>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	patch(
@@ -12217,6 +13189,11 @@ export interface EnrichedDuploTo<
 	delete(
 		path: "/user", 
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	post(
+		path: "/category", 
+		body: request_body_39,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -12224,6 +13201,8 @@ export interface EnrichedDuploTo<
 		| response_39_1
 		| response_39_2
 		| response_39_3
+		| response_39_4
+		| response_39_5
 	>
 
 <<<<<<< HEAD
@@ -12291,9 +13270,10 @@ export interface EnrichedDuploTo<
 		| response_42_5
 	>
 
-	get(
-		path: "/product-sheet-reviews", 
-		parameters ?: parameters_43 & BaseRequestParameters,
+	put(
+		path: "/category/{categoryName}/image", 
+		body: unknown,
+		parameters : parameters_43 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_43_0
@@ -12301,8 +13281,11 @@ export interface EnrichedDuploTo<
 		| response_43_2
 		| response_43_3
 		| response_43_4
+		| response_43_5
+		| response_43_6
 	>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 	get(
 <<<<<<< HEAD
@@ -12318,6 +13301,12 @@ export interface EnrichedDuploTo<
 		body: request_body_44,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	patch(
+		path: "/organization/{organizationId}@admin", 
+		body: request_body_44,
+		parameters : parameters_44 & BaseRequestParameters,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_44_0
@@ -12326,10 +13315,9 @@ export interface EnrichedDuploTo<
 		| response_44_3
 		| response_44_4
 		| response_44_5
-		| response_44_6
-		| response_44_7
 	>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	patch(
@@ -12347,6 +13335,11 @@ export interface EnrichedDuploTo<
 		body: request_body_45,
 		parameters : parameters_45 & BaseRequestParameters,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	get(
+		path: "/product-sheet-reviews", 
+		parameters ?: parameters_45 & BaseRequestParameters,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_45_0
@@ -12367,15 +13360,17 @@ export interface EnrichedDuploTo<
 		parameters : parameters_46 & BaseRequestParameters,
 =======
 		| response_45_4
-		| response_45_5
-		| response_45_6
 	>
 
-	post(
-		path: "/navigation-item", 
+	patch(
+		path: "/navigation-item/{navigationItemId}", 
 		body: request_body_46,
+<<<<<<< HEAD
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+		parameters : parameters_46 & BaseRequestParameters,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_46_0
@@ -12385,6 +13380,7 @@ export interface EnrichedDuploTo<
 		| response_46_4
 		| response_46_5
 		| response_46_6
+<<<<<<< HEAD
 	>
 
 <<<<<<< HEAD
@@ -12402,6 +13398,14 @@ export interface EnrichedDuploTo<
 >>>>>>> 8c76664 (feat(142): add checker)
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 >>>>>>> 15b4030 (feat(142): add newsletters)
+=======
+		| response_46_7
+	>
+
+	delete(
+		path: "/navigation-item/{navigationItemId}", 
+		parameters : parameters_47 & BaseRequestParameters,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_47_0
@@ -12411,6 +13415,7 @@ export interface EnrichedDuploTo<
 		| response_47_4
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 		| response_47_5
 		| response_47_6
@@ -12418,11 +13423,14 @@ export interface EnrichedDuploTo<
 >>>>>>> 15b4030 (feat(142): add newsletters)
 =======
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+		| response_47_5
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	>
 
 	get(
-		path: "/parent-category/{parentCategoryName}/categories", 
-		parameters : parameters_48 & BaseRequestParameters,
+		path: "/navigation-items", 
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_48_0
@@ -12430,9 +13438,9 @@ export interface EnrichedDuploTo<
 		| response_48_2
 		| response_48_3
 		| response_48_4
-		| response_48_5
 	>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -12440,6 +13448,10 @@ export interface EnrichedDuploTo<
 	patch(
 		path: "/organization/{organizationId}@admin", 
 		body: request_body_49,
+=======
+	get(
+		path: "/parent-category/{parentCategoryName}/categories", 
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		parameters : parameters_49 & BaseRequestParameters,
 <<<<<<< HEAD
 =======
@@ -12470,11 +13482,17 @@ export interface EnrichedDuploTo<
 		path: "/navigation-item/{navigationItemId}", 
 =======
 	post(
+<<<<<<< HEAD
 		path: "/parent-category/{parentCategoryName}/category", 
 >>>>>>> 8c76664 (feat(142): add checker)
 		body: request_body_50,
 		parameters : parameters_50 & BaseRequestParameters,
 >>>>>>> 15b4030 (feat(142): add newsletters)
+=======
+		path: "/navigation-item", 
+		body: request_body_50,
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_50_0
@@ -12483,8 +13501,6 @@ export interface EnrichedDuploTo<
 		| response_50_3
 		| response_50_4
 		| response_50_5
-		| response_50_6
-		| response_50_7
 	>
 
 <<<<<<< HEAD
@@ -12496,8 +13512,12 @@ export interface EnrichedDuploTo<
 	delete(
 =======
 	patch(
+<<<<<<< HEAD
 >>>>>>> 8c76664 (feat(142): add checker)
 		path: "/navigation-item/{navigationItemId}", 
+=======
+		path: "/parent-category/{parentCategoryName}", 
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		body: request_body_51,
 		parameters : parameters_51 & BaseRequestParameters,
 >>>>>>> 15b4030 (feat(142): add newsletters)
@@ -12522,12 +13542,17 @@ export interface EnrichedDuploTo<
 =======
 		| response_51_5
 		| response_51_6
-		| response_51_7
 	>
 
+<<<<<<< HEAD
 	delete(
 		path: "/navigation-item/{navigationItemId}", 
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	post(
+		path: "/parent-category/{parentCategoryName}/category", 
+		body: request_body_52,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		parameters : parameters_52 & BaseRequestParameters,
 >>>>>>> 15b4030 (feat(142): add newsletters)
 		interceptorParams?: interceptorParameter
@@ -12538,8 +13563,11 @@ export interface EnrichedDuploTo<
 		| response_52_3
 		| response_52_4
 		| response_52_5
+		| response_52_6
+		| response_52_7
 	>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	get(
@@ -12553,6 +13581,11 @@ export interface EnrichedDuploTo<
 	delete(
 		path: "/parent-category/{parentCategoryName}/category/{categoryName}", 
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	patch(
+		path: "/user/{userId}@moderator", 
+		body: request_body_53,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		parameters : parameters_53 & BaseRequestParameters,
 >>>>>>> 15b4030 (feat(142): add newsletters)
 		interceptorParams?: interceptorParameter
@@ -12562,6 +13595,7 @@ export interface EnrichedDuploTo<
 		| response_53_2
 		| response_53_3
 		| response_53_4
+<<<<<<< HEAD
 <<<<<<< HEAD
 	>
 
@@ -12579,8 +13613,16 @@ export interface EnrichedDuploTo<
 	patch(
 		path: "/parent-category/{parentCategoryName}", 
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+		| response_53_5
+		| response_53_6
+	>
+
+	post(
+		path: "/newsletter", 
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		body: request_body_54,
-		parameters : parameters_54 & BaseRequestParameters,
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_54_0
@@ -12588,6 +13630,7 @@ export interface EnrichedDuploTo<
 		| response_54_2
 		| response_54_3
 		| response_54_4
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 		| response_54_5
@@ -12615,6 +13658,13 @@ export interface EnrichedDuploTo<
 		body: request_body_55,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	>
+
+	get(
+		path: "/organizations", 
+		parameters ?: parameters_55 & BaseRequestParameters,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_55_0
@@ -12641,7 +13691,7 @@ export interface EnrichedDuploTo<
 		parameters : parameters_56 & BaseRequestParameters,
 =======
 	get(
-		path: "/newsletters", 
+		path: "/parent-categories", 
 		parameters ?: parameters_56 & BaseRequestParameters,
 >>>>>>> 8c76664 (feat(142): add checker)
 		interceptorParams?: interceptorParameter
@@ -12654,6 +13704,7 @@ export interface EnrichedDuploTo<
 	>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	delete(
 		path: "/parent-category/{parentCategoryName}/category/{categoryName}", 
 		parameters : parameters_57 & BaseRequestParameters,
@@ -12662,6 +13713,11 @@ export interface EnrichedDuploTo<
 		path: "/organizations", 
 		parameters ?: parameters_57 & BaseRequestParameters,
 >>>>>>> 15b4030 (feat(142): add newsletters)
+=======
+	delete(
+		path: "/newsletter/{newsletterId}", 
+		parameters : parameters_57 & BaseRequestParameters,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_57_0
@@ -12669,6 +13725,7 @@ export interface EnrichedDuploTo<
 		| response_57_2
 		| response_57_3
 		| response_57_4
+		| response_57_5
 	>
 
 <<<<<<< HEAD
@@ -12707,9 +13764,9 @@ export interface EnrichedDuploTo<
 >>>>>>> 8c76664 (feat(142): add checker)
 	>
 
-	get(
-		path: "/parent-categories", 
-		parameters ?: parameters_59 & BaseRequestParameters,
+	delete(
+		path: "/parent-category/{parentCategoryName}/category/{categoryName}", 
+		parameters : parameters_59 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_59_0
@@ -12717,6 +13774,7 @@ export interface EnrichedDuploTo<
 		| response_59_2
 		| response_59_3
 		| response_59_4
+		| response_59_5
 	>
 
 <<<<<<< HEAD
@@ -12797,6 +13855,7 @@ export interface EnrichedDuploTo<
 	>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	get(
 <<<<<<< HEAD
 		path: "/users", 
@@ -12809,6 +13868,11 @@ export interface EnrichedDuploTo<
 		path: "/newsletter/{newsletterId}", 
 		parameters : parameters_64 & BaseRequestParameters,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	get(
+		path: "/commands/{commandId}/bundles", 
+		parameters ?: parameters_64 & BaseRequestParameters,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_64_0
@@ -12819,7 +13883,7 @@ export interface EnrichedDuploTo<
 	>
 
 	get(
-		path: "/commands/{commandId}/bundles", 
+		path: "/commands/{commandId}", 
 		parameters ?: parameters_65 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -12832,7 +13896,7 @@ export interface EnrichedDuploTo<
 	>
 
 	get(
-		path: "/commands/{commandId}", 
+		path: "/commands/{commandId}/invoice", 
 		parameters ?: parameters_66 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -12846,10 +13910,14 @@ export interface EnrichedDuploTo<
 
 	get(
 <<<<<<< HEAD
+<<<<<<< HEAD
 		path: "/commands/{commandId}", 
 		parameters ?: parameters_67 & BaseRequestParameters,
 =======
 		path: "/organization/{organizationId}/commands", 
+=======
+		path: "/organization/{organizationId}/full-product-sheets", 
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		parameters : parameters_67 & BaseRequestParameters,
 >>>>>>> 15b4030 (feat(142): add newsletters)
 		interceptorParams?: interceptorParameter
@@ -12868,11 +13936,11 @@ export interface EnrichedDuploTo<
 		parameters ?: parameters_68 & BaseRequestParameters,
 =======
 		| response_67_6
-		| response_67_7
 	>
 
-	get(
-		path: "/organization/{organizationId}/full-product-sheets", 
+	post(
+		path: "/organization/{organizationId}/product-sheet", 
+		body: request_body_68,
 		parameters : parameters_68 & BaseRequestParameters,
 >>>>>>> 15b4030 (feat(142): add newsletters)
 		interceptorParams?: interceptorParameter
@@ -12883,6 +13951,12 @@ export interface EnrichedDuploTo<
 		| response_68_3
 		| response_68_4
 		| response_68_5
+<<<<<<< HEAD
+=======
+		| response_68_6
+		| response_68_7
+		| response_68_8
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	>
 
 <<<<<<< HEAD
@@ -12897,9 +13971,14 @@ export interface EnrichedDuploTo<
 		parameters : parameters_69 & BaseRequestParameters,
 =======
 	get(
+<<<<<<< HEAD
 		path: "/commands/{commandId}/invoice", 
 		parameters ?: parameters_69 & BaseRequestParameters,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+		path: "/organization/{organizationId}/commands", 
+		parameters : parameters_69 & BaseRequestParameters,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_69_0
@@ -12908,8 +13987,11 @@ export interface EnrichedDuploTo<
 		| response_69_3
 		| response_69_4
 		| response_69_5
+		| response_69_6
+		| response_69_7
 	>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	put(
@@ -12926,6 +14008,12 @@ export interface EnrichedDuploTo<
 		body: unknown,
 >>>>>>> 8c76664 (feat(142): add checker)
 		parameters : parameters_70 & BaseRequestParameters,
+=======
+	post(
+		path: "/organization", 
+		body: request_body_70,
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_70_0
@@ -12940,6 +14028,7 @@ export interface EnrichedDuploTo<
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	get(
 		path: "/organization/{organizationId}", 
 =======
@@ -12951,6 +14040,10 @@ export interface EnrichedDuploTo<
 		path: "/organization/{organizationId}/product-sheet", 
 		body: request_body_71,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	get(
+		path: "/organization/{organizationId}/product-sheets", 
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		parameters : parameters_71 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -12976,14 +14069,18 @@ export interface EnrichedDuploTo<
 >>>>>>> 15b4030 (feat(142): add newsletters)
 =======
 		| response_71_6
-		| response_71_7
-		| response_71_8
 	>
 
+<<<<<<< HEAD
 	post(
 		path: "/organization/{organizationId}/commands/{commandId}/make-bundle", 
 		body: request_body_72,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	put(
+		path: "/organization/{organizationId}/logo", 
+		body: unknown,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		parameters : parameters_72 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -12995,16 +14092,10 @@ export interface EnrichedDuploTo<
 		| response_72_5
 		| response_72_6
 		| response_72_7
-		| response_72_8
-		| response_72_9
-		| response_72_10
-		| response_72_11
-		| response_72_12
-		| response_72_13
-		| response_72_14
 	>
 
 	get(
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 		path: "/organization/{organizationId}/full-product-sheets", 
@@ -13014,6 +14105,9 @@ export interface EnrichedDuploTo<
 =======
 		path: "/organization/{organizationId}/product-sheets", 
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+		path: "/organization/{organizationId}/commands/{commandId}/details", 
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		parameters : parameters_73 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -13024,6 +14118,7 @@ export interface EnrichedDuploTo<
 		| response_73_4
 		| response_73_5
 		| response_73_6
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	>
@@ -13045,6 +14140,15 @@ export interface EnrichedDuploTo<
 	get(
 		path: "/organization/{organizationId}/commands/{commandId}/details", 
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+		| response_73_7
+		| response_73_8
+	>
+
+	post(
+		path: "/organization/{organizationId}/commands/{commandId}/make-bundle", 
+		body: request_body_74,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		parameters : parameters_74 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -13057,6 +14161,12 @@ export interface EnrichedDuploTo<
 		| response_74_6
 		| response_74_7
 		| response_74_8
+		| response_74_9
+		| response_74_10
+		| response_74_11
+		| response_74_12
+		| response_74_13
+		| response_74_14
 	>
 
 	get(
@@ -13191,10 +14301,16 @@ export interface EnrichedDuploTo<
 		| response_79_9
 	>
 
+<<<<<<< HEAD
 	put(
 		path: "/category/{categoryName}/image", 
 		body: unknown,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	post(
+		path: "/organization/{organizationId}/warehouse", 
+		body: request_body_80,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		parameters : parameters_80 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -13205,6 +14321,7 @@ export interface EnrichedDuploTo<
 		| response_80_4
 		| response_80_5
 		| response_80_6
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	>
@@ -13227,6 +14344,13 @@ export interface EnrichedDuploTo<
 		path: "/organization/{organizationId}/warehouse", 
 		body: request_body_81,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+		| response_80_7
+	>
+
+	get(
+		path: "/product/{sku}/commands-story", 
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		parameters : parameters_81 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -13237,9 +14361,9 @@ export interface EnrichedDuploTo<
 		| response_81_4
 		| response_81_5
 		| response_81_6
-		| response_81_7
 	>
 
+<<<<<<< HEAD
 	get(
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -13250,6 +14374,11 @@ export interface EnrichedDuploTo<
 =======
 		path: "/organization/{organizationId}/warehouses", 
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	post(
+		path: "/product-sheet/{productSheetId}/category", 
+		body: request_body_82,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		parameters : parameters_82 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -13261,11 +14390,15 @@ export interface EnrichedDuploTo<
 		| response_82_5
 		| response_82_6
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		| response_82_7
 		| response_82_8
 	>
 
 	get(
+<<<<<<< HEAD
 		path: "/organization/{organizationId}/promotions", 
 =======
 	>
@@ -13277,6 +14410,9 @@ export interface EnrichedDuploTo<
 =======
 		path: "/product/{sku}/commands-story", 
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+		path: "/product-sheet/{productSheetId}/categories", 
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		parameters : parameters_83 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -13291,6 +14427,7 @@ export interface EnrichedDuploTo<
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	post(
 		path: "/organization/{organizationId}/commands/{commandId}/make-bundle", 
 		body: request_body_84,
@@ -13303,6 +14440,10 @@ export interface EnrichedDuploTo<
 		path: "/product-sheet/{productSheetId}/category", 
 		body: request_body_84,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	delete(
+		path: "/product-sheet/{productSheetId}/category/{categoryName}", 
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		parameters : parameters_84 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -13314,6 +14455,7 @@ export interface EnrichedDuploTo<
 		| response_84_5
 		| response_84_6
 		| response_84_7
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 		| response_84_8
@@ -13336,6 +14478,8 @@ export interface EnrichedDuploTo<
 >>>>>>> 15b4030 (feat(142): add newsletters)
 =======
 		| response_84_8
+=======
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	>
 
 	get(
@@ -13368,10 +14512,16 @@ export interface EnrichedDuploTo<
 =======
 	>
 
+<<<<<<< HEAD
 	delete(
 		path: "/product-sheet/{productSheetId}/category/{categoryName}", 
 >>>>>>> 8c76664 (feat(142): add checker)
 		parameters : parameters_86 & BaseRequestParameters,
+=======
+	get(
+		path: "/newsletters", 
+		parameters ?: parameters_86 & BaseRequestParameters,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_86_0
@@ -13379,11 +14529,9 @@ export interface EnrichedDuploTo<
 		| response_86_2
 		| response_86_3
 		| response_86_4
-		| response_86_5
-		| response_86_6
-		| response_86_7
 	>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 	patch(
 		path: "/product/{sku}", 
@@ -13392,6 +14540,11 @@ export interface EnrichedDuploTo<
 	get(
 		path: "/product-sheet/{productSheetId}/warehouse", 
 >>>>>>> 15b4030 (feat(142): add newsletters)
+=======
+	post(
+		path: "/product-sheet/{productSheetId}/facet", 
+		body: request_body_87,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		parameters : parameters_87 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -13402,6 +14555,7 @@ export interface EnrichedDuploTo<
 		| response_87_4
 		| response_87_5
 		| response_87_6
+		| response_87_7
 	>
 
 <<<<<<< HEAD
@@ -13415,8 +14569,12 @@ export interface EnrichedDuploTo<
 >>>>>>> 15b4030 (feat(142): add newsletters)
 =======
 	get(
+<<<<<<< HEAD
 		path: "/product-sheet/{productSheetId}", 
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+		path: "/product-sheet/{productSheetId}/warehouse", 
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		parameters : parameters_88 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -13435,11 +14593,15 @@ export interface EnrichedDuploTo<
 =======
 	patch(
 <<<<<<< HEAD
+<<<<<<< HEAD
 		path: "/product-sheet/{productSheetId}/facet/{facetType}", 
 >>>>>>> 15b4030 (feat(142): add newsletters)
 =======
 		path: "/product-sheet/{productSheetId}", 
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+		path: "/product-sheet/{productSheetId}/facet/{facetType}", 
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		body: request_body_89,
 		parameters : parameters_89 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
@@ -13451,6 +14613,7 @@ export interface EnrichedDuploTo<
 		| response_89_4
 		| response_89_5
 		| response_89_6
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_89_7
 		| response_89_8
@@ -13469,6 +14632,13 @@ export interface EnrichedDuploTo<
 	get(
 		path: "/product-sheet/{productSheetId}/categories", 
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+		| response_89_7
+	>
+
+	delete(
+		path: "/product-sheet/{productSheetId}/facet/{facetType}", 
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		parameters : parameters_90 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -13479,8 +14649,10 @@ export interface EnrichedDuploTo<
 		| response_90_4
 		| response_90_5
 		| response_90_6
+		| response_90_7
 	>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	post(
@@ -13495,6 +14667,10 @@ export interface EnrichedDuploTo<
 		path: "/product-sheet/{productSheetId}/facet", 
 		body: request_body_91,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	get(
+		path: "/product-sheet/{productSheetId}", 
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		parameters : parameters_91 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -13505,7 +14681,6 @@ export interface EnrichedDuploTo<
 		| response_91_4
 		| response_91_5
 		| response_91_6
-		| response_91_7
 	>
 
 <<<<<<< HEAD
@@ -13513,7 +14688,7 @@ export interface EnrichedDuploTo<
 		path: "/product-sheet/{productSheetId}", 
 =======
 	patch(
-		path: "/product-sheet/{productSheetId}/facet/{facetType}", 
+		path: "/product-sheet/{productSheetId}", 
 		body: request_body_92,
 >>>>>>> 15b4030 (feat(142): add newsletters)
 		parameters : parameters_92 & BaseRequestParameters,
@@ -13526,9 +14701,9 @@ export interface EnrichedDuploTo<
 		| response_92_4
 		| response_92_5
 		| response_92_6
-		| response_92_7
 	>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	patch(
@@ -13542,6 +14717,11 @@ export interface EnrichedDuploTo<
 	delete(
 		path: "/product-sheet/{productSheetId}/facet/{facetType}", 
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	post(
+		path: "/product-sheet/{productSheetId}/image", 
+		body: unknown,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		parameters : parameters_93 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -13553,6 +14733,7 @@ export interface EnrichedDuploTo<
 		| response_93_5
 		| response_93_6
 		| response_93_7
+		| response_93_8
 	>
 
 <<<<<<< HEAD
@@ -13604,6 +14785,7 @@ export interface EnrichedDuploTo<
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	get(
 		path: "/product-sheet/{productSheetId}/facets", 
 =======
@@ -13616,6 +14798,11 @@ export interface EnrichedDuploTo<
 		path: "/product-sheet/{productSheetId}/image", 
 		body: unknown,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	patch(
+		path: "/warehouse/{warehouseId}", 
+		body: request_body_96,
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		parameters : parameters_96 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -13633,9 +14820,9 @@ export interface EnrichedDuploTo<
 		path: "/product-sheet/{productSheetId}/images", 
 =======
 		| response_96_7
-		| response_96_8
 	>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 	get(
 		path: "/bundles/{bundleId}/stream", 
@@ -13645,6 +14832,10 @@ export interface EnrichedDuploTo<
 		path: "/warehouse/{warehouseId}", 
 		body: request_body_97,
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+	get(
+		path: "/bundles/{bundleId}/stream", 
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		parameters : parameters_97 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -13654,8 +14845,6 @@ export interface EnrichedDuploTo<
 		| response_97_3
 		| response_97_4
 		| response_97_5
-		| response_97_6
-		| response_97_7
 	>
 
 <<<<<<< HEAD
@@ -13665,11 +14854,15 @@ export interface EnrichedDuploTo<
 =======
 	get(
 <<<<<<< HEAD
+<<<<<<< HEAD
 		path: "/bundles/{bundleId}", 
 >>>>>>> 15b4030 (feat(142): add newsletters)
 =======
 		path: "/bundles/{bundleId}/stream", 
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+		path: "/bundles/{bundleId}", 
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		parameters : parameters_98 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -13697,8 +14890,12 @@ export interface EnrichedDuploTo<
 		body: request_body_99,
 =======
 	get(
+<<<<<<< HEAD
 		path: "/bundles/{bundleId}", 
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+		path: "/organization/{organizationId}/warehouses", 
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		parameters : parameters_99 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -13709,10 +14906,14 @@ export interface EnrichedDuploTo<
 		| response_99_4
 		| response_99_5
 <<<<<<< HEAD
+<<<<<<< HEAD
 		| response_99_6
 		| response_99_7
 =======
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+		| response_99_6
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	>
 
 <<<<<<< HEAD
@@ -13754,8 +14955,8 @@ export interface EnrichedDuploTo<
 =======
 	>
 
-	patch(
-		path: "/product/{sku}", 
+	post(
+		path: "/product-sheet/{productSheetId}/promotions", 
 		body: request_body_101,
 		parameters : parameters_101 & BaseRequestParameters,
 >>>>>>> 8c76664 (feat(142): add checker)
@@ -13773,6 +14974,7 @@ export interface EnrichedDuploTo<
 		| response_101_5
 		| response_101_6
 <<<<<<< HEAD
+<<<<<<< HEAD
 		| response_101_7
 	>
 
@@ -13786,6 +14988,9 @@ export interface EnrichedDuploTo<
 		body: request_body_102,
 >>>>>>> 15b4030 (feat(142): add newsletters)
 =======
+=======
+		| response_101_7
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	>
 
 	get(
@@ -13809,10 +15014,15 @@ export interface EnrichedDuploTo<
 		| response_102_6
 	>
 
+<<<<<<< HEAD
 	post(
 		path: "/product-sheet/{productSheetId}/product", 
 		body: request_body_103,
 >>>>>>> 15b4030 (feat(142): add newsletters)
+=======
+	get(
+		path: "/organization/{organizationId}/promotions", 
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		parameters : parameters_103 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -13823,11 +15033,10 @@ export interface EnrichedDuploTo<
 		| response_103_4
 		| response_103_5
 		| response_103_6
-		| response_103_7
 	>
 
-	post(
-		path: "/product-sheet/{productSheetId}/promotions", 
+	patch(
+		path: "/product/{sku}", 
 		body: request_body_104,
 		parameters : parameters_104 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
@@ -13839,7 +15048,22 @@ export interface EnrichedDuploTo<
 		| response_104_4
 		| response_104_5
 		| response_104_6
-		| response_104_7
+	>
+
+	post(
+		path: "/product-sheet/{productSheetId}/product", 
+		body: request_body_105,
+		parameters : parameters_105 & BaseRequestParameters,
+		interceptorParams?: interceptorParameter
+	): EnrichedRequestor<
+		response_105_0
+		| response_105_1
+		| response_105_2
+		| response_105_3
+		| response_105_4
+		| response_105_5
+		| response_105_6
+		| response_105_7
 	>
 
 <<<<<<< HEAD
@@ -13867,6 +15091,7 @@ export interface EnrichedDuploTo<
 =======
 	get(
 		path: "/full-product-sheets-count", 
+<<<<<<< HEAD
 		parameters ?: parameters_105 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -13876,6 +15101,8 @@ export interface EnrichedDuploTo<
 
 	get(
 		path: "/computed-filters", 
+=======
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 		parameters ?: parameters_106 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -13883,11 +15110,12 @@ export interface EnrichedDuploTo<
 	>
 
 	get(
-		path: "/organization/{organizationId}/promotions", 
-		parameters : parameters_107 & BaseRequestParameters,
+		path: "/computed-filters", 
+		parameters ?: parameters_107 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_107_0
+<<<<<<< HEAD
 		| response_107_1
 		| response_107_2
 		| response_107_3
@@ -13899,11 +15127,13 @@ export interface EnrichedDuploTo<
 >>>>>>> 15b4030 (feat(142): add newsletters)
 =======
 >>>>>>> 8c76664 (feat(142): add checker)
+=======
+>>>>>>> 38b35f0 (feat(142): update newsletters)
 	>
 
-	patch(
-		path: "/product-returns/{productReturnId}", 
-		body: request_body_108,
+	post(
+		path: "/product-returns/{productReturnId}/refound", 
+		body: unknown,
 		parameters : parameters_108 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -13917,9 +15147,9 @@ export interface EnrichedDuploTo<
 		| response_108_7
 	>
 
-	post(
-		path: "/product-returns/{productReturnId}/refound", 
-		body: unknown,
+	patch(
+		path: "/product-returns/{productReturnId}", 
+		body: request_body_109,
 		parameters : parameters_109 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<

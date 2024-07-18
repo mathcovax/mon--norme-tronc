@@ -23,7 +23,7 @@ const {
 const cols: BigTableColDef<Newsletter>[] = [
 	{
 		title: $pt("table.label.title"),
-		getter: i => i.title
+		getter: i => i.object
 	},
 	{
 		title: $pt("table.label.createdAt"),
@@ -41,11 +41,11 @@ async function submitNewsletter() {
 	if (!formField) {
 		return;
 	}
-	
+
 	const result = await duploTo.enriched
 		.post(
 			"/newsletter",
-			{ title: formField.title, content: formField.content }
+			{ object: formField.object, content: formField.content, sendAt: formField.sendAt }
 		)
 		.result;
 
@@ -108,6 +108,19 @@ function previous() {
 					/>
 				</template>
 
+				<template #sendAt="{ modelValue, onUpdate }">
+					<input
+						class="
+							rounded-md border border-input bg-background px-3 py-2 text-sm
+							placeholder:text-muted-foreground
+							focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
+						"
+						type="datetime-local"
+						:value="modelValue"
+						@change="(event: Event) => onUpdate((event.target as HTMLInputElement).value)"
+					>
+				</template>
+
 				<PrimaryButton
 					type="submit"
 					class="col-span-12"
@@ -120,7 +133,7 @@ function previous() {
 				<PrimaryInput
 					class="max-w-[300px]"
 					:placeholder="$pt('table.searchPlaceholder')"
-					v-model="newslettersQuery.title"
+					v-model="newslettersQuery.object"
 				/>
 
 				<BigTable

@@ -7,18 +7,20 @@ export const POST = (method: Methods, path: string) =>
 		.declareRoute(method, path)
 		.extract({
 			body: zod.object({
-				title: zod.string().max(255).min(3),
+				object: zod.string().max(255).min(3),
 				content: zod.string(),
+				sendAt: zod.coerce.date()
 			}).strip()
 		})
 		.handler(
 			async ({ pickup }) => {
-				const { title, content } = pickup("body");
+				const { object, content, sendAt } = pickup("body");
 
 				const newsletter = await prisma.newsletter.create({
 					data: {
-						title,
+						object,
 						content,
+						sendAt
 					}
 				});
 

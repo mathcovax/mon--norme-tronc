@@ -17,7 +17,7 @@ describe("GET /newsletters", () => {
 			.setRequestProperties({
 				query: {
 					page: 2,
-					title: "title"
+					object: "title"
 				}
 			})
 			.launch();
@@ -25,7 +25,7 @@ describe("GET /newsletters", () => {
 		expect(res.information).toBe("newsletters");
 		expect(spy).lastCalledWith({
 			where: {
-				title: {
+				object: {
 					contains: "title",
 					mode: "insensitive"
 				}

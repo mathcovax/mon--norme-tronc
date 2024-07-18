@@ -8,19 +8,19 @@ export const GET = (method: Methods, path: string) =>
 		.extract({
 			query: {
 				page: zod.coerce.number().default(0),
-				title: zod.string().optional(),
+				object: zod.string().optional(),
 			}
 		})
 		.handler(
 			async ({ pickup }) => {
 				const page = pickup("page");
-				const title = pickup("title");
+				const object = pickup("object");
 
 				const newsletters = await prisma.newsletter.findMany({
 					where: {
-						title: title
+						object: object
 							? {
-								contains: title,
+								contains: object,
 								mode: "insensitive"
 							}
 							: undefined,

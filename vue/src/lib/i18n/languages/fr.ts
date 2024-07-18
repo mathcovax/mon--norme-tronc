@@ -345,8 +345,9 @@ export default {
 			form: {
 				title: "Créer une newsletter",
 				label: {
-					title: "Titre",
+					object: "Titre",
 					content: "Contenu",
+					sendAt: "Date d'envoi",
 				}
 			},
 			table: {
@@ -661,6 +662,7 @@ export default {
 			blobToLarge: "L'image est supérieure à {value} Mo.",
 			minItems: "Vous devez selectionner minimume {value} éléments.",
 			url: "Doit être sous la forme /path/to/page",
+			minDate: "Doit être après le {value}.",
 		}
 	},
 	label: {
