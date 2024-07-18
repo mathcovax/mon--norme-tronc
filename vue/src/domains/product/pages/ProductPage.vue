@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { marked } from "marked";
-import type { FullProductSheet, Notifications, ProductSheetReview } from "@/lib/utils";
+import type { FullProductSheet, ProductSheetReview } from "@/lib/utils";
 import ProductSlider from "../components/ProductSlider.vue";
 import TheRate from "../components/TheRate.vue";
 import ProductSheetQuantity from "../components/ProductSheetQuantity.vue";
@@ -42,7 +42,7 @@ function getProductData() {
 		.result;
 }
 
-async function toggleSubscription(type: Notifications["type"]) {
+async function toggleSubscription(type: "PRODUCT_PROMOTION" | "PRODUCT_RESTOCK") {
 	const subscribedNotification = subscribedNotifications.value.find((n) => n.type === type);
 
 	if (subscribedNotification) {

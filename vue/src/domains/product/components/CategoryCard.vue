@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Category, Notifications } from "@/lib/utils";
+import type { Category } from "@/lib/utils";
 import { useGetSubscribedNotifications } from "../composables/useGetSusbcribedNotifications";
 
 const { CATEGORY_PAGE } = routerPageName;
@@ -10,20 +10,18 @@ const props = defineProps<{
 
 const { subscribedNotifications, getSubscribedNotifications } = useGetSubscribedNotifications();
 
-async function toggleSubscription(type: Notifications["type"]) {
-	const subscribedNotification = subscribedNotifications.value.find((n) => n.type === type);
-
-	if (subscribedNotification) {
+async function toggleSubscription() {
+	if (subscribedNotifications.value.length !== 0) {
 		await duploTo.enriched
 			.delete(
 				"/product-notifications/{notificationId}",
-				{ params: { notificationId: subscribedNotification.id } }
+				{ params: { notificationId: subscribedNotifications.value[0].id } }
 			);
 	} else {
 		duploTo.enriched
 			.post(
 				"/product-notifications",
-				{ categoryName: props.category.name, type }
+				{ categoryName: props.category.name, type: "NEW_PRODUCT_IN_CATEGORY" }
 			);
 	}
 	getSubscribedNotifications(null, props.category.name);
@@ -70,7 +68,7 @@ getSubscribedNotifications(null, props.category.name);
 							type="checkbox"
 							class="sr-only peer"
 							:checked="subscribedNotifications.some(({ type }) => type === 'NEW_PRODUCT_IN_CATEGORY')"
-							@click="toggleSubscription('NEW_PRODUCT_IN_CATEGORY')"
+							@click="toggleSubscription()"
 						>
 
 						<div class="w-11 h-6 bg-gray-200 dark:bg-light-gray peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-slate-950" />
