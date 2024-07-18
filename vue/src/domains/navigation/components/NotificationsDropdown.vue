@@ -82,7 +82,7 @@ getUserNotifications(page.value, false);
 				class="rounded-full"
 			>
 				<TheIcon
-					:icon="showPellet ? 'bell' : 'bell-outline'"
+					:icon="showPellet ? 'bell-ring' : 'bell-outline'"
 					:class="showPellet ? 'text-yellow-500' : ''"
 					size="2xl"
 				/>
