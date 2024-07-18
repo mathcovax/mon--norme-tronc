@@ -103,6 +103,14 @@ model category_to_parent_category {
     @@unique([categoryName, parentCategoryName])
 }
 
+model newsletter {
+	id			String		@id @default(uuid())
+	object   	String   	@db.VarChar(255)
+	content   	String   	@db.Text
+	createdAt 	DateTime 	@default(now())
+	sendAt    	DateTime	@default(now())
+}
+
 model product_sheet {
     id               String                      @id @default(uuid())
     ref              String                      @db.VarChar(20)

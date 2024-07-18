@@ -76,6 +76,11 @@ export type ParentCategory = GetResponseByInfo<
   "parentCategories"
 >["body"][number];
 
+export type Newsletter = GetResponseByInfo<
+  GetDef<"GET", "/newsletters">,
+  "newsletters"
+>["body"][number];
+
 export type OrganizationUser = GetResponseByInfo<
   GetDef<"GET", "/organization/{organizationId}/users">,
   "organization.users"

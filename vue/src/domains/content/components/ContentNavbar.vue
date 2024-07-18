@@ -3,7 +3,8 @@ const {
 	CONTENT_PANEL_HOME,
 	CONTENT_PANEL_NAVIGATION_BAR,
 	CONTENT_PANEL_PARENT_CATEGORIES,
-	CONTENT_PANEL_CATEGORIES
+	CONTENT_PANEL_CATEGORIES,
+	CONTENT_PANEL_NEWSLETTERS
 } = routerPageName;
 const route = useRoute();
 </script>
@@ -88,6 +89,23 @@ const route = useRoute();
 							size="2xl"
 						/>
 						{{ $t("layout.content.nav.categories") }}
+					</RouterLink>
+
+					<RouterLink
+						:to="{ name: CONTENT_PANEL_NEWSLETTERS }"
+						class="px-3 py-2 flex items-center gap-3 rounded-lg transition-all hover:text-primary"
+						:class="
+							route.name === CONTENT_PANEL_NEWSLETTERS ?
+								'bg-muted text-primary'
+								:
+								'text-muted-foreground'
+						"
+					>
+						<TheIcon
+							icon="text-box-multiple-outline"
+							size="2xl"
+						/>
+						{{ $t("layout.content.nav.newsletters") }}
 					</RouterLink>
 				</nav>
 			</div>

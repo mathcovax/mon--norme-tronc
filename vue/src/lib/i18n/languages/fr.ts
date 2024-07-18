@@ -340,6 +340,28 @@ export default {
 				content: "Si vous validez, cet élément de la barre de navigation sera supprimé définitivement."
 			}
 		},
+		[routerPageName.CONTENT_PANEL_NEWSLETTERS]: {
+			title: "Liste des newsletters",
+			form: {
+				title: "Créer une newsletter",
+				label: {
+					object: "Titre",
+					content: "Contenu",
+					sendAt: "Date d'envoi",
+				}
+			},
+			table: {
+				searchPlaceholder: "Chercher un titre",
+				label: {
+					title: "Titre",
+					createdAt: "Date de création",
+				},
+			},
+			popup: {
+				title: "Voulez-vous vraiment supprimer cette newsletter ?",
+				content: "Si vous validez, cette newsletter sera supprimée définitivement."
+			}
+		},
 		notFound: {
 			title: "404 - Page introuvable",
 			description: "La page que vous cherchez n'existe pas.",
@@ -582,6 +604,7 @@ export default {
 				navbar: "Barre de navigation",
 				parentCategories: "Catégories parent",
 				categories: "Catégories",
+				newsletters: "Newsletters",
 			},
 			dropdown: {
 				management: "Gestion",
@@ -639,6 +662,7 @@ export default {
 			blobToLarge: "L'image est supérieure à {value} Mo.",
 			minItems: "Vous devez selectionner minimume {value} éléments.",
 			url: "Doit être sous la forme /path/to/page",
+			minDate: "Doit être après le {value}.",
 		}
 	},
 	label: {
