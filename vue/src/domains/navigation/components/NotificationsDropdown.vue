@@ -42,13 +42,13 @@ getUserNotifications(page.value);
 			class="w-full max-w-100"
 		>
 			<DropdownMenuLabel>
-				{{ $t("layout.default.header.dropdown.notifications") }}
+				{{ $t("layout.default.header.dropdown.notifications.title") }}
 			</DropdownMenuLabel>
 
 			<DropdownMenuSeparator />
 
-			<ScrollArea class="h-96">
-				<div class="flex flex-col gap-4 mb-6">
+			<ScrollArea class="h-96 min-w-96">
+				<div class="flex flex-col gap-4 p-2 mb-6">
 					<DropdownMenuItem
 						v-for="(notification, index) in fullNotifications"
 						:key="index"
@@ -70,7 +70,17 @@ getUserNotifications(page.value);
 								:to="notification.redirect"
 								class="text-blue-500"
 							>
-								Voir le produit
+								<span
+									v-if="notification.type === 'PRODUCT_NO_STOCK'"
+								>
+									{{ $t("layout.default.header.dropdown.notifications.links.productNoStock") }}
+								</span>
+
+								<span
+									v-else
+								>
+									{{ $t("layout.default.header.dropdown.notifications.links.default") }}
+								</span>
 							</RouterLink>
 
 							<p
@@ -90,8 +100,15 @@ getUserNotifications(page.value);
 						class="self-center"
 						@click="getUserNotifications(++page)"
 					>
-						Voir plus
+						{{ $t("layout.default.header.dropdown.notifications.seeMore") }}
 					</PrimaryButton>
+
+					<span
+						v-else-if="fullNotifications.length === 0"
+						class="self-center text-sm text-gray-500"
+					>
+						{{ $t("layout.default.header.dropdown.notifications.noNotifications") }}
+					</span>
 				</div>
 
 				<ScrollBar orientation="vertical" />

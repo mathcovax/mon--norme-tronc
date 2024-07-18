@@ -45,7 +45,7 @@ for await (const product of productPutStockGenerator) {
 
 		const notification = await fullNotificationsModel.findOne({
 			userId: storeKeeperUser.userId,
-			type: "PRODUCT_PUT_STOCK",
+			type: "PRODUCT_NO_STOCK",
 			createdAt: {
 				$gte: todayAtMidnight,
 				$lte: tomorrowAtMidnight
@@ -60,7 +60,7 @@ for await (const product of productPutStockGenerator) {
 			title: `Stock faible pour le produit ${product.name}`,
 			subtitle: `Le produit ${product.name} a un stock de ${product.quantity} unités !`,
 			redirect: `/organization-panel/${storeKeeperUser.organizationId}/products`,
-			type: "PRODUCT_PUT_STOCK",
+			type: "PRODUCT_NO_STOCK",
 			imageUrl: product.images[0],
 			userId: storeKeeperUser.userId,
 			createdAt: new Date()

@@ -541,7 +541,15 @@ export default {
 					content: "Contenu",
 					login: "Connexion",
 					logout: "Déconnexion",
-					notifications: "Notification(s)",
+					notifications: {
+						title: "Notification(s)",
+						seeMore: "Voir plus",
+						noNotifications: "Aucune notification.",
+						links: {
+							default: "Voir le produit",
+							productNoStock: "Rajouter du stock",
+						}
+					},
 				},
 			},
 			footer: {
