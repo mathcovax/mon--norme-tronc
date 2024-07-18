@@ -61,6 +61,20 @@ export const POST = (method: Methods, path: string) =>
 		.cut(
 			({ pickup }) => {
 				const product = pickup("product");
+				const organization = pickup("organization");
+				
+				if (product.organizationId !== organization.id) {
+					throw new NotAcceptableHttpException("product.wrong.organization");
+				}
+
+				return {};
+			},
+			[],
+			new IHaveSentThis(NotAcceptableHttpException.code, "product.wrong.organization")
+		)
+		.cut(
+			({ pickup }) => {
+				const product = pickup("product");
 				
 				if (product.status !== "SOLD") {
 					throw new NotAcceptableHttpException("product.wrong.status");
@@ -96,11 +110,35 @@ export const POST = (method: Methods, path: string) =>
 				const organization = pickup("organization");
 				const { reason } = pickup("body");
 				
+				const command = await prisma.product.findUniqueOrThrow({
+					where: { sku: product.sku },
+					include: {
+						productToBundles: {
+							select: {
+								bundle: {
+									select: {
+										command: true
+									}
+								}
+							},
+							take: 1,
+							orderBy: {
+								createdAt: "desc"
+							}
+						}
+					}
+				}).then(
+					product => product.productToBundles[0].bundle.command
+				).catch(() => {
+					throw new Error("missing command");
+				});
+
 				const productReturn = await prisma.product_return.create({
 					data: {
 						productSku: product.sku,
 						organizationId: organization.id,
 						reason,
+						commandId: command.id
 					}
 				});
 

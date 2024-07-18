@@ -4,6 +4,7 @@ import { FullCommandSchema } from "@schemas/command";
 import { sessionSchema } from "@schemas/session";
 import { mustBeConnected } from "@security/mustBeConnected";
 import { CartService } from "@services/cart";
+import { formatPrice } from "@utils/formatPrice";
 import { uuidv7 } from "uuidv7";
 
 /* METHOD : POST, PATH : /make-command */
@@ -91,7 +92,7 @@ export const POST = (method: Methods, path: string) =>
 								product_data: {
 									name: fps.name,
 								},
-								unit_amount: Number((fps.price * 100).toFixed(0))
+								unit_amount: formatPrice(fps.price * 100)
 							},
 							quantity: aic.quantity,
 						}),
@@ -141,11 +142,11 @@ export const POST = (method: Methods, path: string) =>
 							userId: user.id,
 							deliveryAddress: address,
 							createdDate: new Date(),
-							price: Number(
+							price: formatPrice(
 								commandItemsAndFps.reduce(
 									(pv, [ci, fps]) => pv + (ci.quantity * fps.price), 
 									0
-								).toFixed(2)
+								)
 							),
 							items: commandItemsAndFps.map(([commandItem, fps]) => ({
 								quantity: commandItem.quantity,
