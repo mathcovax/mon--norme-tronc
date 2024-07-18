@@ -32,7 +32,7 @@ export const fullCommandModel = model(
 
 const fullNotificationsMongooseSchema = zodToMongooseSchema(fullNotificationSchema);
 export const fullNotificationsModel = model(
-	"UserNotification",
+	"FullNotification",
 	fullNotificationsMongooseSchema	
 );
 

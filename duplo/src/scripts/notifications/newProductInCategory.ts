@@ -59,6 +59,7 @@ for await (const newProductInCategory of newProductInCategoryGenerator) {
 			redirect: `/product/${newProductInCategory.productSheetId}`,
 			imageUrl: newProductInCategory.category.imageUrl ?? "",
 			userId: subscribeNotification.userId,
+			type: "NEW_PRODUCT_IN_CATEGORY",
 			createdAt: new Date()
 		};
 		await promiseList.append(

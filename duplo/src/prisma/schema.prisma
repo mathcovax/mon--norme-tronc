@@ -33,7 +33,7 @@ model user {
     emailNotifcationsProductStock         Boolean                         @default(true)
     emailNotifcationsPromotion            Boolean                         @default(true)
     emailNotifcationsNewProductInCategory Boolean                         @default(true)
-    deleted                               Boolean
+    deleted                               Boolean                         @default(false)
     subscribeProductNotifications         subscribeProductNotifications[]
     lastPullData                          DateTime                        @default(now())
     createdAt                             DateTime                        @default(now())
@@ -385,4 +385,5 @@ enum notification_type {
     PRODUCT_PROMOTION
     NEW_PRODUCT_IN_CATEGORY
     PRODUCT_RESTOCK
+    PRODUCT_PUT_STOCK
 }

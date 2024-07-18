@@ -15,9 +15,10 @@
 		"indexing:productSheet": "tsx src/scripts/indexingProductSheet",
 		"readNotifications": "tsx src/scripts/readNotifications",
 		"followBundle": "tsx src/scripts/followBundle",
-		"notification:promotion": "tsx src/scripts/notifications/productPromotion",
-		"notification:restock": "tsx src/scripts/notifications/productRestock",
-		"notification:productInCategory": "tsx src/scripts/notifications/newProductInCategory",
+		"notification:productPromotion": "tsx src/scripts/notifications/productPromotion",
+		"notification:productRestock": "tsx src/scripts/notifications/productRestock",
+		"notification:newProductInCategory": "tsx src/scripts/notifications/newProductInCategory",
+		"notification:productNoStock": "tsx src/scripts/notifications/productNoStock",
 		"computeProductStock": "tsx src/scripts/computeProductStock",
 		"fixture": "tsx src/fixtures"
 	},

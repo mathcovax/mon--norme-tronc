@@ -70,6 +70,7 @@ for await (const product of productGenerator) {
 			imageUrl: productSheet.images[0]?.url,
 			redirect: `/product/${product.productSheetId}`,
 			userId: subscribeNotification.userId,
+			type: "PRODUCT_RESTOCK",
 			createdAt: new Date()
 		};
 		await promiseList.append(

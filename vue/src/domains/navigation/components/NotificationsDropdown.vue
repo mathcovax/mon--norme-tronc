@@ -70,7 +70,7 @@ getUserNotifications(page.value);
 								:to="notification.redirect"
 								class="text-blue-500"
 							>
-								Voir plus
+								Voir le produit
 							</RouterLink>
 
 							<p

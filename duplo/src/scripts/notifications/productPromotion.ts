@@ -62,6 +62,7 @@ for await (const promotion of promotionGenerator) {
 			imageUrl: promotion.productSheet.images[0]?.url,
 			redirect: `/product/${promotion.productSheetId}`,
 			userId: subscribeNotification.userId,
+			type: "PRODUCT_PROMOTION",
 			createdAt: new Date()
 		};
 		await promiseList.append(
