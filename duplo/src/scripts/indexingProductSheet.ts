@@ -142,6 +142,8 @@ for await (const productSheet of productSheetGenerator) {
 				avgRate: Math.round(groupReview?.avgRate ?? -1).toString(),
 				countRate: groupReview?.countRate ?? 0,
 				status: productSheet.status,
+				variationGroup: productSheet.variationGroup ?? undefined,
+				variationName: productSheet.variationName ?? undefined,
 			};
 		}).then(
 			fullProductSheet => fullProductSheetModel.findOneAndUpdate(
@@ -150,6 +152,54 @@ for await (const productSheet of productSheetGenerator) {
 				{ new: true, upsert: true }
 			)
 		)
+	);
+}
+
+await promiseList.clear();
+
+const fullProductSheetGenerator = FindSlice(
+	500,
+	(slice, size) => fullProductSheetModel.aggregate<FullProductSheetSchema>([
+		{ 
+			$match: { 
+				variationGroup: { $exists: true }, 
+				variationName: { $exists: true }, 
+			} 
+		},
+		{ $skip: slice * size },
+		{ $limit: size }
+	])
+);
+
+for await (const fullProductSheet of fullProductSheetGenerator) {
+	if (
+		!fullProductSheet.variationGroup || 
+		!fullProductSheet.variationName
+	) {
+		continue;
+	}
+	
+	await promiseList.append(
+		fullProductSheetModel.aggregate<FullProductSheetSchema>([
+			{ 
+				$match: {
+					"organization.id": fullProductSheet.organization.id,
+					variationGroup: fullProductSheet.variationGroup, 
+					variationName: { $exists: true }, 
+				} 
+			},
+		]).then((fullProductSheets) => fullProductSheetModel.updateOne(
+			{ id: fullProductSheet.id },
+			{
+				$set: {
+					variations: fullProductSheets.map(fps => ({
+						firstImageUrl: fps.images[0] ?? "",
+						name: fps.variationName ?? "",
+						productSheetId: fps.id,
+					})) satisfies FullProductSheetSchema["variations"]
+				}
+			}
+		))
 	);
 }
 

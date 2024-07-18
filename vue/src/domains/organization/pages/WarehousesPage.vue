@@ -174,6 +174,7 @@ watch(searchName, () => getWarehouses(0, searchName.value));
 		<ThePopup
 			ref="popup"
 			class="max-w-[500px] w-[80%]"
+			@close="resetWarehouseForm()"
 		>
 			<template #popupContent>
 				<WarehouseForm

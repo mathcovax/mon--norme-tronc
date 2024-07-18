@@ -12,6 +12,7 @@ defineProps<Props>();
 		<img
 			:src="url"
 			:alt="alt"
+			class="w-full"
 		>
 	</div>
 </template>

@@ -37,6 +37,8 @@ async function submit() {
 				shortDescription: formFields.shortDescription,
 				price: formFields.price,
 				warehouseId: formFields.warehouse,
+				variationGroup: formFields.variationGroup,
+				variationName: formFields.variationName,
 			},
 			{ params: { productSheetId: params.value.productSheetId } }
 		)

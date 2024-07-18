@@ -16,5 +16,7 @@ export const productSheetSchema = zod.object({
 	createdAt: zod.coerce.string(),
 	updatedAt: zod.coerce.string(),
 	organizationId: zod.string(),
+	variationGroup: zod.string().nullable(),
+	variationName: zod.string().nullable(),
 	warehouseId: zod.string(),
 });

@@ -11,18 +11,12 @@ defineProps<{
 		:visible-items="1"
 		class="TheCarousel relative w-full h-full"
 	>
-		<CarouselContent class="CarouselContent h-full">
-			<CarouselItem class="CarouselItem h-full">
-				<img
-					:src="imageUrl.item"
-					alt="product-image"
-					class="w-full h-full object-cover"
-				>
-			</CarouselItem>
-		</CarouselContent>
-
-		<CarouselPrevious />
-
-		<CarouselNext />
+		<div class="CarouselItem h-full flex items-center">
+			<ProductImage
+				:url="imageUrl.item"
+				alt="product-image"
+				class="w-full"
+			/>
+		</div>
 	</TheCarousel>
 </template>

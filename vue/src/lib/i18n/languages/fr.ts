@@ -101,6 +101,8 @@ export default {
 				comments: "Commentaires",
 			},
 			relatedProducts: "Produits similaires",
+			noStock: "Plus en Stock.",
+			lte10: "Plus que {value} !",
 		},
 		[routerPageName.USER_CART]: {
 			title: "Mon panier",
@@ -276,6 +278,8 @@ export default {
 				addImage: "Ajouter une image",
 				warehouseLabel: "Entrepôt",
 				warehousePlaceholder: "Entrer un entrepôt",
+				variationGroup: "Groupe de variation",
+				variationName: "Nom de la variation",
 				facet: {
 					add: "Ajouter une Facet",
 				}
