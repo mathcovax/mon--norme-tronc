@@ -1,3 +1,4 @@
+import { newsletterExistCheck } from "@checkers/newsletter";
 import { hasPrimordialRole } from "@security/hasPrimordialRole";
 
 /* METHOD : DELETE, PATH : /newsletter/{newsletterId} */
@@ -9,6 +10,14 @@ export const DELETE = (method: Methods, path: string) =>
 				newsletterId: zod.string(),
 			}
 		})
+		.check(
+			newsletterExistCheck,
+			{
+				input: p => p("newsletterId"),
+				...newsletterExistCheck.preCompletions.mustExist
+			},
+			new IHaveSentThis(NotFoundHttpException.code, "newsletter.notfound")
+		)
 		.handler(
 			async ({ pickup }) => {
 				const newsletterId = pickup("newsletterId");
