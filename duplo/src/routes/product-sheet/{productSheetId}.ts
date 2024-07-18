@@ -11,13 +11,15 @@ export const PATCH = (method: Methods, path: string) =>
 				description: zod.string().optional(),
 				shortDescription: zod.string().min(3).max(255).optional(),
 				price: zod.number().min(0.01).optional(),
+				variationGroup: zod.string().min(3).max(30).optional(),
+				variationName: zod.string().min(3).max(30).optional(),
 				warehouseId: zod.string().optional(),
 			}).strip().default({}),
 		})
 		.handler(
 			async ({ pickup }) => {
 				const { id: productSheetId } = pickup("productSheet");
-				const { name, description, shortDescription, price, warehouseId } = pickup("body");
+				const { name, description, shortDescription, price, warehouseId, variationGroup, variationName } = pickup("body");
 				const productSheet = await prisma.product_sheet.update({
 					where: {
 						id: productSheetId,
@@ -28,6 +30,8 @@ export const PATCH = (method: Methods, path: string) =>
 						shortDescription,
 						price,
 						warehouseId,
+						variationGroup,
+						variationName,
 						status: "UNVERIFIED",
 					},
 				});

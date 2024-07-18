@@ -40,6 +40,12 @@ export const PATCH = (method: Methods, path: string) =>
 				if (status === "REMOVE") {
 					await fullProductSheetModel.deleteOne({ id: productSheetId });
 				}
+				else {
+					await fullProductSheetModel.updateOne(
+						{ id: productSheetId },
+						{ $set: { status } },
+					);
+				}
 
 				throw new CreatedHttpException("productSheet.edited", productSheet);
 			},

@@ -38,6 +38,14 @@ export const fullProductSheetSchema = zod.object({
 		STIMULATION: zod.string().optional(),
 		TARGET: zod.string().optional(),
 	}),
+	variationGroup: zod.string().optional(),
+	variationName: zod.string().optional(),
+	variations: zod.object({
+		firstImageUrl: zod.string(),
+		name: zod.string(),
+		productSheetId: zod.string(),
+	}).array().optional()
+
 });
 
 export type FullProductSheetSchema = Zod.infer<typeof fullProductSheetSchema>

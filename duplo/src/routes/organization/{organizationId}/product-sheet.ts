@@ -17,6 +17,8 @@ export const POST = (method: Methods, path: string) =>
 				shortDescription: zod.string().min(3).max(255),
 				price: zod.number().min(0.01),
 				warehouseId: zod.string(),
+				variationGroup: zod.string().min(3).max(30).optional(),
+				variationName: zod.string().min(3).max(30).optional(),
 			}).strip(),
 		})
 		.check(
@@ -50,7 +52,7 @@ export const POST = (method: Methods, path: string) =>
 		)
 		.handler(
 			async ({ pickup }) => {
-				const { name, description, shortDescription, price, warehouseId, ref } = pickup("body");
+				const { name, description, shortDescription, price, warehouseId, ref, variationName, variationGroup } = pickup("body");
 				const { id: organizationId } = pickup("organization");
 
 				const productSheet = await prisma.product_sheet.create({
@@ -62,6 +64,8 @@ export const POST = (method: Methods, path: string) =>
 						price,
 						warehouseId,
 						organizationId,
+						variationName,
+						variationGroup,
 					},
 				});
 

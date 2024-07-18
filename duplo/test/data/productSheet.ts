@@ -12,4 +12,6 @@ export const productSheetData: product_sheet = {
 	status: "VERIFIED",
 	createdAt: new Date(),
 	updatedAt: new Date(),
+	variationName: null,
+	variationGroup: null,
 };

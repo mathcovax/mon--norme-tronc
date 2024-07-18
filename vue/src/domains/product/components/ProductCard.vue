@@ -17,12 +17,12 @@ defineProps<{
 			class="flex flex-col h-full"
 		>
 			<CardHeader>
-				<img
+				<ProductImage
 					v-if="product.images.length > 0"
-					:src="product.images[0]"
+					:url="product.images[0]"
 					alt="product"
-					class="w-full aspect-square rounded-2xl"
-				>
+					class="w-full rounded-2xl"
+				/>
 
 				<div
 					v-else

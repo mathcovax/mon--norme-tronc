@@ -123,6 +123,24 @@ export function useProductSheetForm(organizationId: string, productSheetId?: str
 				id: zod.string().optional()
 			}).array().min(1, { message: $t("form.rule.minItems", { value: 1 }) })
 		},
+		variationGroup: {
+			type: "text",
+			label: $pt("form.variationGroup"),
+			cols: 6,
+			zodSchema: zod.string()
+				.max(30, { message: $t("form.rule.maxLength", { value: 30 }) })
+				.min(3, { message: $t("form.rule.minLength", { value: 3 }) })
+				.optional(),
+		},
+		variationName: {
+			type: "text",
+			label: $pt("form.variationName"),
+			cols: 6,
+			zodSchema: zod.string()
+				.max(30, { message: $t("form.rule.maxLength", { value: 30 }) })
+				.min(3, { message: $t("form.rule.minLength", { value: 3 }) })
+				.optional(),
+		},
 		warehouse: computed(() => ({
 			type: "combo",
 			items: warehouses.value.map(v => ({ label: v.name, identifier: v.id })),
@@ -149,6 +167,8 @@ export function useProductSheetForm(organizationId: string, productSheetId?: str
 				values.description.value = data.description;
 				values.shortDescription.value = data.shortDescription;
 				values.price.value = data.price;
+				values.variationGroup.value = data.variationGroup ?? undefined;
+				values.variationName.value = data.variationName ?? undefined;
 			});
 
 		duploTo.enriched

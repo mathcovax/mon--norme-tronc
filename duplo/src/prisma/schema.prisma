@@ -112,6 +112,8 @@ model product_sheet {
     createdAt        DateTime                    @default(now())
     updatedAt        DateTime                    @updatedAt
     price            Float
+    variationName    String?                     @db.VarChar(30)
+    variationGroup   String?                     @db.VarChar(30)
     organizationId   String
     organization     organization                @relation(fields: [organizationId], references: [id])
     warehouseId      String

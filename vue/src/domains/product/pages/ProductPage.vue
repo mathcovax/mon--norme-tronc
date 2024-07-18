@@ -232,7 +232,25 @@ watch(
 							{{ product.promotion.originalPrice }} €
 						</span>
 
-						(<span :class="{ 'text-red-600' : product.quantity < 10 }">{{ product.quantity < 10 ? "Plus que " : "" }}{{ product.quantity }}{{ product.quantity < 10 ? " !" : "" }}</span>)
+						(
+						<span
+							v-if="product.quantity === 0"
+							class="text-red-600"
+						>
+							{{ $pt("noStock") }}
+						</span>
+
+						<span
+							v-else-if="product.quantity < 10"
+							class="text-orange-600"
+						>
+							{{ $pt("lte10", {value: product.quantity}) }}
+						</span>
+
+						<span v-else>
+							{{ product.quantity }}
+						</span>
+						)
 					</span>
 
 					<div class="flex gap-2 items-center">
@@ -267,6 +285,27 @@ watch(
 					<PrimaryButton @click="createArticle">
 						{{ $pt("addCartButton") }}
 					</PrimaryButton>
+				</div>
+
+				<div
+					v-if="product.variations"
+					class="flex gap-2"
+				>
+					<RouterLink
+						v-for="variation of product.variations"
+						:key="variation.productSheetId"
+						:to="`/product/${variation.productSheetId}`"
+						class="flex flex-col items-center gap-2 bg-gray-300/40 hover:bg-gray-300/60 transition cursor-pointer w-[80px] h-[80px] p-2 rounded-sm "
+						:class="{
+							'outline-black outline outline-1': variation.productSheetId === product.id
+						}"
+					>
+						<ProductImage
+							:url="variation.firstImageUrl"
+						/>
+
+						<small>{{ variation.name }}</small>
+					</RouterLink>
 				</div>
 
 				<div class="flex items-center self-end gap-2 mt-auto">
