@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import { Attachment } from "nodemailer/lib/mailer";
 
 export class Mail {
 	private static transporter = nodemailer.createTransport(
@@ -19,12 +20,13 @@ export class Mail {
 			}
 	);
 
-	public static send(to: string, subject: string, text: string) {
+	public static send(to: string, subject: string, text: string, attachments: Attachment[]) {
 		return this.transporter.sendMail({
 			from: ENV.MAIL_FROM,
 			to,
 			subject,
 			text,
+			attachments,
 		});
 	}
 }

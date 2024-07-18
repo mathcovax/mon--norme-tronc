@@ -34,6 +34,9 @@ model user {
     emailNotifcationsPromotion            Boolean                @default(true)
     emailNotifcationsNewProductInCategory Boolean                @default(true)
     deleted                               Boolean                @default(false)
+    lastPullData                          DateTime               @default(now())
+    createdAt                             DateTime               @default(now())
+    updatedAt                             DateTime               @updatedAt
 }
 
 enum primordial_role {
@@ -251,7 +254,8 @@ model command {
     stripeNotificationCheckout stripe_notification_checkout[]
     createdAt                  DateTime                       @default(now())
     updatedAt                  DateTime                       @updatedAt
-    bundle                     bundle[]
+    bundles                    bundle[]
+    productReturns             product_return[]
 }
 
 enum command_status {
@@ -351,6 +355,8 @@ model product_return {
     organizationId String
     createdAt      DateTime              @default(now())
     reason         String                @db.VarChar(255)
+    command        command               @relation(fields: [commandId], references: [id])
+    commandId      String
 }
 
 enum product_return_status {

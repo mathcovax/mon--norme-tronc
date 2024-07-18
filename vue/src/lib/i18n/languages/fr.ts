@@ -24,6 +24,7 @@ export default {
 		},
 		[routerPageName.USER_EDIT_PROFIL]: {
 			title: "Mon profil",
+			btnPullData: "Récupérais mes donner",
 			btnDelete: "Supprimé le compte",
 			deletePopup: {
 				title: "Etes vous sur de vouloir supprimé le compte.",
@@ -786,7 +787,9 @@ export default {
 		user: {
 			edited: "L'utilisateur a bien été modifié.", 
 			notfound: "Utilisateur introuvable.",
-			alreadyOwner: "l'utilisateur est déjà propriétaire d'une organisation."
+			alreadyOwner: "l'utilisateur est déjà propriétaire d'une organisation.",
+			pullData: "Vos donner vous seront anvoyer pars mail.",
+			intervalPullData: "Vous devez attendre 30 minute avand de redemander vos donner.",
 		},
 		category: {
 			alreadyExist: "Le nom de catégorie est déjà utilisé",

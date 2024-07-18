@@ -201,7 +201,10 @@ const formatedProductStockStory = computed(() => {
 			class="w-[90%] max-h-[90%] overflow-auto"
 		>
 			<template #popupContent>
-				<div class="w-full flex flex-col items-center p-6 gap-6">
+				<div
+					v-if="currentFullProductSheet"
+					class="w-full flex flex-col items-center p-6 gap-6"
+				>
 					<h2 class="text-xl font-semibold">
 						{{ $pt("form.title") }}
 					</h2>
@@ -225,7 +228,8 @@ const formatedProductStockStory = computed(() => {
 						</PrimaryButton>
 					</ProductForm>
 
-					{{ $pt("table.quantity") }} : {{ currentFullProductSheet?.quantity }}
+					{{ $t("label.ref") }} : {{ currentFullProductSheet.ref }},
+					{{ $pt("table.quantity") }} : {{ currentFullProductSheet.quantity }}
 				</div>
 			
 				<BigTable

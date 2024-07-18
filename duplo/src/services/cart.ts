@@ -1,5 +1,6 @@
 import { FullProductSheetSchema } from "@schemas/fullProductSheet";
 import { ProductAvailability } from "./productAvailability";
+import { formatPrice } from "@utils/formatPrice";
 
 export class CartService {
 	private articlesInCart?: Awaited<ReturnType<typeof CartService["getUserArticlesInCart"]>>;
@@ -78,7 +79,7 @@ export class CartService {
 									} satisfies FullProductSheetSchema["promotion"]
 									: undefined,
 								price: promotion 
-									? Number((ps.price - (ps.price * promotion.percentage / 100)).toFixed(2))
+									? formatPrice(ps.price - (ps.price * promotion.percentage / 100))
 									: ps.price
 							};
 						}

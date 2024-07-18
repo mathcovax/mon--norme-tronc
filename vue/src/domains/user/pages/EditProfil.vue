@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import SecondaryButton from "@/components/SecondaryButton.vue";
 import { useEditUserProfilForm } from "../composables/useEditUserProfilForm";
 
 const $pt = usePageTranslate();
@@ -41,6 +42,10 @@ function deleteUser() {
 		})
 		.result;
 }
+
+function pullData() {
+	return duploTo.enriched.post("/user/pull-data", undefined);
+}
 </script>
 
 <template>
@@ -74,8 +79,16 @@ function deleteUser() {
 						{{ $t("button.save") }}
 					</PrimaryButton>
 
+					<SecondaryButton
+						class="col-span-6"
+						type="button"
+						@click="pullData"
+					>
+						{{ $pt("btnPullData") }}
+					</SecondaryButton>
+
 					<WithValidation
-						class="col-span-12"
+						class="col-span-6"
 						:title="$pt('deletePopup.title')"
 						:content="$pt('deletePopup.content')"
 						@validate="deleteUser"

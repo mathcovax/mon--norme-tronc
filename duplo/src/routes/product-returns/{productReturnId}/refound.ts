@@ -1,6 +1,7 @@
 import { FullProductSheetSchema } from "@schemas/fullProductSheet";
 import { productReturnStatusEnum } from "@schemas/productReturn";
 import { hasOrganizationRoleByProductReturnId } from "@security/hasOrganizationRole/byProductReturnId";
+import { formatPrice } from "@utils/formatPrice";
 
 /* METHOD : POST, PATH : /product-returns/{productReturnId}/refound */
 export const POST = (method: Methods, path: string) => 
@@ -23,33 +24,18 @@ export const POST = (method: Methods, path: string) =>
 			async ({ pickup }) => {
 				const productReturn = pickup("productReturn");
 
-				const { productSheetId, command } = await prisma.product.findUniqueOrThrow({
-					where: { sku: productReturn.productSku },
-					include: {
-						productToBundles: {
-							select: {
-								bundle: {
-									select: {
-										command: true
-									}
-								}
-							},
-							take: 1,
-							orderBy: {
-								createdAt: "desc"
-							}
-						}
-					}
-				}).then(product => ({
-					productSheetId: product.productSheetId,
-					command: product.productToBundles[0].bundle.command
-				})).catch(() => {
-					throw new Error("missing command");
-				});
+				const [product, command] = await Promise.all([
+					prisma.product.findUniqueOrThrow({
+						where: { sku: productReturn.productSku },
+					}),
+					prisma.command.findUniqueOrThrow({
+						where: { id: productReturn.commandId }
+					})
+				]);
 
 				const { price: unitPrice } = await prisma.command_item.findFirstOrThrow({
 					where: {
-						productSheetId,
+						productSheetId: product.productSheetId,
 						commandId: command.id,
 					},
 					select: {
@@ -71,7 +57,7 @@ export const POST = (method: Methods, path: string) =>
 					});
 
 				await stripe.refunds.create({
-					amount: Number((unitPrice * 100).toFixed(0)),
+					amount: formatPrice(unitPrice * 100),
 					payment_intent: paymentIntent
 				});
 					
