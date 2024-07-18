@@ -8,7 +8,7 @@ import { FullNotification } from "@schemas/userNotification";
 import { FullProductSheetSchema } from "@schemas/fullProductSheet";
 
 const newLastIndexing = new Date();
-const lastTime = new LastTime("productPutStock");
+const lastTime = new LastTime("productNoStock");
 const todayAtMidnight = new Date();
 
 todayAtMidnight.setHours(0, 0, 0, 0);
@@ -36,7 +36,8 @@ for await (const product of productPutStockGenerator) {
 			organizationRole: "STORE_KEEPER"
 		},
 		select: {
-			userId: true
+			userId: true,
+			organizationId: true
 		}
 	});
 
@@ -58,7 +59,7 @@ for await (const product of productPutStockGenerator) {
 		const fullNotification: FullNotification = {
 			title: `Stock faible pour le produit ${product.name}`,
 			subtitle: `Le produit ${product.name} a un stock de ${product.quantity} unités !`,
-			redirect: `/product/${product.id}`,
+			redirect: `/organization-panel/${storeKeeperUser.organizationId}/products`,
 			type: "PRODUCT_PUT_STOCK",
 			imageUrl: product.images[0],
 			userId: storeKeeperUser.userId,
