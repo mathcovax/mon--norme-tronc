@@ -63,9 +63,9 @@ const { items } = useGetNavigationBar();
 							v-else
 							class="flex gap-4"
 						>
-							<AccountDropdown />
-
 							<NotificationsDropdown />
+
+							<AccountDropdown />
 						</div>
 					</div>
 				</div>
