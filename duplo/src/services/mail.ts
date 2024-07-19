@@ -20,12 +20,12 @@ export class Mail {
 			}
 	);
 
-	public static send(to: string, subject: string, text: string, attachments?: Attachment[]) {
+	public static send(to: string, subject: string, content: string, attachments?: Attachment[]) {
 		return this.transporter.sendMail({
 			from: ENV.MAIL_FROM,
 			to,
 			subject,
-			html: text,
+			html: content,
 			attachments,
 		});
 	}
