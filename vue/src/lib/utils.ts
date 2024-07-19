@@ -61,6 +61,16 @@ export const primordialRoles: TuplifyUnion<PrimordialRole> = [
 	"ADMIN",
 ];
 
+export type Notifications = GetResponseByInfo<
+	GetDef<"GET", "/product-notifications">,
+	"notifications"
+>["body"][number];
+
+export type FullNotification = GetResponseByInfo<
+	GetDef<"GET", "/user/notifications">,
+	"userNotifications"
+>["body"][number];
+
 export type FullProductSheet = GetResponseByInfo<
     GetDef<"GET", "/full-product-sheets">,
     "fullProductSheets"

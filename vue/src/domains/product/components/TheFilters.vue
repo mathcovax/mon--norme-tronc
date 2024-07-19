@@ -21,7 +21,7 @@ const filtersValue = defineModel<
 	<TheAccordion
 		type="multiple"
 		collapsible
-		class="w-full p-4 border-2 border-muted rounded-lg"
+		class="w-full p-4 border-2 rounded-lg border-muted"
 	>
 		<template
 			v-for="filter in filters"

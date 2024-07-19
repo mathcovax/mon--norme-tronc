@@ -14,29 +14,30 @@ datasource db {
 }
 
 model user {
-    id                                    String                 @id @default(uuid())
-    email                                 String                 @unique @db.VarChar(320)
-    lastname                              String                 @db.VarChar(32)
-    firstname                             String                 @db.VarChar(36)
-    dateOfBirth                           DateTime               @db.Date
-    address                               String                 @db.VarChar(400)
-    primordialRole                        primordial_role        @default(CUSTOMER)
+    id                                    String                          @id @default(uuid())
+    email                                 String                          @unique @db.VarChar(320)
+    lastname                              String                          @db.VarChar(32)
+    firstname                             String                          @db.VarChar(36)
+    dateOfBirth                           DateTime                        @db.Date
+    address                               String                          @db.VarChar(400)
+    primordialRole                        primordial_role                 @default(CUSTOMER)
     organization                          organization?
-    muted                                 Boolean                @default(false)
+    muted                                 Boolean                         @default(false)
     userToOrganization                    user_to_organization[]
     article                               article[]
     command                               command[]
     commandItems                          command_item[]
-    createdBundle                         bundle[]               @relation("create")
-    havedBundle                           bundle[]               @relation("have")
-    emailNotifcationsNewsletter           Boolean                @default(false)
-    emailNotifcationsProductStock         Boolean                @default(true)
-    emailNotifcationsPromotion            Boolean                @default(true)
-    emailNotifcationsNewProductInCategory Boolean                @default(true)
-    deleted                               Boolean                @default(false)
-    lastPullData                          DateTime               @default(now())
-    createdAt                             DateTime               @default(now())
-    updatedAt                             DateTime               @updatedAt
+    createdBundle                         bundle[]                        @relation("create")
+    havedBundle                           bundle[]                        @relation("have")
+    emailNotifcationsNewsletter           Boolean                         @default(false)
+    emailNotifcationsProductStock         Boolean                         @default(true)
+    emailNotifcationsPromotion            Boolean                         @default(true)
+    emailNotifcationsNewProductInCategory Boolean                         @default(true)
+    deleted                               Boolean                         @default(false)
+    subscribeProductNotifications         subscribeProductNotifications[]
+    lastPullData                          DateTime                        @default(now())
+    createdAt                             DateTime                        @default(now())
+    updatedAt                             DateTime                        @updatedAt
 }
 
 enum primordial_role {
@@ -82,13 +83,14 @@ enum organization_role {
 }
 
 model category {
-    name             String                        @unique @db.VarChar(255)
-    disabled         Boolean                       @default(false)
-    imageUrl         String?                       @db.VarChar(400)
-    imageKey         String?                       @db.VarChar(255)
-    parentCategories category_to_parent_category[]
-    productSheets    product_sheet_to_category[]
-    navigationItem   navigation_item[]
+    name                          String                          @unique @db.VarChar(255)
+    disabled                      Boolean                         @default(false)
+    imageUrl                      String?                         @db.VarChar(400)
+    imageKey                      String?                         @db.VarChar(255)
+    parentCategories              category_to_parent_category[]
+    productSheets                 product_sheet_to_category[]
+    navigationItem                navigation_item[]
+    subscribeProductNotifications subscribeProductNotifications[]
 }
 
 model parent_category {
@@ -107,36 +109,37 @@ model category_to_parent_category {
 }
 
 model newsletter {
-	id			String		@id @default(uuid())
-	object   	String   	@db.VarChar(255)
-	content   	String   	@db.Text
-	createdAt 	DateTime 	@default(now())
-	sendAt    	DateTime	@default(now())
+    id        String   @id @default(uuid())
+    object    String   @db.VarChar(255)
+    content   String   @db.Text
+    createdAt DateTime @default(now())
+    sendAt    DateTime @default(now())
 }
 
 model product_sheet {
-    id               String                      @id @default(uuid())
-    ref              String                      @db.VarChar(20)
-    name             String                      @db.VarChar(255)
-    description      String                      @db.Text
-    shortDescription String                      @db.VarChar(255)
-    createdAt        DateTime                    @default(now())
-    updatedAt        DateTime                    @updatedAt
-    price            Float
-    variationName    String?                     @db.VarChar(30)
-    variationGroup   String?                     @db.VarChar(30)
-    organizationId   String
-    organization     organization                @relation(fields: [organizationId], references: [id])
-    warehouseId      String
-    warehouse        warehouse                   @relation(fields: [warehouseId], references: [id])
-    products         product[]
-    facets           facet[]
-    status           product_sheet_status        @default(UNVERIFIED)
-    article          article[]
-    commandItems     command_item[]
-    images           image_product_sheet[]
-    categories       product_sheet_to_category[]
-    promotions       promotion[]
+    id                            String                          @id @default(uuid())
+    ref                           String                          @db.VarChar(20)
+    name                          String                          @db.VarChar(255)
+    description                   String                          @db.Text
+    shortDescription              String                          @db.VarChar(255)
+    createdAt                     DateTime                        @default(now())
+    updatedAt                     DateTime                        @updatedAt
+    price                         Float
+    variationName                 String?                         @db.VarChar(30)
+    variationGroup                String?                         @db.VarChar(30)
+    organizationId                String
+    organization                  organization                    @relation(fields: [organizationId], references: [id])
+    warehouseId                   String
+    warehouse                     warehouse                       @relation(fields: [warehouseId], references: [id])
+    products                      product[]
+    facets                        facet[]
+    status                        product_sheet_status            @default(UNVERIFIED)
+    article                       article[]
+    commandItems                  command_item[]
+    images                        image_product_sheet[]
+    categories                    product_sheet_to_category[]
+    promotions                    promotion[]
+    subscribeProductNotifications subscribeProductNotifications[]
 
     @@unique([ref, organizationId])
 }
@@ -152,6 +155,7 @@ model product_sheet_to_category {
     categoryName   String
     productSheet   product_sheet @relation(fields: [productSheetId], references: [id])
     category       category      @relation(fields: [categoryName], references: [name])
+    createdAt      DateTime      @default(now())
 
     @@unique([categoryName, productSheetId])
 }
@@ -363,4 +367,23 @@ enum product_return_status {
     WAITING_RETURN
     REFUNDED
     INVALID
+}
+
+model subscribeProductNotifications {
+    id             Int               @id @default(autoincrement())
+    productSheet   product_sheet?    @relation(fields: [productSheetId], references: [id])
+    productSheetId String?
+    category       category?         @relation(fields: [categoryName], references: [name])
+    categoryName   String?
+    user           user              @relation(fields: [userId], references: [id])
+    userId         String
+    type           notification_type
+    createdAt      DateTime          @default(now())
+}
+
+enum notification_type {
+    PRODUCT_PROMOTION
+    NEW_PRODUCT_IN_CATEGORY
+    PRODUCT_RESTOCK
+    PRODUCT_NO_STOCK
 }

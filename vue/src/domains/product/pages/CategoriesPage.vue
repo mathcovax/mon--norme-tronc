@@ -38,8 +38,8 @@ watch(
 </script>
 
 <template>
-	<section class="min-h-screen-nhm-mobile lg:min-h-screen-nhm-desktop container my-12 lg:my-16 flex flex-col gap-12">
-		<h1 class="text-2xl lg:text-3xl font-bold">
+	<section class="container flex flex-col gap-12 my-12 min-h-screen-nhm-mobile lg:min-h-screen-nhm-desktop lg:my-16">
+		<h1 class="text-2xl font-bold lg:text-3xl">
 			{{ $pt("title") }}
 		</h1>
 
@@ -58,7 +58,7 @@ watch(
 					v-for="(category, index) in categories"
 					:category="category"
 					:key="index"
-					class="w-full max-w-80 mx-auto"
+					class="w-full mx-auto max-w-80"
 				/>
 			</div>
 
@@ -74,7 +74,7 @@ watch(
 
 		<div
 			v-else
-			class="flex-1 flex flex-col items-center justify-center gap-1 text-center"
+			class="flex flex-col items-center justify-center flex-1 gap-1 text-center"
 		>
 			<h2 class="text-2xl font-bold tracking-tight">
 				{{ $pt("emptyTitle") }}

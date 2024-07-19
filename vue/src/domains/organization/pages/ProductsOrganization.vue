@@ -203,7 +203,7 @@ const formatedProductStockStory = computed(() => {
 			<template #popupContent>
 				<div
 					v-if="currentFullProductSheet"
-					class="w-full flex flex-col items-center p-6 gap-6"
+					class="flex flex-col items-center w-full gap-6 p-6"
 				>
 					<h2 class="text-xl font-semibold">
 						{{ $pt("form.title") }}

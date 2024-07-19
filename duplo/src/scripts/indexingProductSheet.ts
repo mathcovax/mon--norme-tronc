@@ -207,6 +207,6 @@ await promiseList.clear();
 
 mongoose.connection.close();
 
-console.log("finish indexing:product");
+console.log("Finish indexing:productSheet");
 
 

@@ -61,3 +61,5 @@ await promiseList.clear();
 lastTime.set(newLastReadNotification);
 
 mongoose.connection.close();
+
+console.log("Finish readNotification");

@@ -37,3 +37,5 @@ for await (const bundle of bundleGenerator) {
 await promiseList.clear();
 
 mongoose.connection.close();
+
+console.log("Finish followBundle");

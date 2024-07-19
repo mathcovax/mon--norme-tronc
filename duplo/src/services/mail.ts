@@ -25,7 +25,7 @@ export class Mail {
 			from: ENV.MAIL_FROM,
 			to,
 			subject,
-			text,
+			html: text,
 			attachments,
 		});
 	}

@@ -1,11 +1,33 @@
 <script setup lang="ts">
 import type { Category } from "@/lib/utils";
+import { useGetSubscribedNotifications } from "../composables/useGetSusbcribedNotifications";
 
 const { CATEGORY_PAGE } = routerPageName;
 
-defineProps<{
+const props = defineProps<{
 	category: Category;
 }>();
+
+const { subscribedNotifications, getSubscribedNotifications } = useGetSubscribedNotifications();
+
+async function toggleSubscription() {
+	if (subscribedNotifications.value.length !== 0) {
+		await duploTo.enriched
+			.delete(
+				"/product-notifications/{notificationId}",
+				{ params: { notificationId: subscribedNotifications.value[0].id } }
+			);
+	} else {
+		await duploTo.enriched
+			.post(
+				"/product-notifications",
+				{ categoryName: props.category.name, type: "NEW_PRODUCT_IN_CATEGORY" }
+			);
+	}
+	getSubscribedNotifications(null, props.category.name);
+}
+
+getSubscribedNotifications(null, props.category.name);
 </script>
 
 <template>
@@ -30,12 +52,32 @@ defineProps<{
 					/>
 				</div>
 			</CardHeader>
+		</RouterLink>
 
-			<CardContent>
+		<CardContent>
+			<div class="flex flex-col justify-between gap-2">
 				<CardTitle class="mb-3">
 					{{ category.name }}
 				</CardTitle>
-			</CardContent>
-		</RouterLink>
+
+				<div class="flex items-center gap-4">
+					<label
+						class="relative inline-flex items-center gap-2 cursor-pointer"
+					>
+						<input
+							type="checkbox"
+							class="sr-only peer"
+							:checked="subscribedNotifications.some(({ type }) => type === 'NEW_PRODUCT_IN_CATEGORY')"
+							@click="toggleSubscription()"
+						>
+
+						<div class="w-11 h-6 bg-gray-200 dark:bg-light-gray peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-slate-950" />
+
+					</label>
+
+					<span class="inline-block opacity-50">Notifié quand un produit arrive !</span>
+				</div>
+			</div>
+		</CardContent>
 	</TheCard>
 </template>

@@ -1,3 +1,10 @@
 indexingProductSheet.json
 readNotification.json
 LaPostMock.json
+productPromotion.json
+productRestock.json
+newProductInCategory.json
+productNoStock.json
+sendMailProductRestock.json
+sendMailProductPromotion.json
+sendMailNewProductInCategory.json

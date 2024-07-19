@@ -7,6 +7,7 @@ import ProductSheetQuantity from "../components/ProductSheetQuantity.vue";
 import ProductSuggestion from "../components/ProductSuggestion.vue";
 import { useReviewForm } from "../composables/useReviewForm";
 import ReviewCard from "../components/ReviewCard.vue";
+import { useGetSubscribedNotifications } from "../composables/useGetSusbcribedNotifications";
 
 const { CATEGORY_PAGE } = routerPageName;
 
@@ -18,10 +19,12 @@ const { EDITO_HOME } = routerPageName;
 const product = ref<FullProductSheet | null>(null);
 const productQuantity = ref(1);
 const cartStore = useCartStore();
+
 const userStore = useUserStore();
 const params = useRouteParams({ 
 	productSheetId: zod.string(), 
 });
+const { subscribedNotifications, getSubscribedNotifications } = useGetSubscribedNotifications();
 const { ReviewForm, checkReviewForm, resetReviewForm } = useReviewForm();
 
 function getProductData() {
@@ -37,6 +40,25 @@ function getProductData() {
 			router.push({ name: EDITO_HOME });
 		})
 		.result;
+}
+
+async function toggleSubscription(type: "PRODUCT_PROMOTION" | "PRODUCT_RESTOCK") {
+	const subscribedNotification = subscribedNotifications.value.find((n) => n.type === type);
+
+	if (subscribedNotification) {
+		await duploTo.enriched
+			.delete(
+				"/product-notifications/{notificationId}",
+				{ params: { notificationId: subscribedNotification.id } }
+			);
+	} else {
+		await duploTo.enriched
+			.post(
+				"/product-notifications",
+				{ productSheetId: params.value.productSheetId, type }
+			);
+	}
+	getSubscribedNotifications(params.value.productSheetId, null);
 }
 
 function createArticle() {
@@ -68,6 +90,7 @@ const renderDescription = computed(() => {
 });
 
 getProductData();
+getSubscribedNotifications(params.value.productSheetId, null);
 
 watch(() => params.value.productSheetId, () => { getProductData(); });
 
@@ -221,13 +244,13 @@ watch(
 					</RouterLink>
 				</div>
 
-				<div class="flex gap-4 items-center">
+				<div class="flex items-center gap-4">
 					<span class="text-xl font-semibold">
 						{{ product.price }} €
 
 						<span
 							v-if="product.promotion"
-							class="line-through text-gray-500"
+							class="text-gray-500 line-through"
 						>
 							{{ product.promotion.originalPrice }} €
 						</span>
@@ -253,7 +276,7 @@ watch(
 						)
 					</span>
 
-					<div class="flex gap-2 items-center">
+					<div class="flex items-center gap-2">
 						<TheRate
 							v-model:rate="product.avgRate"
 							disabled
@@ -285,6 +308,44 @@ watch(
 					<PrimaryButton @click="createArticle">
 						{{ $pt("addCartButton") }}
 					</PrimaryButton>
+				</div>
+
+				<div class="flex flex-col gap-2">
+					<label
+						v-if="product.quantity === 0"
+						class="relative inline-flex items-center gap-2 cursor-pointer"
+					>
+						<input
+							type="checkbox"
+							class="sr-only peer"
+							:checked="subscribedNotifications.some(({ type }) => type === 'PRODUCT_RESTOCK')"
+							@change="toggleSubscription('PRODUCT_RESTOCK')"
+						>
+
+					
+						<div class="w-11 h-6 bg-gray-200 dark:bg-light-gray peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-slate-950" />
+
+						<span class="inline-block opacity-50">Être notifié quand ce produit re-obtient du stock</span>
+
+					</label>
+
+					<label
+						v-if="!product.promotion"
+						class="relative inline-flex items-center gap-2 cursor-pointer"
+					>
+
+						<input
+							type="checkbox"
+							class="sr-only peer"
+							:checked="subscribedNotifications.some(({ type }) => type === 'PRODUCT_PROMOTION')"
+							@click="toggleSubscription('PRODUCT_PROMOTION')"
+						>
+
+						<div class="w-11 h-6 bg-gray-200 dark:bg-light-gray peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-slate-950" />
+
+						<span class="inline-block opacity-50">Être notifié quand ce produit est en promotion</span>
+
+					</label>
 				</div>
 
 				<div
@@ -396,7 +457,7 @@ watch(
 					:review="owneReview"
 					class="w-full"
 				>
-					<PrimaryButton class="top-4 right-4 absolute">
+					<PrimaryButton class="absolute top-4 right-4">
 						<TheIcon
 							icon="delete"
 							@click="deleteReview"
