@@ -6,6 +6,8 @@ import { PromiseList } from "../setup/promiseList";
 import { fullNotificationsModel } from "@mongoose/model";
 import { Mail } from "@services/mail";
 import { FullNotification } from "@schemas/userNotification";
+import { newProductInCategoryTemplate } from "@/templates/notifications/newProductInCategory";
+import { baseTemplate } from "@/templates";
 
 const newLastIndexing = new Date();
 const lastTime = new LastTime("sendMailNewProductInCategory");
@@ -20,7 +22,8 @@ const usersGenerator = FindSlice(
 		},
 		select: {
 			id: true,
-			email: true
+			email: true,
+			firstname: true
 		},
 		skip: slice * size,
 		take: size
@@ -47,12 +50,15 @@ for await (const user of usersGenerator) {
 		)
 	);
 	for await (const notification of newProductInCategoryNotifications) {
+		const redirectUrl = ENV.ORIGIN + notification?.redirect ?? "";
+		const productInCategoryTemplate = newProductInCategoryTemplate(user.firstname, redirectUrl);
+		const html = baseTemplate(productInCategoryTemplate);
+
 		promiseList.append(
 			Mail.send(
 				user.email,
 				notification.title,
-				`${notification.title}<br><br>
-				${notification?.subtitle ?? ""}<a href="${ENV.ORIGIN + notification?.redirect ?? ""}">voir le produit.</a>`
+				html
 			)
 		);
 	}
