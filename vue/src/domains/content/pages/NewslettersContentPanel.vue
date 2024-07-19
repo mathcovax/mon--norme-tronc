@@ -38,23 +38,23 @@ const cols: BigTableColDef<Newsletter>[] = [
 
 async function submitNewsletter() {
 	const formField = await checkNewsletterForm();
-	const renderedContent = marked.parse(formField.content);
 
 	if (!formField) {
 		return;
 	}
 
-	const result = await duploTo.enriched
+	const renderedContent = await marked.parse(formField.content);
+
+	await duploTo.enriched
 		.post(
 			"/newsletter",
 			{ object: formField.object, content: renderedContent, sendAt: formField.sendAt }
 		)
+		.info("newsletter.created", () => {
+			resetNewsletterForm();
+			refreshNewsletters();
+		})
 		.result;
-
-	if (result.success && result.info === "newsletter.created") {
-		resetNewsletterForm();
-		refreshNewsletters();
-	}
 }
 
 function deleteItem(item: Newsletter) {
