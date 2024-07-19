@@ -13,6 +13,7 @@ export const POST = (method: Methods, path: string) => duplo
 			firstname: zod.string().max(36).toLowerCase(),
 			address: zod.string().max(400),
 			dateOfBirth: zod.coerce.date(),
+			emailNotifcationsNewsletter: zod.boolean(),
 		}).strip(),
 	})
 	.check(
@@ -64,7 +65,7 @@ export const POST = (method: Methods, path: string) => duplo
 	.handler(
 		async ({ pickup }) => {
 			const { email } = pickup("idTokenContent");
-			const { lastname, firstname, address, dateOfBirth } = pickup("body");
+			const { lastname, firstname, address, dateOfBirth, emailNotifcationsNewsletter } = pickup("body");
 
 			const { id, primordialRole } = await prisma.user.create({
 				data: {
@@ -76,7 +77,8 @@ export const POST = (method: Methods, path: string) => duplo
 						dateOfBirth.getFullYear(), 
 						dateOfBirth.getMonth(), 
 						dateOfBirth.getDate()
-					)
+					),
+					emailNotifcationsNewsletter
 				},
 				select: {
 					id: true,

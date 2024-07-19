@@ -42,6 +42,11 @@ export function useSignUpForm() {
 			textButton: $t("button.add"),
 			onUpdateSearchTerm: searchAddresses
 		})),
+		emailNotifcationsNewsletter: {
+			type: "checkbox",
+			desc: $t("label.newsletter"),
+			zodSchema: zod.boolean().optional(),
+		},
 		terms: {
 			type: "checkbox",
 			desc: $t("label.terms"),

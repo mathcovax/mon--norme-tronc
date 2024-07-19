@@ -24,7 +24,8 @@ async function submit() {
 			firstname: formFields.fistname,
 			lastname: formFields.lastname,
 			address: formFields.address,
-			dateOfBirth: new Date(formFields.dateOfBirth)
+			dateOfBirth: new Date(formFields.dateOfBirth),
+			emailNotifcationsNewsletter: !!formFields.emailNotifcationsNewsletter,
 		}
 	)
 		.info("user.registered", (accessToken) => {
