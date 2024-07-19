@@ -20,6 +20,7 @@ describe("POST /register", () => {
 					firstname: "Jhon",
 					dateOfBirth: new Date(2002, 8, 13),
 					address: "test",
+					emailNotifcationsNewsletter: true,
 				}
 			})
 			.mockChecker(
@@ -45,6 +46,7 @@ describe("POST /register", () => {
 				firstname: "jhon",
 				dateOfBirth: new Date(2002, 8, 13),
 				address: "test",
+				emailNotifcationsNewsletter: true,
 			},
 			select: {
 				id: true,
@@ -63,6 +65,7 @@ describe("POST /register", () => {
 					firstname: "Jhon",
 					dateOfBirth: new Date("2002-09-13"),
 					address: "test",
+					emailNotifcationsNewsletter: true,
 				}
 			})
 			.mockChecker(
@@ -79,6 +82,7 @@ describe("POST /register", () => {
 						firstname: "Jhon",
 						dateOfBirth: new Date("2002-09-13"),
 						address: "test",
+						emailNotifcationsNewsletter: true,
 					}
 				}
 			)
@@ -101,6 +105,7 @@ describe("POST /register", () => {
 					firstname: "Jhon",
 					dateOfBirth: new Date("2002-09-13"),
 					address: "test",
+					emailNotifcationsNewsletter: true,
 				}
 			})
 			.mockChecker(
@@ -130,6 +135,7 @@ describe("POST /register", () => {
 					firstname: "Jhon",
 					dateOfBirth: new Date(),
 					address: "test",
+					emailNotifcationsNewsletter: true,
 				}
 			})
 			.mockChecker(
