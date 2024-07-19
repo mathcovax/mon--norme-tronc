@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { marked } from "marked";
 import type { Newsletter } from "@/lib/utils";
 import { useGetNewsletters } from "../composables/useGetNewsletters";
 import { useNewsletterForm } from "../composables/useNewsletterForm";
@@ -37,6 +38,7 @@ const cols: BigTableColDef<Newsletter>[] = [
 
 async function submitNewsletter() {
 	const formField = await checkNewsletterForm();
+	const renderedContent = marked.parse(formField.content);
 
 	if (!formField) {
 		return;
@@ -45,7 +47,7 @@ async function submitNewsletter() {
 	const result = await duploTo.enriched
 		.post(
 			"/newsletter",
-			{ object: formField.object, content: formField.content, sendAt: formField.sendAt }
+			{ object: formField.object, content: renderedContent, sendAt: formField.sendAt }
 		)
 		.result;
 
