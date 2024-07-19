@@ -1,6 +1,16 @@
 import { facet_type } from "@prisma/client";
 import { productSheetStatusTuple } from "./productSheet";
 
+export const facetsSchema = zod.object<{ [P in facet_type]: Zod.ZodOptional<Zod.ZodString> }>({
+	ACCESSORY: zod.string().optional(),
+	COLOR: zod.string().optional(),
+	DIAMETER: zod.string().optional(),
+	MATERIAL: zod.string().optional(),
+	SIZE: zod.string().optional(),
+	STIMULATION: zod.string().optional(),
+	TARGET: zod.string().optional(),
+});
+
 export const fullProductSheetSchema = zod.object({
 	id: zod.string(),
 	ref: zod.string(),
@@ -29,23 +39,7 @@ export const fullProductSheetSchema = zod.object({
 		label: zod.string().optional(),
 		logoUrl: zod.string().optional(),
 	}),
-	facets: zod.object<{ [P in facet_type]: Zod.ZodOptional<Zod.ZodString> }>({
-		ACCESSORY: zod.string().optional(),
-		COLOR: zod.string().optional(),
-		DIAMETER: zod.string().optional(),
-		MATERIAL: zod.string().optional(),
-		SIZE: zod.string().optional(),
-		STIMULATION: zod.string().optional(),
-		TARGET: zod.string().optional(),
-	}),
-	variationGroup: zod.string().optional(),
-	variationName: zod.string().optional(),
-	variations: zod.object({
-		firstImageUrl: zod.string(),
-		name: zod.string(),
-		productSheetId: zod.string(),
-	}).array().optional()
-
+	facets: facetsSchema,
 });
 
 export type FullProductSheetSchema = Zod.infer<typeof fullProductSheetSchema>

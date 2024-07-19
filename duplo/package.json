@@ -13,7 +13,10 @@
 		"migrate:dev": "prisma migrate dev",
 		"studio": "prisma studio -n 0.0.0.0",
 		"indexing:productSheet": "tsx src/scripts/indexingProductSheet",
+		"indexing:commandItem": "tsx src/scripts/indexingCommandItem",
+		"fixture:mongo": "tsx src/fixtures/mongo",
 		"readNotifications": "tsx src/scripts/readNotifications",
+		"computeProductStock": "tsx src/scripts/computeProductStock",
 		"followBundle": "tsx src/scripts/followBundle",
 		"notification:productPromotion": "tsx src/scripts/notifications/productPromotion",
 		"notification:productRestock": "tsx src/scripts/notifications/productRestock",
@@ -23,7 +26,6 @@
 		"sendMail:productRestock": "tsx src/scripts/notificationsMailer/productRestock",
 		"sendMail:newProductInCategory": "tsx src/scripts/notificationsMailer/newProductInCategory",
 		"sendMail:newsletter": "tsx src/scripts/notificationsMailer/newsletter",
-		"computeProductStock": "tsx src/scripts/computeProductStock",
 		"fixture": "tsx src/fixtures"
 	},
 	"prisma": {

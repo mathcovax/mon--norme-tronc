@@ -62,15 +62,16 @@ for await (const notification of generator) {
 				{ id: notification.commandId },
 				{ status: commandStatus }
 			),
-			prisma.command_item.updateMany({
-				where: {
-					commandId: notification.commandId,
-				},
-				data: {
-					canceled: true
-				}
-			}),
-			
+			commandStatus === "CANCELED"
+				? prisma.command_item.updateMany({
+					where: {
+						commandId: notification.commandId,
+					},
+					data: {
+						canceled: true
+					}
+				})
+				: undefined
 		])
 	);
 

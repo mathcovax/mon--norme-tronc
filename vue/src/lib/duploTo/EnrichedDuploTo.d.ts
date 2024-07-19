@@ -567,19 +567,131 @@ export type response_16_3 = {
     info: "entry.accepted";
 } & {body: undefined};
 
-export type response_17_0 = {
+export type response_16_0 = {
     code: 204;
     ok: true;
     info: "entry.accepted";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type request_body_18 = {
+=======
+export type request_body_17 = {
+    name: string;
+    ownerId: string;
+}
+
+export type response_18_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_18_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_17_2 = {
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_17_3 = {
+    code: 409;
+    ok: false;
+    info: "organization.alreadyExist";
+} & {body: undefined};
+
+export type response_17_4 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_17_5 = {
+    code: 409;
+    ok: false;
+    info: "user.alreadyOwner";
+} & {body: undefined};
+
+export type response_17_6 = {
+    code: 201;
+    ok: true;
+    info: "organization.created";
+} & {body: undefined};
+
+export type request_body_18 = {
+    organizationRole?: ("STORE_KEEPER" | "PRODUCT_SHEET_MANAGER" | "ACCOUNTANT") | undefined;
+}
+
+export type parameters_18 = {
+    params: {
+        organizationId: string;
+        userId: string;
+    };
+}
+
+export type response_15_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_18_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_18_2 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+<<<<<<< HEAD
+export type request_body_19 = {
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     fireBaseIdToken: string;
     lastname: string;
     firstname: string;
     address: string;
     dateOfBirth: Date;
     emailNotifcationsNewsletter: boolean;
+=======
+export type response_18_3 = {
+    code: 401;
+    ok: false;
+    info: "organization.user.organizationRole.owner";
+} & {body: undefined};
+
+export type response_18_4 = {
+    code: 204;
+    ok: true;
+    info: "organization.user.edited";
+} & {body: undefined};
+
+export type response_18_5 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_18_6 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type parameters_19 = {
+    params: {
+        organizationId: string;
+        userId: string;
+    };
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 }
 
 export type response_18_0 = {
@@ -619,7 +731,7 @@ export type request_body_19 = string
 export type response_19_0 = {
     code: 401;
     ok: false;
-    info: "firebase.token.invalid";
+    info: "access.token.invalid";
 } & {body: undefined};
 
 export type response_19_1 = {
@@ -631,10 +743,41 @@ export type response_19_1 = {
 export type response_body_19_2 = string
 
 export type response_19_2 = {
+<<<<<<< HEAD
     code: 200;
     ok: true;
     info: "user.logged";
 } & {body: response_body_19_2};
+=======
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_19_3 = {
+    code: 401;
+    ok: false;
+    info: "organization.user.organizationRole.owner";
+} & {body: undefined};
+
+export type response_19_4 = {
+    code: 204;
+    ok: true;
+    info: "organization.user.deleted";
+} & {body: undefined};
+
+export type response_19_5 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_19_6 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 
 export type parameters_20 = {
     params: {
@@ -642,66 +785,75 @@ export type parameters_20 = {
     };
 }
 
-export type response_20_0 = {
+export type response_16_0 = {
     code: 401;
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
-export type response_20_1 = {
+export type response_16_1 = {
     code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
-export type response_20_2 = {
-    code: 401;
-    ok: false;
-    info: "user.deleted";
-} & {body: undefined};
-
-export type response_20_3 = {
+export type response_16_2 = {
     code: 404;
     ok: false;
     info: "productSheet.notfound";
 } & {body: undefined};
 
-export type response_20_4 = {
+export type response_16_3 = {
     code: 200;
     ok: true;
     info: "article.deleted";
 } & {body: undefined};
 
 export type parameters_21 = {
+<<<<<<< HEAD
     query?: {
         page?: number;
         productSheetName?: string | undefined;
     } | undefined;
+=======
+    params: {
+        organizationId: string;
+    };
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 }
 
-export type response_21_0 = {
+export type response_17_0 = {
     code: 401;
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
-export type response_21_1 = {
+export type response_17_1 = {
     code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
 export type response_21_2 = {
-    code: 401;
+    code: 406;
     ok: false;
-    info: "user.deleted";
+    info: "organization.hasNotUser";
 } & {body: undefined};
 
 export type response_body_21_3 = {
+<<<<<<< HEAD
     id: string;
     firstname: string;
     lastname: string;
     status: "DONE" | "CANCELED" | "WAITING_PAYMENT" | "IN_PROGRESS" | "IN_DELIVERY";
+=======
+<<<<<<< HEAD
+    title: string;
+    subtitle?: string | undefined;
+    redirect?: string | undefined;
+    imageUrl?: string | undefined;
+    icon?: string | undefined;
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     userId: string;
     deliveryAddress: string;
     createdDate: Date;
@@ -716,16 +868,40 @@ export type response_body_21_3 = {
         productSheetPrice: number;
     }[];
 }[]
+=======
+    id: string;
+    email: string;
+    lastname: string;
+    firstname: string;
+    organizationRole: "STORE_KEEPER" | "PRODUCT_SHEET_MANAGER" | "ACCOUNTANT" | "OWNER";
+}
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 
 export type response_21_3 = {
     code: 200;
     ok: true;
+<<<<<<< HEAD
     info: "userCommands";
+=======
+<<<<<<< HEAD
+    info: "userNotifications";
+=======
+    info: "organization.user";
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 } & {body: response_body_21_3};
 
 export type request_body_22 = {
-    productSheetId: string;
-    quantity?: number;
+    email: string;
+    firstname: string;
+    lastname: string;
+    organizationRole: "STORE_KEEPER" | "PRODUCT_SHEET_MANAGER" | "ACCOUNTANT";
+}
+
+export type parameters_22 = {
+    params: {
+        organizationId: string;
+    };
 }
 
 export type response_22_0 = {
@@ -741,24 +917,25 @@ export type response_22_1 = {
 } & {body: undefined};
 
 export type response_22_2 = {
-    code: 401;
+    code: 404;
     ok: false;
-    info: "user.deleted";
+    info: "organization.notfound";
 } & {body: undefined};
 
 export type response_22_3 = {
-    code: 404;
+    code: 406;
     ok: false;
-    info: "productSheet.notfound";
+    info: "organization.hasNotUser";
 } & {body: undefined};
 
 export type response_22_4 = {
-    code: 401;
+    code: 403;
     ok: false;
-    info: "cart.article.limit";
+    info: "user.role.organization.invalid";
 } & {body: undefined};
 
 export type response_22_5 = {
+<<<<<<< HEAD
     code: 401;
     ok: false;
     info: "cart.quantity.limit";
@@ -796,18 +973,51 @@ export type response_23_0 = {
 } & {body: undefined};
 
 export type response_23_1 = {
+=======
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
     code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
-export type response_23_2 = {
+export type response_22_6 = {
+    code: 409;
+    ok: false;
+    info: "organization.hasAlreadyUser";
+} & {body: undefined};
+
+export type response_22_7 = {
+    code: 201;
+    ok: true;
+    info: "organization.user.add";
+} & {body: undefined};
+
+export type parameters_23 = {
+    query?: {
+        page?: number;
+    } | undefined;
+}
+
+export type response_19_0 = {
     code: 401;
     ok: false;
-    info: "user.deleted";
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_19_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_19_2 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
 } & {body: undefined};
 
 export type response_body_23_3 = {
+<<<<<<< HEAD
     title: string;
     subtitle?: string | undefined;
     redirect?: string | undefined;
@@ -816,14 +1026,57 @@ export type response_body_23_3 = {
     userId: string;
     type: "PRODUCT_PROMOTION" | "PRODUCT_RESTOCK" | "NEW_PRODUCT_IN_CATEGORY" | "PRODUCT_NO_STOCK";
     createdAt: Date;
+=======
+    id: string;
+<<<<<<< HEAD
+    firstname: string;
+    lastname: string;
+    status: "DONE" | "CANCELED" | "WAITING_PAYMENT" | "IN_PROGRESS" | "IN_DELIVERY";
+    userId: string;
+    deliveryAddress: string;
+    createdDate: Date;
+    price: number;
+    items: {
+        quantity: number;
+        processQuantity: number;
+        productSheetId: string;
+        productSheetName: string;
+        productSheetFirstImageUrl: string;
+        productSheetOrganizationName: string;
+        productSheetPrice: number;
+    }[];
+=======
+    name: string;
+    label: string | null;
+    ownerId: string;
+    suspended: boolean;
+    logoKey: string | null;
+    logoUrl: string | null;
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 }[]
 
 export type response_23_3 = {
     code: 200;
     ok: true;
+<<<<<<< HEAD
     info: "userNotifications";
+=======
+<<<<<<< HEAD
+    info: "userCommands";
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 } & {body: response_body_23_3};
 
+=======
+    info: "user.organizations";
+} & {body: response_body_23_3};
+
+export type request_body_24 = {
+    productSheetId: string;
+    quantity?: number;
+}
+
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 export type response_24_0 = {
     code: 401;
     ok: false;
@@ -837,9 +1090,9 @@ export type response_24_1 = {
 } & {body: undefined};
 
 export type response_24_2 = {
-    code: 401;
+    code: 404;
     ok: false;
-    info: "user.deleted";
+    info: "productSheet.notfound";
 } & {body: undefined};
 
 export type response_body_24_3 = {
@@ -853,11 +1106,13 @@ export type response_body_24_3 = {
 }[]
 
 export type response_24_3 = {
+<<<<<<< HEAD
     code: 200;
     ok: true;
     info: "cart.fetched";
 } & {body: response_body_24_3};
 
+<<<<<<< HEAD
 export type parameters_25 = {
     params: {
         imageProductSheetId: string;
@@ -865,18 +1120,64 @@ export type parameters_25 = {
 }
 
 export type response_25_0 = {
+=======
+export type request_body_25 = {
+    commandId: string;
+=======
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     code: 401;
     ok: false;
-    info: "access.token.invalid";
+    info: "cart.article.limit";
+} & {body: undefined};
+
+export type response_24_4 = {
+    code: 401;
+    ok: false;
+    info: "cart.quantity.limit";
+} & {body: undefined};
+
+export type response_24_5 = {
+    code: 409;
+    ok: false;
+    info: "product.unavailable";
+} & {body: undefined};
+
+export type response_body_24_6 = {
+    userId: string;
+    productSheetId: string;
+    quantity: number;
+    createdAt?: string;
+}
+
+export type response_24_6 = {
+    code: 201;
+    ok: true;
+    info: "article.created";
+} & {body: response_body_24_6};
+
+export type request_body_25 = {
+    fireBaseIdToken: string;
+    lastname: string;
+    firstname: string;
+    address: string;
+    dateOfBirth: Date;
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+}
+
+export type response_34_4 = {
+    code: 401;
+    ok: false;
+    info: "firebase.token.invalid";
 } & {body: undefined};
 
 export type response_25_1 = {
-    code: 404;
+    code: 409;
     ok: false;
-    info: "user.notfound";
+    info: "user.alreadyExist";
 } & {body: undefined};
 
 export type response_25_2 = {
+<<<<<<< HEAD
     code: 401;
     ok: false;
     info: "user.deleted";
@@ -884,14 +1185,32 @@ export type response_25_2 = {
 
 export type response_25_3 = {
     code: 404;
+=======
+    code: 400;
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
     ok: false;
     info: "imageProductSheet.notfound";
 } & {body: undefined};
 
+export type response_25_3 = {
+    code: 400;
+    ok: false;
+    info: "user.dateOfBirth.invalid";
+} & {body: undefined};
+
+export type response_body_25_4 = string
+
 export type response_25_4 = {
+<<<<<<< HEAD
     code: 204;
     ok: true;
     info: "imageProductSheet.deleted";
+=======
+<<<<<<< HEAD
+    code: 401;
+    ok: false;
+    info: "command.wrong.user";
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 } & {body: undefined};
 
 export type response_25_5 = {
@@ -919,11 +1238,28 @@ export type response_26_0 = {
 } & {body: undefined};
 
 export type response_26_1 = {
+=======
+    code: 201;
+    ok: true;
+    info: "user.registered";
+} & {body: response_body_25_4};
+
+export type request_body_26 = string
+
+export type response_20_0 = {
+    code: 401;
+    ok: false;
+    info: "firebase.token.invalid";
+} & {body: undefined};
+
+export type response_20_1 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
     code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_26_2 = {
     code: 401;
     ok: false;
@@ -963,18 +1299,30 @@ export type request_body_27 = {
 }
 
 export type response_27_0 = {
+=======
+export type response_body_26_2 = string
+
+export type response_26_2 = {
+    code: 200;
+    ok: true;
+    info: "user.logged";
+} & {body: response_body_26_2};
+
+export type response_21_0 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
     code: 401;
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
-export type response_27_1 = {
+export type response_21_1 = {
     code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
 export type response_27_2 = {
+<<<<<<< HEAD
     code: 401;
     ok: false;
     info: "user.deleted";
@@ -1015,11 +1363,14 @@ export type response_28_0 = {
 } & {body: undefined};
 
 export type response_28_1 = {
+=======
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
     code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_28_2 = {
     code: 401;
     ok: false;
@@ -1033,10 +1384,14 @@ export type response_28_3 = {
 } & {body: undefined};
 
 export type response_body_28_4 = {
+=======
+export type response_body_27_3 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
     id: string;
     email: string;
     lastname: string;
     firstname: string;
+<<<<<<< HEAD
     organizationRole: "STORE_KEEPER" | "PRODUCT_SHEET_MANAGER" | "ACCOUNTANT" | "OWNER";
 }
 
@@ -1419,11 +1774,66 @@ export type parameters_36 = {
 }
 
 export type response_36_0 = {
+<<<<<<< HEAD
+    code: 401;
+=======
+=======
+    dateOfBirth?: string;
+    address: string;
+    primordialRole: "CUSTOMER" | "MODERATOR" | "CONTENTS_MASTER" | "ADMIN";
+    muted: boolean;
+    emailNotifcationsNewsletter: boolean;
+    emailNotifcationsProductStock: boolean;
+    emailNotifcationsPromotion: boolean;
+    emailNotifcationsNewProductInCategory: boolean;
+    hasOrganization: boolean;
+}
+
+export type response_27_3 = {
+    code: 200;
+    ok: true;
+    info: "user";
+} & {body: response_body_27_3};
+
+export type request_body_28 = {
+    lastname?: string | undefined;
+    firstname?: string | undefined;
+    address?: string | undefined;
+    emailNotifcationsNewsletter?: boolean | undefined;
+    emailNotifcationsProductStock?: boolean | undefined;
+    emailNotifcationsPromotion?: boolean | undefined;
+    emailNotifcationsNewProductInCategory?: boolean | undefined;
+}
+
+export type response_22_0 = {
     code: 401;
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
+export type response_22_1 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+    code: 404;
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+export type response_body_36_1 = {
+    _id: string;
+    userId: string;
+    productSheetId: string;
+    pseudo: string;
+    content?: string | undefined;
+    createdAt: Date;
+    rate: number;
+    check: boolean;
+}[]
+
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 export type response_36_1 = {
     code: 404;
     ok: false;
@@ -1497,23 +1907,56 @@ export type response_37_5 = {
 } & {body: undefined};
 
 export type response_37_6 = {
+<<<<<<< HEAD
     code: 403;
     ok: false;
     info: "user.role.organization.invalid";
 } & {body: undefined};
+=======
+    code: 201;
+    ok: true;
+    info: "productSheetReview.created";
+} & {body: response_body_37_6};
 
-export type response_38_0 = {
+export type parameters_38 = {
+    params: {
+        productSheetReviewId: string;
+=======
+export type response_28_2 = {
+    code: 400;
+    ok: false;
+    info: "user.address.invalid";
+} & {body: undefined};
+
+export type response_body_28_3 = string
+
+export type response_28_3 = {
+    code: 201;
+    ok: true;
+    info: "user.edited";
+} & {body: response_body_28_3};
+
+export type parameters_23 = {
+    params: {
+        imageProductSheetId: string;
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+    };
+}
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
+
+export type response_23_0 = {
     code: 401;
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
-export type response_38_1 = {
+export type response_23_1 = {
     code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_38_2 = {
     code: 401;
     ok: false;
@@ -1560,10 +2003,27 @@ export type request_body_39 = {
 
 export type response_39_0 = {
     code: 401;
+=======
+export type response_29_2 = {
+    code: 404;
     ok: false;
-    info: "access.token.invalid";
+    info: "imageProductSheet.notfound";
 } & {body: undefined};
 
+export type response_29_3 = {
+    code: 204;
+    ok: true;
+    info: "imageProductSheet.deleted";
+} & {body: undefined};
+
+export type response_29_4 = {
+    code: 406;
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+<<<<<<< HEAD
 export type response_39_1 = {
     code: 404;
     ok: false;
@@ -1615,11 +2075,36 @@ export type response_40_3 = {
 } & {body: undefined};
 
 export type response_41_0 = {
+=======
+export type response_29_5 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type request_body_30 = {
+    primordialRole?: ("CUSTOMER" | "CONTENTS_MASTER" | "MODERATOR") | undefined;
+    muted?: boolean | undefined;
+}
+
+export type parameters_42 = {
+    headers: {
+        "content-type": string;
+        "content-length": number;
+    };
+    params: {
+        userId: string;
+    };
+}
+
+export type response_24_0 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
     code: 401;
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_41_1 = {
     code: 404;
     ok: false;
@@ -1655,6 +2140,18 @@ export type parameters_42 = {
 }
 
 export type response_42_0 = {
+<<<<<<< HEAD
+=======
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_42_1 = {
+=======
+export type response_24_1 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     code: 404;
     ok: false;
     info: "prodcutSheet.notfound";
@@ -1671,6 +2168,7 @@ export type response_body_42_1 = {
     check: boolean;
 }[]
 
+<<<<<<< HEAD
 export type response_42_1 = {
     code: 200;
     ok: true;
@@ -1688,6 +2186,55 @@ export type parameters_43 = {
         productSheetId: string;
     };
 }
+=======
+export type response_42_3 = {
+<<<<<<< HEAD
+    code: 400;
+    ok: false;
+    info: "user.address.invalid";
+} & {body: undefined};
+
+export type response_body_42_4 = string
+
+export type response_42_4 = {
+    code: 201;
+    ok: true;
+    info: "user.edited";
+} & {body: response_body_42_4};
+=======
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_42_4 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_30_4 = {
+    code: 401;
+    ok: false;
+    info: "user.primordialRole.admin";
+} & {body: undefined};
+
+export type response_42_6 = {
+    code: 204;
+    ok: true;
+    info: "user.edited";
+} & {body: undefined};
+
+export type parameters_43 = {
+    query?: {
+        random?: ("true" | "false") | undefined;
+        check?: ("true" | "false") | undefined;
+        page?: number | undefined;
+        take?: number;
+    } | undefined;
+}
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 
 export type response_43_0 = {
     code: 401;
@@ -1708,6 +2255,7 @@ export type response_43_2 = {
 } & {body: undefined};
 
 export type response_43_3 = {
+<<<<<<< HEAD
     code: 403;
     ok: false;
     info: "user.muted";
@@ -1726,6 +2274,21 @@ export type response_43_5 = {
 } & {body: undefined};
 
 export type response_body_43_6 = {
+=======
+<<<<<<< HEAD
+    code: 204;
+    ok: true;
+    info: "user.delete";
+} & {body: undefined};
+
+=======
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_body_43_4 = {
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     _id: string;
     userId: string;
     productSheetId: string;
@@ -1734,6 +2297,7 @@ export type response_body_43_6 = {
     createdAt: Date;
     rate: number;
     check: boolean;
+<<<<<<< HEAD
 }
 
 export type response_43_6 = {
@@ -1742,6 +2306,27 @@ export type response_43_6 = {
     info: "productSheetReview.created";
 } & {body: response_body_43_6};
 
+=======
+}[]
+
+export type response_43_4 = {
+    code: 200;
+    ok: true;
+    info: "productSheetReviews";
+} & {body: response_body_43_4};
+
+export type request_body_44 = {
+    status?: ("VERIFIED" | "UNVERIFIED" | "REMOVE") | undefined;
+}
+
+export type parameters_44 = {
+    params: {
+        productSheetId: string;
+    };
+}
+
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 export type response_44_0 = {
     code: 401;
     ok: false;
@@ -1766,6 +2351,7 @@ export type response_44_3 = {
     info: "user.role.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_body_44_4 = {
     id: string;
     ref: string;
@@ -1817,6 +2403,34 @@ export type response_44_4 = {
     ok: true;
     info: "fullProductSheets";
 } & {body: response_body_44_4};
+=======
+export type response_44_4 = {
+    code: 404;
+    ok: false;
+    info: "productSheet.notfound";
+} & {body: undefined};
+
+export type response_body_44_5 = {
+    id: string;
+    ref: string;
+    name: string;
+    description: string;
+    shortDescription: string;
+    price: number;
+    createdAt?: string;
+    updatedAt?: string;
+    organizationId: string;
+    variationGroup: string | null;
+    variationName: string | null;
+    warehouseId: string;
+}
+
+export type response_44_5 = {
+    code: 201;
+    ok: true;
+    info: "productSheet.edited";
+} & {body: response_body_44_5};
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 
 export type request_body_45 = {
     name: string;
@@ -1829,7 +2443,7 @@ export type response_45_0 = {
     info: "access.token.invalid";
 } & {body: undefined};
 
-export type response_45_1 = {
+export type response_26_1 = {
     code: 404;
     ok: false;
     info: "user.notfound";
@@ -1870,46 +2484,303 @@ export type response_45_5 = {
 } & {body: response_body_29_4};
 >>>>>>> 01b7c25 (feat(110): add analytics charts (front))
 
+<<<<<<< HEAD
 export type request_body_46 = {
     status?: ("VERIFIED" | "UNVERIFIED" | "REMOVE") | undefined;
 }
 
+=======
+<<<<<<< HEAD
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 export type parameters_46 = {
     params: {
+<<<<<<< HEAD
         productSheetId: string;
+=======
+        categoryName: string;
+=======
+export type parameters_32 = {
+    params: {
+        organizationId: string;
+    };
+    query: {
+        warehouseId: string;
+        page?: number;
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     };
 }
 
-export type response_46_0 = {
+export type response_27_0 = {
     code: 401;
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
-export type response_46_1 = {
+export type response_27_1 = {
     code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
-export type response_46_2 = {
-    code: 401;
+export type response_32_2 = {
+    code: 404;
     ok: false;
-    info: "user.deleted";
+    info: "organization.notfound";
 } & {body: undefined};
 
-export type response_46_3 = {
+export type response_32_3 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_32_4 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type response_32_5 = {
+    code: 404;
+    ok: false;
+    info: "warehouse.notfound";
+} & {body: undefined};
+
+export type response_body_32_6 = {
+    commandId: string;
+    firstname: string;
+    lastname: string;
+    address: string;
+    quantity: number;
+    createdAt?: string;
+}[]
+
+export type response_32_6 = {
+    code: 200;
+    ok: true;
+    info: "organizationCommandCollection";
+} & {body: response_body_32_6};
+
+export type parameters_33 = {
+    params: {
+        promotionId: number;
+    };
+}
+
+export type response_29_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_29_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_33_2 = {
+    code: 404;
+    ok: false;
+    info: "promotion.notfound";
+} & {body: undefined};
+
+export type response_33_3 = {
+    code: 204;
+    ok: true;
+    info: "promotion.deleted";
+} & {body: undefined};
+
+export type response_33_4 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_33_5 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type parameters_30 = {
+    params: {
+        organizationId: string;
+    };
+    query?: {
+        page?: number;
+        ref?: string | undefined;
+    } | undefined;
+}
+
+export type response_30_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_30_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_34_2 = {
+    code: 404;
+    ok: false;
+    info: "organization.notfound";
+} & {body: undefined};
+
+export type response_34_3 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_34_4 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type response_body_34_5 = {
+    id: string;
+    ref: string;
+    name: string;
+    price: number;
+    shortDescription: string;
+    description: string;
+    quantity: number;
+    categories: string[];
+    images: string[];
+    hasPromotion?: boolean | undefined;
+    promotion?: {
+        id: number;
+        originalPrice: number;
+        percentage: number;
+        startDate: Date;
+        endDate: Date;
+    } | undefined;
+    organization: {
+        id: string;
+        name: string;
+        label?: string | undefined;
+        logoUrl?: string | undefined;
+    };
+    facets: {
+        ACCESSORY?: string | undefined;
+        COLOR?: string | undefined;
+        DIAMETER?: string | undefined;
+        MATERIAL?: string | undefined;
+        SIZE?: string | undefined;
+        STIMULATION?: string | undefined;
+        TARGET?: string | undefined;
+    };
+}[]
+
+export type response_34_5 = {
+    code: 200;
+    ok: true;
+    info: "organization.fullProductSheet";
+} & {body: response_body_34_5};
+
+export type parameters_53 = {
+    params: {
+        organizationId: string;
+    };
+    query?: {
+        sku?: string | undefined;
+        page?: number;
+    } | undefined;
+}
+
+export type response_31_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_31_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_35_2 = {
+    code: 404;
+    ok: false;
+    info: "organization.notfound";
+} & {body: undefined};
+
+export type response_35_3 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_35_4 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type response_body_35_5 = {
+    id: number;
+    productSku: string;
+    reason: string;
+    status: "WAITING_RETURN" | "REFUNDED" | "INVALID";
+    organizationId: string;
+    createdAt?: string;
+}[]
+
+export type response_35_5 = {
+    code: 200;
+    ok: true;
+    info: "productReturns";
+} & {body: response_body_35_5};
+
+export type request_body_36 = {
+    sku: string;
+    reason: string;
+}
+
+export type parameters_54 = {
+    params: {
+        organizationId: string;
+    };
+}
+
+export type response_32_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_32_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_32_2 = {
     code: 403;
     ok: false;
     info: "user.role.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_46_4 = {
     code: 404;
+=======
+export type response_32_3 = {
+    code: 409;
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
     ok: false;
     info: "productSheet.notfound";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_body_46_5 = {
     id: string;
     ref: string;
@@ -1925,6 +2796,9 @@ export type response_body_46_5 = {
     warehouseId: string;
 }
 
+=======
+<<<<<<< HEAD
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 export type response_46_5 = {
     code: 201;
     ok: true;
@@ -1985,43 +2859,110 @@ export type response_47_6 = {
 } & {body: undefined};
 
 export type parameters_48 = {
+<<<<<<< HEAD
+=======
+=======
+export type response_32_4 = {
+    code: 404;
+    ok: false;
+    info: "organization.notfound";
+} & {body: undefined};
+
+export type response_36_3 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_36_4 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type response_36_5 = {
+    code: 404;
+    ok: false;
+    info: "product.notfound";
+} & {body: undefined};
+
+export type response_36_6 = {
+    code: 406;
+    ok: false;
+    info: "product.wrong.status";
+} & {body: undefined};
+
+export type response_36_7 = {
+    code: 409;
+    ok: false;
+    info: "product.alreadyInRefundProcess";
+} & {body: undefined};
+
+export type response_body_36_8 = {
+    id: number;
+    productSku: string;
+    reason: string;
+    status: "WAITING_RETURN" | "REFUNDED" | "INVALID";
+    organizationId: string;
+    createdAt?: string;
+}
+
+export type response_36_8 = {
+    code: 201;
+    ok: true;
+    info: "productReturn.created";
+} & {body: response_body_36_8};
+
+export type parameters_37 = {
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     headers: {
         "content-type": string;
         "content-length": number;
     };
+<<<<<<< HEAD
+=======
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     params: {
         categoryName: string;
     };
 }
 
-export type response_48_0 = {
+export type response_33_0 = {
     code: 401;
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
-export type response_48_1 = {
+export type response_33_1 = {
     code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
-export type response_48_2 = {
-    code: 401;
-    ok: false;
-    info: "user.deleted";
-} & {body: undefined};
-
-export type response_48_3 = {
-    code: 403;
-    ok: false;
-    info: "user.role.invalid";
-} & {body: undefined};
-
-export type response_48_4 = {
+export type response_37_2 = {
     code: 404;
     ok: false;
     info: "category.notfound";
+} & {body: undefined};
+
+export type response_37_3 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_37_4 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type response_37_5 = {
+    code: 400;
+    ok: false;
+<<<<<<< HEAD
+    info: "organization.notfound";
 } & {body: undefined};
 
 export type response_48_5 = {
@@ -2686,36 +3627,68 @@ export type response_60_5 = {
 } & {body: undefined};
 
 export type parameters_61 = {
+<<<<<<< HEAD
+=======
+    params: {
+        parentCategoryName: string;
+        categoryName: string;
+    };
+=======
+    info: "organization.logo.missing";
+} & {body: undefined};
+
+export type response_37_6 = {
+    code: 204;
+    ok: true;
+    info: "organization.logo.edited";
+} & {body: undefined};
+
+export type parameters_56 = {
+    params: {
+        organizationId: string;
+    };
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     query?: {
         page?: number;
         name?: string | undefined;
     } | undefined;
+<<<<<<< HEAD
+=======
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 }
 
-export type response_61_0 = {
+export type response_34_0 = {
     code: 401;
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
-export type response_61_1 = {
+export type response_34_1 = {
     code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
-export type response_61_2 = {
-    code: 401;
+export type response_38_2 = {
+    code: 404;
     ok: false;
-    info: "user.deleted";
+    info: "organization.notfound";
 } & {body: undefined};
 
-export type response_61_3 = {
+export type response_38_3 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_38_4 = {
     code: 403;
     ok: false;
-    info: "user.role.invalid";
+    info: "user.role.organization.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_body_61_4 = {
     id: string;
     name: string;
@@ -2725,6 +3698,14 @@ export type response_body_61_4 = {
     logoKey: string | null;
     logoUrl: string | null;
 }[]
+=======
+<<<<<<< HEAD
+export type response_61_4 = {
+    code: 404;
+    ok: false;
+    info: "parentCategory.notfound";
+} & {body: undefined};
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 
 export type response_61_4 = {
     code: 200;
@@ -2777,22 +3758,255 @@ export type response_62_4 = {
     info: "parentCategories";
 } & {body: response_body_62_4};
 
+<<<<<<< HEAD
 export type request_body_63 = {
     name: string;
+=======
+export type parameters_63 = {
+    query?: {
+        page?: number;
+        name?: string | undefined;
+        withCategories?: ("true" | "false") | undefined;
+    } | undefined;
+=======
+export type response_body_38_5 = {
+    id: string;
+    ref: string;
+    name: string;
+    description: string;
+    shortDescription: string;
+    price: number;
+    createdAt?: string;
+    updatedAt?: string;
+    organizationId: string;
+    warehouseId: string;
+}[]
+
+export type response_38_5 = {
+    code: 200;
+    ok: true;
+    info: "productSheets.found";
+} & {body: response_body_38_5};
+
+export type request_body_39 = {
+    ref: string;
+    name: string;
+    description: string;
+    shortDescription: string;
+    price: number;
+    warehouseId: string;
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 }
 
-export type response_63_0 = {
+export type parameters_35 = {
+    params: {
+        organizationId: string;
+    };
+}
+
+export type response_35_0 = {
     code: 401;
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
-export type response_63_1 = {
+export type response_35_1 = {
     code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
+export type response_39_2 = {
+    code: 404;
+    ok: false;
+    info: "organization.notfound";
+} & {body: undefined};
+
+export type response_39_3 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_39_4 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type response_35_5 = {
+    code: 404;
+    ok: false;
+    info: "warehouse.notfound";
+} & {body: undefined};
+
+export type response_39_6 = {
+    code: 409;
+    ok: false;
+    info: "productSheet.ref.alreadyUse";
+} & {body: undefined};
+
+export type response_body_39_7 = {
+    id: string;
+    ref: string;
+    name: string;
+    description: string;
+    shortDescription: string;
+    price: number;
+    createdAt?: string;
+    updatedAt?: string;
+    organizationId: string;
+    warehouseId: string;
+}
+
+export type response_39_7 = {
+    code: 201;
+    ok: true;
+    info: "productSheet.created";
+} & {body: response_body_39_7};
+
+export type parameters_59 = {
+    params: {
+        organizationId: string;
+        commandId: string;
+    };
+}
+
+export type response_36_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_36_1 = {
+    code: 404;
+    ok: false;
+    info: "category.notfound";
+} & {body: undefined};
+
+export type response_40_2 = {
+    code: 404;
+    ok: false;
+    info: "organization.notfound";
+} & {body: undefined};
+
+export type response_40_3 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_40_4 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type response_40_5 = {
+    code: 404;
+    ok: false;
+    info: "command.notfound";
+} & {body: undefined};
+
+export type response_40_6 = {
+    code: 404;
+    ok: false;
+    info: "commandItem.missing";
+} & {body: undefined};
+
+export type response_body_40_7 = {
+    productSheetRef: string;
+    commandItemId: number;
+    commandId: string;
+    quantity: number;
+    processQuantity: number;
+    productSheetName: string;
+    productSheetId: string;
+    productSheetFirstImageUrl: string;
+}[]
+
+export type response_40_7 = {
+    code: 200;
+    ok: true;
+    info: "organizationCommandDetailes";
+} & {body: response_body_40_7};
+
+export type parameters_38 = {
+    params: {
+        organizationId: string;
+    };
+}
+
+export type response_38_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_38_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_41_2 = {
+    code: 404;
+    ok: false;
+    info: "organization.notfound";
+} & {body: undefined};
+
+export type response_41_3 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_41_4 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type response_body_41_5 = {
+    id: string;
+    name: string;
+    label: string | null;
+    ownerId: string;
+    suspended: boolean;
+    logoKey: string | null;
+    logoUrl: string | null;
+}
+
+export type response_41_5 = {
+    code: 200;
+    ok: true;
+    info: "organization.found";
+} & {body: response_body_41_5};
+
+export type request_body_42 = {
+    label?: (string | null) | undefined;
+}
+
+export type parameters_39 = {
+    params: {
+        organizationId: string;
+    };
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+}
+
+export type response_39_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_39_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+<<<<<<< HEAD
 export type response_63_2 = {
     code: 401;
     ok: false;
@@ -2822,36 +4036,220 @@ export type response_63_5 = {
 } & {body: response_body_63_5};
 
 export type request_body_64 = {
+<<<<<<< HEAD
     check?: boolean | undefined;
 }
+=======
+    name?: string | undefined;
+=======
+export type response_42_2 = {
+    code: 404;
+    ok: false;
+    info: "organization.notfound";
+} & {body: undefined};
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 
-export type parameters_64 = {
+export type response_42_3 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_42_4 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type response_42_5 = {
+    code: 204;
+    ok: true;
+    info: "organization.edited";
+} & {body: undefined};
+
+export type parameters_40 = {
     params: {
+<<<<<<< HEAD
         productSheetReviewId: string;
+=======
+        organizationId: string;
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     };
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 }
 
-export type response_64_0 = {
+export type response_40_0 = {
     code: 401;
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
-export type response_64_1 = {
+export type response_40_1 = {
     code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
-export type response_64_2 = {
-    code: 401;
+export type response_43_2 = {
+    code: 404;
     ok: false;
-    info: "user.deleted";
+    info: "organization.notfound";
 } & {body: undefined};
 
-export type response_64_3 = {
+export type response_43_3 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_43_4 = {
     code: 403;
     ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type response_body_43_5 = {
+    x: number;
+    y: number;
+    w: number;
+    h: number;
+    i: number;
+    params: {
+        type: "line" | "bar" | "pie" | "donut" | "area";
+        filters: {
+            startDate: Date;
+            endDate: Date;
+            productSheetsId: string[];
+            priceMax?: number | undefined;
+            priceMin?: number | undefined;
+        } | {
+            startDate: Date;
+            endDate: Date;
+            categories?: string[] | undefined;
+            facets?: {
+                ACCESSORY?: string | undefined;
+                COLOR?: string | undefined;
+                DIAMETER?: string | undefined;
+                MATERIAL?: string | undefined;
+                SIZE?: string | undefined;
+                STIMULATION?: string | undefined;
+                TARGET?: string | undefined;
+            } | undefined;
+            priceMax?: number | undefined;
+            priceMin?: number | undefined;
+        };
+    } | {
+        type: "top";
+        filters: {
+            startDate: Date;
+            endDate: Date;
+            customfilterType: "categories" | "productSheetsId";
+            filterValue: string[];
+        };
+    } | {
+        type: "value";
+        filters: {
+            startDate: Date;
+            endDate: Date;
+            customfilterType: "category" | "productSheetId";
+            filterValue: string;
+        };
+    };
+}[]
+
+export type response_43_5 = {
+    code: 200;
+    ok: true;
+    info: "gridStatCommand.found";
+} & {body: response_body_43_5};
+
+export type request_body_44 = {
+    x: number;
+    y: number;
+    w: number;
+    h: number;
+    i: number;
+    params: {
+        type: "line" | "bar" | "pie" | "donut" | "area";
+        filters: {
+            startDate: Date;
+            endDate: Date;
+            productSheetsId: string[];
+            priceMax?: number | undefined;
+            priceMin?: number | undefined;
+        } | {
+            startDate: Date;
+            endDate: Date;
+            categories?: string[] | undefined;
+            facets?: {
+                ACCESSORY?: string | undefined;
+                COLOR?: string | undefined;
+                DIAMETER?: string | undefined;
+                MATERIAL?: string | undefined;
+                SIZE?: string | undefined;
+                STIMULATION?: string | undefined;
+                TARGET?: string | undefined;
+            } | undefined;
+            priceMax?: number | undefined;
+            priceMin?: number | undefined;
+        };
+    } | {
+        type: "top";
+        filters: {
+            startDate: Date;
+            endDate: Date;
+            customfilterType: "categories" | "productSheetsId";
+            filterValue: string[];
+        };
+    } | {
+        type: "value";
+        filters: {
+            startDate: Date;
+            endDate: Date;
+            customfilterType: "category" | "productSheetId";
+            filterValue: string;
+        };
+    };
+}[]
+
+export type parameters_64 = {
+    params: {
+<<<<<<< HEAD
+        parentCategoryName: string;
+=======
+        organizationId: string;
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+    };
+}
+
+export type response_41_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_41_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_44_2 = {
+    code: 404;
+    ok: false;
+    info: "organization.notfound";
+} & {body: undefined};
+
+export type response_44_3 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_44_4 = {
+    code: 403;
+    ok: false;
+<<<<<<< HEAD
     info: "user.role.invalid";
 } & {body: undefined};
 
@@ -2873,6 +4271,7 @@ export type response_body_64_5 = {
 }
 
 export type response_64_5 = {
+<<<<<<< HEAD
     code: 200;
     ok: true;
     info: "productSheetReview.edited";
@@ -2882,32 +4281,71 @@ export type parameters_65 = {
     params: {
         productSheetReviewId: string;
     };
+=======
+    code: 409;
+    ok: false;
+    info: "parentCategory.name.alreadyUse";
+=======
+    info: "user.role.organization.invalid";
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+} & {body: undefined};
+
+export type response_64_6 = {
+    code: 204;
+    ok: true;
+<<<<<<< HEAD
+    info: "parentCategory.edited";
+=======
+    info: "gridStatCommand.updated";
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+} & {body: undefined};
+
+export type parameters_45 = {
+    params: {
+        organizationId: string;
+    };
+    query?: {
+        page?: number;
+<<<<<<< HEAD
+        name?: string | undefined;
+=======
+        email?: string | undefined;
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+    } | undefined;
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 }
 
-export type response_65_0 = {
+export type response_42_0 = {
     code: 401;
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
-export type response_65_1 = {
+export type response_42_1 = {
     code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
-export type response_65_2 = {
-    code: 401;
+export type response_45_2 = {
+    code: 404;
     ok: false;
-    info: "user.deleted";
+    info: "organization.notfound";
 } & {body: undefined};
 
-export type response_65_3 = {
+export type response_45_3 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_45_4 = {
     code: 403;
     ok: false;
-    info: "user.role.invalid";
+    info: "user.role.organization.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_65_4 = {
     code: 404;
     ok: false;
@@ -2919,14 +4357,61 @@ export type response_65_5 = {
     ok: true;
     info: "productSheetReview.deleted";
 } & {body: undefined};
+=======
+export type response_body_45_5 = {
+    id: string;
+<<<<<<< HEAD
+    name: string;
+    label: string | null;
+    ownerId: string;
+    suspended: boolean;
+    logoKey: string | null;
+    logoUrl: string | null;
+=======
+    email: string;
+    lastname: string;
+    firstname: string;
+    organizationRole: "STORE_KEEPER" | "PRODUCT_SHEET_MANAGER" | "ACCOUNTANT" | "OWNER";
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+}[]
 
-export type response_66_0 = {
+export type response_45_5 = {
+    code: 200;
+    ok: true;
+<<<<<<< HEAD
+    info: "organizations";
+} & {body: response_body_65_4};
+
+export type request_body_66 = {
+    name: string;
+=======
+    info: "organization.users";
+} & {body: response_body_45_5};
+
+export type request_body_46 = {
+    idShip: string;
+    bundleItems: {
+        commandItemId: number;
+        sku: string;
+    }[];
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+}
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
+
+export type parameters_46 = {
+    params: {
+        organizationId: string;
+        commandId: string;
+    };
+}
+
+export type response_43_0 = {
     code: 401;
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
-export type response_66_1 = {
+export type response_43_1 = {
     code: 404;
     ok: false;
     info: "user.notfound";
@@ -2985,6 +4470,7 @@ export type response_67_0 = {
     info: "access.token.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_67_1 = {
     code: 404;
     ok: false;
@@ -2999,16 +4485,39 @@ export type response_67_2 = {
 
 export type response_67_3 = {
     code: 403;
+=======
+export type response_46_5 = {
+    code: 404;
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     ok: false;
     info: "user.role.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_67_4 = {
     code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
+=======
+export type response_46_6 = {
+    code: 400;
+    ok: false;
+    info: "commandItem.wrong.product";
+} & {body: undefined};
+
+<<<<<<< HEAD
+export type response_body_67_5 = {
+    id: number;
+    idShip: string;
+    carrierName: "LA_POSTE";
+    commandId: string;
+    status: "DONE" | "CREATED" | "CARRIER_SUPPORTED" | "CARRIER_PROCESS" | "UNDELIVERABLE" | "DONE_OFFICE" | "BACK" | "BACK_DONE";
+    productsCount: number;
+}[]
+
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 export type response_67_5 = {
     code: 401;
     ok: false;
@@ -3031,16 +4540,27 @@ export type parameters_68 = {
 
 export type response_68_0 = {
     code: 401;
+=======
+export type response_46_7 = {
+    code: 400;
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
     ok: false;
-    info: "access.token.invalid";
+    info: "organization.wrong.product";
 } & {body: undefined};
 
-export type response_68_1 = {
+export type response_46_8 = {
+    code: 400;
+    ok: false;
+    info: "commandItem.wrong.commandId";
+} & {body: undefined};
+
+export type response_46_9 = {
     code: 404;
     ok: false;
-    info: "user.notfound";
+    info: "commandItem.missing";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_68_2 = {
     code: 401;
     ok: false;
@@ -3074,9 +4594,49 @@ export type response_68_4 = {
     info: "users";
 } & {body: response_body_68_4};
 
+<<<<<<< HEAD
 export type parameters_69 = {
     params?: {
         commandId?: string;
+=======
+export type request_body_69 = {
+    primordialRole?: ("CUSTOMER" | "CONTENTS_MASTER" | "MODERATOR") | undefined;
+    muted?: boolean | undefined;
+}
+=======
+export type response_46_10 = {
+    code: 404;
+    ok: false;
+    info: "product.missing";
+} & {body: undefined};
+
+export type response_46_11 = {
+    code: 409;
+    ok: false;
+    info: "commandItem.alreadyCompleted";
+} & {body: undefined};
+
+export type response_46_12 = {
+    code: 409;
+    ok: false;
+    info: "commandItem.tooMuch.product";
+} & {body: undefined};
+
+export type response_46_13 = {
+    code: 200;
+    ok: true;
+    info: "makeBundle";
+} & {body: undefined};
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+
+export type parameters_69 = {
+    params: {
+        userId: string;
+    };
+    query?: {
+        page?: number;
+        name?: string | undefined;
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     } | undefined;
 }
 
@@ -3110,6 +4670,7 @@ export type response_69_4 = {
     info: "command.wrong.user";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_body_69_5 = {
     id: number;
     idShip: string;
@@ -3121,6 +4682,11 @@ export type response_body_69_5 = {
 
 export type response_69_5 = {
     code: 200;
+=======
+<<<<<<< HEAD
+export type response_69_6 = {
+    code: 204;
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     ok: true;
     info: "bundles.found";
 } & {body: response_body_69_5};
@@ -3132,17 +4698,34 @@ export type parameters_70 = {
 }
 
 export type response_70_0 = {
+=======
+export type response_body_69_6 = {
+    id: string;
+    name: string;
+    address: string;
+    organizationId: string;
+}[]
+
+export type response_47_5 = {
+    code: 200;
+    ok: true;
+    info: "warehouses.found";
+} & {body: response_body_47_5};
+
+export type response_44_0 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
     code: 401;
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
-export type response_70_1 = {
+export type response_44_1 = {
     code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_70_2 = {
     code: 401;
     ok: false;
@@ -3230,6 +4813,28 @@ export type response_71_5 = {
     ok: true;
     info: "command.found";
 } & {body: response_body_71_5};
+=======
+export type response_body_48_2 = {
+    productSheetId: string;
+    quantity: number;
+    name: string;
+    description: string;
+    shortDescription: string;
+    price: number;
+    imageUrl: string;
+}[]
+
+export type response_48_2 = {
+    code: 200;
+    ok: true;
+    info: "cart.fetched";
+} & {body: response_body_48_2};
+
+export type request_body_49 = {
+    name: string;
+    address: string;
+}
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 
 export type parameters_72 = {
     params: {
@@ -3249,13 +4854,13 @@ export type parameters_72 = {
     } | undefined;
 }
 
-export type response_72_0 = {
+export type response_45_0 = {
     code: 401;
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
-export type response_72_1 = {
+export type response_45_1 = {
     code: 404;
     ok: false;
     info: "user.notfound";
@@ -3289,7 +4894,10 @@ export type response_72_4 = {
 
 export type response_72_5 = {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     code: 204;
     ok: true;
 <<<<<<< HEAD
@@ -3313,6 +4921,36 @@ export type parameters_73 = {
         organizationId: string;
     };
 >>>>>>> 01b7c25 (feat(110): add analytics charts (front))
+=======
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type response_49_5 = {
+    code: 400;
+    ok: false;
+    info: "warehouse.address.invalid";
+} & {body: undefined};
+
+export type response_body_49_6 = {
+    id: string;
+    name: string;
+    address: string;
+    organizationId: string;
+}
+
+export type response_49_6 = {
+    code: 201;
+    ok: true;
+    info: "warehouse.created";
+} & {body: response_body_49_6};
+
+export type parameters_50 = {
+    query?: {
+        page?: number;
+    } | undefined;
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 }
 
 export type response_73_0 = {
@@ -3327,6 +4965,7 @@ export type response_73_1 = {
     info: "user.notfound";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_73_2 = {
     code: 401;
     ok: false;
@@ -3372,6 +5011,36 @@ export type parameters_74 = {
         page?: number;
         email?: string | undefined;
     } | undefined;
+=======
+export type response_body_50_2 = {
+    id: string;
+    firstname: string;
+    lastname: string;
+    status: "DONE" | "CANCELED" | "WAITING_PAYMENT" | "IN_PROGRESS" | "IN_DELIVERY";
+    userId: string;
+    deliveryAddress: string;
+    createdDate: Date;
+    price: number;
+    items: {
+        quantity: number;
+        processQuantity: number;
+        productSheetId: string;
+        productSheetName: string;
+        productSheetFirstImageUrl: string;
+        productSheetOrganizationName: string;
+        productSheetPrice: number;
+    }[];
+}[]
+
+export type response_50_2 = {
+    code: 200;
+    ok: true;
+    info: "userCommands";
+} & {body: response_body_50_2};
+
+export type request_body_51 = {
+    commandId: string;
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 }
 
 export type response_74_0 = {
@@ -3395,15 +5064,16 @@ export type response_74_2 = {
 export type response_74_3 = {
     code: 404;
     ok: false;
-    info: "organization.notfound";
+    info: "command.notfound";
 } & {body: undefined};
 
-export type response_74_4 = {
-    code: 406;
+export type response_51_3 = {
+    code: 401;
     ok: false;
-    info: "organization.hasNotUser";
+    info: "command.wrong.user";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_74_5 = {
 >>>>>>> 7de6e68 (feat(110): add analytics charts (front))
     code: 403;
@@ -3449,6 +5119,22 @@ export type parameters_75 = {
         withWarehouse?: ("true" | "false") | undefined;
 >>>>>>> 01b7c25 (feat(110): add analytics charts (front))
     } | undefined;
+=======
+export type response_body_51_4 = {
+    sessionUrl: string;
+}
+
+export type response_51_4 = {
+    code: 201;
+    ok: true;
+    info: "session";
+} & {body: response_body_51_4};
+
+export type request_body_52 = {
+    lastname: string;
+    firstname: string;
+    address: string;
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 }
 
 export type response_75_0 = {
@@ -3463,174 +5149,171 @@ export type response_75_1 = {
     info: "user.notfound";
 } & {body: undefined};
 
-export type response_75_2 = {
+export type response_52_2 = {
+    code: 400;
+    ok: false;
+    info: "user.address.invalid";
+} & {body: undefined};
+
+export type response_52_3 = {
+    code: 409;
+    ok: false;
+    info: "cart.empty";
+} & {body: undefined};
+
+export type response_52_4 = {
+    code: 409;
+    ok: false;
+    info: "products.unavailable";
+} & {body: undefined};
+
+export type response_body_52_5 = {
+    sessionUrl: string;
+}
+
+export type response_52_5 = {
+    code: 201;
+    ok: true;
+    info: "session";
+} & {body: response_body_52_5};
+
+export type parameters_76 = {
+    params: {
+        sku: string;
+    };
+}
+
+export type response_46_0 = {
     code: 401;
     ok: false;
-    info: "user.deleted";
+    info: "access.token.invalid";
 } & {body: undefined};
 
-export type response_75_3 = {
+export type response_46_1 = {
     code: 404;
     ok: false;
-    info: "organization.notfound";
+    info: "user.notfound";
 } & {body: undefined};
 
-export type response_75_4 = {
+export type response_46_2 = {
+    code: 404;
+    ok: false;
+    info: "product.notfound";
+} & {body: undefined};
+
+export type response_46_3 = {
     code: 406;
     ok: false;
     info: "organization.hasNotUser";
 } & {body: undefined};
 
-export type response_75_5 = {
+export type response_46_4 = {
     code: 403;
     ok: false;
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_body_75_6 = {
 >>>>>>> 7de6e68 (feat(110): add analytics charts (front))
+=======
+export type response_body_53_5 = {
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     id: string;
+<<<<<<< HEAD
     ref: string;
     name: string;
 <<<<<<< HEAD
 =======
     description: string;
     shortDescription: string;
+=======
+    firstname: string;
+    lastname: string;
+    status: "DONE" | "CANCELED" | "WAITING_PAYMENT" | "IN_PROGRESS" | "IN_DELIVERY";
+    userId: string;
+    deliveryAddress: string;
+    createdDate: Date;
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
     price: number;
-    createdAt?: string;
-    updatedAt?: string;
-    organizationId: string;
-    variationGroup: string | null;
-    variationName: string | null;
-    warehouseId: string;
+    items: {
+        quantity: number;
+        processQuantity: number;
+        productSheetId: string;
+        productSheetName: string;
+        productSheetFirstImageUrl: string;
+        productSheetOrganizationName: string;
+        productSheetPrice: number;
+    }[];
+}[]
+
+export type response_53_5 = {
+    code: 200;
+    ok: true;
+    info: "product.commandHistory";
+} & {body: response_body_53_5};
+
+export type request_body_54 = {
+    categoryName: string;
 }
 
-export type response_75_6 = {
-    code: 201;
-    ok: true;
-    info: "productSheet.edited";
-} & {body: response_body_75_6};
-
-export type parameters_76 = {
+export type parameters_47 = {
     params: {
         productSheetId: string;
     };
 }
 
-export type response_76_0 = {
+export type response_47_0 = {
     code: 401;
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
-export type response_76_1 = {
+export type response_47_1 = {
     code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
-export type response_76_2 = {
-    code: 401;
-    ok: false;
-    info: "user.deleted";
-} & {body: undefined};
-
-export type response_76_3 = {
+export type response_47_2 = {
     code: 404;
     ok: false;
-    info: "organization.notfound";
+    info: "productSheet.notfound";
 } & {body: undefined};
 
-export type response_76_4 = {
+export type response_47_3 = {
     code: 406;
     ok: false;
     info: "organization.hasNotUser";
 } & {body: undefined};
 
-export type response_76_5 = {
+export type response_47_4 = {
     code: 403;
     ok: false;
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-export type response_body_76_6 = {
-    id: string;
-    name: string;
-    address: string;
-    organizationId: string;
-}
-
-export type response_76_6 = {
-    code: 200;
-    ok: true;
-    info: "productSheet.warehouse";
-} & {body: response_body_76_6};
-
-export type parameters_77 = {
-    params: {
-        organizationId: string;
-    };
-    query?: {
-        page?: number;
-        name?: string | undefined;
-    } | undefined;
-}
-
-export type response_77_0 = {
-    code: 401;
-    ok: false;
-    info: "access.token.invalid";
-} & {body: undefined};
-
-export type response_77_1 = {
+export type response_54_5 = {
     code: 404;
     ok: false;
-    info: "user.notfound";
+    info: "category.notfound";
 } & {body: undefined};
 
-export type response_77_2 = {
-    code: 401;
+export type response_54_6 = {
+    code: 409;
     ok: false;
-    info: "user.deleted";
+    info: "productSheet.categories.limit";
 } & {body: undefined};
 
-export type response_77_3 = {
-    code: 404;
-    ok: false;
-    info: "organization.notfound";
-} & {body: undefined};
-
-export type response_77_4 = {
-    code: 406;
-    ok: false;
-    info: "organization.hasNotUser";
-} & {body: undefined};
-
-export type response_77_5 = {
-    code: 403;
-    ok: false;
-    info: "user.role.organization.invalid";
-} & {body: undefined};
-
-export type response_body_77_6 = {
-    type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
-    productSheetId: string;
-    value: string;
-}[]
-
-export type response_77_6 = {
+export type response_54_7 = {
     code: 200;
     ok: true;
-    info: "productSheet.facets";
-} & {body: response_body_77_6};
-
-export type request_body_78 = {
-    value?: string | undefined;
-}
+    info: "productSheet.category.linked";
+} & {body: undefined};
 
 export type parameters_78 = {
     params: {
-        sku: string;
+        productSheetId: string;
     };
 }
 
@@ -3655,7 +5338,7 @@ export type response_78_2 = {
 export type response_78_3 = {
     code: 404;
     ok: false;
-    info: "product.notfound";
+    info: "productSheet.notfound";
 } & {body: undefined};
 
 export type response_78_4 = {
@@ -3670,114 +5353,118 @@ export type response_78_5 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-export type response_78_6 = {
-    code: 404;
-    ok: false;
-    info: "facet.notfound";
-} & {body: undefined};
+export type response_body_55_5 = {
+    id: string;
+    ref: string;
+    name: string;
+    description: string;
+    shortDescription: string;
+    price: number;
+    createdAt?: string;
+    updatedAt?: string;
+    organizationId: string;
+    warehouseId: string;
+}
 
-export type response_78_7 = {
-    code: 204;
+export type response_55_5 = {
+    code: 200;
     ok: true;
-    info: "product.edited";
-} & {body: undefined};
+    info: "productSheet.found";
+} & {body: response_body_55_5};
 
-export type parameters_79 = {
+export type request_body_56 = {
+    name?: string | undefined;
+    description?: string | undefined;
+    shortDescription?: string | undefined;
+    price?: number | undefined;
+    warehouseId?: string | undefined;
+}
+
+export type parameters_56 = {
     params: {
         productSheetId: string;
     };
 }
 
-export type response_79_0 = {
+export type response_48_0 = {
     code: 401;
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
-export type response_79_1 = {
+export type response_48_1 = {
     code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
-export type response_79_2 = {
-    code: 401;
-    ok: false;
-    info: "user.deleted";
-} & {body: undefined};
-
-export type response_79_3 = {
+export type response_48_2 = {
     code: 404;
     ok: false;
     info: "productSheet.notfound";
 } & {body: undefined};
 
-export type response_79_4 = {
+export type response_48_3 = {
     code: 406;
     ok: false;
     info: "organization.hasNotUser";
 } & {body: undefined};
 
-export type response_79_5 = {
+export type response_48_4 = {
     code: 403;
     ok: false;
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-export type response_79_6 = {
-    code: 404;
-    ok: false;
-    info: "category.notfound";
-} & {body: undefined};
-
-export type response_79_7 = {
-    code: 204;
-    ok: true;
-    info: "productSheet.category.linked";
-} & {body: undefined};
-
-export type request_body_80 = {
-    type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
-    value: string;
+export type response_body_48_5 = {
+    id: string;
+    name: string;
+    description: string;
+    shortDescription: string;
+    price: number;
+    createdAt?: string;
+    updatedAt?: string;
+    organizationId: string;
+    warehouseId: string;
 }
 
-export type parameters_80 = {
+export type response_56_5 = {
+    code: 201;
+    ok: true;
+    info: "productSheet.edited";
+} & {body: response_body_56_5};
+
+export type parameters_49 = {
     params: {
         productSheetId: string;
     };
 }
 
-export type response_80_0 = {
+export type response_49_0 = {
     code: 401;
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
-export type response_80_1 = {
+export type response_49_1 = {
     code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
-export type response_80_2 = {
-    code: 401;
-    ok: false;
-    info: "user.deleted";
-} & {body: undefined};
-
-export type response_80_3 = {
+export type response_49_2 = {
     code: 404;
     ok: false;
     info: "productSheet.notfound";
 } & {body: undefined};
 
-export type response_80_4 = {
+export type response_49_3 = {
     code: 406;
     ok: false;
     info: "organization.hasNotUser";
 } & {body: undefined};
 
-export type response_80_5 = {
+export type response_49_4 = {
     code: 403;
     ok: false;
     info: "user.role.organization.invalid";
@@ -3808,7 +5495,6 @@ export type parameters_81 = {
     };
     params: {
         productSheetId: string;
-        categoryName: string;
     };
 }
 
@@ -3848,17 +5534,18 @@ export type response_81_5 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-export type response_81_6 = {
-    code: 409;
-    ok: false;
-    info: "category.notfound";
-} & {body: undefined};
+export type response_body_58_5 = {
+    id: string;
+    name: string;
+    address: string;
+    organizationId: string;
+}
 
-export type response_81_7 = {
-    code: 400;
-    ok: false;
-    info: "productSheet.image.missing";
-} & {body: undefined};
+export type response_58_5 = {
+    code: 200;
+    ok: true;
+    info: "productSheet.warehouse";
+} & {body: response_body_58_5};
 
 export type response_body_81_8 = {
     id: string;
@@ -3917,122 +5604,65 @@ export type response_82_5 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-export type response_body_82_6 = {
-    id: string;
-    name: string;
-    description: string;
-    shortDescription: string;
-    price: number;
-    createdAt?: string;
-    updatedAt?: string;
-    organizationId: string;
-}
+export type response_body_59_5 = {
+    type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
+    productSheetId: string;
+    value: string;
+}[]
 
-export type response_82_6 = {
+export type response_49_5 = {
     code: 200;
     ok: true;
-    info: "productSheet.images";
-} & {body: response_body_82_6};
+    info: "productSheet.facets";
+} & {body: response_body_59_5};
 
-export type parameters_83 = {
+export type parameters_50 = {
     params: {
-        organizationId: string;
-    };
-    query: {
-        warehouseId: string;
-        page?: number;
+        productSheetId: string;
+        categoryName: string;
     };
 }
 
-export type response_83_0 = {
+export type response_50_0 = {
     code: 401;
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
-export type response_83_1 = {
+export type response_50_1 = {
     code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
-export type response_83_2 = {
-    code: 401;
-    ok: false;
-    info: "user.deleted";
-} & {body: undefined};
-
-export type response_83_3 = {
+export type response_50_2 = {
     code: 404;
     ok: false;
     info: "organization.notfound";
 } & {body: undefined};
 
-export type response_83_4 = {
+export type response_50_3 = {
     code: 406;
     ok: false;
     info: "organization.hasNotUser";
 } & {body: undefined};
 
-export type response_83_5 = {
+export type response_50_4 = {
     code: 403;
     ok: false;
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-export type response_83_6 = {
+export type response_60_5 = {
     code: 404;
     ok: false;
-    info: "warehouse.notfound";
+    info: "category.notfound";
 } & {body: undefined};
 
-export type response_body_83_7 = {
-    commandId: string;
-    firstname: string;
-    lastname: string;
-    address: string;
-    quantity: number;
-    createdAt?: string;
-}[]
-
-export type response_83_7 = {
+export type response_60_6 = {
     code: 200;
     ok: true;
-    info: "organizationCommandCollection";
-} & {body: response_body_83_7};
-
-export type parameters_84 = {
-    params: {
-        organizationId: string;
-    };
-    query?: {
-        page?: number;
-        ref?: string | undefined;
-    } | undefined;
-}
-
-export type response_84_0 = {
-    code: 401;
-    ok: false;
-    info: "access.token.invalid";
-} & {body: undefined};
-
-export type response_84_1 = {
-    code: 404;
-    ok: false;
-    info: "user.notfound";
-} & {body: undefined};
-
-export type response_84_2 = {
-    code: 401;
-    ok: false;
-    info: "user.deleted";
-} & {body: undefined};
-
-export type response_84_3 = {
-    code: 404;
-    ok: false;
-    info: "organization.notfound";
+    info: "productSheet.category.untied";
 } & {body: undefined};
 
 export type response_84_4 = {
@@ -4398,6 +6028,7 @@ export type parameters_77 = {
     };
 }
 
+<<<<<<< HEAD
 export type response_77_0 = {
     code: 401;
     ok: false;
@@ -4963,17 +6594,21 @@ export type parameters_85 = {
 }
 
 export type response_85_0 = {
+=======
+export type response_51_0 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
     code: 401;
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
-export type response_85_1 = {
+export type response_51_1 = {
     code: 404;
     ok: false;
     info: "organization.hasNotUser";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_85_2 = {
     code: 401;
     ok: false;
@@ -4982,18 +6617,32 @@ export type response_85_2 = {
 
 export type response_85_3 = {
     code: 403;
+=======
+export type response_51_2 = {
+    code: 404;
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     ok: false;
     info: "user.role.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_85_4 = {
     code: 404;
+=======
+export type response_51_3 = {
+    code: 406;
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     ok: false;
     info: "navigationItem.notfound";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_85_5 = {
     code: 404;
+=======
+export type response_51_4 = {
+    code: 403;
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     ok: false;
     info: "category.notfound";
 } & {body: undefined};
@@ -5023,6 +6672,7 @@ export type response_61_6 = {
     info: "facet.created";
 } & {body: response_body_61_6};
 
+<<<<<<< HEAD
 export type request_body_86 = {
     name: string;
     address: string;
@@ -5030,23 +6680,31 @@ export type request_body_86 = {
 >>>>>>> 7de6e68 (feat(110): add analytics charts (front))
 
 export type parameters_86 = {
+=======
+export type parameters_52 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
     params: {
+<<<<<<< HEAD
         navigationItemId: string;
+=======
+        productSheetId: string;
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     };
 }
 
-export type response_86_0 = {
+export type response_52_0 = {
     code: 401;
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
-export type response_86_1 = {
+export type response_52_1 = {
     code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_86_2 = {
     code: 401;
     ok: false;
@@ -5055,64 +6713,115 @@ export type response_86_2 = {
 
 export type response_86_3 = {
     code: 403;
+=======
+export type response_52_2 = {
+    code: 404;
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     ok: false;
     info: "user.role.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_86_4 = {
     code: 404;
+=======
+export type response_52_3 = {
+    code: 406;
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     ok: false;
     info: "navigationItem.notfound";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_86_5 = {
     code: 204;
-    ok: true;
-    info: "navigationItem.delete";
-} & {body: undefined};
-
-export type parameters_87 = {
-    params: {
-        sku: string;
-    };
-}
-
-export type response_87_0 = {
-    code: 401;
-    ok: false;
-    info: "access.token.invalid";
-} & {body: undefined};
-
-export type response_87_1 = {
-    code: 404;
-    ok: false;
-    info: "user.notfound";
-} & {body: undefined};
-
-export type response_87_2 = {
-    code: 401;
-    ok: false;
-    info: "user.deleted";
-} & {body: undefined};
-
-export type response_87_3 = {
-    code: 404;
-    ok: false;
-    info: "product.notfound";
-} & {body: undefined};
-
-export type response_87_4 = {
-    code: 406;
-    ok: false;
-    info: "organization.hasNotUser";
-} & {body: undefined};
-
-export type response_87_5 = {
+=======
+export type response_52_4 = {
     code: 403;
     ok: false;
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
+export type response_86_6 = {
+    code: 400;
+    ok: false;
+    info: "warehouse.address.invalid";
+} & {body: undefined};
+
+export type response_body_86_7 = {
+    id: string;
+    name: string;
+    address: string;
+    organizationId: string;
+}
+
+export type response_86_7 = {
+    code: 201;
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
+    ok: true;
+    info: "navigationItem.delete";
+} & {body: undefined};
+
+export type parameters_87 = {
+=======
+export type response_body_62_5 = {
+    id: string;
+    productSheetId: string;
+    organizationId: string;
+    url: string;
+    key: string;
+    alt: string | null;
+}[]
+
+export type response_52_5 = {
+    code: 200;
+    ok: true;
+    info: "productSheet.images";
+} & {body: response_body_62_5};
+
+export type request_body_63 = {
+    value?: string | undefined;
+}
+
+export type parameters_53 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+    params: {
+        sku: string;
+    };
+}
+
+export type response_53_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_53_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_53_2 = {
+    code: 404;
+    ok: false;
+    info: "product.notfound";
+} & {body: undefined};
+
+export type response_53_3 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_53_4 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+<<<<<<< HEAD
 export type response_body_87_6 = {
     id: string;
     firstname: string;
@@ -5157,6 +6866,10 @@ export type response_88_0 = {
 
 export type response_88_1 = {
     code: 404;
+=======
+export type response_53_5 = {
+    code: 400;
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
@@ -5195,57 +6908,75 @@ export type response_body_88_6 = {
 export type response_88_6 = {
     code: 200;
     ok: true;
+<<<<<<< HEAD
     info: "warehouses.found";
 } & {body: response_body_88_6};
 
 export type parameters_89 = {
+=======
+<<<<<<< HEAD
+    info: "productSheet.categories";
+} & {body: response_body_88_6};
+
+export type request_body_89 = {
+    categoryName: string;
+}
+=======
+    info: "facet.edited";
+} & {body: undefined};
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+
+export type parameters_54 = {
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     params: {
         productSheetId: string;
+<<<<<<< HEAD
+=======
+        facetType: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
     };
 }
 
-export type response_89_0 = {
+export type response_54_0 = {
     code: 401;
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
-export type response_89_1 = {
+export type response_54_1 = {
     code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
-export type response_89_2 = {
-    code: 401;
-    ok: false;
-    info: "user.deleted";
-} & {body: undefined};
-
-export type response_89_3 = {
+export type response_54_2 = {
     code: 404;
     ok: false;
     info: "productSheet.notfound";
 } & {body: undefined};
 
-export type response_89_4 = {
+export type response_54_3 = {
     code: 406;
     ok: false;
     info: "organization.hasNotUser";
 } & {body: undefined};
 
-export type response_89_5 = {
+export type response_54_4 = {
     code: 403;
     ok: false;
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_body_89_6 = {
     type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
     productSheetId: string;
     value: string;
 }[]
 
+=======
+<<<<<<< HEAD
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 export type response_89_6 = {
     code: 200;
     ok: true;
@@ -5315,6 +7046,27 @@ export type response_90_8 = {
     ok: true;
     info: "productSheet.category.linked";
 } & {body: undefined};
+=======
+export type response_64_5 = {
+    code: 404;
+    ok: false;
+    info: "facet.notfound";
+} & {body: undefined};
+
+export type response_64_6 = {
+    code: 204;
+    ok: true;
+    info: "facet.deleted";
+} & {body: undefined};
+
+export type request_body_91 = {
+    idShip: string;
+    bundleItems: {
+        commandItemId: number;
+        sku: string;
+    }[];
+}
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 
 export type parameters_91 = {
     params: {
@@ -5443,48 +7195,36 @@ export type response_92_6 = {
     info: "productSheet.categories";
 } & {body: response_body_92_6};
 
-export type parameters_93 = {
+export type request_body_66 = {
+    name?: string | undefined;
+    disabled?: boolean | undefined;
+} | undefined
+
+export type parameters_55 = {
     params: {
-        productSheetId: string;
+        categoryName: string;
     };
 }
 
-export type response_93_0 = {
+export type response_55_0 = {
     code: 401;
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
-export type response_93_1 = {
+export type response_55_1 = {
     code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
-export type response_93_2 = {
-    code: 401;
-    ok: false;
-    info: "user.deleted";
-} & {body: undefined};
-
-export type response_93_3 = {
-    code: 404;
-    ok: false;
-    info: "productSheet.notfound";
-} & {body: undefined};
-
-export type response_93_4 = {
-    code: 406;
-    ok: false;
-    info: "organization.hasNotUser";
-} & {body: undefined};
-
-export type response_93_5 = {
+export type response_66_2 = {
     code: 403;
     ok: false;
-    info: "user.role.organization.invalid";
+    info: "user.role.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_body_93_6 = {
     id: string;
     name: string;
@@ -5515,17 +7255,21 @@ export type response_94_0 = {
 } & {body: undefined};
 
 export type response_94_1 = {
+=======
+export type response_66_3 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
     code: 404;
     ok: false;
-    info: "user.notfound";
+    info: "category.notfound";
 } & {body: undefined};
 
-export type response_94_2 = {
-    code: 401;
+export type response_66_4 = {
+    code: 409;
     ok: false;
-    info: "user.deleted";
+    info: "category.alreadyExist";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_94_3 = {
     code: 404;
     ok: false;
@@ -5664,6 +7408,26 @@ export type response_95_6 = {
 export type parameters_96 = {
     params: {
         productSheetId: string;
+<<<<<<< HEAD
+=======
+        facetType: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
+=======
+export type response_66_5 = {
+    code: 204;
+    ok: true;
+    info: "category.edited";
+} & {body: undefined};
+
+export type request_body_67 = {
+    name?: string | undefined;
+    address?: string | undefined;
+}
+
+export type parameters_96 = {
+    params: {
+        warehouseId: string;
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     };
     query?: {
         startDate?: Date | undefined;
@@ -5691,7 +7455,11 @@ export type response_96_2 = {
 export type response_96_3 = {
     code: 404;
     ok: false;
+<<<<<<< HEAD
     info: "productSheet.notfound";
+=======
+    info: "warehouse.notfound";
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 } & {body: undefined};
 
 export type response_96_4 = {
@@ -5706,11 +7474,20 @@ export type response_96_5 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_body_96_6 = {
     productSheetId: string;
     quantity: number;
     date: Date;
 }[]
+=======
+export type response_67_5 = {
+    code: 400;
+    ok: false;
+<<<<<<< HEAD
+    info: "facet.notfound";
+} & {body: undefined};
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 
 export type response_96_6 = {
     code: 200;
@@ -5726,38 +7503,749 @@ export type parameters_97 = {
     params: {
         productSheetId: string;
     };
+=======
+    info: "warehouse.address.invalid";
+} & {body: undefined};
+
+export type response_67_6 = {
+    code: 204;
+    ok: true;
+    info: "warehouse.edited";
+} & {body: undefined};
+
+export type request_body_68 = {
+    name: string;
+    disabled: boolean;
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 }
 
-export type response_97_0 = {
+export type response_56_0 = {
     code: 401;
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
-export type response_97_1 = {
+export type response_56_1 = {
     code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
-export type response_97_2 = {
-    code: 401;
+export type response_68_2 = {
+    code: 403;
     ok: false;
-    info: "user.deleted";
+    info: "user.role.invalid";
 } & {body: undefined};
 
-export type response_97_3 = {
+export type response_68_3 = {
+    code: 409;
+    ok: false;
+    info: "category.alreadyExist";
+} & {body: undefined};
+
+export type response_body_68_4 = {
+    name: string;
+    disabled: boolean;
+    imageKey: string | null;
+    imageUrl: string | null;
+}
+
+export type response_68_4 = {
+    code: 201;
+    ok: true;
+    info: "category.created";
+} & {body: response_body_68_4};
+
+export type request_body_69 = {
+    id: string;
+    priority: number;
+    type: "PARENT_CATEGORY";
+    parentCategoryName: string;
+} | {
+    id: string;
+    priority: number;
+    type: "CATEGORY";
+    categoryName: string;
+} | {
+    id: string;
+    priority: number;
+    type: "LINK";
+    url: string;
+    title: string;
+}
+
+export type parameters_57 = {
+    params: {
+        navigationItemId: string;
+    };
+}
+
+export type response_57_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_57_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_69_2 = {
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_69_3 = {
+    code: 404;
+    ok: false;
+    info: "navigationItem.notfound";
+} & {body: undefined};
+
+export type response_69_4 = {
+    code: 404;
+    ok: false;
+    info: "category.notfound";
+} & {body: undefined};
+
+export type response_69_5 = {
+    code: 404;
+    ok: false;
+    info: "parentCategory.notfound";
+} & {body: undefined};
+
+export type response_69_6 = {
+    code: 204;
+    ok: true;
+    info: "navigationItem.edited";
+} & {body: undefined};
+
+export type parameters_58 = {
+    params: {
+        navigationItemId: string;
+    };
+}
+
+export type response_70_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_70_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_70_2 = {
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_70_3 = {
+    code: 404;
+    ok: false;
+    info: "navigationItem.notfound";
+} & {body: undefined};
+
+export type response_70_4 = {
+    code: 204;
+    ok: true;
+    info: "navigationItem.delete";
+} & {body: undefined};
+
+export type parameters_71 = {
+    headers: {
+        "content-type": string;
+        "content-length": number;
+    };
+    params: {
+        categoryName: string;
+    };
+}
+
+export type response_58_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_58_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_71_2 = {
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_71_3 = {
+    code: 404;
+    ok: false;
+    info: "category.notfound";
+} & {body: undefined};
+
+export type response_71_4 = {
+    code: 400;
+    ok: false;
+    info: "category.image.missing";
+} & {body: undefined};
+
+export type response_71_5 = {
+    code: 204;
+    ok: true;
+    info: "category.image.updated";
+} & {body: undefined};
+
+export type response_59_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_59_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_72_2 = {
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_body_72_3 = ({
+    id: string;
+    priority: number;
+    type: "PARENT_CATEGORY";
+    parentCategoryName: string;
+} | {
+    id: string;
+    priority: number;
+    type: "CATEGORY";
+    categoryName: string;
+} | {
+    id: string;
+    priority: number;
+    type: "LINK";
+    url: string;
+    title: string;
+})[]
+
+export type response_72_3 = {
+    code: 200;
+    ok: true;
+    info: "navigationItems";
+} & {body: response_body_72_3};
+
+export type request_body_73 = {
+    priority: number;
+    type: "PARENT_CATEGORY";
+    parentCategoryName: string;
+} | {
+    priority: number;
+    type: "CATEGORY";
+    categoryName: string;
+} | {
+    priority: number;
+    type: "LINK";
+    url: string;
+    title: string;
+}
+
+export type response_60_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_60_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_73_2 = {
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_73_3 = {
+    code: 409;
+    ok: false;
+    info: "navigationItem.limit";
+} & {body: undefined};
+
+export type response_body_73_4 = {
+    id: string;
+    priority: number;
+    type: "PARENT_CATEGORY";
+    parentCategoryName: string;
+} | {
+    id: string;
+    priority: number;
+    type: "CATEGORY";
+    categoryName: string;
+} | {
+    id: string;
+    priority: number;
+    type: "LINK";
+    url: string;
+    title: string;
+}
+
+export type response_73_4 = {
+    code: 201;
+    ok: true;
+    info: "navigationItem.created";
+} & {body: response_body_73_4};
+
+export type parameters_61 = {
+    params: {
+        parentCategoryName: string;
+    };
+}
+
+export type response_61_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_61_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_74_2 = {
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_74_3 = {
+    code: 404;
+    ok: false;
+    info: "parentCategory.notfound";
+} & {body: undefined};
+
+export type response_body_74_4 = {
+    name: string;
+    disabled: boolean;
+    imageKey: string | null;
+    imageUrl: string | null;
+}[]
+
+export type response_74_4 = {
+    code: 200;
+    ok: true;
+    info: "parentCategory.categories";
+} & {body: response_body_74_4};
+
+export type request_body_75 = {
+    name?: string | undefined;
+}
+
+export type parameters_62 = {
+    params: {
+        parentCategoryName: string;
+    };
+}
+
+export type response_62_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_62_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_75_2 = {
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_75_3 = {
+    code: 404;
+    ok: false;
+    info: "parentCategory.notfound";
+} & {body: undefined};
+
+export type response_75_4 = {
+    code: 409;
+    ok: false;
+    info: "parentCategory.name.alreadyUse";
+} & {body: undefined};
+
+export type response_75_5 = {
+    code: 204;
+    ok: true;
+    info: "parentCategory.edited";
+} & {body: undefined};
+
+export type request_body_76 = {
+    categoryName: string;
+}
+
+export type parameters_76 = {
+    params: {
+        parentCategoryName: string;
+    };
+}
+
+export type response_63_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_63_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_76_2 = {
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_76_3 = {
+    code: 404;
+    ok: false;
+    info: "parentCategory.notfound";
+} & {body: undefined};
+
+export type response_76_4 = {
+    code: 404;
+    ok: false;
+    info: "category.notfound";
+} & {body: undefined};
+
+export type response_63_5 = {
+    code: 404;
+    ok: false;
+    info: "parentCategory.categories.limit";
+} & {body: undefined};
+
+export type response_76_6 = {
+    code: 204;
+    ok: true;
+    info: "parentCategory.category.linked";
+} & {body: undefined};
+
+export type parameters_64 = {
+    params: {
+        parentCategoryName: string;
+        categoryName: string;
+    };
+}
+
+export type response_64_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_64_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_77_2 = {
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_77_3 = {
+    code: 404;
+    ok: false;
+    info: "parentCategory.notfound";
+} & {body: undefined};
+
+export type response_77_4 = {
+    code: 200;
+    ok: true;
+    info: "parentCategory.category.untied";
+} & {body: undefined};
+
+export type parameters_78 = {
+    query?: {
+        page?: number;
+        name?: string | undefined;
+    } | undefined;
+}
+
+export type response_65_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_65_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_78_2 = {
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_body_78_3 = {
+    id: string;
+    name: string;
+    label: string | null;
+    ownerId: string;
+    suspended: boolean;
+    logoKey: string | null;
+    logoUrl: string | null;
+}[]
+
+export type response_78_3 = {
+    code: 200;
+    ok: true;
+    info: "organizations";
+} & {body: response_body_78_3};
+
+export type parameters_79 = {
+    query?: {
+        page?: number;
+        email?: string | undefined;
+        primordialRole?: (("CUSTOMER" | "MODERATOR" | "CONTENTS_MASTER" | "ADMIN") | ("CUSTOMER" | "MODERATOR" | "CONTENTS_MASTER" | "ADMIN")[]) | undefined;
+    } | undefined;
+}
+
+export type response_79_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_79_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_79_2 = {
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_body_79_3 = {
+    id: string;
+    email: string;
+    lastname: string;
+    firstname: string;
+    dateOfBirth?: string;
+    address: string;
+    primordialRole: "CUSTOMER" | "MODERATOR" | "CONTENTS_MASTER" | "ADMIN";
+    muted: boolean;
+}[]
+
+export type response_79_3 = {
+    code: 200;
+    ok: true;
+    info: "users";
+} & {body: response_body_79_3};
+
+export type request_body_80 = {
+    name: string;
+}
+
+export type response_80_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_80_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_80_2 = {
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_80_3 = {
+    code: 409;
+    ok: false;
+    info: "parentCategory.name.alreadyUse";
+} & {body: undefined};
+
+export type response_body_80_4 = {
+    name: string;
+}
+
+export type response_80_4 = {
+    code: 201;
+    ok: true;
+    info: "parentCategory.created";
+} & {body: response_body_80_4};
+
+export type parameters_81 = {
+    params?: {
+        commandId?: string;
+    } | undefined;
+}
+
+export type response_81_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_81_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_81_2 = {
+    code: 404;
+    ok: false;
+    info: "command.notfound";
+} & {body: undefined};
+
+export type response_81_3 = {
+    code: 401;
+    ok: false;
+    info: "command.wrong.user";
+} & {body: undefined};
+
+export type response_body_81_4 = {
+    id: string;
+    firstname: string;
+    lastname: string;
+    status: "DONE" | "CANCELED" | "WAITING_PAYMENT" | "IN_PROGRESS" | "IN_DELIVERY";
+    userId: string;
+    deliveryAddress: string;
+    createdDate: Date;
+    price: number;
+    items: {
+        quantity: number;
+        processQuantity: number;
+        productSheetId: string;
+        productSheetName: string;
+        productSheetFirstImageUrl: string;
+        productSheetOrganizationName: string;
+        productSheetPrice: number;
+    }[];
+}
+
+export type response_81_4 = {
+    code: 200;
+    ok: true;
+    info: "command.found";
+} & {body: response_body_81_4};
+
+export type parameters_82 = {
+    params?: {
+        commandId?: string;
+    } | undefined;
+}
+
+export type response_82_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_82_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_82_2 = {
+    code: 404;
+    ok: false;
+    info: "command.notfound";
+} & {body: undefined};
+
+export type response_82_3 = {
+    code: 401;
+    ok: false;
+    info: "command.wrong.user";
+} & {body: undefined};
+
+export type response_body_82_4 = {
+    id: number;
+    idShip: string;
+    carrierName: "LA_POSTE";
+    commandId: string;
+    status: "DONE" | "CREATED" | "CARRIER_SUPPORTED" | "CARRIER_PROCESS" | "UNDELIVERABLE" | "DONE_OFFICE" | "BACK" | "BACK_DONE";
+    productsCount: number;
+}[]
+
+export type response_82_4 = {
+    code: 200;
+    ok: true;
+    info: "bundles.found";
+} & {body: response_body_82_4};
+
+export type parameters_83 = {
+    params: {
+        bundleId: number;
+    };
+}
+
+export type response_83_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_83_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_83_2 = {
     code: 404;
     ok: false;
     info: "productSheet.notfound";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_97_4 = {
     code: 406;
+=======
+export type response_83_3 = {
+    code: 401;
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
     ok: false;
     info: "organization.hasNotUser";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_97_5 = {
     code: 403;
     ok: false;
@@ -5784,6 +8272,7 @@ export type response_body_97_8 = {
     key: string;
     alt: string | null;
 }
+<<<<<<< HEAD
 
 export type response_97_8 = {
     code: 201;
@@ -5793,40 +8282,105 @@ export type response_97_8 = {
 
 export type parameters_98 = {
     params: {
+=======
+=======
+export type response_body_83_4 = {
+    id: number;
+    idShip: string;
+    carrierName: "LA_POSTE";
+    commandId: string;
+    status: "DONE" | "CREATED" | "CARRIER_SUPPORTED" | "CARRIER_PROCESS" | "UNDELIVERABLE" | "DONE_OFFICE" | "BACK" | "BACK_DONE";
+    bundleProducts: {
+        name: string;
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
         productSheetId: string;
-    };
+        imageUrl: string;
+        quantity: number;
+    }[];
 }
 
-export type response_98_0 = {
+export type response_83_4 = {
+    code: 200;
+    ok: true;
+    info: "bundle";
+} & {body: response_body_83_4};
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+
+export type parameters_84 = {
+    query?: {
+        page?: number;
+        name?: string | undefined;
+        withCategories?: ("true" | "false") | undefined;
+    } | undefined;
+}
+
+export type response_84_0 = {
     code: 401;
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
-export type response_98_1 = {
+export type response_84_1 = {
     code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
-export type response_98_2 = {
-    code: 401;
+export type response_84_2 = {
+    code: 403;
     ok: false;
-    info: "user.deleted";
+    info: "user.role.invalid";
 } & {body: undefined};
 
-export type response_98_3 = {
+export type response_body_84_3 = {
+    name: string;
+    categories?: {
+        categoryName: string;
+    }[] | undefined;
+}[]
+
+export type response_84_3 = {
+    code: 200;
+    ok: true;
+    info: "parentCategories";
+} & {body: response_body_84_3};
+
+export type parameters_85 = {
+    params: {
+        productSheetId: string;
+    };
+}
+
+export type response_85_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_85_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_85_2 = {
     code: 404;
     ok: false;
     info: "productSheet.notfound";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_98_4 = {
     code: 406;
+=======
+export type response_85_3 = {
+    code: 401;
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
     ok: false;
     info: "organization.hasNotUser";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_98_5 = {
     code: 403;
     ok: false;
@@ -6087,6 +8641,7 @@ export type response_102_7 = {
 } & {body: undefined};
 
 export type parameters_103 = {
+<<<<<<< HEAD
     params: {
         bundleId: number;
     };
@@ -6123,11 +8678,16 @@ export type response_103_4 = {
 } & {body: undefined};
 
 export type response_103_5 = {
+=======
+=======
+export type response_85_4 = {
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     code: 200;
     ok: true;
     info: "bundle.status.stream";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type parameters_104 = {
     params: {
         bundleId: number;
@@ -6185,7 +8745,13 @@ export type response_104_5 = {
 } & {body: response_body_104_5};
 
 export type parameters_105 = {
+=======
+export type parameters_86 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     query?: ({
+        ignoreProductSheetId?: (string | string[]) | undefined;
+        available?: ("true" | "false") | undefined;
         ignoreProductSheetId?: (string | string[]) | undefined;
         available?: ("true" | "false") | undefined;
         page?: number;
@@ -6196,8 +8762,10 @@ export type parameters_105 = {
         diameter?: string | undefined;
         target?: string | undefined;
         accessory?: any | undefined;
+        accessory?: any | undefined;
         material?: (string | string[]) | undefined;
         stimulation?: (string | string[]) | undefined;
+        promotion?: any | undefined;
         promotion?: any | undefined;
         price?: [
             number,
@@ -6207,24 +8775,50 @@ export type parameters_105 = {
     }) & {
         search?: string | undefined;
         searchByRegex?: any;
+        searchByRegex?: any;
         categoryName?: string | undefined;
     };
 }
 
+<<<<<<< HEAD
 export type response_105_0 = {
+=======
+<<<<<<< HEAD
+export type response_103_0 = {
+=======
+export type response_86_0 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     code: 404;
     ok: false;
-    info: "category.notfound";
+    info: "warehouse.notfound";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_105_1 = {
+=======
+<<<<<<< HEAD
+export type response_103_1 = {
+=======
+export type response_86_1 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     code: 403;
     ok: false;
-    info: "category.disabled";
+    info: "product.sku.alreadyUse";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_body_105_2 = {
+=======
+<<<<<<< HEAD
+export type response_body_103_2 = {
+=======
+export type response_body_86_2 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     id: string;
+    ref: string;
     ref: string;
     name: string;
     price: number;
@@ -6234,16 +8828,12 @@ export type response_body_105_2 = {
     categories: string[];
     images: string[];
     hasPromotion?: boolean | undefined;
-    avgRate: string;
-    countRate: number;
-    status: "VERIFIED" | "UNVERIFIED" | "REMOVE";
     promotion?: {
         id: number;
         originalPrice: number;
         percentage: number;
         startDate: Date;
         endDate: Date;
-        reason: string;
     } | undefined;
     organization: {
         id: string;
@@ -6269,13 +8859,140 @@ export type response_body_105_2 = {
     }[] | undefined;
 }[]
 
+<<<<<<< HEAD
 export type response_105_2 = {
+=======
+<<<<<<< HEAD
+export type response_103_2 = {
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     code: 200;
     ok: true;
     info: "fullProductSheets";
 } & {body: response_body_105_2};
 
+<<<<<<< HEAD
 export type parameters_106 = {
+=======
+export type parameters_104 = {
+=======
+export type response_86_2 = {
+    code: 200;
+    ok: true;
+    info: "fullProductSheets";
+} & {body: response_body_86_2};
+
+export type request_body_87 = {
+    status?: ("IN_STOCK" | "WRONG") | undefined;
+}
+
+export type parameters_87 = {
+    params: {
+        sku: string;
+    };
+}
+
+export type response_87_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_87_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_87_2 = {
+    code: 404;
+    ok: false;
+    info: "product.notfound";
+} & {body: undefined};
+
+export type response_87_3 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_87_4 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type response_body_87_5 = {
+    sku: string;
+    productSheetId: string;
+    organizationId: string;
+    warehouseId: string;
+    warehouseName: string;
+    createdAt: string;
+    updatedAt: string;
+}
+
+export type response_87_5 = {
+    code: 200;
+    ok: true;
+    info: "product.edited";
+} & {body: response_body_87_5};
+
+export type parameters_88 = {
+    params: {
+        organizationId: string;
+    };
+    query?: {
+        page?: number;
+    } | undefined;
+}
+
+export type response_88_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_88_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_88_2 = {
+    code: 404;
+    ok: false;
+    info: "organization.notfound";
+} & {body: undefined};
+
+export type response_88_3 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_88_4 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type response_body_88_5 = {
+    id: number;
+    percentage: number;
+    startDate?: string;
+    endDate?: string;
+    productSheetName: string;
+    productSheetId: string;
+}[]
+
+export type response_88_5 = {
+    code: 200;
+    ok: true;
+    info: "organization.promotions";
+} & {body: response_body_88_5};
+
+export type parameters_89 = {
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     params: {
         organizationId: string;
     };
@@ -6287,6 +9004,349 @@ export type parameters_106 = {
     } | undefined;
 }
 
+<<<<<<< HEAD
+=======
+export type response_89_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_89_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_89_2 = {
+    code: 404;
+    ok: false;
+    info: "organization.notfound";
+} & {body: undefined};
+
+export type response_89_3 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_89_4 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type response_body_89_5 = {
+    sku: string;
+    status: "WRONG" | "SOLD" | "IN_STOCK";
+    organizationId: string;
+    productSheetId: string;
+    productSheetName: string;
+    productSheetFirstImageUrl?: string | undefined;
+    warehouseId: string;
+    warehouseName: string;
+    createdAt: string;
+    updatedAt: string;
+}[]
+
+export type response_89_5 = {
+    code: 200;
+    ok: true;
+    info: "products.found";
+} & {body: response_body_89_5};
+
+export type request_body_90 = {
+    sku: string;
+}
+
+export type parameters_90 = {
+    params: {
+        productSheetId: string;
+    };
+}
+
+export type response_90_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_90_1 = {
+    code: 404;
+    ok: false;
+    info: "category.notfound";
+} & {body: undefined};
+
+export type response_90_2 = {
+    code: 404;
+    ok: false;
+    info: "productSheet.notfound";
+} & {body: undefined};
+
+export type response_90_3 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_90_4 = {
+    code: 403;
+    ok: false;
+    info: "category.disabled";
+} & {body: undefined};
+
+export type response_90_5 = {
+    code: 409;
+    ok: false;
+    info: "product.sku.alreadyUse";
+} & {body: undefined};
+
+export type response_body_90_6 = {
+    sku: string;
+    status: "WRONG" | "SOLD" | "IN_STOCK";
+    organizationId: string;
+    productSheetId: string;
+    productSheetName: string;
+    productSheetFirstImageUrl?: string | undefined;
+    warehouseId: string;
+    warehouseName: string;
+    createdAt: string;
+    updatedAt: string;
+}
+
+export type response_90_6 = {
+    code: 201;
+    ok: true;
+    info: "product.created";
+} & {body: response_body_90_6};
+
+export type parameters_101 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+    params: {
+        organizationId: string;
+    };
+    query?: {
+        page?: number;
+<<<<<<< HEAD
+        sku?: string | undefined;
+        productSheetId?: string | undefined;
+        status?: ("WRONG" | "SOLD" | "IN_STOCK") | undefined;
+    } | undefined;
+}
+
+export type response_104_0 = {
+=======
+    } | undefined;
+}
+
+export type response_101_0 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+<<<<<<< HEAD
+export type response_104_1 = {
+=======
+export type response_101_1 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+<<<<<<< HEAD
+export type response_104_2 = {
+=======
+export type response_101_2 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+<<<<<<< HEAD
+export type response_104_3 = {
+=======
+export type response_101_3 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+    code: 404;
+    ok: false;
+    info: "organization.notfound";
+} & {body: undefined};
+
+<<<<<<< HEAD
+export type response_104_4 = {
+=======
+export type response_101_4 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+<<<<<<< HEAD
+export type response_104_5 = {
+=======
+export type response_101_5 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+<<<<<<< HEAD
+export type response_body_104_6 = {
+    sku: string;
+    status: "WRONG" | "SOLD" | "IN_STOCK";
+    organizationId: string;
+    productSheetId: string;
+    productSheetName: string;
+    productSheetFirstImageUrl?: string | undefined;
+    warehouseId: string;
+    warehouseName: string;
+    createdAt: string;
+    updatedAt: string;
+}[]
+
+export type response_104_6 = {
+    code: 200;
+    ok: true;
+    info: "products.found";
+} & {body: response_body_104_6};
+
+export type request_body_105 = {
+    status?: ("IN_STOCK" | "WRONG") | undefined;
+}
+
+export type parameters_105 = {
+    params: {
+        sku: string;
+    };
+}
+
+export type response_105_0 = {
+=======
+export type response_body_101_6 = {
+    id: number;
+    percentage: number;
+    startDate?: string;
+    endDate?: string;
+    productSheetName: string;
+    productSheetId: string;
+    reason: string;
+}[]
+
+export type response_101_6 = {
+    code: 200;
+    ok: true;
+    info: "organization.promotions";
+} & {body: response_body_101_6};
+
+export type request_body_102 = {
+    percentage: number;
+    startDate: Date;
+    endDate: Date;
+    reason: string;
+}
+
+export type parameters_102 = {
+    params: {
+        productSheetId: string;
+    };
+}
+
+export type response_102_0 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+<<<<<<< HEAD
+export type response_105_1 = {
+=======
+export type response_102_1 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+<<<<<<< HEAD
+export type response_105_2 = {
+=======
+export type response_102_2 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+<<<<<<< HEAD
+export type response_105_3 = {
+    code: 404;
+    ok: false;
+    info: "product.notfound";
+} & {body: undefined};
+
+export type response_105_4 = {
+=======
+export type response_102_3 = {
+    code: 404;
+    ok: false;
+    info: "productSheet.notfound";
+} & {body: undefined};
+
+export type response_102_4 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+<<<<<<< HEAD
+export type response_105_5 = {
+=======
+export type response_102_5 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+<<<<<<< HEAD
+export type response_body_105_6 = {
+    sku: string;
+    status: "WRONG" | "SOLD" | "IN_STOCK";
+    organizationId: string;
+    productSheetId: string;
+    productSheetName: string;
+    productSheetFirstImageUrl?: string | undefined;
+    warehouseId: string;
+    warehouseName: string;
+    createdAt: string;
+    updatedAt: string;
+}
+
+export type response_105_6 = {
+    code: 200;
+    ok: true;
+    info: "product.edited";
+} & {body: response_body_105_6};
+
+export type request_body_106 = {
+    sku: string;
+}
+
+export type parameters_106 = {
+    params: {
+        productSheetId: string;
+    };
+}
+
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 export type response_106_0 = {
     code: 401;
     ok: false;
@@ -6533,6 +9593,7 @@ export type response_body_109_6 = {
     reason: string;
 }[]
 
+<<<<<<< HEAD
 export type response_109_6 = {
     code: 200;
     ok: true;
@@ -6545,55 +9606,195 @@ export type request_body_110 = {
     endDate: Date;
     reason: string;
 }
+=======
+export type response_108_7 = {
+    code: 201;
+    ok: true;
+    info: "promotion.created";
+} & {body: response_body_108_7};
 
-export type parameters_110 = {
-    params: {
-        productSheetId: string;
-    };
-}
-
-export type response_110_0 = {
-    code: 401;
-    ok: false;
-    info: "access.token.invalid";
-} & {body: undefined};
-
-export type response_110_1 = {
-    code: 404;
-    ok: false;
-    info: "user.notfound";
-} & {body: undefined};
-
-export type response_110_2 = {
-    code: 401;
-    ok: false;
-    info: "user.deleted";
-} & {body: undefined};
-
-export type response_110_3 = {
-    code: 404;
-    ok: false;
-    info: "productSheet.notfound";
-} & {body: undefined};
-
-export type response_110_4 = {
-    code: 406;
-    ok: false;
-    info: "organization.hasNotUser";
-} & {body: undefined};
-
-export type response_110_5 = {
-    code: 403;
-    ok: false;
-    info: "user.role.organization.invalid";
-} & {body: undefined};
-
-export type response_110_6 = {
+export type parameters_109 = {
+=======
+export type response_102_6 = {
     code: 400;
     ok: false;
     info: "promotion.date.invalid";
 } & {body: undefined};
 
+export type response_body_102_7 = {
+    id: number;
+    percentage: number;
+    startDate?: string;
+    endDate?: string;
+    productSheetName: string;
+    productSheetId: string;
+    reason: string;
+}
+
+export type response_102_7 = {
+    code: 201;
+    ok: true;
+    info: "promotion.created";
+} & {body: response_body_91_6};
+
+export type parameters_92 = {
+    query?: ({} & {
+        color?: (string | string[]) | undefined;
+        size?: string | undefined;
+        diameter?: string | undefined;
+        target?: string | undefined;
+        accessory?: any | undefined;
+        material?: (string | string[]) | undefined;
+        stimulation?: (string | string[]) | undefined;
+        promotion?: any | undefined;
+        price?: [
+            number,
+            number
+        ] | undefined;
+    }) & {
+        search?: string | undefined;
+        searchByRegex?: any;
+        categoryName?: string | undefined;
+    };
+}
+
+export type response_body_92_0 = ({
+    type: "CHECKBOX" | "RADIO";
+    name: string;
+    values: {
+        value: string;
+        quantity: number;
+    }[];
+} | {
+    type: "TOGGLE";
+    name: string;
+    quantity: number;
+} | {
+    type: "RANGE";
+    name: string;
+    min: number;
+    max: number;
+})[]
+
+export type response_92_0 = {
+    code: 200;
+    ok: true;
+    info: "filters";
+} & {body: response_body_92_0};
+
+export type parameters_93 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+    query?: ({} & {
+        color?: (string | string[]) | undefined;
+        size?: string | undefined;
+        diameter?: string | undefined;
+        target?: string | undefined;
+        accessory?: any | undefined;
+        accessory?: any | undefined;
+        material?: (string | string[]) | undefined;
+        stimulation?: (string | string[]) | undefined;
+        promotion?: any | undefined;
+        promotion?: any | undefined;
+        price?: [
+            number,
+            number
+        ] | undefined;
+        rate?: string | undefined;
+    }) & {
+        search?: string | undefined;
+        searchByRegex?: any;
+        searchByRegex?: any;
+        categoryName?: string | undefined;
+    };
+}
+
+<<<<<<< HEAD
+export type response_body_109_0 = ({
+    type: "CHECKBOX" | "RADIO";
+    name: string;
+    values: {
+        value: string;
+        quantity: number;
+    }[];
+} | {
+    type: "TOGGLE";
+    name: string;
+    quantity: number;
+} | {
+    type: "RANGE";
+    name: string;
+    min: number;
+    max: number;
+})[]
+
+export type response_109_0 = {
+    code: 200;
+    ok: true;
+    info: "filters";
+} & {body: response_body_109_0};
+=======
+export type response_body_93_0 = string
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
+
+export type response_93_0 = {
+    code: 200;
+    ok: true;
+    info: "fullProductSheetCount";
+} & {body: response_body_93_0};
+
+export type request_body_94 = {
+    productReturnStatus?: ("INVALID" | "WAITING_RETURN") | undefined;
+}
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+
+export type parameters_94 = {
+    params: {
+        productSheetId: string;
+    };
+}
+
+export type response_94_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_94_1 = {
+    code: 404;
+    ok: false;
+    info: "fullProductSheet.notfound";
+} & {body: undefined};
+
+export type response_94_2 = {
+    code: 404;
+    ok: false;
+    info: "productSheet.notfound";
+} & {body: undefined};
+
+export type response_94_3 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_94_4 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+<<<<<<< HEAD
+export type response_110_6 = {
+    code: 400;
+=======
+export type response_94_5 = {
+    code: 406;
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
+    ok: false;
+    info: "promotion.date.invalid";
+} & {body: undefined};
+
+<<<<<<< HEAD
 export type response_body_110_7 = {
     id: number;
     percentage: number;
@@ -6604,6 +9805,9 @@ export type response_body_110_7 = {
     reason: string;
 }
 
+=======
+<<<<<<< HEAD
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 export type response_110_7 = {
     code: 201;
     ok: true;
@@ -6681,6 +9885,64 @@ export type response_body_112_0 = ({
 })[]
 
 export type response_112_0 = {
+<<<<<<< HEAD
+=======
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_112_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_112_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_112_3 = {
+    code: 404;
+    ok: false;
+    info: "productReturn.notfound";
+} & {body: undefined};
+
+export type response_112_4 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_112_5 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type response_112_6 = {
+    code: 406;
+    ok: false;
+    info: "productReturn.wrong.status";
+} & {body: undefined};
+
+export type response_body_112_7 = {
+=======
+export type response_body_94_6 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+    id: number;
+    productSku: string;
+    reason: string;
+    status: "WAITING_RETURN" | "REFUNDED" | "INVALID";
+    organizationId: string;
+    createdAt?: string;
+}
+
+<<<<<<< HEAD
+export type response_112_7 = {
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
     code: 200;
     ok: true;
     info: "filters";
@@ -6693,17 +9955,37 @@ export type parameters_113 = {
 }
 
 export type response_113_0 = {
+=======
+export type response_94_6 = {
+    code: 200;
+    ok: true;
+    info: "productReturn.edited";
+} & {body: response_body_94_6};
+
+export type parameters_95 = {
+    params: {
+        productReturnId: number;
+    };
+}
+
+export type response_95_0 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
     code: 401;
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_113_1 = {
+=======
+export type response_95_1 = {
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
     code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_113_2 = {
     code: 401;
     ok: false;
@@ -6804,8 +10086,114 @@ export type response_body_114_7 = {
 export type response_114_7 = {
     code: 200;
     ok: true;
+<<<<<<< HEAD
     info: "productReturn.edited";
 } & {body: response_body_114_7};
+=======
+    info: "bundle.status.stream";
+} & {body: undefined};
+=======
+export type response_95_2 = {
+    code: 404;
+    ok: false;
+    info: "productReturn.notfound";
+} & {body: undefined};
+
+export type response_95_3 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_95_4 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type response_95_5 = {
+    code: 406;
+    ok: false;
+    info: "productReturn.wrong.status";
+} & {body: undefined};
+
+export type response_95_6 = {
+    code: 204;
+    ok: true;
+    info: "product.refound";
+} & {body: undefined};
+
+export type request_body_96 = {
+    type: "line" | "bar" | "pie" | "donut" | "area";
+    filters: {
+        startDate: Date;
+        endDate: Date;
+        productSheetsId: string[];
+        priceMax?: number | undefined;
+        priceMin?: number | undefined;
+    } | {
+        startDate: Date;
+        endDate: Date;
+        categories?: string[] | undefined;
+        facets?: {
+            ACCESSORY?: string | undefined;
+            COLOR?: string | undefined;
+            DIAMETER?: string | undefined;
+            MATERIAL?: string | undefined;
+            SIZE?: string | undefined;
+            STIMULATION?: string | undefined;
+            TARGET?: string | undefined;
+        } | undefined;
+        priceMax?: number | undefined;
+        priceMin?: number | undefined;
+    };
+} | {
+    type: "top";
+    filters: {
+        startDate: Date;
+        endDate: Date;
+        customfilterType: "categories" | "productSheetsId";
+        filterValue: string[];
+    };
+} | {
+    type: "value";
+    filters: {
+        startDate: Date;
+        endDate: Date;
+        customfilterType: "category" | "productSheetId";
+        filterValue: string;
+    };
+}
+
+export type parameters_96 = {
+    params: {
+        organizationId: string;
+    };
+}
+
+export type response_body_96_0 = {
+    data: ({
+        name: string;
+    } & {
+        [x: string]: number | string;
+    })[];
+    categories: {
+        name: string;
+    }[] | {
+        name: string;
+    };
+} | {
+    key: string;
+    total: number;
+}[]
+
+export type response_96_0 = {
+    code: 200;
+    ok: true;
+    info: "widget.found";
+} & {body: response_body_96_0};
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 
 export type GetDef<
 	method extends DefEnrichedDuplojsTo["method"],
@@ -6997,6 +10385,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_16_2
 		| response_16_3,
 } | {
+<<<<<<< HEAD
 	path: "/entry*",
 	method: "GET",
 	body: unknown,
@@ -7004,13 +10393,29 @@ export type DefEnrichedDuplojsTo = {
 	response: response_17_0,
 } | {
 	path: "/register",
+=======
+	path: "/organization",
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	method: "POST",
-	body: request_body_18,
+	body: request_body_17,
 	parameters: undefined,
+	response: response_17_0
+		| response_17_1
+		| response_17_2
+		| response_17_3
+		| response_17_4
+		| response_17_5
+		| response_17_6,
+} | {
+	path: "/organization/{organizationId}/user/{userId}",
+	method: "PATCH",
+	body: request_body_18,
+	parameters: parameters_18,
 	response: response_18_0
 		| response_18_1
 		| response_18_2
 		| response_18_3
+<<<<<<< HEAD
 		| response_18_4,
 } | {
 	path: "/login",
@@ -7020,6 +10425,23 @@ export type DefEnrichedDuplojsTo = {
 	response: response_19_0
 		| response_19_1
 		| response_19_2,
+=======
+		| response_18_4
+		| response_18_5
+		| response_18_6,
+} | {
+	path: "/organization/{organizationId}/user/{userId}",
+	method: "DELETE",
+	body: unknown,
+	parameters: parameters_19,
+	response: response_19_0
+		| response_19_1
+		| response_19_2
+		| response_19_3
+		| response_19_4
+		| response_19_5
+		| response_19_6,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 } | {
 	path: "/article/{productSheetId}",
 	method: "DELETE",
@@ -7031,7 +10453,15 @@ export type DefEnrichedDuplojsTo = {
 		| response_20_3
 		| response_20_4,
 } | {
+<<<<<<< HEAD
 	path: "/commands",
+=======
+<<<<<<< HEAD
+	path: "/user/notifications",
+=======
+	path: "/organization/{organizationId}/user",
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	method: "GET",
 	body: unknown,
 	parameters: parameters_21,
@@ -7039,8 +10469,9 @@ export type DefEnrichedDuplojsTo = {
 		| response_21_1
 		| response_21_2
 		| response_21_3,
+		| response_21_3,
 } | {
-	path: "/article",
+	path: "/organization/{organizationId}/user",
 	method: "POST",
 	body: request_body_22,
 	parameters: undefined,
@@ -7052,10 +10483,15 @@ export type DefEnrichedDuplojsTo = {
 		| response_22_5
 		| response_22_6
 		| response_22_7,
+		| response_22_6
+		| response_22_7,
 } | {
+<<<<<<< HEAD
 <<<<<<< HEAD
 	path: "/user/notifications",
 =======
+=======
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 <<<<<<< HEAD
 	path: "/commands",
 >>>>>>> 7de6e68 (feat(110): add analytics charts (front))
@@ -7064,26 +10500,57 @@ export type DefEnrichedDuplojsTo = {
 	path: "/organization/{organizationId}/user/{userId}",
 	method: "DELETE",
 >>>>>>> 01b7c25 (feat(110): add analytics charts (front))
+=======
+	path: "/user/organizations",
+	method: "GET",
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 	body: unknown,
 	parameters: parameters_23,
 	response: response_23_0
 		| response_23_1
 		| response_23_2
 		| response_23_3,
+		| response_23_3,
 } | {
+<<<<<<< HEAD
 	path: "/cart",
 	method: "GET",
 	body: unknown,
+=======
+	path: "/article",
+	method: "POST",
+	body: request_body_24,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 	parameters: undefined,
 	response: response_24_0
 		| response_24_1
 		| response_24_2
+<<<<<<< HEAD
 		| response_24_3,
 } | {
+<<<<<<< HEAD
 	path: "/image-product-sheet/{imageProductSheetId}",
 	method: "DELETE",
 	body: unknown,
 	parameters: parameters_25,
+=======
+	path: "/retry-command",
+=======
+		| response_24_3
+		| response_24_4
+		| response_24_5
+		| response_24_6,
+		| response_24_3
+		| response_24_4
+		| response_24_5
+		| response_24_6,
+} | {
+	path: "/register",
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+	method: "POST",
+	body: request_body_25,
+	parameters: undefined,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	response: response_25_0
 		| response_25_1
 		| response_25_2
@@ -7092,10 +10559,18 @@ export type DefEnrichedDuplojsTo = {
 		| response_25_5
 		| response_25_6,
 } | {
+<<<<<<< HEAD
 	path: "/make-command",
 	method: "POST",
 	body: request_body_26,
 	parameters: undefined,
+=======
+<<<<<<< HEAD
+	path: "/image-product-sheet/{imageProductSheetId}",
+	method: "DELETE",
+	body: unknown,
+	parameters: parameters_26,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	response: response_26_0
 		| response_26_1
 		| response_26_2
@@ -7107,6 +10582,19 @@ export type DefEnrichedDuplojsTo = {
 	path: "/retry-command",
 	method: "POST",
 	body: request_body_27,
+=======
+	path: "/login",
+	method: "POST",
+	body: request_body_26,
+	parameters: undefined,
+	response: response_26_0
+		| response_26_1
+		| response_26_2,
+} | {
+	path: "/user",
+	method: "GET",
+	body: unknown,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 	parameters: undefined,
 	response: response_27_0
 		| response_27_1
@@ -7115,6 +10603,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_27_4
 		| response_27_5,
 } | {
+<<<<<<< HEAD
 	path: "/organization/{organizationId}/user",
 	method: "GET",
 	body: unknown,
@@ -7128,11 +10617,26 @@ export type DefEnrichedDuplojsTo = {
 	path: "/organization/{organizationId}/user",
 	method: "POST",
 	body: request_body_29,
+=======
+	path: "/user",
+	method: "PATCH",
+	body: request_body_28,
+	parameters: undefined,
+	response: response_28_0
+		| response_28_1
+		| response_28_2
+		| response_28_3,
+} | {
+	path: "/image-product-sheet/{imageProductSheetId}",
+	method: "DELETE",
+	body: unknown,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 	parameters: parameters_29,
 	response: response_29_0
 		| response_29_1
 		| response_29_2
 		| response_29_3
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_29_4
 		| response_29_5
@@ -7143,9 +10647,21 @@ export type DefEnrichedDuplojsTo = {
 		| response_29_4,
 >>>>>>> 01b7c25 (feat(110): add analytics charts (front))
 } | {
+<<<<<<< HEAD
 	path: "/user/organizations",
 	method: "GET",
 	body: unknown,
+=======
+	path: "/organization/{organizationId}/user/{userId}",
+=======
+		| response_29_4
+		| response_29_5,
+} | {
+	path: "/user/{userId}@admin",
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+	method: "PATCH",
+	body: request_body_30,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	parameters: parameters_30,
 	response: response_30_0
 		| response_30_1
@@ -7166,8 +10682,17 @@ export type DefEnrichedDuplojsTo = {
 		| response_31_6
 		| response_31_7,
 } | {
+<<<<<<< HEAD
 	path: "/organization/{organizationId}/user/{userId}",
 	method: "DELETE",
+=======
+<<<<<<< HEAD
+	path: "/user/organizations",
+=======
+	path: "/organization/{organizationId}/commands",
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+	method: "GET",
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	body: unknown,
 	parameters: parameters_32,
 	response: response_32_0
@@ -7179,20 +10704,42 @@ export type DefEnrichedDuplojsTo = {
 		| response_32_6
 		| response_32_7,
 } | {
+<<<<<<< HEAD
 	path: "/product-notifications",
 	method: "GET",
+=======
+<<<<<<< HEAD
+	path: "/product-notifications/{notificationId}",
+=======
+	path: "/promotions/{promotionId}",
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+	method: "DELETE",
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	body: unknown,
 	parameters: parameters_33,
 	response: response_33_0
 		| response_33_1
 		| response_33_2
 		| response_33_3
+<<<<<<< HEAD
 		| response_33_4,
 } | {
 	path: "/product-notifications",
+<<<<<<< HEAD
 	method: "POST",
 	body: request_body_34,
 	parameters: undefined,
+=======
+=======
+		| response_33_4
+		| response_33_5,
+} | {
+	path: "/organization/{organizationId}/full-product-sheets",
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+	method: "GET",
+	body: unknown,
+	parameters: parameters_34,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	response: response_34_0
 		| response_34_1
 		| response_34_2
@@ -7201,18 +10748,56 @@ export type DefEnrichedDuplojsTo = {
 		| response_34_5
 		| response_34_6,
 } | {
+<<<<<<< HEAD
 	path: "/product-notifications/{notificationId}",
 	method: "DELETE",
 	body: unknown,
 	parameters: parameters_35,
+=======
+<<<<<<< HEAD
+	path: "/product-notifications",
+	method: "POST",
+	body: request_body_35,
+	parameters: undefined,
+=======
+	path: "/organization/{organizationId}/product-returns",
+	method: "GET",
+	body: unknown,
+	parameters: parameters_35,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	response: response_35_0
 		| response_35_1
 		| response_35_2
 		| response_35_3
 		| response_35_4,
 } | {
+<<<<<<< HEAD
 	path: "/product-sheet-reviews/{productSheetReviewId}",
 	method: "DELETE",
+=======
+<<<<<<< HEAD
+	path: "/product-sheet/{productSheetId}/reviews",
+	method: "GET",
+=======
+	path: "/organization/{organizationId}/product-returns",
+	method: "POST",
+	body: request_body_36,
+	parameters: parameters_36,
+	response: response_36_0
+		| response_36_1
+		| response_36_2
+		| response_36_3
+		| response_36_4
+		| response_36_5
+		| response_36_6
+		| response_36_7
+		| response_36_8,
+} | {
+	path: "/organization/{organizationId}/logo",
+	method: "PUT",
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	body: unknown,
 	parameters: parameters_36,
 	response: response_36_0
@@ -7234,8 +10819,18 @@ export type DefEnrichedDuplojsTo = {
 		| response_37_5
 		| response_37_6,
 } | {
+<<<<<<< HEAD
 	path: "/user",
 	method: "GET",
+=======
+<<<<<<< HEAD
+	path: "/product-sheet-reviews/{productSheetReviewId}",
+	method: "DELETE",
+=======
+	path: "/organization/{organizationId}/product-sheets",
+	method: "GET",
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	body: unknown,
 	parameters: undefined,
 	response: response_38_0
@@ -7244,39 +10839,89 @@ export type DefEnrichedDuplojsTo = {
 		| response_38_3
 		| response_38_4,
 } | {
+<<<<<<< HEAD
 	path: "/user",
 	method: "PATCH",
 	body: request_body_39,
 	parameters: undefined,
+=======
+<<<<<<< HEAD
+	path: "/promotions/{promotionId}",
+	method: "DELETE",
+	body: unknown,
+=======
+	path: "/organization/{organizationId}/product-sheet",
+	method: "POST",
+	body: request_body_39,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+	parameters: parameters_39,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	response: response_39_0
 		| response_39_1
 		| response_39_2
 		| response_39_3
+<<<<<<< HEAD
 		| response_39_4,
+=======
+		| response_39_4
+		| response_39_5
+<<<<<<< HEAD
+		| response_39_6,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 } | {
 	path: "/user",
 	method: "DELETE",
 	body: unknown,
 	parameters: undefined,
+=======
+		| response_39_6
+		| response_39_7,
+} | {
+	path: "/organization/{organizationId}/commands/{commandId}/details",
+	method: "GET",
+	body: unknown,
+	parameters: parameters_40,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 	response: response_40_0
 		| response_40_1
 		| response_40_2
+<<<<<<< HEAD
 		| response_40_3,
 } | {
 	path: "/user/pull-data",
 	method: "POST",
+=======
+		| response_40_3
+<<<<<<< HEAD
+		| response_40_4,
+} | {
+	path: "/user",
+=======
+		| response_40_4
+		| response_40_5
+		| response_40_6
+		| response_40_7,
+} | {
+	path: "/organization/{organizationId}",
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+	method: "GET",
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	body: unknown,
 	parameters: undefined,
 	response: response_41_0
 		| response_41_1
 		| response_41_2
 		| response_41_3
-		| response_41_4,
+		| response_41_4
+		| response_41_5,
 } | {
+<<<<<<< HEAD
 <<<<<<< HEAD
 	path: "/product-sheet/{productSheetId}/reviews",
 	method: "GET",
 =======
+=======
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	path: "/user",
 	method: "PATCH",
 	body: request_body_42,
@@ -7293,7 +10938,25 @@ export type DefEnrichedDuplojsTo = {
 } | {
 	path: "/user",
 	method: "DELETE",
+<<<<<<< HEAD
 >>>>>>> 7de6e68 (feat(110): add analytics charts (front))
+=======
+=======
+	path: "/organization/{organizationId}",
+	method: "PATCH",
+	body: request_body_42,
+	parameters: parameters_42,
+	response: response_42_0
+		| response_42_1
+		| response_42_2
+		| response_42_3
+		| response_42_4
+		| response_42_5,
+} | {
+	path: "/organization/{organizationId}/grid",
+	method: "GET",
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	body: unknown,
 	parameters: parameters_42,
 	response: response_42_0
@@ -7311,39 +10974,87 @@ export type DefEnrichedDuplojsTo = {
 		| response_43_5
 		| response_43_6,
 } | {
+<<<<<<< HEAD
 	path: "/full-product-sheets@moderator",
 	method: "GET",
 	body: unknown,
 	parameters: undefined,
+=======
+	path: "/organization/{organizationId}/grid",
+	method: "PUT",
+	body: request_body_44,
+	parameters: parameters_44,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 	response: response_44_0
 		| response_44_1
 		| response_44_2
 		| response_44_3
 		| response_44_4,
 } | {
+<<<<<<< HEAD
 	path: "/category",
 	method: "POST",
 	body: request_body_45,
 	parameters: undefined,
+=======
+	path: "/organization/{organizationId}/users",
+	method: "GET",
+	body: unknown,
+	parameters: parameters_45,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 	response: response_45_0
 		| response_45_1
 		| response_45_2
-		| response_45_3,
+		| response_45_3
+		| response_45_4
+		| response_45_5,
 } | {
+<<<<<<< HEAD
 	path: "/product-sheet/{productSheetId}@moderator",
 	method: "PATCH",
 	body: request_body_46,
+=======
+<<<<<<< HEAD
+	path: "/category/{categoryName}/image",
+	method: "PUT",
+	body: unknown,
+=======
+	path: "/organization/{organizationId}/commands/{commandId}/make-bundle",
+	method: "POST",
+	body: request_body_46,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	parameters: parameters_46,
 	response: response_46_0
 		| response_46_1
 		| response_46_2
 		| response_46_3
 		| response_46_4
+<<<<<<< HEAD
 		| response_46_5,
+=======
+		| response_46_5
+<<<<<<< HEAD
+		| response_46_6,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 } | {
 	path: "/category/{categoryName}",
 	method: "PATCH",
 	body: request_body_47,
+=======
+		| response_46_6
+		| response_46_7
+		| response_46_8
+		| response_46_9
+		| response_46_10
+		| response_46_11
+		| response_46_12
+		| response_46_13,
+} | {
+	path: "/organization/{organizationId}/warehouses",
+	method: "GET",
+	body: unknown,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 	parameters: parameters_47,
 	response: response_47_0
 		| response_47_1
@@ -7353,12 +11064,26 @@ export type DefEnrichedDuplojsTo = {
 		| response_47_5
 		| response_47_6,
 } | {
+<<<<<<< HEAD
 	path: "/category/{categoryName}/image",
 	method: "PUT",
 	body: unknown,
+=======
+<<<<<<< HEAD
+	path: "/organization/{organizationId}@admin",
+	method: "PATCH",
+	body: request_body_48,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	parameters: parameters_48,
+=======
+	path: "/cart",
+	method: "GET",
+	body: unknown,
+	parameters: undefined,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 	response: response_48_0
 		| response_48_1
+<<<<<<< HEAD
 		| response_48_2
 		| response_48_3
 		| response_48_4
@@ -7368,14 +11093,35 @@ export type DefEnrichedDuplojsTo = {
 	path: "/product-sheet-reviews",
 	method: "GET",
 	body: unknown,
+=======
+		| response_48_2,
+} | {
+<<<<<<< HEAD
+	path: "/product-sheet/{productSheetId}@moderator",
+	method: "PATCH",
+=======
+	path: "/organization/{organizationId}/warehouse",
+	method: "POST",
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+	body: request_body_49,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	parameters: parameters_49,
 	response: response_49_0
 		| response_49_1
 		| response_49_2
 		| response_49_3
+<<<<<<< HEAD
 		| response_49_4,
 } | {
 	path: "/organization",
+=======
+		| response_49_4
+		| response_49_5
+		| response_49_6,
+} | {
+<<<<<<< HEAD
+	path: "/navigation-item",
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	method: "POST",
 	body: request_body_50,
 	parameters: undefined,
@@ -7392,6 +11138,20 @@ export type DefEnrichedDuplojsTo = {
 	method: "PATCH",
 	body: request_body_51,
 	parameters: parameters_51,
+=======
+	path: "/commands",
+	method: "GET",
+	body: unknown,
+	parameters: parameters_50,
+	response: response_50_0
+		| response_50_1
+		| response_50_2,
+} | {
+	path: "/retry-command",
+	method: "POST",
+	body: request_body_51,
+	parameters: undefined,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 	response: response_51_0
 		| response_51_1
 		| response_51_2
@@ -7400,10 +11160,17 @@ export type DefEnrichedDuplojsTo = {
 		| response_51_5
 		| response_51_6,
 } | {
+<<<<<<< HEAD
 	path: "/organization/{organizationId}@admin",
 	method: "PATCH",
 	body: request_body_52,
 	parameters: parameters_52,
+=======
+	path: "/make-command",
+	method: "POST",
+	body: request_body_52,
+	parameters: undefined,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	response: response_52_0
 		| response_52_1
 		| response_52_2
@@ -7411,10 +11178,21 @@ export type DefEnrichedDuplojsTo = {
 		| response_52_4
 		| response_52_5,
 } | {
+<<<<<<< HEAD
 	path: "/navigation-item",
+=======
+<<<<<<< HEAD
+	path: "/organization",
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	method: "POST",
 	body: request_body_53,
 	parameters: undefined,
+=======
+	path: "/product/{sku}/commands-story",
+	method: "GET",
+	body: unknown,
+	parameters: parameters_53,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 	response: response_53_0
 		| response_53_1
 		| response_53_2
@@ -7422,10 +11200,24 @@ export type DefEnrichedDuplojsTo = {
 		| response_53_4
 		| response_53_5,
 } | {
+<<<<<<< HEAD
 	path: "/parent-category/{parentCategoryName}/category",
 	method: "POST",
 	body: request_body_54,
 	parameters: parameters_54,
+=======
+<<<<<<< HEAD
+	path: "/newsletter",
+	method: "POST",
+	body: request_body_54,
+	parameters: undefined,
+=======
+	path: "/product-sheet/{productSheetId}/category",
+	method: "POST",
+	body: request_body_54,
+	parameters: parameters_54,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	response: response_54_0
 		| response_54_1
 		| response_54_2
@@ -7435,7 +11227,15 @@ export type DefEnrichedDuplojsTo = {
 		| response_54_6
 		| response_54_7,
 } | {
+<<<<<<< HEAD
 	path: "/parent-category/{parentCategoryName}/categories",
+=======
+<<<<<<< HEAD
+	path: "/newsletters",
+=======
+	path: "/product-sheet/{productSheetId}",
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	method: "GET",
 	body: unknown,
 	parameters: parameters_55,
@@ -7455,9 +11255,19 @@ export type DefEnrichedDuplojsTo = {
 >>>>>>> 01b7c25 (feat(110): add analytics charts (front))
 >>>>>>> 7de6e68 (feat(110): add analytics charts (front))
 } | {
+<<<<<<< HEAD
 	path: "/parent-category/{parentCategoryName}/category/{categoryName}",
+=======
+<<<<<<< HEAD
+	path: "/newsletter/{newsletterId}",
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	method: "DELETE",
 	body: unknown,
+=======
+	path: "/product-sheet/{productSheetId}",
+	method: "PATCH",
+	body: request_body_56,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 	parameters: parameters_56,
 	response: response_56_0
 		| response_56_1
@@ -7478,19 +11288,52 @@ export type DefEnrichedDuplojsTo = {
 		| response_57_5
 		| response_57_6,
 } | {
+<<<<<<< HEAD
 	path: "/newsletter",
 	method: "POST",
 	body: request_body_58,
 	parameters: undefined,
+=======
+<<<<<<< HEAD
+	path: "/parent-category/{parentCategoryName}/category",
+	method: "POST",
+	body: request_body_58,
+=======
+	path: "/product-sheet/{productSheetId}/warehouse",
+	method: "GET",
+	body: unknown,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+	parameters: parameters_58,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	response: response_58_0
 		| response_58_1
 		| response_58_2
 		| response_58_3
+<<<<<<< HEAD
 		| response_58_4,
 } | {
 	path: "/newsletters",
 	method: "GET",
 	body: unknown,
+=======
+		| response_58_4
+<<<<<<< HEAD
+		| response_58_5
+		| response_58_6
+		| response_58_7,
+} | {
+	path: "/navigation-item/{navigationItemId}",
+	method: "PATCH",
+	body: request_body_59,
+=======
+		| response_58_5,
+		| response_58_5,
+} | {
+	path: "/product-sheet/{productSheetId}/facets",
+	method: "GET",
+	body: unknown,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	parameters: parameters_59,
 	response: response_59_0
 		| response_59_1
@@ -7498,7 +11341,15 @@ export type DefEnrichedDuplojsTo = {
 		| response_59_3
 		| response_59_4,
 } | {
+<<<<<<< HEAD
 	path: "/newsletter/{newsletterId}",
+=======
+<<<<<<< HEAD
+	path: "/navigation-item/{navigationItemId}",
+=======
+	path: "/product-sheet/{productSheetId}/category/{categoryName}",
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	method: "DELETE",
 	body: unknown,
 	parameters: parameters_60,
@@ -7507,7 +11358,12 @@ export type DefEnrichedDuplojsTo = {
 		| response_60_2
 		| response_60_3
 		| response_60_4
+<<<<<<< HEAD
 		| response_60_5,
+=======
+		| response_60_5
+		| response_60_6,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 } | {
 	path: "/organizations",
 	method: "GET",
@@ -7519,7 +11375,15 @@ export type DefEnrichedDuplojsTo = {
 		| response_61_3
 		| response_61_4,
 } | {
+<<<<<<< HEAD
 	path: "/parent-categories",
+=======
+<<<<<<< HEAD
+	path: "/parent-category/{parentCategoryName}/categories",
+=======
+	path: "/product-sheet/{productSheetId}/images",
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	method: "GET",
 	body: unknown,
 	parameters: parameters_62,
@@ -7529,10 +11393,23 @@ export type DefEnrichedDuplojsTo = {
 		| response_62_3
 		| response_62_4,
 } | {
+<<<<<<< HEAD
 	path: "/parent-category",
 	method: "POST",
 	body: request_body_63,
 	parameters: undefined,
+=======
+<<<<<<< HEAD
+	path: "/parent-categories",
+	method: "GET",
+	body: unknown,
+=======
+	path: "/product-sheet/{productSheetId}/facet/{facetType}",
+	method: "PATCH",
+	body: request_body_63,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+	parameters: parameters_63,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	response: response_63_0
 		| response_63_1
 		| response_63_2
@@ -7550,9 +11427,19 @@ export type DefEnrichedDuplojsTo = {
 >>>>>>> 01b7c25 (feat(110): add analytics charts (front))
 >>>>>>> 7de6e68 (feat(110): add analytics charts (front))
 } | {
+<<<<<<< HEAD
 	path: "/product-sheet-reviews/{productSheetReviewId}",
+=======
+<<<<<<< HEAD
+	path: "/parent-category/{parentCategoryName}",
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	method: "PATCH",
 	body: request_body_64,
+=======
+	path: "/product-sheet/{productSheetId}/facet/{facetType}",
+	method: "DELETE",
+	body: unknown,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 	parameters: parameters_64,
 	response: response_64_0
 		| response_64_1
@@ -7572,19 +11459,44 @@ export type DefEnrichedDuplojsTo = {
 		| response_65_4
 		| response_65_5,
 } | {
+<<<<<<< HEAD
 	path: "/navigation-items",
 	method: "GET",
 	body: unknown,
+=======
+<<<<<<< HEAD
+	path: "/parent-category",
+	method: "POST",
+	body: request_body_66,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	parameters: undefined,
+=======
+	path: "/category/{categoryName}",
+	method: "PATCH",
+	body: request_body_66,
+	parameters: parameters_66,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 	response: response_66_0
 		| response_66_1
 		| response_66_2
 		| response_66_3
 		| response_66_4,
 } | {
+<<<<<<< HEAD
 	path: "/user/{userId}@admin",
 	method: "PATCH",
 	body: request_body_67,
+=======
+<<<<<<< HEAD
+	path: "/commands/{commandId}/bundles",
+	method: "GET",
+	body: unknown,
+=======
+	path: "/warehouse/{warehouseId}",
+	method: "PATCH",
+	body: request_body_67,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	parameters: parameters_67,
 	response: response_67_0
 		| response_67_1
@@ -7593,20 +11505,32 @@ export type DefEnrichedDuplojsTo = {
 		| response_67_4
 		| response_67_5
 <<<<<<< HEAD
+<<<<<<< HEAD
 		| response_67_6,
 =======
 		| response_67_6
 		| response_67_7,
 >>>>>>> 7de6e68 (feat(110): add analytics charts (front))
+=======
+		| response_67_6,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 } | {
+<<<<<<< HEAD
 	path: "/users",
 	method: "GET",
 	body: unknown,
 	parameters: parameters_68,
+=======
+	path: "/category",
+	method: "POST",
+	body: request_body_68,
+	parameters: undefined,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 	response: response_68_0
 		| response_68_1
 		| response_68_2
 		| response_68_3
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_68_4,
 =======
@@ -7615,31 +11539,75 @@ export type DefEnrichedDuplojsTo = {
 		| response_68_6,
 >>>>>>> 01b7c25 (feat(110): add analytics charts (front))
 } | {
+<<<<<<< HEAD
 	path: "/commands/{commandId}/bundles",
 	method: "GET",
 	body: unknown,
+=======
+	path: "/user/{userId}@admin",
+=======
+		| response_68_4,
+} | {
+	path: "/navigation-item/{navigationItemId}",
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+	method: "PATCH",
+	body: request_body_69,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	parameters: parameters_69,
 	response: response_69_0
 		| response_69_1
 		| response_69_2
 		| response_69_3
 		| response_69_4
+<<<<<<< HEAD
 		| response_69_5,
 } | {
 	path: "/commands/{commandId}/invoice",
+=======
+		| response_69_5
+		| response_69_6,
+	response: response_69_0
+		| response_69_1
+		| response_69_2
+		| response_69_3
+		| response_69_4
+		| response_69_5
+		| response_69_6,
+} | {
+<<<<<<< HEAD
+	path: "/commands/{commandId}",
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	method: "GET",
+=======
+	path: "/navigation-item/{navigationItemId}",
+	method: "DELETE",
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 	body: unknown,
 	parameters: parameters_70,
 	response: response_70_0
 		| response_70_1
 		| response_70_2
 		| response_70_3
+<<<<<<< HEAD
 		| response_70_4
 		| response_70_5,
 } | {
+<<<<<<< HEAD
 	path: "/commands/{commandId}",
 	method: "GET",
 	body: unknown,
+=======
+	path: "/product-sheet-reviews/{productSheetReviewId}",
+	method: "PATCH",
+	body: request_body_71,
+=======
+		| response_70_4,
+} | {
+	path: "/category/{categoryName}/image",
+	method: "PUT",
+	body: unknown,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	parameters: parameters_71,
 	response: response_71_0
 		| response_71_1
@@ -7648,8 +11616,14 @@ export type DefEnrichedDuplojsTo = {
 		| response_71_4
 		| response_71_5,
 } | {
+<<<<<<< HEAD
 	path: "/organization/{organizationId}/full-product-sheets",
 	method: "GET",
+=======
+<<<<<<< HEAD
+	path: "/product-sheet-reviews/{productSheetReviewId}@moderator",
+	method: "DELETE",
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	body: unknown,
 	parameters: parameters_72,
 	response: response_72_0
@@ -7664,16 +11638,41 @@ export type DefEnrichedDuplojsTo = {
 	method: "PUT",
 	body: unknown,
 	parameters: parameters_73,
+=======
+	path: "/navigation-items",
+	method: "GET",
+	body: unknown,
+	parameters: undefined,
+	response: response_72_0
+		| response_72_1
+		| response_72_2
+		| response_72_3,
+} | {
+	path: "/navigation-item",
+	method: "POST",
+	body: request_body_73,
+	parameters: undefined,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 	response: response_73_0
 		| response_73_1
 		| response_73_2
 		| response_73_3
+<<<<<<< HEAD
 		| response_73_4
 		| response_73_5
 		| response_73_6
 		| response_73_7,
 } | {
+<<<<<<< HEAD
 	path: "/organization/{organizationId}/product-sheets",
+=======
+	path: "/organization/{organizationId}/commands",
+=======
+		| response_73_4,
+} | {
+	path: "/parent-category/{parentCategoryName}/categories",
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	method: "GET",
 	body: unknown,
 	parameters: parameters_74,
@@ -7681,27 +11680,53 @@ export type DefEnrichedDuplojsTo = {
 		| response_74_1
 		| response_74_2
 		| response_74_3
+<<<<<<< HEAD
 		| response_74_4
 		| response_74_5
 		| response_74_6,
 } | {
+<<<<<<< HEAD
 	path: "/organization/{organizationId}/product-sheet",
 	method: "POST",
 	body: request_body_75,
+=======
+	path: "/organization/{organizationId}/full-product-sheets",
+	method: "GET",
+	body: unknown,
+=======
+		| response_74_4,
+} | {
+	path: "/parent-category/{parentCategoryName}",
+	method: "PATCH",
+	body: request_body_75,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	parameters: parameters_75,
 	response: response_75_0
 		| response_75_1
 		| response_75_2
 		| response_75_3
 		| response_75_4
+<<<<<<< HEAD
 		| response_75_5
 		| response_75_6
 		| response_75_7
 		| response_75_8,
 } | {
 	path: "/organization/{organizationId}/commands/{commandId}/details",
+=======
+		| response_75_5,
+} | {
+<<<<<<< HEAD
+	path: "/organization/{organizationId}/product-sheets",
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	method: "GET",
 	body: unknown,
+=======
+	path: "/parent-category/{parentCategoryName}/category",
+	method: "POST",
+	body: request_body_76,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 	parameters: parameters_76,
 	response: response_76_0
 		| response_76_1
@@ -7713,14 +11738,26 @@ export type DefEnrichedDuplojsTo = {
 		| response_76_7
 		| response_76_8,
 } | {
+<<<<<<< HEAD
 	path: "/organization/{organizationId}/commands/{commandId}/make-bundle",
 	method: "POST",
 	body: request_body_77,
+=======
+<<<<<<< HEAD
+	path: "/organization/{organizationId}/logo",
+	method: "PUT",
+=======
+	path: "/parent-category/{parentCategoryName}/category/{categoryName}",
+	method: "DELETE",
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+	body: unknown,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	parameters: parameters_77,
 	response: response_77_0
 		| response_77_1
 		| response_77_2
 		| response_77_3
+<<<<<<< HEAD
 		| response_77_4
 		| response_77_5
 		| response_77_6
@@ -7733,13 +11770,23 @@ export type DefEnrichedDuplojsTo = {
 		| response_77_13
 		| response_77_14,
 } | {
+<<<<<<< HEAD
 	path: "/organization/{organizationId}",
+=======
+	path: "/organization/{organizationId}/commands/{commandId}/details",
+=======
+		| response_77_4,
+} | {
+	path: "/organizations",
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	method: "GET",
 	body: unknown,
 	parameters: parameters_78,
 	response: response_78_0
 		| response_78_1
 		| response_78_2
+<<<<<<< HEAD
 		| response_78_3
 		| response_78_4
 		| response_78_5
@@ -7748,10 +11795,18 @@ export type DefEnrichedDuplojsTo = {
 	path: "/organization/{organizationId}",
 	method: "PATCH",
 	body: request_body_79,
+=======
+		| response_78_3,
+} | {
+	path: "/users",
+	method: "GET",
+	body: unknown,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 	parameters: parameters_79,
 	response: response_79_0
 		| response_79_1
 		| response_79_2
+<<<<<<< HEAD
 		| response_79_3
 		| response_79_4
 		| response_79_5
@@ -7761,10 +11816,19 @@ export type DefEnrichedDuplojsTo = {
 	method: "GET",
 	body: unknown,
 	parameters: parameters_80,
+=======
+		| response_79_3,
+} | {
+	path: "/parent-category",
+	method: "POST",
+	body: request_body_80,
+	parameters: undefined,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 	response: response_80_0
 		| response_80_1
 		| response_80_2
 		| response_80_3
+<<<<<<< HEAD
 		| response_80_4
 		| response_80_5
 		| response_80_6,
@@ -7772,17 +11836,34 @@ export type DefEnrichedDuplojsTo = {
 	path: "/organization/{organizationId}/warehouse",
 	method: "POST",
 	body: request_body_81,
+=======
+		| response_80_4,
+} | {
+	path: "/commands/{commandId}",
+	method: "GET",
+	body: unknown,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 	parameters: parameters_81,
 	response: response_81_0
 		| response_81_1
 		| response_81_2
 		| response_81_3
+<<<<<<< HEAD
 		| response_81_4
 		| response_81_5
 		| response_81_6
 		| response_81_7,
 } | {
+<<<<<<< HEAD
 	path: "/organization/{organizationId}/product-returns",
+=======
+	path: "/organization/{organizationId}",
+=======
+		| response_81_4,
+} | {
+	path: "/commands/{commandId}/bundles",
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	method: "GET",
 	body: unknown,
 	parameters: parameters_82,
@@ -7790,18 +11871,28 @@ export type DefEnrichedDuplojsTo = {
 		| response_82_1
 		| response_82_2
 		| response_82_3
-		| response_82_4
-		| response_82_5
-		| response_82_6,
+		| response_82_4,
 } | {
+<<<<<<< HEAD
 	path: "/organization/{organizationId}/product-returns",
 	method: "POST",
+=======
+<<<<<<< HEAD
+	path: "/organization/{organizationId}",
+	method: "PATCH",
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	body: request_body_83,
+=======
+	path: "/bundles/{bundleId}",
+	method: "GET",
+	body: unknown,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 	parameters: parameters_83,
 	response: response_83_0
 		| response_83_1
 		| response_83_2
 		| response_83_3
+<<<<<<< HEAD
 		| response_83_4
 		| response_83_5
 		| response_83_6
@@ -7810,27 +11901,53 @@ export type DefEnrichedDuplojsTo = {
 		| response_83_9
 		| response_83_10,
 } | {
+<<<<<<< HEAD
 	path: "/organization/{organizationId}/commands",
 	method: "GET",
 	body: unknown,
+=======
+	path: "/organization/{organizationId}/commands/{commandId}/make-bundle",
+	method: "POST",
+	body: request_body_84,
+=======
+		| response_83_4,
+} | {
+	path: "/parent-categories",
+	method: "GET",
+	body: unknown,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	parameters: parameters_84,
 	response: response_84_0
 		| response_84_1
 		| response_84_2
+<<<<<<< HEAD
 		| response_84_3
 		| response_84_4
 		| response_84_5
 		| response_84_6
 		| response_84_7,
 } | {
+<<<<<<< HEAD
 	path: "/navigation-item/{navigationItemId}",
 	method: "PATCH",
 	body: request_body_85,
+=======
+	path: "/organization/{organizationId}/users",
+=======
+		| response_84_3,
+} | {
+	path: "/bundles/{bundleId}/stream",
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+	method: "GET",
+	body: unknown,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	parameters: parameters_85,
 	response: response_85_0
 		| response_85_1
 		| response_85_2
 		| response_85_3
+<<<<<<< HEAD
 		| response_85_4
 		| response_85_5
 		| response_85_6
@@ -7850,16 +11967,38 @@ export type DefEnrichedDuplojsTo = {
 	path: "/product/{sku}/commands-story",
 	method: "GET",
 	body: unknown,
+=======
+		| response_85_4,
+} | {
+	path: "/full-product-sheets",
+	method: "GET",
+	body: unknown,
+	parameters: parameters_86,
+	response: response_86_0
+		| response_86_1
+		| response_86_2,
+} | {
+	path: "/product/{sku}",
+	method: "PATCH",
+	body: request_body_87,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 	parameters: parameters_87,
 	response: response_87_0
 		| response_87_1
 		| response_87_2
 		| response_87_3
 		| response_87_4
-		| response_87_5
-		| response_87_6,
+		| response_87_5,
 } | {
+<<<<<<< HEAD
 	path: "/organization/{organizationId}/warehouses",
+=======
+<<<<<<< HEAD
+	path: "/product-sheet/{productSheetId}/categories",
+=======
+	path: "/organization/{organizationId}/promotions",
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	method: "GET",
 	body: unknown,
 	parameters: parameters_88,
@@ -7868,24 +12007,52 @@ export type DefEnrichedDuplojsTo = {
 		| response_88_2
 		| response_88_3
 		| response_88_4
+<<<<<<< HEAD
 		| response_88_5
 		| response_88_6,
 } | {
+<<<<<<< HEAD
 	path: "/product-sheet/{productSheetId}/facets",
 	method: "GET",
 	body: unknown,
+=======
+	path: "/product-sheet/{productSheetId}/category",
+	method: "POST",
+	body: request_body_89,
+=======
+		| response_88_5,
+} | {
+	path: "/organization/{organizationId}/products",
+	method: "GET",
+	body: unknown,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	parameters: parameters_89,
 	response: response_89_0
 		| response_89_1
 		| response_89_2
 		| response_89_3
 		| response_89_4
+<<<<<<< HEAD
 		| response_89_5
 		| response_89_6,
 } | {
+<<<<<<< HEAD
 	path: "/product-sheet/{productSheetId}/category",
 	method: "POST",
 	body: request_body_90,
+=======
+	path: "/product-sheet/{productSheetId}/category/{categoryName}",
+	method: "DELETE",
+	body: unknown,
+=======
+		| response_89_5,
+} | {
+	path: "/product-sheet/{productSheetId}/product",
+	method: "POST",
+	body: request_body_90,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	parameters: parameters_90,
 	response: response_90_0
 		| response_90_1
@@ -7893,6 +12060,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_90_3
 		| response_90_4
 		| response_90_5
+<<<<<<< HEAD
 		| response_90_6
 		| response_90_7
 		| response_90_8,
@@ -7900,6 +12068,13 @@ export type DefEnrichedDuplojsTo = {
 	path: "/product-sheet/{productSheetId}/category/{categoryName}",
 	method: "DELETE",
 	body: unknown,
+=======
+		| response_90_6,
+} | {
+	path: "/product-sheet/{productSheetId}/promotions",
+	method: "POST",
+	body: request_body_91,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 	parameters: parameters_91,
 	response: response_91_0
 		| response_91_1
@@ -7910,33 +12085,48 @@ export type DefEnrichedDuplojsTo = {
 		| response_91_6
 		| response_91_7,
 } | {
+<<<<<<< HEAD
 	path: "/product-sheet/{productSheetId}/categories",
+=======
+<<<<<<< HEAD
+	path: "/product-sheet/{productSheetId}/warehouse",
+=======
+	path: "/computed-filters",
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	method: "GET",
 	body: unknown,
 	parameters: parameters_92,
-	response: response_92_0
-		| response_92_1
-		| response_92_2
-		| response_92_3
-		| response_92_4
-		| response_92_5
-		| response_92_6,
+	response: response_92_0,
 } | {
+<<<<<<< HEAD
 	path: "/product-sheet/{productSheetId}/warehouse",
+=======
+<<<<<<< HEAD
+	path: "/product-sheet/{productSheetId}/stock-story",
+=======
+	path: "/product-sheet/{productSheetId}/categories",
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	method: "GET",
 	body: unknown,
 	parameters: parameters_93,
-	response: response_93_0
-		| response_93_1
-		| response_93_2
-		| response_93_3
-		| response_93_4
-		| response_93_5
-		| response_93_6,
+	response: response_93_0,
 } | {
+<<<<<<< HEAD
 	path: "/product-sheet/{productSheetId}",
 	method: "GET",
 	body: unknown,
+=======
+<<<<<<< HEAD
+	path: "/product-sheet/{productSheetId}/facet",
+	method: "POST",
+=======
+	path: "/product-returns/{productReturnId}",
+	method: "PATCH",
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+	body: request_body_94,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	parameters: parameters_94,
 	response: response_94_0
 		| response_94_1
@@ -7946,9 +12136,19 @@ export type DefEnrichedDuplojsTo = {
 		| response_94_5
 		| response_94_6,
 } | {
+<<<<<<< HEAD
 	path: "/product-sheet/{productSheetId}",
+=======
+<<<<<<< HEAD
+	path: "/product-sheet/{productSheetId}/facet/{facetType}",
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	method: "PATCH",
 	body: request_body_95,
+=======
+	path: "/product-returns/{productReturnId}/refound",
+	method: "POST",
+	body: unknown,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 	parameters: parameters_95,
 	response: response_95_0
 		| response_95_1
@@ -7958,8 +12158,14 @@ export type DefEnrichedDuplojsTo = {
 		| response_95_5
 		| response_95_6,
 } | {
+<<<<<<< HEAD
 	path: "/product-sheet/{productSheetId}/stock-story",
 	method: "GET",
+=======
+<<<<<<< HEAD
+	path: "/product-sheet/{productSheetId}/facet/{facetType}",
+	method: "DELETE",
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	body: unknown,
 	parameters: parameters_96,
 	response: response_96_0
@@ -8174,9 +12380,20 @@ export type DefEnrichedDuplojsTo = {
 		| response_114_2
 		| response_114_3
 		| response_114_4
+<<<<<<< HEAD
 		| response_114_5
 		| response_114_6
 		| response_114_7,
+=======
+		| response_114_5,
+=======
+	path: "/organization/{organizationId}/make-stat",
+	method: "POST",
+	body: request_body_96,
+	parameters: parameters_96,
+	response: response_96_0,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 };
 
 
@@ -8450,18 +12667,24 @@ export interface EnrichedDuploTo<
 		| response_16_3
 	>
 
-	get(
-		path: "/entry*", 
+	post(
+		path: "/organization", 
+		body: request_body_17,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_17_0
 	>
 
+<<<<<<< HEAD
 	post(
 		path: "/register", 
+=======
+	patch(
+		path: "/organization/{organizationId}/user/{userId}", 
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		body: request_body_18,
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+		parameters : parameters_18 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_18_0
@@ -8469,17 +12692,34 @@ export interface EnrichedDuploTo<
 		| response_18_2
 		| response_18_3
 		| response_18_4
+<<<<<<< HEAD
 	>
 
 	post(
 		path: "/login", 
 		body: request_body_19,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+=======
+		| response_18_5
+		| response_18_6
+	>
+
+	delete(
+		path: "/organization/{organizationId}/user/{userId}", 
+		parameters : parameters_19 & BaseRequestParameters,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_19_0
 		| response_19_1
 		| response_19_2
+<<<<<<< HEAD
+=======
+		| response_19_3
+		| response_19_4
+		| response_19_5
+		| response_19_6
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	>
 
 	delete(
@@ -8495,8 +12735,17 @@ export interface EnrichedDuploTo<
 	>
 
 	get(
+<<<<<<< HEAD
 		path: "/commands", 
+=======
+<<<<<<< HEAD
+		path: "/user/notifications", 
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		parameters ?: parameters_21 & BaseRequestParameters,
+=======
+		path: "/organization/{organizationId}/user", 
+		parameters : parameters_21 & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_21_0
@@ -8506,7 +12755,7 @@ export interface EnrichedDuploTo<
 	>
 
 	post(
-		path: "/article", 
+		path: "/organization/{organizationId}/user", 
 		body: request_body_22,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
@@ -8519,8 +12768,10 @@ export interface EnrichedDuploTo<
 		| response_22_5
 		| response_22_6
 		| response_22_7
+		| response_22_7
 	>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 	get(
 		path: "/user/notifications", 
@@ -8530,6 +12781,11 @@ export interface EnrichedDuploTo<
 		path: "/organization/{organizationId}/user/{userId}", 
 		parameters : parameters_23 & BaseRequestParameters,
 >>>>>>> 01b7c25 (feat(110): add analytics charts (front))
+=======
+	get(
+		path: "/user/organizations", 
+		parameters ?: parameters_23 & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_23_0
@@ -8538,8 +12794,14 @@ export interface EnrichedDuploTo<
 		| response_23_3
 	>
 
+<<<<<<< HEAD
 	get(
 		path: "/cart", 
+=======
+	post(
+		path: "/article", 
+		body: request_body_24,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -8547,11 +12809,31 @@ export interface EnrichedDuploTo<
 		| response_24_1
 		| response_24_2
 		| response_24_3
+<<<<<<< HEAD
 	>
 
+<<<<<<< HEAD
 	delete(
 		path: "/image-product-sheet/{imageProductSheetId}", 
 		parameters : parameters_25 & BaseRequestParameters,
+=======
+	post(
+		path: "/retry-command", 
+=======
+		| response_24_4
+		| response_24_5
+		| response_24_6
+		| response_24_4
+		| response_24_5
+		| response_24_6
+	>
+
+	post(
+		path: "/register", 
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+		body: request_body_25,
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_25_0
@@ -8563,15 +12845,29 @@ export interface EnrichedDuploTo<
 		| response_25_6
 	>
 
+<<<<<<< HEAD
 	post(
 		path: "/make-command", 
 		body: request_body_26,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+=======
+<<<<<<< HEAD
+	delete(
+		path: "/image-product-sheet/{imageProductSheetId}", 
+		parameters : parameters_26 & BaseRequestParameters,
+=======
+	post(
+		path: "/login", 
+		body: request_body_26,
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_26_0
 		| response_26_1
 		| response_26_2
+<<<<<<< HEAD
 		| response_26_3
 		| response_26_4
 		| response_26_5
@@ -8581,6 +12877,12 @@ export interface EnrichedDuploTo<
 	post(
 		path: "/retry-command", 
 		body: request_body_27,
+=======
+	>
+
+	get(
+		path: "/user", 
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -8592,21 +12894,35 @@ export interface EnrichedDuploTo<
 		| response_27_5
 	>
 
+<<<<<<< HEAD
 	get(
 		path: "/organization/{organizationId}/user", 
 		parameters : parameters_28 & BaseRequestParameters,
+=======
+	patch(
+		path: "/user", 
+		body: request_body_28,
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_28_0
 		| response_28_1
 		| response_28_2
 		| response_28_3
+<<<<<<< HEAD
 		| response_28_4
 	>
 
 	post(
 		path: "/organization/{organizationId}/user", 
 		body: request_body_29,
+=======
+	>
+
+	delete(
+		path: "/image-product-sheet/{imageProductSheetId}", 
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		parameters : parameters_29 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -8616,6 +12932,7 @@ export interface EnrichedDuploTo<
 		| response_29_3
 		| response_29_4
 <<<<<<< HEAD
+<<<<<<< HEAD
 		| response_29_5
 		| response_29_6
 		| response_29_7
@@ -8624,9 +12941,23 @@ export interface EnrichedDuploTo<
 >>>>>>> 01b7c25 (feat(110): add analytics charts (front))
 	>
 
+<<<<<<< HEAD
 	get(
 		path: "/user/organizations", 
 		parameters ?: parameters_30 & BaseRequestParameters,
+=======
+	patch(
+		path: "/organization/{organizationId}/user/{userId}", 
+=======
+		| response_29_5
+	>
+
+	patch(
+		path: "/user/{userId}@admin", 
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+		body: request_body_30,
+		parameters : parameters_30 & BaseRequestParameters,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_30_0
@@ -8652,9 +12983,20 @@ export interface EnrichedDuploTo<
 		| response_31_7
 	>
 
+<<<<<<< HEAD
 	delete(
 		path: "/organization/{organizationId}/user/{userId}", 
 		parameters : parameters_32 & BaseRequestParameters,
+=======
+	get(
+<<<<<<< HEAD
+		path: "/user/organizations", 
+		parameters ?: parameters_32 & BaseRequestParameters,
+=======
+		path: "/organization/{organizationId}/commands", 
+		parameters : parameters_32 & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_32_0
@@ -8667,9 +13009,19 @@ export interface EnrichedDuploTo<
 		| response_32_7
 	>
 
+<<<<<<< HEAD
 	get(
 		path: "/product-notifications", 
 		parameters ?: parameters_33 & BaseRequestParameters,
+=======
+	delete(
+<<<<<<< HEAD
+		path: "/product-notifications/{notificationId}", 
+=======
+		path: "/promotions/{promotionId}", 
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+		parameters : parameters_33 & BaseRequestParameters,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_33_0
@@ -8677,12 +13029,25 @@ export interface EnrichedDuploTo<
 		| response_33_2
 		| response_33_3
 		| response_33_4
+<<<<<<< HEAD
 	>
 
 	post(
 		path: "/product-notifications", 
+<<<<<<< HEAD
 		body: request_body_34,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+=======
+		parameters ?: parameters_34 & BaseRequestParameters,
+=======
+		| response_33_5
+	>
+
+	get(
+		path: "/organization/{organizationId}/full-product-sheets", 
+		parameters : parameters_34 & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_34_0
@@ -8694,9 +13059,22 @@ export interface EnrichedDuploTo<
 		| response_34_6
 	>
 
+<<<<<<< HEAD
 	delete(
 		path: "/product-notifications/{notificationId}", 
 		parameters : parameters_35 & BaseRequestParameters,
+=======
+<<<<<<< HEAD
+	post(
+		path: "/product-notifications", 
+		body: request_body_35,
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+=======
+	get(
+		path: "/organization/{organizationId}/product-returns", 
+		parameters : parameters_35 & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_35_0
@@ -8706,13 +13084,25 @@ export interface EnrichedDuploTo<
 		| response_35_4
 	>
 
+<<<<<<< HEAD
 	delete(
 		path: "/product-sheet-reviews/{productSheetReviewId}", 
+=======
+<<<<<<< HEAD
+	get(
+		path: "/product-sheet/{productSheetId}/reviews", 
+=======
+	post(
+		path: "/organization/{organizationId}/product-returns", 
+		body: request_body_36,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		parameters : parameters_36 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_36_0
 		| response_36_1
+<<<<<<< HEAD
 		| response_36_2
 		| response_36_3
 		| response_36_4
@@ -8721,6 +13111,28 @@ export interface EnrichedDuploTo<
 
 	delete(
 		path: "/promotions/{promotionId}", 
+=======
+<<<<<<< HEAD
+	>
+
+	post(
+		path: "/product-sheet/{productSheetId}/reviews", 
+		body: request_body_37,
+=======
+		| response_36_2
+		| response_36_3
+		| response_36_4
+		| response_36_5
+		| response_36_6
+		| response_36_7
+		| response_36_8
+	>
+
+	put(
+		path: "/organization/{organizationId}/logo", 
+		body: unknown,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		parameters : parameters_37 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -8733,9 +13145,20 @@ export interface EnrichedDuploTo<
 		| response_37_6
 	>
 
+<<<<<<< HEAD
 	get(
 		path: "/user", 
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+=======
+<<<<<<< HEAD
+	delete(
+		path: "/product-sheet-reviews/{productSheetReviewId}", 
+=======
+	get(
+		path: "/organization/{organizationId}/product-sheets", 
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+		parameters : parameters_38 & BaseRequestParameters,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_38_0
@@ -8745,10 +13168,22 @@ export interface EnrichedDuploTo<
 		| response_38_4
 	>
 
+<<<<<<< HEAD
 	patch(
 		path: "/user", 
 		body: request_body_39,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+=======
+<<<<<<< HEAD
+	delete(
+		path: "/promotions/{promotionId}", 
+=======
+	post(
+		path: "/organization/{organizationId}/product-sheet", 
+		body: request_body_39,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+		parameters : parameters_39 & BaseRequestParameters,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_39_0
@@ -8756,23 +13191,52 @@ export interface EnrichedDuploTo<
 		| response_39_2
 		| response_39_3
 		| response_39_4
+<<<<<<< HEAD
+=======
+		| response_39_5
+		| response_39_6
+<<<<<<< HEAD
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	>
 
 	delete(
 		path: "/user", 
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+=======
+		| response_39_7
+	>
+
+	get(
+		path: "/organization/{organizationId}/commands/{commandId}/details", 
+		parameters : parameters_40 & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_40_0
 		| response_40_1
 		| response_40_2
 		| response_40_3
+<<<<<<< HEAD
+=======
+		| response_40_4
+<<<<<<< HEAD
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	>
 
 	post(
 		path: "/user/pull-data", 
 		body: unknown,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+=======
+		| response_40_5
+		| response_40_6
+		| response_40_7
+	>
+
+	get(
+		path: "/organization/{organizationId}", 
+		parameters : parameters_41 & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_41_0
@@ -8780,11 +13244,25 @@ export interface EnrichedDuploTo<
 		| response_41_2
 		| response_41_3
 		| response_41_4
+		| response_41_5
 	>
 
+<<<<<<< HEAD
 	get(
 		path: "/product-sheet/{productSheetId}/reviews", 
 		parameters : parameters_42 & BaseRequestParameters,
+=======
+	patch(
+<<<<<<< HEAD
+		path: "/user", 
+		body: request_body_42,
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+=======
+		path: "/organization/{organizationId}", 
+		body: request_body_42,
+		parameters : parameters_42 & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_42_0
@@ -8794,16 +13272,32 @@ export interface EnrichedDuploTo<
 		| response_42_2
 		| response_42_3
 <<<<<<< HEAD
+<<<<<<< HEAD
 		| response_42_4
 =======
 >>>>>>> 01b7c25 (feat(110): add analytics charts (front))
 >>>>>>> 7de6e68 (feat(110): add analytics charts (front))
 	>
 
+<<<<<<< HEAD
 	post(
 		path: "/product-sheet/{productSheetId}/reviews", 
 		body: request_body_43,
 		parameters : parameters_43 & BaseRequestParameters,
+=======
+	delete(
+		path: "/user", 
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+=======
+		| response_42_4
+		| response_42_5
+	>
+
+	get(
+		path: "/organization/{organizationId}/grid", 
+		parameters : parameters_43 & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_43_0
@@ -8815,9 +13309,16 @@ export interface EnrichedDuploTo<
 		| response_43_6
 	>
 
+<<<<<<< HEAD
 	get(
 		path: "/full-product-sheets@moderator", 
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+=======
+	put(
+		path: "/organization/{organizationId}/grid", 
+		body: request_body_44,
+		parameters : parameters_44 & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_44_0
@@ -8827,21 +13328,41 @@ export interface EnrichedDuploTo<
 		| response_44_4
 	>
 
+<<<<<<< HEAD
 	post(
 		path: "/category", 
 		body: request_body_45,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+=======
+	get(
+		path: "/organization/{organizationId}/users", 
+		parameters : parameters_45 & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_45_0
 		| response_45_1
 		| response_45_2
 		| response_45_3
+		| response_45_4
+		| response_45_5
 	>
 
+<<<<<<< HEAD
 	patch(
 		path: "/product-sheet/{productSheetId}@moderator", 
 		body: request_body_46,
+=======
+<<<<<<< HEAD
+	put(
+		path: "/category/{categoryName}/image", 
+		body: unknown,
+=======
+	post(
+		path: "/organization/{organizationId}/commands/{commandId}/make-bundle", 
+		body: request_body_46,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		parameters : parameters_46 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -8851,11 +13372,29 @@ export interface EnrichedDuploTo<
 		| response_46_3
 		| response_46_4
 		| response_46_5
+<<<<<<< HEAD
+=======
+		| response_46_6
+<<<<<<< HEAD
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	>
 
 	patch(
 		path: "/category/{categoryName}", 
 		body: request_body_47,
+=======
+		| response_46_7
+		| response_46_8
+		| response_46_9
+		| response_46_10
+		| response_46_11
+		| response_46_12
+		| response_46_13
+	>
+
+	get(
+		path: "/organization/{organizationId}/warehouses", 
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		parameters : parameters_47 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -8868,15 +13407,28 @@ export interface EnrichedDuploTo<
 		| response_47_6
 	>
 
+<<<<<<< HEAD
 	put(
 		path: "/category/{categoryName}/image", 
 		body: unknown,
+=======
+<<<<<<< HEAD
+	patch(
+		path: "/organization/{organizationId}@admin", 
+		body: request_body_48,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		parameters : parameters_48 & BaseRequestParameters,
+=======
+	get(
+		path: "/cart", 
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_48_0
 		| response_48_1
 		| response_48_2
+<<<<<<< HEAD
 		| response_48_3
 		| response_48_4
 		| response_48_5
@@ -8886,6 +13438,19 @@ export interface EnrichedDuploTo<
 	get(
 		path: "/product-sheet-reviews", 
 		parameters ?: parameters_49 & BaseRequestParameters,
+=======
+	>
+
+<<<<<<< HEAD
+	patch(
+		path: "/product-sheet/{productSheetId}@moderator", 
+=======
+	post(
+		path: "/organization/{organizationId}/warehouse", 
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+		body: request_body_49,
+		parameters : parameters_49 & BaseRequestParameters,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_49_0
@@ -8893,17 +13458,29 @@ export interface EnrichedDuploTo<
 		| response_49_2
 		| response_49_3
 		| response_49_4
+<<<<<<< HEAD
+=======
+		| response_49_5
+		| response_49_6
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	>
 
+<<<<<<< HEAD
 	post(
 		path: "/organization", 
 		body: request_body_50,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+=======
+	get(
+		path: "/commands", 
+		parameters ?: parameters_50 & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_50_0
 		| response_50_1
 		| response_50_2
+<<<<<<< HEAD
 		| response_50_3
 		| response_50_4
 		| response_50_5
@@ -8911,10 +13488,24 @@ export interface EnrichedDuploTo<
 		| response_50_7
 	>
 
+<<<<<<< HEAD
 	patch(
 		path: "/user/{userId}@moderator", 
 		body: request_body_51,
 		parameters : parameters_51 & BaseRequestParameters,
+=======
+	get(
+		path: "/product-sheet-reviews", 
+		parameters ?: parameters_51 & BaseRequestParameters,
+=======
+	>
+
+	post(
+		path: "/retry-command", 
+		body: request_body_51,
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_51_0
@@ -8926,10 +13517,17 @@ export interface EnrichedDuploTo<
 		| response_51_6
 	>
 
+<<<<<<< HEAD
 	patch(
 		path: "/organization/{organizationId}@admin", 
 		body: request_body_52,
 		parameters : parameters_52 & BaseRequestParameters,
+=======
+	post(
+		path: "/make-command", 
+		body: request_body_52,
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_52_0
@@ -8940,10 +13538,16 @@ export interface EnrichedDuploTo<
 		| response_52_5
 	>
 
+<<<<<<< HEAD
 	post(
 		path: "/navigation-item", 
 		body: request_body_53,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+=======
+	get(
+		path: "/product/{sku}/commands-story", 
+		parameters : parameters_53 & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_53_0
@@ -8955,9 +13559,21 @@ export interface EnrichedDuploTo<
 	>
 
 	post(
+<<<<<<< HEAD
 		path: "/parent-category/{parentCategoryName}/category", 
 		body: request_body_54,
 		parameters : parameters_54 & BaseRequestParameters,
+=======
+<<<<<<< HEAD
+		path: "/newsletter", 
+		body: request_body_54,
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+=======
+		path: "/product-sheet/{productSheetId}/category", 
+		body: request_body_54,
+		parameters : parameters_54 & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_54_0
@@ -8971,8 +13587,18 @@ export interface EnrichedDuploTo<
 	>
 
 	get(
+<<<<<<< HEAD
 		path: "/parent-category/{parentCategoryName}/categories", 
 		parameters : parameters_55 & BaseRequestParameters,
+=======
+<<<<<<< HEAD
+		path: "/newsletters", 
+		parameters ?: parameters_55 & BaseRequestParameters,
+=======
+		path: "/product-sheet/{productSheetId}", 
+		parameters : parameters_55 & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_55_0
@@ -8990,8 +13616,18 @@ export interface EnrichedDuploTo<
 >>>>>>> 7de6e68 (feat(110): add analytics charts (front))
 	>
 
+<<<<<<< HEAD
 	delete(
+<<<<<<< HEAD
 		path: "/parent-category/{parentCategoryName}/category/{categoryName}", 
+=======
+		path: "/newsletter/{newsletterId}", 
+=======
+	patch(
+		path: "/product-sheet/{productSheetId}", 
+		body: request_body_56,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		parameters : parameters_56 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -9018,10 +13654,19 @@ export interface EnrichedDuploTo<
 		| response_57_6
 	>
 
+<<<<<<< HEAD
 	post(
 		path: "/newsletter", 
 		body: request_body_58,
+<<<<<<< HEAD
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+=======
+=======
+	get(
+		path: "/product-sheet/{productSheetId}/warehouse", 
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+		parameters : parameters_58 & BaseRequestParameters,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_58_0
@@ -9031,9 +13676,21 @@ export interface EnrichedDuploTo<
 		| response_58_4
 	>
 
+<<<<<<< HEAD
 	get(
 		path: "/newsletters", 
 		parameters ?: parameters_59 & BaseRequestParameters,
+=======
+<<<<<<< HEAD
+	patch(
+		path: "/navigation-item/{navigationItemId}", 
+		body: request_body_59,
+=======
+	get(
+		path: "/product-sheet/{productSheetId}/facets", 
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+		parameters : parameters_59 & BaseRequestParameters,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_59_0
@@ -9044,7 +13701,15 @@ export interface EnrichedDuploTo<
 	>
 
 	delete(
+<<<<<<< HEAD
 		path: "/newsletter/{newsletterId}", 
+=======
+<<<<<<< HEAD
+		path: "/navigation-item/{navigationItemId}", 
+=======
+		path: "/product-sheet/{productSheetId}/category/{categoryName}", 
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		parameters : parameters_60 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -9054,6 +13719,10 @@ export interface EnrichedDuploTo<
 		| response_60_3
 		| response_60_4
 		| response_60_5
+<<<<<<< HEAD
+=======
+		| response_60_6
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 	>
 
 	get(
@@ -9069,8 +13738,17 @@ export interface EnrichedDuploTo<
 	>
 
 	get(
+<<<<<<< HEAD
 		path: "/parent-categories", 
 		parameters ?: parameters_62 & BaseRequestParameters,
+=======
+<<<<<<< HEAD
+		path: "/parent-category/{parentCategoryName}/categories", 
+=======
+		path: "/product-sheet/{productSheetId}/images", 
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+		parameters : parameters_62 & BaseRequestParameters,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_62_0
@@ -9080,10 +13758,23 @@ export interface EnrichedDuploTo<
 		| response_62_4
 	>
 
+<<<<<<< HEAD
 	post(
 		path: "/parent-category", 
 		body: request_body_63,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+=======
+<<<<<<< HEAD
+	get(
+		path: "/parent-categories", 
+		parameters ?: parameters_63 & BaseRequestParameters,
+=======
+	patch(
+		path: "/product-sheet/{productSheetId}/facet/{facetType}", 
+		body: request_body_63,
+		parameters : parameters_63 & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_63_0
@@ -9102,9 +13793,14 @@ export interface EnrichedDuploTo<
 >>>>>>> 7de6e68 (feat(110): add analytics charts (front))
 	>
 
+<<<<<<< HEAD
 	patch(
 		path: "/product-sheet-reviews/{productSheetReviewId}", 
 		body: request_body_64,
+=======
+	delete(
+		path: "/product-sheet/{productSheetId}/facet/{facetType}", 
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		parameters : parameters_64 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -9129,9 +13825,22 @@ export interface EnrichedDuploTo<
 		| response_65_5
 	>
 
+<<<<<<< HEAD
 	get(
 		path: "/navigation-items", 
+=======
+<<<<<<< HEAD
+	post(
+		path: "/parent-category", 
+		body: request_body_66,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+=======
+	patch(
+		path: "/category/{categoryName}", 
+		body: request_body_66,
+		parameters : parameters_66 & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_66_0
@@ -9141,10 +13850,23 @@ export interface EnrichedDuploTo<
 		| response_66_4
 	>
 
+<<<<<<< HEAD
 	patch(
 		path: "/user/{userId}@admin", 
 		body: request_body_67,
 		parameters : parameters_67 & BaseRequestParameters,
+=======
+<<<<<<< HEAD
+	get(
+		path: "/commands/{commandId}/bundles", 
+		parameters ?: parameters_67 & BaseRequestParameters,
+=======
+	patch(
+		path: "/warehouse/{warehouseId}", 
+		body: request_body_67,
+		parameters : parameters_67 & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_67_0
@@ -9155,14 +13877,24 @@ export interface EnrichedDuploTo<
 		| response_67_5
 		| response_67_6
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 		| response_67_7
 >>>>>>> 7de6e68 (feat(110): add analytics charts (front))
+=======
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	>
 
+<<<<<<< HEAD
 	get(
 		path: "/users", 
 		parameters ?: parameters_68 & BaseRequestParameters,
+=======
+	post(
+		path: "/category", 
+		body: request_body_68,
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_68_0
@@ -9171,15 +13903,29 @@ export interface EnrichedDuploTo<
 		| response_68_3
 		| response_68_4
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 		| response_68_5
 		| response_68_6
 >>>>>>> 01b7c25 (feat(110): add analytics charts (front))
 	>
 
+<<<<<<< HEAD
 	get(
 		path: "/commands/{commandId}/bundles", 
 		parameters ?: parameters_69 & BaseRequestParameters,
+=======
+	patch(
+		path: "/user/{userId}@admin", 
+=======
+	>
+
+	patch(
+		path: "/navigation-item/{navigationItemId}", 
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+		body: request_body_69,
+		parameters : parameters_69 & BaseRequestParameters,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_69_0
@@ -9188,11 +13934,27 @@ export interface EnrichedDuploTo<
 		| response_69_3
 		| response_69_4
 		| response_69_5
+<<<<<<< HEAD
+=======
+		| response_69_6
+		| response_69_1
+		| response_69_2
+		| response_69_3
+		| response_69_4
+		| response_69_5
+		| response_69_6
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	>
 
+<<<<<<< HEAD
 	get(
 		path: "/commands/{commandId}/invoice", 
 		parameters ?: parameters_70 & BaseRequestParameters,
+=======
+	delete(
+		path: "/navigation-item/{navigationItemId}", 
+		parameters : parameters_70 & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_70_0
@@ -9200,12 +13962,27 @@ export interface EnrichedDuploTo<
 		| response_70_2
 		| response_70_3
 		| response_70_4
+<<<<<<< HEAD
 		| response_70_5
 	>
 
+<<<<<<< HEAD
 	get(
 		path: "/commands/{commandId}", 
 		parameters ?: parameters_71 & BaseRequestParameters,
+=======
+	patch(
+		path: "/product-sheet-reviews/{productSheetReviewId}", 
+		body: request_body_71,
+=======
+	>
+
+	put(
+		path: "/category/{categoryName}/image", 
+		body: unknown,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+		parameters : parameters_71 & BaseRequestParameters,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_71_0
@@ -9216,24 +13993,50 @@ export interface EnrichedDuploTo<
 		| response_71_5
 	>
 
+<<<<<<< HEAD
 	get(
 		path: "/organization/{organizationId}/full-product-sheets", 
+=======
+<<<<<<< HEAD
+	delete(
+		path: "/product-sheet-reviews/{productSheetReviewId}@moderator", 
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		parameters : parameters_72 & BaseRequestParameters,
+=======
+	get(
+		path: "/navigation-items", 
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_72_0
 		| response_72_1
 		| response_72_2
 		| response_72_3
+<<<<<<< HEAD
 		| response_72_4
 		| response_72_5
 		| response_72_6
 	>
 
+<<<<<<< HEAD
 	put(
 		path: "/organization/{organizationId}/logo", 
 		body: unknown,
 		parameters : parameters_73 & BaseRequestParameters,
+=======
+	get(
+		path: "/commands/{commandId}/invoice", 
+		parameters ?: parameters_73 & BaseRequestParameters,
+=======
+	>
+
+	post(
+		path: "/navigation-item", 
+		body: request_body_73,
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_73_0
@@ -9241,13 +14044,24 @@ export interface EnrichedDuploTo<
 		| response_73_2
 		| response_73_3
 		| response_73_4
+<<<<<<< HEAD
 		| response_73_5
 		| response_73_6
 		| response_73_7
 	>
 
 	get(
+<<<<<<< HEAD
 		path: "/organization/{organizationId}/product-sheets", 
+=======
+		path: "/organization/{organizationId}/commands", 
+=======
+	>
+
+	get(
+		path: "/parent-category/{parentCategoryName}/categories", 
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		parameters : parameters_74 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -9256,13 +14070,26 @@ export interface EnrichedDuploTo<
 		| response_74_2
 		| response_74_3
 		| response_74_4
+<<<<<<< HEAD
 		| response_74_5
 		| response_74_6
 	>
 
+<<<<<<< HEAD
 	post(
 		path: "/organization/{organizationId}/product-sheet", 
 		body: request_body_75,
+=======
+	get(
+		path: "/organization/{organizationId}/full-product-sheets", 
+=======
+	>
+
+	patch(
+		path: "/parent-category/{parentCategoryName}", 
+		body: request_body_75,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		parameters : parameters_75 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -9272,13 +14099,26 @@ export interface EnrichedDuploTo<
 		| response_75_3
 		| response_75_4
 		| response_75_5
+<<<<<<< HEAD
 		| response_75_6
 		| response_75_7
 		| response_75_8
+=======
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 	>
 
+<<<<<<< HEAD
 	get(
+<<<<<<< HEAD
 		path: "/organization/{organizationId}/commands/{commandId}/details", 
+=======
+		path: "/organization/{organizationId}/product-sheets", 
+=======
+	post(
+		path: "/parent-category/{parentCategoryName}/category", 
+		body: request_body_76,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		parameters : parameters_76 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -9293,9 +14133,20 @@ export interface EnrichedDuploTo<
 		| response_76_8
 	>
 
+<<<<<<< HEAD
 	post(
 		path: "/organization/{organizationId}/commands/{commandId}/make-bundle", 
 		body: request_body_77,
+=======
+<<<<<<< HEAD
+	put(
+		path: "/organization/{organizationId}/logo", 
+		body: unknown,
+=======
+	delete(
+		path: "/parent-category/{parentCategoryName}/category/{categoryName}", 
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		parameters : parameters_77 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -9304,6 +14155,7 @@ export interface EnrichedDuploTo<
 		| response_77_2
 		| response_77_3
 		| response_77_4
+<<<<<<< HEAD
 		| response_77_5
 		| response_77_6
 		| response_77_7
@@ -9319,12 +14171,20 @@ export interface EnrichedDuploTo<
 	get(
 		path: "/organization/{organizationId}", 
 		parameters : parameters_78 & BaseRequestParameters,
+=======
+	>
+
+	get(
+		path: "/organizations", 
+		parameters ?: parameters_78 & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_78_0
 		| response_78_1
 		| response_78_2
 		| response_78_3
+<<<<<<< HEAD
 		| response_78_4
 		| response_78_5
 		| response_78_6
@@ -9334,12 +14194,20 @@ export interface EnrichedDuploTo<
 		path: "/organization/{organizationId}", 
 		body: request_body_79,
 		parameters : parameters_79 & BaseRequestParameters,
+=======
+	>
+
+	get(
+		path: "/users", 
+		parameters ?: parameters_79 & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_79_0
 		| response_79_1
 		| response_79_2
 		| response_79_3
+<<<<<<< HEAD
 		| response_79_4
 		| response_79_5
 		| response_79_6
@@ -9348,6 +14216,14 @@ export interface EnrichedDuploTo<
 	get(
 		path: "/organization/{organizationId}/users", 
 		parameters : parameters_80 & BaseRequestParameters,
+=======
+	>
+
+	post(
+		path: "/parent-category", 
+		body: request_body_80,
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_80_0
@@ -9355,6 +14231,7 @@ export interface EnrichedDuploTo<
 		| response_80_2
 		| response_80_3
 		| response_80_4
+<<<<<<< HEAD
 		| response_80_5
 		| response_80_6
 	>
@@ -9363,6 +14240,13 @@ export interface EnrichedDuploTo<
 		path: "/organization/{organizationId}/warehouse", 
 		body: request_body_81,
 		parameters : parameters_81 & BaseRequestParameters,
+=======
+	>
+
+	get(
+		path: "/commands/{commandId}", 
+		parameters ?: parameters_81 & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_81_0
@@ -9370,6 +14254,7 @@ export interface EnrichedDuploTo<
 		| response_81_2
 		| response_81_3
 		| response_81_4
+<<<<<<< HEAD
 		| response_81_5
 		| response_81_6
 		| response_81_7
@@ -9378,6 +14263,13 @@ export interface EnrichedDuploTo<
 	get(
 		path: "/organization/{organizationId}/product-returns", 
 		parameters : parameters_82 & BaseRequestParameters,
+=======
+	>
+
+	get(
+		path: "/commands/{commandId}/bundles", 
+		parameters ?: parameters_82 & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_82_0
@@ -9385,13 +14277,21 @@ export interface EnrichedDuploTo<
 		| response_82_2
 		| response_82_3
 		| response_82_4
-		| response_82_5
-		| response_82_6
 	>
 
+<<<<<<< HEAD
 	post(
 		path: "/organization/{organizationId}/product-returns", 
+=======
+<<<<<<< HEAD
+	patch(
+		path: "/organization/{organizationId}", 
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		body: request_body_83,
+=======
+	get(
+		path: "/bundles/{bundleId}", 
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		parameters : parameters_83 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -9400,6 +14300,7 @@ export interface EnrichedDuploTo<
 		| response_83_2
 		| response_83_3
 		| response_83_4
+<<<<<<< HEAD
 		| response_83_5
 		| response_83_6
 		| response_83_7
@@ -9411,21 +14312,40 @@ export interface EnrichedDuploTo<
 	get(
 		path: "/organization/{organizationId}/commands", 
 		parameters : parameters_84 & BaseRequestParameters,
+=======
+	>
+
+	get(
+		path: "/parent-categories", 
+		parameters ?: parameters_84 & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_84_0
 		| response_84_1
 		| response_84_2
 		| response_84_3
+<<<<<<< HEAD
 		| response_84_4
 		| response_84_5
 		| response_84_6
 		| response_84_7
 	>
 
+<<<<<<< HEAD
 	patch(
 		path: "/navigation-item/{navigationItemId}", 
 		body: request_body_85,
+=======
+	get(
+		path: "/organization/{organizationId}/users", 
+=======
+	>
+
+	get(
+		path: "/bundles/{bundleId}/stream", 
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		parameters : parameters_85 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -9434,6 +14354,7 @@ export interface EnrichedDuploTo<
 		| response_85_2
 		| response_85_3
 		| response_85_4
+<<<<<<< HEAD
 		| response_85_5
 		| response_85_6
 		| response_85_7
@@ -9442,18 +14363,37 @@ export interface EnrichedDuploTo<
 	delete(
 		path: "/navigation-item/{navigationItemId}", 
 		parameters : parameters_86 & BaseRequestParameters,
+=======
+	>
+
+	get(
+		path: "/full-product-sheets", 
+		parameters ?: parameters_86 & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_86_0
 		| response_86_1
 		| response_86_2
+<<<<<<< HEAD
 		| response_86_3
 		| response_86_4
 		| response_86_5
 	>
 
 	get(
+<<<<<<< HEAD
 		path: "/product/{sku}/commands-story", 
+=======
+		path: "/organization/{organizationId}/warehouses", 
+=======
+	>
+
+	patch(
+		path: "/product/{sku}", 
+		body: request_body_87,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		parameters : parameters_87 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -9463,11 +14403,18 @@ export interface EnrichedDuploTo<
 		| response_87_3
 		| response_87_4
 		| response_87_5
-		| response_87_6
 	>
 
 	get(
+<<<<<<< HEAD
 		path: "/organization/{organizationId}/warehouses", 
+=======
+<<<<<<< HEAD
+		path: "/product-sheet/{productSheetId}/categories", 
+=======
+		path: "/organization/{organizationId}/promotions", 
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		parameters : parameters_88 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -9477,11 +14424,24 @@ export interface EnrichedDuploTo<
 		| response_88_3
 		| response_88_4
 		| response_88_5
+<<<<<<< HEAD
 		| response_88_6
 	>
 
+<<<<<<< HEAD
 	get(
 		path: "/product-sheet/{productSheetId}/facets", 
+=======
+	post(
+		path: "/product-sheet/{productSheetId}/category", 
+		body: request_body_89,
+=======
+	>
+
+	get(
+		path: "/organization/{organizationId}/products", 
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		parameters : parameters_89 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -9491,12 +14451,25 @@ export interface EnrichedDuploTo<
 		| response_89_3
 		| response_89_4
 		| response_89_5
+<<<<<<< HEAD
 		| response_89_6
 	>
 
+<<<<<<< HEAD
 	post(
 		path: "/product-sheet/{productSheetId}/category", 
 		body: request_body_90,
+=======
+	delete(
+		path: "/product-sheet/{productSheetId}/category/{categoryName}", 
+=======
+	>
+
+	post(
+		path: "/product-sheet/{productSheetId}/product", 
+		body: request_body_90,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		parameters : parameters_90 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -9507,12 +14480,25 @@ export interface EnrichedDuploTo<
 		| response_90_4
 		| response_90_5
 		| response_90_6
+<<<<<<< HEAD
 		| response_90_7
 		| response_90_8
 	>
 
+<<<<<<< HEAD
 	delete(
 		path: "/product-sheet/{productSheetId}/category/{categoryName}", 
+=======
+	get(
+		path: "/product/{sku}/commands-story", 
+=======
+	>
+
+	post(
+		path: "/product-sheet/{productSheetId}/promotions", 
+		body: request_body_91,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		parameters : parameters_91 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -9527,35 +14513,52 @@ export interface EnrichedDuploTo<
 	>
 
 	get(
+<<<<<<< HEAD
 		path: "/product-sheet/{productSheetId}/categories", 
+=======
+<<<<<<< HEAD
+		path: "/product-sheet/{productSheetId}/warehouse", 
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		parameters : parameters_92 & BaseRequestParameters,
+=======
+		path: "/computed-filters", 
+		parameters ?: parameters_92 & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_92_0
-		| response_92_1
-		| response_92_2
-		| response_92_3
-		| response_92_4
-		| response_92_5
-		| response_92_6
 	>
 
 	get(
+<<<<<<< HEAD
 		path: "/product-sheet/{productSheetId}/warehouse", 
+=======
+<<<<<<< HEAD
+		path: "/product-sheet/{productSheetId}/stock-story", 
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		parameters : parameters_93 & BaseRequestParameters,
+=======
+		path: "/full-product-sheets-count", 
+		parameters ?: parameters_93 & BaseRequestParameters,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_93_0
-		| response_93_1
-		| response_93_2
-		| response_93_3
-		| response_93_4
-		| response_93_5
-		| response_93_6
 	>
 
+<<<<<<< HEAD
 	get(
 		path: "/product-sheet/{productSheetId}", 
+=======
+<<<<<<< HEAD
+	post(
+		path: "/product-sheet/{productSheetId}/facet", 
+=======
+	patch(
+		path: "/product-returns/{productReturnId}", 
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+		body: request_body_94,
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		parameters : parameters_94 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -9568,9 +14571,15 @@ export interface EnrichedDuploTo<
 		| response_94_6
 	>
 
+<<<<<<< HEAD
 	patch(
 		path: "/product-sheet/{productSheetId}", 
 		body: request_body_95,
+=======
+	post(
+		path: "/product-returns/{productReturnId}/refound", 
+		body: unknown,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 		parameters : parameters_95 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -9583,12 +14592,24 @@ export interface EnrichedDuploTo<
 		| response_95_6
 	>
 
+<<<<<<< HEAD
 	get(
 		path: "/product-sheet/{productSheetId}/stock-story", 
+=======
+<<<<<<< HEAD
+	delete(
+		path: "/product-sheet/{productSheetId}/facet/{facetType}", 
+=======
+	post(
+		path: "/organization/{organizationId}/make-stat", 
+		body: request_body_96,
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
+>>>>>>> 7185705 (feat(110): route make-stat, grid get and put)
 		parameters : parameters_96 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_96_0
+<<<<<<< HEAD
 		| response_96_1
 		| response_96_2
 		| response_96_3
@@ -9800,6 +14821,8 @@ export interface EnrichedDuploTo<
 		| response_110_5
 		| response_110_6
 		| response_110_7
+=======
+>>>>>>> c59bee1 (feat(110): route make-stat, grid get and put)
 	>
 
 	get(
