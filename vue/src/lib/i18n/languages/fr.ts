@@ -118,6 +118,7 @@ export default {
 		},
 		[routerPageName.USER_COMMANDS]: {
 			title: "Vos commandes",
+			searchPlaceholder: "Rechercher une commande",
 			command: {
 				label: {
 					date: "COMMANDE EFFECTUÉE LE",
