@@ -2,8 +2,8 @@ import { notification_type } from "@prisma/client";
 
 export const notificationsTuple: TuplifyUnion<notification_type> = [
 	"PRODUCT_PROMOTION",
-	"NEW_PRODUCT_IN_CATEGORY",
 	"PRODUCT_RESTOCK",
+	"NEW_PRODUCT_IN_CATEGORY",
 	"PRODUCT_NO_STOCK"
 ];
 
