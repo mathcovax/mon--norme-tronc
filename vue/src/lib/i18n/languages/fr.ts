@@ -617,6 +617,7 @@ export default {
 				"organization-panel-get-warehouse": "Entrepôts",
 				"organization-panel-get-product-sheet": "Fiches produits",
 				"organization-product-return": "Retours Produits",
+				"organization-panel-analytics": "Analytiques",
 			},
 		},
 		content: {

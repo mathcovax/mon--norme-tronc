@@ -11,7 +11,7 @@ const {
 	ORGANIZATION_GET_WAREHOUSE,
 	ORGANIZATION_COMMANDS,
 	ORGANIZATION_MANAGE_PROMOTION,
-	ORGANIZATION_ANALYTICS
+	ORGANIZATION_ANALYTICS,
 } = routerPageName;
 const route = useRoute();
 const organizationUserStore = useOrganizationUserStore();
@@ -224,74 +224,22 @@ getOrganization();
 				<SheetClose as-child>
 					<RouterLink
 						v-if="organizationUserStore.hasRole('ACCOUNTANT')"
-						to="#"
+						:to="{ name: ORGANIZATION_ANALYTICS }"
 						class="mx-[-0.65rem] px-3 py-2 flex items-center gap-4 rounded-xl hover:text-foreground"
 						:class="
-							!route.name ?
+							route.name === ORGANIZATION_ANALYTICS ?
 								'bg-muted text-foreground'
 								:
 								'text-muted-foreground'
 						"
 					>
 						<TheIcon
-							icon="chart-line"
+							icon="chart-bar"
 							size="2xl"
 						/>
 						{{ $t("layout.organization.nav.analytics") }}
 					</RouterLink>
 				</SheetClose>
-				<RouterLink
-					:to="{ name: ORGANIZATION_MANAGE_USER }"
-					class="mx-[-0.65rem] px-3 py-2 flex items-center gap-4 rounded-xl hover:text-foreground"
-					:class="
-						route.name === ORGANIZATION_MANAGE_USER ?
-							'bg-muted text-foreground'
-							:
-							'text-muted-foreground'
-					"
-				>
-					<TheIcon
-						icon="account"
-						size="2xl"
-					/>
-					{{ $t("layout.organization.nav.users") }}
-				</RouterLink>
-
-				<RouterLink
-					v-if="organizationUserStore.hasRole('OWNER')"
-					:to="{ name: ORGANIZATION_GET_WAREHOUSE }"
-					class="mx-[-0.65rem] px-3 py-2 flex items-center gap-4 rounded-xl hover:text-foreground"
-					:class="
-						route.name === ORGANIZATION_GET_WAREHOUSE ?
-							'bg-muted text-foreground'
-							:
-							'text-muted-foreground'
-					"
-				>
-					<TheIcon
-						icon="warehouse"
-						size="2xl"
-					/>
-					{{ $t("layout.organization.nav.warehouse") }}
-				</RouterLink>
-
-				<RouterLink
-					v-if="organizationUserStore.hasRole('ACCOUNTANT')"
-					:to="{ name: ORGANIZATION_ANALYTICS }"
-					class="mx-[-0.65rem] px-3 py-2 flex items-center gap-4 rounded-xl hover:text-foreground"
-					:class="
-						route.name === ORGANIZATION_ANALYTICS ?
-							'bg-muted text-foreground'
-							:
-							'text-muted-foreground'
-					"
-				>
-					<TheIcon
-						icon="chart-line"
-						size="2xl"
-					/>
-					{{ $t("layout.organization.nav.analytics") }}
-				</RouterLink>
 			</nav>
 		</SheetContent>
 	</TheSheet>
