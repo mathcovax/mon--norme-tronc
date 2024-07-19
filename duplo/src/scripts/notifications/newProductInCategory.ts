@@ -39,6 +39,7 @@ const newProductInCategoryGenerator = FindSlice(
 const promiseList = new PromiseList(1000);
 
 for await (const newProductInCategory of newProductInCategoryGenerator) {
+	console.log(newProductInCategory);
 	const notificationSubscribeGenerator = FindSlice(
 		50,
 		(slice, size) => prisma.subscribeProductNotifications.findMany({
@@ -54,6 +55,7 @@ for await (const newProductInCategory of newProductInCategoryGenerator) {
 
 
 	for await (const subscribeNotification of notificationSubscribeGenerator) {
+		console.log(subscribeNotification);
 		const fullNotification: FullNotification = {
 			title: `Nouveau produit dans la catégorie ${newProductInCategory.categoryName}`,
 			subtitle: `Découvrez le produit ${newProductInCategory.productSheet.name}`,
@@ -73,3 +75,5 @@ await promiseList.clear();
 await lastTime.set(newLastIndexing);
 
 mongoose.connection.close();
+
+console.warn("Finish notification:newProductInCategory");

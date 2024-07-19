@@ -52,7 +52,7 @@ async function toggleSubscription(type: "PRODUCT_PROMOTION" | "PRODUCT_RESTOCK")
 				{ params: { notificationId: subscribedNotification.id } }
 			);
 	} else {
-		duploTo.enriched
+		await duploTo.enriched
 			.post(
 				"/product-notifications",
 				{ productSheetId: params.value.productSheetId, type }

@@ -31,4 +31,7 @@ for await (const fullProductSheet of fullProductSheetGenerator) {
 }
 
 await promiseList.clear();
+
 mongoose.connection.close();
+
+console.log("Finish computeProductStock");

@@ -18,7 +18,7 @@ async function toggleSubscription() {
 				{ params: { notificationId: subscribedNotifications.value[0].id } }
 			);
 	} else {
-		duploTo.enriched
+		await duploTo.enriched
 			.post(
 				"/product-notifications",
 				{ categoryName: props.category.name, type: "NEW_PRODUCT_IN_CATEGORY" }

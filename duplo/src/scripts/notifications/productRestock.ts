@@ -83,3 +83,5 @@ await promiseList.clear();
 await lastTime.set(newLastIndexing);
 
 mongoose.connection.close();
+
+console.log("Finish notification:productRestock");

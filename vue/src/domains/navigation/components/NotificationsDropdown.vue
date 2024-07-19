@@ -66,7 +66,7 @@ setInterval(
 			canSeeMore.value = true;
 		}
 	},
-	10000
+	1000 * 60 * 2
 );
 
 getUserNotifications(page.value, false);

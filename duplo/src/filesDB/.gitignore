@@ -5,3 +5,6 @@ productPromotion.json
 productRestock.json
 newProductInCategory.json
 productNoStock.json
+sendMailProductRestock.json
+sendMailProductPromotion.json
+sendMailNewProductInCategory.json

@@ -19,6 +19,9 @@
 		"notification:productRestock": "tsx src/scripts/notifications/productRestock",
 		"notification:newProductInCategory": "tsx src/scripts/notifications/newProductInCategory",
 		"notification:productNoStock": "tsx src/scripts/notifications/productNoStock",
+		"sendMail:productPromotion": "tsx src/scripts/notificationsMailer/productPromotion",
+		"sendMail:productRestock": "tsx src/scripts/notificationsMailer/productRestock",
+		"sendMail:newProductInCategory": "tsx src/scripts/notificationsMailer/newProductInCategory",
 		"computeProductStock": "tsx src/scripts/computeProductStock",
 		"fixture": "tsx src/fixtures"
 	},
