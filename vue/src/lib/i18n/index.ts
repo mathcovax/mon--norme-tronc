@@ -14,4 +14,4 @@ export async function setLocaleMessages(code: "fr") {
 	i18n.global.locale = code;
 }
 
-await setLocaleMessages("fr");
+setLocaleMessages("fr");
