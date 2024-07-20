@@ -1,6 +1,9 @@
+import { baseTemplate } from "@/templates";
+import { welcomeTemplate } from "@/templates/welcome";
 import { addressValidCheck } from "@checkers/address";
 import { firebaseTokenCheck } from "@checkers/token";
 import { inputUser, userExistCheck } from "@checkers/user";
+import { Mail } from "@services/mail";
 import { AccessToken } from "@services/token";
 
 /* METHOD : POST, PATH : /register */
@@ -85,6 +88,10 @@ export const POST = (method: Methods, path: string) => duplo
 					primordialRole: true
 				}
 			});
+
+			const registerTemplate = welcomeTemplate(firstname, ENV.ORIGIN);
+			const html = baseTemplate(registerTemplate);
+			Mail.send(email, "Bienvenue chez MET", html);
 
 			const accessToken = AccessToken.generate({ id, email, primordialRole });
 

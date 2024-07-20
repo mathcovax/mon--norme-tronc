@@ -1,4 +1,4 @@
-export const commandTemplate = (username: string, url: string) => /* html */`
+export const confirmedCommandTemplate = (username: string, url: string) => /* html */`
 <p style="margin: 0 0 1rem;">Bonjour <b>${ username }</b>,</p>
 <p style="margin: 0 0 1rem;">Nous vous remercions de votre commande. Nous vous tiendrons informé par e-mail lorsque les articles de votre commande auront été expédiés.</p>
 <p style="margin: 0 0 1rem;">Vous pouvez suivre l’état de votre commande ici :</p>

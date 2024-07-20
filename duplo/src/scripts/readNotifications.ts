@@ -5,6 +5,10 @@ import { LastTime } from "./setup/lastTime";
 import { PromiseList } from "./setup/promiseList";
 import { fullCommandModel } from "@mongoose/model";
 import { command_status } from "@prisma/client";
+import { confirmedCommandTemplate } from "@/templates/command/confirmed";
+import { baseTemplate } from "@/templates";
+import { Mail } from "@services/mail";
+import { canceledCommandTemplate } from "@/templates/command/canceled";
 
 const newLastReadNotification = new Date();
 const lastTime = new LastTime("readNotification");
@@ -17,6 +21,20 @@ const generator = FindSlice(
 		where: {
 			createdAt: {
 				gte: lastReadNotification
+			}
+		},
+		select: {
+			commandId: true,
+			type: true,
+			command: {
+				select: {
+					user: {
+						select: {
+							firstname: true,
+							email: true
+						}
+					}
+				}
 			}
 		},
 		skip: slice * size,
@@ -55,6 +73,15 @@ for await (const notification of generator) {
 			})
 		])
 	);
+	if (commandStatus === "IN_PROGRESS") {
+		const confirmedTemplate = confirmedCommandTemplate(notification.command.user.firstname, `${ENV.ORIGIN}/commands/${notification.commandId}`);
+		const html = baseTemplate(confirmedTemplate);
+		Mail.send(notification.command.user.email, `Commande MET N°${notification.commandId}`, html);
+	} else if (commandStatus === "CANCELED") {
+		const canceledTemplate = canceledCommandTemplate(notification.command.user.firstname, `${ENV.ORIGIN}/commands/${notification.commandId}`);
+		const html = baseTemplate(canceledTemplate);
+		Mail.send(notification.command.user.email, `Commande MET annulée N°${notification.commandId}`, html);
+	}
 }
 
 await promiseList.clear();
