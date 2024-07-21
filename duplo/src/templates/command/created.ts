@@ -1,6 +1,6 @@
-export const confirmedCommandTemplate = (username: string, commandId: string, url: string) => /* html */`
+export const createdCommandTemplate = (username: string, commandId: string, url: string) => /* html */`
 <p style="margin: 0 0 1rem;">Bonjour <b>${ username }</b>,</p>
-<p style="margin: 0 0 1rem;">Votre commande N°${ commandId } a été confirmée avec succès.</p>
+<p style="margin: 0 0 1rem;">Votre commande N°${ commandId } a été créée avec succès.</p>
 <p style="margin: 0 0 1rem;">Vous pouvez suivre l'avancement de votre commande en cliquant sur le lien ci-dessous :</p>
 <br>
 <div style="text-align: center;">

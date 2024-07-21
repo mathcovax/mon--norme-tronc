@@ -73,12 +73,23 @@ for await (const notification of generator) {
 			})
 		])
 	);
+
+	const commandUrl = `${ENV.ORIGIN}/commands/${notification.commandId}`;
+
 	if (commandStatus === "IN_PROGRESS") {
-		const confirmedTemplate = confirmedCommandTemplate(notification.command.user.firstname, `${ENV.ORIGIN}/commands/${notification.commandId}`);
+		const confirmedTemplate = confirmedCommandTemplate(
+			notification.command.user.firstname,
+			notification.commandId,
+			commandUrl
+		);
 		const html = baseTemplate(confirmedTemplate);
-		Mail.send(notification.command.user.email, `Commande MET N°${notification.commandId}`, html);
+		Mail.send(notification.command.user.email, `Commande MET confirmée N°${notification.commandId}`, html);
 	} else if (commandStatus === "CANCELED") {
-		const canceledTemplate = canceledCommandTemplate(notification.command.user.firstname, `${ENV.ORIGIN}/commands/${notification.commandId}`);
+		const canceledTemplate = canceledCommandTemplate(
+			notification.command.user.firstname,
+			notification.commandId,
+			commandUrl
+		);
 		const html = baseTemplate(canceledTemplate);
 		Mail.send(notification.command.user.email, `Commande MET annulée N°${notification.commandId}`, html);
 	}
