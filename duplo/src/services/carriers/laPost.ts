@@ -1,6 +1,10 @@
+import { baseTemplate } from "@/templates";
+import { bundleArrivedTemplate } from "@/templates/bundle/arrived";
+import { bundleCreatedTemplate } from "@/templates/bundle/created";
 import ZodAccelerator from "@duplojs/zod-accelerator";
 import { fullCommandModel } from "@mongoose/model";
 import { bundle, bundle_status } from "@prisma/client";
+import { Mail } from "@services/mail";
 
 export class LaPosteCarrier {
 	static fetchDetails(idShip: string) {
@@ -13,7 +17,7 @@ export class LaPosteCarrier {
 		).then(
 			response => {
 				if (!response.ok) {
-					throw new Error(`${response.status} when geting details of idShip ${idShip}`);
+					throw new Error(`${response.status} when getting details of idShip ${idShip}`);
 				}
 
 				return response.json();
@@ -23,7 +27,7 @@ export class LaPosteCarrier {
 		);
 	}
 
-	static updateBundled(bundle: bundle): Promise<unknown> {
+	static async updateBundled(bundle: bundle): Promise<unknown> {
 		return LaPosteCarrier
 			.fetchDetails(bundle.idShip)
 			.then(
@@ -39,7 +43,7 @@ export class LaPosteCarrier {
 							data: {
 								status: newStatus
 							}
-						}).then(() => {
+						}).then(async () => {
 							if (["DONE", "DONE_OFFICE"].includes(newStatus)) {
 								return Promise.all([
 									prisma.bundle.findFirst({
@@ -58,8 +62,8 @@ export class LaPosteCarrier {
 											}
 										}
 									})
-								]).then(([findedBundle, findendCommand]) => {
-									if (!findedBundle && !findendCommand) {
+								]).then(([findedBundle, findedCommand]) => {
+									if (!findedBundle && !findedCommand) {
 										return Promise.all([
 											prisma.command.update({
 												where: { id: bundle.commandId },
@@ -73,7 +77,11 @@ export class LaPosteCarrier {
 											)
 										]);
 									}
+								}).then(async () => {
+									LaPosteCarrier.sendMail(bundle.creatorId, "Votre commande MET est arrivée", bundle.commandId, newStatus);
 								});
+							} else if (newStatus === "CREATED") {
+								LaPosteCarrier.sendMail(bundle.creatorId, "Votre commande MET est en cours de préparation", bundle.commandId, newStatus);
 							}
 						});
 					}
@@ -83,6 +91,47 @@ export class LaPosteCarrier {
 				return bundle;
 			});
 	}
+
+	static async sendMail(creatorId: string, object: string, commandId: string, bundleStatus: bundle_status) {
+		const creator = await prisma.user.findFirst({
+			where: {
+				id: creatorId,
+				deleted: false
+			},
+			select: {
+				email: true,
+				firstname: true
+			}
+		});
+		if (creator) {
+			const bundleTemplate = LaPosteCarrier.mailBundleStatusMapper[bundleStatus];
+			if (bundleTemplate) {
+				const url = `${ENV.ORIGIN}/commands/${commandId}`;
+				const html = baseTemplate(
+					bundleTemplate(
+						creator.firstname,
+						commandId,
+						url
+					)
+				);
+				return Mail.send(creator.email, object, html);
+			}
+		}
+	}
+
+	static mailBundleStatusMapper: Record<
+			bundle_status,
+			((creatorId: string, commandId: string, url: string) => string)  | undefined
+		> = {
+			"CREATED": bundleCreatedTemplate,
+			"DONE": bundleArrivedTemplate,
+			"DONE_OFFICE": bundleArrivedTemplate,
+			"UNDELIVERABLE": undefined,
+			"BACK": undefined,
+			"BACK_DONE": undefined,
+			"CARRIER_SUPPORTED": undefined,
+			"CARRIER_PROCESS": undefined
+		};
 
 	static codeMapper: Record<string, bundle_status| undefined> = {
 		DR1: "CREATED",

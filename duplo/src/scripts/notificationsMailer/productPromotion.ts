@@ -6,6 +6,8 @@ import { PromiseList } from "../setup/promiseList";
 import { fullNotificationsModel } from "@mongoose/model";
 import { Mail } from "@services/mail";
 import { FullNotification } from "@schemas/userNotification";
+import { productPromotionTemplate } from "@/templates/notifications/productPromotion";
+import { baseTemplate } from "@/templates";
 
 const newLastIndexing = new Date();
 const lastTime = new LastTime("sendMailProductPromotion");
@@ -20,7 +22,8 @@ const usersGenerator = FindSlice(
 		},
 		select: {
 			id: true,
-			email: true
+			email: true,
+			firstname: true
 		},
 		skip: slice * size,
 		take: size
@@ -30,23 +33,32 @@ const usersGenerator = FindSlice(
 const promiseList = new PromiseList(1000);
 
 for await (const user of usersGenerator) {
-	const promotionNotifications = fullNotificationsModel.aggregate<FullNotification>(
-		[
-			{
-				$match: { 
-					userId: user.id,
-					type: "PRODUCT_PROMOTION",
-					createdAt: { $gte: lastSendPromotionMail } 
-				} 
-			}
-		]
+	const promotionNotifications = FindSlice(
+		50,
+		(slice, size) => fullNotificationsModel.aggregate<FullNotification>(
+			[
+				{
+					$match: { 
+						userId: user.id,
+						type: "PRODUCT_PROMOTION",
+						createdAt: { $gte: lastSendPromotionMail } 
+					} 
+				},
+				{ $skip: slice * size },
+				{ $limit: size }
+			]
+		)
 	);
 	for await (const notification of promotionNotifications) {
+		const redirectUrl = ENV.ORIGIN + notification?.redirect ?? "";
+		const promotionTemplate = productPromotionTemplate(user.firstname, redirectUrl);
+		const html = baseTemplate(promotionTemplate);
+
 		promiseList.append(
 			Mail.send(
 				user.email,
 				notification.title,
-				`Nouvelle promotion, <a href="${ENV.ORIGIN + notification?.redirect ?? ""}">voir le produit.</a>`
+				html
 			)
 		);
 	}

@@ -6,6 +6,8 @@ import { PromiseList } from "../setup/promiseList";
 import { fullNotificationsModel } from "@mongoose/model";
 import { Mail } from "@services/mail";
 import { FullNotification } from "@schemas/userNotification";
+import { productRestockTemplate } from "@/templates/notifications/productRestock";
+import { baseTemplate } from "@/templates";
 
 const newLastIndexing = new Date();
 const lastTime = new LastTime("sendMailProductRestock");
@@ -20,7 +22,8 @@ const usersGenerator = FindSlice(
 		},
 		select: {
 			id: true,
-			email: true
+			email: true,
+			firstname: true,
 		},
 		skip: slice * size,
 		take: size
@@ -30,24 +33,32 @@ const usersGenerator = FindSlice(
 const promiseList = new PromiseList(1000);
 
 for await (const user of usersGenerator) {
-	const restockNotifications = fullNotificationsModel.aggregate<FullNotification>(
-		[
-			{
-				$match: {
-					userId: user.id,
-					type: "PRODUCT_RESTOCK",
-					createdAt: { $gte: lastSendRestockMail } 
-				} 
-			}
-		]
+	const restockNotifications = FindSlice(
+		50,
+		(slice, size) => fullNotificationsModel.aggregate<FullNotification>(
+			[
+				{
+					$match: {
+						userId: user.id,
+						type: "PRODUCT_RESTOCK",
+						createdAt: { $gte: lastSendRestockMail } 
+					} 
+				},
+				{ $skip: slice * size },
+				{ $limit: size }
+			]
+		)
 	);
 	for await (const notification of restockNotifications) {
+		const redirectUrl = ENV.ORIGIN + notification?.redirect ?? "";
+		const restockTemplate = productRestockTemplate(user.firstname, redirectUrl);
+		const html = baseTemplate(restockTemplate);
+
 		promiseList.append(
 			Mail.send(
 				user.email,
 				notification.title,
-				`${notification.title} <a href="${ENV.ORIGIN + notification?.redirect ?? ""}">voir le produit.</a>
-				<br><br>${notification?.subtitle ?? ""}.`
+				html
 			)
 		);
 	}

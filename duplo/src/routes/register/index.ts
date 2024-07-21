@@ -1,6 +1,9 @@
+import { baseTemplate } from "@/templates";
+import { welcomeTemplate } from "@/templates/welcome";
 import { addressValidCheck } from "@checkers/address";
 import { firebaseTokenCheck } from "@checkers/token";
 import { inputUser, userExistCheck } from "@checkers/user";
+import { Mail } from "@services/mail";
 import { AccessToken } from "@services/token";
 
 /* METHOD : POST, PATH : /register */
@@ -13,6 +16,7 @@ export const POST = (method: Methods, path: string) => duplo
 			firstname: zod.string().max(36).toLowerCase(),
 			address: zod.string().max(400),
 			dateOfBirth: zod.coerce.date(),
+			emailNotifcationsNewsletter: zod.boolean(),
 		}).strip(),
 	})
 	.check(
@@ -64,7 +68,7 @@ export const POST = (method: Methods, path: string) => duplo
 	.handler(
 		async ({ pickup }) => {
 			const { email } = pickup("idTokenContent");
-			const { lastname, firstname, address, dateOfBirth } = pickup("body");
+			const { lastname, firstname, address, dateOfBirth, emailNotifcationsNewsletter } = pickup("body");
 
 			const { id, primordialRole } = await prisma.user.create({
 				data: {
@@ -76,13 +80,18 @@ export const POST = (method: Methods, path: string) => duplo
 						dateOfBirth.getFullYear(), 
 						dateOfBirth.getMonth(), 
 						dateOfBirth.getDate()
-					)
+					),
+					emailNotifcationsNewsletter
 				},
 				select: {
 					id: true,
 					primordialRole: true
 				}
 			});
+
+			const registerTemplate = welcomeTemplate(firstname, ENV.ORIGIN);
+			const html = baseTemplate(registerTemplate);
+			Mail.send(email, "Bienvenue chez MET", html);
 
 			const accessToken = AccessToken.generate({ id, email, primordialRole });
 

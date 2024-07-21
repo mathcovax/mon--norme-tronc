@@ -24,8 +24,8 @@ export default {
 		},
 		[routerPageName.USER_EDIT_PROFIL]: {
 			title: "Mon profil",
-			btnPullData: "Récupérais mes donner",
-			btnDelete: "Supprimé le compte",
+			btnPullData: "Récupérer mes données",
+			btnDelete: "Supprimer le compte",
 			deletePopup: {
 				title: "Etes vous sur de vouloir supprimé le compte.",
 				content: "Cette action est iréversible et entrénera la perte de toute vos donner."

@@ -33,25 +33,25 @@ export function useEditUserProfilForm() {
 		emailNotifcationsNewsletter: {
 			cols: 6,
 			type: "checkbox",
-			label: $t("label.newsletter"),
+			desc: $t("label.newsletter"),
 			zodSchema: zod.boolean().optional(),
 		},
 		emailNotifcationsProductStock: {
 			cols: 6,
 			type: "checkbox",
-			label: $t("label.productStock"),
+			desc: $t("label.productStock"),
 			zodSchema: zod.boolean().optional(),
 		},
 		emailNotifcationsPromotion: {
 			cols: 6,
 			type: "checkbox",
-			label: $t("label.promotions"),
+			desc: $t("label.promotions"),
 			zodSchema: zod.boolean().optional(),
 		},
 		emailNotifcationsNewProductInCategory: {
 			cols: 6,
 			type: "checkbox",
-			label: $t("label.newProductsInCategory"),
+			desc: $t("label.newProductsInCategory"),
 			zodSchema: zod.boolean().optional(),
 		},
 	});

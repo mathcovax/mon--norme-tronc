@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { marked } from "marked";
 import type { Newsletter } from "@/lib/utils";
 import { useGetNewsletters } from "../composables/useGetNewsletters";
 import { useNewsletterForm } from "../composables/useNewsletterForm";
@@ -42,17 +43,18 @@ async function submitNewsletter() {
 		return;
 	}
 
-	const result = await duploTo.enriched
+	const renderedContent = await marked.parse(formField.content);
+
+	await duploTo.enriched
 		.post(
 			"/newsletter",
-			{ object: formField.object, content: formField.content, sendAt: formField.sendAt }
+			{ object: formField.object, content: renderedContent, sendAt: formField.sendAt }
 		)
+		.info("newsletter.created", () => {
+			resetNewsletterForm();
+			refreshNewsletters();
+		})
 		.result;
-
-	if (result.success && result.info === "newsletter.created") {
-		resetNewsletterForm();
-		refreshNewsletters();
-	}
 }
 
 function deleteItem(item: Newsletter) {
