@@ -119,16 +119,6 @@ function updatePosition(layout: WidgetFull[]) {
 		.result;
 }
 
-function loadLayout() {
-	const layoutData = localStorage.getItem("myLayout");
-
-	if (layoutData) {
-		return JSON.parse(layoutData);
-	}
-
-	return gridStat.value;
-}
-
 function reassignIndices() {
 	const lastGrid = gridStructure.value;
 	lastGrid.forEach((item, index) => {
@@ -342,7 +332,6 @@ async function submitTop() {
 		});
 }
 
-const layout = ref(loadLayout());
 onMounted(async () => {
 	await getGrid();
 	if (gridStat.value.length > 0) {
@@ -371,7 +360,7 @@ onMounted(async () => {
 
 				<PrimaryButton
 					class="ml-4 px-3 py-2 rounded-lg border cursor-pointer"
-					@click="updatePosition(layout)"
+					@click="updatePosition(gridStat)"
 				>
 					{{ $pt("button.save") }}
 				</PrimaryButton>
@@ -558,11 +547,11 @@ onMounted(async () => {
 
 		<div 
 			class="w-full overflow-hidden relative"
-			v-if="layout.length > 0"
+			v-if="gridStat.length > 0"
 		>
 			<GridLayout
 				:key="gridComp"
-				v-model:layout="layout"
+				v-model:layout="gridStat"
 				:is-draggable="draggable"
 				:is-resizable="resizable"
 				:responsive="responsive"
@@ -588,14 +577,14 @@ onMounted(async () => {
 							v-if="item.params.type === 'area'"
 							:data="item.data"
 							index="name"
-							:categories="item.categories.map((i) => i.name)"
+							:categories="item.categories.map((i: any) => i.name)"
 						/>
 
 						<LineChart
 							v-if="item.params.type === 'line'"
 							:data="item.data"
 							index="name"
-							:categories="item.categories.map((i) => i.name)"
+							:categories="item.categories.map((i: any) => i.name)"
 							:y-formatter="(tick, i) => {
 								return typeof tick === 'number'
 									? `$ ${new Intl.NumberFormat('us').format(tick).toString()}`
@@ -607,7 +596,7 @@ onMounted(async () => {
 							v-if="item.params.type === 'bar'"
 							:data="item.data"
 							index="name"
-							:categories="item.categories.map((i) => i.name)"
+							:categories="item.categories.map((i: any) => i.name)"
 							:y-formatter="(tick, i) => {
 								return typeof tick === 'number'
 									? `$ ${new Intl.NumberFormat('us').format(tick).toString()}`

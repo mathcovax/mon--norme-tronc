@@ -156,13 +156,13 @@ export type Facet = GetResponseByInfo<
 export type FacetType = Facet["type"];
 
 export const facetType: TuplifyUnion<FacetType> = [
-	"ACCESSORY",
-	"COLOR",
-	"SIZE",
-	"DIAMETER",
-	"TARGET",
-	"MATERIAL",
-	"STIMULATION",
+	"COLOR", 
+	"SIZE", 
+	"DIAMETER", 
+	"TARGET", 
+	"ACCESSORY", 
+	"MATERIAL", 
+	"STIMULATION"
 ];
 
 export type Cart = GetResponseByInfo<

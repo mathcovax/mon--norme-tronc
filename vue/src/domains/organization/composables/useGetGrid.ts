@@ -38,25 +38,31 @@ export function useGetGrid(organizationId: string) {
 	const gridStructure = ref<WidgetStat[]>([]);
 
 	async function getGrid() {
-		const { data } = await duploTo.enriched
+		const data = await duploTo.enriched
 			.get(
 				"/organization/{organizationId}/grid", 
 				{ params: { organizationId } }
-			);
-		if (!data) { gridStat.value = []; gridStructure.value = []; return; }
-		gridStructure.value = data;
-		const widgetsPromises = data.map(async (widget) => {
-			const rules = ruleWidgetDimensions[widget.params.type];
-			const { data: resultData } = await duploTo.enriched
-				.post(
-					"/organization/{organizationId}/make-stat",
-					widget.params,
-					{ params: { organizationId } }
-				);
-			return { ...widget, ...rules, ...resultData };
-		});
+			)
+			.id("gridStatCommand.found");
 
-		gridStat.value = await Promise.all(widgetsPromises);
+		gridStructure.value = data;
+		gridStat.value = await Promise.all(
+			data.map(
+				(widget) => 
+					duploTo.enriched
+						.post(
+							"/organization/{organizationId}/make-stat",
+							widget.params,
+							{ params: { organizationId } }
+						)
+						.id("widget.found")
+						.then(resultData => ({
+							...widget, 
+							...ruleWidgetDimensions[widget.params.type],
+							...resultData,
+						}))
+			)
+		);
 	}
 	getGrid();
 	
