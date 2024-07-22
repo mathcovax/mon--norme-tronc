@@ -1,6 +1,8 @@
+import { bundleCreatedTemplate } from "@/templates/bundle/created";
 import { commandExistCheck } from "@checkers/command";
 import { fullCommandModel } from "@mongoose/model";
 import { hasOrganizationRoleByOrganizationId } from "@security/hasOrganizationRole/byOrganizationId";
+import { Mail } from "@services/mail";
 
 /* METHOD : POST, PATH : /organization/{organizationId}/commands/{commandId}/make-bundle */
 export const POST = (method: Methods, path: string) => 
@@ -154,6 +156,22 @@ export const POST = (method: Methods, path: string) =>
 								data: { processQuantity }
 							})
 					),
+					prisma.user.findFirstOrThrow({
+						where: {
+							id: command.userId
+						}
+					}).then(
+						user => Mail.send(
+							user.email,
+							`Votre colis n°${bundle.idShip} à bien été créée !`,
+							bundleCreatedTemplate(
+								user.firstname,
+								bundle.idShip,
+								command.id,
+								`${ENV.ORIGIN}/bundle/${bundle.id}`
+							)
+						)
+					).catch(console.log),
 				]);
 
 				const commandItems = await prisma.command_item.findMany({

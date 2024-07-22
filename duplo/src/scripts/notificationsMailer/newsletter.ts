@@ -4,7 +4,6 @@ import { mongoose } from "../setup/mongoose";
 import { LastTime } from "../setup/lastTime";
 import { PromiseList } from "../setup/promiseList";
 import { Mail } from "@services/mail";
-import { baseTemplate } from "@/templates";
 import { newsletterTemplate } from "@/templates/newsletter";
 
 const newLastIndexing = new Date();
@@ -43,14 +42,14 @@ const promiseList = new PromiseList(1000);
 
 for await (const user of usersGenerator) {
 	for await (const newsletter of newslettersGenerator) {
-		const newslettersTemplate = newsletterTemplate(newsletter.object, newsletter.content);
-		const html = baseTemplate(newslettersTemplate);
-
-		promiseList.append(
+		await promiseList.append(
 			Mail.send(
 				user.email,
 				newsletter.object,
-				html
+				newsletterTemplate(
+					newsletter.object,
+					newsletter.content
+				)
 			)
 		);
 	}

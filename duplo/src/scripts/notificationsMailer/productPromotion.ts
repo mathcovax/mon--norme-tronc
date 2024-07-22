@@ -7,7 +7,6 @@ import { fullNotificationsModel } from "@mongoose/model";
 import { Mail } from "@services/mail";
 import { FullNotification } from "@schemas/userNotification";
 import { productPromotionTemplate } from "@/templates/notifications/productPromotion";
-import { baseTemplate } from "@/templates";
 
 const newLastIndexing = new Date();
 const lastTime = new LastTime("sendMailProductPromotion");
@@ -51,14 +50,14 @@ for await (const user of usersGenerator) {
 	);
 	for await (const notification of promotionNotifications) {
 		const redirectUrl = ENV.ORIGIN + notification?.redirect ?? "";
-		const promotionTemplate = productPromotionTemplate(user.firstname, redirectUrl);
-		const html = baseTemplate(promotionTemplate);
-
-		promiseList.append(
+		await promiseList.append(
 			Mail.send(
 				user.email,
 				notification.title,
-				html
+				productPromotionTemplate(
+					user.firstname,
+					redirectUrl
+				),
 			)
 		);
 	}

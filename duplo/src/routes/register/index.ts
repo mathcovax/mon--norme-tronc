@@ -1,4 +1,3 @@
-import { baseTemplate } from "@/templates";
 import { welcomeTemplate } from "@/templates/welcome";
 import { addressValidCheck } from "@checkers/address";
 import { firebaseTokenCheck } from "@checkers/token";
@@ -89,9 +88,14 @@ export const POST = (method: Methods, path: string) => duplo
 				}
 			});
 
-			const registerTemplate = welcomeTemplate(firstname, ENV.ORIGIN);
-			const html = baseTemplate(registerTemplate);
-			Mail.send(email, "Bienvenue chez MET", html);
+			Mail.send(
+				email,
+				"Bienvenue chez MET",
+				welcomeTemplate(
+					firstname,
+					ENV.ORIGIN
+				)
+			);
 
 			const accessToken = AccessToken.generate({ id, email, primordialRole });
 
