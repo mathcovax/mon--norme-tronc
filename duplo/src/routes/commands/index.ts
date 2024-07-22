@@ -4,7 +4,7 @@ import { mustBeConnected } from "@security/mustBeConnected";
 
 /* METHOD : GET, PATH : /commands */
 export const GET = (method: Methods, path: string) => 
-	mustBeConnected({ pickup: ["accessTokenContent"] })
+	mustBeConnected({ pickup: ["user"] })
 		.declareRoute(method, path)
 		.extract({
 			query: {
@@ -14,7 +14,7 @@ export const GET = (method: Methods, path: string) =>
 		})
 		.handler(
 			async ({ pickup }) => {
-				const { id: userId } = pickup("accessTokenContent");
+				const { id: userId } = pickup("user");
 				const page = pickup("page");
 
 				const productSheetName = pickup("productSheetName");

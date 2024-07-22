@@ -23,7 +23,7 @@ describe("hasOrganizationRoleBySku", () => {
 	it("product exist", async () => {
 		const res = await duploTesting
 			.testAbstractRoute(hasOrganizationRoleBySku.abstractRoute)
-			.setDefaultFloorValue({ accessTokenContent: {} })
+			.setDefaultFloorValue({ user: {} })
 			.setRequestProperties({
 				params: {
 					sku: "tete"
@@ -40,7 +40,7 @@ describe("hasOrganizationRoleBySku", () => {
 			.launch();
 
 		expect(res).toStrictEqual({
-			accessTokenContent: {},
+			user: {},
 			product: productData
 		});
 	});

@@ -3,7 +3,7 @@ import { mustBeConnected } from "@security/mustBeConnected";
 
 /* METHOD : DELETE, PATH : /product-notifications/{notificationId} */
 export const DELETE = (method: Methods, path: string) =>
-	mustBeConnected({ pickup: ["accessTokenContent"] })
+	mustBeConnected({ pickup: ["user"] })
 		.declareRoute(method, path)
 		.extract({
 			params: {
@@ -13,7 +13,7 @@ export const DELETE = (method: Methods, path: string) =>
 		.check(
 			notificationExistCheck,
 			{
-				input: (p) => inputNotification.notificationId({ id: p("notificationId"), userId: p("accessTokenContent").id }),
+				input: (p) => inputNotification.notificationId({ id: p("notificationId"), userId: p("user").id }),
 				result: "notification.exist",
 				catch: () => {
 					throw new NotFoundHttpException("notification.notfound");

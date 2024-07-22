@@ -21,7 +21,7 @@ describe("hasOrganizationRoleByProductSheetId", () => {
 	it("pass" , async () => {
 		const res = await duploTesting
 			.testAbstractRoute(hasOrganizationRoleByProductSheetId.abstractRoute)
-			.setDefaultFloorValue({ accessTokenContent: {} })
+			.setDefaultFloorValue({ user: {} })
 			.setRequestProperties({
 				params: {
 					productSheetId: "zzz"
@@ -31,7 +31,7 @@ describe("hasOrganizationRoleByProductSheetId", () => {
 			.launch();
 
 		expect(res).toStrictEqual({
-			accessTokenContent: {},
+			user: {},
 			productSheet: productSheetData,
 		});
 	});

@@ -21,8 +21,9 @@ export const duploTo = new DuploTo<
 });
 
 duploTo.setDefaultHeaders({
-	get "access-token"() {
-		return useUserStore().accessToken || undefined;
+	get authorization() {
+		const accessToken = useUserStore().accessToken;
+		return accessToken ? `Bearer ${accessToken}` : undefined;
 	}
 });
 

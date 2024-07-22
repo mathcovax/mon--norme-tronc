@@ -106,7 +106,7 @@ describe("/organization/{organizationId}/user", () => {
 		it("organization has not user", async () => {
 			const res = await duploTesting
 				.testRoute(GET("GET", ""))
-				.setDefaultFloorValue({ accessTokenContent: {}, })
+				.setDefaultFloorValue({ user: {}, })
 				.setRequestProperties({
 					params: { organizationId: "" }
 				})
@@ -119,7 +119,7 @@ describe("/organization/{organizationId}/user", () => {
 		it("get user organization", async () => {
 			const res = await duploTesting
 				.testRoute(GET("GET", ""))
-				.setDefaultFloorValue({ accessTokenContent: {}, })
+				.setDefaultFloorValue({ user: {}, })
 				.setRequestProperties({
 					params: { organizationId: "" }
 				})

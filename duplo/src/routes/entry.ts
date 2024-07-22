@@ -41,7 +41,7 @@ export const moderatorEntry =
 	
 
 export const organizationOwnerEntry = 
-	mustBeConnected({ pickup: ["accessTokenContent"] })
+	mustBeConnected({ pickup: ["user"] })
 		.declareRoute(
 			"GET", 
 			[
@@ -58,7 +58,7 @@ export const organizationOwnerEntry =
 		.process(
 			hasOrganizationRole,
 			{
-				input: p => ({ organizationId: p("organizationId"), userId: p("accessTokenContent").id }),
+				input: p => ({ organizationId: p("organizationId"), userId: p("user").id }),
 				options: { organizationRole: "OWNER" }
 			}
 		)
@@ -71,7 +71,7 @@ export const organizationOwnerEntry =
 		);
 
 export const organizationProductSheetManagerEntry = 
-	mustBeConnected({ pickup: ["accessTokenContent"] })
+	mustBeConnected({ pickup: ["user"] })
 		.declareRoute(
 			"GET", 
 			[
@@ -105,7 +105,7 @@ export const organizationProductSheetManagerEntry =
 			{
 				input: p => ({ 
 					organizationId: p("productSheet")?.organizationId ?? p("organizationId"), 
-					userId: p("accessTokenContent").id 
+					userId: p("user").id 
 				}),
 				options: { organizationRole: "PRODUCT_SHEET_MANAGER" }
 			}
@@ -119,7 +119,7 @@ export const organizationProductSheetManagerEntry =
 		);
 
 export const organizationStoreKeeperEntry = 
-	mustBeConnected({ pickup: ["accessTokenContent"] })
+	mustBeConnected({ pickup: ["user"] })
 		.declareRoute(
 			"GET", 
 			[
@@ -138,7 +138,7 @@ export const organizationStoreKeeperEntry =
 			{
 				input: p => ({ 
 					organizationId: p("organizationId"), 
-					userId: p("accessTokenContent").id 
+					userId: p("user").id 
 				}),
 				options: { organizationRole: "STORE_KEEPER" }
 			}
@@ -152,7 +152,7 @@ export const organizationStoreKeeperEntry =
 		);
 
 export const organizationEntry = 
-	mustBeConnected({ pickup: ["accessTokenContent"] })
+	mustBeConnected({ pickup: ["user"] })
 		.declareRoute("GET", "/entry/organization-panel/{organizationId}*")
 		.extract({
 			params: {
@@ -162,7 +162,7 @@ export const organizationEntry =
 		.check(
 			organizationHasUserCheck,
 			{
-				input: p => ({ organizationId: p("organizationId"), userId: p("accessTokenContent").id }),
+				input: p => ({ organizationId: p("organizationId"), userId: p("user").id }),
 				result: "organization.hasUser",
 				catch: () => {
 					throw new UnauthorizedHttpException("entry.refuse");
@@ -219,7 +219,7 @@ export const bundleEntry =
 		);
 
 export const selfEntry = 
-		mustBeConnected({ pickup: ["accessTokenContent"] })
+		mustBeConnected({ pickup: ["user"] })
 			.declareRoute(
 				"GET",
 				[

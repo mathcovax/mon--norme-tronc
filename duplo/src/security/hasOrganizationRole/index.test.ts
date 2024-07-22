@@ -8,7 +8,7 @@ describe("hasOrganizationRole", () => {
 		const error = await duploTesting
 			.testProcess(hasOrganizationRole)
 			.setDefaultFloorValue({
-				accessTokenContent: { primordialRole: "ADMIN" },
+				user: { primordialRole: "ADMIN" },
 			})
 			.launch();
 
@@ -19,7 +19,7 @@ describe("hasOrganizationRole", () => {
 		const res: Response = await duploTesting
 			.testProcess(hasOrganizationRole)
 			.setDefaultFloorValue({
-				accessTokenContent: { primordialRole: "ADMIN" },
+				user: { primordialRole: "ADMIN" },
 				input: {
 					organizationId: "input.organizationId",
 					userId: "input.userId"
@@ -36,7 +36,7 @@ describe("hasOrganizationRole", () => {
 		const res: Response = await duploTesting
 			.testProcess(hasOrganizationRole)
 			.setDefaultFloorValue({
-				accessTokenContent: { primordialRole: "ADMIN" },
+				user: { primordialRole: "ADMIN" },
 				input: {
 					organizationId: "input.organizationId",
 					userId: "input.userId"
@@ -53,7 +53,7 @@ describe("hasOrganizationRole", () => {
 		const res: Response = await duploTesting
 			.testProcess(hasOrganizationRole)
 			.setDefaultFloorValue({
-				accessTokenContent: { primordialRole: "ADMIN" },
+				user: { primordialRole: "ADMIN" },
 				input: {
 					organizationId: "input.organizationId",
 					userId: "input.userId"

@@ -23,7 +23,7 @@ describe("hasOrganizationRoleByWarehouseId", () => {
 	it("warehouse exist", async () => {
 		const res = await duploTesting
 			.testAbstractRoute(hasOrganizationRoleByWarehouseId.abstractRoute)
-			.setDefaultFloorValue({ accessTokenContent: {} })
+			.setDefaultFloorValue({ user: {} })
 			.setRequestProperties({
 				params: {
 					warehouseId: "tete"
@@ -36,7 +36,7 @@ describe("hasOrganizationRoleByWarehouseId", () => {
 			.launch();
 
 		expect(res).toStrictEqual({
-			accessTokenContent: {},
+			user: {},
 			warehouse: warehouseData
 		});
 	});

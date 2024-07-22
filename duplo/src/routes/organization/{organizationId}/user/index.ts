@@ -64,7 +64,7 @@ export const POST = (method: Methods, path: string) =>
 		
 /* METHOD : GET, PATH : /organization/{organizationId}/user */
 export const GET = (method: Methods, path: string) =>
-	mustBeConnected({ pickup: ["accessTokenContent"] })
+	mustBeConnected({ pickup: ["user"] })
 		.declareRoute(method, path)
 		.extract({
 			params: {
@@ -74,7 +74,7 @@ export const GET = (method: Methods, path: string) =>
 		.check(
 			organizationHasUserCheck,
 			{
-				input: p => ({ organizationId: p("organizationId"), userId: p("accessTokenContent").id }),
+				input: p => ({ organizationId: p("organizationId"), userId: p("user").id }),
 				...organizationHasUserCheck.preCompletions.mustHaveUser,
 				result: "organization.hasUserWithMoreData",
 				options: { selectUser: true }

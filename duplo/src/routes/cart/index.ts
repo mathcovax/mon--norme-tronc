@@ -2,13 +2,14 @@ import { mustBeConnected } from "@security/mustBeConnected";
 import { cartSchema } from "@schemas/cart";
 
 /* METHOD : GET, PATH : /cart */
-export const GET = (method: Methods, path: string) => mustBeConnected({ pickup: ["accessTokenContent"] })
-	.declareRoute(method, path)
-	.handler(
-		async ({ pickup }) => {
-			const { id: userId } = pickup("accessTokenContent");
+export const GET = (method: Methods, path: string) => 
+	mustBeConnected({ pickup: ["user"] })
+		.declareRoute(method, path)
+		.handler(
+			async ({ pickup }) => {
+				const { id: userId } = pickup("user");
 
-			const cart = await prisma.$queryRaw<Zod.infer<typeof cartSchema>[]>`
+				const cart = await prisma.$queryRaw<Zod.infer<typeof cartSchema>[]>`
 				WITH userArticle AS (
 					SELECT 
 						"productSheetId", 
@@ -55,7 +56,7 @@ export const GET = (method: Methods, path: string) => mustBeConnected({ pickup: 
 				LEFT JOIN productSheetImage AS psi ON psi."rowNumber" = 1 AND psi."productSheetId" = ua."productSheetId"
 			`;
 
-			throw new OkHttpException("cart.fetched", cart);
-		},
-		new IHaveSentThis(OkHttpException.code, "cart.fetched", cartSchema.array())
-	);
+				throw new OkHttpException("cart.fetched", cart);
+			},
+			new IHaveSentThis(OkHttpException.code, "cart.fetched", cartSchema.array())
+		);

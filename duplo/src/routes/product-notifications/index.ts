@@ -6,7 +6,7 @@ import { mustBeConnected } from "@security/mustBeConnected";
 
 /* METHOD : POST, PATH : /product-notifications */
 export const POST = (method: Methods, path: string) =>
-	mustBeConnected({ pickup: ["accessTokenContent"] })
+	mustBeConnected({ pickup: ["user"] })
 		.declareRoute(method, path)
 		.extract({
 			body: zod.union([
@@ -60,7 +60,7 @@ export const POST = (method: Methods, path: string) =>
 		.check(
 			notificationExistCheck,
 			{
-				input: (p) => inputNotification.notification({ ...p("body"), userId: p("accessTokenContent").id }),
+				input: (p) => inputNotification.notification({ ...p("body"), userId: p("user").id }),
 				result: "notification.notfound",
 				catch: () => {
 					throw new ConflictHttpException("notification.alreadySubscribed");
@@ -71,7 +71,7 @@ export const POST = (method: Methods, path: string) =>
 		.handler(
 			async ({ pickup }) => {
 				const body = pickup("body");
-				const { id: userId } = pickup("accessTokenContent");
+				const { id: userId } = pickup("user");
 
 				const notification = await prisma.subscribeProductNotifications.create({
 					data: {
@@ -88,7 +88,7 @@ export const POST = (method: Methods, path: string) =>
 
 /* METHOD : GET, PATH : /product-notifications */
 export const GET = (method: Methods, path: string) =>
-	mustBeConnected({ pickup: ["accessTokenContent"] })
+	mustBeConnected({ pickup: ["user"] })
 		.declareRoute(method, path)
 		.extract({
 			query: {
@@ -112,7 +112,7 @@ export const GET = (method: Methods, path: string) =>
 		)
 		.cut(
 			async ({ pickup }) => {
-				const { id: userId } = pickup("accessTokenContent");
+				const { id: userId } = pickup("user");
 				const productSheetId = pickup("productSheetId");
 				const categoryName = pickup("categoryName");
 

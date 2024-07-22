@@ -8,7 +8,7 @@ describe("POST /register", () => {
 	});
 
 	it("user register", async () => {
-		const spy = vi.fn(() => ({}));
+		const spy = vi.fn(() => ({ updatedAt: new Date() }));
 		MockPrisma.set("user", "create", spy);
 
 		const res = await duploTesting
@@ -50,7 +50,7 @@ describe("POST /register", () => {
 			},
 			select: {
 				id: true,
-				primordialRole: true
+				updatedAt: true
 			}
 		});
 	});

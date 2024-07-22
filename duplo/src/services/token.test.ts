@@ -7,22 +7,22 @@ describe("token service", () => {
 	});
 	
 	it("generate access token", () => {
-		const token = AccessToken.generate({ email: "...", id: "...", primordialRole: "CUSTOMER" });
+		const token = AccessToken.generate({ id: "...", lastUpdateUser: 0 });
 
 		expect(token.split(".")[0]).toBe("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9");
 	});
 
 	it("check valid access token", () => {
-		const token = AccessToken.generate({ email: "...", id: "...", primordialRole: "CUSTOMER" });
+		const token = AccessToken.generate({ id: "...", lastUpdateUser: 0 });
 		const content = AccessToken.check(token);
 
-		expect(content).toStrictEqual({ email: "...", id: "...", primordialRole: "CUSTOMER" });
+		expect(content).toStrictEqual({ id: "...", lastUpdateUser: 0 });
 	});
 
 	it("check expire access token", () => {
 		MockEnv.set("JWT_TIME", "0h");
 
-		const token = AccessToken.generate({ email: "...", id: "...", primordialRole: "CUSTOMER" });
+		const token = AccessToken.generate({ id: "...", lastUpdateUser: 0 });
 		const content = AccessToken.check(token);
 
 		expect(content).toBe(null);

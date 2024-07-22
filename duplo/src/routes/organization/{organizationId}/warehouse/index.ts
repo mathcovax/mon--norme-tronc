@@ -5,7 +5,8 @@ import { addressValidCheck } from "@checkers/address";
 /* METHOD : POST, PATH : /organization/{organizationId}/warehouse */
 export const POST = (method: Methods, path: string) =>
 	hasOrganizationRoleByOrganizationId({ 
-		pickup: ["organization"] 
+		pickup: ["organization"],
+		options: { organizationRole: "BELONG_TO" },
 	})
 		.declareRoute(method, path)
 		.extract({

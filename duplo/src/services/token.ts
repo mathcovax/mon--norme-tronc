@@ -1,10 +1,8 @@
-import { primordial_role } from "@prisma/client";
 import jwt from "jsonwebtoken";
 
 export interface AccessTokenContent {
-	id: string,
-	email: string,
-	primordialRole: primordial_role,
+	id: string
+	lastUpdateUser: number
 }
 
 export class AccessToken {

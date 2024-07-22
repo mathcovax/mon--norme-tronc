@@ -12,14 +12,14 @@ const primordialRolesHierarchy: Record<primordial_role, primordial_role[]> = {
 	ADMIN: ["CONTENTS_MASTER", "MODERATOR", "CUSTOMER"],
 };
 
-export const hasPrimordialRole = mustBeConnected({ pickup: ["accessTokenContent"] })
+export const hasPrimordialRole = mustBeConnected({ pickup: ["user"] })
 	.declareAbstractRoute("hasPrimordialRole")
 	.options<HasPrimordialRoleOptions>({
 		primordialRole: "ADMIN"
 	})
 	.cut(
 		({ pickup }) => {
-			const { primordialRole: userPrimordialRole } = pickup("accessTokenContent");
+			const { primordialRole: userPrimordialRole } = pickup("user");
 			const { primordialRole: currentPrimordialRole } = pickup("options");
 
 			if (
@@ -34,4 +34,4 @@ export const hasPrimordialRole = mustBeConnected({ pickup: ["accessTokenContent"
 		[],
 		new IHaveSentThis(ForbiddenHttpException.code, "user.role.invalid")
 	)
-	.build(["accessTokenContent"]);
+	.build(["user"]);

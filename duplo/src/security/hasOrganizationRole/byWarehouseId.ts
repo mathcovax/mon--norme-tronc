@@ -3,7 +3,7 @@ import { OptionsHasOrganizationRole, hasOrganizationRole } from ".";
 import { warehouseExistCheck, inputWarehouse } from "@checkers/warehouse";
 
 export const hasOrganizationRoleByWarehouseId =
-	mustBeConnected({ pickup: ["accessTokenContent"] })
+	mustBeConnected({ pickup: ["user"] })
 		.declareAbstractRoute("hasOrganizationRoleByWarehouseId")
 		.options<OptionsHasOrganizationRole>({
 			organizationRole: "OWNER"
@@ -26,9 +26,9 @@ export const hasOrganizationRoleByWarehouseId =
 			{
 				input: p => ({
 					organizationId: p("warehouse").organizationId,
-					userId: p("accessTokenContent").id
+					userId: p("user").id
 				}),
 				options: p => ({ organizationRole: p("options").organizationRole })
 			}
 		)
-		.build(["accessTokenContent", "warehouse"]);
+		.build(["user", "warehouse"]);

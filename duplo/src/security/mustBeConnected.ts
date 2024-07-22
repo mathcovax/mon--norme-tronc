@@ -6,7 +6,9 @@ export const mustBeConnected = duplo
 	.extract(
 		{
 			headers: {
-				"access-token": zod.string().ignore()
+				authorization: zod.string()
+					.transform(value => /^Bearer (.+)$/.exec(value)?.[0] ?? "")
+					.ignore()
 			}
 		},
 		() => {
@@ -16,7 +18,7 @@ export const mustBeConnected = duplo
 	.check(
 		accessTokenCheck,
 		{
-			input: p => p("access-token"),
+			input: p => p("authorization"),
 			...accessTokenCheck.preCompletions.mustBeValid
 		},
 		new IHaveSentThis(UnauthorizedHttpException.code, "access.token.invalid")
@@ -32,16 +34,30 @@ export const mustBeConnected = duplo
 	.cut(
 		({ pickup }) => {
 			const user = pickup("user");
+			const accessTokenContent = pickup("accessTokenContent");
+			const lastUpdateUser = new Date(accessTokenContent.lastUpdateUser);
+
+			if (user.updatedAt.getTime() !== lastUpdateUser.getTime()) {
+				throw new UnauthorizedHttpException("accessToken.tooOld");
+			}
+
+			return {};
+		},
+		[],
+		new IHaveSentThis(UnauthorizedHttpException.code, "accessToken.tooOld")
+	)
+	.cut(
+		({ pickup }) => {
+			const user = pickup("user");
 
 			if (user.deleted === true) {
 				throw new UnauthorizedHttpException("user.deleted");
 			}
 
-			return { 
-				userId: user.id 
-			};
+			return {};
 		},
-		["userId"],
+		[],
 		new IHaveSentThis(UnauthorizedHttpException.code, "user.deleted")
 	)
-	.build(["accessTokenContent", "user", "userId"]);
+	
+	.build(["user"]);

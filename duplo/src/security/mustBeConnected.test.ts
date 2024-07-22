@@ -9,14 +9,14 @@ describe("mustBeConnected", () => {
 			.testAbstractRoute(mustBeConnected.abstractRoute)
 			.setRequestProperties({
 				headers: {
-					"access-token": "test"
+					authorization: "test"
 				}
 			})
 			.mockChecker(
 				0,
 				{
 					info: "access.token.valid",
-					data: "test"
+					data: { lastUpdateUser: new Date(2001, 8, 11) },
 				},
 				{ passCatch: true }
 			)
@@ -24,13 +24,18 @@ describe("mustBeConnected", () => {
 				1,
 				{
 					info: "user.exist",
-					data: { id: "toto" }
+					data: { id: "toto", updatedAt: new Date(2001, 8, 11) }
 				},
 				{ passCatch: true }
 			)
 			.launch();
 
-		expect(floorValue).toStrictEqual({ accessTokenContent: "test", user: { id: "toto" }, userId: "toto" });
+		expect(floorValue).toStrictEqual({ 
+			user: {
+				id: "toto", 
+				updatedAt: new Date(2001, 8, 11) 
+			}
+		});
 	});
 
 	it("user is not exist", async () => {
@@ -38,7 +43,7 @@ describe("mustBeConnected", () => {
 			.testAbstractRoute(mustBeConnected.abstractRoute)
 			.setRequestProperties({
 				headers: {
-					"access-token": "test"
+					authorization: "test"
 				}
 			})
 			.mockChecker(
@@ -66,7 +71,7 @@ describe("mustBeConnected", () => {
 			.testAbstractRoute(mustBeConnected.abstractRoute)
 			.setRequestProperties({
 				headers: {
-					"access-token": "test"
+					authorization: "test"
 				}
 			})
 			.mockChecker(

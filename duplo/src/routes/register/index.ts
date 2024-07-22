@@ -69,7 +69,7 @@ export const POST = (method: Methods, path: string) => duplo
 			const { email } = pickup("idTokenContent");
 			const { lastname, firstname, address, dateOfBirth, emailNotifcationsNewsletter } = pickup("body");
 
-			const { id, primordialRole } = await prisma.user.create({
+			const { id, updatedAt } = await prisma.user.create({
 				data: {
 					email,
 					lastname,
@@ -84,7 +84,7 @@ export const POST = (method: Methods, path: string) => duplo
 				},
 				select: {
 					id: true,
-					primordialRole: true
+					updatedAt: true
 				}
 			});
 
@@ -97,7 +97,7 @@ export const POST = (method: Methods, path: string) => duplo
 				)
 			);
 
-			const accessToken = AccessToken.generate({ id, email, primordialRole });
+			const accessToken = AccessToken.generate({ id, lastUpdateUser: updatedAt.getTime() });
 
 			throw new CreatedHttpException("user.registered", accessToken);
 		},

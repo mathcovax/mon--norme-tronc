@@ -5,7 +5,7 @@ import { S3Service } from "@services/S3";
 
 /* METHOD : DELETE, PATH : /image-product-sheet/{imageProductSheetId} */
 export const DELETE = (method: Methods, path: string) => 
-	mustBeConnected({ pickup: ["accessTokenContent"] })
+	mustBeConnected({ pickup: ["user"] })
 		.declareRoute(method, path)
 		.extract({
 			params: {
@@ -25,7 +25,7 @@ export const DELETE = (method: Methods, path: string) =>
 			{
 				input: p => ({ 
 					organizationId: p("imageProductSheet").organizationId, 
-					userId: p("accessTokenContent").id 
+					userId: p("user").id 
 				}),
 				options: { organizationRole: "PRODUCT_SHEET_MANAGER" }
 			}

@@ -13,7 +13,7 @@ describe("/user", () => {
 			const res = await duploTesting
 				.testRoute(GET("GET", ""))
 				.setDefaultFloorValue({
-					accessTokenContent: { id: "" }
+					user: { id: "" }
 				})
 				.mockChecker(
 					0,
@@ -34,7 +34,7 @@ describe("/user", () => {
 			const res = await duploTesting
 				.testRoute(GET("GET", ""))
 				.setDefaultFloorValue({
-					accessTokenContent: { id: "" }
+					user: { id: "" }
 				})
 				.mockChecker(
 					0,
@@ -60,7 +60,7 @@ describe("/user", () => {
 			const res = await duploTesting
 				.testRoute(PATCH("PATCH", ""))
 				.setDefaultFloorValue({
-					accessTokenContent: { id: userData.id }
+					user: { id: userData.id }
 				})
 				.setRequestProperties({
 					body: {
@@ -85,7 +85,7 @@ describe("/user", () => {
 			const res = await duploTesting
 				.testRoute(PATCH("PATCH", ""))
 				.setDefaultFloorValue({
-					accessTokenContent: { id: userData.id }
+					user: { id: userData.id }
 				})
 				.setRequestProperties({
 					body: {

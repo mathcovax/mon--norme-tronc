@@ -7,18 +7,18 @@ describe("hasPrimordialRole", () => {
 		const floorValue = await duploTesting
 			.testAbstractRoute(hasPrimordialRole.abstractRoute)
 			.setDefaultFloorValue({
-				accessTokenContent: { primordialRole: "ADMIN" }
+				user: { primordialRole: "ADMIN" }
 			})
 			.launch();
 
-		expect(floorValue).toStrictEqual({ accessTokenContent: { primordialRole: "ADMIN" } });
+		expect(floorValue).toStrictEqual({ user: { primordialRole: "ADMIN" } });
 	});
 
 	it("user is customer", async () => {
 		const res: Response = await duploTesting
 			.testAbstractRoute(hasPrimordialRole.abstractRoute)
 			.setDefaultFloorValue({
-				accessTokenContent: { primordialRole: "CUSTOMER" }
+				user: { primordialRole: "CUSTOMER" }
 			})
 			.launch();
 
@@ -29,11 +29,11 @@ describe("hasPrimordialRole", () => {
 		const floorValue = await duploTesting
 			.testAbstractRoute(hasPrimordialRole.abstractRoute)
 			.setDefaultFloorValue({
-				accessTokenContent: { primordialRole: "ADMIN" },
+				user: { primordialRole: "ADMIN" },
 				options: { primordialRole: "CUSTOMER" },
 			})
 			.launch();
 
-		expect(floorValue).toStrictEqual({ accessTokenContent: { primordialRole: "ADMIN" } });
+		expect(floorValue).toStrictEqual({ user: { primordialRole: "ADMIN" } });
 	});
 });

@@ -5,7 +5,7 @@ import { mustBeConnected } from "@security/mustBeConnected";
 
 /* METHOD : PATCH, PATH : /organization/{organizationId}/user/{userId} */
 export const PATCH = (method: Methods, path: string) =>
-	mustBeConnected({ pickup: ["accessTokenContent"] })
+	mustBeConnected({ pickup: ["user"] })
 		.declareRoute(method, path)
 		.extract({
 			params: {
@@ -25,7 +25,7 @@ export const PATCH = (method: Methods, path: string) =>
 			{
 				input: p => ({
 					organizationId: p("organizationId"),
-					userId: p("accessTokenContent").id
+					userId: p("user").id
 				}),
 				options: { organizationRole: "OWNER" }
 			}
@@ -74,7 +74,7 @@ export const PATCH = (method: Methods, path: string) =>
 
 /* METHOD : DELETE, PATH : /organization/{organizationId}/user/{userId} */
 export const DELETE = (method: Methods, path: string) =>
-	mustBeConnected({ pickup: ["accessTokenContent"] })
+	mustBeConnected({ pickup: ["user"] })
 		.declareRoute(method, path)
 		.extract({
 			params: {
@@ -87,7 +87,7 @@ export const DELETE = (method: Methods, path: string) =>
 			{
 				input: p => ({
 					organizationId: p("organizationId"),
-					userId: p("accessTokenContent").id
+					userId: p("user").id
 				}),
 				options: { organizationRole: "OWNER" }
 			}

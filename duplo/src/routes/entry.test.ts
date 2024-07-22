@@ -44,7 +44,7 @@ describe("entry", () => {
 	it("organization", async () => {
 		const res = await duploTesting
 			.testRoute(organizationEntry)
-			.setDefaultFloorValue({ accessTokenContent: {} })
+			.setDefaultFloorValue({ user: {} })
 			.setRequestProperties({
 				params: {
 					organizationId: "tete"
@@ -60,7 +60,7 @@ describe("entry", () => {
 
 		const res1 = await duploTesting
 			.testRoute(organizationEntry)
-			.setDefaultFloorValue({ accessTokenContent: {} })
+			.setDefaultFloorValue({ user: {} })
 			.setRequestProperties({
 				params: {
 					organizationId: "tete"
@@ -78,7 +78,7 @@ describe("entry", () => {
 	it("product sheet manager", async () => {
 		const res = await duploTesting
 			.testRoute(organizationProductSheetManagerEntry)
-			.setDefaultFloorValue({ accessTokenContent: {} })
+			.setDefaultFloorValue({ user: {} })
 			.setRequestProperties({
 				params: {
 					organizationId: "audit tete"
@@ -98,7 +98,7 @@ describe("entry", () => {
 
 		const res1 = await duploTesting
 			.testRoute(organizationProductSheetManagerEntry)
-			.setDefaultFloorValue({ accessTokenContent: {} })
+			.setDefaultFloorValue({ user: {} })
 			.setRequestProperties({
 				params: {
 					organizationId: "audit tete",
@@ -121,7 +121,7 @@ describe("entry", () => {
 	it("organization owner", async () => {
 		const res = await duploTesting
 			.testRoute(organizationOwnerEntry)
-			.setDefaultFloorValue({ accessTokenContent: {} })
+			.setDefaultFloorValue({ user: {} })
 			.setRequestProperties({
 				params: {
 					organizationId: "tete"
@@ -139,7 +139,7 @@ describe("entry", () => {
 	it("selfEntry", async () => {
 		const res = await duploTesting
 			.testRoute(selfEntry)
-			.setDefaultFloorValue({ accessTokenContent: {} })
+			.setDefaultFloorValue({ user: {} })
 			.launch();
 
 		expect(res.information).toBe("entry.accepted");

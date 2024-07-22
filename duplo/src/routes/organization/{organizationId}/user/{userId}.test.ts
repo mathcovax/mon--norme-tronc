@@ -11,7 +11,7 @@ describe("/organization/{organizationId}/user/{userId}", () => {
 		it("organization has not user", async () => {
 			const res = await duploTesting
 				.testRoute(PATCH("PATCH", ""))
-				.setDefaultFloorValue({ accessTokenContent: {} })
+				.setDefaultFloorValue({ user: {} })
 				.setRequestProperties({
 					params: {
 						organizationId: "tt",
@@ -34,7 +34,7 @@ describe("/organization/{organizationId}/user/{userId}", () => {
 		it("patch owner user", async () => {
 			const res = await duploTesting
 				.testRoute(PATCH("PATCH", ""))
-				.setDefaultFloorValue({ accessTokenContent: {} })
+				.setDefaultFloorValue({ user: {} })
 				.setRequestProperties({
 					params: {
 						organizationId: "tt",
@@ -60,7 +60,7 @@ describe("/organization/{organizationId}/user/{userId}", () => {
 			
 			const res = await duploTesting
 				.testRoute(PATCH("PATCH", ""))
-				.setDefaultFloorValue({ accessTokenContent: {} })
+				.setDefaultFloorValue({ user: {} })
 				.setRequestProperties({
 					params: {
 						organizationId: "tt",
@@ -96,7 +96,7 @@ describe("/organization/{organizationId}/user/{userId}", () => {
 		it("organization has not user", async () => {
 			const res = await duploTesting
 				.testRoute(DELETE("DELETE", ""))
-				.setDefaultFloorValue({ accessTokenContent: {} })
+				.setDefaultFloorValue({ user: {} })
 				.setRequestProperties({
 					params: {
 						organizationId: "tt",
@@ -119,7 +119,7 @@ describe("/organization/{organizationId}/user/{userId}", () => {
 		it("delete owner user", async () => {
 			const res = await duploTesting
 				.testRoute(DELETE("DELETE", ""))
-				.setDefaultFloorValue({ accessTokenContent: {} })
+				.setDefaultFloorValue({ user: {} })
 				.setRequestProperties({
 					params: {
 						organizationId: "tt",
@@ -145,7 +145,7 @@ describe("/organization/{organizationId}/user/{userId}", () => {
 			
 			const res = await duploTesting
 				.testRoute(DELETE("DELETE", ""))
-				.setDefaultFloorValue({ accessTokenContent: {} })
+				.setDefaultFloorValue({ user: {} })
 				.setRequestProperties({
 					params: {
 						organizationId: "tt",

@@ -18,11 +18,11 @@ describe("POST /login", () => {
 			)
 			.mockChecker(
 				"userExist",
-				{ info: "user.exist", data: { email: "test", id: "1234" } },
+				{ info: "user.exist", data: { updatedAt: new Date, id: "1234" } },
 				{ passCatch: true }
 			)
 			.launch();
-
+			
 		expect(res.information).toBe("user.logged");
 	});
 

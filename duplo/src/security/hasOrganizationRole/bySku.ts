@@ -5,7 +5,7 @@ import { Route } from "@duplojs/duplojs";
 import { productExistCheck } from "@checkers/product";
 
 export const hasOrganizationRoleBySku = 
-	mustBeConnected({ pickup: ["accessTokenContent"] })
+	mustBeConnected({ pickup: ["user"] })
 		.declareAbstractRoute("hasOrganizationRoleBySku")
 		.options<OptionsHasOrganizationRole>({
 			organizationRole: "STORE_KEEPER"
@@ -28,12 +28,12 @@ export const hasOrganizationRoleBySku =
 			{
 				input: p => ({
 					organizationId: p("product").organizationId,
-					userId: p("accessTokenContent").id
+					userId: p("user").id
 				}),
 				options: p => ({ organizationRole: p("options").organizationRole })
 			}
 		)
-		.build(["accessTokenContent", "product"]);
+		.build(["user", "product"]);
 
 /* istanbul ignore if -- @preserve */		
 if (duplo.config.environment !== "TEST") {

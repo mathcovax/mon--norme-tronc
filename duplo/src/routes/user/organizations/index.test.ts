@@ -18,7 +18,7 @@ describe("/user/organizations", () => {
 
 		const res = await duploTesting.testRoute(GET("GET", ""))
 			.setDefaultFloorValue({
-				accessTokenContent: { id: "" }
+				user: { id: "" }
 			})
 			.setRequestProperties({
 				query: {

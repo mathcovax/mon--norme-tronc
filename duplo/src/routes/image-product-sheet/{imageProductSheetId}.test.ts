@@ -35,7 +35,7 @@ describe("DELETE /image-product-sheet/{imageProductSheetId}", () => {
 
 		const res = await duploTesting
 			.testRoute(DELETE("DELETE", ""))
-			.setDefaultFloorValue({ accessTokenContent: {} })
+			.setDefaultFloorValue({ user: {} })
 			.setRequestProperties({
 				params: {
 					imageProductSheetId: "eeee"
