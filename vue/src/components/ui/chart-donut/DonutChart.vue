@@ -7,7 +7,11 @@ import type { BaseChartProps } from ".";
 import { ChartSingleTooltip, defaultColors } from "@/components/ui/chart";
 import { cn } from "@/lib/utils";
 
-const props = withDefaults(defineProps<Pick<BaseChartProps<T>, "data" | "colors" | "index" | "margin" | "showLegend" | "showTooltip" | "filterOpacity"> & {
+const props = withDefaults(
+	defineProps<
+		Pick<BaseChartProps<T>, 
+		"data" | "colors" | "index" | "margin" | "showLegend" | "showTooltip" | "filterOpacity"
+	> & {
   /**
    * Sets the name of the key containing the quantitative chart values.
    */
@@ -20,6 +24,7 @@ const props = withDefaults(defineProps<Pick<BaseChartProps<T>, "data" | "colors"
   /**
    * Function to sort the segment
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   sortFunction?:(a: any, b: any) => number | undefined
   /**
    * Controls the formatting for the label.
@@ -30,16 +35,16 @@ const props = withDefaults(defineProps<Pick<BaseChartProps<T>, "data" | "colors"
    */
   customTooltip?: Component
 }>(), {
-	margin: () => ({
-		top: 0, bottom: 0, left: 0, right: 0 
-	}),
-	sortFunction: () => undefined,
-	valueFormatter: (tick: number) => `${tick}`,
-	type: "donut",
-	filterOpacity: 0.2,
-	showTooltip: true,
-	showLegend: true,
-});
+		margin: () => ({
+			top: 0, bottom: 0, left: 0, right: 0 
+		}),
+		sortFunction: () => undefined,
+		valueFormatter: (tick: number) => `${tick}`,
+		type: "donut",
+		filterOpacity: 0.2,
+		showTooltip: true,
+		showLegend: true,
+	});
 
 type KeyOfT = Extract<keyof T, string>
 type Data = typeof props.data[number]
@@ -49,7 +54,9 @@ const index = computed(() => props.index as KeyOfT);
 
 const isMounted = useMounted();
 const activeSegmentKey = ref<string>();
-const colors = computed(() => props.colors?.length ? props.colors : defaultColors(props.data.filter(d => d[props.category]).filter(Boolean).length));
+const colors = computed(() => props.colors?.length ? 
+	props.colors : 
+	defaultColors(props.data.filter(d => d[props.category]).filter(Boolean).length));
 const legendItems = computed(() => props.data.map((item, i) => ({
 	name: item[props.index],
 	color: colors.value[i],

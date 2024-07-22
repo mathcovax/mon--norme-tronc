@@ -18,7 +18,7 @@ export const addFullCommandItem = async (
 		id: randomInt(1, 1000),
 		commandId: uuidv7(),
 		productQuantity: quantity,
-		dayOfYear: roundDate(randomDate(new Date(2024, 0, 1), new Date())),
+		dayOfYear: roundDate(randomDate(new Date(2024, 0, 1), new Date()), 1),
 		totalValue: quantity * (fullCommandItem.productSheet?.price || 0),
 		organization: {
 			id: "3fbcdc96-b1d6-46f5-bf79-68bdf6d7396b",

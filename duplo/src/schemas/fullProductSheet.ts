@@ -40,6 +40,13 @@ export const fullProductSheetSchema = zod.object({
 		logoUrl: zod.string().optional(),
 	}),
 	facets: facetsSchema,
+	variationGroup: zod.string().optional(),
+	variationName: zod.string().optional(),
+	variations: zod.object({
+		firstImageUrl: zod.string(),
+		name: zod.string(),
+		productSheetId: zod.string(),
+	}).array().optional(),
 });
 
 export type FullProductSheetSchema = Zod.infer<typeof fullProductSheetSchema>

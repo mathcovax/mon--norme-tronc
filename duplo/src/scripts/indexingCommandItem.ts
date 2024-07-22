@@ -42,7 +42,7 @@ for await (const commandItem of commandItemGenerator) {
 		id: commandItem.id,
 		commandId: commandItem.commandId,
 		productQuantity: commandItem.quantity,
-		dayOfYear: roundDate(commandItem.updatedAt),
+		dayOfYear: roundDate(commandItem.updatedAt, 1),
 		totalValue: commandItem.quantity * fps.price,
 		organization: {
 			id: fps.organization.id,

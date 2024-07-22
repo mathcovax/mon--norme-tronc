@@ -1,7 +1,9 @@
 import type { Spacing } from "@unovis/ts";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type KeyOf<T extends Record<string, any>> = Extract<keyof T, string>
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface BaseChartProps<T extends Record<string, any>> {
   /**
    * The source data, in which each entry is a dictionary.
