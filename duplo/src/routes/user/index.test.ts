@@ -90,7 +90,7 @@ describe("/user", () => {
 				.setRequestProperties({
 					body: {
 						lastname: "ROSBOULE",
-						firstname: "Megue",
+						firstname: "megue",
 						address: "15 rue du Ketchup",
 						emailNotifcationsNewsletter: true,
 						emailNotifcationsProductStock: true,
@@ -114,7 +114,7 @@ describe("/user", () => {
 				},
 				data: {
 					lastname: "ROSBOULE",
-					firstname: "Megue",
+					firstname: "megue",
 					address: "15 rue du Ketchup",
 					emailNotifcationsNewsletter: true,
 					emailNotifcationsProductStock: true,

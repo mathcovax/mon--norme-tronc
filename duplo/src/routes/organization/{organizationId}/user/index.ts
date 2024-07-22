@@ -10,9 +10,9 @@ export const POST = (method: Methods, path: string) =>
 		.declareRoute(method, path)
 		.extract({
 			body: zod.object({
-				email: zod.string(),
-				firstname: zod.string(),
-				lastname: zod.string(),
+				email: zod.string().toLowerCase(),
+				firstname: zod.string().toLowerCase(),
+				lastname: zod.string().toUpperCase(),
 				organizationRole: zod.enum([
 					organizationRolesEnum.STORE_KEEPER,
 					organizationRolesEnum.PRODUCT_SHEET_MANAGER,

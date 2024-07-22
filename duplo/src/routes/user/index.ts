@@ -37,8 +37,8 @@ export const PATCH = (method: Methods, path: string) => mustBeConnected({ pickup
 	.extract(
 		{
 			body: zod.object({
-				lastname: zod.string().min(2).max(255).optional(),
-				firstname: zod.string().min(2).max(255).optional(),
+				lastname: zod.string().toUpperCase().min(2).max(255).optional(),
+				firstname: zod.string().toLowerCase().min(2).max(255).optional(),
 				address: zod.string().optional(),
 				emailNotifcationsNewsletter: zod.boolean().optional(),
 				emailNotifcationsProductStock: zod.boolean().optional(),
