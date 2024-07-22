@@ -6,7 +6,7 @@
 		"cron"
 	],
 	"scripts": {
-		"start": "docker compose -f docker-compose-prod.yml up -d && screen -S stripe -dm bash -c 'npm run stripe:listen'",
+		"start": "docker compose -f docker-compose-prod.yml up -d --force-recreate",
 		"test:duplo": "npm -w duplo run test:tu:watch",
 		"dev:duplo": "npm -w duplo run dev",
 		"dev:vue": "npm -w vue run dev",

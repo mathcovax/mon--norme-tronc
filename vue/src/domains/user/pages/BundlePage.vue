@@ -17,7 +17,7 @@ fetchEventSource(
 	`/api/bundles/${params.value.bundleId}/stream`,
 	{
 		headers: {
-			"access-token": user.accessToken ?? ""
+			authorization: user.accessToken ? `Bearer ${user.accessToken}` : ""
 		},
 		onmessage(message) {
 			currentTimeLine.value = message.data;
