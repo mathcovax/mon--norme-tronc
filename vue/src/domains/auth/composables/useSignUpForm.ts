@@ -9,8 +9,8 @@ export function useSignUpForm() {
 			type: "text",
 			label: $t("label.lastname"),
 			zodSchema: zod.string({ message: $t("form.rule.required") })
-				.min(2, $t("form.rules.minLength", { value: 2 }))
-				.max(255, $t("form.rules.maxLength", { value: 255 })),
+				.min(2, $t("form.rule.minLength", { value: 2 }))
+				.max(255, $t("form.rule.maxLength", { value: 255 })),
 		},
 		fistname: {
 			cols: 6,

@@ -5,8 +5,8 @@ export class PromiseList<U> {
 		private maxLength: number
 	) {}
 
-	append(promise: Promise<U>) {
-		this.queue.push(promise);
+	append(...promises: Promise<U>[]) {
+		this.queue.push(...promises);
 
 		if (this.queue.length >= this.maxLength) {
 			return this.clear();
