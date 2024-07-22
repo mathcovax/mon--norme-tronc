@@ -616,6 +616,7 @@ export default {
 					title: "Aide",
 					clientSupport: "Support client",
 					deliveryDetails: "Détails de livraison",
+					returnPolicy: "Politique de retour",
 					generalConditions: "Conditions générales",
 					confidentialityPolicy: "Politique de confidentialité",
 				},
@@ -710,6 +711,14 @@ export default {
 		PRODUCT_SHEET_MANAGER: "Gestionaire de fiche produit",
 		ACCOUNTANT: "Comptable",
 		OWNER: "Propriétaire"
+	},
+	modal: {
+		age: {
+			title: "Vérification de l'âge",
+			content: "Vous devez avoir plus de 18 ans pour accéder à ce site.",
+			confirm: "J'ai plus de 18 ans",
+			cancel: "Je suis mineur",
+		},
 	},
 	toast: {
 		default: "Info",

@@ -1,5 +1,17 @@
 <script setup lang="ts">
 const currentYear = ref(new Date().getFullYear());
+
+const {
+	EDITO_HOME,
+	EDITO_CGU,
+	EDITO_PRIVACY_POLICY,
+	EDITO_DELIVERY_DETAILS,
+	EDITO_RETURN_POLICY,
+	EDITO_FAQ_ACCOUNT,
+	EDITO_FAQ_PAYMENTS,
+	EDITO_FAQ_COMMANDES,
+	CATEGORIES_PAGE
+} = routerPageName;
 </script>
 
 <template>
@@ -8,7 +20,7 @@ const currentYear = ref(new Date().getFullYear());
 			<div class="container flex flex-col lg:flex-row gap-16 lg:gap-0 justify-between">
 				<div class="flex flex-col gap-6">
 					<RouterLink
-						to="/"
+						:to="{ name: EDITO_HOME }"
 						class="text-2xl font-bold"
 					>
 						MET
@@ -72,19 +84,25 @@ const currentYear = ref(new Date().getFullYear());
 								</li>
 
 								<li>
-									<RouterLink to="#">
+									<RouterLink :to="{ name: EDITO_DELIVERY_DETAILS }">
 										{{ $t("layout.default.footer.helpNav.deliveryDetails") }}
 									</RouterLink>
 								</li>
 
 								<li>
-									<RouterLink to="#">
+									<RouterLink :to="{ name: EDITO_RETURN_POLICY }">
+										{{ $t("layout.default.footer.helpNav.returnPolicy") }}
+									</RouterLink>
+								</li>
+
+								<li>
+									<RouterLink :to="{ name: EDITO_CGU }">
 										{{ $t("layout.default.footer.helpNav.generalConditions") }}
 									</RouterLink>
 								</li>
 
 								<li>
-									<RouterLink to="#">
+									<RouterLink :to="{ name: EDITO_PRIVACY_POLICY }">
 										{{ $t("layout.default.footer.helpNav.confidentialityPolicy") }}
 									</RouterLink>
 								</li>
@@ -100,20 +118,20 @@ const currentYear = ref(new Date().getFullYear());
 						<nav>
 							<ul class="flex flex-col gap-6 opacity-60">
 								<li>
-									<RouterLink to="#">
+									<RouterLink :to="{ name: EDITO_FAQ_ACCOUNT }">
 										{{ $t("layout.default.footer.faqNav.account") }}
 									</RouterLink>
 								</li>
 
 								<li>
-									<RouterLink to="#">
-										{{ $t("layout.default.footer.faqNav.orders") }}
+									<RouterLink :to="{ name: EDITO_FAQ_PAYMENTS}">
+										{{ $t("layout.default.footer.faqNav.payements") }}
 									</RouterLink>
 								</li>
 
 								<li>
-									<RouterLink to="#">
-										{{ $t("layout.default.footer.faqNav.payements") }}
+									<RouterLink :to="{ name: EDITO_FAQ_COMMANDES }">
+										{{ $t("layout.default.footer.faqNav.orders") }}
 									</RouterLink>
 								</li>
 							</ul>
@@ -134,20 +152,14 @@ const currentYear = ref(new Date().getFullYear());
 								</li>
 
 								<li>
-									<RouterLink to="#">
-										{{ $t("layout.default.footer.pageNav.bestSeller") }}
+									<RouterLink :to="{ name: CATEGORIES_PAGE }">
+										{{ $t("layout.default.footer.pageNav.products") }}
 									</RouterLink>
 								</li>
 
 								<li>
 									<RouterLink to="#">
 										{{ $t("layout.default.footer.pageNav.new") }}
-									</RouterLink>
-								</li>
-
-								<li>
-									<RouterLink to="#">
-										{{ $t("layout.default.footer.pageNav.products") }}
 									</RouterLink>
 								</li>
 							</ul>
