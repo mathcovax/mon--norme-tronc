@@ -12,12 +12,48 @@ const cronDefs: CronDef[] = [
 		command: "npm -w duplo run indexing:productSheet",
 	},
 	{
-		time: "*/5 * * * *",
+		time: "*/10 * * * *",
 		command: "npm -w duplo run followBundle",
 	},
 	{
 		time: "*/5 * * * *",
 		command: "npm -w duplo run readNotifications",
+	},
+	{
+		time: "*/5 * * * *",
+		command: "npm -w duplo run indexing:commandItem",
+	},
+	{
+		time: "*/5 * * * *",
+		command: "npm -w duplo run notification:productPromotion",
+	},
+	{
+		time: "*/5 * * * *",
+		command: "npm -w duplo run notification:productRestock",
+	},
+	{
+		time: "*/5 * * * *",
+		command: "npm -w duplo run notification:newProductInCategory",
+	},
+	{
+		time: "*/5 * * * *",
+		command: "npm -w duplo run notification:productNoStock",
+	},
+	{
+		time: "*/40 * * * *",
+		command: "npm -w duplo run sendMail:productPromotion",
+	},
+	{
+		time: "*/40 * * * *",
+		command: "npm -w duplo run sendMail:productRestock",
+	},
+	{
+		time: "*/40 * * * *",
+		command: "npm -w duplo run sendMail:newProductInCategory",
+	},
+	{
+		time: "*/40 * * * *",
+		command: "npm -w duplo run sendMail:newsletter",
 	},
 ];
 
