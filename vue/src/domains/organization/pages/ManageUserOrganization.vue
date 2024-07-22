@@ -205,7 +205,7 @@ watch(searchEmail, () => getOrganizationUsers(currentPage.value = 0, searchEmail
 						class="col-span-4"
 						variant="destructive"
 					>
-						{{ $t("form.remove") }}
+						{{ $t("button.delete") }}
 					</TheButton>
 				</FormOrganizationUserEdit>
 			</template>

@@ -72,9 +72,9 @@ watch(
 		</PrimaryButton>
 
 		<span
-			v-else
+			v-else-if="!canSeeMore && commands.length === 0"
 		>
-			{{ $pt("noMoreCommands") }}
+			{{ $pt("noCommands") }}
 		</span>
 	</section>
 </template>

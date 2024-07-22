@@ -114,6 +114,7 @@ model newsletter {
     content   String   @db.Text
     createdAt DateTime @default(now())
     sendAt    DateTime @default(now())
+	isSent    Boolean  @default(false)
 }
 
 model product_sheet {

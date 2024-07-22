@@ -1,15 +1,9 @@
 import "../setup";
 import { FindSlice } from "@utils/findSlice";
 import { mongoose } from "../setup/mongoose";
-import { LastTime } from "../setup/lastTime";
 import { PromiseList } from "../setup/promiseList";
 import { Mail } from "@services/mail";
-import { baseTemplate } from "@/templates";
 import { newsletterTemplate } from "@/templates/newsletter";
-
-const newLastIndexing = new Date();
-const lastTime = new LastTime("sendMailNewsletter");
-const lastSendNewsletterMail = await lastTime.get();
 
 const usersGenerator = FindSlice(
 	50,
@@ -28,36 +22,46 @@ const usersGenerator = FindSlice(
 	})
 );
 
-const newslettersGenerator = FindSlice(
-	50,
-	(slice, size) => prisma.newsletter.findMany({
-		where: {
-			sendAt: { gte: lastSendNewsletterMail }
-		},
-		skip: slice * size,
-		take: size
-	})
-);
+const newsletters = await prisma.newsletter.findMany({
+	where: {
+		sendAt: { gte: new Date() },
+		isSent: false,
+	},
+});
+
+if (newsletters.length === 0) {
+	process.exit(0);
+}
 
 const promiseList = new PromiseList(1000);
 
 for await (const user of usersGenerator) {
-	for await (const newsletter of newslettersGenerator) {
-		const newslettersTemplate = newsletterTemplate(newsletter.object, newsletter.content);
-		const html = baseTemplate(newslettersTemplate);
-
-		promiseList.append(
-			Mail.send(
+	await promiseList.append(
+		...newsletters.map(
+			newsletter => Mail.send(
 				user.email,
 				newsletter.object,
-				html
+				newsletterTemplate(newsletter.object, newsletter.content)
 			)
-		);
-	}
+		)
+	);
 }
 
 await promiseList.clear();
-await lastTime.set(newLastIndexing);
+
+await Promise.all(
+	newsletters.map(
+		newsletter => prisma.newsletter.update({
+			where: {
+				id: newsletter.id
+			},
+			data: {
+				isSent: true
+			}
+		})
+	)
+);
+
 
 mongoose.connection.close();
 

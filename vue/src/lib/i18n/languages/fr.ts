@@ -27,8 +27,8 @@ export default {
 			btnPullData: "Récupérer mes données",
 			btnDelete: "Supprimer le compte",
 			deletePopup: {
-				title: "Etes vous sur de vouloir supprimé le compte.",
-				content: "Cette action est iréversible et entrénera la perte de toute vos donner."
+				title: "Êtes vous sur de vouloir supprimer le compte.",
+				content: "Cette action est irréversible et entraînera la perte de toutes vos données."
 			}
 		},
 		[routerPageName.USER_ORGANIZATIONS]: {
@@ -102,7 +102,7 @@ export default {
 				comments: "Commentaires",
 			},
 			relatedProducts: "Produits similaires",
-			noStock: "Plus en Stock.",
+			noStock: "Plus de Stock.",
 			lte10: "Plus que {value} !",
 		},
 		[routerPageName.USER_CART]: {
@@ -130,12 +130,12 @@ export default {
 			},
 			product: {
 				quantity: "Quantité : {value}",
-				processQuantity: "Quantité traiter : {value}",
+				processQuantity: "Quantité traitée : {value}",
 				selledBy: "Vendu par : {value}",
 				price: "Prix : {value} €",
 				reBuy: "Acheter à nouveau",
 			},
-			noMoreCommands: "Vous n'avez plus de commandes.",
+			noCommands: "Aucune commande.",
 		},
 		get [routerPageName.USER_COMMAND]() {
 			return {
@@ -149,7 +149,7 @@ export default {
 					seeInvoice: "Voir la facture",
 					deliveryAddress: "Adresse de livraison",
 					recapCommand: "Récapitulatif de la commande",
-					boughtProducts: "Produits acheté(s) : {value}",
+					boughtProducts: "Produit(s) acheté(s) : {value}",
 					totalPrice: "Montant total TTC : {value} €",
 				},
 				product: {
@@ -161,7 +161,7 @@ export default {
 					id: "identifiant du Paquet : {id}",
 					carrierName: "Nom du transporteur : ",
 					status: "Status : ",
-					productsCount: "Nombre de produit dans le paquet : {value}",
+					productsCount: "Nombre de produits dans le paquet : {value}",
 				}
 			};
 		},
@@ -188,6 +188,9 @@ export default {
 				success: "Paiement réussi",
 				error: "Echec du paiement",
 			}
+		},
+		[routerPageName.ADMIN_PANEL_HOME]: {
+			title: "Bienvenue sur le panneau d'administration",
 		},
 		[routerPageName.ADMIN_PANEL_ORGANIZATIONS]: {
 			title: "Liste des organisations",
@@ -230,31 +233,7 @@ export default {
 				searchPlaceholder: "Chercher un email",
 				searchPlaceholderRole: "Chercher par rôle",
 			},
-			btnClear: "Clear"
-		},
-		[routerPageName.CONTENT_PANEL_CATEGORIES]: {
-			title: "Liste des catégories",
-			form: {
-				title: "Créer une catégorie",
-				oldName: {
-					label: "Nom actuel : {currentName}"
-				},
-				name: {
-					label: "Nom de la catégorie",
-				},
-				disabled: {
-					desc: "Désactiver la catégorie"
-				},
-				selectImage: "Sélectionner une image",
-				submit: "Valider",
-			},
-			table: {
-				searchPlaceholder: "Chercher une categorie",
-				col: {
-					name: "Nom",
-					disabled: "Active"
-				},
-			}
+			btnClear: "Effacer les filtres",
 		},
 		[routerPageName.ORGANIZATION_MANAGE_USER]: {
 			title: "Gestion des utilisateurs",
@@ -266,7 +245,7 @@ export default {
 			},
 		},
 		[routerPageName.ORGANIZATION_GET_PRODUCT_SHEET]: {
-			title: "Liste des fiches produit",
+			title: "Liste des fiches produits",
 			searchPlaceholder: "Chercher un produit",
 			price: "Prix",
 		},
@@ -310,20 +289,8 @@ export default {
 				name: "nom de l'entrepôt"
 			}
 		},
-		[routerPageName.CONTENT_PANEL_PARENT_CATEGORIES]: {
-			title: "Liste des catégories parent",
-			form: {
-				title: "Créer une catégorie parent",
-			},
-			label: {
-				name: "Nom de la catégorie parent",
-				linkCategories: "Categories associées",
-				placeholder: "Nom de la catégorie"
-			},
-			table: {
-				name: "Nom de la catégorie parent",
-				searchPlaceholder: "Chercher par le nom de la catégorie parent",
-			}
+		[routerPageName.CONTENT_PANEL_HOME]: {
+			title: "Bienvenue sur le panneau de gestion du contenu",
 		},
 		[routerPageName.CONTENT_PANEL_NAVIGATION_BAR]: {
 			title: "Éléments de la barre de navigation",
@@ -340,6 +307,45 @@ export default {
 			popup: {
 				title: "Voulez-vous vraiment supprimer cet élément ?",
 				content: "Si vous validez, cet élément de la barre de navigation sera supprimé définitivement."
+			}
+		},
+		[routerPageName.CONTENT_PANEL_PARENT_CATEGORIES]: {
+			title: "Liste des catégories parents",
+			form: {
+				title: "Créer une catégorie parent",
+			},
+			label: {
+				name: "Nom de la catégorie parent",
+				linkCategories: "Categories associées",
+				placeholder: "Nom de la catégorie"
+			},
+			table: {
+				name: "Nom de la catégorie parent",
+				searchPlaceholder: "Chercher par le nom de la catégorie parent",
+			}
+		},
+		[routerPageName.CONTENT_PANEL_CATEGORIES]: {
+			title: "Liste des catégories",
+			form: {
+				title: "Créer une catégorie",
+				oldName: {
+					label: "Nom actuel : {currentName}"
+				},
+				name: {
+					label: "Nom de la catégorie",
+				},
+				disabled: {
+					desc: "Désactiver la catégorie"
+				},
+				selectImage: "Sélectionner une image",
+				submit: "Valider",
+			},
+			table: {
+				searchPlaceholder: "Chercher une categorie",
+				col: {
+					name: "Nom",
+					disabled: "Active"
+				},
 			}
 		},
 		[routerPageName.CONTENT_PANEL_NEWSLETTERS]: {
@@ -377,7 +383,7 @@ export default {
 				name: "Nom",
 				quantity: "Stock",
 				productSheetName: "Fiche Produit",
-				lastEdit: "Modifiée le",
+				lastEdit: "Modifié le",
 				status: "Status",
 				warehouseName: "Entrepôt"
 			},
@@ -392,34 +398,34 @@ export default {
 			popupWrongMessage: "Êtes-vous sur de vouloir changer le status de cette réference ?"
 		},
 		[routerPageName.ORGANIZATION_COMMANDS]: {
-			title: "Liste des commandes a traité",
+			title: "Liste des commandes à traiter",
 			table: {
 				date: "Date de la commande",
-				quantity: "Quantité de produit",
+				quantity: "Quantité de produits",
 				id: "ID de la commande",
-				quantityRest: "Produit a trétais",
-				productSheetRef: "Référence produit",
+				quantityRest: "Produit à traiter",
+				productSheetRef: "Référence du produit",
 				productSheetName: "Nom du produit",
 				image: "Image du produit",
 			},
 			cb: {
-				textButton: "Selectioner un entrepot",
-				placeholder: "mon super entrepot..."
+				textButton: "Sélectionner un entrepôt",
+				placeholder: "Mon super entrepôt..."
 			},
 			form: {
 				idShip: "idShip la poste",
 				addItem: "Ajouter un produit dans le Bundle",
-				butonSku: "Selectioner un produit",
-				placeholderSku: "Mon super sku",
+				butonSku: "Sélectionner un produit",
+				placeholderSku: "Mon super SKU",
 			}
 		},
 		[routerPageName.USER_BUNDLE]: {
 			transport: "Transporteur du colis :",
-			idShip: "Numéro de suivie : {value}",
+			idShip: "Numéro de suivi : {value}",
 			status: "Status du colis :",
 			content: "Contenu du colis :",
 			action: "Action en cours : {value}",
-			carrierSite: "Voire le site du transporteur", 
+			carrierSite: "Voir le site du transporteur", 
 			table: {
 				image: "",
 				name: "Nom",
@@ -436,21 +442,24 @@ export default {
 				putInWaiting: "Mettre en attente",
 			}
 		},
+		[routerPageName.MODERATOR_PANEL_HOME]: {
+			title: "Bienvenue sur le panneau de modération",
+		},
 		[routerPageName.MODERATOR_PANEL_CHECK_PRODUCT_SHEET_REVIEW]: {
 			button: {
 				delete: "Supprimer le commentaire",
-				deleteAndMute: "Supprimer le commentaire & Muter l'utilisateur",
-				check: "Validé le commentaire",
+				deleteAndMute: "Supprimer le commentaire & Mute l'utilisateur",
+				check: "Valider le commentaire",
 				refresh: "Retrouver un commentaire",
 			},
-			emptyReview: "Plus de commentaire a vérifier.",
+			emptyReview: "Plus de commentaire à vérifier.",
 		},
 		[routerPageName.MODERATOR_PANEL_CHECK_PRODUCT_SHEET]: {
 			button: {
-				check: "Validé la fiche produit",
+				check: "Valider la fiche produit",
 				refresh: "Retrouver une fiche produit",
 			},
-			emptyProductSheet: "Plus de fiche produit a vérifier.",
+			emptyProductSheet: "Plus de fiche produit à vérifier.",
 		},
 	},
 	filters: {
@@ -603,8 +612,8 @@ export default {
 				"organization-panel-manage-promotion": "Promotions",
 				"organization-panel-manage-user": "Utilisateurs",
 				"organization-panel-get-warehouse": "Entrepôts",
-				"organization-panel-get-product-sheet": "Fiche produits",
-				"organization-product-return": "Retour Produit",
+				"organization-panel-get-product-sheet": "Fiches produits",
+				"organization-product-return": "Retours Produits",
 			},
 		},
 		content: {
@@ -612,7 +621,7 @@ export default {
 			nav: {
 				dashboard: "Tableau de bord",
 				navbar: "Barre de navigation",
-				parentCategories: "Catégories parent",
+				parentCategories: "Catégories parents",
 				categories: "Catégories",
 				newsletters: "Newsletters",
 			},
@@ -627,10 +636,10 @@ export default {
 		},
 		moderator: {
 			nav: {
-				"moderator-panel-home": "Home",
-				"moderator-panel-check-product-sheet-review": "Check Review",
-				"moderator-panel-check-product-sheet": "Check Product Sheet",
-				"home": "Accueil"
+				"moderator-panel-home": "tableau de bord",
+				"moderator-panel-check-product-sheet-review": "Check Commentaires",
+				"moderator-panel-check-product-sheet": "Check Fiche Produit",
+				"home": "Retour à l'accueil"
 			}
 		}
 	},
@@ -662,15 +671,15 @@ export default {
 		rule: {
 			required: "Champ obligatoire.",
 			positive: "Doit être un nombre positif.",
-			max: "Doit être au plus {max}.",
-			min: "Doit être au moins {min}.",
+			max: "Ne doit pas dépasser {max}.",
+			min: "Doit faire au moins {min}.",
 			maxLength: "Doit faire au plus {value} caractères.",
 			minLength: "Doit faire au moins {value} caractères.",
 			invalidEmail: "Cet email est invalide.",
 			minAge: "Vous devez avoir au moins {value} ans.",
 			maxItems: "Vous pouvez selectionner au plus {value} éléments.",
 			blobToLarge: "L'image est supérieure à {value} Mo.",
-			minItems: "Vous devez selectionner minimume {value} éléments.",
+			minItems: "Vous devez selectionner minimum {value} éléments.",
 			url: "Doit être sous la forme /path/to/page",
 			minDate: "Doit être après le {value}.",
 		}
@@ -705,7 +714,7 @@ export default {
 		type: "Type",
 		title: "Titre",
 		ref: "Référence",
-		sku: "sku",
+		sku: "SKU",
 		status: "status",
 		reason: "Raison",
 		pseudo: "Pseudo",
@@ -749,7 +758,7 @@ export default {
 		DIAMETER: "Diamètre",
 		TARGET: "Cible",
 		ACCESSORY: "Accessoire",
-		MATERIAL: "Matériaux",
+		MATERIAL: "Matériau",
 		STIMULATION: "Stimulation",
 	} satisfies Record<Facet["type"], string>,
 	carrierName: {
@@ -757,13 +766,13 @@ export default {
 	} satisfies Record<Bundle["carrierName"], string>,
 	bundleStatus: {
 		CREATED: "Créer",
-		BACK: "Retour à l'entrepot",
-		BACK_DONE: "Arrivé a l'entrepot",
+		BACK: "Retour à l'entrepôt",
+		BACK_DONE: "Arrivé a l'entrepôt",
 		CARRIER_SUPPORTED: "Colis pris en charge par le transporteur.",
 		CARRIER_PROCESS: "En cours de traitement par le transporteur",
 		UNDELIVERABLE: "Non livrable",
-		DONE: "livrée",
-		DONE_OFFICE: "livrée au point relé",
+		DONE: "livré",
+		DONE_OFFICE: "livré au point relais",
 	} satisfies Record<Bundle["status"], string>,
 	commandStatus: {
 		CANCELED: "Annulée",
@@ -774,8 +783,8 @@ export default {
 	} satisfies Record<CommandStatus, string>,
 	productReturnStatus: {
 		INVALID: "Retour produit invalide",
-		REFUNDED: "produit remborsé.",
-		WAITING_RETURN: "En attente du retoure du produit.",
+		REFUNDED: "produit remboursé.",
+		WAITING_RETURN: "En attente du retour du produit.",
 	} satisfies Record<ProductReturn["status"], string>,
 	response: {
 		organization: {
@@ -790,15 +799,15 @@ export default {
 			},
 			image: {
 				missing: "Aucune image n'a été sélectionnée.",
-				edited: "L'image a été ajouté à l'organisation avec succès."
+				edited: "L'image a été ajoutée à l'organisation avec succès."
 			}
 		},
 		user: {
 			edited: "L'utilisateur a bien été modifié.", 
 			notfound: "Utilisateur introuvable.",
 			alreadyOwner: "l'utilisateur est déjà propriétaire d'une organisation.",
-			pullData: "Vos donner vous seront anvoyer pars mail.",
-			intervalPullData: "Vous devez attendre 30 minute avand de redemander vos donner.",
+			pullData: "Vos données vous seront envoyées par mail.",
+			intervalPullData: "Vous devez attendre 30 minutes avant de redemander vos données.",
 		},
 		category: {
 			alreadyExist: "Le nom de catégorie est déjà utilisé",
@@ -811,7 +820,7 @@ export default {
 			edited: "La fiche a correctement été éditée.",
 			created: "La fiche a correctement été créée.",
 			ref: {
-				alreadyUse: "Cette Reférence est déjà utilisais."
+				alreadyUse: "Cette Reférence est déjà utilisée."
 			}
 		},
 		command: {
@@ -821,7 +830,7 @@ export default {
 			created: "La promotion a correctement été créée.",
 			deleted: "La promotion a correctement été supprimée.",
 			date: {
-				invalid: "La date de début doit être inférieur à la date de fin."
+				invalid: "La date de début doit être inférieure à la date de fin."
 			}
 		},
 		warehouse: {
@@ -840,12 +849,12 @@ export default {
 			notfound: "Le produit n'existe pas.",
 			edited: "Le produit a correctement été modifié.",
 			created: "Le produit a correctement été créé.",
-			unavailable: "Le produit n'est pas disponible duans la quantité souhaitée.",
+			unavailable: "Le produit n'est pas disponible dans la quantité souhaitée.",
 			sku: {
-				alreadyUse: "Ce sku est déjà utilisé.",
+				alreadyUse: "Ce SKU est déjà utilisé.",
 			},
 			alreadyInRefundProcess: "Le produit est déjà dans un process de rembourcement",
-			refound: "Le produit a bien étais remboursé."
+			refound: "Le produit a bien été remboursé."
 
 		},
 		products: {
@@ -863,15 +872,15 @@ export default {
 			}
 		},
 		productReturn: {
-			created: "Le retoure a correctement étais créer.",
-			edited: "La modification a bien étais prise en compte.",
+			created: "Le retour a correctement été créé.",
+			edited: "La modification a bien été prise en compte.",
 		},
 		productSheetReview: {
-			created: "Commentaire envoyer.",
-			deleted: "Commentaire supprimer.",
-			edited: "Commentaire modifier.",
+			created: "Commentaire envoyé.",
+			deleted: "Commentaire supprimé.",
+			edited: "Commentaire modifié.",
 		},
-		makeBundle: "Le bundle a correctement étais créer.",
+		makeBundle: "Le bundle a correctement été créé.",
 		TYPE_ERROR: "L'une des données envoyées est erronée. (Erreur provenant du site)",
 		NOTFOUND: "La route utilisée n'existe pas. (Erreur provenant du site)",
 		INTERNAL_SERVER_ERROR: "Le serveur a eu un problème. (Erreur provenant du site)",

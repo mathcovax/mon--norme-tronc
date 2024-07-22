@@ -6,7 +6,7 @@ import { bundle, carrier_name } from "@prisma/client";
 import { LaPosteCarrier } from "@services/carriers/laPost";
 
 const carrierMapper: Record<carrier_name, ((bundle: bundle) => Promise<unknown>)> = {
-	LA_POSTE: (bundle) => LaPosteCarrier.updateBundled(bundle)
+	LA_POSTE: (bundle) => LaPosteCarrier.updateBundle(bundle)
 };
 
 const bundleGenerator = FindSlice(

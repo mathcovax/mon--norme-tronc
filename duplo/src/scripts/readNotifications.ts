@@ -6,7 +6,6 @@ import { PromiseList } from "./setup/promiseList";
 import { fullCommandModel } from "@mongoose/model";
 import { command_status } from "@prisma/client";
 import { confirmedCommandTemplate } from "@/templates/command/confirmed";
-import { baseTemplate } from "@/templates";
 import { Mail } from "@services/mail";
 import { canceledCommandTemplate } from "@/templates/command/canceled";
 
@@ -70,28 +69,37 @@ for await (const notification of generator) {
 				data: {
 					canceled: true
 				}
-			})
+			}),
+			
 		])
 	);
 
 	const commandUrl = `${ENV.ORIGIN}/commands/${notification.commandId}`;
 
 	if (commandStatus === "IN_PROGRESS") {
-		const confirmedTemplate = confirmedCommandTemplate(
-			notification.command.user.firstname,
-			notification.commandId,
-			commandUrl
+		await promiseList.append(
+			Mail.send(
+				notification.command.user.email,
+				`Commande MET confirmée n°${notification.commandId}`,
+				confirmedCommandTemplate(
+					notification.command.user.firstname,
+					notification.commandId,
+					commandUrl
+				)
+			)
 		);
-		const html = baseTemplate(confirmedTemplate);
-		Mail.send(notification.command.user.email, `Commande MET confirmée N°${notification.commandId}`, html);
 	} else if (commandStatus === "CANCELED") {
-		const canceledTemplate = canceledCommandTemplate(
-			notification.command.user.firstname,
-			notification.commandId,
-			commandUrl
+		await promiseList.append(
+			Mail.send(
+				notification.command.user.email,
+				`Commande MET annulée N°${notification.commandId}`,
+				canceledCommandTemplate(
+					notification.command.user.firstname,
+					notification.commandId,
+					commandUrl
+				)
+			)
 		);
-		const html = baseTemplate(canceledTemplate);
-		Mail.send(notification.command.user.email, `Commande MET annulée N°${notification.commandId}`, html);
 	}
 }
 

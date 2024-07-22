@@ -1,4 +1,3 @@
-import { baseTemplate } from "@/templates";
 import { createdCommandTemplate } from "@/templates/command/created";
 import { addressValidCheck } from "@checkers/address";
 import { fullCommandModel, fullProductSheetModel } from "@mongoose/model";
@@ -169,9 +168,15 @@ export const POST = (method: Methods, path: string) =>
 					})
 				]);
 
-				const createdTemplate = createdCommandTemplate(firstname, commandId, `${ENV.ORIGIN}/commands/${commandId}`);
-				const html = baseTemplate(createdTemplate);
-				Mail.send(user.email, `Commande MET créée N°${commandId}`, html);
+				Mail.send(
+					user.email,
+					`Commande MET créée N°${commandId}`,
+					createdCommandTemplate(
+						firstname,
+						commandId,
+						`${ENV.ORIGIN}/commands/${commandId}`
+					)
+				);
 
 				throw new CreatedHttpException("session", { sessionUrl: session.url });
 			},
