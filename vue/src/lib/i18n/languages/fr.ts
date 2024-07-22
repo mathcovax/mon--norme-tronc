@@ -189,6 +189,9 @@ export default {
 				error: "Echec du paiement",
 			}
 		},
+		[routerPageName.ADMIN_PANEL_HOME]: {
+			title: "Bienvenue sur le panneau d'administration",
+		},
 		[routerPageName.ADMIN_PANEL_ORGANIZATIONS]: {
 			title: "Liste des organisations",
 			form: {
@@ -231,30 +234,6 @@ export default {
 				searchPlaceholderRole: "Chercher par rôle",
 			},
 			btnClear: "Effacer les filtres",
-		},
-		[routerPageName.CONTENT_PANEL_CATEGORIES]: {
-			title: "Liste des catégories",
-			form: {
-				title: "Créer une catégorie",
-				oldName: {
-					label: "Nom actuel : {currentName}"
-				},
-				name: {
-					label: "Nom de la catégorie",
-				},
-				disabled: {
-					desc: "Désactiver la catégorie"
-				},
-				selectImage: "Sélectionner une image",
-				submit: "Valider",
-			},
-			table: {
-				searchPlaceholder: "Chercher une categorie",
-				col: {
-					name: "Nom",
-					disabled: "Active"
-				},
-			}
 		},
 		[routerPageName.ORGANIZATION_MANAGE_USER]: {
 			title: "Gestion des utilisateurs",
@@ -310,20 +289,8 @@ export default {
 				name: "nom de l'entrepôt"
 			}
 		},
-		[routerPageName.CONTENT_PANEL_PARENT_CATEGORIES]: {
-			title: "Liste des catégories parents",
-			form: {
-				title: "Créer une catégorie parent",
-			},
-			label: {
-				name: "Nom de la catégorie parent",
-				linkCategories: "Categories associées",
-				placeholder: "Nom de la catégorie"
-			},
-			table: {
-				name: "Nom de la catégorie parent",
-				searchPlaceholder: "Chercher par le nom de la catégorie parent",
-			}
+		[routerPageName.CONTENT_PANEL_HOME]: {
+			title: "Bienvenue sur le panneau de gestion du contenu",
 		},
 		[routerPageName.CONTENT_PANEL_NAVIGATION_BAR]: {
 			title: "Éléments de la barre de navigation",
@@ -340,6 +307,45 @@ export default {
 			popup: {
 				title: "Voulez-vous vraiment supprimer cet élément ?",
 				content: "Si vous validez, cet élément de la barre de navigation sera supprimé définitivement."
+			}
+		},
+		[routerPageName.CONTENT_PANEL_PARENT_CATEGORIES]: {
+			title: "Liste des catégories parents",
+			form: {
+				title: "Créer une catégorie parent",
+			},
+			label: {
+				name: "Nom de la catégorie parent",
+				linkCategories: "Categories associées",
+				placeholder: "Nom de la catégorie"
+			},
+			table: {
+				name: "Nom de la catégorie parent",
+				searchPlaceholder: "Chercher par le nom de la catégorie parent",
+			}
+		},
+		[routerPageName.CONTENT_PANEL_CATEGORIES]: {
+			title: "Liste des catégories",
+			form: {
+				title: "Créer une catégorie",
+				oldName: {
+					label: "Nom actuel : {currentName}"
+				},
+				name: {
+					label: "Nom de la catégorie",
+				},
+				disabled: {
+					desc: "Désactiver la catégorie"
+				},
+				selectImage: "Sélectionner une image",
+				submit: "Valider",
+			},
+			table: {
+				searchPlaceholder: "Chercher une categorie",
+				col: {
+					name: "Nom",
+					disabled: "Active"
+				},
 			}
 		},
 		[routerPageName.CONTENT_PANEL_NEWSLETTERS]: {
@@ -435,6 +441,9 @@ export default {
 				invalid: "Invalidé",
 				putInWaiting: "Mettre en attente",
 			}
+		},
+		[routerPageName.MODERATOR_PANEL_HOME]: {
+			title: "Bienvenue sur le panneau de modération",
 		},
 		[routerPageName.MODERATOR_PANEL_CHECK_PRODUCT_SHEET_REVIEW]: {
 			button: {
@@ -627,10 +636,10 @@ export default {
 		},
 		moderator: {
 			nav: {
-				"moderator-panel-home": "Dashboard",
+				"moderator-panel-home": "tableau de bord",
 				"moderator-panel-check-product-sheet-review": "Check Commentaires",
 				"moderator-panel-check-product-sheet": "Check Fiche Produit",
-				"home": "Accueil"
+				"home": "Retour à l'accueil"
 			}
 		}
 	},
