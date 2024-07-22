@@ -1,7 +1,12 @@
 <script setup lang="ts">
-defineProps({
-	item: Object
-});
+interface FaqItem {
+	question: string;
+	answer: string;
+}
+
+defineProps<{
+	item: FaqItem;
+}>();
 </script>
 
 <template>
