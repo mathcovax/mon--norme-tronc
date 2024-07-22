@@ -29,7 +29,9 @@
 		"sendMail:newProductInCategory": "docker compose exec duplo npm -w duplo run sendMail:newProductInCategory",
 		"sendMail:newsletter": "docker compose exec duplo npm -w duplo run sendMail:newsletter",
 		"computeProductStock": "docker compose exec duplo npm -w duplo run computeProductStock",
+		"indexing:commandItem": "docker compose exec duplo npm -w duplo run indexing:commandItem",
 		"fixture": "docker compose exec duplo npm -w duplo run fixture",
+		"fixture:mongo": "docker compose exec duplo npm -w duplo run fixture:mongo",
 		"stripe:listen": "bash stripe/listen.sh",
 		"stripe:trigger": "bash stripe/trigger.sh"
 	},

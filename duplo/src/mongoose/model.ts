@@ -6,6 +6,7 @@ import { fullNotificationSchema } from "@schemas/userNotification";
 import { zodToMongooseSchema } from "@utils/zodToMongooseSchema";
 import { productStockSchema } from "@schemas/ProductStock";
 import { model } from "mongoose";
+import { fullCommandItemSchema } from "@schemas/fullCommandItem";
 
 const fullProductSheetMongooseSchema = zodToMongooseSchema(fullProductSheetSchema);
 export const fullProductSheetModel = model(
@@ -22,6 +23,12 @@ const productStatusChangeMongooseSchema = zodToMongooseSchema(productStatusChang
 export const productStatusChangeModel = model(
 	"productStatusChange",
 	productStatusChangeMongooseSchema
+);
+
+const fullCommandItemMongooseSchema = zodToMongooseSchema(fullCommandItemSchema);
+export const fullCommandItemModel = model(
+	"FullCommandItem",
+	fullCommandItemMongooseSchema
 );
 
 const fullCommandMongooseSchema = zodToMongooseSchema(fullCommandSchema);

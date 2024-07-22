@@ -63,6 +63,7 @@ model organization {
     products           product[]
     promotions         promotion[]
     product_return     product_return[]
+    grid               String?                @db.Text
 }
 
 model user_to_organization {

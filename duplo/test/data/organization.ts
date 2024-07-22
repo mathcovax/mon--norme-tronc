@@ -7,5 +7,6 @@ export const organizationData: organization = {
 	ownerId: "okok",
 	suspended: false,
 	logoKey: null,
-	logoUrl: null
+	logoUrl: null,
+	grid: "",
 };

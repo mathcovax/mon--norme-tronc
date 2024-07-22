@@ -66,6 +66,11 @@ const onglets: Onglet[] = [
 		icon: "clipboard-arrow-left",
 		role: "STORE_KEEPER",
 	},
+	{
+		pageName: routerPageName.ORGANIZATION_ANALYTICS,
+		icon: "chart-bar",
+		role: "OWNER",
+	},
 ];
 </script>
 
@@ -120,4 +125,3 @@ const onglets: Onglet[] = [
 		</div>
 	</div>
 </template>
-

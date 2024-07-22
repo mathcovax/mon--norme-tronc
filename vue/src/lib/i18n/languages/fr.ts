@@ -461,6 +461,55 @@ export default {
 			},
 			emptyProductSheet: "Plus de fiche produit à vérifier.",
 		},
+		[routerPageName.ORGANIZATION_ANALYTICS]: {
+			title: "Analytiques",
+			select: {
+				add: "Créer un graphique",
+			},
+			graphic: {
+				value: "Valeur unique",
+				line: "Graphique en ligne",
+				bar: "Graphique en barre",
+				pie: "Graphique en camembert",
+				donut: "Graphique en donut",
+				area: "Graphique en zone",
+				top: "Top",
+			},
+			button: {
+				save: "Enregistrer le style",
+			},
+			form: {
+				title: "Créer un graphique : ",
+				label: {
+					facet: "Facet",
+					productSheet: "Fiche produit",
+					category: "Catégorie",
+					categories: "Catégories",
+					facets: "Facets",
+					startDate: "Date de début",
+					endDate: "Date de fin",
+				},
+				placeholder: {
+					facet: "facet",
+					productSheet: "fiche produit",
+					category: "catégorie",
+				},
+				rule: {
+					endDateEStartDate: "La date de début doit être différente de la date de fin.",
+					endDateGteStartDate: "La date de début doit être inférieure à la date de fin.",
+				},
+				textButton: {
+					category: "Trouver une catégorie",
+					productSheet: "Trouver une fiche produit",
+					facet: "Trouver un facet",
+				}
+			},
+			text: {
+				top: "Classement",
+				deleteWidget: "Êtes-vous sur de vouloir supprimer ce widget ?",
+				notData: "Vous n'avez configurez aucun widget.",
+			}
+		},
 	},
 	filters: {
 		title: "Filtres",
@@ -614,6 +663,7 @@ export default {
 				"organization-panel-get-warehouse": "Entrepôts",
 				"organization-panel-get-product-sheet": "Fiches produits",
 				"organization-product-return": "Retours Produits",
+				"organization-panel-analytics": "Analytiques",
 			},
 		},
 		content: {

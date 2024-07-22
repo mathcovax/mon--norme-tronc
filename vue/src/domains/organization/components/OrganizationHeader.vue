@@ -8,7 +8,7 @@ const organizationUserStore = useOrganizationUserStore();
 
 <template>
 	<header class="h-24 px-8 flex gap-4 items-center border-b bg-muted/40">
-		<OrganizationMobileNavbar />
+		<OrganizationMobileNavbar v-if="false" />
 
 		<div class="w-full flex-1 text-center md:text-start">
 			<span class=" text-xl">

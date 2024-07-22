@@ -11,6 +11,7 @@ const {
 	ORGANIZATION_GET_WAREHOUSE,
 	ORGANIZATION_COMMANDS,
 	ORGANIZATION_MANAGE_PROMOTION,
+	ORGANIZATION_ANALYTICS,
 } = routerPageName;
 const route = useRoute();
 const organizationUserStore = useOrganizationUserStore();
@@ -223,17 +224,17 @@ getOrganization();
 				<SheetClose as-child>
 					<RouterLink
 						v-if="organizationUserStore.hasRole('ACCOUNTANT')"
-						to="#"
+						:to="{ name: ORGANIZATION_ANALYTICS }"
 						class="mx-[-0.65rem] px-3 py-2 flex items-center gap-4 rounded-xl hover:text-foreground"
 						:class="
-							!route.name ?
+							route.name === ORGANIZATION_ANALYTICS ?
 								'bg-muted text-foreground'
 								:
 								'text-muted-foreground'
 						"
 					>
 						<TheIcon
-							icon="chart-line"
+							icon="chart-bar"
 							size="2xl"
 						/>
 						{{ $t("layout.organization.nav.analytics") }}
