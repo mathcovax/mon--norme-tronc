@@ -2,44 +2,49 @@ import chartMapper from "@services/stats/mapper";
 import { fullCommandItemModel } from "@mongoose/model";
 import { widgetParamSchema, formattedDataSchema } from "@schemas/gridStatCommand";
 import PipelineStageBuilderKpi from "@services/stats/queryBuilders/kpi";
+import { hasOrganizationRoleByOrganizationId } from "@security/hasOrganizationRole/byOrganizationId";
 
 /* METHOD : POST, PATH : /organization/{organizationId}/make-stat */
-export const POST = (method: Methods, path: string) => duplo
-	.declareRoute(method, path)
-	.extract({
-		params: {
-			organizationId: zod.string()
-		},
-		body: widgetParamSchema
+export const POST = (method: Methods, path: string) =>
+	hasOrganizationRoleByOrganizationId({
+		options: { organizationRole: "BELONG_TO" },
+		pickup: ["organization"]
 	})
-	.handler(
-		async ({ pickup }) => {
-			const organizationId = pickup("organizationId");
-			const { type, filters } = pickup("body");
+		.declareRoute(method, path)
+		.extract({
+			body: widgetParamSchema
+		})
+		.handler(
+			async ({ pickup }) => {
+				const organizationId = pickup("organization").id;
+				const { type, filters } = pickup("body");
 
-			if (type === "top") {
-				const pipe = new PipelineStageBuilderKpi(organizationId).buildPipelineStageForTop(filters);
+				if (filters.endDate > new Date(Date.now())) {
+					filters.endDate = new Date(Date.now());
+				}
 
-				const data = await fullCommandItemModel.aggregate(pipe);
+				if (type === "top") {
+					const pipe = new PipelineStageBuilderKpi(organizationId).buildPipelineStageForTop(filters);
 
-				throw new OkHttpException("widget.found", data);
-			}
-			else if (type === "value") {
-				const pipe = new PipelineStageBuilderKpi(organizationId).buildPipelineStageForValue(filters);
+					const data = await fullCommandItemModel.aggregate(pipe);
 
-				const data = await fullCommandItemModel.aggregate(pipe);
+					throw new OkHttpException("widget.found", { data: data });
+				}
+				else if (type === "value") {
+					const pipe = new PipelineStageBuilderKpi(organizationId).buildPipelineStageForValue(filters);
 
-				console.log(data);
+					const data = await fullCommandItemModel.aggregate(pipe);
 
-				throw new OkHttpException("widget.found", data);
-			}
-			else {
-				const pipe =  chartMapper[type].PipelineStageBuilder(filters, organizationId);
+					throw new OkHttpException("widget.found", { data: data });
+				}
+				else {
+					const pipe =  chartMapper[type].PipelineStageBuilder(filters, organizationId);
 
-				const data = await Promise.all(pipe.map(p => fullCommandItemModel.aggregate(p)));
+					const data = await Promise.all(pipe.map(p => fullCommandItemModel.aggregate(p)));
+					console.log(data);
 
-				throw new OkHttpException("widget.found", chartMapper[type].Formatter(data));
-			}
-		},
-		new IHaveSentThis(OkHttpException.code,"widget.found", formattedDataSchema)
-	);
+					throw new OkHttpException("widget.found", chartMapper[type].Formatter(data));
+				}
+			},
+			new IHaveSentThis(OkHttpException.code,"widget.found", formattedDataSchema)
+		);

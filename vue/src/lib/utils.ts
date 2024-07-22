@@ -156,11 +156,11 @@ export type Facet = GetResponseByInfo<
 export type FacetType = Facet["type"];
 
 export const facetType: TuplifyUnion<FacetType> = [
+	"ACCESSORY",
 	"COLOR",
 	"SIZE",
 	"DIAMETER",
 	"TARGET",
-	"ACCESSORY",
 	"MATERIAL",
 	"STIMULATION",
 ];
@@ -235,4 +235,31 @@ export type ProductStockStory = GetResponseByInfo<
 export type ProductSheetReview = GetResponseByInfo<
 	GetDef<"GET",  "/product-sheet/{productSheetId}/reviews">,
 	"productSheetReviews"
+>["body"][number]
+
+export type WidgetStat = GetResponseByInfo<
+	GetDef<"GET", "/organization/{organizationId}/grid">,
+	"gridStatCommand.found"
+>["body"][number]
+
+export type WidgetParam = WidgetStat["params"];
+
+export type WidgetResult = GetResponseByInfo<
+	GetDef<"POST", "/organization/{organizationId}/make-stat">,
+	"widget.found"
+>["body"]
+
+export const widgetType: TuplifyUnion<WidgetParam["type"]> = [
+	"line",
+	"bar",
+	"pie",
+	"donut",
+	"area",
+	"top",
+	"value"
+];
+
+export type Facets = GetResponseByInfo<
+	GetDef<"GET", "/organization/{organizationId}/facets">,
+	"productSheet.facets"
 >["body"][number]

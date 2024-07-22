@@ -11,7 +11,7 @@ import AdminNavbar from "../components/AdminNavbar.vue";
 			<AdminHeader class="shrink-0" />
 
 			<main class="flex flex-col shadow-inner-top-left grow overflow-hidden">
-				<RouterView class="overflow-y-auto p-4 lg:p-6" />
+				<RouterView class="overflow-y-auto p-4 lg:p-8" />
 			</main>
 		</div>
 	</div>

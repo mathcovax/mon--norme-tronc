@@ -58,7 +58,7 @@ const onglets: Onglet[] = [
 		</div>
 
 		<main class="flex flex-col shadow-inner-top-left grow overflow-hidden">
-			<RouterView class="overflow-y-auto p-4 lg:p-6" />
+			<RouterView class="overflow-y-auto p-4 lg:p-8" />
 		</main>
 	</div>
 </template>

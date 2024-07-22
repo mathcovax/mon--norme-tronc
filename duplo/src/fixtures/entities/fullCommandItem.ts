@@ -21,7 +21,7 @@ export const addFullCommandItem = async (
 		dayOfYear: roundDate(randomDate(new Date(2024, 0, 1), new Date())),
 		totalValue: quantity * (fullCommandItem.productSheet?.price || 0),
 		organization: {
-			id: "b0b03293-3d09-4349-a1f3-39fd8b4da2f5",
+			id: "3fbcdc96-b1d6-46f5-bf79-68bdf6d7396b",
 			name: "Reilly, Pouros and Will",
 		},
 		...fullCommandItem,

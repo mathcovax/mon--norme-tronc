@@ -23,6 +23,9 @@ module.exports = {
 			},
 		},
 		extend: {
+			backgroundColor: {
+				"glassmorphism": "rgba(255, 255, 255, 0.41)"
+			},
 			maxWidth: {
 				"144": "36rem",
 				"192": "48rem",
@@ -114,10 +117,27 @@ module.exports = {
 				"collapsible-down": "collapsible-down 0.2s ease-in-out",
 				"collapsible-up": "collapsible-up 0.2s ease-in-out",
 			},
+			backgroundImage: theme => ({
+				'gold-gradient': 'linear-gradient(to bottom, white 70%, #FFD700 100%)',
+				'silver-gradient': 'linear-gradient(to bottom, white 70%, #C0C0C0 100%)',
+				'bronze-gradient': 'linear-gradient(to bottom, white 70%, #CD7F32 100%)',
+				'copper-gradient': 'linear-gradient(to bottom, white 70%, #7a5735 100%)',
+				'black-gradient': 'linear-gradient(to bottom, white 70%, #000 100%)',
+			  }),
 		},
 	},
 	plugins: [
 		animate,
 		require('@tailwindcss/typography'),
+		function writingModePlugin({ addComponents, theme }) {
+			addComponents({
+			  ".vertical-writing": {
+				writingMode: "vertical-rl",
+			  },
+			  ".inverted-vertical-writing": {
+				writingMode: "vertical-lr",
+			  },
+			});
+		  },
 	],
 }

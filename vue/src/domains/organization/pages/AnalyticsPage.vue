@@ -1,319 +1,122 @@
 <script setup lang="ts">
 import { GridLayout } from "grid-layout-plus";
+import { useGetGrid, type WidgetFull } from "@/domains/organization/composables/useGetGrid";
+import TheTop from "@/domains/organization/components/TheTop.vue";
+import TheValue from "@/domains/organization/components/TheValue.vue";
+import { type WidgetParam, type WidgetStat, widgetType } from "@/lib/utils";
+import { useWidgetAreaLineBarForm } from  "@/domains/organization/composables/useWidgetAreaLineBarForm";
+import { useWidgetDonutPieForm } from "@/domains/organization/composables/useWidgetDonutPieForm";
+import { useWidgetValueForm } from "@/domains/organization/composables/useWidgetValueForm";
+import { useWidgetTopForm } from "@/domains/organization/composables/useWidgetTopForm";
+import type ThePopup from "@/components/ThePopup.vue";
+import { useOrganizationUserStore } from "@/domains/organization/stores/organizationUser";
 
 const $pt = usePageTranslate();
 
-interface LayoutItem {
-	x: number;
-	y: number;
-	w: number;
-	h: number;
-	i: string;
-}
+const params = useRouteParams({ 
+	organizationId: zod.string(), 
+});
 
+const { 
+	gridStructure, 
+	gridStat, 
+	getGrid 
+} = useGetGrid(params.value.organizationId);
+const { 
+	FormWidgetAreaLineBar, 
+	checkFormWidgetAreaLineBar, 
+	resetFormWidgetAreaLineBar, 
+	toggleAreaLineBar,
+	actionToggleAreaLineBar,
+	suggestedCategories,
+	getCategoriesWidgetAreaLineBar,
+	suggestedFacets,
+	getFacetsWidgetAreaLineBar,
+	suggestedProductSheets,
+	getProductSheetsWidgetAreaLineBar, 
+} = useWidgetAreaLineBarForm(params.value.organizationId);
+const { 
+	FormWidgetDonutPie, 
+	checkFormWidgetDonutPie, 
+	resetFormWidgetDonutPie, 
+	toggleDonutPie,
+	actionToggleDonutPie,
+} = useWidgetDonutPieForm(params.value.organizationId);
+const { 
+	FormWidgetValue, 
+	checkFormWidgetValue, 
+	resetFormWidgetValue,
+	toggleValue, 
+	actionToggleValue, 
+} = useWidgetValueForm(params.value.organizationId);
+const { 
+	FormWidgetTop, 
+	checkFormWidgetTop, 
+	resetFormWidgetTop, 
+	toggleTop,
+	actionToggleTop,
+	suggestedCategoriesTop,
+	getCategoriesWidgetTop,
+	suggestedProductSheetsTop,
+	getProductSheetsWidgetTop,
+} = useWidgetTopForm(params.value.organizationId);
+const organizationUserStore = useOrganizationUserStore();
 
+const popup = ref<InstanceType<typeof ThePopup>>();
+const popupdelete = ref<InstanceType<typeof ThePopup>>();
 const draggable = ref(true);
 const resizable = ref(true);
 const responsive = ref(true);
+const chooseForm = ref<WidgetParam["type"] | undefined>();
+const gridComp = ref(0);
+const indexDelete = ref(0);
 
-// TODO: Replace with real data
-const dataArea = [
-	{ name: "Jan", total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },
-	{ name: "Feb", total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },
-	{ name: "Mar", total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },
-	{ name: "Apr", total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },
-	{ name: "May", total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },
-	{ name: "Jun", total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },
-	{ name: "Jul", total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },
-];
+const reloadGrid = () => window.location.reload();
 
-const dataLine = [
-	{
-		"year": 1970,
-		"Export Growth Rate": 2.04,
-		"Import Growth Rate": 1.53,
-	},
-	{
-		"year": 1971,
-		"Export Growth Rate": 1.96,
-		"Import Growth Rate": 1.58,
-	},
-	{
-		"year": 1972,
-		"Export Growth Rate": 1.96,
-		"Import Growth Rate": 1.61,
-	},
-	{
-		"year": 1973,
-		"Export Growth Rate": 1.93,
-		"Import Growth Rate": 1.61,
-	},
-	{
-		"year": 1974,
-		"Export Growth Rate": 1.88,
-		"Import Growth Rate": 1.67,
-	},
-	{
-		"year": 1975,
-		"Export Growth Rate": 1.79,
-		"Import Growth Rate": 1.64,
-	},
-	{
-		"year": 1976,
-		"Export Growth Rate": 1.77,
-		"Import Growth Rate": 1.62,
-	},
-	{
-		"year": 1977,
-		"Export Growth Rate": 1.74,
-		"Import Growth Rate": 1.69,
-	},
-	{
-		"year": 1978,
-		"Export Growth Rate": 1.74,
-		"Import Growth Rate": 1.7,
-	},
-	{
-		"year": 1979,
-		"Export Growth Rate": 1.77,
-		"Import Growth Rate": 1.67,
-	},
-	{
-		"year": 1980,
-		"Export Growth Rate": 1.79,
-		"Import Growth Rate": 1.7,
-	},
-	{
-		"year": 1981,
-		"Export Growth Rate": 1.81,
-		"Import Growth Rate": 1.72,
-	},
-	{
-		"year": 1982,
-		"Export Growth Rate": 1.84,
-		"Import Growth Rate": 1.73,
-	},
-	{
-		"year": 1983,
-		"Export Growth Rate": 1.77,
-		"Import Growth Rate": 1.73,
-	},
-	{
-		"year": 1984,
-		"Export Growth Rate": 1.78,
-		"Import Growth Rate": 1.78,
-	},
-	{
-		"year": 1985,
-		"Export Growth Rate": 1.78,
-		"Import Growth Rate": 1.81,
-	},
-	{
-		"year": 1986,
-		"Export Growth Rate": 1.82,
-		"Import Growth Rate": 1.89,
-	},
-	{
-		"year": 1987,
-		"Export Growth Rate": 1.82,
-		"Import Growth Rate": 1.91,
-	},
-	{
-		"year": 1988,
-		"Export Growth Rate": 1.77,
-		"Import Growth Rate": 1.94,
-	},
-	{
-		"year": 1989,
-		"Export Growth Rate": 1.76,
-		"Import Growth Rate": 1.94,
-	},
-	{
-		"year": 1990,
-		"Export Growth Rate": 1.75,
-		"Import Growth Rate": 1.97,
-	},
-	{
-		"year": 1991,
-		"Export Growth Rate": 1.62,
-		"Import Growth Rate": 1.99,
-	},
-	{
-		"year": 1992,
-		"Export Growth Rate": 1.56,
-		"Import Growth Rate": 2.12,
-	},
-	{
-		"year": 1993,
-		"Export Growth Rate": 1.5,
-		"Import Growth Rate": 2.13,
-	},
-	{
-		"year": 1994,
-		"Export Growth Rate": 1.46,
-		"Import Growth Rate": 2.15,
-	},
-	{
-		"year": 1995,
-		"Export Growth Rate": 1.43,
-		"Import Growth Rate": 2.17,
-	},
-	{
-		"year": 1996,
-		"Export Growth Rate": 1.4,
-		"Import Growth Rate": 2.2,
-	},
-	{
-		"year": 1997,
-		"Export Growth Rate": 1.37,
-		"Import Growth Rate": 2.15,
-	},
-	{
-		"year": 1998,
-		"Export Growth Rate": 1.34,
-		"Import Growth Rate": 2.07,
-	},
-	{
-		"year": 1999,
-		"Export Growth Rate": 1.32,
-		"Import Growth Rate": 2.05,
-	},
-	{
-		"year": 2000,
-		"Export Growth Rate": 1.33,
-		"Import Growth Rate": 2.07,
-	},
-	{
-		"year": 2001,
-		"Export Growth Rate": 1.31,
-		"Import Growth Rate": 2.08,
-	},
-	{
-		"year": 2002,
-		"Export Growth Rate": 1.29,
-		"Import Growth Rate": 2.1,
-	},
-	{
-		"year": 2003,
-		"Export Growth Rate": 1.27,
-		"Import Growth Rate": 2.15,
-	},
-	{
-		"year": 2004,
-		"Export Growth Rate": 1.27,
-		"Import Growth Rate": 2.21,
-	},
-	{
-		"year": 2005,
-		"Export Growth Rate": 1.26,
-		"Import Growth Rate": 2.23,
-	},
-	{
-		"year": 2006,
-		"Export Growth Rate": 1.26,
-		"Import Growth Rate": 2.29,
-	},
-	{
-		"year": 2007,
-		"Export Growth Rate": 1.27,
-		"Import Growth Rate": 2.34,
-	},
-	{
-		"year": 2008,
-		"Export Growth Rate": 1.26,
-		"Import Growth Rate": 2.36,
-	},
-	{
-		"year": 2009,
-		"Export Growth Rate": 1.26,
-		"Import Growth Rate": 2.36,
-	},
-	{
-		"year": 2010,
-		"Export Growth Rate": 1.25,
-		"Import Growth Rate": 2.35,
-	},
-	{
-		"year": 2011,
-		"Export Growth Rate": 1.24,
-		"Import Growth Rate": 2.34,
-	},
-	{
-		"year": 2012,
-		"Export Growth Rate": 1.25,
-		"Import Growth Rate": 2.39,
-	},
-	{
-		"year": 2013,
-		"Export Growth Rate": 1.22,
-		"Import Growth Rate": 2.3,
-	},
-	{
-		"year": 2014,
-		"Export Growth Rate": 1.2,
-		"Import Growth Rate": 2.35,
-	},
-	{
-		"year": 2015,
-		"Export Growth Rate": 1.17,
-		"Import Growth Rate": 2.39,
-	},
-	{
-		"year": 2016,
-		"Export Growth Rate": 1.16,
-		"Import Growth Rate": 2.41,
-	},
-	{
-		"year": 2017,
-		"Export Growth Rate": 1.13,
-		"Import Growth Rate": 2.44,
-	},
-	{
-		"year": 2018,
-		"Export Growth Rate": 1.07,
-		"Import Growth Rate": 2.45,
-	},
-	{
-		"year": 2019,
-		"Export Growth Rate": 1.03,
-		"Import Growth Rate": 2.47,
-	},
-	{
-		"year": 2020,
-		"Export Growth Rate": 0.92,
-		"Import Growth Rate": 2.48,
-	},
-	{
-		"year": 2021,
-		"Export Growth Rate": 0.82,
-		"Import Growth Rate": 2.51,
-	},
-];
+function openPopup(type: WidgetParam["type"]) {
+	chooseForm.value = type;
+	popup.value?.open();
+}
 
-const dataBar = [
-	{ name: "Jan", total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },
-	{ name: "Feb", total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },
-	{ name: "Mar", total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },
-	{ name: "Apr", total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },
-	{ name: "May", total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },
-	{ name: "Jun", total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },
-	{ name: "Jul", total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },
-];
+function openPopupDelete(index: number) {
+	popupdelete.value?.open();
+	indexDelete.value = index;
+}
 
-const dataDonut = [
-	{ name: "Jan", total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },
-	{ name: "Feb", total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },
-	{ name: "Mar", total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },
-	{ name: "Apr", total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },
-	{ name: "May", total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },
-	{ name: "Jun", total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },
-];
-//
+function deleteWidget() {
+	const lastGrid = reassignIndices();
+	lastGrid.forEach((item) => {
+		if (item.i === indexDelete.value) {
+			lastGrid.splice(indexDelete.value, 1);
+		}
+	});
 
-function saveLayout(layout: LayoutItem) {
+	duploTo.enriched
+		.put(
+			"/organization/{organizationId}/grid",
+			lastGrid,
+			{ params: { organizationId: params.value.organizationId } }
+		)
+		.info("gridStatCommand.updated", async () => {
+			await getGrid();
+			popupdelete.value?.close();
+			reloadGrid();
+		});
+}
+
+function saveLayout(layout: WidgetFull[]) {
 	const layoutData = JSON.stringify(layout);
-
 	localStorage.setItem("myLayout", layoutData);
+}
+
+function updatePosition(layout: WidgetFull[]) {
+	return duploTo.enriched
+		.put(
+			"/organization/{organizationId}/grid",
+			layout,
+			{ params: { organizationId: params.value.organizationId } }
+		)
+		.result;
 }
 
 function loadLayout() {
@@ -323,33 +126,442 @@ function loadLayout() {
 		return JSON.parse(layoutData);
 	}
 
-	return [
-		{
-			x: 0, y: 0, w: 12, h: 3, i: "AreaChart" 
-		},
-		{
-			x: 0, y: 1, w: 12, h: 3, i: "LineChart" 
-		},
-		{
-			x: 0, y: 2, w: 12, h: 3, i: "BarChart" 
-		},
-		{
-			x: 0, y: 3, w: 12, h: 3, i: "DonutChart" 
-		}
-	];
+	return gridStat.value;
 }
 
-const layout = reactive(loadLayout());
+function reassignIndices() {
+	const lastGrid = gridStructure.value;
+	lastGrid.forEach((item, index) => {
+		item.i = index;
+	});
+
+	return lastGrid;
+}
+
+async function submitLineAreaBar() {
+	if (chooseForm.value !== "line" && chooseForm.value !== "area" && chooseForm.value !== "bar") return;
+	const formFields = await checkFormWidgetAreaLineBar();
+	if (!formFields) return;
+	let areaLineBar: WidgetStat | null = null;
+
+	if (formFields.category !== undefined && formFields.category.length !== 0) {
+		areaLineBar = {
+			x: 0,
+			y: 0,
+			w: 6,
+			h: 3,
+			i: gridStructure.value.length,
+			params: {
+				type: chooseForm.value,
+				filters: {
+					categories: formFields.category.map((i) => i.value),
+					facets: {},
+					startDate: new Date(formFields.startDate),
+					endDate: new Date(formFields.endDate),
+				}
+			}
+		};
+	} else if (formFields.productSheet !== undefined && formFields.productSheet.length !== 0) {
+		areaLineBar = {
+			x: 0,
+			y: 0,
+			w: 6,
+			h: 3,
+			i: gridStructure.value.length,
+			params: {
+				type: chooseForm.value,
+				filters: {
+					productSheetsId: formFields.productSheet.map((i) => i.value),
+					startDate: new Date(formFields.startDate),
+					endDate: new Date(formFields.endDate),
+				}
+			}
+		};
+	}
+	if (areaLineBar === null) return;
+	
+	const lastGrid = reassignIndices();
+	lastGrid.push(areaLineBar);
+
+	duploTo.enriched
+		.put(
+			"/organization/{organizationId}/grid",
+			lastGrid,
+			{ params: { organizationId: params.value.organizationId } }
+		)
+		.info("gridStatCommand.updated", async () => {
+			resetFormWidgetAreaLineBar();
+			await getGrid();
+			popup.value?.close();
+			reloadGrid();
+		});
+}
+
+async function submitValue() {
+	if (chooseForm.value !== "value") return;
+	const formFields = await checkFormWidgetValue();
+	if (!formFields) return;
+
+	const value: WidgetStat = {
+		x: 0,
+		y: 0,
+		w: 3,
+		h: 1,
+		i: gridStructure.value.length,
+		params: {
+			type: "value",
+			filters: {
+				customfilterType: formFields.productSheet === undefined || formFields.productSheet.length === 0 ? 
+					"category" : 
+					"productSheetId",
+				filterValue: formFields.productSheet === undefined || formFields.productSheet.length === 0 ? 
+					formFields.category === undefined ? "" : formFields.category : 
+					formFields.productSheet,
+				startDate: new Date(formFields.startDate),
+				endDate: new Date(formFields.endDate),	
+			}
+		}
+	};
+
+	const lastGrid = reassignIndices();
+	lastGrid.push(value);
+
+	duploTo.enriched
+		.put(
+			"/organization/{organizationId}/grid",
+			lastGrid,
+			{ params: { organizationId: params.value.organizationId } }
+		)
+		.info("gridStatCommand.updated", async () => {
+			resetFormWidgetValue();
+			await getGrid();
+			popup.value?.close();
+			reloadGrid();
+		});
+}
+
+async function submitDonutPie() {
+	if (chooseForm.value !== "donut" && chooseForm.value !== "pie") return;
+	const formFields = await checkFormWidgetDonutPie();
+	if (!formFields) return;
+	let donutPie: WidgetStat | null = null;
+
+	if (formFields.category !== undefined && formFields.category.length !== 0) {
+		donutPie = {
+			x: 0,
+			y: 0,
+			w: 2,
+			h: 1,
+			i: gridStructure.value.length,
+			params: {
+				type: chooseForm.value,
+				filters: {
+					categories: [formFields.category],
+					facets: {},
+					startDate: new Date(formFields.startDate),
+					endDate: new Date(formFields.endDate),
+				}
+			}
+		};
+	} else if (formFields.productSheet !== undefined && formFields.productSheet.length !== 0) {
+		donutPie = {
+			x: 0,
+			y: 0,
+			w: 2,
+			h: 1,
+			i: gridStructure.value.length,
+			params: {
+				type: chooseForm.value,
+				filters: {
+					productSheetsId: [formFields.productSheet],
+					startDate: new Date(formFields.startDate),
+					endDate: new Date(formFields.endDate),
+				}
+			}
+		};
+	}
+	if (donutPie === null) return;
+
+	const lastGrid = reassignIndices();
+	lastGrid.push(donutPie);
+
+	duploTo.enriched
+		.put(
+			"/organization/{organizationId}/grid",
+			lastGrid,
+			{ params: { organizationId: params.value.organizationId } }
+		)
+		.info("gridStatCommand.updated", async () => {
+			resetFormWidgetDonutPie();
+			await getGrid();
+			popup.value?.close();
+			reloadGrid();
+		});
+}
+
+async function submitTop() {
+	if (chooseForm.value !== "top") return;
+	const formFields = await checkFormWidgetTop();
+	if (!formFields) return;
+
+	const top: WidgetStat = {
+		x: 0,
+		y: 0,
+		w: 4,
+		h: 3,
+		i: gridStructure.value.length,
+		params: {
+			type: "top",
+			filters: {
+				customfilterType: formFields.productSheet === undefined || formFields.productSheet.length === 0 ? 
+					"categories" : 
+					"productSheetsId",
+				filterValue: formFields.productSheet === undefined || formFields.productSheet.length === 0 ? 
+					formFields.category === undefined ? [] : formFields.category.map((i) => i.value) : 
+					formFields.productSheet.map((i) => i.value),
+				startDate: new Date(formFields.startDate),
+				endDate: new Date(formFields.endDate),	
+			}
+		}
+	};
+
+	const lastGrid = reassignIndices();
+	lastGrid.push(top);
+
+	duploTo.enriched
+		.put(
+			"/organization/{organizationId}/grid",
+			lastGrid,
+			{ params: { organizationId: params.value.organizationId } }
+		)
+		.info("gridStatCommand.updated", async () => {
+			resetFormWidgetTop();
+			await getGrid();
+			popup.value?.close();
+			reloadGrid();
+		});
+}
+
+const layout = ref(loadLayout());
+onMounted(async () => {
+	await getGrid();
+	if (gridStat.value.length > 0) {
+		saveLayout(gridStat.value);
+	}
+});
 </script>
 
 <template>
 	<section>
-		<h1 class="mb-12 text-2xl font-semibold">
-			{{ $pt("title") }}	
+		<h1 class="mb-12 text-3xl font-bold">
+			{{ $pt("title") }}
 		</h1>
 
-		<div class="w-full overflow-hidden">
+		<div class="flex flex-row justify-between">
+			<div
+				class="flex items-center"
+				v-if="organizationUserStore.hasRole('OWNER')"
+			>
+				<PrimarySelect
+					class="max-w-[300px]"
+					:items="widgetType.map(type => ({ label: $pt(`graphic.${type}`), value: type }))"
+					:placeholder="$pt('select.add')"
+					@update:model-value="value => openPopup(value as WidgetParam['type'])"
+				/>
+
+				<PrimaryButton
+					class="ml-4 px-3 py-2 rounded-lg border cursor-pointer"
+					@click="updatePosition(layout)"
+				>
+					{{ $pt("button.save") }}
+				</PrimaryButton>
+			</div>
+
+			<TheIcon
+				class="ml-4 px-3 py-2 rounded-lg border cursor-pointer"
+				icon="reload"
+				@click="reloadGrid"
+			/>
+		</div>
+
+		<ThePopup
+			ref="popup"
+			class="max-w-[700px] w-[80%]"
+		>
+			<template #popupContent>
+				<h1 class="font-bold text-xl mt-2 mb-8">
+					{{ $pt('form.title') + chooseForm?.toUpperCase() }}
+				</h1>
+
+				<FormWidgetDonutPie
+					v-if="chooseForm === 'donut' || chooseForm === 'pie'"
+					@submit="submitDonutPie"
+				>
+					<TheToggle
+						:label="['category', 'productSheet']"
+						:state="toggleDonutPie"
+						@click="actionToggleDonutPie"
+					/>
+
+					<PrimaryButton
+						type="submit"
+						class="col-span-12"
+					>
+						{{ $t("button.save") }}
+					</PrimaryButton>
+				</FormWidgetDonutPie>
+
+				<FormWidgetAreaLineBar
+					v-else-if="chooseForm === 'area' || chooseForm === 'line' || chooseForm === 'bar'"
+					@submit="submitLineAreaBar"
+				>
+					<TheToggle
+						:label="['categories', 'productSheets']"
+						:state="toggleAreaLineBar"
+						@click="actionToggleAreaLineBar"
+					/>
+					
+					<template 
+						#category="{onUpdate, modelValue}"
+						v-if="!toggleAreaLineBar"
+					>
+						<MultiComboBox
+							:model-value="modelValue"
+							@update:model-value="onUpdate"
+							:items="suggestedCategories.map((i) => ({ label: i.name, value: i.name }))"
+							@update:search-term="getCategoriesWidgetAreaLineBar"
+							:placeholder="$pt('form.placeholder.category')"
+							:empty-label="$t('form.label.category')"
+						/>
+					</template>
+
+					<template 
+						#facets="{onUpdate, modelValue}"
+						v-if="false"
+					>
+						<MultiComboBox
+							:model-value="modelValue"
+							@update:model-value="onUpdate"
+							:items="suggestedFacets.map((i) => ({ label: i.value, value: i.value }))"
+							@update:search-term="getFacetsWidgetAreaLineBar"
+							:placeholder="$pt('form.placeholder.facet')"
+							:empty-label="$t('form.label.facet')"
+						/>
+					</template>
+
+					<template 
+						#productSheet="{onUpdate, modelValue}"
+						v-if="toggleAreaLineBar"
+					>
+						<MultiComboBox
+							:model-value="modelValue"
+							@update:model-value="onUpdate"
+							:items="suggestedProductSheets.map((i) => ({ label: i.name, value: i.name }))"
+							@update:search-term="getProductSheetsWidgetAreaLineBar"
+							:placeholder="$pt('form.placeholder.productSheet')"
+							:empty-label="$t('form.label.productSheet')"
+						/>
+					</template>
+
+					<PrimaryButton
+						type="submit"
+						class="col-span-12"
+					>
+						{{ $t("button.save") }}
+					</PrimaryButton>
+				</FormWidgetAreaLineBar>
+
+				<FormWidgetValue
+					v-else-if="chooseForm === 'value'"
+					@submit="submitValue"
+				>
+					<TheToggle
+						:label="['category', 'productSheet']"
+						:state="toggleValue"
+						@click="actionToggleValue"
+					/>
+
+					<PrimaryButton
+						type="submit"
+						class="col-span-12"
+					>
+						{{ $t("button.save") }}
+					</PrimaryButton>
+				</FormWidgetValue>
+
+				<FormWidgetTop
+					v-else-if="chooseForm === 'top'"
+					@submit="submitTop"
+				>
+					<TheToggle
+						:label="['categories', 'productSheets']"
+						:state="toggleTop"
+						:action="actionToggleTop"
+					/>
+
+					<template 
+						#category="{onUpdate, modelValue}" 
+						v-if="!toggleTop"
+					>
+						<MultiComboBox
+							:model-value="modelValue"
+							@update:model-value="onUpdate"
+							:items="suggestedCategoriesTop.map((i) => ({ label: i.name, value: i.name }))"
+							@update:search-term="getCategoriesWidgetTop"
+							:placeholder="$pt('form.placeholder.category')"
+							:empty-label="$t('form.label.category')"
+						/>
+					</template>
+
+					<template 
+						#productSheet="{onUpdate, modelValue}"
+						v-if="toggleTop"
+					>
+						<MultiComboBox
+							:model-value="modelValue"
+							@update:model-value="onUpdate"
+							:items="suggestedProductSheetsTop.map((i) => ({ label: i.name, value: i.name }))"
+							@update:search-term="getProductSheetsWidgetTop"
+							:placeholder="$pt('form.placeholder.productSheet')"
+							:empty-label="$t('form.label.productSheet')"
+						/>
+					</template>
+
+					<PrimaryButton
+						type="submit"
+						class="col-span-12"
+					>
+						{{ $t("button.save") }}
+					</PrimaryButton>
+				</FormWidgetTop>
+			</template>
+		</ThePopup>
+
+		<ThePopup
+			ref="popupdelete"
+			class="max-w-[700px] w-[80%]"
+		>
+			<template #popupContent>
+				<div class="flex flex-row items-center justify-center space-x-8 my-2">
+					<h1>{{ $pt("text.deleteWidget") }}</h1>
+
+					<PrimaryButton
+						type="submit"
+						class="col-span-12"
+						@click="deleteWidget()"
+					>
+						{{ $t("button.delete") }}
+					</PrimaryButton>
+				</div>
+			</template>
+		</ThePopup>
+
+		<div 
+			class="w-full overflow-hidden relative"
+			v-if="layout.length > 0"
+		>
 			<GridLayout
+				:key="gridComp"
 				v-model:layout="layout"
 				:is-draggable="draggable"
 				:is-resizable="resizable"
@@ -357,19 +569,33 @@ const layout = reactive(loadLayout());
 				@layout-updated="saveLayout"
 			>
 				<template #item="{ item }">
-					<div class="w-full h-full p-4 flex justify-center items-center border">
+					<div 
+						class="w-full h-full p-4 flex justify-center items-center bg-white border duration-500 active:scale-[0.6] active:bg-white py-3 px-8 font-semibold touch-manipulation relative after:content-[''] after:bg-black after:w-full after:-z-10 after:absolute after:h-full after:top-1 after:left-1 after:duration-300 after:rounded-lg rounded-lg hover:after:top-0 hover:after:left-0 hover:after:bg-transparent"
+						@contextmenu="openPopupDelete(item.i)"
+					>
+						<TheTop
+							v-if="item.params.type === 'top'"
+							:value="item.data"
+							:title="$pt('text.top')"
+						/>
+
+						<TheValue
+							v-if="item.params.type === 'value'"
+							:data="item.data.length > 0 ? item.data[0] : { total: 0, key: '' }"
+						/>
+
 						<AreaChart
-							v-if="item.i === 'AreaChart'"
-							:data="dataArea"
+							v-if="item.params.type === 'area'"
+							:data="item.data"
 							index="name"
-							:categories="['total', 'predicted']"
+							:categories="item.categories.map((i) => i.name)"
 						/>
 
 						<LineChart
-							v-if="item.i === 'LineChart'"
-							:data="dataLine"
-							index="year"
-							:categories="['Export Growth Rate', 'Import Growth Rate']"
+							v-if="item.params.type === 'line'"
+							:data="item.data"
+							index="name"
+							:categories="item.categories.map((i) => i.name)"
 							:y-formatter="(tick, i) => {
 								return typeof tick === 'number'
 									? `$ ${new Intl.NumberFormat('us').format(tick).toString()}`
@@ -378,10 +604,10 @@ const layout = reactive(loadLayout());
 						/>
 
 						<BarChart
-							v-if="item.i === 'BarChart'"
-							:data="dataBar"
+							v-if="item.params.type === 'bar'"
+							:data="item.data"
 							index="name"
-							:categories="['total', 'predicted']"
+							:categories="item.categories.map((i) => i.name)"
 							:y-formatter="(tick, i) => {
 								return typeof tick === 'number'
 									? `$ ${new Intl.NumberFormat('us').format(tick).toString()}`
@@ -389,15 +615,65 @@ const layout = reactive(loadLayout());
 							}"
 						/>
 
-						<DonutChart
-							v-if="item.i === 'DonutChart'"
-							index="name"
-							:category="'total'"
-							:data="dataDonut"
-						/>
+						<div
+							v-if="item.params.type === 'pie' || item.params.type === 'donut'"
+							class="w-full h-full flex flex-col items-center"
+						>
+							<p>
+								{{ item.categories.name }}
+							</p>
+
+							<DonutChart
+								v-if="item.params.type === 'donut'"
+								index="name"
+								:category="item.categories.name"
+								:data="item.data"
+								:type="'donut'"
+								class="w-full h-full"
+							/>
+
+							<DonutChart
+								v-if="item.params.type === 'pie'"
+								index="name"
+								:category="item.categories.name"
+								:data="item.data"
+								:type="'pie'"
+								class="w-full h-full"
+							/>
+						</div>
 					</div>
 				</template>
 			</GridLayout>
 		</div>
+
+		<div 
+			class="w-full h-full flex justify-center items-center"
+			v-else
+		>
+			<p>{{ $pt("text.noData") }}</p>
+		</div>
 	</section>
 </template>
+
+<style scoped>
+.vgl-layout {
+  --vgl-placeholder-bg: rgb(105, 105, 105);
+  border-radius: var(--radius);
+
+}
+
+:deep(.vgl-item:not(.vgl-item--placeholder)) {
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: var(--radius);
+}
+
+:deep(.vgl-item--resizing) {
+  opacity: 90%;
+}
+
+:deep(.vgl-item__resizer) {
+	margin: 0.2rem;
+}
+
+</style>

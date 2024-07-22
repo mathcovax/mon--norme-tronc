@@ -26,7 +26,7 @@ export const PUT = (method: Methods, path: string) =>
 					},
 				});
 
-				throw new NoContentHttpException("gridStatCommand.udpated");
+				throw new NoContentHttpException("gridStatCommand.updated");
 			},
 			new IHaveSentThis(NoContentHttpException.code, "gridStatCommand.updated")
 		);
@@ -34,14 +34,14 @@ export const PUT = (method: Methods, path: string) =>
 /* METHOD : GET, PATH : /organization/{organizationId}/grid */
 export const GET = (method: Methods, path: string) =>
 	hasOrganizationRoleByOrganizationId({
-		options: { organizationRole: "OWNER" },
+		options: { organizationRole: "BELONG_TO" },
 		pickup: ["organization"]
 	})
 		.declareRoute(method, path)
 		.handler(
 			async ({ pickup }) => {
 				const { grid } = pickup("organization");
-
+				
 				throw new OkHttpException("gridStatCommand.found", JSON.parse(grid || "[]"));
 			},
 			new IHaveSentThis(OkHttpException.code, "gridStatCommand.found", gridStatCommandSchema)

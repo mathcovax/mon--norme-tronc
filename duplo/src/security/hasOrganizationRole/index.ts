@@ -2,7 +2,7 @@ import { InputOrganizationHasUser, organizationHasUserCheck } from "@checkers/or
 import { organization_role } from "@prisma/client";
 
 export interface OptionsHasOrganizationRole {
-	organizationRole: organization_role
+	organizationRole: organization_role | "BELONG_TO";
 }
 
 const organizationRolesHierarchy: Record<organization_role, organization_role[]> = {
@@ -44,7 +44,9 @@ export const hasOrganizationRole = duplo
 			const { organizationRole: currentOrganizationRole } = pickup("options");
 			const { organizationRole: userOrganizationRole } = pickup("userToOrganization");
 
-			if (
+			if (currentOrganizationRole === "BELONG_TO") {
+				return {};
+			} else if (
 				userOrganizationRole !== currentOrganizationRole &&
 				!organizationRolesHierarchy[userOrganizationRole].includes(currentOrganizationRole)
 			) {

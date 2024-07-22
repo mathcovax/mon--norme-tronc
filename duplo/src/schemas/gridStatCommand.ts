@@ -59,11 +59,11 @@ export const widgetParamSchema = zod.union([
 ]);
 
 export const widgetSchema = zod.object({
-	x: zod.number().int().positive(),
-	y: zod.number().int().positive(),
-	w: zod.number().int().positive(),
-	h: zod.number().int().positive(),
-	i: zod.number().int().positive(), // indexe widget
+	x: zod.number().int(),
+	y: zod.number().int(),
+	w: zod.number().int(),
+	h: zod.number().int(),
+	i: zod.number().int(),
 	params: widgetParamSchema,
 });
 
@@ -94,7 +94,12 @@ const formattedDataTopSchema = zod.object({
 	total: zod.number(),
 });
 
-export const formattedDataSchema = zod.union([formattedDataChartSchema, formattedDataTopSchema.array()]);
+export const formattedDataSchema = zod.union([
+	formattedDataChartSchema, 
+	zod.object({ 
+		data: formattedDataTopSchema.array() 
+	})
+]);
 
 export type FormattedDataSchema = Zod.infer<typeof formattedDataSchema>;
 

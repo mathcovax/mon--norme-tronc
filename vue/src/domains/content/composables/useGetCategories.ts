@@ -7,7 +7,8 @@ export function useGetCategories() {
 		return duploTo.enriched
 			.get(
 				"/categories",
-				{ query: { page, name, withDisabled: true } }
+				{ query: { page, name, withDisabled: true } },
+				{ disabledLoader: true }
 			)
 			.info("categories", (data) => {
 				categories.value = data;
