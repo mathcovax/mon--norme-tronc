@@ -65,7 +65,7 @@ function previous() {
 }
 
 effect(() => {
-	commandRefQuery.value.warehouseId = selectWareHouse.value?.id ?? "0";
+	commandRefQuery.value.warehouseId = selectWareHouse.value?.id ?? "none";
 });
 
 const commandDetailes = ref<OrganizationCommandDetailes>([]);

@@ -31,6 +31,9 @@ async function submit() {
 				emailNotifcationsNewProductInCategory: formFields.emailNotifcationsNewProductInCategory,
 			},
 		)
+		.info("user.edited", () => {
+			location.href = "/login";
+		})
 		.result;
 }
 

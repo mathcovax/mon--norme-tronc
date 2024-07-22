@@ -7,7 +7,7 @@ export const mustBeConnected = duplo
 		{
 			headers: {
 				authorization: zod.string()
-					.transform(value => /^Bearer (.+)$/.exec(value)?.[0] ?? "")
+					.transform(value => /^Bearer (.+)$/.exec(value)?.[1] ?? "")
 					.ignore()
 			}
 		},

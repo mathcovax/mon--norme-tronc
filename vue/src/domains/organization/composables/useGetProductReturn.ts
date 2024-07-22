@@ -20,7 +20,8 @@ export function useGetProductReturn(organizationId: string) {
 				{
 					params: { organizationId },
 					query,
-				}
+				},
+				{ disabledLoader: true }
 			)
 			.info("productReturns", (data) => {
 				productReturns.value = data;

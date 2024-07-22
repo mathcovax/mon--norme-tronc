@@ -16,7 +16,11 @@ export function useGetCommands(organizationId: string, query?: Query) {
 			abortController.abort();
 		}
 		abortController = new AbortController();
-		
+
+		if (query.warehouseId === "none") {
+			return;
+		}
+
 		return duploTo.enriched
 			.get(
 				"/organization/{organizationId}/commands",
@@ -34,7 +38,7 @@ export function useGetCommands(organizationId: string, query?: Query) {
 			.result;
 	}
 
-	const commandRefQuery = ref<Exclude<Query, undefined>>(query ?? { warehouseId: "0" });
+	const commandRefQuery = ref<Exclude<Query, undefined>>(query ?? { warehouseId: "none" });
 
 	effect(() => {
 		getCommands(commandRefQuery.value);

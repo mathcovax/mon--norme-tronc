@@ -32,7 +32,10 @@ export const PATCH = (method: Methods, path: string) =>
 
 /* METHOD : GET, PATH : /organization/{organizationId} */
 export const GET = (method: Methods, path: string) =>
-	hasOrganizationRoleByOrganizationId({ pickup: ["organization"] })
+	hasOrganizationRoleByOrganizationId({ 
+		pickup: ["organization"],  
+		options: { organizationRole: "BELONG_TO" }
+	})
 		.declareRoute(method, path)
 		.handler(
 			async ({ pickup }) => {
