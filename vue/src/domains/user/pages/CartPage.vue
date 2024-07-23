@@ -54,14 +54,14 @@ const removeArticle = (productSheetId: string) =>
 				{{ $pt("emptySubtitle") }}
 			</p>
 
-			<TheButton
+			<PrimaryButton
 				class="mt-4"
 				as-child
 			>
 				<RouterLink :to="{ name: CATEGORIES_PAGE }">
 					{{ $pt("browseButton") }}
 				</RouterLink>
-			</TheButton>
+			</PrimaryButton>
 		</div>
 
 		<ul

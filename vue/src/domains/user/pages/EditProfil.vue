@@ -94,15 +94,16 @@ function pullData() {
 						class="col-span-6"
 						:title="$pt('deletePopup.title')"
 						:content="$pt('deletePopup.content')"
+						destructive
 						@validate="deleteUser"
 					>
-						<TheButton
+						<PrimaryButton
 							class="w-full"
 							variant="destructive"
 							type="button"
 						>
 							{{ $pt("btnDelete") }}
-						</TheButton>
+						</PrimaryButton>
 					</WithValidation>
 				</EditUserProfilForm>
 			</div>
