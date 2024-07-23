@@ -56,7 +56,7 @@ function addLogo() {
 <template>
 	<section>
 		<h1 class="mb-12 text-2xl font-semibold">
-			Modification de l'organisation
+			{{ $pt("title") }}
 		</h1>
 
 		<div class="p-6 flex flex-col items-center w-full">
@@ -92,7 +92,7 @@ function addLogo() {
 						<small
 							v-else
 						>
-							Vous n'avez pas de logo. Ajoutez-en un!
+							{{ $pt("label.noLogo") }}
 						</small>
 					</div>
 				</template>

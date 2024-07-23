@@ -272,11 +272,18 @@ export default {
 				title: "Créer une fiche produit",
 			};
 		},
+		[routerPageName.ORGANIZATION_HOME]: {
+			title: "Bienvenue sur le panneau de gestion de l'organisation",
+		}, 
 		[routerPageName.ORGANIZATION_EDIT]: {
+			title: "Modification de l'organisation",
 			form: {
 				logo: "Logo",
 				addLogo: "Ajouter un logo",
 				organizationLabel: "Label de l'organisation",
+			},
+			label: {
+				noLogo: "Vous n'avez pas de logo. Ajoutez-en un !"
 			}
 		},
 		[routerPageName.ORGANIZATION_GET_WAREHOUSE]: {
