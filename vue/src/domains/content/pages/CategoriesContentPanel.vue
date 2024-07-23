@@ -122,7 +122,7 @@ async function submitPatch() {
 		
 			await duploTo
 				.put(
-					"/category/{categoryName}/image",
+					"/categories/{categoryName}/image",
 					formData,
 					{ params: { categoryName: formFields.name } }
 				)
