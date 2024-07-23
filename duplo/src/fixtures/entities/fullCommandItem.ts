@@ -11,7 +11,8 @@ function randomDate(start: Date, end: Date) {
 }
 
 export const addFullCommandItem = async (
-	fullCommandItem: Partial<Zod.infer<typeof fullCommandItemSchema>>
+	fullCommandItem: Partial<Zod.infer<typeof fullCommandItemSchema>>,
+	organization: { id: string; name: string }
 ) => {
 	const quantity = randomInt(1, 15);
 	const newFullCommandItem = new fullCommandItemModel({
@@ -20,10 +21,7 @@ export const addFullCommandItem = async (
 		productQuantity: quantity,
 		dayOfYear: roundDate(randomDate(new Date(2024, 0, 1), new Date()), 1),
 		totalValue: quantity * (fullCommandItem.productSheet?.price || 0),
-		organization: {
-			id: "3fbcdc96-b1d6-46f5-bf79-68bdf6d7396b",
-			name: "Reilly, Pouros and Will",
-		},
+		organization: organization,
 		...fullCommandItem,
 	});
 	return newFullCommandItem.save();
