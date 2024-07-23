@@ -4,7 +4,7 @@ import { addFullCommandItem } from "./entities/fullCommandItem";
 import { fullProductSheetModel } from "../mongoose/model";
 import { FullProductSheetSchema } from "../schemas/fullProductSheet";
 
-const commandCount = 1000;
+const commandCount = 4000;
 
 async function getRandomDocumentFullProductSheet() {
 	try {
@@ -33,7 +33,9 @@ export const main = async () => {
 					imageUrl: "beureur",
 					facets: fullProductSheet.facets,
 				},
-			});
+			},
+			{ id: fullProductSheet.organization.id, name: fullProductSheet.organization.name }
+			);
 		}
 		await client.disconnect();
 		console.log("Done");
