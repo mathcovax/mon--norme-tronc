@@ -3,6 +3,7 @@ import type { RouteRecordRaw } from "vue-router";
 export const routerPageNameEdito = Object.freeze({
 	EDITO_HOME: "home",
 	EDITO_CGU: "cgu",
+	EDITO_CGV: "cgv",
 	EDITO_PRIVACY_POLICY: "privacy-policy",
 	EDITO_DELIVERY_DETAILS: "delivery-details",
 	EDITO_RETURN_POLICY: "return-policy",
@@ -21,6 +22,11 @@ export default (): RouteRecordRaw[] => [
 		name: routerPageNameEdito.EDITO_CGU,
 		path: "/cgu",
 		component: () => import("./pages/CguPage.vue"),
+	},
+	{
+		name: routerPageNameEdito.EDITO_CGV,
+		path: "/cgv",
+		component: () => import("./pages/CgvPage.vue"),
 	},
 	{
 		name: routerPageNameEdito.EDITO_PRIVACY_POLICY,

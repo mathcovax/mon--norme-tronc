@@ -4,6 +4,7 @@ const currentYear = ref(new Date().getFullYear());
 const {
 	EDITO_HOME,
 	EDITO_CGU,
+	EDITO_CGV,
 	EDITO_PRIVACY_POLICY,
 	EDITO_DELIVERY_DETAILS,
 	EDITO_RETURN_POLICY,
@@ -98,6 +99,12 @@ const {
 								<li>
 									<RouterLink :to="{ name: EDITO_CGU }">
 										{{ $t("layout.default.footer.helpNav.generalConditions") }}
+									</RouterLink>
+								</li>
+
+								<li>
+									<RouterLink :to="{ name: EDITO_CGV }">
+										{{ $t("layout.default.footer.helpNav.termsOfSales") }}
 									</RouterLink>
 								</li>
 

@@ -618,6 +618,7 @@ export default {
 					deliveryDetails: "Détails de livraison",
 					returnPolicy: "Politique de retour",
 					generalConditions: "Conditions générales d'utilisation",
+					termsOfSales: "Conditions générales de vente",
 					confidentialityPolicy: "Politique de confidentialité",
 				},
 				faqNav: {
