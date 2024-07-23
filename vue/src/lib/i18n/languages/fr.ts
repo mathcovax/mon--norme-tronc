@@ -617,7 +617,7 @@ export default {
 					clientSupport: "Support client",
 					deliveryDetails: "Détails de livraison",
 					returnPolicy: "Politique de retour",
-					generalConditions: "Conditions générales",
+					generalConditions: "Conditions générales d'utilisation",
 					confidentialityPolicy: "Politique de confidentialité",
 				},
 				faqNav: {
