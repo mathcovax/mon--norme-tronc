@@ -1,4 +1,4 @@
-import type { Bundle, CommandStatus, Facet, ProductReturn } from "@/lib/utils";
+import type { Bundle, CommandStatus, Facet, OrganizationRole, PrimordialRole, ProductReturn } from "@/lib/utils";
 
 export default {
 	page: {
@@ -645,6 +645,7 @@ export default {
 			}
 		},
 		admin: {
+			hello: "Bonjour {value} ! Vous êtes",
 			title: "Panneau d'administration",
 			nav: {
 				home: "Tableau de bord",
@@ -676,6 +677,7 @@ export default {
 			},
 		},
 		content: {
+			hello: "Bonjour {value} ! Vous êtes",
 			title: "Gestion du contenu",
 			nav: {
 				dashboard: "Tableau de bord",
@@ -713,13 +715,13 @@ export default {
 		MODERATOR: "Modérateur",
 		CONTENTS_MASTER: "Gestionnaire",
 		ADMIN: "Administrateur"
-	},
+	} satisfies Record<PrimordialRole, string>,
 	organizationRole: {
 		STORE_KEEPER: "Magasinier",
 		PRODUCT_SHEET_MANAGER: "Gestionaire de fiche produit",
 		ACCOUNTANT: "Comptable",
 		OWNER: "Propriétaire"
-	},
+	} satisfies Record<OrganizationRole, string>,
 	modal: {
 		age: {
 			title: "Vérification de l'âge",

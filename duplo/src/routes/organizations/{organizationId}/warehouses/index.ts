@@ -5,7 +5,7 @@ import { addressValidCheck } from "@checkers/address";
 /* METHOD : GET, PATH : /organizations/{organizationId}/warehouses */
 export const GET = (method: Methods, path: string) =>
 	hasOrganizationRoleByOrganizationId({ 
-		options: { organizationRole: "STORE_KEEPER" }, 
+		options: { organizationRole: "BELONG_TO" }, 
 		pickup: ["organization"] 
 	})
 		.declareRoute(method, path)
@@ -41,10 +41,7 @@ export const GET = (method: Methods, path: string) =>
 		
 /* METHOD : POST, PATH : /organizations/{organizationId}/warehouses */
 export const POST = (method: Methods, path: string) =>
-	hasOrganizationRoleByOrganizationId({ 
-		pickup: ["organization"],
-		options: { organizationRole: "BELONG_TO" },
-	})
+	hasOrganizationRoleByOrganizationId({ pickup: ["organization"] })
 		.declareRoute(method, path)
 		.extract({
 			body: zod.object({

@@ -124,7 +124,7 @@ async function submit() {
 			promiseList.push(
 				duploTo
 					.post(
-						"/product-sheet/{productSheetId}/image",
+						"/product-sheets/{productSheetId}/images",
 						formData,
 						{ params: { productSheetId: params.value.productSheetId } }
 					)
