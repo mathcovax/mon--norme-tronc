@@ -2,7 +2,7 @@ import nodemailer from "nodemailer";
 import { Attachment } from "nodemailer/lib/mailer";
 
 export class Mail {
-	private static transporter = nodemailer.createTransport(
+	public static transporter = nodemailer.createTransport(
 		ENV.ENVIRONMENT === "DEV"
 			? {
 				host: "maildev",

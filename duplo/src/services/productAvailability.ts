@@ -4,7 +4,7 @@ export class ProductAvailability {
 	private static quantityResultSchema = ZodAccelerator.build(
 		zod.object({
 			count: zod.coerce.number()
-		}).transform(({ count }) => count)
+		}).default({ count: 0 }).transform(({ count }) => count)
 	);	
 
 	static async quantity(productSheetId: string, userId = "") {
