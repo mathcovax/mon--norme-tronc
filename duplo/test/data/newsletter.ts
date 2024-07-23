@@ -4,4 +4,5 @@ export const newsletterData = {
 	content: "content",
 	createdAt: new Date(),
 	sendAt: new Date(),
+	isSent: false
 };

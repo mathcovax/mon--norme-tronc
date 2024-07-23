@@ -29,7 +29,7 @@ describe("POST /category", () => {
 		expect(res.information).toBe("category.alreadyExist");
 	});
 
-	it("post category with used name", async () => {
+	it("post category without used name", async () => {
 		const spy = vi.fn(() => categoryData);
 		MockPrisma.set("category", "create", spy);
 
