@@ -38,7 +38,7 @@ getSubscribedNotifications(null, props.category.name);
 					v-if="category.imageUrl"
 					:src="category.imageUrl "
 					alt="placeholder"
-					class="w-full aspect-portrait rounded-2xl"
+					class="w-full h-full aspect-portrait object-cover rounded-2xl"
 				>
 
 				<div

@@ -8,11 +8,11 @@ defineProps<Props>();
 </script>
 
 <template>
-	<div class="flex justify-center items-center aspect-square">
+	<div class="flex justify-center items-center">
 		<img
 			:src="url"
 			:alt="alt"
-			class="w-full"
+			class="w-full h-full aspect-square object-cover"
 		>
 	</div>
 </template>
