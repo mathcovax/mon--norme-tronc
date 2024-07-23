@@ -515,7 +515,7 @@ export default {
 			text: {
 				top: "Classement",
 				deleteWidget: "Êtes-vous sur de vouloir supprimer ce widget ?",
-				notData: "Vous n'avez configurez aucun widget.",
+				noData: "Vous n'avez configurez aucun widget.",
 			}
 		},
 	},

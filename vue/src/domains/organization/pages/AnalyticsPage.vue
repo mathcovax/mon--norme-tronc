@@ -341,7 +341,7 @@ onMounted(async () => {
 </script>
 
 <template>
-	<section>
+	<section class="h-full">
 		<h1 class="mb-12 text-3xl font-bold">
 			{{ $pt("title") }}
 		</h1>
@@ -636,7 +636,7 @@ onMounted(async () => {
 		</div>
 
 		<div 
-			class="w-full h-full flex justify-center items-center"
+			class="w-full h-full flex justify-center items-center text-black"
 			v-else
 		>
 			<p>{{ $pt("text.noData") }}</p>

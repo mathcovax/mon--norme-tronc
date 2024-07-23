@@ -69,7 +69,6 @@ const onglets: Onglet[] = [
 	{
 		pageName: routerPageName.ORGANIZATION_ANALYTICS,
 		icon: "chart-bar",
-		role: "OWNER",
 	},
 ];
 </script>
