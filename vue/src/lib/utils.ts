@@ -92,7 +92,7 @@ export type Newsletter = GetResponseByInfo<
 >["body"][number];
 
 export type OrganizationUser = GetResponseByInfo<
-  GetDef<"GET", "/organization/{organizationId}/users">,
+  GetDef<"GET", "/organizations/{organizationId}/users">,
   "organization.users"
 >["body"][number];
 
@@ -106,7 +106,7 @@ export const organizationRoles: TuplifyUnion<OrganizationRole> = [
 ];
 
 export type Warehouse = GetResponseByInfo<
-	GetDef<"GET", "/organization/{organizationId}/warehouses">,
+	GetDef<"GET", "/organizations/{organizationId}/warehouses">,
 	"warehouses.found"
 >["body"][number];
 
@@ -125,12 +125,12 @@ export const navigationItemType: TuplifyUnion<NavigationItemType> = [
 ];
 
 export type Product = GetResponseByInfo<
-	GetDef<"GET", "/organization/{organizationId}/products">,
+	GetDef<"GET", "/organizations/{organizationId}/products">,
 	"products.found"
 >["body"][number]
 
 export type Promotion = GetResponseByInfo<
-	GetDef<"GET", "/organization/{organizationId}/promotions">,
+	GetDef<"GET", "/organizations/{organizationId}/promotions">,
 	"organization.promotions"
 >["body"][number]
 
@@ -139,7 +139,7 @@ export type ProductStatus = Product["status"]
 export const productStatus: TuplifyUnion<ProductStatus> = ["WRONG", "SOLD", "IN_STOCK"];
 
 export type ProductSheet = GetResponseByInfo<
-	GetDef<"GET", "/organization/{organizationId}/product-sheets">,
+	GetDef<"GET", "/organizations/{organizationId}/product-sheets">,
 	"productSheets.found"
 >["body"][number]
 
@@ -149,7 +149,7 @@ export type NavigationBar = GetResponseByInfo<
 >["body"]
 
 export type Facet = GetResponseByInfo<
-	GetDef<"GET", "/product-sheet/{productSheetId}/facets">,
+	GetDef<"GET", "/product-sheets/{productSheetId}/facets">,
 	"productSheet.facets"
 >["body"][number]
 
@@ -201,12 +201,12 @@ export type QueryFilters = Exclude<
 >
 
 export type OrganizationCommandCollection = GetResponseByInfo<
-	GetDef<"GET", "/organization/{organizationId}/commands">,
+	GetDef<"GET", "/organizations/{organizationId}/commands">,
 	"organizationCommandCollection"
 >["body"]
 
 export type OrganizationCommandDetailes = GetResponseByInfo<
-	GetDef<"GET", "/organization/{organizationId}/commands/{commandId}/details">,
+	GetDef<"GET", "/organizations/{organizationId}/commands/{commandId}/details">,
 	"organizationCommandDetailes"
 >["body"]
 
@@ -223,29 +223,29 @@ export type BundleCollection = GetResponseByInfo<
 export type CarrierName = Bundle["carrierName"]
 
 export type ProductReturn = GetResponseByInfo<
-	GetDef<"GET",  "/organization/{organizationId}/product-returns">,
+	GetDef<"GET",  "/organizations/{organizationId}/product-returns">,
 	"productReturns"
 >["body"][number]
 
 export type ProductStockStory = GetResponseByInfo<
-	GetDef<"GET", "/product-sheet/{productSheetId}/stock-story">,
+	GetDef<"GET", "/product-sheets/{productSheetId}/stock-story">,
 	"product.stockStory"
 >["body"]
 
 export type ProductSheetReview = GetResponseByInfo<
-	GetDef<"GET",  "/product-sheet/{productSheetId}/reviews">,
+	GetDef<"GET",  "/product-sheets/{productSheetId}/reviews">,
 	"productSheetReviews"
 >["body"][number]
 
 export type WidgetStat = GetResponseByInfo<
-	GetDef<"GET", "/organization/{organizationId}/grid">,
+	GetDef<"GET", "/organizations/{organizationId}/grid">,
 	"gridStatCommand.found"
 >["body"][number]
 
 export type WidgetParam = WidgetStat["params"];
 
 export type WidgetResult = GetResponseByInfo<
-	GetDef<"POST", "/organization/{organizationId}/make-stat">,
+	GetDef<"POST", "/organizations/{organizationId}/make-stat">,
 	"widget.found"
 >["body"]
 
@@ -260,6 +260,6 @@ export const widgetType: TuplifyUnion<WidgetParam["type"]> = [
 ];
 
 export type Facets = GetResponseByInfo<
-	GetDef<"GET", "/organization/{organizationId}/facets">,
+	GetDef<"GET", "/organizations/{organizationId}/facets">,
 	"productSheet.facets"
 >["body"][number]

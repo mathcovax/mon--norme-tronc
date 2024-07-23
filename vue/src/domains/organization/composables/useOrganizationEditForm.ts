@@ -25,7 +25,7 @@ export function useOrganizationEditForm(organizationId: string) {
 
 	duploTo.enriched
 		.get(
-			"/organization/{organizationId}",
+			"/organizations/{organizationId}",
 			{ params: { organizationId } }
 		)
 		.info("organization.found", (data) => {

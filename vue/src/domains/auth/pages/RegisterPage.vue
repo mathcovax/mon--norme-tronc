@@ -18,7 +18,7 @@ async function submit() {
 	}
 
 	await duploTo.enriched.post(
-		"/register", 
+		"/users", 
 		{
 			fireBaseIdToken: query.value.fireBaseIdToken,
 			firstname: formFields.fistname,

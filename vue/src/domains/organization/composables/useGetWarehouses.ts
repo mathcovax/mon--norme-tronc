@@ -6,7 +6,7 @@ export function useGetWarehouses(organizationId: string) {
 	function getWarehouses(page?: number, name?: string) {
 		return duploTo.enriched
 			.get(
-				"/organization/{organizationId}/warehouses",
+				"/organizations/{organizationId}/warehouses",
 				{ params: { organizationId }, query: { page, name } },
 				{ disabledLoader: true }
 			)

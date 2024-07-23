@@ -40,7 +40,7 @@ export function useGetGrid(organizationId: string) {
 	async function getGrid() {
 		const data = await duploTo.enriched
 			.get(
-				"/organization/{organizationId}/grid", 
+				"/organizations/{organizationId}/grid", 
 				{ params: { organizationId } }
 			)
 			.id("gridStatCommand.found");
@@ -51,7 +51,7 @@ export function useGetGrid(organizationId: string) {
 				(widget) => 
 					duploTo.enriched
 						.post(
-							"/organization/{organizationId}/make-stat",
+							"/organizations/{organizationId}/make-stat",
 							widget.params,
 							{ params: { organizationId } }
 						)

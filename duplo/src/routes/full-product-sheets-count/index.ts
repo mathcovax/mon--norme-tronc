@@ -33,7 +33,14 @@ export const GET = (method: Methods, path: string) =>
 					result.count--;
 				} 
 
-				throw new OkHttpException("fullProductSheetCount", result.count.toString());
+				throw new OkHttpException(
+					"fullProductSheetCount", 
+					{ fullProductSheetCount: result.count.toString() }
+				);
 			},
-			new IHaveSentThis(OkHttpException.code, "fullProductSheetCount", zod.string())
+			new IHaveSentThis(
+				OkHttpException.code, 
+				"fullProductSheetCount", 
+				zod.object({ fullProductSheetCount: zod.string() })
+			)
 		);

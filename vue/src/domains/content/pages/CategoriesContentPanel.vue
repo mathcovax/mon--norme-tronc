@@ -64,7 +64,7 @@ async function submitCreate() {
 
 	const result = await duploTo.enriched
 		.post(
-			"/category",
+			"/categories",
 			{ name: formFields.name, disabled: formFields.disabled }
 		)
 		.result;
@@ -109,7 +109,7 @@ async function submitPatch() {
 
 	const result = await duploTo.enriched
 		.patch(
-			"/category/{categoryName}",
+			"/categories/{categoryName}",
 			{ name: formFields.name, disabled: formFields.disabled },
 			{ params: { categoryName: formFields.oldName } }
 		)

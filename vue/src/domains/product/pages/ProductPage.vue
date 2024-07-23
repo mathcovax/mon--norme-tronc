@@ -30,7 +30,7 @@ const { ReviewForm, checkReviewForm, resetReviewForm } = useReviewForm();
 function getProductData() {
 	return duploTo.enriched
 		.get(
-			"/full-product-sheet/{productSheetId}",
+			"/full-product-sheets/{productSheetId}",
 			{ params: { productSheetId: params.value.productSheetId } }
 		)
 		.info("fullProductSheet", (data) => {
@@ -103,7 +103,7 @@ async function sendReview() {
 
 	duploTo.enriched
 		.post(
-			"/product-sheet/{productSheetId}/reviews",
+			"/product-sheets/{productSheetId}/reviews",
 			{
 				pseudo: formFields.pseudo,
 				content: formFields.content,
@@ -132,7 +132,7 @@ function getReview(owne?: boolean) {
 	
 	duploTo.enriched
 		.get(
-			"/product-sheet/{productSheetId}/reviews",
+			"/product-sheets/{productSheetId}/reviews",
 			{
 				params: {
 					productSheetId: params.value.productSheetId,

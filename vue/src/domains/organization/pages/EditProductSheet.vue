@@ -30,7 +30,7 @@ async function submit() {
 
 	const result = await duploTo.enriched
 		.patch(
-			"/product-sheet/{productSheetId}",
+			"/product-sheets/{productSheetId}",
 			{
 				name: formFields.name,
 				description: formFields.description,
@@ -55,7 +55,7 @@ async function submit() {
 			promiseDeleteList.push(
 				duploTo.enriched
 					.delete(
-						"/product-sheet/{productSheetId}/category/{categoryName}",
+						"/product-sheets/{productSheetId}/categories/{categoryName}",
 						{ params: { categoryName: c.value.toString(), productSheetId: params.value.productSheetId } }
 					)
 					.result
@@ -85,7 +85,7 @@ async function submit() {
 			promiseDeleteList.push(
 				duploTo.enriched
 					.delete(
-						"/product-sheet/{productSheetId}/facet/{facetType}",
+						"/product-sheets/{productSheetId}/facets/{facetType}",
 						{ params: { facetType: item.type, productSheetId: params.value.productSheetId } }
 					)
 					.result
@@ -103,7 +103,7 @@ async function submit() {
 			promiseList.push(
 				duploTo.enriched
 					.post(
-						"/product-sheet/{productSheetId}/category",
+						"/product-sheets/{productSheetId}/categories",
 						{
 							categoryName: c.value.toString()
 						},
@@ -139,7 +139,7 @@ async function submit() {
 					promiseList.push(
 						duploTo.enriched
 							.patch(
-								"/product-sheet/{productSheetId}/facet/{facetType}",
+								"/product-sheets/{productSheetId}/facets/{facetType}",
 								{ value: item.value },
 								{ params: { productSheetId: params.value.productSheetId, facetType: item.type } }
 							)
@@ -153,7 +153,7 @@ async function submit() {
 			promiseList.push(
 				duploTo.enriched
 					.post(
-						"/product-sheet/{productSheetId}/facet",
+						"/product-sheets/{productSheetId}/facets",
 						{ type: item.type, value: item.value },
 						{ params: { productSheetId: params.value.productSheetId } }
 					)

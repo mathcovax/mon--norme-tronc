@@ -19,7 +19,7 @@ async function submit () {
 
 	duploTo.enriched
 		.patch(
-			"/organization/{organizationId}",
+			"/organizations/{organizationId}",
 			{
 				label: formFields.label === "" ? null : formFields.label
 			},

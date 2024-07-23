@@ -19,7 +19,7 @@ export const useOrganizationUserStore = defineStore(
 			
 			duploTo.enriched
 				.get(
-					"/organization/{organizationId}/user", 
+					"/organizations/{organizationId}/user", 
 					{ 
 						params: { organizationId: params.value.organizationId } 
 					}, 

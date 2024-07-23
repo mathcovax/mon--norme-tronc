@@ -29,7 +29,7 @@ async function submit() {
 
 	const result = await duploTo.enriched
 		.post(
-			"/organization/{organizationId}/product-sheet",
+			"/organizations/{organizationId}/product-sheets",
 			{
 				ref: formFields.ref,
 				name: formFields.name,
@@ -51,7 +51,7 @@ async function submit() {
 			promiseList.push(
 				duploTo.enriched
 					.post(
-						"/product-sheet/{productSheetId}/category",
+						"/product-sheets/{productSheetId}/categories",
 						{
 							categoryName: c.value.toString()
 						},
@@ -84,7 +84,7 @@ async function submit() {
 			promiseList.push(
 				duploTo.enriched
 					.post(
-						"/product-sheet/{productSheetId}/facet",
+						"/product-sheets/{productSheetId}/facets",
 						{ type: item.type, value: item.value },
 						{ params: { productSheetId: result.data.id } }
 					)

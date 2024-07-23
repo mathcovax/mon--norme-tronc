@@ -6,7 +6,7 @@ export function useGetProductSheets(organizationId: string) {
 	function getProductSheets(page?: number, name?: string) {
 		return duploTo.enriched
 			.get(
-				"/organization/{organizationId}/product-sheets",
+				"/organizations/{organizationId}/product-sheets",
 				{ params: { organizationId }, query: { page, name } },
 				{ disabledLoader: true }
 			)

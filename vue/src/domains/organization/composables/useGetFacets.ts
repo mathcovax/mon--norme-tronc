@@ -6,7 +6,7 @@ export function useGetFacets(organizationId: string) {
 	function getFacets(page?: number, value?: string) {
 		return duploTo.enriched
 			.get(
-				"/organization/{organizationId}/facets",
+				"/organizations/{organizationId}/facets",
 				{ params: { organizationId }, query: { facetValue: value, page } },
 				{ disabledLoader: true }
 			)

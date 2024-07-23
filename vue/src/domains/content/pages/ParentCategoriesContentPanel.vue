@@ -50,7 +50,7 @@ async function submitCreate() {
 	
 	const result = await duploTo.enriched
 		.post(
-			"/parent-category",
+			"/parent-categories",
 			{ name: formField.name }
 		)
 		.result;
@@ -62,7 +62,7 @@ async function submitCreate() {
 			c => promiseList.push(
 				duploTo.enriched
 					.post(
-						"/parent-category/{parentCategoryName}/category",
+						"/parent-categories/{parentCategoryName}/categories",
 						{ categoryName: c.value },
 						{ params: { parentCategoryName: result.data.name } }
 					)
@@ -113,7 +113,7 @@ async function submitPatch() {
 
 	const result = await duploTo.enriched
 		.patch(
-			"/parent-category/{parentCategoryName}",
+			"/parent-categories/{parentCategoryName}",
 			{ name: formField.name },
 			{ params: { parentCategoryName: formField.oldParentCategory.name } }
 		)
@@ -131,7 +131,7 @@ async function submitPatch() {
 				promiseList.push(
 					duploTo.enriched
 						.post(
-							"/parent-category/{parentCategoryName}/category",
+							"/parent-categories/{parentCategoryName}/categories",
 							{ categoryName: c.value },
 							{ params: { parentCategoryName: formField.name } }
 						)
@@ -149,7 +149,7 @@ async function submitPatch() {
 				promiseList.push(
 					duploTo.enriched
 						.delete(
-							"/parent-category/{parentCategoryName}/category/{categoryName}",
+							"/parent-categories/{parentCategoryName}/categories/{categoryName}",
 							{ params: { parentCategoryName: formField.name, categoryName: c.categoryName } }
 						)
 						.result

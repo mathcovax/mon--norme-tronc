@@ -17,7 +17,7 @@ async function googleSign() {
 		const fireBaseIdToken = await result.user.getIdToken();
 
 		await duploTo.enriched.post("/login", fireBaseIdToken, undefined, { disabledToast: ["user.notfound"] })
-			.info("user.logged", accessToken => {
+			.info("user.logged", ({ accessToken }) => {
 				setAccessToken(accessToken);
 				fetchUserValue();
 				router.push({ name: query.value.redirect ?? routerPageName.EDITO_HOME });

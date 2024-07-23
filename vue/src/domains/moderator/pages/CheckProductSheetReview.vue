@@ -61,7 +61,7 @@ function muteUser() {
 
 	duploTo.enriched
 		.patch(
-			"/user/{userId}@moderator",
+			"/users/{userId}@moderator",
 			{ muted: true },
 			{ params: { userId: currentReview.value.userId } }
 		);

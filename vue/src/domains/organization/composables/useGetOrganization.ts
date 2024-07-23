@@ -14,7 +14,7 @@ export function useGetOrganization(organizationId: string) {
 	function getOrganization() {
 		return duploTo.enriched
 			.get(
-				"/organization/{organizationId}",
+				"/organizations/{organizationId}",
 				{ params: { organizationId } }
 			)
 			.info("organization.found", (data) => {

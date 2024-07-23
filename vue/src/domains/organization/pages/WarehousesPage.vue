@@ -56,7 +56,7 @@ async function submitPatch() {
 
 	duploTo.enriched
 		.patch(
-			"/warehouse/{warehouseId}",
+			"/warehouses/{warehouseId}",
 			{
 				name: formFields.name,
 				address: formFields.address
@@ -86,7 +86,7 @@ async function submitPost() {
 
 	await duploTo.enriched
 		.post(
-			"/organization/{organizationId}/warehouse",
+			"/organizations/{organizationId}/warehouses",
 			{
 				name: formFields.name,
 				address: formFields.address

@@ -90,9 +90,9 @@ export const PATCH = (method: Methods, path: string) =>
 					},
 				});
 
-				throw new CreatedHttpException("user.edited", id);
+				throw new OkHttpException("user.edited", id);
 			},
-			new IHaveSentThis(CreatedHttpException.code, "user.edited", zod.string())
+			new IHaveSentThis(OkHttpException.code, "user.edited", zod.string())
 		);
 
 /* METHOD : DELETE, PATH : /user */

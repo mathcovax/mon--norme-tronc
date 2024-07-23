@@ -159,7 +159,7 @@ export function useProductSheetForm(organizationId: string, productSheetId?: str
 	if (productSheetId) {
 		duploTo.enriched
 			.get(
-				"/product-sheet/{productSheetId}",
+				"/product-sheets/{productSheetId}",
 				{ params: { productSheetId } }
 			)
 			.info("productSheet.found", (data) => {
@@ -174,7 +174,7 @@ export function useProductSheetForm(organizationId: string, productSheetId?: str
 
 		duploTo.enriched
 			.get(
-				"/product-sheet/{productSheetId}/warehouse",
+				"/product-sheets/{productSheetId}/warehouse",
 				{ params: { productSheetId } }
 			)
 			.info("productSheet.warehouse", (data) => {
@@ -183,7 +183,7 @@ export function useProductSheetForm(organizationId: string, productSheetId?: str
 	
 		duploTo.enriched
 			.get(
-				"/product-sheet/{productSheetId}/categories",
+				"/product-sheets/{productSheetId}/categories",
 				{ params: { productSheetId } }
 			)
 			.info("productSheet.categories", (data) => {
@@ -194,7 +194,7 @@ export function useProductSheetForm(organizationId: string, productSheetId?: str
 		
 		duploTo.enriched
 			.get(
-				"/product-sheet/{productSheetId}/images",
+				"/product-sheets/{productSheetId}/images",
 				{ params: { productSheetId } }
 			)
 			.info("productSheet.images", (data) => {
@@ -205,7 +205,7 @@ export function useProductSheetForm(organizationId: string, productSheetId?: str
 
 		duploTo.enriched
 			.get(
-				"/product-sheet/{productSheetId}/facets",
+				"/product-sheets/{productSheetId}/facets",
 				{ params: { productSheetId } }
 			)
 			.info("productSheet.facets", (data) => {

@@ -6,7 +6,7 @@ export function useGetOrganizationUsers(organizationId: string) {
 	function getOrganizationUsers(page: number, email: string) {
 		return duploTo.enriched
 			.get(
-				"/organization/{organizationId}/users",
+				"/organizations/{organizationId}/users",
 				{ params: { organizationId }, query: { page, email } },
 				{ disabledLoader: true }
 			)

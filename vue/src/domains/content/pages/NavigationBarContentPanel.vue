@@ -39,7 +39,7 @@ async function submitCreate() {
 
 	duploTo.enriched
 		.post(
-			"/navigation-item",
+			"/navigation-items",
 			formField
 		)
 		.info("navigationItem.created", () => {
@@ -90,7 +90,7 @@ async function submitPatch() {
 
 	duploTo.enriched
 		.patch(
-			"/navigation-item/{navigationItemId}",
+			"/navigation-items/{navigationItemId}",
 			formField,
 			{ params: { navigationItemId: navigationItemPatchFormValues.oldNavigationItem.value.id } }
 		)
@@ -108,7 +108,7 @@ function deleteItem() {
 
 	duploTo.enriched
 		.delete(
-			"/navigation-item/{navigationItemId}",
+			"/navigation-items/{navigationItemId}",
 			{ params: { navigationItemId: navigationItemPatchFormValues.oldNavigationItem.value.id } }
 		)
 		.info("navigationItem.delete", () => {
