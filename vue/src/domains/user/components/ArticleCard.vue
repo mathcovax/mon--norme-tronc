@@ -68,7 +68,10 @@ const updateQuantity = (amount: number) => {
 						class="w-[40px] h-[40px] rounded-full"
 						:variant="article.quantity > 1 ? undefined : 'destructive'"
 					>
-						<TheIcon :icon="article.quantity > 1 ? 'minus' : 'delete-outline'" />
+						<TheIcon 
+							:icon="article.quantity > 1 ? 'minus' : 'delete-outline'" 
+							class="text-white"
+						/>
 					</PrimaryButton>
 				</WithValidation>
 

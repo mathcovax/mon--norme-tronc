@@ -457,10 +457,14 @@ watch(
 					:review="owneReview"
 					class="w-full"
 				>
-					<PrimaryButton class="absolute top-4 right-4">
+					<PrimaryButton
+						class="absolute top-4 right-4"
+						as-child
+					>
 						<TheIcon
 							icon="delete"
 							@click="deleteReview"
+							class="text-white"
 						/>
 					</PrimaryButton>
 				</ReviewCard>
