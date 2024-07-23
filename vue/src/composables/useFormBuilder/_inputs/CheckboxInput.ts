@@ -90,7 +90,7 @@ export const CheckboxInput = defineComponent({
 							? h(
 								"label", 
 								{
-									class: "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
+									class: "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 hover:cursor-pointer",
 									for: `${props.name}-${props.formId}`,
 								},
 								props.desc

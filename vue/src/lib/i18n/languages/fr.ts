@@ -21,6 +21,7 @@ export default {
 		[routerPageName.AUTH_REGISTER]: {
 			title: "Première visite ?",
 			subtitle: "Créez un compte pour accéder à nos services.",
+			seeCgu: "Voir les conditions générales d'utilisation",
 		},
 		[routerPageName.USER_EDIT_PROFIL]: {
 			title: "Mon profil",

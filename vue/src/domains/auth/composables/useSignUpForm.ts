@@ -48,8 +48,8 @@ export function useSignUpForm() {
 			zodSchema: zod.boolean().optional(),
 		},
 		terms: {
-			type: "checkbox",
-			desc: $t("label.terms"),
+			type: "custom",
+			defaultValue: false,
 			zodSchema: zod.literal(true, { message: $t("form.rule.required") }),
 		}
 	});
