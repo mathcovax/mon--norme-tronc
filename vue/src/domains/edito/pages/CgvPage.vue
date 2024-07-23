@@ -49,7 +49,6 @@ const cgvArticles = [
 				`,
 				list: [
 					"Jouets intimes (vibromasseurs, godemichets, etc.)",
-					"Produits de bien-être sexuel (lubrifiants, huiles de massage, etc.)",
 					"Lingerie et vêtements érotiques",
 					"Accessoires pour jeux de rôle et BDSM (menottes, fouets, etc.)",
 					"Équipements et gadgets technologiques liés à l'intimité"
@@ -304,17 +303,16 @@ const cgvArticles = [
 </script>
 
 <template>
-	<div class="p-8">
-		<h1 class="text-4xl font-bold mb-6">
+	<section class="container flex flex-col gap-12 my-12 lg:my-16">
+		<h1 class="mb-6 text-4xl font-bold">
 			Conditions Générales de Vente (CGV) de la Plateforme MET
 		</h1>
 
-		<section
+		<div
 			v-for="article in cgvArticles"
 			:key="article.title"
-			class="mb-8"
 		>
-			<h2 class="text-2xl font-semibold mb-4">
+			<h2 class="mb-4 text-2xl font-semibold">
 				{{ article.title }}
 			</h2>
 
@@ -326,7 +324,7 @@ const cgvArticles = [
 
 				<ul
 					v-if="article.list"
-					class="list-disc pl-5 mb-4"
+					class="pl-5 mb-4 list-disc"
 				>
 					<li
 						v-for="item in article.list"
@@ -340,9 +338,9 @@ const cgvArticles = [
 					<div
 						v-for="subSection in article.subSections"
 						:key="subSection.subTitle"
-						class="ml-6 mb-4"
+						class="mb-4 ml-6"
 					>
-						<h3 class="text-xl font-semibold mb-2">
+						<h3 class="mb-2 text-xl font-semibold">
 							{{ subSection.subTitle }}
 						</h3>
 
@@ -353,7 +351,7 @@ const cgvArticles = [
 
 						<ul
 							v-if="subSection.list"
-							class="list-disc pl-5 mb-2"
+							class="pl-5 mb-2 list-disc"
 						>
 							<li
 								v-for="item in subSection.list"
@@ -376,6 +374,6 @@ const cgvArticles = [
 					</div>
 				</div>
 			</article>
-		</section>
-	</div>
+		</div>
+	</section>
 </template>

@@ -64,16 +64,7 @@ const articles = [
 		]
 	},
 	{
-		title: "7. Cookies",
-		content: `
-			Nous utilisons des cookies pour améliorer l'accès à notre Site et identifier les visiteurs réguliers. 
-			Les cookies améliorent également l'expérience utilisateur en suivant et en ciblant leurs intérêts. 
-			L'utilisation de cookies n'est en aucune manière liée à des informations personnelles 
-			identifiables sur notre Site.
-		`
-	},
-	{
-		title: "8. Vos Droits",
+		title: "7. Vos Droits",
 		content: `
 			Vous avez le droit d'accéder à vos données personnelles, de les rectifier ou de demander leur suppression. 
 			Pour exercer ces droits, veuillez nous contacter à l'adresse suivante : 
@@ -83,14 +74,14 @@ const articles = [
 		`
 	},
 	{
-		title: "9. Modifications de la Politique de Confidentialité",
+		title: "8. Modifications de la Politique de Confidentialité",
 		content: `
 			Mon Enorme Tronc se réserve le droit de modifier cette Politique de Confidentialité à tout moment.
 			Les modifications seront notifiées aux Utilisateurs et entreront en vigueur dès leur mise en ligne sur le Site.
 		`
 	},
 	{
-		title: "10. Contact",
+		title: "9. Contact",
 		content: `
 			Pour toute question concernant cette Politique de Confidentialité, veuillez nous contacter à l'adresse suivante : 
             <a href="mailto:contact@monenormetroncs.fr" target="_blank" class="text-blue-500 underline">
@@ -102,8 +93,8 @@ const articles = [
 </script>
 
 <template>
-	<div class="container my-12 lg:my-16 flex flex-col gap-12">
-		<h1 class="text-3xl font-bold mb-4">
+	<div class="container flex flex-col gap-12 my-12 lg:my-16">
+		<h1 class="mb-4 text-3xl font-bold">
 			Politique de Confidentialité
 		</h1>
 
@@ -112,7 +103,7 @@ const articles = [
 				v-for="(article, index) in articles"
 				:key="index"
 			>
-				<h2 class="text-2xl font-semibold mb-4">
+				<h2 class="mb-4 text-2xl font-semibold">
 					{{ article.title }}
 				</h2>
 
@@ -120,7 +111,7 @@ const articles = [
 
 				<ul
 					v-if="article.list"
-					class="list-disc mt-2 ml-6"
+					class="mt-2 ml-6 list-disc"
 				>
 					<li
 						v-for="(item, idx) in article.list"
