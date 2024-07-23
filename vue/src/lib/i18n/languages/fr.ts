@@ -764,7 +764,7 @@ export default {
 		newsletter: "S'abonner à la newsletter",
 		productStock: "Être notifié des restocks",
 		promotions: "Être notifié des promotions",
-		newProductsInCategory: "Être notifié des nouveautés",
+		newProductsInCategory: "Être notifié des nouveaux produits",
 		productSheet: "Fiche produit",
 		percentage: "Pourcentage (%)",
 		startDate: "Date de début",

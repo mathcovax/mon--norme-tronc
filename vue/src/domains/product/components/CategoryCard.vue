@@ -75,7 +75,7 @@ getSubscribedNotifications(null, props.category.name);
 
 					</label>
 
-					<span class="inline-block opacity-50">{{ $t("label.productStock") }}</span>
+					<span class="inline-block opacity-50">{{ $t("label.newProductsInCategory") }}</span>
 				</div>
 			</div>
 		</CardContent>
