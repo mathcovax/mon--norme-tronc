@@ -4,7 +4,7 @@ import { hasPrimordialRole } from "@security/hasPrimordialRole";
 import { S3Service } from "@services/S3";
 import { extname } from "path";
 
-/* METHOD : PUT, PATH : /categories/{categoryName}/images */
+/* METHOD : PUT, PATH : /categories/{categoryName}/image */
 export const PUT = (method: Methods, path: string) => 
 	hasPrimordialRole({ options: { primordialRole: "CONTENTS_MASTER" } })
 		.declareRoute(method, path)

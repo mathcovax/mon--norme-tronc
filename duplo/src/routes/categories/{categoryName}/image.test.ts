@@ -1,12 +1,12 @@
 import { duploTesting } from "@test/setup";
-import { PUT } from "./images";
+import { PUT } from "./image";
 import { MockEnv } from "@test/mocks/env";
 import { MockPrisma } from "@test/mocks/providers";
 import { Process } from "@duplojs/duplojs";
 import { categoryData } from "@test/data/category";
 import { S3Service } from "@services/S3";
 
-describe("PUT /categories/{categoryName}/images", () => {
+describe("PUT /categories/{categoryName}/image", () => {
 	beforeEach(() => {
 		MockPrisma.reset();
 		MockEnv.reset();
