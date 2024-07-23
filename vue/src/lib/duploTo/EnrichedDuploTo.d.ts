@@ -615,6 +615,7 @@ export type response_17_1 = {
     info: "entry.accepted";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type parameters_18 = {
     query?: ({
         ignoreProductSheetId?: (string | string[]) | undefined;
@@ -640,6 +641,15 @@ export type parameters_18 = {
         searchByRegex?: any;
         categoryName?: string | undefined;
     };
+=======
+export type request_body_18 = {
+    fireBaseIdToken: string;
+    lastname: string;
+    firstname: string;
+    address: string;
+    dateOfBirth: Date;
+    emailNotifcationsNewsletter: boolean;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 }
 
 export type response_18_0 = {
@@ -649,12 +659,1346 @@ export type response_18_0 = {
 } & {body: undefined};
 
 export type response_18_1 = {
+<<<<<<< HEAD
     code: 403;
     ok: false;
     info: "category.disabled";
 } & {body: undefined};
 
 export type response_body_18_2 = {
+=======
+    code: 409;
+    ok: false;
+    info: "user.alreadyExist";
+} & {body: undefined};
+
+export type response_18_2 = {
+    code: 400;
+    ok: false;
+    info: "user.address.invalid";
+} & {body: undefined};
+
+export type response_18_3 = {
+    code: 400;
+    ok: false;
+    info: "user.dateOfBirth.invalid";
+} & {body: undefined};
+
+export type response_body_18_4 = string
+
+export type response_18_4 = {
+    code: 201;
+    ok: true;
+    info: "user.registered";
+} & {body: response_body_18_4};
+
+export type request_body_19 = string
+
+export type response_19_0 = {
+    code: 401;
+    ok: false;
+    info: "firebase.token.invalid";
+} & {body: undefined};
+
+export type response_19_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_body_19_2 = string
+
+export type response_19_2 = {
+    code: 200;
+    ok: true;
+    info: "user.logged";
+} & {body: response_body_19_2};
+
+export type parameters_20 = {
+    query?: {
+        page?: number;
+    } | undefined;
+}
+
+export type response_20_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_20_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_20_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_body_20_3 = {
+    title: string;
+    subtitle?: string | undefined;
+    redirect?: string | undefined;
+    imageUrl?: string | undefined;
+    icon?: string | undefined;
+    userId: string;
+    type: "PRODUCT_PROMOTION" | "PRODUCT_RESTOCK" | "NEW_PRODUCT_IN_CATEGORY" | "PRODUCT_NO_STOCK";
+    createdAt: Date;
+}[]
+
+export type response_20_3 = {
+    code: 200;
+    ok: true;
+    info: "userNotifications";
+} & {body: response_body_20_3};
+
+export type parameters_21 = {
+    query?: {
+        page?: number;
+        productSheetName?: string | undefined;
+    } | undefined;
+}
+
+export type response_21_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_21_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_21_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_body_21_3 = {
+    id: string;
+    firstname: string;
+    lastname: string;
+    status: "DONE" | "CANCELED" | "WAITING_PAYMENT" | "IN_PROGRESS" | "IN_DELIVERY";
+    userId: string;
+    deliveryAddress: string;
+    createdDate: Date;
+    price: number;
+    items: {
+        quantity: number;
+        processQuantity: number;
+        productSheetId: string;
+        productSheetName: string;
+        productSheetFirstImageUrl: string;
+        productSheetOrganizationName: string;
+        productSheetPrice: number;
+    }[];
+}[]
+
+export type response_21_3 = {
+    code: 200;
+    ok: true;
+    info: "userCommands";
+} & {body: response_body_21_3};
+
+export type parameters_22 = {
+    params: {
+        productSheetId: string;
+    };
+}
+
+export type response_22_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_22_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_22_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_22_3 = {
+    code: 404;
+    ok: false;
+    info: "productSheet.notfound";
+} & {body: undefined};
+
+export type response_22_4 = {
+    code: 200;
+    ok: true;
+    info: "article.deleted";
+} & {body: undefined};
+
+export type parameters_23 = {
+    params: {
+        imageProductSheetId: string;
+    };
+}
+
+export type response_23_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_23_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_23_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_23_3 = {
+    code: 404;
+    ok: false;
+    info: "imageProductSheet.notfound";
+} & {body: undefined};
+
+export type response_23_4 = {
+    code: 204;
+    ok: true;
+    info: "imageProductSheet.deleted";
+} & {body: undefined};
+
+export type response_23_5 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_23_6 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type parameters_24 = {
+    params: {
+        organizationId: string;
+    };
+}
+
+export type response_24_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_24_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_24_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_24_3 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_body_24_4 = {
+    id: string;
+    email: string;
+    lastname: string;
+    firstname: string;
+    organizationRole: "STORE_KEEPER" | "PRODUCT_SHEET_MANAGER" | "ACCOUNTANT" | "OWNER";
+}
+
+export type response_24_4 = {
+    code: 200;
+    ok: true;
+    info: "organization.user";
+} & {body: response_body_24_4};
+
+export type request_body_25 = {
+    email: string;
+    firstname: string;
+    lastname: string;
+    organizationRole: "STORE_KEEPER" | "PRODUCT_SHEET_MANAGER" | "ACCOUNTANT";
+}
+
+export type parameters_25 = {
+    params: {
+        organizationId: string;
+    };
+}
+
+export type response_25_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_25_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_25_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_25_3 = {
+    code: 404;
+    ok: false;
+    info: "organization.notfound";
+} & {body: undefined};
+
+export type response_25_4 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_25_5 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type response_25_6 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_25_7 = {
+    code: 409;
+    ok: false;
+    info: "organization.hasAlreadyUser";
+} & {body: undefined};
+
+export type response_25_8 = {
+    code: 201;
+    ok: true;
+    info: "organization.user.add";
+} & {body: undefined};
+
+export type request_body_26 = {
+    lastname: string;
+    firstname: string;
+    address: string;
+}
+
+export type response_26_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_26_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_26_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_26_3 = {
+    code: 400;
+    ok: false;
+    info: "user.address.invalid";
+} & {body: undefined};
+
+export type response_26_4 = {
+    code: 409;
+    ok: false;
+    info: "cart.empty";
+} & {body: undefined};
+
+export type response_26_5 = {
+    code: 409;
+    ok: false;
+    info: "products.unavailable";
+} & {body: undefined};
+
+export type response_body_26_6 = {
+    sessionUrl: string;
+}
+
+export type response_26_6 = {
+    code: 201;
+    ok: true;
+    info: "session";
+} & {body: response_body_26_6};
+
+export type request_body_27 = {
+    commandId: string;
+}
+
+export type response_27_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_27_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_27_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_27_3 = {
+    code: 404;
+    ok: false;
+    info: "command.notfound";
+} & {body: undefined};
+
+export type response_27_4 = {
+    code: 401;
+    ok: false;
+    info: "command.wrong.user";
+} & {body: undefined};
+
+export type response_body_27_5 = {
+    sessionUrl: string;
+}
+
+export type response_27_5 = {
+    code: 201;
+    ok: true;
+    info: "session";
+} & {body: response_body_27_5};
+
+export type request_body_28 = {
+    organizationRole?: ("STORE_KEEPER" | "PRODUCT_SHEET_MANAGER" | "ACCOUNTANT") | undefined;
+}
+
+export type parameters_28 = {
+    params: {
+        organizationId: string;
+        userId: string;
+    };
+}
+
+export type response_28_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_28_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_28_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_28_3 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_28_4 = {
+    code: 401;
+    ok: false;
+    info: "organization.user.organizationRole.owner";
+} & {body: undefined};
+
+export type response_28_5 = {
+    code: 204;
+    ok: true;
+    info: "organization.user.edited";
+} & {body: undefined};
+
+export type response_28_6 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_28_7 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type parameters_29 = {
+    params: {
+        organizationId: string;
+        userId: string;
+    };
+}
+
+export type response_29_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_29_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_29_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_29_3 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_29_4 = {
+    code: 401;
+    ok: false;
+    info: "organization.user.organizationRole.owner";
+} & {body: undefined};
+
+export type response_29_5 = {
+    code: 204;
+    ok: true;
+    info: "organization.user.deleted";
+} & {body: undefined};
+
+export type response_29_6 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_29_7 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type parameters_30 = {
+    query?: {
+        page?: number;
+    } | undefined;
+}
+
+export type response_30_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_30_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_30_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_30_3 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_body_30_4 = {
+    id: string;
+    name: string;
+    label: string | null;
+    ownerId: string;
+    suspended: boolean;
+    logoKey: string | null;
+    logoUrl: string | null;
+}[]
+
+export type response_30_4 = {
+    code: 200;
+    ok: true;
+    info: "user.organizations";
+} & {body: response_body_30_4};
+
+export type request_body_31 = {
+    productSheetId: string;
+    quantity?: number;
+}
+
+export type response_31_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_31_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_31_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_31_3 = {
+    code: 404;
+    ok: false;
+    info: "productSheet.notfound";
+} & {body: undefined};
+
+export type response_31_4 = {
+    code: 401;
+    ok: false;
+    info: "cart.article.limit";
+} & {body: undefined};
+
+export type response_31_5 = {
+    code: 401;
+    ok: false;
+    info: "cart.quantity.limit";
+} & {body: undefined};
+
+export type response_31_6 = {
+    code: 409;
+    ok: false;
+    info: "product.unavailable";
+} & {body: undefined};
+
+export type response_body_31_7 = {
+    userId: string;
+    productSheetId: string;
+    quantity: number;
+    createdAt?: string;
+}
+
+export type response_31_7 = {
+    code: 201;
+    ok: true;
+    info: "article.created";
+} & {body: response_body_31_7};
+
+export type response_32_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_32_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_32_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_body_32_3 = {
+    productSheetId: string;
+    quantity: number;
+    name: string;
+    description: string;
+    shortDescription: string;
+    price: number;
+    imageUrl: string;
+}[]
+
+export type response_32_3 = {
+    code: 200;
+    ok: true;
+    info: "cart.fetched";
+} & {body: response_body_32_3};
+
+export type parameters_33 = {
+    params: {
+        notificationId: number;
+    };
+}
+
+export type response_33_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_33_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_33_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_33_3 = {
+    code: 404;
+    ok: false;
+    info: "notification.notfound";
+} & {body: undefined};
+
+export type response_33_4 = {
+    code: 204;
+    ok: true;
+    info: "notification.deleted";
+} & {body: undefined};
+
+export type parameters_34 = {
+    query?: {
+        productSheetId?: string | undefined;
+        categoryName?: string | undefined;
+    } | undefined;
+}
+
+export type response_34_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_34_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_34_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_34_3 = {
+    code: 400;
+    ok: false;
+    info: "notification.invalidQuery";
+} & {body: undefined};
+
+export type response_body_34_4 = {
+    id: number;
+    productSheetId: string | null;
+    userId: string;
+    categoryName: string | null;
+    type: "PRODUCT_PROMOTION" | "PRODUCT_RESTOCK" | "NEW_PRODUCT_IN_CATEGORY" | "PRODUCT_NO_STOCK";
+}[]
+
+export type response_34_4 = {
+    code: 200;
+    ok: true;
+    info: "notifications";
+} & {body: response_body_34_4};
+
+export type request_body_35 = {
+    productSheetId: string;
+    type: "PRODUCT_PROMOTION" | "PRODUCT_RESTOCK";
+} | {
+    categoryName: string;
+    type: "NEW_PRODUCT_IN_CATEGORY";
+}
+
+export type response_35_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_35_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_35_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_35_3 = {
+    code: 404;
+    ok: false;
+    info: "category.notfound";
+} & {body: undefined};
+
+export type response_35_4 = {
+    code: 404;
+    ok: false;
+    info: "productSheet.notfound";
+} & {body: undefined};
+
+export type response_35_5 = {
+    code: 409;
+    ok: false;
+    info: "notification.alreadySubscribed";
+} & {body: undefined};
+
+export type response_body_35_6 = {
+    id: number;
+    productSheetId: string | null;
+    userId: string;
+    categoryName: string | null;
+    type: "PRODUCT_PROMOTION" | "PRODUCT_RESTOCK" | "NEW_PRODUCT_IN_CATEGORY" | "PRODUCT_NO_STOCK";
+}
+
+export type response_35_6 = {
+    code: 201;
+    ok: true;
+    info: "notification.created";
+} & {body: response_body_35_6};
+
+export type parameters_36 = {
+    params: {
+        productSheetId: string;
+    };
+    query?: {
+        page?: number;
+        userId?: string | undefined;
+    } | undefined;
+}
+
+export type response_36_0 = {
+    code: 404;
+    ok: false;
+    info: "prodcutSheet.notfound";
+} & {body: undefined};
+
+export type response_body_36_1 = {
+    _id: string;
+    userId: string;
+    productSheetId: string;
+    pseudo: string;
+    content?: string | undefined;
+    createdAt: Date;
+    rate: number;
+    check: boolean;
+}[]
+
+export type response_36_1 = {
+    code: 200;
+    ok: true;
+    info: "productSheetReviews";
+} & {body: response_body_36_1};
+
+export type request_body_37 = {
+    pseudo: string;
+    content: string;
+    rate: number;
+}
+
+export type parameters_37 = {
+    params: {
+        productSheetId: string;
+    };
+}
+
+export type response_37_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_37_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_37_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_37_3 = {
+    code: 403;
+    ok: false;
+    info: "user.muted";
+} & {body: undefined};
+
+export type response_37_4 = {
+    code: 404;
+    ok: false;
+    info: "prodcutSheet.notfound";
+} & {body: undefined};
+
+export type response_37_5 = {
+    code: 409;
+    ok: false;
+    info: "productSheetReview.alreadyExist";
+} & {body: undefined};
+
+export type response_body_37_6 = {
+    _id: string;
+    userId: string;
+    productSheetId: string;
+    pseudo: string;
+    content?: string | undefined;
+    createdAt: Date;
+    rate: number;
+    check: boolean;
+}
+
+export type response_37_6 = {
+    code: 201;
+    ok: true;
+    info: "productSheetReview.created";
+} & {body: response_body_37_6};
+
+export type parameters_38 = {
+    params: {
+        productSheetReviewId: string;
+    };
+}
+
+export type response_38_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_38_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_38_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_38_3 = {
+    code: 404;
+    ok: false;
+    info: "productSheetReview.notfound";
+} & {body: undefined};
+
+export type response_38_4 = {
+    code: 403;
+    ok: false;
+    info: "productSheetReview.wrong.user";
+} & {body: undefined};
+
+export type response_38_5 = {
+    code: 204;
+    ok: true;
+    info: "productSheetReview.deleted";
+} & {body: undefined};
+
+export type parameters_39 = {
+    params: {
+        promotionId: number;
+    };
+}
+
+export type response_39_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_39_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_39_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_39_3 = {
+    code: 404;
+    ok: false;
+    info: "promotion.notfound";
+} & {body: undefined};
+
+export type response_39_4 = {
+    code: 204;
+    ok: true;
+    info: "promotion.deleted";
+} & {body: undefined};
+
+export type response_39_5 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_39_6 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type response_40_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_40_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_40_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_40_3 = {
+    code: 401;
+    ok: false;
+    info: "user.intervalPullData";
+} & {body: undefined};
+
+export type response_40_4 = {
+    code: 204;
+    ok: true;
+    info: "user.pullData";
+} & {body: undefined};
+
+export type response_41_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_41_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_41_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_41_3 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_body_41_4 = {
+    id: string;
+    email: string;
+    lastname: string;
+    firstname: string;
+    dateOfBirth?: string;
+    address: string;
+    primordialRole: "CUSTOMER" | "MODERATOR" | "CONTENTS_MASTER" | "ADMIN";
+    muted: boolean;
+    emailNotifcationsNewsletter: boolean;
+    emailNotifcationsProductStock: boolean;
+    emailNotifcationsPromotion: boolean;
+    emailNotifcationsNewProductInCategory: boolean;
+    hasOrganization: boolean;
+}
+
+export type response_41_4 = {
+    code: 200;
+    ok: true;
+    info: "user";
+} & {body: response_body_41_4};
+
+export type request_body_42 = {
+    lastname?: string | undefined;
+    firstname?: string | undefined;
+    address?: string | undefined;
+    emailNotifcationsNewsletter?: boolean | undefined;
+    emailNotifcationsProductStock?: boolean | undefined;
+    emailNotifcationsPromotion?: boolean | undefined;
+    emailNotifcationsNewProductInCategory?: boolean | undefined;
+}
+
+export type response_42_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_42_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_42_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_42_3 = {
+    code: 400;
+    ok: false;
+    info: "user.address.invalid";
+} & {body: undefined};
+
+export type response_body_42_4 = string
+
+export type response_42_4 = {
+    code: 201;
+    ok: true;
+    info: "user.edited";
+} & {body: response_body_42_4};
+
+export type response_43_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_43_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_43_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_43_3 = {
+    code: 204;
+    ok: true;
+    info: "user.delete";
+} & {body: undefined};
+
+export type parameters_44 = {
+    headers: {
+        "content-type": string;
+        "content-length": number;
+    };
+    params: {
+        categoryName: string;
+    };
+}
+
+export type response_44_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_44_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_44_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_44_3 = {
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_44_4 = {
+    code: 404;
+    ok: false;
+    info: "category.notfound";
+} & {body: undefined};
+
+export type response_44_5 = {
+    code: 400;
+    ok: false;
+    info: "category.image.missing";
+} & {body: undefined};
+
+export type response_44_6 = {
+    code: 204;
+    ok: true;
+    info: "category.image.updated";
+} & {body: undefined};
+
+export type request_body_45 = {
+    name: string;
+    disabled: boolean;
+}
+
+export type response_45_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_45_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_45_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_45_3 = {
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_45_4 = {
+    code: 409;
+    ok: false;
+    info: "category.alreadyExist";
+} & {body: undefined};
+
+export type response_body_45_5 = {
+    name: string;
+    disabled: boolean;
+    imageKey: string | null;
+    imageUrl: string | null;
+}
+
+export type response_45_5 = {
+    code: 201;
+    ok: true;
+    info: "category.created";
+} & {body: response_body_45_5};
+
+export type request_body_46 = {
+    name?: string | undefined;
+    disabled?: boolean | undefined;
+} | undefined
+
+export type parameters_46 = {
+    params: {
+        categoryName: string;
+    };
+}
+
+export type response_46_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_46_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_46_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_46_3 = {
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_46_4 = {
+    code: 404;
+    ok: false;
+    info: "category.notfound";
+} & {body: undefined};
+
+export type response_46_5 = {
+    code: 409;
+    ok: false;
+    info: "category.alreadyExist";
+} & {body: undefined};
+
+export type response_46_6 = {
+    code: 204;
+    ok: true;
+    info: "category.edited";
+} & {body: undefined};
+
+export type response_47_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_47_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_47_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_47_3 = {
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_body_47_4 = {
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
     id: string;
     ref: string;
     name: string;
@@ -700,6 +2044,7 @@ export type response_body_18_2 = {
     }[] | undefined;
 }[]
 
+<<<<<<< HEAD
 export type response_18_2 = {
     code: 200;
     ok: true;
@@ -5403,6 +6748,21 @@ export type parameters_48 = {
     headers: {
         "content-type": string;
         "content-length": number;
+=======
+export type response_47_4 = {
+    code: 200;
+    ok: true;
+    info: "fullProductSheets";
+} & {body: response_body_47_4};
+
+export type request_body_48 = {
+    status?: ("VERIFIED" | "UNVERIFIED" | "REMOVE") | undefined;
+}
+
+export type parameters_48 = {
+    params: {
+        productSheetId: string;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
     };
     params: {
         categoryName: string;
@@ -5430,6 +6790,7 @@ export type response_48_2 = {
 } & {body: undefined};
 
 export type response_48_3 = {
+<<<<<<< HEAD
 <<<<<<< HEAD
     code: 401;
     ok: false;
@@ -5487,6 +6848,42 @@ export type response_48_6 = {
 
 export type request_body_49 = {
     status?: ("VERIFIED" | "UNVERIFIED" | "REMOVE") | undefined;
+=======
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_48_4 = {
+    code: 404;
+    ok: false;
+    info: "productSheet.notfound";
+} & {body: undefined};
+
+export type response_body_48_5 = {
+    id: string;
+    ref: string;
+    name: string;
+    description: string;
+    shortDescription: string;
+    price: number;
+    createdAt?: string;
+    updatedAt?: string;
+    organizationId: string;
+    variationGroup: string | null;
+    variationName: string | null;
+    warehouseId: string;
+}
+
+export type response_48_5 = {
+    code: 201;
+    ok: true;
+    info: "productSheet.edited";
+} & {body: response_body_48_5};
+
+export type request_body_49 = {
+    suspended?: boolean | undefined;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 }
 
 export type parameters_49 = {
@@ -5516,18 +6913,284 @@ export type response_49_2 = {
 
 export type response_49_3 = {
 <<<<<<< HEAD
+<<<<<<< HEAD
     code: 401;
-    ok: false;
-    info: "user.deleted";
-} & {body: undefined};
-
-export type response_49_4 = {
+=======
     code: 403;
     ok: false;
     info: "user.role.invalid";
 } & {body: undefined};
 
+export type response_49_4 = {
+    code: 404;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+<<<<<<< HEAD
+export type response_49_4 = {
+=======
+export type response_49_5 = {
+    code: 204;
+    ok: true;
+    info: "organization.edited";
+} & {body: undefined};
+
+export type parameters_50 = {
+    query?: {
+        random?: ("true" | "false") | undefined;
+        check?: ("true" | "false") | undefined;
+        page?: number | undefined;
+        take?: number;
+    } | undefined;
+}
+
+export type response_50_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_50_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_50_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_50_3 = {
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+<<<<<<< HEAD
 export type response_body_49_5 = ({
+=======
+export type response_body_50_4 = {
+    _id: string;
+    userId: string;
+    productSheetId: string;
+    pseudo: string;
+    content?: string | undefined;
+    createdAt: Date;
+    rate: number;
+    check: boolean;
+}[]
+
+export type response_50_4 = {
+    code: 200;
+    ok: true;
+    info: "productSheetReviews";
+} & {body: response_body_50_4};
+
+export type request_body_51 = {
+    muted?: boolean | undefined;
+}
+
+export type parameters_51 = {
+    params: {
+        userId: string;
+    };
+}
+
+export type response_51_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_51_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_51_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_51_3 = {
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_51_4 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_51_5 = {
+    code: 401;
+    ok: false;
+    info: "user.primordialRole.admin";
+} & {body: undefined};
+
+export type response_51_6 = {
+    code: 204;
+    ok: true;
+    info: "user.edited";
+} & {body: undefined};
+
+export type request_body_52 = {
+    name: string;
+    ownerId: string;
+}
+
+export type response_52_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_52_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_52_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_52_3 = {
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_52_4 = {
+    code: 409;
+    ok: false;
+    info: "organization.alreadyExist";
+} & {body: undefined};
+
+export type response_52_5 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_52_6 = {
+    code: 409;
+    ok: false;
+    info: "user.alreadyOwner";
+} & {body: undefined};
+
+export type response_52_7 = {
+    code: 201;
+    ok: true;
+    info: "organization.created";
+} & {body: undefined};
+
+export type request_body_53 = {
+    priority: number;
+    type: "PARENT_CATEGORY";
+    parentCategoryName: string;
+} | {
+    priority: number;
+    type: "CATEGORY";
+    categoryName: string;
+} | {
+    priority: number;
+    type: "LINK";
+    url: string;
+    title: string;
+}
+
+export type response_53_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_53_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_53_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_53_3 = {
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_53_4 = {
+    code: 409;
+    ok: false;
+    info: "navigationItem.limit";
+} & {body: undefined};
+
+export type response_body_53_5 = {
+    id: string;
+    priority: number;
+    type: "PARENT_CATEGORY";
+    parentCategoryName: string;
+} | {
+    id: string;
+    priority: number;
+    type: "CATEGORY";
+    categoryName: string;
+} | {
+    id: string;
+    priority: number;
+    type: "LINK";
+    url: string;
+    title: string;
+}
+
+export type response_53_5 = {
+    code: 201;
+    ok: true;
+    info: "navigationItem.created";
+} & {body: response_body_53_5};
+
+export type response_54_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_54_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_54_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_54_3 = {
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_body_54_4 = ({
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
     id: string;
     priority: number;
     type: "PARENT_CATEGORY";
@@ -5545,6 +7208,7 @@ export type response_body_49_5 = ({
     title: string;
 })[]
 
+<<<<<<< HEAD
 export type response_49_5 = {
     code: 200;
     ok: true;
@@ -5575,6 +7239,120 @@ export type response_body_49_5 = {
     variationName: string | null;
     warehouseId: string;
 }
+=======
+export type response_54_4 = {
+    code: 200;
+    ok: true;
+    info: "navigationItems";
+} & {body: response_body_54_4};
+
+export type request_body_55 = {
+    categoryName: string;
+}
+
+export type parameters_55 = {
+    params: {
+        parentCategoryName: string;
+    };
+}
+
+export type response_55_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_55_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_55_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_55_3 = {
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_55_4 = {
+    code: 404;
+    ok: false;
+    info: "parentCategory.notfound";
+} & {body: undefined};
+
+export type response_55_5 = {
+    code: 404;
+    ok: false;
+    info: "category.notfound";
+} & {body: undefined};
+
+export type response_55_6 = {
+    code: 409;
+    ok: false;
+    info: "parentCategory.categories.limit";
+} & {body: undefined};
+
+export type response_55_7 = {
+    code: 204;
+    ok: true;
+    info: "parentCategory.category.linked";
+} & {body: undefined};
+
+export type parameters_56 = {
+    params: {
+        parentCategoryName: string;
+    };
+}
+
+export type response_56_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_56_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_56_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_56_3 = {
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_56_4 = {
+    code: 404;
+    ok: false;
+    info: "parentCategory.notfound";
+} & {body: undefined};
+
+export type response_body_56_5 = {
+    name: string;
+    disabled: boolean;
+    imageKey: string | null;
+    imageUrl: string | null;
+}[]
+
+export type response_56_5 = {
+    code: 200;
+    ok: true;
+    info: "parentCategory.categories";
+} & {body: response_body_56_5};
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 
 export type response_49_5 = {
     code: 201;
@@ -6063,6 +7841,7 @@ export type parameters_55 = {
 export type parameters_55 = {
     params: {
         parentCategoryName: string;
+        categoryName: string;
     };
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 }
@@ -6280,6 +8059,7 @@ export type response_57_4 = {
 } & {body: undefined};
 
 export type response_57_5 = {
+<<<<<<< HEAD
     code: 401;
 =======
     info: "navigationItem.notfound";
@@ -6304,6 +8084,17 @@ export type request_body_58 = {
     type: "LINK";
     url: string;
     title: string;
+=======
+    code: 200;
+    ok: true;
+    info: "parentCategory.category.untied";
+} & {body: undefined};
+
+export type request_body_58 = {
+    object: string;
+    content: string;
+    sendAt: Date;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 }
 
 export type response_58_0 = {
@@ -6330,6 +8121,7 @@ export type response_58_3 = {
     info: "user.role.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_58_4 = {
     code: 409;
     ok: false;
@@ -6362,6 +8154,25 @@ export type response_58_5 = {
 
 export type request_body_59 = {
     categoryName: string;
+}
+=======
+export type response_body_58_4 = {
+    id: string;
+    object: string;
+    content: string;
+    createdAt: Date;
+    sendAt: Date;
+}
+
+export type response_58_4 = {
+    code: 201;
+    ok: true;
+    info: "newsletter.created";
+} & {body: response_body_58_4};
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+
+export type request_body_59 = {
+    name?: string | undefined;
 }
 
 export type parameters_59 = {
@@ -6401,6 +8212,7 @@ export type response_59_4 = {
 } & {body: undefined};
 
 export type response_59_5 = {
+<<<<<<< HEAD
     code: 404;
     ok: false;
     info: "category.notfound";
@@ -6416,12 +8228,27 @@ export type response_59_7 = {
     code: 204;
     ok: true;
     info: "parentCategory.category.linked";
+=======
+    code: 409;
+    ok: false;
+    info: "parentCategory.name.alreadyUse";
+} & {body: undefined};
+
+export type response_59_6 = {
+    code: 204;
+    ok: true;
+    info: "parentCategory.edited";
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 } & {body: undefined};
 
 export type parameters_60 = {
     params: {
+<<<<<<< HEAD
         parentCategoryName: string;
         categoryName: string;
+=======
+        newsletterId: string;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
     };
 }
 
@@ -6452,6 +8279,7 @@ export type response_60_3 = {
 export type response_60_4 = {
     code: 404;
     ok: false;
+<<<<<<< HEAD
     info: "parentCategory.notfound";
 } & {body: undefined};
 
@@ -6459,6 +8287,15 @@ export type response_60_5 = {
     code: 200;
     ok: true;
     info: "parentCategory.category.untied";
+=======
+    info: "newsletter.notfound";
+} & {body: undefined};
+
+export type response_60_5 = {
+    code: 204;
+    ok: true;
+    info: "newsletter.deleted";
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 } & {body: undefined};
 
 export type request_body_61 = {
@@ -6466,9 +8303,16 @@ export type request_body_61 = {
 }
 
 export type parameters_61 = {
+<<<<<<< HEAD
     params: {
         parentCategoryName: string;
     };
+=======
+    query?: {
+        page?: number;
+        object?: string | undefined;
+    } | undefined;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 }
 
 export type response_61_0 = {
@@ -6495,6 +8339,7 @@ export type response_61_3 = {
     info: "user.role.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_61_4 = {
     code: 404;
     ok: false;
@@ -6512,11 +8357,30 @@ export type response_61_6 = {
     ok: true;
     info: "parentCategory.edited";
 } & {body: undefined};
+=======
+export type response_body_61_4 = {
+    id: string;
+    object: string;
+    content: string;
+    createdAt: Date;
+    sendAt: Date;
+}[]
+
+export type response_61_4 = {
+    code: 200;
+    ok: true;
+    info: "newsletters";
+} & {body: response_body_61_4};
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 
 export type parameters_62 = {
     query?: {
         page?: number;
+<<<<<<< HEAD
         object?: string | undefined;
+=======
+        name?: string | undefined;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
     } | undefined;
 }
 
@@ -6546,15 +8410,25 @@ export type response_62_3 = {
 
 export type response_body_62_4 = {
     id: string;
+<<<<<<< HEAD
     object: string;
     content: string;
     createdAt: Date;
     sendAt: Date;
+=======
+    name: string;
+    label: string | null;
+    ownerId: string;
+    suspended: boolean;
+    logoKey: string | null;
+    logoUrl: string | null;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 }[]
 
 export type response_62_4 = {
     code: 200;
     ok: true;
+<<<<<<< HEAD
     info: "newsletters";
 } & {body: response_body_62_4};
 
@@ -6562,6 +8436,13 @@ export type parameters_63 = {
     params: {
         newsletterId: string;
     };
+=======
+    info: "organizations";
+} & {body: response_body_62_4};
+
+export type request_body_63 = {
+    name: string;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 }
 
 export type response_63_0 = {
@@ -6589,8 +8470,9 @@ export type response_63_3 = {
 } & {body: undefined};
 
 export type response_63_4 = {
-    code: 404;
+    code: 409;
     ok: false;
+<<<<<<< HEAD
     info: "newsletter.notfound";
 } & {body: undefined};
 
@@ -6604,6 +8486,27 @@ export type request_body_64 = {
     object: string;
     content: string;
     sendAt: Date;
+=======
+    info: "parentCategory.name.alreadyUse";
+} & {body: undefined};
+
+export type response_body_63_5 = {
+    name: string;
+}
+
+export type response_63_5 = {
+    code: 201;
+    ok: true;
+    info: "parentCategory.created";
+} & {body: response_body_63_5};
+
+export type parameters_64 = {
+    query?: {
+        page?: number;
+        name?: string | undefined;
+        withCategories?: ("true" | "false") | undefined;
+    } | undefined;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 }
 
 export type response_64_0 = {
@@ -6631,6 +8534,7 @@ export type response_64_3 = {
 } & {body: undefined};
 
 export type response_body_64_4 = {
+<<<<<<< HEAD
     id: string;
     object: string;
     content: string;
@@ -6649,6 +8553,29 @@ export type parameters_65 = {
         page?: number;
         name?: string | undefined;
     } | undefined;
+=======
+    name: string;
+    categories?: {
+        categoryName: string;
+    }[] | undefined;
+}[]
+
+export type response_64_4 = {
+    code: 200;
+    ok: true;
+    info: "parentCategories";
+} & {body: response_body_64_4};
+
+export type request_body_65 = {
+    primordialRole?: ("CUSTOMER" | "CONTENTS_MASTER" | "MODERATOR") | undefined;
+    muted?: boolean | undefined;
+}
+
+export type parameters_65 = {
+    params: {
+        userId: string;
+    };
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 }
 
 export type response_65_0 = {
@@ -6675,6 +8602,7 @@ export type response_65_3 = {
     info: "user.role.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_body_65_4 = {
     id: string;
     name: string;
@@ -6697,6 +8625,34 @@ export type parameters_66 = {
         name?: string | undefined;
         withCategories?: ("true" | "false") | undefined;
     } | undefined;
+=======
+export type response_65_4 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_65_5 = {
+    code: 401;
+    ok: false;
+    info: "user.primordialRole.admin";
+} & {body: undefined};
+
+export type response_65_6 = {
+    code: 204;
+    ok: true;
+    info: "user.edited";
+} & {body: undefined};
+
+export type request_body_66 = {
+    check?: boolean | undefined;
+}
+
+export type parameters_66 = {
+    params: {
+        productSheetReviewId: string;
+    };
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 }
 
 export type response_66_0 = {
@@ -6731,6 +8687,7 @@ export type response_body_66_4 = {
 }[]
 
 export type response_66_4 = {
+<<<<<<< HEAD
     code: 200;
     ok: true;
     info: "parentCategories";
@@ -6738,6 +8695,34 @@ export type response_66_4 = {
 
 export type request_body_67 = {
     name: string;
+=======
+    code: 404;
+    ok: false;
+    info: "productSheetReview.notfound";
+} & {body: undefined};
+
+export type response_body_66_5 = {
+    _id: string;
+    userId: string;
+    productSheetId: string;
+    pseudo: string;
+    content?: string | undefined;
+    createdAt: Date;
+    rate: number;
+    check: boolean;
+}
+
+export type response_66_5 = {
+    code: 200;
+    ok: true;
+    info: "productSheetReview.edited";
+} & {body: response_body_66_5};
+
+export type parameters_67 = {
+    params: {
+        productSheetReviewId: string;
+    };
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 }
 
 export type response_67_0 = {
@@ -6767,7 +8752,11 @@ export type response_67_3 = {
 export type response_67_4 = {
     code: 409;
     ok: false;
+<<<<<<< HEAD
     info: "parentCategory.name.alreadyUse";
+=======
+    info: "productSheetReview.notfound";
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 } & {body: undefined};
 
 export type response_body_67_5 = {
@@ -6775,6 +8764,7 @@ export type response_body_67_5 = {
 }
 
 export type response_67_5 = {
+<<<<<<< HEAD
     code: 201;
     ok: true;
     info: "parentCategory.created";
@@ -6783,6 +8773,12 @@ export type response_67_5 = {
 export type request_body_68 = {
     check?: boolean | undefined;
 }
+=======
+    code: 204;
+    ok: true;
+    info: "productSheetReview.deleted";
+} & {body: undefined};
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 
 export type parameters_68 = {
     params: {
@@ -6838,9 +8834,15 @@ export type response_68_5 = {
 } & {body: response_body_68_5};
 
 export type parameters_69 = {
+<<<<<<< HEAD
     params: {
         productSheetReviewId: string;
     };
+=======
+    params?: {
+        commandId?: string;
+    } | undefined;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 }
 
 export type response_69_0 = {
@@ -6862,12 +8864,13 @@ export type response_69_2 = {
 } & {body: undefined};
 
 export type response_69_3 = {
-    code: 403;
+    code: 404;
     ok: false;
-    info: "user.role.invalid";
+    info: "command.notfound";
 } & {body: undefined};
 
 export type response_69_4 = {
+<<<<<<< HEAD
     code: 404;
     ok: false;
     info: "productSheetReview.notfound";
@@ -6884,6 +8887,39 @@ export type request_body_70 = {
     muted?: boolean | undefined;
 }
 
+=======
+    code: 401;
+    ok: false;
+    info: "command.wrong.user";
+} & {body: undefined};
+
+export type response_body_69_5 = {
+    id: string;
+    firstname: string;
+    lastname: string;
+    status: "DONE" | "CANCELED" | "WAITING_PAYMENT" | "IN_PROGRESS" | "IN_DELIVERY";
+    userId: string;
+    deliveryAddress: string;
+    createdDate: Date;
+    price: number;
+    items: {
+        quantity: number;
+        processQuantity: number;
+        productSheetId: string;
+        productSheetName: string;
+        productSheetFirstImageUrl: string;
+        productSheetOrganizationName: string;
+        productSheetPrice: number;
+    }[];
+}
+
+export type response_69_5 = {
+    code: 200;
+    ok: true;
+    info: "command.found";
+} & {body: response_body_69_5};
+
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 export type parameters_70 = {
     params: {
         userId: string;
@@ -6922,6 +8958,7 @@ export type response_70_4 = {
 } & {body: undefined};
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export type response_body_57_6 = {
     id: string;
     firstname: string;
@@ -6941,12 +8978,20 @@ export type response_body_57_6 = {
         productSheetPrice: number;
     }[];
 }
+=======
+export type response_body_70_5 = string
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 
 export type response_57_6 = {
     code: 200;
     ok: true;
+<<<<<<< HEAD
     info: "command.found";
 } & {body: response_body_57_6};
+=======
+    info: "command.invoice";
+} & {body: response_body_70_5};
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 
 export type parameters_58 = {
     params: {
@@ -7119,22 +9164,244 @@ export type response_60_5 = {
     info: "command.wrong.user";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_body_60_6 = string
+=======
+export type response_body_71_5 = {
+    id: number;
+    idShip: string;
+    carrierName: "LA_POSTE";
+    commandId: string;
+    status: "DONE" | "CREATED" | "CARRIER_SUPPORTED" | "CARRIER_PROCESS" | "UNDELIVERABLE" | "DONE_OFFICE" | "BACK" | "BACK_DONE";
+    productsCount: number;
+}[]
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 
 export type response_60_6 = {
     code: 200;
     ok: true;
+<<<<<<< HEAD
     info: "command.invoice";
 } & {body: response_body_60_6};
 
 export type parameters_61 = {
+=======
+    info: "bundles.found";
+} & {body: response_body_71_5};
+
+export type parameters_72 = {
     params: {
         organizationId: string;
     };
-    query?: {
+    query: {
+        warehouseId: string;
         page?: number;
-        ref?: string | undefined;
-    } | undefined;
+    };
+}
+
+export type response_72_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_72_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_72_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_72_3 = {
+    code: 404;
+    ok: false;
+    info: "organization.notfound";
+} & {body: undefined};
+
+export type response_72_4 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_72_5 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type response_72_6 = {
+    code: 404;
+    ok: false;
+    info: "warehouse.notfound";
+} & {body: undefined};
+
+export type response_body_72_7 = {
+    commandId: string;
+    firstname: string;
+    lastname: string;
+    address: string;
+    quantity: number;
+    createdAt?: string;
+}[]
+
+export type response_72_7 = {
+    code: 200;
+    ok: true;
+    info: "organizationCommandCollection";
+} & {body: response_body_72_7};
+
+export type parameters_73 = {
+    headers: {
+        "content-type": string;
+        "content-length": number;
+    };
+    params: {
+        organizationId: string;
+    };
+}
+
+export type response_73_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_73_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_73_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_73_3 = {
+    code: 404;
+    ok: false;
+    info: "organization.notfound";
+} & {body: undefined};
+
+export type response_73_4 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_73_5 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type response_73_6 = {
+    code: 400;
+    ok: false;
+    info: "organization.logo.missing";
+} & {body: undefined};
+
+export type response_73_7 = {
+    code: 204;
+    ok: true;
+    info: "organization.logo.edited";
+} & {body: undefined};
+
+export type parameters_74 = {
+    params: {
+        organizationId: string;
+        commandId: string;
+    };
+}
+
+export type response_74_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_74_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_74_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_74_3 = {
+    code: 404;
+    ok: false;
+    info: "organization.notfound";
+} & {body: undefined};
+
+export type response_74_4 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_74_5 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type response_74_6 = {
+    code: 404;
+    ok: false;
+    info: "command.notfound";
+} & {body: undefined};
+
+export type response_74_7 = {
+    code: 404;
+    ok: false;
+    info: "commandItem.missing";
+} & {body: undefined};
+
+export type response_body_74_8 = {
+    productSheetRef: string;
+    commandItemId: number;
+    commandId: string;
+    quantity: number;
+    processQuantity: number;
+    productSheetName: string;
+    productSheetId: string;
+    productSheetFirstImageUrl: string;
+}[]
+
+export type response_74_8 = {
+    code: 200;
+    ok: true;
+    info: "organizationCommandDetailes";
+} & {body: response_body_74_8};
+
+export type request_body_75 = {
+    ref: string;
+    name: string;
+    description: string;
+    shortDescription: string;
+    price: number;
+    warehouseId: string;
+    variationGroup?: string | undefined;
+    variationName?: string | undefined;
+}
+
+export type parameters_75 = {
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+    params: {
+        organizationId: string;
+    };
 }
 
 export type response_61_0 = {
@@ -7179,9 +9446,98 @@ export type response_61_6 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_body_61_7 = {
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+=======
+export type response_75_6 = {
+    code: 404;
+    ok: false;
+    info: "warehouse.notfound";
+} & {body: undefined};
+
+export type response_75_7 = {
+    code: 409;
+    ok: false;
+    info: "productSheet.ref.alreadyUse";
+} & {body: undefined};
+
+export type response_body_75_8 = {
+    id: string;
+    ref: string;
+    name: string;
+    description: string;
+    shortDescription: string;
+    price: number;
+    createdAt?: string;
+    updatedAt?: string;
+    organizationId: string;
+    variationGroup: string | null;
+    variationName: string | null;
+    warehouseId: string;
+}
+
+export type response_75_8 = {
+    code: 201;
+    ok: true;
+    info: "productSheet.created";
+} & {body: response_body_75_8};
+
+export type parameters_76 = {
+    params: {
+        organizationId: string;
+    };
+    query?: {
+        page?: number;
+        ref?: string | undefined;
+    } | undefined;
+}
+
+export type response_76_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_76_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_76_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_76_3 = {
+    code: 404;
+    ok: false;
+    info: "organization.notfound";
+} & {body: undefined};
+
+export type response_76_4 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_76_5 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type response_body_76_6 = {
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
     id: string;
     ref: string;
     name: string;
@@ -7227,6 +9583,7 @@ export type response_body_61_7 = {
     }[] | undefined;
 }[]
 
+<<<<<<< HEAD
 export type response_54_5 = {
     code: 200;
     ok: true;
@@ -8439,6 +10796,9 @@ export type response_61_6 = {
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 } & {body: undefined};
 
+=======
+<<<<<<< HEAD
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 export type response_61_7 = {
     code: 200;
     ok: true;
@@ -9938,6 +12298,12 @@ export type response_76_6 = {
     code: 200;
     ok: true;
     info: "organization.fullProductSheet";
+=======
+export type response_76_6 = {
+    code: 200;
+    ok: true;
+    info: "organization.fullProductSheet";
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 } & {body: response_body_76_6};
 
 export type parameters_77 = {
@@ -9948,6 +12314,13 @@ export type parameters_77 = {
     params: {
         organizationId: string;
     };
+<<<<<<< HEAD
+=======
+    query?: {
+        page?: number;
+        name?: string | undefined;
+    } | undefined;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 }
 
 export type response_77_0 = {
@@ -10006,6 +12379,7 @@ export type response_77_5 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_77_6 = {
     code: 400;
     ok: false;
@@ -10028,11 +12402,37 @@ export type request_body_78 = {
     variationGroup?: string | undefined;
     variationName?: string | undefined;
 }
+=======
+export type response_body_77_6 = {
+    id: string;
+    ref: string;
+    name: string;
+    description: string;
+    shortDescription: string;
+    price: number;
+    createdAt?: string;
+    updatedAt?: string;
+    organizationId: string;
+    variationGroup: string | null;
+    variationName: string | null;
+    warehouseId: string;
+}[]
+
+export type response_77_6 = {
+    code: 200;
+    ok: true;
+    info: "productSheets.found";
+} & {body: response_body_77_6};
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 
 export type parameters_78 = {
     params: {
         organizationId: string;
     };
+    query?: {
+        page?: number;
+        facetValue?: string | undefined;
+    } | undefined;
 }
 
 export type response_78_0 = {
@@ -10071,6 +12471,7 @@ export type response_78_5 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_78_6 = {
     code: 404;
     ok: false;
@@ -10103,15 +12504,40 @@ export type response_78_8 = {
     ok: true;
     info: "productSheet.created";
 } & {body: response_body_78_8};
+=======
+export type response_body_78_6 = {
+    type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
+    productSheetId: string;
+    value: string;
+}[]
+
+export type response_78_6 = {
+    code: 200;
+    ok: true;
+    info: "productSheet.facets";
+} & {body: response_body_78_6};
+
+export type request_body_79 = {
+    idShip: string;
+    bundleItems: {
+        commandItemId: number;
+        sku: string;
+    }[];
+}
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 
 export type parameters_79 = {
     params: {
         organizationId: string;
+        commandId: string;
     };
+<<<<<<< HEAD
     query?: {
         page?: number;
         name?: string | undefined;
     } | undefined;
+=======
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 }
 
 export type response_79_0 = {
@@ -10150,6 +12576,7 @@ export type response_79_5 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_body_79_6 = {
     id: string;
     ref: string;
@@ -10165,16 +12592,74 @@ export type response_body_79_6 = {
     warehouseId: string;
 }[]
 
+=======
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 export type response_79_6 = {
+    code: 404;
+    ok: false;
+    info: "command.notfound";
+} & {body: undefined};
+
+export type response_79_7 = {
+    code: 400;
+    ok: false;
+    info: "commandItem.wrong.product";
+} & {body: undefined};
+
+export type response_79_8 = {
+    code: 400;
+    ok: false;
+    info: "organization.wrong.product";
+} & {body: undefined};
+
+export type response_79_9 = {
+    code: 400;
+    ok: false;
+    info: "commandItem.wrong.commandId";
+} & {body: undefined};
+
+export type response_79_10 = {
+    code: 404;
+    ok: false;
+    info: "commandItem.missing";
+} & {body: undefined};
+
+export type response_79_11 = {
+    code: 404;
+    ok: false;
+    info: "product.missing";
+} & {body: undefined};
+
+export type response_79_12 = {
+    code: 409;
+    ok: false;
+    info: "commandItem.alreadyCompleted";
+} & {body: undefined};
+
+export type response_79_13 = {
+    code: 409;
+    ok: false;
+    info: "commandItem.tooMuch.product";
+} & {body: undefined};
+
+export type response_79_14 = {
     code: 200;
     ok: true;
+<<<<<<< HEAD
     info: "productSheets.found";
 } & {body: response_body_79_6};
+=======
+    info: "makeBundle";
+} & {body: undefined};
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 
 export type parameters_80 = {
     params: {
         organizationId: string;
+<<<<<<< HEAD
         commandId: string;
+=======
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
     };
 }
 
@@ -10214,11 +12699,32 @@ export type response_80_5 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
+export type response_body_80_6 = {
+    id: string;
+    name: string;
+    label: string | null;
+    ownerId: string;
+    suspended: boolean;
+    logoKey: string | null;
+    logoUrl: string | null;
+}
+
 export type response_80_6 = {
+<<<<<<< HEAD
     code: 404;
     ok: false;
     info: "command.notfound";
 } & {body: undefined};
+=======
+    code: 200;
+    ok: true;
+    info: "organization.found";
+} & {body: response_body_80_6};
+
+export type request_body_81 = {
+    label?: (string | null) | undefined;
+}
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 
 export type response_80_7 = {
     code: 404;
@@ -10295,6 +12801,7 @@ export type response_81_5 = {
 } & {body: undefined};
 
 export type response_81_6 = {
+<<<<<<< HEAD
     code: 404;
     ok: false;
     info: "command.notfound";
@@ -10346,6 +12853,11 @@ export type response_81_14 = {
     code: 200;
     ok: true;
     info: "makeBundle";
+=======
+    code: 204;
+    ok: true;
+    info: "organization.edited";
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 } & {body: undefined};
 
 export type parameters_82 = {
@@ -10548,7 +13060,11 @@ export type parameters_84 = {
     };
     query?: {
         page?: number;
+<<<<<<< HEAD
         facetValue?: string | undefined;
+=======
+        email?: string | undefined;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
     } | undefined;
 }
 
@@ -10589,21 +13105,37 @@ export type response_84_5 = {
 } & {body: undefined};
 
 export type response_body_84_6 = {
+<<<<<<< HEAD
     type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
     productSheetId: string;
     value: string;
+=======
+    id: string;
+    email: string;
+    lastname: string;
+    firstname: string;
+    organizationRole: "STORE_KEEPER" | "PRODUCT_SHEET_MANAGER" | "ACCOUNTANT" | "OWNER";
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 }[]
 
 export type response_84_6 = {
     code: 200;
     ok: true;
+<<<<<<< HEAD
     info: "productSheet.facets";
+=======
+    info: "organization.users";
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 } & {body: response_body_84_6};
 
 export type parameters_85 = {
     params: {
         organizationId: string;
     };
+    query?: {
+        sku?: string | undefined;
+        page?: number;
+    } | undefined;
 }
 
 export type response_85_0 = {
@@ -10643,6 +13175,7 @@ export type response_85_5 = {
 } & {body: undefined};
 
 export type response_body_85_6 = {
+<<<<<<< HEAD
     id: string;
     name: string;
     label: string | null;
@@ -10651,15 +13184,33 @@ export type response_body_85_6 = {
     logoKey: string | null;
     logoUrl: string | null;
 }
+=======
+    id: number;
+    productSku: string;
+    reason: string;
+    status: "WAITING_RETURN" | "REFUNDED" | "INVALID";
+    organizationId: string;
+    createdAt?: string;
+}[]
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 
 export type response_85_6 = {
     code: 200;
     ok: true;
+<<<<<<< HEAD
     info: "organization.found";
 } & {body: response_body_85_6};
 
 export type request_body_86 = {
     label?: (string | null) | undefined;
+=======
+    info: "productReturns";
+} & {body: response_body_85_6};
+
+export type request_body_86 = {
+    sku: string;
+    reason: string;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 }
 
 export type parameters_86 = {
@@ -10705,10 +13256,50 @@ export type response_86_5 = {
 } & {body: undefined};
 
 export type response_86_6 = {
+<<<<<<< HEAD
     code: 204;
     ok: true;
     info: "organization.edited";
 } & {body: undefined};
+=======
+    code: 404;
+    ok: false;
+    info: "product.notfound";
+} & {body: undefined};
+
+export type response_86_7 = {
+    code: 406;
+    ok: false;
+    info: "product.wrong.organization";
+} & {body: undefined};
+
+export type response_86_8 = {
+    code: 406;
+    ok: false;
+    info: "product.wrong.status";
+} & {body: undefined};
+
+export type response_86_9 = {
+    code: 409;
+    ok: false;
+    info: "product.alreadyInRefundProcess";
+} & {body: undefined};
+
+export type response_body_86_10 = {
+    id: number;
+    productSku: string;
+    reason: string;
+    status: "WAITING_RETURN" | "REFUNDED" | "INVALID";
+    organizationId: string;
+    createdAt?: string;
+}
+
+export type response_86_10 = {
+    code: 201;
+    ok: true;
+    info: "productReturn.created";
+} & {body: response_body_86_10};
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 
 export type parameters_87 = {
     params: {
@@ -12704,7 +15295,12 @@ export type request_body_92 = {
 
 export type parameters_92 = {
     params: {
+<<<<<<< HEAD
         organizationId: string;
+=======
+        productSheetId: string;
+        categoryName: string;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
     };
 }
 
@@ -12745,6 +15341,7 @@ export type response_92_5 = {
 } & {body: undefined};
 
 export type response_92_6 = {
+<<<<<<< HEAD
     code: 400;
     ok: false;
     info: "warehouse.address.invalid";
@@ -12762,6 +15359,23 @@ export type response_92_7 = {
     ok: true;
     info: "warehouse.created";
 } & {body: response_body_92_7};
+=======
+    code: 404;
+    ok: false;
+    info: "category.notfound";
+} & {body: undefined};
+
+export type response_92_7 = {
+    code: 200;
+    ok: true;
+    info: "productSheet.category.untied";
+} & {body: undefined};
+
+export type request_body_93 = {
+    type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
+    value: string;
+}
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 
 export type parameters_93 = {
     params: {
@@ -12809,6 +15423,7 @@ export type response_93_5 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_body_93_6 = {
     id: string;
     name: string;
@@ -12830,6 +15445,33 @@ export type parameters_94 = {
     params: {
         sku: string;
     };
+=======
+export type response_93_6 = {
+    code: 409;
+    ok: false;
+    info: "productSheet.facet.alreadyExist";
+} & {body: undefined};
+
+export type response_body_93_7 = {
+    type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
+    productSheetId: string;
+    value: string;
+}
+
+export type response_93_7 = {
+    code: 201;
+    ok: true;
+    info: "facet.created";
+} & {body: response_body_93_7};
+
+export type parameters_94 = {
+    params: {
+        productSheetId: string;
+    };
+    query?: {
+        startDate?: Date | undefined;
+    } | undefined;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 }
 
 export type response_94_0 = {
@@ -12854,7 +15496,11 @@ export type response_94_3 = {
 >>>>>>> f6f440e (fix: refacto front CommandPage)
     code: 404;
     ok: false;
+<<<<<<< HEAD
     info: "product.notfound";
+=======
+    info: "productSheet.notfound";
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 } & {body: undefined};
 
 <<<<<<< HEAD
@@ -12873,6 +15519,7 @@ export type response_94_5 = {
 } & {body: undefined};
 
 export type response_body_94_6 = {
+<<<<<<< HEAD
     sku: string;
     status: "WRONG" | "SOLD" | "IN_STOCK";
     organizationId: string;
@@ -12884,17 +15531,40 @@ export type response_body_94_6 = {
     createdAt: string;
     updatedAt: string;
 }
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+    productSheetId: string;
+    quantity: number;
+    date: Date;
+}[]
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 
 export type response_94_6 = {
     code: 200;
     ok: true;
+<<<<<<< HEAD
     info: "product.edited";
 } & {body: response_body_94_6};
 
 export type parameters_95 = {
     params: {
         sku: string;
+=======
+    info: "product.stockStory";
+} & {body: response_body_94_6};
+
+export type request_body_95 = {
+    value?: string | undefined;
+}
+
+export type parameters_95 = {
+    params: {
+        productSheetId: string;
+        facetType: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
     };
 }
 
@@ -12919,7 +15589,11 @@ export type response_95_2 = {
 export type response_95_3 = {
     code: 404;
     ok: false;
+<<<<<<< HEAD
     info: "product.notfound";
+=======
+    info: "productSheet.notfound";
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 } & {body: undefined};
 
 export type response_95_4 = {
@@ -12955,15 +15629,32 @@ export type response_body_95_6 = {
 }[]
 
 export type response_95_6 = {
+<<<<<<< HEAD
     code: 200;
     ok: true;
     info: "product.commandHistory";
 } & {body: response_body_95_6};
+=======
+    code: 404;
+    ok: false;
+    info: "facet.notfound";
+} & {body: undefined};
+
+export type response_95_7 = {
+    code: 204;
+    ok: true;
+    info: "facet.edited";
+} & {body: undefined};
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 
 export type parameters_96 = {
     params: {
         productSheetId: string;
+<<<<<<< HEAD
         categoryName: string;
+=======
+        facetType: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
     };
 }
 
@@ -13005,6 +15696,7 @@ export type response_91_6 = {
 } & {body: undefined};
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export type response_body_91_7 = {
 =======
 export type response_96_6 = {
@@ -13017,6 +15709,18 @@ export type response_96_7 = {
     code: 200;
     ok: true;
     info: "productSheet.category.untied";
+=======
+export type response_96_6 = {
+    code: 404;
+    ok: false;
+    info: "facet.notfound";
+} & {body: undefined};
+
+export type response_96_7 = {
+    code: 204;
+    ok: true;
+    info: "facet.deleted";
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 } & {body: undefined};
 
 export type parameters_97 = {
@@ -13062,21 +15766,32 @@ export type response_97_5 = {
 } & {body: undefined};
 
 export type response_body_97_6 = {
+<<<<<<< HEAD
     name: string;
     disabled: boolean;
     imageKey: string | null;
     imageUrl: string | null;
+=======
+    type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
+    productSheetId: string;
+    value: string;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 }[]
 
 export type response_97_6 = {
     code: 200;
     ok: true;
+<<<<<<< HEAD
     info: "productSheet.categories";
 } & {body: response_body_97_6};
 
 export type request_body_98 = {
     categoryName: string;
 }
+=======
+    info: "productSheet.facets";
+} & {body: response_body_97_6};
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 
 export type parameters_98 = {
     params: {
@@ -13120,6 +15835,16 @@ export type response_98_5 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
+=======
+export type response_body_98_6 = {
+    id: string;
+    name: string;
+    address: string;
+    organizationId: string;
+}
+
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 export type response_98_6 = {
     code: 404;
     ok: false;
@@ -13135,8 +15860,13 @@ export type response_98_7 = {
 export type response_98_8 = {
     code: 200;
     ok: true;
+<<<<<<< HEAD
     info: "productSheet.category.linked";
 } & {body: undefined};
+=======
+    info: "productSheet.warehouse";
+} & {body: response_body_98_6};
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 
 export type parameters_99 = {
     params: {
@@ -13181,14 +15911,31 @@ export type response_99_5 = {
 } & {body: undefined};
 
 export type response_body_99_6 = {
+<<<<<<< HEAD
     type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
     productSheetId: string;
     value: string;
 }[]
+=======
+    id: string;
+    ref: string;
+    name: string;
+    description: string;
+    shortDescription: string;
+    price: number;
+    createdAt?: string;
+    updatedAt?: string;
+    organizationId: string;
+    variationGroup: string | null;
+    variationName: string | null;
+    warehouseId: string;
+}
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 
 export type response_99_6 = {
     code: 200;
     ok: true;
+<<<<<<< HEAD
     info: "productSheet.facets";
 } & {body: response_body_99_6};
 
@@ -13197,6 +15944,19 @@ export type request_body_100 = {
     startDate: Date;
     endDate: Date;
     reason: string;
+=======
+    info: "productSheet.found";
+} & {body: response_body_99_6};
+
+export type request_body_100 = {
+    name?: string | undefined;
+    description?: string | undefined;
+    shortDescription?: string | undefined;
+    price?: number | undefined;
+    variationGroup?: string | undefined;
+    variationName?: string | undefined;
+    warehouseId?: string | undefined;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 }
 
 export type parameters_100 = {
@@ -13241,6 +16001,7 @@ export type response_100_5 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_100_6 = {
     code: 400;
     ok: false;
@@ -13266,6 +16027,28 @@ export type response_100_7 = {
 export type request_body_101 = {
     sku: string;
 }
+=======
+export type response_body_100_6 = {
+    id: string;
+    ref: string;
+    name: string;
+    description: string;
+    shortDescription: string;
+    price: number;
+    createdAt?: string;
+    updatedAt?: string;
+    organizationId: string;
+    variationGroup: string | null;
+    variationName: string | null;
+    warehouseId: string;
+}
+
+export type response_100_6 = {
+    code: 201;
+    ok: true;
+    info: "productSheet.edited";
+} & {body: response_body_100_6};
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 
 export type parameters_101 = {
     params: {
@@ -13309,6 +16092,7 @@ export type response_101_5 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_101_6 = {
     code: 409;
     ok: false;
@@ -13401,8 +16185,28 @@ export type response_101_7 = {
     ok: true;
     info: "product.created";
 } & {body: response_body_101_7};
+=======
+export type response_body_101_6 = {
+    id: string;
+    productSheetId: string;
+    organizationId: string;
+    url: string;
+    key: string;
+    alt: string | null;
+}[]
+
+export type response_101_6 = {
+    code: 200;
+    ok: true;
+    info: "productSheet.images";
+} & {body: response_body_101_6};
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 
 export type parameters_102 = {
+    headers: {
+        "content-type": string;
+        "content-length": number;
+    };
     params: {
         productSheetId: string;
     };
@@ -13444,22 +16248,45 @@ export type response_102_5 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-export type response_body_102_6 = {
+export type response_102_6 = {
+    code: 409;
+    ok: false;
+    info: "product.images.limit";
+} & {body: undefined};
+
+export type response_102_7 = {
+    code: 400;
+    ok: false;
+    info: "productSheet.image.missing";
+} & {body: undefined};
+
+export type response_body_102_8 = {
     id: string;
-    name: string;
-    address: string;
+    productSheetId: string;
     organizationId: string;
+    url: string;
+    key: string;
+    alt: string | null;
 }
 
-export type response_102_6 = {
-    code: 200;
+export type response_102_8 = {
+    code: 201;
     ok: true;
-    info: "productSheet.warehouse";
-} & {body: response_body_102_6};
+    info: "productSheet.image.create";
+} & {body: response_body_102_8};
+
+export type request_body_103 = {
+    name?: string | undefined;
+    address?: string | undefined;
+}
 
 export type parameters_103 = {
     params: {
+<<<<<<< HEAD
         productSheetId: string;
+=======
+        warehouseId: string;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
     };
     query?: {
         startDate?: Date | undefined;
@@ -13487,7 +16314,11 @@ export type response_103_2 = {
 export type response_103_3 = {
     code: 404;
     ok: false;
+<<<<<<< HEAD
     info: "productSheet.notfound";
+=======
+    info: "warehouse.notfound";
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 } & {body: undefined};
 
 export type response_103_4 = {
@@ -13502,6 +16333,7 @@ export type response_103_5 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 export type response_body_103_6 = {
     productSheetId: string;
     quantity: number;
@@ -13513,11 +16345,30 @@ export type response_103_6 = {
     ok: true;
     info: "product.stockStory";
 } & {body: response_body_103_6};
+=======
+export type response_103_6 = {
+    code: 400;
+    ok: false;
+    info: "warehouse.address.invalid";
+} & {body: undefined};
+
+export type response_103_7 = {
+    code: 204;
+    ok: true;
+    info: "warehouse.edited";
+} & {body: undefined};
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 
 export type parameters_104 = {
     params: {
-        productSheetId: string;
+        organizationId: string;
     };
+    query?: {
+        page?: number;
+        sku?: string | undefined;
+        productSheetId?: string | undefined;
+        status?: ("WRONG" | "SOLD" | "IN_STOCK") | undefined;
+    } | undefined;
 }
 
 export type response_104_0 = {
@@ -13541,7 +16392,7 @@ export type response_104_2 = {
 export type response_104_3 = {
     code: 404;
     ok: false;
-    info: "productSheet.notfound";
+    info: "organization.notfound";
 } & {body: undefined};
 
 export type response_104_4 = {
@@ -13557,39 +16408,31 @@ export type response_104_5 = {
 } & {body: undefined};
 
 export type response_body_104_6 = {
-    id: string;
-    ref: string;
-    name: string;
-    description: string;
-    shortDescription: string;
-    price: number;
-    createdAt?: string;
-    updatedAt?: string;
+    sku: string;
+    status: "WRONG" | "SOLD" | "IN_STOCK";
     organizationId: string;
-    variationGroup: string | null;
-    variationName: string | null;
+    productSheetId: string;
+    productSheetName: string;
+    productSheetFirstImageUrl?: string | undefined;
     warehouseId: string;
-}
+    warehouseName: string;
+    createdAt: string;
+    updatedAt: string;
+}[]
 
 export type response_104_6 = {
     code: 200;
     ok: true;
-    info: "productSheet.found";
+    info: "products.found";
 } & {body: response_body_104_6};
 
 export type request_body_105 = {
-    name?: string | undefined;
-    description?: string | undefined;
-    shortDescription?: string | undefined;
-    price?: number | undefined;
-    variationGroup?: string | undefined;
-    variationName?: string | undefined;
-    warehouseId?: string | undefined;
+    status?: ("IN_STOCK" | "WRONG") | undefined;
 }
 
 export type parameters_105 = {
     params: {
-        productSheetId: string;
+        sku: string;
     };
 }
 
@@ -13614,7 +16457,7 @@ export type response_105_2 = {
 export type response_105_3 = {
     code: 404;
     ok: false;
-    info: "productSheet.notfound";
+    info: "product.notfound";
 } & {body: undefined};
 
 export type response_105_4 = {
@@ -13630,26 +16473,25 @@ export type response_105_5 = {
 } & {body: undefined};
 
 export type response_body_105_6 = {
-    id: string;
-    ref: string;
-    name: string;
-    description: string;
-    shortDescription: string;
-    price: number;
-    createdAt?: string;
-    updatedAt?: string;
+    sku: string;
+    status: "WRONG" | "SOLD" | "IN_STOCK";
     organizationId: string;
-    variationGroup: string | null;
-    variationName: string | null;
+    productSheetId: string;
+    productSheetName: string;
+    productSheetFirstImageUrl?: string | undefined;
     warehouseId: string;
+    warehouseName: string;
+    createdAt: string;
+    updatedAt: string;
 }
 
 export type response_105_6 = {
-    code: 201;
+    code: 200;
     ok: true;
-    info: "productSheet.edited";
+    info: "product.edited";
 } & {body: response_body_105_6};
 
+<<<<<<< HEAD
 export type request_body_106 = {
     type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
     value: string;
@@ -13899,12 +16741,47 @@ export type parameters_110 = {
 export type response_110_0 = {
     code: 401;
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+=======
+export type parameters_106 = {
+    query?: ({
+        ignoreProductSheetId?: (string | string[]) | undefined;
+        available?: ("true" | "false") | undefined;
+        page?: number;
+        take?: number;
+    } & {
+        color?: (string | string[]) | undefined;
+        size?: string | undefined;
+        diameter?: string | undefined;
+        target?: string | undefined;
+        accessory?: any | undefined;
+        material?: (string | string[]) | undefined;
+        stimulation?: (string | string[]) | undefined;
+        promotion?: any | undefined;
+        price?: [
+            number,
+            number
+        ] | undefined;
+        rate?: string | undefined;
+    }) & {
+        search?: string | undefined;
+        searchByRegex?: any;
+        categoryName?: string | undefined;
+    };
+}
+
+export type response_106_0 = {
+    code: 404;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export type response_92_1 = {
+=======
+export type response_106_1 = {
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
     code: 403;
 =======
 export type response_110_1 = {
@@ -13915,7 +16792,11 @@ export type response_110_1 = {
 } & {body: undefined};
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export type response_body_92_2 = {
+=======
+export type response_body_106_2 = {
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
     id: string;
     ref: string;
     name: string;
@@ -13961,6 +16842,7 @@ export type response_body_92_2 = {
     }[] | undefined;
 }[]
 
+<<<<<<< HEAD
 export type response_92_2 = {
     code: 200;
     ok: true;
@@ -15454,11 +18336,26 @@ export type response_106_8 = {
 } & {body: response_body_106_8};
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export type request_body_107 = {
     value?: string | undefined;
 >>>>>>> fca56a6 (fix(hf): rest full)
 }
 
+=======
+=======
+export type response_106_2 = {
+    code: 200;
+    ok: true;
+    info: "fullProductSheets";
+} & {body: response_body_106_2};
+
+export type request_body_107 = {
+    sku: string;
+}
+
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 export type parameters_107 = {
     params: {
         productSheetId: string;
@@ -15489,6 +18386,7 @@ export type response_107_1 = {
 export type response_107_2 = {
     code: 401;
     ok: false;
+<<<<<<< HEAD
     info: "accessToken.tooOld";
 } & {body: undefined};
 
@@ -15658,13 +18556,127 @@ export type response_body_108_9 = {
 export type response_108_9 = {
     code: 201;
     ok: true;
+<<<<<<< HEAD
     info: "productSheet.image.create";
 } & {body: response_body_108_9};
+=======
+    info: "productSheet.edited";
+} & {body: response_body_108_7};
+=======
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_107_3 = {
+    code: 404;
+    ok: false;
+    info: "productSheet.notfound";
+} & {body: undefined};
+
+export type response_107_4 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_107_5 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type response_107_6 = {
+    code: 409;
+    ok: false;
+    info: "product.sku.alreadyUse";
+} & {body: undefined};
+
+export type response_body_107_7 = {
+    sku: string;
+    status: "WRONG" | "SOLD" | "IN_STOCK";
+    organizationId: string;
+    productSheetId: string;
+    productSheetName: string;
+    productSheetFirstImageUrl?: string | undefined;
+    warehouseId: string;
+    warehouseName: string;
+    createdAt: string;
+    updatedAt: string;
+}
+
+export type response_107_7 = {
+    code: 201;
+    ok: true;
+    info: "product.created";
+} & {body: response_body_107_7};
+
+export type parameters_108 = {
+    query?: ({} & {
+        color?: (string | string[]) | undefined;
+        size?: string | undefined;
+        diameter?: string | undefined;
+        target?: string | undefined;
+        accessory?: any | undefined;
+        material?: (string | string[]) | undefined;
+        stimulation?: (string | string[]) | undefined;
+        promotion?: any | undefined;
+        price?: [
+            number,
+            number
+        ] | undefined;
+        rate?: string | undefined;
+    }) & {
+        search?: string | undefined;
+        searchByRegex?: any;
+        categoryName?: string | undefined;
+    };
+}
+
+export type response_body_108_0 = ({
+    type: "CHECKBOX" | "RADIO";
+    name: string;
+    values: {
+        value: string;
+        quantity: number;
+    }[];
+} | {
+    type: "TOGGLE";
+    name: string;
+    quantity: number;
+} | {
+    type: "RANGE";
+    name: string;
+    min: number;
+    max: number;
+})[]
+
+export type response_108_0 = {
+    code: 200;
+    ok: true;
+    info: "filters";
+} & {body: response_body_108_0};
+
+export type request_body_109 = {
+    percentage: number;
+    startDate: Date;
+    endDate: Date;
+    reason: string;
+}
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 
 export type parameters_109 = {
     params: {
         sku: string;
     };
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    query?: {
+        startDate?: Date | undefined;
+    } | undefined;
+=======
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 }
 
 export type response_109_0 = {
@@ -15682,6 +18694,7 @@ export type response_109_1 = {
 export type response_109_2 = {
     code: 401;
     ok: false;
+<<<<<<< HEAD
     info: "accessToken.tooOld";
 } & {body: undefined};
 
@@ -15869,20 +18882,109 @@ export type request_body_111 = {
     name?: string | undefined;
     address?: string | undefined;
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_109_3 = {
+    code: 404;
+    ok: false;
+    info: "productSheet.notfound";
+} & {body: undefined};
+
+export type response_109_4 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_109_5 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type response_109_6 = {
+    code: 400;
+    ok: false;
+    info: "promotion.date.invalid";
+} & {body: undefined};
+
+export type response_body_109_7 = {
+    id: number;
+    percentage: number;
+    startDate?: string;
+    endDate?: string;
+    productSheetName: string;
+    productSheetId: string;
+    reason: string;
+}
+
+export type response_109_7 = {
+    code: 201;
+    ok: true;
+    info: "promotion.created";
+} & {body: response_body_109_7};
+
+export type parameters_110 = {
+    query?: ({} & {
+        color?: (string | string[]) | undefined;
+        size?: string | undefined;
+        diameter?: string | undefined;
+        target?: string | undefined;
+        accessory?: any | undefined;
+        material?: (string | string[]) | undefined;
+        stimulation?: (string | string[]) | undefined;
+        promotion?: any | undefined;
+        price?: [
+            number,
+            number
+        ] | undefined;
+        rate?: string | undefined;
+    }) & {
+        search?: string | undefined;
+        searchByRegex?: any;
+        categoryName?: string | undefined;
+    };
+}
+
+export type response_body_110_0 = string
+
+export type response_110_0 = {
+    code: 200;
+    ok: true;
+    info: "fullProductSheetCount";
+} & {body: response_body_110_0};
+
+export type request_body_111 = {
+    productReturnStatus?: ("INVALID" | "WAITING_RETURN") | undefined;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 }
 
 export type parameters_111 = {
     params: {
 <<<<<<< HEAD
+<<<<<<< HEAD
         warehouseId: string;
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
         productSheetId: string;
 =======
         warehouseId: string;
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+        productReturnId: number;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
     };
 }
 
@@ -15908,10 +19010,14 @@ export type response_111_3 = {
     code: 401;
     ok: false;
 <<<<<<< HEAD
+<<<<<<< HEAD
     info: "user.deleted";
 =======
     info: "warehouse.notfound";
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+=======
+    info: "productReturn.notfound";
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 } & {body: undefined};
 
 export type response_111_4 = {
@@ -15932,6 +19038,7 @@ export type response_111_6 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 export type response_111_7 = {
     code: 400;
@@ -15969,7 +19076,36 @@ export type parameters_112 = {
     params: {
         bundleId: number;
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+export type response_111_6 = {
+    code: 406;
+    ok: false;
+    info: "productReturn.wrong.status";
+} & {body: undefined};
+
+export type response_body_111_7 = {
+    id: number;
+    productSku: string;
+    reason: string;
+    status: "WAITING_RETURN" | "REFUNDED" | "INVALID";
+    organizationId: string;
+    createdAt?: string;
+}
+
+export type response_111_7 = {
+    code: 200;
+    ok: true;
+    info: "productReturn.edited";
+} & {body: response_body_111_7};
+
+export type parameters_112 = {
+    params: {
+        productReturnId: number;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
     };
 }
 
@@ -15995,7 +19131,11 @@ export type response_112_3 = {
     code: 401;
     ok: false;
 <<<<<<< HEAD
+<<<<<<< HEAD
     info: "user.deleted";
+=======
+    info: "productReturn.notfound";
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 } & {body: undefined};
 
 export type response_112_4 = {
@@ -16041,6 +19181,22 @@ export type response_112_4 = {
 <<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 export type response_112_6 = {
+<<<<<<< HEAD
+=======
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+<<<<<<< HEAD
+export type response_112_7 = {
+    code: 404;
+    ok: false;
+    info: "category.notfound";
+} & {body: undefined};
+
+export type response_112_8 = {
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
     code: 200;
     ok: true;
 <<<<<<< HEAD
@@ -16085,6 +19241,19 @@ export type response_body_112_5 = {
         quantity: number;
     }[];
 }
+=======
+export type response_112_6 = {
+    code: 406;
+    ok: false;
+    info: "productReturn.wrong.status";
+} & {body: undefined};
+
+export type response_112_7 = {
+    code: 204;
+    ok: true;
+    info: "product.refound";
+} & {body: undefined};
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 
 export type response_112_5 = {
     code: 200;
@@ -16122,10 +19291,67 @@ export type response_113_2 = {
 export type response_113_3 = {
     code: 401;
     ok: false;
+<<<<<<< HEAD
     info: "user.deleted";
 } & {body: undefined};
 
 export type response_113_4 = {
+    code: 404;
+=======
+    info: "bundle.notfound";
+} & {body: undefined};
+
+export type response_113_4 = {
+    code: 401;
+    ok: false;
+    info: "bundle.wrong.user";
+} & {body: undefined};
+
+export type response_body_113_5 = {
+    id: number;
+    idShip: string;
+    carrierName: "LA_POSTE";
+    commandId: string;
+    status: "DONE" | "CREATED" | "CARRIER_SUPPORTED" | "CARRIER_PROCESS" | "UNDELIVERABLE" | "DONE_OFFICE" | "BACK" | "BACK_DONE";
+    bundleProducts: {
+        name: string;
+        productSheetId: string;
+        imageUrl: string;
+        quantity: number;
+    }[];
+}
+
+export type response_113_5 = {
+    code: 200;
+    ok: true;
+    info: "bundle";
+} & {body: response_body_113_5};
+
+export type parameters_114 = {
+    params: {
+        bundleId: number;
+    };
+}
+
+export type response_114_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_114_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_114_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_114_3 = {
     code: 404;
     ok: false;
 <<<<<<< HEAD
@@ -16133,6 +19359,59 @@ export type response_113_4 = {
     info: "bundle.notfound";
 } & {body: undefined};
 
+export type response_114_4 = {
+    code: 401;
+    ok: false;
+    info: "bundle.wrong.user";
+} & {body: undefined};
+
+export type response_114_5 = {
+    code: 200;
+    ok: true;
+    info: "bundle.status.stream";
+} & {body: undefined};
+
+export type parameters_115 = {
+    params: {
+        organizationId: string;
+    };
+    query?: {
+        page?: number;
+    } | undefined;
+}
+
+export type response_115_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_115_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_115_2 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_115_3 = {
+    code: 404;
+    ok: false;
+    info: "organization.notfound";
+} & {body: undefined};
+
+export type response_115_4 = {
+    code: 406;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+    ok: false;
+    info: "bundle.notfound";
+} & {body: undefined};
+
+<<<<<<< HEAD
 <<<<<<< HEAD
 export type response_113_5 = {
 <<<<<<< HEAD
@@ -16260,6 +19539,26 @@ export type response_113_8 = {
 =======
 <<<<<<< HEAD
 export type response_113_6 = {
+<<<<<<< HEAD
+=======
+=======
+export type response_115_5 = {
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+<<<<<<< HEAD
+export type response_body_113_7 = {
+    id: string;
+    name: string;
+    address: string;
+    organizationId: string;
+}
+
+export type response_113_7 = {
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
     code: 200;
     ok: true;
 <<<<<<< HEAD
@@ -16480,9 +19779,46 @@ export type response_body_115_8 = {
     id: number;
     productSku: string;
     reason: string;
+<<<<<<< HEAD
     status: "WAITING_RETURN" | "REFUNDED" | "INVALID";
     organizationId: string;
     createdAt?: string;
+=======
+=======
+export type response_body_115_6 = {
+    id: number;
+    percentage: number;
+    startDate?: string;
+    endDate?: string;
+    productSheetName: string;
+    productSheetId: string;
+    reason: string;
+}[]
+
+export type response_115_6 = {
+    code: 200;
+    ok: true;
+    info: "organization.promotions";
+} & {body: response_body_115_6};
+
+export type request_body_116 = {
+    id: string;
+    priority: number;
+    type: "PARENT_CATEGORY";
+    parentCategoryName: string;
+} | {
+    id: string;
+    priority: number;
+    type: "CATEGORY";
+    categoryName: string;
+} | {
+    id: string;
+    priority: number;
+    type: "LINK";
+    url: string;
+    title: string;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 }
 
 export type response_115_8 = {
@@ -16497,7 +19833,7 @@ export type response_115_8 = {
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 export type parameters_116 = {
     params: {
-        productReturnId: number;
+        navigationItemId: string;
     };
 }
 
@@ -16521,6 +19857,7 @@ export type response_116_2 = {
 } & {body: undefined};
 
 export type response_116_3 = {
+<<<<<<< HEAD
     code: 401;
 <<<<<<< HEAD
     ok: false;
@@ -16528,6 +19865,7 @@ export type response_116_3 = {
 } & {body: undefined};
 
 export type response_116_4 = {
+<<<<<<< HEAD
 <<<<<<< HEAD
     code: 404;
 =======
@@ -16546,10 +19884,18 @@ export type response_116_4 = {
 =======
     code: 403;
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
+=======
+=======
+    code: 404;
+=======
+    code: 403;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
     ok: false;
     info: "user.role.invalid";
 } & {body: undefined};
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 export type response_116_6 = {
@@ -16586,6 +19932,31 @@ export type parameters_117 = {
         bundleId: number;
     };
 =======
+=======
+export type response_116_5 = {
+    code: 406;
+=======
+export type response_116_4 = {
+    code: 404;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+    ok: false;
+    info: "navigationItem.notfound";
+} & {body: undefined};
+
+<<<<<<< HEAD
+export type response_116_6 = {
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+    code: 403;
+=======
+export type response_116_5 = {
+    code: 404;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+    ok: false;
+<<<<<<< HEAD
+    info: "user.role.invalid";
+} & {body: undefined};
+
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 export type response_body_116_5 = ({
     id: string;
     priority: number;
@@ -16608,6 +19979,23 @@ export type response_body_116_5 = ({
 export type response_116_5 = {
     code: 200;
 =======
+=======
+    info: "category.notfound";
+} & {body: undefined};
+
+<<<<<<< HEAD
+export type response_116_7 = {
+    code: 406;
+=======
+export type response_116_6 = {
+    code: 404;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+    ok: false;
+    info: "parentCategory.notfound";
+} & {body: undefined};
+
+<<<<<<< HEAD
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 export type response_116_8 = {
 =======
@@ -16620,6 +20008,7 @@ export type response_116_7 = {
 } & {body: response_body_116_5};
 
 export type request_body_117 = {
+<<<<<<< HEAD
     priority: number;
     type: "PARENT_CATEGORY";
     parentCategoryName: string;
@@ -16632,7 +20021,26 @@ export type request_body_117 = {
     type: "LINK";
     url: string;
     title: string;
+<<<<<<< HEAD
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
+=======
+=======
+    productReturnStatus?: ("INVALID" | "WAITING_RETURN") | undefined;
+}
+=======
+export type response_116_7 = {
+    code: 204;
+    ok: true;
+    info: "navigationItem.edited";
+} & {body: undefined};
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+
+export type parameters_117 = {
+    params: {
+        navigationItemId: string;
+    };
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 }
 
 export type response_117_0 = {
@@ -16654,6 +20062,7 @@ export type response_117_2 = {
 } & {body: undefined};
 
 export type response_117_3 = {
+<<<<<<< HEAD
     code: 401;
 <<<<<<< HEAD
 =======
@@ -16663,17 +20072,27 @@ export type response_117_3 = {
 
 export type response_117_4 = {
 <<<<<<< HEAD
+<<<<<<< HEAD
     code: 404;
 >>>>>>> fca56a6 (fix(hf): rest full)
     ok: false;
     info: "user.deleted";
 =======
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
     code: 403;
+=======
+    code: 404;
+=======
+    code: 403;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
     ok: false;
     info: "user.role.invalid";
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 } & {body: undefined};
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 export type response_117_4 = {
     code: 404;
@@ -16714,6 +20133,10 @@ export type response_117_8 = {
     info: "bundle.status.stream";
 } & {body: undefined};
 =======
+=======
+export type response_117_5 = {
+<<<<<<< HEAD
+>>>>>>> b31598a (feat(112): fix wording + improve style)
     code: 409;
     ok: false;
     info: "navigationItem.limit";
@@ -16747,6 +20170,18 @@ export type response_117_6 = {
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 =======
 =======
+=======
+    code: 406;
+=======
+export type response_117_4 = {
+    code: 404;
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+    ok: false;
+    info: "navigationItem.notfound";
+} & {body: undefined};
+
+<<<<<<< HEAD
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 export type response_117_6 = {
     code: 403;
     ok: false;
@@ -16785,8 +20220,21 @@ export type response_117_7 = {
     info: "productReturn.edited";
 } & {body: response_body_117_7};
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+=======
+export type response_117_5 = {
+    code: 204;
+    ok: true;
+    info: "navigationItem.delete";
+} & {body: undefined};
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 
 export type request_body_118 = {
     type: "line" | "bar" | "pie" | "donut" | "area";
@@ -17102,8 +20550,11 @@ export type DefEnrichedDuplojsTo = {
 	response: response_16_0,
 } | {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/commands",
 =======
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	path: "/full-product-sheets",
 >>>>>>> fca56a6 (fix(hf): rest full)
 	method: "GET",
@@ -17130,12 +20581,32 @@ export type DefEnrichedDuplojsTo = {
 	method: "GET",
 	body: unknown,
 	parameters: parameters_18,
+=======
+	path: "/register",
+	method: "POST",
+	body: request_body_18,
+	parameters: undefined,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	response: response_18_0
 		| response_18_1
-		| response_18_2,
+		| response_18_2
+		| response_18_3
+		| response_18_4,
 } | {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/commands",
+=======
+	path: "/login",
+	method: "POST",
+	body: request_body_19,
+	parameters: undefined,
+	response: response_19_0
+		| response_19_1
+		| response_19_2,
+} | {
+	path: "/user/notifications",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	method: "GET",
 	body: unknown,
 	parameters: parameters_19,
@@ -17207,13 +20678,26 @@ export type DefEnrichedDuplojsTo = {
 	parameters: parameters_20,
 	response: response_20_0,
 } | {
+<<<<<<< HEAD
 	path: "/users",
 	method: "GET",
 	body: unknown,
+=======
+<<<<<<< HEAD
+	path: "/organization/{organizationId}/user",
+	method: "POST",
+	body: request_body_21,
+=======
+	path: "/commands",
+	method: "GET",
+	body: unknown,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	parameters: parameters_21,
 	response: response_21_0
 		| response_21_1
 		| response_21_2
+<<<<<<< HEAD
 		| response_21_3
 		| response_21_4
 		| response_21_5,
@@ -17247,6 +20731,13 @@ export type DefEnrichedDuplojsTo = {
 	body: unknown,
 =======
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+=======
+		| response_21_3,
+} | {
+	path: "/article/{productSheetId}",
+	method: "DELETE",
+	body: unknown,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	parameters: parameters_22,
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 	response: response_22_0
@@ -17255,6 +20746,7 @@ export type DefEnrichedDuplojsTo = {
 <<<<<<< HEAD
 		| response_22_3
 		| response_22_4,
+<<<<<<< HEAD
 =======
 		| response_22_3,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
@@ -17267,8 +20759,18 @@ export type DefEnrichedDuplojsTo = {
 		| response_23_1
 		| response_23_2
 		| response_23_3
+<<<<<<< HEAD
 		| response_23_4,
+<<<<<<< HEAD
 >>>>>>> fca56a6 (fix(hf): rest full)
+=======
+=======
+		| response_23_4
+		| response_23_5,
+=======
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 } | {
 <<<<<<< HEAD
 	path: "/commands",
@@ -17289,6 +20791,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_23_3
 		| response_23_4
 		| response_23_5
+<<<<<<< HEAD
 		| response_23_6
 		| response_23_7,
 } | {
@@ -17296,10 +20799,19 @@ export type DefEnrichedDuplojsTo = {
 	method: "POST",
 	body: request_body_24,
 	parameters: undefined,
+=======
+		| response_23_6,
+} | {
+	path: "/organization/{organizationId}/user",
+	method: "GET",
+	body: unknown,
+	parameters: parameters_24,
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	response: response_24_0
 		| response_24_1
 		| response_24_2
 		| response_24_3
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 		| response_24_4
@@ -17318,6 +20830,8 @@ export type DefEnrichedDuplojsTo = {
 =======
 =======
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		| response_24_4,
 } | {
 	path: "/articles/{productSheetId}",
@@ -17325,6 +20839,8 @@ export type DefEnrichedDuplojsTo = {
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 	body: unknown,
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 		| response_24_4
 		| response_24_5,
@@ -17339,7 +20855,17 @@ export type DefEnrichedDuplojsTo = {
 	method: "DELETE",
 	body: unknown,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+		| response_24_4,
+} | {
+	path: "/organization/{organizationId}/user",
+	method: "POST",
+	body: request_body_25,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	parameters: parameters_25,
 	response: response_25_0
 		| response_25_1
@@ -17366,14 +20892,22 @@ export type DefEnrichedDuplojsTo = {
 		| response_25_5,
 } | {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 	path: "/organization/{organizationId}/user/{userId}",
 	method: "DELETE",
 	body: unknown,
 	parameters: parameters_26,
 =======
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	path: "/make-command",
 	method: "POST",
 	body: request_body_26,
@@ -17392,6 +20926,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_26_3
 		| response_26_4
 		| response_26_5
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_26_6
 <<<<<<< HEAD
@@ -17428,6 +20963,13 @@ export type DefEnrichedDuplojsTo = {
 	method: "POST",
 	body: request_body_27,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+=======
+		| response_26_6,
+} | {
+	path: "/retry-command",
+	method: "POST",
+	body: request_body_27,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	parameters: undefined,
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
@@ -17456,6 +20998,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_27_5,
 } | {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/image-product-sheet/{imageProductSheetId}",
 	method: "DELETE",
 =======
@@ -17464,6 +21007,11 @@ export type DefEnrichedDuplojsTo = {
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 	body: unknown,
+=======
+	path: "/organization/{organizationId}/user/{userId}",
+	method: "PATCH",
+	body: request_body_28,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	parameters: parameters_28,
 >>>>>>> fca56a6 (fix(hf): rest full)
 	response: response_28_0
@@ -17471,6 +21019,9 @@ export type DefEnrichedDuplojsTo = {
 		| response_28_2
 		| response_28_3
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		| response_28_4
 <<<<<<< HEAD
 		| response_28_5
@@ -17484,9 +21035,12 @@ export type DefEnrichedDuplojsTo = {
 		| response_28_5,
 } | {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/organizations/{organizationId}/users/{userId}",
 	method: "PATCH",
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	path: "/retry-command",
 =======
 		| response_28_4,
@@ -17496,8 +21050,21 @@ export type DefEnrichedDuplojsTo = {
 	method: "POST",
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 	body: request_body_29,
+<<<<<<< HEAD
 	parameters: parameters_29,
+<<<<<<< HEAD
 >>>>>>> fca56a6 (fix(hf): rest full)
+=======
+=======
+	parameters: undefined,
+=======
+	path: "/organization/{organizationId}/user/{userId}",
+	method: "DELETE",
+	body: unknown,
+	parameters: parameters_29,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	response: response_29_0
 		| response_29_1
 		| response_29_2
@@ -17519,9 +21086,21 @@ export type DefEnrichedDuplojsTo = {
 		| response_29_6,
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 } | {
+<<<<<<< HEAD
 	path: "/organizations/{organizationId}/users/{userId}",
+=======
+<<<<<<< HEAD
+	path: "/promotions/{promotionId}",
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	method: "DELETE",
+<<<<<<< HEAD
 >>>>>>> fca56a6 (fix(hf): rest full)
+=======
+=======
+	path: "/user/organizations",
+	method: "GET",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	body: unknown,
 =======
 		| response_29_6
@@ -17537,6 +21116,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_30_1
 		| response_30_2
 		| response_30_3
+<<<<<<< HEAD
 		| response_30_4
 <<<<<<< HEAD
 		| response_30_5,
@@ -17555,6 +21135,11 @@ export type DefEnrichedDuplojsTo = {
 	path: "/user/organizations",
 	method: "GET",
 =======
+=======
+		| response_30_4,
+} | {
+<<<<<<< HEAD
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 	path: "/user/pull-data",
 	method: "POST",
@@ -17564,13 +21149,26 @@ export type DefEnrichedDuplojsTo = {
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 	body: unknown,
+<<<<<<< HEAD
 	parameters: parameters_31,
+<<<<<<< HEAD
 >>>>>>> fca56a6 (fix(hf): rest full)
+=======
+=======
+=======
+	path: "/article",
+	method: "POST",
+	body: request_body_31,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+	parameters: undefined,
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	response: response_31_0
 		| response_31_1
 		| response_31_2
 		| response_31_3
 		| response_31_4
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 		| response_31_5
@@ -17585,6 +21183,8 @@ export type DefEnrichedDuplojsTo = {
 =======
 =======
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		| response_31_5,
 } | {
 <<<<<<< HEAD
@@ -17604,12 +21204,25 @@ export type DefEnrichedDuplojsTo = {
 	method: "POST",
 	body: request_body_32,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+		| response_31_5
+		| response_31_6
+		| response_31_7,
+} | {
+	path: "/cart",
+	method: "GET",
+	body: unknown,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	parameters: undefined,
 >>>>>>> fca56a6 (fix(hf): rest full)
 	response: response_32_0
 		| response_32_1
 		| response_32_2
+<<<<<<< HEAD
 		| response_32_3
 <<<<<<< HEAD
 		| response_32_4,
@@ -17645,6 +21258,12 @@ export type DefEnrichedDuplojsTo = {
 } | {
 	path: "/user/organizations",
 	method: "GET",
+=======
+		| response_32_3,
+} | {
+	path: "/product-notifications/{notificationId}",
+	method: "DELETE",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	body: unknown,
 	parameters: parameters_33,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
@@ -17652,6 +21271,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_33_1
 		| response_33_2
 		| response_33_3
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -17667,6 +21287,8 @@ export type DefEnrichedDuplojsTo = {
 =======
 =======
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		| response_33_4
 		| response_33_5
 		| response_33_6
@@ -17685,6 +21307,12 @@ export type DefEnrichedDuplojsTo = {
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 	method: "DELETE",
+=======
+		| response_33_4,
+} | {
+	path: "/product-notifications",
+	method: "GET",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	body: unknown,
 	parameters: parameters_34,
 >>>>>>> fca56a6 (fix(hf): rest full)
@@ -17734,12 +21362,18 @@ export type DefEnrichedDuplojsTo = {
 		| response_37_7,
 } | {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/cart",
 	method: "GET",
 	body: unknown,
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 	path: "/category",
+=======
+	path: "/product-notifications",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	method: "POST",
 	body: request_body_35,
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
@@ -17777,6 +21411,7 @@ export type DefEnrichedDuplojsTo = {
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 } | {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/product-notifications",
 	method: "GET",
 	body: unknown,
@@ -17796,6 +21431,8 @@ export type DefEnrichedDuplojsTo = {
 =======
 	parameters: parameters_36,
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 	path: "/full-product-sheets@moderator",
 	method: "GET",
@@ -17815,8 +21452,24 @@ export type DefEnrichedDuplojsTo = {
 <<<<<<< HEAD
 		| response_36_5,
 } | {
+<<<<<<< HEAD
 	path: "/product-notifications",
 	method: "POST",
+=======
+	path: "/category/{categoryName}",
+	method: "PATCH",
+=======
+	path: "/product-sheet/{productSheetId}/reviews",
+	method: "GET",
+	body: unknown,
+	parameters: parameters_36,
+	response: response_36_0
+		| response_36_1,
+} | {
+	path: "/product-sheet/{productSheetId}/reviews",
+	method: "POST",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	body: request_body_37,
 	parameters: undefined,
 	response: response_37_0
@@ -17825,6 +21478,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_37_3
 		| response_37_4
 		| response_37_5
+<<<<<<< HEAD
 		| response_37_6
 		| response_37_7,
 } | {
@@ -17849,13 +21503,24 @@ export type DefEnrichedDuplojsTo = {
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 	method: "POST",
 	body: request_body_38,
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+		| response_37_6,
+} | {
+	path: "/product-sheet-reviews/{productSheetReviewId}",
+	method: "DELETE",
+	body: unknown,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	parameters: parameters_38,
 	response: response_38_0
 		| response_38_1
 		| response_38_2
 		| response_38_3
 		| response_38_4
+<<<<<<< HEAD
 		| response_38_5
 <<<<<<< HEAD
 		| response_38_6,
@@ -17874,6 +21539,11 @@ export type DefEnrichedDuplojsTo = {
 		| response_38_6,
 } | {
 	path: "/product-sheet-reviews/{productSheetReviewId}",
+=======
+		| response_38_5,
+} | {
+	path: "/promotions/{promotionId}",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	method: "DELETE",
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
@@ -17884,6 +21554,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_39_2
 		| response_39_3
 		| response_39_4
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_39_5
 		| response_39_6
@@ -17910,7 +21581,17 @@ export type DefEnrichedDuplojsTo = {
 	path: "/user",
 	method: "GET",
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+		| response_39_5
+		| response_39_6,
+} | {
+	path: "/user/pull-data",
+	method: "POST",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	body: unknown,
 	parameters: undefined,
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
@@ -17918,6 +21599,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_40_1
 		| response_40_2
 		| response_40_3
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_40_4
 <<<<<<< HEAD
@@ -17956,7 +21638,18 @@ export type DefEnrichedDuplojsTo = {
 <<<<<<< HEAD
 =======
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+		| response_40_4,
+} | {
+	path: "/user",
+	method: "GET",
+	body: unknown,
+	parameters: undefined,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	response: response_41_0
 		| response_41_1
 		| response_41_2
@@ -17986,7 +21679,11 @@ export type DefEnrichedDuplojsTo = {
 		| response_41_4,
 } | {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/user/{userId}@moderator",
+=======
+	path: "/user",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	method: "PATCH",
 	body: request_body_42,
 	parameters: parameters_42,
@@ -18035,7 +21732,15 @@ export type DefEnrichedDuplojsTo = {
 		| response_42_1
 		| response_42_2
 		| response_42_3
+<<<<<<< HEAD
 		| response_42_4,
+=======
+<<<<<<< HEAD
+		| response_42_4
+		| response_42_5
+		| response_42_6
+		| response_42_7,
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 } | {
 <<<<<<< HEAD
 	path: "/product-sheets/{productSheetId}/reviews",
@@ -18046,10 +21751,15 @@ export type DefEnrichedDuplojsTo = {
 	method: "PATCH",
 	body: request_body_43,
 =======
+=======
+		| response_42_4,
+} | {
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	path: "/user",
 	method: "DELETE",
 	body: unknown,
 	parameters: undefined,
+<<<<<<< HEAD
 	response: response_42_0
 		| response_42_1
 		| response_42_2
@@ -18073,6 +21783,15 @@ export type DefEnrichedDuplojsTo = {
 <<<<<<< HEAD
 	path: "/navigation-item/{navigationItemId}",
 	method: "DELETE",
+=======
+	response: response_43_0
+		| response_43_1
+		| response_43_2
+		| response_43_3,
+} | {
+	path: "/category/{categoryName}/image",
+	method: "PUT",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	body: unknown,
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 	parameters: parameters_44,
@@ -18094,15 +21813,27 @@ export type DefEnrichedDuplojsTo = {
 		| response_44_7,
 =======
 		| response_44_6,
+<<<<<<< HEAD
 =======
 		| response_44_4,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 } | {
+<<<<<<< HEAD
 	path: "/commands/{commandId}/bundles",
 	method: "GET",
 	body: unknown,
 	parameters: parameters_45,
+=======
+	path: "/newsletter",
+=======
+} | {
+	path: "/category",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+	method: "POST",
+	body: request_body_45,
+	parameters: undefined,
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	response: response_45_0
 		| response_45_1
 		| response_45_2
@@ -18113,18 +21844,26 @@ export type DefEnrichedDuplojsTo = {
 } | {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> fca56a6 (fix(hf): rest full)
 	path: "/categories",
 =======
 =======
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	path: "/user/pull-data",
 	method: "POST",
 	body: unknown,
 	parameters: undefined,
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 	path: "/parent-category/{parentCategoryName}",
+=======
+	path: "/category/{categoryName}",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	method: "PATCH",
 	body: request_body_46,
 	parameters: parameters_46,
@@ -18149,8 +21888,16 @@ export type DefEnrichedDuplojsTo = {
 		| response_46_7,
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 } | {
+<<<<<<< HEAD
 	path: "/commands/{commandId}",
+<<<<<<< HEAD
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
+=======
+=======
+<<<<<<< HEAD
+	path: "/newsletters",
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	method: "GET",
 	body: unknown,
 =======
@@ -18161,10 +21908,17 @@ export type DefEnrichedDuplojsTo = {
 	body: request_body_47,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 	parameters: parameters_47,
+=======
+	path: "/full-product-sheets@moderator",
+	method: "GET",
+	body: unknown,
+	parameters: undefined,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	response: response_47_0
 		| response_47_1
 		| response_47_2
 		| response_47_3
+<<<<<<< HEAD
 		| response_47_4
 		| response_47_5
 		| response_47_6,
@@ -18184,6 +21938,13 @@ export type DefEnrichedDuplojsTo = {
 	path: "/category/{categoryName}/image",
 	method: "PUT",
 	body: unknown,
+=======
+		| response_47_4,
+} | {
+	path: "/product-sheet/{productSheetId}@moderator",
+	method: "PATCH",
+	body: request_body_48,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	parameters: parameters_48,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
@@ -18192,6 +21953,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_48_2
 		| response_48_3
 		| response_48_4
+<<<<<<< HEAD
 		| response_48_5
 		| response_48_6,
 } | {
@@ -18209,6 +21971,11 @@ export type DefEnrichedDuplojsTo = {
 	parameters: undefined,
 =======
 	path: "/product-sheet/{productSheetId}@moderator",
+=======
+		| response_48_5,
+} | {
+	path: "/organization/{organizationId}@admin",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	method: "PATCH",
 	body: request_body_49,
 	parameters: parameters_49,
@@ -18221,14 +21988,28 @@ export type DefEnrichedDuplojsTo = {
 		| response_49_5,
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 } | {
+<<<<<<< HEAD
 	path: "/categories",
 	method: "POST",
 	body: request_body_50,
 	parameters: undefined,
+=======
+<<<<<<< HEAD
+	path: "/organization/{organizationId}@admin",
+	method: "PATCH",
+	body: request_body_50,
+=======
+	path: "/product-sheet-reviews",
+	method: "GET",
+	body: unknown,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+	parameters: parameters_50,
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	response: response_50_0
 		| response_50_1
 		| response_50_2
 		| response_50_3
+<<<<<<< HEAD
 		| response_50_4
 <<<<<<< HEAD
 		| response_50_5
@@ -18262,7 +22043,17 @@ export type DefEnrichedDuplojsTo = {
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
 	body: unknown,
+<<<<<<< HEAD
 >>>>>>> fca56a6 (fix(hf): rest full)
+=======
+=======
+		| response_50_4,
+} | {
+	path: "/user/{userId}@moderator",
+	method: "PATCH",
+	body: request_body_51,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	parameters: parameters_51,
 	response: response_51_0
 		| response_51_1
@@ -18275,15 +22066,21 @@ export type DefEnrichedDuplojsTo = {
 		| response_51_7,
 } | {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/categories/{categoryName}",
 	method: "PATCH",
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	path: "/parent-category",
 =======
 		| response_51_4,
 } | {
 	path: "/organization",
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+=======
+	path: "/organization",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	method: "POST",
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 	body: request_body_52,
@@ -18300,6 +22097,7 @@ export type DefEnrichedDuplojsTo = {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/product-sheet-reviews",
 =======
 	path: "/navigation-items",
@@ -18310,6 +22108,8 @@ export type DefEnrichedDuplojsTo = {
 =======
 =======
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	path: "/users/{userId}@moderator",
 	method: "PATCH",
 	body: request_body_53,
@@ -18318,6 +22118,8 @@ export type DefEnrichedDuplojsTo = {
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 =======
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 	path: "/organization",
 	method: "POST",
@@ -18329,8 +22131,20 @@ export type DefEnrichedDuplojsTo = {
 	body: request_body_53,
 	parameters: parameters_53,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+=======
+	path: "/navigation-item",
+	method: "POST",
+	body: request_body_53,
+	parameters: undefined,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	response: response_53_0
 		| response_53_1
 		| response_53_2
@@ -18341,6 +22155,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_53_6
 		| response_53_7,
 } | {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	path: "/navigation-items",
@@ -18354,15 +22169,25 @@ export type DefEnrichedDuplojsTo = {
 =======
 =======
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	path: "/full-product-sheets@moderator",
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	path: "/parent-categories",
 =======
 		| response_53_6,
 } | {
 	path: "/navigation-items",
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+	path: "/navigation-items",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	method: "GET",
 	body: unknown,
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
@@ -18376,6 +22201,7 @@ export type DefEnrichedDuplojsTo = {
 <<<<<<< HEAD
 		| response_54_5,
 } | {
+<<<<<<< HEAD
 <<<<<<< HEAD
 	path: "/navigation-items",
 	method: "POST",
@@ -18391,10 +22217,15 @@ export type DefEnrichedDuplojsTo = {
 =======
 <<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+<<<<<<< HEAD
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	path: "/navigation-items/{navigationItemId}",
 	method: "PATCH",
 	body: request_body_55,
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 	path: "/product-sheet-reviews",
 =======
@@ -18402,7 +22233,15 @@ export type DefEnrichedDuplojsTo = {
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 	method: "GET",
 	body: unknown,
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+	path: "/parent-category/{parentCategoryName}/category",
+	method: "POST",
+	body: request_body_55,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	parameters: parameters_55,
 >>>>>>> fca56a6 (fix(hf): rest full)
 	response: response_55_0
@@ -18412,6 +22251,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_55_4
 		| response_55_5
 		| response_55_6
+<<<<<<< HEAD
 		| response_55_7
 		| response_55_8,
 } | {
@@ -18434,6 +22274,11 @@ export type DefEnrichedDuplojsTo = {
 	path: "/navigation-items/{navigationItemId}",
 	method: "DELETE",
 =======
+=======
+		| response_55_7,
+} | {
+<<<<<<< HEAD
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 	path: "/commands/{commandId}/bundles",
 	method: "GET",
@@ -18444,13 +22289,22 @@ export type DefEnrichedDuplojsTo = {
 	method: "PATCH",
 	body: request_body_56,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+	path: "/parent-category/{parentCategoryName}/categories",
+	method: "GET",
+	body: unknown,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	parameters: parameters_56,
 	response: response_56_0
 		| response_56_1
 		| response_56_2
 		| response_56_3
 		| response_56_4
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 		| response_56_5
@@ -18471,6 +22325,8 @@ export type DefEnrichedDuplojsTo = {
 	parameters: undefined,
 >>>>>>> fca56a6 (fix(hf): rest full)
 =======
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		| response_56_5
 <<<<<<< HEAD
 		| response_56_6,
@@ -18484,6 +22340,12 @@ export type DefEnrichedDuplojsTo = {
 	path: "/navigation-item/{navigationItemId}",
 	method: "DELETE",
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+=======
+		| response_56_5,
+} | {
+	path: "/parent-category/{parentCategoryName}/category/{categoryName}",
+	method: "DELETE",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	body: unknown,
 	parameters: parameters_57,
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
@@ -18497,6 +22359,7 @@ export type DefEnrichedDuplojsTo = {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/parent-categories/{parentCategoryName}/categories/{categoryName}",
 	method: "DELETE",
 =======
@@ -18505,8 +22368,12 @@ export type DefEnrichedDuplojsTo = {
 	path: "/parent-categories/{parentCategoryName}/categories",
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 =======
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	path: "/parent-categories/{parentCategoryName}/categories",
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 	path: "/bundles/{bundleId}/stream",
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
@@ -18521,6 +22388,12 @@ export type DefEnrichedDuplojsTo = {
 	body: request_body_58,
 	parameters: undefined,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+=======
+	path: "/newsletter",
+	method: "POST",
+	body: request_body_58,
+	parameters: undefined,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	response: response_58_0
 		| response_58_1
 		| response_58_2
@@ -18555,10 +22428,13 @@ export type DefEnrichedDuplojsTo = {
 		| response_58_6,
 } | {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/parent-categories/{parentCategoryName}/categories",
 	method: "POST",
 	body: request_body_59,
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	path: "/bundles/{bundleId}",
 	method: "GET",
 	body: unknown,
@@ -18569,8 +22445,19 @@ export type DefEnrichedDuplojsTo = {
 	method: "POST",
 	body: request_body_59,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+=======
+	path: "/parent-category/{parentCategoryName}",
+	method: "PATCH",
+	body: request_body_59,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	parameters: parameters_59,
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 	response: response_59_0
@@ -18597,6 +22484,7 @@ export type DefEnrichedDuplojsTo = {
 =======
 		| response_59_5
 <<<<<<< HEAD
+<<<<<<< HEAD
 		| response_59_6
 		| response_59_7
 		| response_59_8,
@@ -18604,6 +22492,8 @@ export type DefEnrichedDuplojsTo = {
 	path: "/parent-categories/{parentCategoryName}/categories/{categoryName}",
 	method: "DELETE",
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 		| response_59_6,
 } | {
@@ -18616,7 +22506,16 @@ export type DefEnrichedDuplojsTo = {
 	path: "/parent-category/{parentCategoryName}/category/{categoryName}",
 	method: "DELETE",
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+		| response_59_6,
+} | {
+	path: "/newsletter/{newsletterId}",
+	method: "DELETE",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	body: unknown,
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 	parameters: parameters_60,
@@ -18625,6 +22524,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_60_2
 		| response_60_3
 		| response_60_4
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_60_5
 		| response_60_6,
@@ -18646,6 +22546,11 @@ export type DefEnrichedDuplojsTo = {
 	body: request_body_61,
 =======
 	path: "/organization/{organizationId}/full-product-sheets",
+=======
+		| response_60_5,
+} | {
+	path: "/newsletters",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	method: "GET",
 	body: unknown,
 =======
@@ -18661,6 +22566,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_61_1
 		| response_61_2
 		| response_61_3
+<<<<<<< HEAD
 		| response_61_4
 		| response_61_5
 <<<<<<< HEAD
@@ -18692,7 +22598,15 @@ export type DefEnrichedDuplojsTo = {
 } | {
 	path: "/newsletters",
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+		| response_61_4,
+} | {
+	path: "/organizations",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	method: "GET",
 	body: unknown,
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
@@ -18725,6 +22639,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_62_5,
 } | {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/newsletters",
 	method: "POST",
 	body: request_body_63,
@@ -18733,6 +22648,8 @@ export type DefEnrichedDuplojsTo = {
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 =======
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 	path: "/user/{userId}@admin",
 	method: "PATCH",
@@ -18743,8 +22660,20 @@ export type DefEnrichedDuplojsTo = {
 	body: unknown,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 	parameters: parameters_63,
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+=======
+	path: "/parent-category",
+	method: "POST",
+	body: request_body_63,
+	parameters: undefined,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	response: response_63_0
 		| response_63_1
 		| response_63_2
@@ -18767,11 +22696,17 @@ export type DefEnrichedDuplojsTo = {
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 } | {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/newsletters/{newsletterId}",
 	method: "DELETE",
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 	path: "/organization/{organizationId}/product-sheets",
+=======
+	path: "/parent-categories",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	method: "GET",
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 	body: unknown,
@@ -18787,6 +22722,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_64_1
 		| response_64_2
 		| response_64_3
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_64_4
 		| response_64_5
@@ -18817,7 +22753,17 @@ export type DefEnrichedDuplojsTo = {
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 	method: "GET",
 	body: unknown,
+<<<<<<< HEAD
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
+=======
+=======
+		| response_64_4,
+} | {
+	path: "/user/{userId}@admin",
+	method: "PATCH",
+	body: request_body_65,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	parameters: parameters_65,
 	response: response_65_0
 		| response_65_1
@@ -18825,7 +22771,16 @@ export type DefEnrichedDuplojsTo = {
 		| response_65_3
 <<<<<<< HEAD
 		| response_65_4
+<<<<<<< HEAD
 		| response_65_5,
+=======
+		| response_65_5
+<<<<<<< HEAD
+		| response_65_6
+		| response_65_7
+		| response_65_8
+		| response_65_9,
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 } | {
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -18854,6 +22809,13 @@ export type DefEnrichedDuplojsTo = {
 	method: "GET",
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 	body: unknown,
+=======
+		| response_65_6,
+} | {
+	path: "/product-sheet-reviews/{productSheetReviewId}",
+	method: "PATCH",
+	body: request_body_66,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	parameters: parameters_66,
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 	response: response_66_0
@@ -18869,6 +22831,7 @@ export type DefEnrichedDuplojsTo = {
 } | {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/newsletters/{newsletterId}",
 =======
 	path: "/parent-categories/{parentCategoryName}/categories/{categoryName}",
@@ -18880,6 +22843,21 @@ export type DefEnrichedDuplojsTo = {
 	method: "PATCH",
 	body: request_body_67,
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
+=======
+	path: "/organizations/{organizationId}@admin",
+	method: "PATCH",
+	body: request_body_67,
+=======
+<<<<<<< HEAD
+	path: "/organization/{organizationId}/facets",
+	method: "GET",
+=======
+	path: "/product-sheet-reviews/{productSheetReviewId}@moderator",
+	method: "DELETE",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+	body: unknown,
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	parameters: parameters_67,
 =======
 		| response_66_4,
@@ -18895,8 +22873,17 @@ export type DefEnrichedDuplojsTo = {
 		| response_67_3
 		| response_67_4
 <<<<<<< HEAD
+<<<<<<< HEAD
 		| response_67_5
+<<<<<<< HEAD
 		| response_67_6,
+=======
+		| response_67_6
+		| response_67_7,
+=======
+		| response_67_5,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 } | {
 <<<<<<< HEAD
 	path: "/product-sheet-reviews/{productSheetReviewId}",
@@ -18925,9 +22912,12 @@ export type DefEnrichedDuplojsTo = {
 		| response_68_6,
 } | {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/product-sheet-reviews/{productSheetReviewId}@moderator",
 	method: "DELETE",
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	path: "/organization/{organizationId}",
 	method: "GET",
 =======
@@ -18936,7 +22926,14 @@ export type DefEnrichedDuplojsTo = {
 	path: "/product-sheet-reviews/{productSheetReviewId}@moderator",
 	method: "DELETE",
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+	path: "/commands/{commandId}",
+	method: "GET",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	body: unknown,
 	parameters: parameters_69,
 	response: response_69_0
@@ -18944,6 +22941,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_69_2
 		| response_69_3
 		| response_69_4
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_69_5
 		| response_69_6,
@@ -18961,7 +22959,17 @@ export type DefEnrichedDuplojsTo = {
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 	method: "PATCH",
 	body: request_body_70,
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+		| response_69_5,
+} | {
+	path: "/commands/{commandId}/invoice",
+	method: "GET",
+	body: unknown,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	parameters: parameters_70,
 	response: response_70_0
 		| response_70_1
@@ -18981,12 +22989,16 @@ export type DefEnrichedDuplojsTo = {
 		| response_70_6
 		| response_70_7,
 } | {
+<<<<<<< HEAD
 	path: "/organization/{organizationId}/product-returns",
 =======
 		| response_70_6,
 } | {
 	path: "/users",
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+=======
+	path: "/commands/{commandId}/bundles",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	method: "GET",
 	body: unknown,
 	parameters: parameters_71,
@@ -19000,13 +23012,22 @@ export type DefEnrichedDuplojsTo = {
 		| response_71_5
 		| response_71_6,
 } | {
+<<<<<<< HEAD
 	path: "/product-sheets/{productSheetId}@moderator",
 	method: "PATCH",
+=======
+<<<<<<< HEAD
+	path: "/organization/{organizationId}/product-returns",
+	method: "POST",
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	body: request_body_72,
 =======
 		| response_71_4,
 } | {
 	path: "/commands/{commandId}/bundles",
+=======
+	path: "/organization/{organizationId}/commands",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	method: "GET",
 	body: unknown,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
@@ -19023,6 +23044,7 @@ export type DefEnrichedDuplojsTo = {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/commands/{commandId}/bundles",
 =======
 	path: "/commands/{commandId}",
@@ -19035,10 +23057,14 @@ export type DefEnrichedDuplojsTo = {
 	body: request_body_73,
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 =======
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	path: "/users/{userId}@admin",
 	method: "PATCH",
 	body: request_body_73,
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	path: "/organizations",
 =======
 		| response_72_5,
@@ -19046,6 +23072,10 @@ export type DefEnrichedDuplojsTo = {
 	path: "/commands/{commandId}",
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 	method: "GET",
+=======
+	path: "/organization/{organizationId}/logo",
+	method: "PUT",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	body: unknown,
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
@@ -19055,9 +23085,14 @@ export type DefEnrichedDuplojsTo = {
 		| response_73_2
 		| response_73_3
 		| response_73_4
+<<<<<<< HEAD
 		| response_73_5
 		| response_73_6
 		| response_73_7,
+=======
+<<<<<<< HEAD
+		| response_73_5,
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 } | {
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -19073,8 +23108,21 @@ export type DefEnrichedDuplojsTo = {
 	path: "/organizations/{organizationId}/commands",
 =======
 	path: "/commands/{commandId}/invoice",
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+=======
+		| response_73_5
+		| response_73_6
+		| response_73_7,
+} | {
+	path: "/organization/{organizationId}/commands/{commandId}/details",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	method: "GET",
 	body: unknown,
 	parameters: parameters_74,
@@ -19097,9 +23145,19 @@ export type DefEnrichedDuplojsTo = {
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 } | {
+<<<<<<< HEAD
 	path: "/organizations/{organizationId}/full-product-sheets",
+=======
+<<<<<<< HEAD
+	path: "/organization/{organizationId}/commands",
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	method: "GET",
 	body: unknown,
+=======
+	path: "/organization/{organizationId}/product-sheet",
+	method: "POST",
+	body: request_body_75,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	parameters: parameters_75,
 	response: response_75_0
 		| response_75_1
@@ -19109,10 +23167,13 @@ export type DefEnrichedDuplojsTo = {
 		| response_75_5
 		| response_75_6
 <<<<<<< HEAD
+<<<<<<< HEAD
 		| response_75_7,
 } | {
 	path: "/organizations/{organizationId}",
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 		| response_75_7
 		| response_75_8,
@@ -19123,7 +23184,16 @@ export type DefEnrichedDuplojsTo = {
 } | {
 	path: "/organization/{organizationId}/full-product-sheets",
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+		| response_75_7
+		| response_75_8,
+} | {
+	path: "/organization/{organizationId}/full-product-sheets",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	method: "GET",
 	body: unknown,
 	parameters: parameters_76,
@@ -19134,6 +23204,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_76_4
 		| response_76_5
 <<<<<<< HEAD
+<<<<<<< HEAD
 		| response_76_6
 		| response_76_7,
 } | {
@@ -19143,6 +23214,11 @@ export type DefEnrichedDuplojsTo = {
 	body: request_body_77,
 =======
 	path: "/organization/{organizationId}/warehouses",
+=======
+		| response_76_6,
+} | {
+	path: "/organization/{organizationId}/product-sheets",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	method: "GET",
 =======
 		| response_76_6,
@@ -19159,9 +23235,9 @@ export type DefEnrichedDuplojsTo = {
 		| response_77_3
 		| response_77_4
 		| response_77_5
-		| response_77_6
-		| response_77_7,
+		| response_77_6,
 } | {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -19173,11 +23249,15 @@ export type DefEnrichedDuplojsTo = {
 =======
 =======
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	path: "/organizations/{organizationId}/logo",
 	method: "PUT",
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 	body: unknown,
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 	path: "/organization/{organizationId}/warehouse",
 =======
@@ -19185,7 +23265,15 @@ export type DefEnrichedDuplojsTo = {
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 	method: "POST",
 	body: request_body_78,
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+	path: "/organization/{organizationId}/facets",
+	method: "GET",
+	body: unknown,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	parameters: parameters_78,
 	response: response_78_0
 		| response_78_1
@@ -19193,10 +23281,9 @@ export type DefEnrichedDuplojsTo = {
 		| response_78_3
 		| response_78_4
 		| response_78_5
-		| response_78_6
-		| response_78_7
-		| response_78_8,
+		| response_78_6,
 } | {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -19213,10 +23300,14 @@ export type DefEnrichedDuplojsTo = {
 	body: unknown,
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 =======
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	path: "/organizations/{organizationId}/product-sheets",
 	method: "GET",
 	body: unknown,
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 	path: "/product-sheet/{productSheetId}@moderator",
 	method: "PATCH",
@@ -19226,8 +23317,19 @@ export type DefEnrichedDuplojsTo = {
 	method: "GET",
 	body: unknown,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+=======
+	path: "/organization/{organizationId}/commands/{commandId}/make-bundle",
+	method: "POST",
+	body: request_body_79,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	parameters: parameters_79,
 	response: response_79_0
 		| response_79_1
@@ -19237,6 +23339,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_79_5
 		| response_79_6
 <<<<<<< HEAD
+<<<<<<< HEAD
 		| response_79_7
 		| response_79_8
 		| response_79_9,
@@ -19244,6 +23347,8 @@ export type DefEnrichedDuplojsTo = {
 	path: "/organizations/{organizationId}",
 	method: "GET",
 =======
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		| response_79_7,
 } | {
 <<<<<<< HEAD
@@ -19262,11 +23367,26 @@ export type DefEnrichedDuplojsTo = {
 	method: "POST",
 	body: request_body_80,
 =======
+=======
+		| response_79_7
+		| response_79_8
+		| response_79_9
+		| response_79_10
+		| response_79_11
+		| response_79_12
+		| response_79_13
+		| response_79_14,
+} | {
+<<<<<<< HEAD
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 	path: "/product-notifications",
 =======
 	path: "/organization/{organizationId}/commands/{commandId}/details",
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+=======
+	path: "/organization/{organizationId}",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	method: "GET",
 	body: unknown,
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
@@ -19300,6 +23420,7 @@ export type DefEnrichedDuplojsTo = {
 <<<<<<< HEAD
 		| response_80_5,
 } | {
+<<<<<<< HEAD
 	path: "/product-notifications",
 	method: "POST",
 	body: request_body_81,
@@ -19312,6 +23433,10 @@ export type DefEnrichedDuplojsTo = {
 } | {
 	path: "/organization/{organizationId}/commands/{commandId}/make-bundle",
 	method: "POST",
+=======
+	path: "/organization/{organizationId}",
+	method: "PATCH",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	body: request_body_81,
 	parameters: parameters_81,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
@@ -19328,15 +23453,23 @@ export type DefEnrichedDuplojsTo = {
 } | {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/organizations/{organizationId}/logo",
 	method: "PUT",
 	body: unknown,
 =======
 	path: "/organizations/{organizationId}/product-sheets",
 =======
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	path: "/organizations/{organizationId}/users",
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 	method: "POST",
+=======
+<<<<<<< HEAD
+	path: "/product-sheet-reviews/{productSheetReviewId}",
+	method: "PATCH",
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	body: request_body_82,
 <<<<<<< HEAD
 >>>>>>> fca56a6 (fix(hf): rest full)
@@ -19351,6 +23484,8 @@ export type DefEnrichedDuplojsTo = {
 		| response_81_13
 		| response_81_14,
 } | {
+=======
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	path: "/organization/{organizationId}/grid",
 	method: "GET",
 	body: unknown,
@@ -19373,15 +23508,20 @@ export type DefEnrichedDuplojsTo = {
 >>>>>>> fca56a6 (fix(hf): rest full)
 } | {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/organizations/{organizationId}/commands/{commandId}/details",
 	method: "GET",
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 	path: "/product-sheet-reviews/{productSheetReviewId}@moderator",
 	method: "DELETE",
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 	body: unknown,
 =======
+=======
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	path: "/organization/{organizationId}/grid",
 	method: "PUT",
 	body: request_body_83,
@@ -19399,15 +23539,21 @@ export type DefEnrichedDuplojsTo = {
 		| response_83_9,
 } | {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/organizations/{organizationId}/commands/{commandId}/make-bundle",
 	method: "POST",
 	body: request_body_84,
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 	path: "/article/{productSheetId}",
 	method: "DELETE",
 =======
 	path: "/organization/{organizationId}/facets",
+=======
+	path: "/organization/{organizationId}/users",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	method: "GET",
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 	body: unknown,
@@ -19431,9 +23577,12 @@ export type DefEnrichedDuplojsTo = {
 		| response_84_15,
 } | {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/organizations/{organizationId}/facets",
 	method: "GET",
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 	path: "/product-sheet-reviews/{productSheetReviewId}",
 	method: "DELETE",
@@ -19441,7 +23590,14 @@ export type DefEnrichedDuplojsTo = {
 	path: "/organization/{organizationId}",
 	method: "GET",
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+	path: "/organization/{organizationId}/product-returns",
+	method: "GET",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	body: unknown,
 	parameters: parameters_85,
 	response: response_85_0
@@ -19455,18 +23611,26 @@ export type DefEnrichedDuplojsTo = {
 } | {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/organizations/{organizationId}/grid",
 =======
 =======
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	path: "/organizations/{organizationId}/product-returns",
 >>>>>>> fca56a6 (fix(hf): rest full)
 	method: "GET",
 	body: unknown,
 	parameters: parameters_86,
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 	path: "/register",
+=======
+	path: "/organization/{organizationId}/product-returns",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	method: "POST",
 =======
 	path: "/organization/{organizationId}",
@@ -19501,7 +23665,15 @@ export type DefEnrichedDuplojsTo = {
 =======
 		| response_86_4
 		| response_86_5
+<<<<<<< HEAD
 		| response_86_6,
+=======
+		| response_86_6
+		| response_86_7
+		| response_86_8
+		| response_86_9
+		| response_86_10,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 } | {
 	path: "/organization/{organizationId}/users",
 	method: "GET",
@@ -19640,8 +23812,17 @@ export type DefEnrichedDuplojsTo = {
 		| response_91_7,
 >>>>>>> fca56a6 (fix(hf): rest full)
 } | {
+<<<<<<< HEAD
 	path: "/organizations/{organizationId}/warehouses",
+=======
+<<<<<<< HEAD
+	path: "/full-product-sheets",
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	method: "GET",
+=======
+	path: "/product-sheet/{productSheetId}/category/{categoryName}",
+	method: "DELETE",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	body: unknown,
 	parameters: parameters_92,
 	response: response_92_0
@@ -19688,12 +23869,24 @@ export type DefEnrichedDuplojsTo = {
 		| response_92_6
 		| response_92_7,
 } | {
+<<<<<<< HEAD
 	path: "/organization/{organizationId}/warehouses",
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 	method: "GET",
 	body: unknown,
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+=======
+	path: "/product-sheet/{productSheetId}/facet",
+	method: "POST",
+	body: request_body_93,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	parameters: parameters_93,
 	response: response_93_0
 		| response_93_1
@@ -19709,6 +23902,7 @@ export type DefEnrichedDuplojsTo = {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/product-sheets/{productSheetId}/categories",
 =======
 	path: "/organizations/{organizationId}/warehouses",
@@ -19718,12 +23912,16 @@ export type DefEnrichedDuplojsTo = {
 =======
 =======
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	path: "/product-sheets/{productSheetId}/categories",
 	method: "GET",
 	body: unknown,
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 	parameters: parameters_94,
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	path: "/article",
 	method: "POST",
 	body: request_body_94,
@@ -19734,6 +23932,11 @@ export type DefEnrichedDuplojsTo = {
 	path: "/product/{sku}",
 	method: "PATCH",
 	body: request_body_94,
+=======
+	path: "/product-sheet/{productSheetId}/stock-story",
+	method: "GET",
+	body: unknown,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	parameters: parameters_94,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
@@ -19757,14 +23960,21 @@ export type DefEnrichedDuplojsTo = {
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 } | {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/product-sheets/{productSheetId}/categories",
 	method: "POST",
 	body: request_body_95,
 	parameters: parameters_95,
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 	path: "/make-command",
 	method: "POST",
+=======
+	path: "/product-sheet/{productSheetId}/facet/{facetType}",
+	method: "PATCH",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	body: request_body_95,
 	parameters: undefined,
 =======
@@ -19787,6 +23997,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_95_9,
 } | {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/organizations/{organizationId}/warehouses",
 	method: "GET",
 	body: unknown,
@@ -19795,6 +24006,21 @@ export type DefEnrichedDuplojsTo = {
 	method: "POST",
 	body: request_body_96,
 >>>>>>> fca56a6 (fix(hf): rest full)
+=======
+	path: "/product-sheets/{productSheetId}/products",
+	method: "POST",
+	body: request_body_96,
+=======
+<<<<<<< HEAD
+	path: "/computed-filters",
+	method: "GET",
+=======
+	path: "/product-sheet/{productSheetId}/facet/{facetType}",
+	method: "DELETE",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+	body: unknown,
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	parameters: parameters_96,
 	response: response_96_0
 		| response_96_1
@@ -19834,8 +24060,12 @@ export type DefEnrichedDuplojsTo = {
 		| response_96_6
 		| response_96_7,
 } | {
+<<<<<<< HEAD
 	path: "/product-sheet/{productSheetId}/categories",
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+=======
+	path: "/product-sheet/{productSheetId}/facets",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	method: "GET",
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 	body: unknown,
@@ -19873,6 +24103,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_97_6,
 } | {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/organization/{organizationId}/grid",
 	method: "PUT",
 =======
@@ -19880,8 +24111,19 @@ export type DefEnrichedDuplojsTo = {
 	method: "POST",
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 	body: request_body_98,
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+=======
+	path: "/product-sheet/{productSheetId}/warehouse",
+	method: "GET",
+	body: unknown,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	parameters: parameters_98,
 	response: response_98_0
 		| response_98_1
@@ -19895,6 +24137,7 @@ export type DefEnrichedDuplojsTo = {
 } | {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/product-sheets/{productSheetId}/facets",
 =======
 	path: "/product-sheets/{productSheetId}/categories",
@@ -19902,7 +24145,13 @@ export type DefEnrichedDuplojsTo = {
 	method: "GET",
 	body: unknown,
 =======
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	path: "/product-sheets/{productSheetId}",
+=======
+<<<<<<< HEAD
+	path: "/warehouse/{warehouseId}",
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	method: "PATCH",
 	body: request_body_99,
 <<<<<<< HEAD
@@ -19916,7 +24165,15 @@ export type DefEnrichedDuplojsTo = {
 	method: "GET",
 	body: unknown,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+	path: "/product-sheet/{productSheetId}",
+	method: "GET",
+	body: unknown,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	parameters: parameters_99,
 	response: response_99_0
 		| response_99_1
@@ -19924,6 +24181,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_99_3
 		| response_99_4
 		| response_99_5
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_99_6
 		| response_99_7,
@@ -19948,6 +24206,12 @@ export type DefEnrichedDuplojsTo = {
 } | {
 	path: "/product-sheet/{productSheetId}/promotions",
 	method: "POST",
+=======
+		| response_99_6,
+} | {
+	path: "/product-sheet/{productSheetId}",
+	method: "PATCH",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	body: request_body_100,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
@@ -19958,6 +24222,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_100_3
 		| response_100_4
 		| response_100_5
+<<<<<<< HEAD
 		| response_100_6
 <<<<<<< HEAD
 		| response_100_7
@@ -19973,13 +24238,24 @@ export type DefEnrichedDuplojsTo = {
 =======
 		| response_100_7,
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
+=======
+		| response_100_6,
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 } | {
+<<<<<<< HEAD
 <<<<<<< HEAD
 	path: "/product-sheets/{productSheetId}/stock-story",
 =======
 <<<<<<< HEAD
 	path: "/full-product-sheets-count",
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+<<<<<<< HEAD
+	path: "/full-product-sheets-count",
+=======
+	path: "/product-sheet/{productSheetId}/images",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	method: "GET",
 	body: unknown,
 <<<<<<< HEAD
@@ -19992,6 +24268,7 @@ export type DefEnrichedDuplojsTo = {
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
 	parameters: parameters_101,
+<<<<<<< HEAD
 	response: response_101_0
 		| response_101_1
 		| response_101_2
@@ -20016,7 +24293,30 @@ export type DefEnrichedDuplojsTo = {
 	path: "/product-sheets/{productSheetId}/promotions",
 	method: "POST",
 	body: request_body_102,
+<<<<<<< HEAD
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
+=======
+=======
+<<<<<<< HEAD
+	response: response_101_0,
+} | {
+	path: "/product-sheet/{productSheetId}/facets",
+	method: "GET",
+=======
+	response: response_101_0
+		| response_101_1
+		| response_101_2
+		| response_101_3
+		| response_101_4
+		| response_101_5
+		| response_101_6,
+} | {
+	path: "/product-sheet/{productSheetId}/image",
+	method: "POST",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+	body: unknown,
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	parameters: parameters_102,
 	response: response_102_0
 		| response_102_1
@@ -20025,6 +24325,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_102_4
 		| response_102_5
 		| response_102_6
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 		| response_102_7
@@ -20040,8 +24341,14 @@ export type DefEnrichedDuplojsTo = {
 >>>>>>> fca56a6 (fix(hf): rest full)
 	body: unknown,
 =======
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		| response_102_7
 		| response_102_8,
+=======
+<<<<<<< HEAD
+		| response_102_7,
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 } | {
 <<<<<<< HEAD
 	path: "/product-sheets/{productSheetId}/facets/{facetType}",
@@ -20059,7 +24366,18 @@ export type DefEnrichedDuplojsTo = {
 	method: "GET",
 	body: unknown,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+		| response_102_7
+		| response_102_8,
+} | {
+	path: "/warehouse/{warehouseId}",
+	method: "PATCH",
+	body: request_body_103,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	parameters: parameters_103,
 	response: response_103_0
 		| response_103_1
@@ -20067,6 +24385,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_103_3
 		| response_103_4
 		| response_103_5
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_103_6
 <<<<<<< HEAD
@@ -20092,6 +24411,13 @@ export type DefEnrichedDuplojsTo = {
 } | {
 	path: "/product-sheets/{productSheetId}/facets/{facetType}",
 	method: "DELETE",
+=======
+		| response_103_6
+		| response_103_7,
+} | {
+	path: "/organization/{organizationId}/products",
+	method: "GET",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	body: unknown,
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 	parameters: parameters_104,
@@ -20107,6 +24433,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_104_7
 		| response_104_8,
 } | {
+<<<<<<< HEAD
 	path: "/product-sheets/{productSheetId}/stock-story",
 =======
 		| response_104_7,
@@ -20115,10 +24442,23 @@ export type DefEnrichedDuplojsTo = {
 		| response_104_8,
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 } | {
+=======
+<<<<<<< HEAD
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	path: "/product-sheets/{productSheetId}/facets",
 >>>>>>> fca56a6 (fix(hf): rest full)
 	method: "GET",
 	body: unknown,
+=======
+<<<<<<< HEAD
+	path: "/product-sheet/{productSheetId}/category",
+	method: "POST",
+=======
+	path: "/product/{sku}",
+	method: "PATCH",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+	body: request_body_105,
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	parameters: parameters_105,
 	response: response_105_0
 		| response_105_1
@@ -20131,14 +24471,19 @@ export type DefEnrichedDuplojsTo = {
 } | {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	path: "/product-sheets/{productSheetId}",
 	method: "GET",
 	body: unknown,
 =======
 =======
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	path: "/product-sheets/{productSheetId}/facets",
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 	path: "/product-sheet/{productSheetId}/product",
 =======
@@ -20186,7 +24531,23 @@ export type DefEnrichedDuplojsTo = {
 	method: "PATCH",
 	body: request_body_107,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+	path: "/full-product-sheets",
+	method: "GET",
+	body: unknown,
+	parameters: parameters_106,
+	response: response_106_0
+		| response_106_1
+		| response_106_2,
+} | {
+	path: "/product-sheet/{productSheetId}/product",
+	method: "POST",
+	body: request_body_107,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	parameters: parameters_107,
 	response: response_107_0
 		| response_107_1
@@ -20210,6 +24571,7 @@ export type DefEnrichedDuplojsTo = {
 >>>>>>> fca56a6 (fix(hf): rest full)
 =======
 		| response_107_7,
+<<<<<<< HEAD
 } | {
 <<<<<<< HEAD
 	path: "/product-sheets/{productSheetId}/images",
@@ -20250,6 +24612,18 @@ export type DefEnrichedDuplojsTo = {
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 	method: "GET",
 	body: unknown,
+=======
+} | {
+	path: "/computed-filters",
+	method: "GET",
+	body: unknown,
+	parameters: parameters_108,
+	response: response_108_0,
+} | {
+	path: "/product-sheet/{productSheetId}/promotions",
+	method: "POST",
+	body: request_body_109,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	parameters: parameters_109,
 	response: response_109_0
 		| response_109_1
@@ -20260,9 +24634,16 @@ export type DefEnrichedDuplojsTo = {
 		| response_109_6
 		| response_109_7,
 } | {
+<<<<<<< HEAD
 	path: "/products/{sku}",
 	method: "PATCH",
 	body: request_body_110,
+=======
+<<<<<<< HEAD
+	path: "/product-sheet/{productSheetId}/image",
+	method: "POST",
+	body: unknown,
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	parameters: parameters_110,
 	response: response_110_0
 		| response_110_1
@@ -20288,6 +24669,15 @@ export type DefEnrichedDuplojsTo = {
 		| response_110_8,
 } | {
 	path: "/warehouse/{warehouseId}",
+=======
+	path: "/full-product-sheets-count",
+	method: "GET",
+	body: unknown,
+	parameters: parameters_110,
+	response: response_110_0,
+} | {
+	path: "/product-returns/{productReturnId}",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	method: "PATCH",
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
@@ -20300,6 +24690,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_111_4
 		| response_111_5
 		| response_111_6
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_111_7
 		| response_111_8,
@@ -20316,7 +24707,16 @@ export type DefEnrichedDuplojsTo = {
 	path: "/bundles/{bundleId}",
 	method: "GET",
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+		| response_111_7,
+} | {
+	path: "/product-returns/{productReturnId}/refound",
+	method: "POST",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	body: unknown,
 	parameters: parameters_112,
 	response: response_112_0
@@ -20326,7 +24726,14 @@ export type DefEnrichedDuplojsTo = {
 		| response_112_4
 <<<<<<< HEAD
 		| response_112_5
+<<<<<<< HEAD
 		| response_112_6,
+=======
+		| response_112_6
+<<<<<<< HEAD
+		| response_112_7
+		| response_112_8,
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 } | {
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -20350,7 +24757,15 @@ export type DefEnrichedDuplojsTo = {
 } | {
 	path: "/bundles/{bundleId}/stream",
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+		| response_112_7,
+} | {
+	path: "/bundles/{bundleId}",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	method: "GET",
 	body: unknown,
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
@@ -20369,6 +24784,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_113_5,
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 } | {
+<<<<<<< HEAD
 	path: "/warehouses/{warehouseId}",
 	method: "PATCH",
 	body: request_body_114,
@@ -20380,8 +24796,19 @@ export type DefEnrichedDuplojsTo = {
 		| response_113_6,
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 } | {
+=======
+<<<<<<< HEAD
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	path: "/product-returns/{productReturnId}/refound",
 	method: "POST",
+=======
+<<<<<<< HEAD
+	path: "/product-sheet/{productSheetId}/categories",
+=======
+	path: "/bundles/{bundleId}/stream",
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+	method: "GET",
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	body: unknown,
 >>>>>>> fca56a6 (fix(hf): rest full)
 	parameters: parameters_114,
@@ -20390,6 +24817,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_114_2
 		| response_114_3
 		| response_114_4
+<<<<<<< HEAD
 		| response_114_5
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -20408,6 +24836,13 @@ export type DefEnrichedDuplojsTo = {
 	path: "/product-returns/{productReturnId}",
 	method: "PATCH",
 	body: request_body_115,
+=======
+		| response_114_5,
+} | {
+	path: "/organization/{organizationId}/promotions",
+	method: "GET",
+	body: unknown,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	parameters: parameters_115,
 	response: response_115_0
 		| response_115_1
@@ -20415,6 +24850,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_115_3
 		| response_115_4
 		| response_115_5
+<<<<<<< HEAD
 		| response_115_6
 		| response_115_7
 		| response_115_8,
@@ -20431,7 +24867,18 @@ export type DefEnrichedDuplojsTo = {
 	method: "GET",
 >>>>>>> fca56a6 (fix(hf): rest full)
 	body: unknown,
+<<<<<<< HEAD
 	parameters: undefined,
+=======
+=======
+		| response_115_6,
+} | {
+	path: "/navigation-item/{navigationItemId}",
+	method: "PATCH",
+	body: request_body_116,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+	parameters: parameters_116,
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	response: response_116_0
 		| response_116_1
 		| response_116_2
@@ -20454,28 +24901,55 @@ export type DefEnrichedDuplojsTo = {
 =======
 		| response_116_5,
 } | {
+<<<<<<< HEAD
 	path: "/navigation-items",
 	method: "POST",
 	body: request_body_117,
 	parameters: undefined,
+<<<<<<< HEAD
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
+=======
+=======
+<<<<<<< HEAD
+	path: "/product-returns/{productReturnId}",
+	method: "PATCH",
+	body: request_body_117,
+=======
+	path: "/navigation-item/{navigationItemId}",
+	method: "DELETE",
+	body: unknown,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+	parameters: parameters_117,
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	response: response_117_0
 		| response_117_1
 		| response_117_2
 		| response_117_3
 		| response_117_4
+<<<<<<< HEAD
 		| response_117_5
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		| response_117_6,
 =======
 		| response_117_6
 		| response_117_7
 		| response_117_8,
+<<<<<<< HEAD
 >>>>>>> fca56a6 (fix(hf): rest full)
 =======
 		| response_117_6,
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
+=======
+=======
+		| response_117_5,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 } | {
 	path: "/organizations/{organizationId}/make-stat",
 	method: "POST",
@@ -20809,6 +25283,7 @@ export interface EnrichedDuploTo<
 =======
 	>
 
+<<<<<<< HEAD
 	get(
 		path: "/full-product-sheets", 
 		parameters ?: parameters_17 & BaseRequestParameters,
@@ -20838,23 +25313,37 @@ export interface EnrichedDuploTo<
 	get(
 		path: "/full-product-sheets", 
 		parameters ?: parameters_18 & BaseRequestParameters,
+=======
+	post(
+		path: "/register", 
+		body: request_body_18,
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_18_0
 		| response_18_1
 		| response_18_2
+		| response_18_3
+		| response_18_4
 	>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 	get(
 		path: "/commands", 
 		parameters ?: parameters_19 & BaseRequestParameters,
 =======
+=======
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	post(
 		path: "/login", 
 		body: request_body_19,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+<<<<<<< HEAD
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+=======
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
@@ -20867,11 +25356,14 @@ export interface EnrichedDuploTo<
 	get(
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> fca56a6 (fix(hf): rest full)
 		path: "/users", 
 =======
 =======
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		path: "/computed-filters", 
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 		parameters ?: parameters_20 & BaseRequestParameters,
@@ -20884,6 +25376,8 @@ export interface EnrichedDuploTo<
 		path: "/users", 
 		parameters ?: parameters_21 & BaseRequestParameters,
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		path: "/organization/{organizationId}/user", 
 		parameters : parameters_20 & BaseRequestParameters,
 =======
@@ -20892,6 +25386,10 @@ export interface EnrichedDuploTo<
 		body: request_body_20,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+=======
+		path: "/user/notifications", 
+		parameters ?: parameters_20 & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_20_0
@@ -20903,6 +25401,7 @@ export interface EnrichedDuploTo<
 		| response_20_5
 	>
 
+<<<<<<< HEAD
 	post(
 		path: "/organization/{organizationId}/user", 
 		body: request_body_21,
@@ -20914,13 +25413,22 @@ export interface EnrichedDuploTo<
 		path: "/user/notifications", 
 		parameters ?: parameters_21 & BaseRequestParameters,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+	get(
+		path: "/commands", 
+		parameters ?: parameters_21 & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_21_0
 		| response_21_1
 		| response_21_2
 		| response_21_3
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_21_4
 		| response_21_5
@@ -20951,8 +25459,21 @@ export interface EnrichedDuploTo<
 		path: "/commands", 
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 		parameters ?: parameters_22 & BaseRequestParameters,
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+=======
+	>
+
+	delete(
+		path: "/article/{productSheetId}", 
+		parameters : parameters_22 & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_22_0
@@ -20963,6 +25484,7 @@ export interface EnrichedDuploTo<
 		| response_22_3
 <<<<<<< HEAD
 		| response_22_4
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_22_5
 	>
@@ -20977,6 +25499,8 @@ export interface EnrichedDuploTo<
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 =======
 =======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
+=======
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
 	>
@@ -20984,7 +25508,17 @@ export interface EnrichedDuploTo<
 	get(
 		path: "/user/notifications", 
 		parameters ?: parameters_23 & BaseRequestParameters,
+<<<<<<< HEAD
 >>>>>>> fca56a6 (fix(hf): rest full)
+=======
+=======
+	>
+
+	delete(
+		path: "/image-product-sheet/{imageProductSheetId}", 
+		parameters : parameters_23 & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_23_0
@@ -20993,9 +25527,16 @@ export interface EnrichedDuploTo<
 		| response_23_3
 		| response_23_4
 <<<<<<< HEAD
+<<<<<<< HEAD
 		| response_23_5
 		| response_23_6
 		| response_23_7
+=======
+=======
+		| response_23_5
+<<<<<<< HEAD
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	>
 
 <<<<<<< HEAD
@@ -21028,6 +25569,13 @@ export interface EnrichedDuploTo<
 =======
 		path: "/article/{productSheetId}", 
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+=======
+		| response_23_6
+	>
+
+	get(
+		path: "/organization/{organizationId}/user", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		parameters : parameters_24 & BaseRequestParameters,
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
@@ -21038,6 +25586,7 @@ export interface EnrichedDuploTo<
 		| response_24_2
 		| response_24_3
 		| response_24_4
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 		| response_24_5
@@ -21059,11 +25608,15 @@ export interface EnrichedDuploTo<
 =======
 =======
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	>
 
 	delete(
 		path: "/articles/{productSheetId}", 
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 		| response_24_5
 	>
@@ -21077,7 +25630,17 @@ export interface EnrichedDuploTo<
 	delete(
 		path: "/image-product-sheet/{imageProductSheetId}", 
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+	>
+
+	post(
+		path: "/organization/{organizationId}/user", 
+		body: request_body_25,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		parameters : parameters_25 & BaseRequestParameters,
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 		interceptorParams?: interceptorParameter
@@ -21136,6 +25699,7 @@ export interface EnrichedDuploTo<
 		| response_26_5
 		| response_26_6
 <<<<<<< HEAD
+<<<<<<< HEAD
 		| response_26_7
 <<<<<<< HEAD
 		| response_26_8
@@ -21171,6 +25735,13 @@ export interface EnrichedDuploTo<
 		path: "/retry-command", 
 		body: request_body_27,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+=======
+	>
+
+	post(
+		path: "/retry-command", 
+		body: request_body_27,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
@@ -21202,13 +25773,22 @@ export interface EnrichedDuploTo<
 	>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	delete(
 		path: "/image-product-sheet/{imageProductSheetId}", 
 =======
 	get(
 		path: "/organization/{organizationId}/user", 
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+	patch(
+		path: "/organization/{organizationId}/user/{userId}", 
+		body: request_body_28,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		parameters : parameters_28 & BaseRequestParameters,
 >>>>>>> fca56a6 (fix(hf): rest full)
 		interceptorParams?: interceptorParameter
@@ -21219,6 +25799,9 @@ export interface EnrichedDuploTo<
 		| response_28_3
 		| response_28_4
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		| response_28_5
 <<<<<<< HEAD
 		| response_28_6
@@ -21231,9 +25814,12 @@ export interface EnrichedDuploTo<
 	>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	patch(
 		path: "/organizations/{organizationId}/users/{userId}", 
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	post(
 		path: "/retry-command", 
 =======
@@ -21244,8 +25830,20 @@ export interface EnrichedDuploTo<
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 		body: request_body_29,
+<<<<<<< HEAD
 		parameters : parameters_29 & BaseRequestParameters,
+<<<<<<< HEAD
 >>>>>>> fca56a6 (fix(hf): rest full)
+=======
+=======
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+=======
+	delete(
+		path: "/organization/{organizationId}/user/{userId}", 
+		parameters : parameters_29 & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_29_0
@@ -21273,6 +25871,7 @@ export interface EnrichedDuploTo<
 <<<<<<< HEAD
 	>
 
+<<<<<<< HEAD
 	delete(
 		path: "/promotions/{promotionId}", 
 =======
@@ -21286,7 +25885,15 @@ export interface EnrichedDuploTo<
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 		parameters : parameters_30 & BaseRequestParameters,
+<<<<<<< HEAD
 >>>>>>> fca56a6 (fix(hf): rest full)
+=======
+=======
+	get(
+		path: "/user/organizations", 
+		parameters ?: parameters_30 & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_30_0
@@ -21294,6 +25901,7 @@ export interface EnrichedDuploTo<
 		| response_30_2
 		| response_30_3
 		| response_30_4
+<<<<<<< HEAD
 		| response_30_5
 <<<<<<< HEAD
 	>
@@ -21316,6 +25924,11 @@ export interface EnrichedDuploTo<
 >>>>>>> fca56a6 (fix(hf): rest full)
 =======
 =======
+=======
+	>
+
+<<<<<<< HEAD
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 	post(
 		path: "/user/pull-data", 
@@ -21326,8 +25939,20 @@ export interface EnrichedDuploTo<
 		path: "/organization/{organizationId}/user/{userId}", 
 		parameters : parameters_31 & BaseRequestParameters,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+=======
+	post(
+		path: "/article", 
+		body: request_body_31,
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_31_0
@@ -21336,6 +25961,7 @@ export interface EnrichedDuploTo<
 		| response_31_3
 		| response_31_4
 		| response_31_5
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 		| response_31_6
@@ -21349,6 +25975,8 @@ export interface EnrichedDuploTo<
 =======
 =======
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	>
 
 <<<<<<< HEAD
@@ -21359,15 +25987,25 @@ export interface EnrichedDuploTo<
 	get(
 		path: "/user", 
 =======
+=======
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		| response_31_6
 		| response_31_7
 	>
 
+<<<<<<< HEAD
 	post(
 		path: "/article", 
 		body: request_body_32,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+	get(
+		path: "/cart", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 >>>>>>> fca56a6 (fix(hf): rest full)
 		interceptorParams?: interceptorParameter
@@ -21376,6 +26014,7 @@ export interface EnrichedDuploTo<
 		| response_32_1
 		| response_32_2
 		| response_32_3
+<<<<<<< HEAD
 		| response_32_4
 <<<<<<< HEAD
 =======
@@ -21413,7 +26052,17 @@ export interface EnrichedDuploTo<
 		path: "/user/organizations", 
 		parameters ?: parameters_33 & BaseRequestParameters,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+	>
+
+	delete(
+		path: "/product-notifications/{notificationId}", 
+		parameters : parameters_33 & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_33_0
@@ -21421,6 +26070,7 @@ export interface EnrichedDuploTo<
 		| response_33_2
 		| response_33_3
 		| response_33_4
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -21435,6 +26085,8 @@ export interface EnrichedDuploTo<
 =======
 =======
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		| response_33_5
 		| response_33_6
 		| response_33_7
@@ -21459,8 +26111,21 @@ export interface EnrichedDuploTo<
 		path: "/product-notifications/{notificationId}", 
 		parameters : parameters_34 & BaseRequestParameters,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+=======
+	>
+
+	get(
+		path: "/product-notifications", 
+		parameters ?: parameters_34 & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_34_0
@@ -21486,7 +26151,11 @@ export interface EnrichedDuploTo<
 =======
 <<<<<<< HEAD
 	post(
+<<<<<<< HEAD
 		path: "/category", 
+=======
+		path: "/product-notifications", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		body: request_body_35,
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
@@ -21570,9 +26239,12 @@ export interface EnrichedDuploTo<
 <<<<<<< HEAD
 	get(
 <<<<<<< HEAD
+<<<<<<< HEAD
 		path: "/product-notifications", 
 		parameters ?: parameters_36 & BaseRequestParameters,
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		path: "/full-product-sheets@moderator", 
 =======
 	post(
@@ -21580,7 +26252,14 @@ export interface EnrichedDuploTo<
 		body: request_body_36,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+		path: "/product-sheet/{productSheetId}/reviews", 
+		parameters : parameters_36 & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 <<<<<<< HEAD
@@ -21599,6 +26278,7 @@ export interface EnrichedDuploTo<
 =======
 		response_36_0
 		| response_36_1
+<<<<<<< HEAD
 		| response_36_2
 		| response_36_3
 		| response_36_4
@@ -21619,6 +26299,13 @@ export interface EnrichedDuploTo<
 	get(
 		path: "/product-sheet/{productSheetId}/reviews", 
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+=======
+	>
+
+	post(
+		path: "/product-sheet/{productSheetId}/reviews", 
+		body: request_body_37,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		parameters : parameters_37 & BaseRequestParameters,
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 		interceptorParams?: interceptorParameter
@@ -21631,6 +26318,7 @@ export interface EnrichedDuploTo<
 		| response_37_4
 		| response_37_5
 		| response_37_6
+<<<<<<< HEAD
 		| response_37_7
 	>
 
@@ -21647,7 +26335,16 @@ export interface EnrichedDuploTo<
 		path: "/product-sheet/{productSheetId}/reviews", 
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 		body: request_body_38,
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+	>
+
+	delete(
+		path: "/product-sheet-reviews/{productSheetReviewId}", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		parameters : parameters_38 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -21657,6 +26354,7 @@ export interface EnrichedDuploTo<
 		| response_38_3
 		| response_38_4
 		| response_38_5
+<<<<<<< HEAD
 		| response_38_6
 <<<<<<< HEAD
 	>
@@ -21678,7 +26376,16 @@ export interface EnrichedDuploTo<
 	delete(
 		path: "/product-sheet-reviews/{productSheetReviewId}", 
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+	>
+
+	delete(
+		path: "/promotions/{promotionId}", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		parameters : parameters_39 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -21688,6 +26395,7 @@ export interface EnrichedDuploTo<
 		| response_39_3
 		| response_39_4
 		| response_39_5
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_39_6
 		| response_39_7
@@ -21720,8 +26428,23 @@ export interface EnrichedDuploTo<
 		path: "/user", 
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+=======
+		| response_39_6
+	>
+
+	post(
+		path: "/user/pull-data", 
+		body: unknown,
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_40_0
@@ -21729,6 +26452,7 @@ export interface EnrichedDuploTo<
 		| response_40_2
 		| response_40_3
 		| response_40_4
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_40_5
 <<<<<<< HEAD
@@ -21763,7 +26487,17 @@ export interface EnrichedDuploTo<
 <<<<<<< HEAD
 =======
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+	>
+
+	get(
+		path: "/user", 
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_41_0
@@ -21794,8 +26528,13 @@ export interface EnrichedDuploTo<
 	>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	patch(
 		path: "/user/{userId}@moderator", 
+=======
+	patch(
+		path: "/user", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		body: request_body_42,
 		parameters : parameters_42 & BaseRequestParameters,
 =======
@@ -21827,6 +26566,13 @@ export interface EnrichedDuploTo<
 		| response_42_3
 <<<<<<< HEAD
 		| response_42_4
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+		| response_42_5
+		| response_42_6
+		| response_42_7
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	>
 
 <<<<<<< HEAD
@@ -21844,11 +26590,22 @@ export interface EnrichedDuploTo<
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 		parameters : parameters_43 & BaseRequestParameters,
+<<<<<<< HEAD
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
+=======
+=======
+	>
+
+	delete(
+		path: "/user", 
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_43_0
 		| response_43_1
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_43_2
 		| response_43_3
@@ -21876,6 +26633,18 @@ export interface EnrichedDuploTo<
 =======
 =======
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
+=======
+=======
+		| response_43_2
+		| response_43_3
+<<<<<<< HEAD
+		| response_43_4
+		| response_43_5
+		| response_43_6
+		| response_43_7
+		| response_43_8
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	>
 
 <<<<<<< HEAD
@@ -21886,7 +26655,17 @@ export interface EnrichedDuploTo<
 <<<<<<< HEAD
 	delete(
 		path: "/navigation-item/{navigationItemId}", 
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+	>
+
+	put(
+		path: "/category/{categoryName}/image", 
+		body: unknown,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		parameters : parameters_44 & BaseRequestParameters,
 =======
 	post(
@@ -21905,16 +26684,32 @@ export interface EnrichedDuploTo<
 		| response_44_5
 		| response_44_6
 <<<<<<< HEAD
+<<<<<<< HEAD
 		| response_44_7
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 =======
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 	>
 
+<<<<<<< HEAD
 	get(
 		path: "/commands/{commandId}/bundles", 
 		parameters ?: parameters_45 & BaseRequestParameters,
+=======
+	post(
+		path: "/newsletter", 
+=======
+	>
+
+	post(
+		path: "/category", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+		body: request_body_45,
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_45_0
@@ -21940,14 +26735,21 @@ export interface EnrichedDuploTo<
 	>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	post(
 		path: "/user/pull-data", 
 		body: unknown,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 	patch(
 		path: "/parent-category/{parentCategoryName}", 
+=======
+	patch(
+		path: "/category/{categoryName}", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		body: request_body_46,
 		parameters : parameters_46 & BaseRequestParameters,
 =======
@@ -21979,11 +26781,17 @@ export interface EnrichedDuploTo<
 =======
 	>
 
+<<<<<<< HEAD
 	patch(
 		path: "/category/{categoryName}", 
 		body: request_body_47,
 		parameters : parameters_47 & BaseRequestParameters,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+=======
+	get(
+		path: "/full-product-sheets@moderator", 
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_47_0
@@ -21991,6 +26799,7 @@ export interface EnrichedDuploTo<
 		| response_47_2
 		| response_47_3
 		| response_47_4
+<<<<<<< HEAD
 		| response_47_5
 		| response_47_6
 	>
@@ -22009,6 +26818,13 @@ export interface EnrichedDuploTo<
 	put(
 		path: "/category/{categoryName}/image", 
 		body: unknown,
+=======
+	>
+
+	patch(
+		path: "/product-sheet/{productSheetId}@moderator", 
+		body: request_body_48,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		parameters : parameters_48 & BaseRequestParameters,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
@@ -22020,6 +26836,7 @@ export interface EnrichedDuploTo<
 		| response_48_3
 		| response_48_4
 		| response_48_5
+<<<<<<< HEAD
 		| response_48_6
 	>
 
@@ -22034,6 +26851,12 @@ export interface EnrichedDuploTo<
 =======
 	patch(
 		path: "/product-sheet/{productSheetId}@moderator", 
+=======
+	>
+
+	patch(
+		path: "/organization/{organizationId}@admin", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		body: request_body_49,
 		parameters : parameters_49 & BaseRequestParameters,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
@@ -22043,10 +26866,23 @@ export interface EnrichedDuploTo<
 		response_49_0
 	>
 
+<<<<<<< HEAD
 	post(
 		path: "/categories", 
 		body: request_body_50,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+=======
+<<<<<<< HEAD
+	patch(
+		path: "/organization/{organizationId}@admin", 
+		body: request_body_50,
+		parameters : parameters_50 & BaseRequestParameters,
+=======
+	get(
+		path: "/product-sheet-reviews", 
+		parameters ?: parameters_50 & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_50_0
@@ -22054,6 +26890,7 @@ export interface EnrichedDuploTo<
 		| response_50_2
 		| response_50_3
 		| response_50_4
+<<<<<<< HEAD
 		| response_50_5
 <<<<<<< HEAD
 		| response_50_6
@@ -22085,7 +26922,18 @@ export interface EnrichedDuploTo<
 		path: "/product-sheet-reviews", 
 		parameters ?: parameters_51 & BaseRequestParameters,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+	>
+
+	patch(
+		path: "/user/{userId}@moderator", 
+		body: request_body_51,
+		parameters : parameters_51 & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_51_0
@@ -22104,6 +26952,7 @@ export interface EnrichedDuploTo<
 		path: "/categories/{categoryName}", 
 =======
 	post(
+<<<<<<< HEAD
 		path: "/parent-category", 
 =======
 	>
@@ -22111,7 +26960,13 @@ export interface EnrichedDuploTo<
 	post(
 		path: "/organization", 
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+		path: "/organization", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		body: request_body_52,
 		parameters : parameters_52 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
@@ -22128,6 +26983,7 @@ export interface EnrichedDuploTo<
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	get(
 <<<<<<< HEAD
 		path: "/product-sheet-reviews", 
@@ -22139,6 +26995,8 @@ export interface EnrichedDuploTo<
 =======
 =======
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	patch(
 		path: "/users/{userId}@moderator", 
 		body: request_body_53,
@@ -22147,6 +27005,8 @@ export interface EnrichedDuploTo<
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 =======
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 	post(
 		path: "/organization", 
@@ -22158,8 +27018,20 @@ export interface EnrichedDuploTo<
 		body: request_body_53,
 		parameters : parameters_53 & BaseRequestParameters,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+=======
+	post(
+		path: "/navigation-item", 
+		body: request_body_53,
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_53_0
@@ -22185,10 +27057,13 @@ export interface EnrichedDuploTo<
 =======
 	get(
 <<<<<<< HEAD
+<<<<<<< HEAD
 		path: "/full-product-sheets@moderator", 
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		path: "/parent-categories", 
 		parameters ?: parameters_54 & BaseRequestParameters,
 =======
@@ -22198,7 +27073,14 @@ export interface EnrichedDuploTo<
 		path: "/navigation-items", 
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+		path: "/navigation-items", 
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_54_0
@@ -22222,6 +27104,7 @@ export interface EnrichedDuploTo<
 	>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	patch(
 		path: "/navigation-items/{navigationItemId}", 
 		body: request_body_55,
@@ -22230,12 +27113,19 @@ export interface EnrichedDuploTo<
 >>>>>>> fca56a6 (fix(hf): rest full)
 =======
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	get(
 <<<<<<< HEAD
 		path: "/product-sheet-reviews", 
 		parameters ?: parameters_55 & BaseRequestParameters,
 =======
 		path: "/parent-category/{parentCategoryName}/categories", 
+=======
+	post(
+		path: "/parent-category/{parentCategoryName}/category", 
+		body: request_body_55,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		parameters : parameters_55 & BaseRequestParameters,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
@@ -22250,7 +27140,10 @@ export interface EnrichedDuploTo<
 		| response_55_5
 		| response_55_6
 		| response_55_7
+<<<<<<< HEAD
 		| response_55_8
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	>
 
 <<<<<<< HEAD
@@ -22277,6 +27170,7 @@ export interface EnrichedDuploTo<
 =======
 <<<<<<< HEAD
 	get(
+<<<<<<< HEAD
 		path: "/commands/{commandId}/bundles", 
 		parameters ?: parameters_56 & BaseRequestParameters,
 =======
@@ -22285,8 +27179,18 @@ export interface EnrichedDuploTo<
 		body: request_body_56,
 		parameters : parameters_56 & BaseRequestParameters,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+=======
+		path: "/parent-category/{parentCategoryName}/categories", 
+		parameters : parameters_56 & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_56_0
@@ -22295,6 +27199,7 @@ export interface EnrichedDuploTo<
 		| response_56_3
 		| response_56_4
 		| response_56_5
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 		| response_56_6
@@ -22314,6 +27219,8 @@ export interface EnrichedDuploTo<
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 >>>>>>> fca56a6 (fix(hf): rest full)
 =======
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		| response_56_6
 <<<<<<< HEAD
 	>
@@ -22330,6 +27237,12 @@ export interface EnrichedDuploTo<
 
 	delete(
 		path: "/navigation-item/{navigationItemId}", 
+=======
+	>
+
+	delete(
+		path: "/parent-category/{parentCategoryName}/category/{categoryName}", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		parameters : parameters_57 & BaseRequestParameters,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
@@ -22345,12 +27258,15 @@ export interface EnrichedDuploTo<
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	delete(
 		path: "/parent-categories/{parentCategoryName}/categories/{categoryName}", 
 		parameters : parameters_58 & BaseRequestParameters,
 =======
 =======
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	get(
 <<<<<<< HEAD
 		path: "/newsletters", 
@@ -22368,7 +27284,16 @@ export interface EnrichedDuploTo<
 		body: request_body_58,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+	post(
+		path: "/newsletter", 
+		body: request_body_58,
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_58_0
@@ -22405,10 +27330,13 @@ export interface EnrichedDuploTo<
 	>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	post(
 		path: "/parent-categories/{parentCategoryName}/categories", 
 		body: request_body_59,
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	get(
 		path: "/bundles/{bundleId}", 
 =======
@@ -22418,8 +27346,19 @@ export interface EnrichedDuploTo<
 		path: "/parent-category/{parentCategoryName}/category", 
 		body: request_body_59,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+=======
+	patch(
+		path: "/parent-category/{parentCategoryName}", 
+		body: request_body_59,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		parameters : parameters_59 & BaseRequestParameters,
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 		interceptorParams?: interceptorParameter
@@ -22448,6 +27387,7 @@ export interface EnrichedDuploTo<
 =======
 		| response_59_6
 <<<<<<< HEAD
+<<<<<<< HEAD
 		| response_59_7
 		| response_59_8
 	>
@@ -22457,6 +27397,8 @@ export interface EnrichedDuploTo<
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 		parameters : parameters_60 & BaseRequestParameters,
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 	>
 
@@ -22469,6 +27411,12 @@ export interface EnrichedDuploTo<
 
 	delete(
 		path: "/parent-category/{parentCategoryName}/category/{categoryName}", 
+=======
+	>
+
+	delete(
+		path: "/newsletter/{newsletterId}", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		parameters : parameters_60 & BaseRequestParameters,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
@@ -22480,6 +27428,7 @@ export interface EnrichedDuploTo<
 		| response_60_3
 		| response_60_4
 		| response_60_5
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_60_6
 	>
@@ -22511,6 +27460,13 @@ export interface EnrichedDuploTo<
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 		parameters : parameters_61 & BaseRequestParameters,
+=======
+	>
+
+	get(
+		path: "/newsletters", 
+		parameters ?: parameters_61 & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_61_0
@@ -22518,6 +27474,7 @@ export interface EnrichedDuploTo<
 		| response_61_2
 		| response_61_3
 		| response_61_4
+<<<<<<< HEAD
 		| response_61_5
 		| response_61_6
 <<<<<<< HEAD
@@ -22553,7 +27510,16 @@ export interface EnrichedDuploTo<
 	get(
 		path: "/newsletters", 
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+	>
+
+	get(
+		path: "/organizations", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		parameters ?: parameters_62 & BaseRequestParameters,
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 		interceptorParams?: interceptorParameter
@@ -22586,6 +27552,7 @@ export interface EnrichedDuploTo<
 	>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	post(
 		path: "/newsletters", 
 		body: request_body_63,
@@ -22594,6 +27561,8 @@ export interface EnrichedDuploTo<
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 =======
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 	patch(
 		path: "/user/{userId}@admin", 
@@ -22603,8 +27572,20 @@ export interface EnrichedDuploTo<
 		path: "/newsletter/{newsletterId}", 
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 		parameters : parameters_63 & BaseRequestParameters,
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+=======
+	post(
+		path: "/parent-category", 
+		body: request_body_63,
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_63_0
@@ -22633,12 +27614,15 @@ export interface EnrichedDuploTo<
 	>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	delete(
 		path: "/newsletters/{newsletterId}", 
 <<<<<<< HEAD
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 =======
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 	get(
 		path: "/organization/{organizationId}/product-sheets", 
@@ -22651,6 +27635,11 @@ export interface EnrichedDuploTo<
 		body: request_body_64,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+=======
+	get(
+		path: "/parent-categories", 
+		parameters ?: parameters_64 & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_64_0
@@ -22658,6 +27647,7 @@ export interface EnrichedDuploTo<
 		| response_64_2
 		| response_64_3
 		| response_64_4
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_64_5
 		| response_64_6
@@ -22692,8 +27682,22 @@ export interface EnrichedDuploTo<
 		path: "/organizations", 
 		parameters ?: parameters_65 & BaseRequestParameters,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+=======
+	>
+
+	patch(
+		path: "/user/{userId}@admin", 
+		body: request_body_65,
+		parameters : parameters_65 & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_65_0
@@ -22703,6 +27707,14 @@ export interface EnrichedDuploTo<
 		| response_65_4
 <<<<<<< HEAD
 		| response_65_5
+<<<<<<< HEAD
+=======
+		| response_65_6
+<<<<<<< HEAD
+		| response_65_7
+		| response_65_8
+		| response_65_9
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	>
 
 <<<<<<< HEAD
@@ -22734,7 +27746,18 @@ export interface EnrichedDuploTo<
 		path: "/parent-categories", 
 		parameters ?: parameters_66 & BaseRequestParameters,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+	>
+
+	patch(
+		path: "/product-sheet-reviews/{productSheetReviewId}", 
+		body: request_body_66,
+		parameters : parameters_66 & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_66_0
@@ -22750,6 +27773,7 @@ export interface EnrichedDuploTo<
 	>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	delete(
 <<<<<<< HEAD
 		path: "/newsletters/{newsletterId}", 
@@ -22761,6 +27785,20 @@ export interface EnrichedDuploTo<
 		path: "/organizations/{organizationId}@admin", 
 		body: request_body_67,
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
+=======
+	patch(
+		path: "/organizations/{organizationId}@admin", 
+		body: request_body_67,
+=======
+<<<<<<< HEAD
+	get(
+		path: "/organization/{organizationId}/facets", 
+=======
+	delete(
+		path: "/product-sheet-reviews/{productSheetReviewId}@moderator", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		parameters : parameters_67 & BaseRequestParameters,
 =======
 	>
@@ -22779,7 +27817,14 @@ export interface EnrichedDuploTo<
 		| response_67_4
 		| response_67_5
 <<<<<<< HEAD
+<<<<<<< HEAD
 		| response_67_6
+<<<<<<< HEAD
+=======
+		| response_67_7
+=======
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	>
 
 <<<<<<< HEAD
@@ -22815,6 +27860,7 @@ export interface EnrichedDuploTo<
 		path: "/product-sheet-reviews/{productSheetReviewId}@moderator", 
 =======
 	get(
+<<<<<<< HEAD
 		path: "/organization/{organizationId}", 
 =======
 	>
@@ -22824,6 +27870,10 @@ export interface EnrichedDuploTo<
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 		parameters : parameters_69 & BaseRequestParameters,
+=======
+		path: "/commands/{commandId}", 
+		parameters ?: parameters_69 & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_69_0
@@ -22832,6 +27882,7 @@ export interface EnrichedDuploTo<
 		| response_69_3
 		| response_69_4
 		| response_69_5
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_69_6
 	>
@@ -22851,7 +27902,17 @@ export interface EnrichedDuploTo<
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 		body: request_body_70,
 		parameters : parameters_70 & BaseRequestParameters,
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+	>
+
+	get(
+		path: "/commands/{commandId}/invoice", 
+		parameters ?: parameters_70 & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_70_0
@@ -22874,6 +27935,7 @@ export interface EnrichedDuploTo<
 	>
 
 	get(
+<<<<<<< HEAD
 		path: "/organization/{organizationId}/product-returns", 
 		parameters : parameters_71 & BaseRequestParameters,
 =======
@@ -22881,6 +27943,9 @@ export interface EnrichedDuploTo<
 
 	get(
 		path: "/users", 
+=======
+		path: "/commands/{commandId}/bundles", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		parameters ?: parameters_71 & BaseRequestParameters,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
@@ -22896,9 +27961,19 @@ export interface EnrichedDuploTo<
 		| response_71_6
 	>
 
+<<<<<<< HEAD
 	patch(
 		path: "/product-sheets/{productSheetId}@moderator", 
+=======
+<<<<<<< HEAD
+	post(
+		path: "/organization/{organizationId}/product-returns", 
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		body: request_body_72,
+=======
+	get(
+		path: "/organization/{organizationId}/commands", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		parameters : parameters_72 & BaseRequestParameters,
 =======
 	>
@@ -22921,6 +27996,7 @@ export interface EnrichedDuploTo<
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	get(
 <<<<<<< HEAD
 		path: "/commands/{commandId}/bundles", 
@@ -22931,6 +28007,8 @@ export interface EnrichedDuploTo<
 =======
 =======
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	patch(
 		path: "/users/{userId}@admin", 
 		body: request_body_73,
@@ -22939,6 +28017,8 @@ export interface EnrichedDuploTo<
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 =======
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	get(
 		path: "/organizations", 
 =======
@@ -22948,8 +28028,20 @@ export interface EnrichedDuploTo<
 		path: "/commands/{commandId}", 
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 		parameters ?: parameters_73 & BaseRequestParameters,
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+=======
+	put(
+		path: "/organization/{organizationId}/logo", 
+		body: unknown,
+		parameters : parameters_73 & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_73_0
@@ -22958,8 +28050,12 @@ export interface EnrichedDuploTo<
 		| response_73_3
 		| response_73_4
 		| response_73_5
+<<<<<<< HEAD
 		| response_73_6
 		| response_73_7
+=======
+<<<<<<< HEAD
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	>
 
 	get(
@@ -22981,8 +28077,23 @@ export interface EnrichedDuploTo<
 =======
 		path: "/commands/{commandId}/invoice", 
 		parameters ?: parameters_74 & BaseRequestParameters,
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+=======
+		| response_73_6
+		| response_73_7
+	>
+
+	get(
+		path: "/organization/{organizationId}/commands/{commandId}/details", 
+		parameters : parameters_74 & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_74_0
@@ -23003,8 +28114,18 @@ export interface EnrichedDuploTo<
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 	>
 
+<<<<<<< HEAD
 	get(
+<<<<<<< HEAD
 		path: "/organizations/{organizationId}/full-product-sheets", 
+=======
+		path: "/organization/{organizationId}/commands", 
+=======
+	post(
+		path: "/organization/{organizationId}/product-sheet", 
+		body: request_body_75,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		parameters : parameters_75 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -23017,16 +28138,23 @@ export interface EnrichedDuploTo<
 		| response_75_6
 		| response_75_7
 <<<<<<< HEAD
+<<<<<<< HEAD
 	>
 
 	get(
 		path: "/organizations/{organizationId}", 
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		| response_75_8
 	>
 
 	get(
+<<<<<<< HEAD
 		path: "/product/{sku}/commands-story", 
 =======
 	>
@@ -23034,7 +28162,13 @@ export interface EnrichedDuploTo<
 	get(
 		path: "/organization/{organizationId}/full-product-sheets", 
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+		path: "/organization/{organizationId}/full-product-sheets", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		parameters : parameters_76 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -23045,6 +28179,7 @@ export interface EnrichedDuploTo<
 		| response_76_4
 		| response_76_5
 		| response_76_6
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_76_7
 	>
@@ -23063,7 +28198,16 @@ export interface EnrichedDuploTo<
 		path: "/organization/{organizationId}/logo", 
 		body: unknown,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+	>
+
+	get(
+		path: "/organization/{organizationId}/product-sheets", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		parameters : parameters_77 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -23074,9 +28218,9 @@ export interface EnrichedDuploTo<
 		| response_77_4
 		| response_77_5
 		| response_77_6
-		| response_77_7
 	>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	get(
@@ -23091,10 +28235,14 @@ export interface EnrichedDuploTo<
 		body: unknown,
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 =======
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	put(
 		path: "/organizations/{organizationId}/logo", 
 		body: unknown,
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	post(
 <<<<<<< HEAD
 		path: "/organization/{organizationId}/warehouse", 
@@ -23102,8 +28250,18 @@ export interface EnrichedDuploTo<
 		path: "/organization/{organizationId}/product-sheet", 
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 		body: request_body_78,
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+=======
+	get(
+		path: "/organization/{organizationId}/facets", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		parameters : parameters_78 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -23114,10 +28272,9 @@ export interface EnrichedDuploTo<
 		| response_78_4
 		| response_78_5
 		| response_78_6
-		| response_78_7
-		| response_78_8
 	>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -23133,9 +28290,13 @@ export interface EnrichedDuploTo<
 		path: "/organizations/{organizationId}/product-sheets", 
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 =======
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	get(
 		path: "/organizations/{organizationId}/product-sheets", 
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 	patch(
 		path: "/product-sheet/{productSheetId}@moderator", 
@@ -23144,8 +28305,19 @@ export interface EnrichedDuploTo<
 	get(
 		path: "/organization/{organizationId}/product-sheets", 
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+=======
+	post(
+		path: "/organization/{organizationId}/commands/{commandId}/make-bundle", 
+		body: request_body_79,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		parameters : parameters_79 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -23158,8 +28330,20 @@ export interface EnrichedDuploTo<
 		| response_79_6
 		| response_79_7
 <<<<<<< HEAD
+<<<<<<< HEAD
 		| response_79_8
 		| response_79_9
+=======
+=======
+		| response_79_8
+		| response_79_9
+		| response_79_10
+		| response_79_11
+		| response_79_12
+		| response_79_13
+		| response_79_14
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	>
 
 <<<<<<< HEAD
@@ -23185,10 +28369,14 @@ export interface EnrichedDuploTo<
 =======
 	get(
 <<<<<<< HEAD
+<<<<<<< HEAD
 		path: "/product-notifications", 
 		parameters ?: parameters_80 & BaseRequestParameters,
 =======
 		path: "/organization/{organizationId}/commands/{commandId}/details", 
+=======
+		path: "/organization/{organizationId}", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		parameters : parameters_80 & BaseRequestParameters,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
@@ -23226,6 +28414,7 @@ export interface EnrichedDuploTo<
 <<<<<<< HEAD
 	>
 
+<<<<<<< HEAD
 	post(
 		path: "/product-notifications", 
 		body: request_body_81,
@@ -23238,6 +28427,10 @@ export interface EnrichedDuploTo<
 
 	post(
 		path: "/organization/{organizationId}/commands/{commandId}/make-bundle", 
+=======
+	patch(
+		path: "/organization/{organizationId}", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		body: request_body_81,
 		parameters : parameters_81 & BaseRequestParameters,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
@@ -23278,8 +28471,14 @@ export interface EnrichedDuploTo<
 
 	get(
 		path: "/organization/{organizationId}/grid", 
+<<<<<<< HEAD
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		parameters : parameters_82 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -23299,13 +28498,18 @@ export interface EnrichedDuploTo<
 	>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	get(
 		path: "/organizations/{organizationId}/commands/{commandId}/details", 
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 	delete(
 		path: "/product-sheet-reviews/{productSheetReviewId}@moderator", 
 =======
+=======
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 	put(
 		path: "/organization/{organizationId}/grid", 
 		body: request_body_83,
@@ -23336,9 +28540,16 @@ export interface EnrichedDuploTo<
 		path: "/article/{productSheetId}", 
 =======
 	get(
+<<<<<<< HEAD
 		path: "/organization/{organizationId}/facets", 
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+		path: "/organization/{organizationId}/users", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		parameters : parameters_84 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -23361,9 +28572,12 @@ export interface EnrichedDuploTo<
 	>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	get(
 		path: "/organizations/{organizationId}/facets", 
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 <<<<<<< HEAD
 	delete(
 		path: "/product-sheet-reviews/{productSheetReviewId}", 
@@ -23371,7 +28585,14 @@ export interface EnrichedDuploTo<
 	get(
 		path: "/organization/{organizationId}", 
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+	get(
+		path: "/organization/{organizationId}/product-returns", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		parameters : parameters_85 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -23396,11 +28617,15 @@ export interface EnrichedDuploTo<
 =======
 <<<<<<< HEAD
 	post(
+<<<<<<< HEAD
 		path: "/register", 
 =======
 	patch(
 		path: "/organization/{organizationId}", 
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+=======
+		path: "/organization/{organizationId}/product-returns", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		body: request_body_86,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
@@ -23411,6 +28636,7 @@ export interface EnrichedDuploTo<
 		| response_86_2
 		| response_86_3
 		| response_86_4
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_86_5
 		| response_86_6
@@ -23427,6 +28653,17 @@ export interface EnrichedDuploTo<
 		body: request_body_87,
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+		| response_86_5
+		| response_86_6
+		| response_86_7
+		| response_86_8
+		| response_86_9
+		| response_86_10
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	>
 
 	get(
@@ -23589,6 +28826,7 @@ export interface EnrichedDuploTo<
 >>>>>>> fca56a6 (fix(hf): rest full)
 	>
 
+<<<<<<< HEAD
 	get(
 <<<<<<< HEAD
 		path: "/organizations/{organizationId}/warehouses", 
@@ -23602,6 +28840,10 @@ export interface EnrichedDuploTo<
 	post(
 		path: "/organization/{organizationId}/warehouse", 
 		body: request_body_92,
+=======
+	delete(
+		path: "/product-sheet/{productSheetId}/category/{categoryName}", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		parameters : parameters_92 & BaseRequestParameters,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
@@ -23646,11 +28888,23 @@ export interface EnrichedDuploTo<
 		| response_92_7
 	>
 
+<<<<<<< HEAD
 	get(
 		path: "/organization/{organizationId}/warehouses", 
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+=======
+	post(
+		path: "/product-sheet/{productSheetId}/facet", 
+		body: request_body_93,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		parameters : parameters_93 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -23668,6 +28922,7 @@ export interface EnrichedDuploTo<
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	post(
 <<<<<<< HEAD
 		path: "/product-sheets/{productSheetId}/categories", 
@@ -23678,11 +28933,15 @@ export interface EnrichedDuploTo<
 =======
 =======
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	get(
 		path: "/product-sheets/{productSheetId}/categories", 
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
 		parameters : parameters_94 & BaseRequestParameters,
 =======
+=======
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	post(
 		path: "/article", 
 		body: request_body_94,
@@ -23693,6 +28952,10 @@ export interface EnrichedDuploTo<
 	patch(
 		path: "/product/{sku}", 
 		body: request_body_94,
+=======
+	get(
+		path: "/product-sheet/{productSheetId}/stock-story", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		parameters : parameters_94 & BaseRequestParameters,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
@@ -23717,8 +28980,17 @@ export interface EnrichedDuploTo<
 	>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	post(
+<<<<<<< HEAD
 		path: "/product-sheets/{productSheetId}/categories", 
+=======
+		path: "/make-command", 
+=======
+	patch(
+		path: "/product-sheet/{productSheetId}/facet/{facetType}", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		body: request_body_95,
 <<<<<<< HEAD
 		parameters : parameters_95 & BaseRequestParameters,
@@ -23746,14 +29018,23 @@ export interface EnrichedDuploTo<
 	>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	get(
 		path: "/organizations/{organizationId}/warehouses", 
 =======
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	post(
 		path: "/product-sheets/{productSheetId}/products", 
 		body: request_body_96,
 >>>>>>> fca56a6 (fix(hf): rest full)
 		parameters : parameters_96 & BaseRequestParameters,
+=======
+<<<<<<< HEAD
+	get(
+		path: "/computed-filters", 
+		parameters ?: parameters_96 & BaseRequestParameters,
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_96_0
@@ -23788,6 +29069,10 @@ export interface EnrichedDuploTo<
 
 	delete(
 		path: "/product-sheet/{productSheetId}/category/{categoryName}", 
+=======
+	delete(
+		path: "/product-sheet/{productSheetId}/facet/{facetType}", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		parameters : parameters_96 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -23802,10 +29087,20 @@ export interface EnrichedDuploTo<
 	>
 
 	get(
+<<<<<<< HEAD
 		path: "/product-sheet/{productSheetId}/categories", 
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+=======
+		path: "/product-sheet/{productSheetId}/facets", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		parameters : parameters_97 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -23840,6 +29135,7 @@ export interface EnrichedDuploTo<
 	>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	put(
 		path: "/organization/{organizationId}/grid", 
 =======
@@ -23847,8 +29143,18 @@ export interface EnrichedDuploTo<
 		path: "/product-sheet/{productSheetId}/category", 
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 		body: request_body_98,
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+=======
+	get(
+		path: "/product-sheet/{productSheetId}/warehouse", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		parameters : parameters_98 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -23864,6 +29170,7 @@ export interface EnrichedDuploTo<
 	>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	get(
 <<<<<<< HEAD
 		path: "/product-sheets/{productSheetId}/facets", 
@@ -23871,6 +29178,8 @@ export interface EnrichedDuploTo<
 		path: "/product-sheets/{productSheetId}/categories", 
 >>>>>>> fca56a6 (fix(hf): rest full)
 =======
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	patch(
 		path: "/product-sheets/{productSheetId}", 
 		body: request_body_99,
@@ -23884,7 +29193,14 @@ export interface EnrichedDuploTo<
 	get(
 		path: "/product-sheet/{productSheetId}/facets", 
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+	get(
+		path: "/product-sheet/{productSheetId}", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		parameters : parameters_99 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -23895,6 +29211,7 @@ export interface EnrichedDuploTo<
 		| response_99_4
 		| response_99_5
 		| response_99_6
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_99_7
 	>
@@ -23921,6 +29238,12 @@ export interface EnrichedDuploTo<
 
 	post(
 		path: "/product-sheet/{productSheetId}/promotions", 
+=======
+	>
+
+	patch(
+		path: "/product-sheet/{productSheetId}", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		body: request_body_100,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
@@ -23935,6 +29258,7 @@ export interface EnrichedDuploTo<
 		| response_100_4
 		| response_100_5
 		| response_100_6
+<<<<<<< HEAD
 		| response_100_7
 <<<<<<< HEAD
 		| response_100_8
@@ -23948,8 +29272,11 @@ export interface EnrichedDuploTo<
 		| response_100_9
 =======
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 	get(
 <<<<<<< HEAD
@@ -23963,12 +29290,17 @@ export interface EnrichedDuploTo<
 	post(
 		path: "/product-sheet/{productSheetId}/product", 
 		body: request_body_101,
+=======
+	get(
+		path: "/product-sheet/{productSheetId}/images", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		parameters : parameters_101 & BaseRequestParameters,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_101_0
+<<<<<<< HEAD
 		| response_101_1
 		| response_101_2
 		| response_101_3
@@ -23992,7 +29324,30 @@ export interface EnrichedDuploTo<
 	post(
 		path: "/product-sheets/{productSheetId}/promotions", 
 		body: request_body_102,
+<<<<<<< HEAD
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
+=======
+=======
+<<<<<<< HEAD
+	>
+
+	get(
+		path: "/product-sheet/{productSheetId}/facets", 
+=======
+		| response_101_1
+		| response_101_2
+		| response_101_3
+		| response_101_4
+		| response_101_5
+		| response_101_6
+	>
+
+	post(
+		path: "/product-sheet/{productSheetId}/image", 
+		body: unknown,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		parameters : parameters_102 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -24004,6 +29359,7 @@ export interface EnrichedDuploTo<
 		| response_102_5
 		| response_102_6
 		| response_102_7
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 		| response_102_8
@@ -24018,7 +29374,12 @@ export interface EnrichedDuploTo<
 		path: "/product-sheets/{productSheetId}", 
 >>>>>>> fca56a6 (fix(hf): rest full)
 =======
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		| response_102_8
+=======
+<<<<<<< HEAD
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	>
 
 <<<<<<< HEAD
@@ -24032,7 +29393,18 @@ export interface EnrichedDuploTo<
 	get(
 		path: "/product-sheet/{productSheetId}/stock-story", 
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+		| response_102_8
+	>
+
+	patch(
+		path: "/warehouse/{warehouseId}", 
+		body: request_body_103,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		parameters : parameters_103 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -24043,6 +29415,7 @@ export interface EnrichedDuploTo<
 		| response_103_4
 		| response_103_5
 		| response_103_6
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_103_7
 <<<<<<< HEAD
@@ -24066,8 +29439,22 @@ export interface EnrichedDuploTo<
 	>
 
 	delete(
+<<<<<<< HEAD
 		path: "/product-sheets/{productSheetId}/facets/{facetType}", 
+<<<<<<< HEAD
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
+=======
+=======
+		path: "/product-sheet/{productSheetId}/facet/{facetType}", 
+=======
+		| response_103_7
+	>
+
+	get(
+		path: "/organization/{organizationId}/products", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		parameters : parameters_104 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -24084,6 +29471,7 @@ export interface EnrichedDuploTo<
 		| response_104_8
 	>
 
+<<<<<<< HEAD
 	get(
 		path: "/product-sheets/{productSheetId}/stock-story", 
 =======
@@ -24094,7 +29482,20 @@ export interface EnrichedDuploTo<
 
 	get(
 		path: "/product-sheets/{productSheetId}/facets", 
+<<<<<<< HEAD
 >>>>>>> fca56a6 (fix(hf): rest full)
+=======
+=======
+<<<<<<< HEAD
+	post(
+		path: "/product-sheet/{productSheetId}/category", 
+=======
+	patch(
+		path: "/product/{sku}", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+		body: request_body_105,
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		parameters : parameters_105 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -24109,9 +29510,12 @@ export interface EnrichedDuploTo<
 	>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	get(
 		path: "/product-sheets/{productSheetId}", 
 =======
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	post(
 <<<<<<< HEAD
 		path: "/product-sheets/{productSheetId}/facets", 
@@ -24125,11 +29529,17 @@ export interface EnrichedDuploTo<
 		body: request_body_106,
 >>>>>>> fca56a6 (fix(hf): rest full)
 		parameters : parameters_106 & BaseRequestParameters,
+=======
+	get(
+		path: "/full-product-sheets", 
+		parameters ?: parameters_106 & BaseRequestParameters,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_106_0
 		| response_106_1
 		| response_106_2
+<<<<<<< HEAD
 		| response_106_3
 		| response_106_4
 		| response_106_5
@@ -24163,8 +29573,21 @@ export interface EnrichedDuploTo<
 		path: "/product-sheet/{productSheetId}/facet/{facetType}", 
 		body: request_body_107,
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+=======
+	>
+
+	post(
+		path: "/product-sheet/{productSheetId}/product", 
+		body: request_body_107,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		parameters : parameters_107 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -24176,6 +29599,7 @@ export interface EnrichedDuploTo<
 		| response_107_5
 		| response_107_6
 		| response_107_7
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	>
@@ -24190,6 +29614,8 @@ export interface EnrichedDuploTo<
 		path: "/product-sheets/{productSheetId}/facets/{facetType}", 
 >>>>>>> fca56a6 (fix(hf): rest full)
 =======
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	>
 
 <<<<<<< HEAD
@@ -24234,7 +29660,25 @@ export interface EnrichedDuploTo<
 =======
 		path: "/product-sheet/{productSheetId}/images", 
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+	>
+
+	get(
+		path: "/computed-filters", 
+		parameters ?: parameters_108 & BaseRequestParameters,
+		interceptorParams?: interceptorParameter
+	): EnrichedRequestor<
+		response_108_0
+	>
+
+	post(
+		path: "/product-sheet/{productSheetId}/promotions", 
+		body: request_body_109,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		parameters : parameters_109 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -24248,9 +29692,16 @@ export interface EnrichedDuploTo<
 		| response_109_7
 	>
 
+<<<<<<< HEAD
 	patch(
 		path: "/products/{sku}", 
 		body: request_body_110,
+=======
+<<<<<<< HEAD
+	post(
+		path: "/product-sheet/{productSheetId}/image", 
+		body: unknown,
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		parameters : parameters_110 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -24281,7 +29732,22 @@ export interface EnrichedDuploTo<
 	patch(
 		path: "/warehouse/{warehouseId}", 
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+	get(
+		path: "/full-product-sheets-count", 
+		parameters ?: parameters_110 & BaseRequestParameters,
+		interceptorParams?: interceptorParameter
+	): EnrichedRequestor<
+		response_110_0
+	>
+
+	patch(
+		path: "/product-returns/{productReturnId}", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		body: request_body_111,
 		parameters : parameters_111 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
@@ -24294,6 +29760,7 @@ export interface EnrichedDuploTo<
 		| response_111_5
 		| response_111_6
 		| response_111_7
+<<<<<<< HEAD
 <<<<<<< HEAD
 		| response_111_8
 	>
@@ -24310,7 +29777,17 @@ export interface EnrichedDuploTo<
 	get(
 		path: "/bundles/{bundleId}", 
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+=======
+=======
+	>
+
+	post(
+		path: "/product-returns/{productReturnId}/refound", 
+		body: unknown,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 		parameters : parameters_112 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -24322,6 +29799,12 @@ export interface EnrichedDuploTo<
 		| response_112_5
 <<<<<<< HEAD
 		| response_112_6
+<<<<<<< HEAD
+=======
+		| response_112_7
+<<<<<<< HEAD
+		| response_112_8
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
 	>
 
 <<<<<<< HEAD
@@ -24348,8 +29831,20 @@ export interface EnrichedDuploTo<
 	get(
 		path: "/bundles/{bundleId}/stream", 
 >>>>>>> f6f440e (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 4ec30b1 (fix: refacto front CommandPage)
+<<<<<<< HEAD
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
+=======
+=======
+=======
+	>
+
+	get(
+		path: "/bundles/{bundleId}", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		parameters : parameters_113 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -24384,10 +29879,22 @@ export interface EnrichedDuploTo<
 >>>>>>> 8f9eaa9 (fix: refacto front CommandPage)
 	>
 
+<<<<<<< HEAD
 	post(
 		path: "/product-returns/{productReturnId}/refound", 
 		body: unknown,
+<<<<<<< HEAD
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
+=======
+=======
+	get(
+<<<<<<< HEAD
+		path: "/product-sheet/{productSheetId}/categories", 
+=======
+		path: "/bundles/{bundleId}/stream", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		parameters : parameters_114 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -24397,6 +29904,7 @@ export interface EnrichedDuploTo<
 		| response_114_3
 		| response_114_4
 		| response_114_5
+<<<<<<< HEAD
 		| response_114_6
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -24413,6 +29921,12 @@ export interface EnrichedDuploTo<
 	patch(
 		path: "/product-returns/{productReturnId}", 
 		body: request_body_115,
+=======
+	>
+
+	get(
+		path: "/organization/{organizationId}/promotions", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
 		parameters : parameters_115 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -24423,15 +29937,19 @@ export interface EnrichedDuploTo<
 		| response_115_4
 		| response_115_5
 		| response_115_6
+<<<<<<< HEAD
 		| response_115_7
 		| response_115_8
 	>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	post(
 		path: "/product-returns/{productReturnId}/refound", 
 		body: unknown,
 =======
+=======
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	get(
 <<<<<<< HEAD
 		path: "/bundles/{bundleId}/stream", 
@@ -24440,7 +29958,23 @@ export interface EnrichedDuploTo<
 =======
 		path: "/navigation-items", 
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+<<<<<<< HEAD
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
+=======
+=======
+	post(
+		path: "/product-returns/{productReturnId}/refound", 
+		body: unknown,
+=======
+	>
+
+	patch(
+		path: "/navigation-item/{navigationItemId}", 
+		body: request_body_116,
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+		parameters : parameters_116 & BaseRequestParameters,
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_116_0
@@ -24464,11 +29998,26 @@ export interface EnrichedDuploTo<
 =======
 	>
 
+<<<<<<< HEAD
 	post(
 		path: "/navigation-items", 
 		body: request_body_117,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+<<<<<<< HEAD
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
+=======
+=======
+<<<<<<< HEAD
+	patch(
+		path: "/product-returns/{productReturnId}", 
+		body: request_body_117,
+=======
+	delete(
+		path: "/navigation-item/{navigationItemId}", 
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+		parameters : parameters_117 & BaseRequestParameters,
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_117_0
@@ -24477,7 +30026,9 @@ export interface EnrichedDuploTo<
 		| response_117_3
 		| response_117_4
 		| response_117_5
+<<<<<<< HEAD
 		| response_117_6
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -24486,6 +30037,14 @@ export interface EnrichedDuploTo<
 >>>>>>> fca56a6 (fix(hf): rest full)
 =======
 >>>>>>> e0916e9 (fix(hf): fix fixture full command item)
+=======
+=======
+		| response_117_7
+		| response_117_8
+=======
+>>>>>>> 35f5d92 (feat(112): fix wording + improve style)
+>>>>>>> 89ea330 (feat(112): fix wording + improve style)
+>>>>>>> b31598a (feat(112): fix wording + improve style)
 	>
 
 	post(

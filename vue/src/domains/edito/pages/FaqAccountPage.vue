@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import FaqAccordion from "../components/FaqAccordion.vue";
 
-const faq = ref([
+const faq = [
 	{
-		question: "Comment créer un compte sur Mon Enorme Troncs ?",
-		answer: `Pour créer un compte sur Mon Enorme Troncs, connectez-vous avec votre compte Google. Cliquez sur le 
+		question: "Comment créer un compte sur Mon Enorme Tronc ?",
+		answer: `Pour créer un compte sur Mon Enorme Tronc, connectez-vous avec votre compte Google. Cliquez sur le 
         bouton de connexion et suivez les instructions pour autoriser l'accès à certaines informations de votre 
         compte Google, telles que votre adresse e-mail et votre nom.`
 	},
@@ -32,7 +32,7 @@ const faq = ref([
 		telles que votre adresse e-mail ou votre adresse de livraison.`
 	},
 	{
-		question: "Comment supprimer mon compte Mon Enorme Troncs ?",
+		question: "Comment supprimer mon compte Mon Enorme Tronc ?",
 		answer: `Pour supprimer votre compte, allez dans "Éditer mon profil" et cliquez sur
 		"Supprimer mon compte". Confirmez la suppression pour finaliser l'action.
 		Notez que cette opération est irréversible et entraînera la perte de toutes vos données.`
@@ -42,19 +42,21 @@ const faq = ref([
 		answer: `Pour toute question ou assistance concernant votre compte, contactez-nous à l'adresse suivante : 
         contact@monenormetroncs.fr. Notre équipe du service clientèle est là pour vous aider.`
 	}
-]);
+];
 </script>
 
 <template>
-	<div class="container mx-auto p-6">
+	<section class="container my-12 lg:my-16 flex flex-col gap-12">
 		<h1 class="text-3xl font-bold mb-4">
 			Foire aux Questions - Compte Utilisateur
 		</h1>
 
-		<FaqAccordion
-			v-for="(item, index) in faq"
-			:key="index"
-			:item="item"
-		/>
-	</div>
+		<div>
+			<FaqAccordion
+				v-for="(item, index) in faq"
+				:key="index"
+				:item="item"
+			/>
+		</div>
+	</section>
 </template>

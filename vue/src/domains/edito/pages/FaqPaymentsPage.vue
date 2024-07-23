@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import FaqAccordion from "../components/FaqAccordion.vue";
 
-const faq = ref([
+const faq = [
 	{
-		question: "Quels modes de paiement acceptez-vous sur Mon Enorme Troncs ?",
+		question: "Quels modes de paiement acceptez-vous sur Mon Enorme Tronc ?",
 		answer: `Nous acceptons les paiements par carte de crédit/débit via Stripe,
 		une plateforme de paiement sécurisée.`
 	},
@@ -40,20 +40,22 @@ const faq = ref([
 		answer: `Pour toute question ou problème lié au paiement, veuillez contacter notre équipe du service clientèle à 
         l'adresse suivante : contact@monenormetroncs.fr. Nous sommes là pour vous aider !`
 	}
-]);
+];
 
 </script>
 
 <template>
-	<div class="container mx-auto p-6">
+	<section class="container my-12 lg:my-16 flex flex-col gap-12">
 		<h1 class="text-3xl font-bold mb-4">
 			Foire aux Questions - Payements
 		</h1>
 
-		<FaqAccordion
-			v-for="(item, index) in faq"
-			:key="index"
-			:item="item"
-		/>
-	</div>
+		<div>
+			<FaqAccordion
+				v-for="(item, index) in faq"
+				:key="index"
+				:item="item"
+			/>
+		</div>
+	</section>
 </template>
