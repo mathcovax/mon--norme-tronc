@@ -664,106 +664,6 @@ export type response_17_2 = {
 } & {body: response_body_17_2};
 
 export type parameters_18 = {
-    query?: {
-        page?: number;
-        email?: string | undefined;
-        primordialRole?: (("CUSTOMER" | "MODERATOR" | "CONTENTS_MASTER" | "ADMIN") | ("CUSTOMER" | "MODERATOR" | "CONTENTS_MASTER" | "ADMIN")[]) | undefined;
-    } | undefined;
-}
-
-export type response_18_0 = {
-    code: 401;
-    ok: false;
-    info: "access.token.invalid";
-} & {body: undefined};
-
-export type response_18_1 = {
-    code: 404;
-    ok: false;
-    info: "user.notfound";
-} & {body: undefined};
-
-export type response_18_2 = {
-    code: 401;
-    ok: false;
-    info: "accessToken.tooOld";
-} & {body: undefined};
-
-export type response_18_3 = {
-    code: 401;
-    ok: false;
-    info: "user.deleted";
-} & {body: undefined};
-
-export type response_18_4 = {
-    code: 403;
-    ok: false;
-    info: "user.role.invalid";
-} & {body: undefined};
-
-export type response_body_18_5 = {
-    id: string;
-    email: string;
-    lastname: string;
-    firstname: string;
-    dateOfBirth?: string;
-    address: string;
-    primordialRole: "CUSTOMER" | "MODERATOR" | "CONTENTS_MASTER" | "ADMIN";
-    muted: boolean;
-    emailNotifcationsNewsletter: boolean;
-    emailNotifcationsProductStock: boolean;
-    emailNotifcationsPromotion: boolean;
-    emailNotifcationsNewProductInCategory: boolean;
-}[]
-
-export type response_18_5 = {
-    code: 200;
-    ok: true;
-    info: "users";
-} & {body: response_body_18_5};
-
-export type request_body_19 = {
-    fireBaseIdToken: string;
-    lastname: string;
-    firstname: string;
-    address: string;
-    dateOfBirth: Date;
-    emailNotifcationsNewsletter: boolean;
-}
-
-export type response_19_0 = {
-    code: 401;
-    ok: false;
-    info: "firebase.token.invalid";
-} & {body: undefined};
-
-export type response_19_1 = {
-    code: 409;
-    ok: false;
-    info: "user.alreadyExist";
-} & {body: undefined};
-
-export type response_19_2 = {
-    code: 400;
-    ok: false;
-    info: "user.address.invalid";
-} & {body: undefined};
-
-export type response_19_3 = {
-    code: 400;
-    ok: false;
-    info: "user.dateOfBirth.invalid";
-} & {body: undefined};
-
-export type response_body_19_4 = string
-
-export type response_19_4 = {
-    code: 201;
-    ok: true;
-    info: "user.registered";
-} & {body: response_body_19_4};
-
-export type parameters_20 = {
     query?: ({} & {
         color?: (string | string[]) | undefined;
         size?: string | undefined;
@@ -785,65 +685,16 @@ export type parameters_20 = {
     };
 }
 
-export type response_body_20_0 = {
+export type response_body_18_0 = {
     fullProductSheetCount: string;
 }
 
-export type response_20_0 = {
+export type response_18_0 = {
     code: 200;
     ok: true;
     info: "fullProductSheetCount";
-} & {body: response_body_20_0};
+} & {body: response_body_18_0};
 
-export type parameters_21 = {
-    query?: ({} & {
-        color?: (string | string[]) | undefined;
-        size?: string | undefined;
-        diameter?: string | undefined;
-        target?: string | undefined;
-        accessory?: any | undefined;
-        material?: (string | string[]) | undefined;
-        stimulation?: (string | string[]) | undefined;
-        promotion?: any | undefined;
-        price?: [
-            number,
-            number
-        ] | undefined;
-        rate?: string | undefined;
-    }) & {
-        search?: string | undefined;
-        searchByRegex?: any;
-        categoryName?: string | undefined;
-    };
-}
-
-export type response_body_21_0 = ({
-    type: "CHECKBOX" | "RADIO";
-    name: string;
-    values: {
-        value: string;
-        quantity: number;
-    }[];
-} | {
-    type: "TOGGLE";
-    name: string;
-    quantity: number;
-} | {
-    type: "RANGE";
-    name: string;
-    min: number;
-    max: number;
-})[]
-
-export type response_21_0 = {
-    code: 200;
-    ok: true;
-    info: "filters";
-} & {body: response_body_21_0};
-
-<<<<<<< HEAD
-export type request_body_22 = string
-=======
 export type parameters_19 = {
     query?: ({} & {
         color?: (string | string[]) | undefined;
@@ -866,14 +717,28 @@ export type parameters_19 = {
     };
 }
 
-export type response_body_19_0 = {
-    fullProductSheetCount: string;
-}
+export type response_body_19_0 = ({
+    type: "CHECKBOX" | "RADIO";
+    name: string;
+    values: {
+        value: string;
+        quantity: number;
+    }[];
+} | {
+    type: "TOGGLE";
+    name: string;
+    quantity: number;
+} | {
+    type: "RANGE";
+    name: string;
+    min: number;
+    max: number;
+})[]
 
 export type response_19_0 = {
     code: 200;
     ok: true;
-    info: "fullProductSheetCount";
+    info: "filters";
 } & {body: response_body_19_0};
 
 export type request_body_20 = string
@@ -901,17 +766,9 @@ export type response_20_2 = {
 } & {body: response_body_20_2};
 
 export type parameters_21 = {
-<<<<<<< HEAD
-    params: {
-        productSheetId: string;
-    };
-=======
     query?: {
         page?: number;
-        email?: string | undefined;
-        primordialRole?: (("CUSTOMER" | "MODERATOR" | "CONTENTS_MASTER" | "ADMIN") | ("CUSTOMER" | "MODERATOR" | "CONTENTS_MASTER" | "ADMIN")[]) | undefined;
     } | undefined;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 }
 
 export type response_21_0 = {
@@ -938,18 +795,22 @@ export type response_21_3 = {
     info: "user.deleted";
 } & {body: undefined};
 
-export type response_21_4 = {
-<<<<<<< HEAD
-    code: 404;
-    ok: false;
-    info: "productSheet.notfound";
-} & {body: undefined};
+export type response_body_21_4 = {
+    title: string;
+    subtitle?: string | undefined;
+    redirect?: string | undefined;
+    imageUrl?: string | undefined;
+    icon?: string | undefined;
+    userId: string;
+    type: "PRODUCT_PROMOTION" | "PRODUCT_RESTOCK" | "NEW_PRODUCT_IN_CATEGORY" | "PRODUCT_NO_STOCK";
+    createdAt: Date;
+}[]
 
-export type response_21_5 = {
+export type response_21_4 = {
     code: 200;
     ok: true;
-    info: "article.deleted";
-} & {body: undefined};
+    info: "userNotifications";
+} & {body: response_body_21_4};
 
 export type parameters_22 = {
     query?: {
@@ -957,106 +818,21 @@ export type parameters_22 = {
         email?: string | undefined;
         primordialRole?: (("CUSTOMER" | "MODERATOR" | "CONTENTS_MASTER" | "ADMIN") | ("CUSTOMER" | "MODERATOR" | "CONTENTS_MASTER" | "ADMIN")[]) | undefined;
     } | undefined;
-=======
-    code: 403;
-    ok: false;
-    info: "user.role.invalid";
-} & {body: undefined};
-
-export type response_body_21_5 = {
-    id: string;
-    email: string;
-    lastname: string;
-    firstname: string;
-    dateOfBirth?: string;
-    address: string;
-    primordialRole: "CUSTOMER" | "MODERATOR" | "CONTENTS_MASTER" | "ADMIN";
-    muted: boolean;
-    emailNotifcationsNewsletter: boolean;
-    emailNotifcationsProductStock: boolean;
-    emailNotifcationsPromotion: boolean;
-    emailNotifcationsNewProductInCategory: boolean;
-}[]
-
-export type response_21_5 = {
-    code: 200;
-    ok: true;
-    info: "users";
-} & {body: response_body_21_5};
-
-export type request_body_22 = {
-    fireBaseIdToken: string;
-    lastname: string;
-    firstname: string;
-    address: string;
-    dateOfBirth: Date;
-    emailNotifcationsNewsletter: boolean;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 }
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 
 export type response_22_0 = {
-    code: 401;
-    ok: false;
-    info: "firebase.token.invalid";
-} & {body: undefined};
-
-export type response_22_1 = {
-    code: 409;
-    ok: false;
-    info: "user.alreadyExist";
-} & {body: undefined};
-
-export type response_22_2 = {
-<<<<<<< HEAD
-=======
-    code: 400;
-    ok: false;
-    info: "user.address.invalid";
-} & {body: undefined};
-
-export type response_22_3 = {
-    code: 400;
-    ok: false;
-    info: "user.dateOfBirth.invalid";
-} & {body: undefined};
-
-export type response_body_22_4 = string
-
-export type response_22_4 = {
-    code: 201;
-    ok: true;
-    info: "user.registered";
-} & {body: response_body_22_4};
-
-export type parameters_23 = {
-    query?: {
-        page?: number;
-        productSheetName?: string | undefined;
-    } | undefined;
-}
-
-export type response_23_0 = {
     code: 401;
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
-export type response_23_1 = {
+export type response_22_1 = {
     code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
-<<<<<<< HEAD
-export type response_body_22_2 = {
-    accessToken: string;
-}
-
 export type response_22_2 = {
-=======
-export type response_23_2 = {
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
     code: 401;
     ok: false;
     info: "accessToken.tooOld";
@@ -1090,73 +866,56 @@ export type response_body_22_5 = {
 }[]
 
 export type response_22_5 = {
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
     code: 200;
     ok: true;
-    info: "user.logged";
-} & {body: response_body_22_2};
+    info: "users";
+} & {body: response_body_22_5};
 
-export type parameters_23 = {
-    query?: {
-        page?: number;
-        productSheetName?: string | undefined;
-    } | undefined;
+export type request_body_23 = {
+    fireBaseIdToken: string;
+    lastname: string;
+    firstname: string;
+    address: string;
+    dateOfBirth: Date;
+    emailNotifcationsNewsletter: boolean;
 }
 
 export type response_23_0 = {
     code: 401;
     ok: false;
-    info: "access.token.invalid";
+    info: "firebase.token.invalid";
 } & {body: undefined};
 
 export type response_23_1 = {
-    code: 404;
+    code: 409;
     ok: false;
-    info: "user.notfound";
+    info: "user.alreadyExist";
 } & {body: undefined};
 
 export type response_23_2 = {
-    code: 401;
+    code: 400;
     ok: false;
-    info: "accessToken.tooOld";
+    info: "user.address.invalid";
 } & {body: undefined};
 
 export type response_23_3 = {
-    code: 401;
+    code: 400;
     ok: false;
-    info: "user.deleted";
+    info: "user.dateOfBirth.invalid";
 } & {body: undefined};
 
-export type response_body_23_4 = {
-    id: string;
-    firstname: string;
-    lastname: string;
-    status: "DONE" | "CANCELED" | "WAITING_PAYMENT" | "IN_PROGRESS" | "IN_DELIVERY";
-    userId: string;
-    deliveryAddress: string;
-    createdDate: Date;
-    price: number;
-    items: {
-        quantity: number;
-        processQuantity: number;
-        productSheetId: string;
-        productSheetName: string;
-        productSheetFirstImageUrl: string;
-        productSheetOrganizationName: string;
-        productSheetPrice: number;
-    }[];
-}[]
+export type response_body_23_4 = string
 
 export type response_23_4 = {
-    code: 200;
+    code: 201;
     ok: true;
-    info: "userCommands";
+    info: "user.registered";
 } & {body: response_body_23_4};
 
 export type parameters_24 = {
-    query?: {
-        page?: number;
-    } | undefined;
+    params: {
+        productSheetId: string;
+    };
 }
 
 export type response_24_0 = {
@@ -1183,32 +942,24 @@ export type response_24_3 = {
     info: "user.deleted";
 } & {body: undefined};
 
-export type response_body_24_4 = {
-    title: string;
-    subtitle?: string | undefined;
-    redirect?: string | undefined;
-    imageUrl?: string | undefined;
-    icon?: string | undefined;
-    userId: string;
-    type: "PRODUCT_PROMOTION" | "PRODUCT_RESTOCK" | "NEW_PRODUCT_IN_CATEGORY" | "PRODUCT_NO_STOCK";
-    createdAt: Date;
-}[]
-
 export type response_24_4 = {
+    code: 404;
+    ok: false;
+    info: "productSheet.notfound";
+} & {body: undefined};
+
+export type response_24_5 = {
     code: 200;
     ok: true;
-    info: "userNotifications";
-} & {body: response_body_24_4};
+    info: "article.deleted";
+} & {body: undefined};
 
-<<<<<<< HEAD
 export type parameters_25 = {
     params: {
-        productSheetId: string;
+        imageProductSheetId: string;
     };
 }
 
-=======
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 export type response_25_0 = {
     code: 401;
     ok: false;
@@ -1233,52 +984,34 @@ export type response_25_3 = {
     info: "user.deleted";
 } & {body: undefined};
 
-<<<<<<< HEAD
 export type response_25_4 = {
     code: 404;
     ok: false;
-    info: "productSheet.notfound";
+    info: "imageProductSheet.notfound";
 } & {body: undefined};
 
 export type response_25_5 = {
-    code: 200;
+    code: 204;
     ok: true;
-    info: "article.deleted";
+    info: "imageProductSheet.deleted";
 } & {body: undefined};
 
-export type parameters_26 = {
-<<<<<<< HEAD
-    params: {
-        imageProductSheetId: string;
-    };
-=======
-    query?: {
-        page?: number;
-        productSheetName?: string | undefined;
-    } | undefined;
-=======
-export type response_body_25_4 = {
-    productSheetId: string;
-    quantity: number;
-    name: string;
-    description: string;
-    shortDescription: string;
-    price: number;
-    imageUrl: string;
-}[]
+export type response_25_6 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
 
-export type response_25_4 = {
-    code: 200;
-    ok: true;
-    info: "cart.fetched";
-} & {body: response_body_25_4};
+export type response_25_7 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
 
-export type parameters_26 = {
-    params: {
-        productSheetId: string;
-    };
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+export type request_body_26 = {
+    lastname: string;
+    firstname: string;
+    address: string;
 }
 
 export type response_26_0 = {
@@ -1305,74 +1038,39 @@ export type response_26_3 = {
     info: "user.deleted";
 } & {body: undefined};
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-export type response_body_26_4 = {
-    id: string;
-=======
 export type response_26_4 = {
-    code: 404;
+    code: 400;
     ok: false;
-    info: "productSheet.notfound";
+    info: "user.address.invalid";
 } & {body: undefined};
 
 export type response_26_5 = {
-    code: 200;
-    ok: true;
-    info: "article.deleted";
-} & {body: undefined};
-
-export type request_body_27 = {
-    lastname: string;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-    firstname: string;
-    lastname: string;
-    status: "DONE" | "CANCELED" | "WAITING_PAYMENT" | "IN_PROGRESS" | "IN_DELIVERY";
-    userId: string;
-    deliveryAddress: string;
-    createdDate: Date;
-    price: number;
-    items: {
-        quantity: number;
-        processQuantity: number;
-        productSheetId: string;
-        productSheetName: string;
-        productSheetFirstImageUrl: string;
-        productSheetOrganizationName: string;
-        productSheetPrice: number;
-    }[];
-}[]
-
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-export type response_26_4 = {
-    code: 404;
+    code: 409;
     ok: false;
-    info: "imageProductSheet.notfound";
-} & {body: undefined};
-
-export type response_26_5 = {
-    code: 204;
-    ok: true;
-    info: "imageProductSheet.deleted";
+    info: "cart.empty";
 } & {body: undefined};
 
 export type response_26_6 = {
-    code: 406;
+    code: 409;
     ok: false;
-    info: "organization.hasNotUser";
+    info: "products.unavailable";
 } & {body: undefined};
+
+export type response_body_26_7 = {
+    sessionUrl: string;
+}
 
 export type response_26_7 = {
-    code: 403;
-    ok: false;
-    info: "user.role.organization.invalid";
-} & {body: undefined};
+    code: 201;
+    ok: true;
+    info: "session";
+} & {body: response_body_26_7};
 
-export type request_body_27 = {
-    lastname: string;
-    firstname: string;
-    address: string;
+export type parameters_27 = {
+    query?: {
+        page?: number;
+        productSheetName?: string | undefined;
+    } | undefined;
 }
 
 export type response_27_0 = {
@@ -1399,45 +1097,40 @@ export type response_27_3 = {
     info: "user.deleted";
 } & {body: undefined};
 
+export type response_body_27_4 = {
+    id: string;
+    firstname: string;
+    lastname: string;
+    status: "DONE" | "CANCELED" | "WAITING_PAYMENT" | "IN_PROGRESS" | "IN_DELIVERY";
+    userId: string;
+    deliveryAddress: string;
+    createdDate: Date;
+    price: number;
+    items: {
+        quantity: number;
+        processQuantity: number;
+        productSheetId: string;
+        productSheetName: string;
+        productSheetFirstImageUrl: string;
+        productSheetOrganizationName: string;
+        productSheetPrice: number;
+    }[];
+}[]
+
 export type response_27_4 = {
-    code: 400;
-    ok: false;
-    info: "user.address.invalid";
-} & {body: undefined};
-
-export type response_27_5 = {
-    code: 409;
-    ok: false;
-    info: "cart.empty";
-} & {body: undefined};
-
-export type response_27_6 = {
-    code: 409;
-    ok: false;
-    info: "products.unavailable";
-} & {body: undefined};
-
-export type response_body_27_7 = {
-    sessionUrl: string;
-}
-
-export type response_27_7 = {
-    code: 201;
+    code: 200;
     ok: true;
-    info: "session";
-} & {body: response_body_27_7};
+    info: "userCommands";
+} & {body: response_body_27_4};
+
+export type request_body_28 = {
+    organizationRole?: ("STORE_KEEPER" | "PRODUCT_SHEET_MANAGER" | "ACCOUNTANT") | undefined;
+}
 
 export type parameters_28 = {
     params: {
-<<<<<<< HEAD
         organizationId: string;
-<<<<<<< HEAD
-=======
         userId: string;
-=======
-        imageProductSheetId: string;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
     };
 }
 
@@ -1466,51 +1159,23 @@ export type response_28_3 = {
 } & {body: undefined};
 
 export type response_28_4 = {
-    code: 404;
-    ok: false;
-    info: "imageProductSheet.notfound";
-} & {body: undefined};
-
-export type response_28_5 = {
-    code: 204;
-    ok: true;
-    info: "imageProductSheet.deleted";
-} & {body: undefined};
-
-export type response_28_6 = {
     code: 406;
     ok: false;
     info: "organization.hasNotUser";
 } & {body: undefined};
 
-<<<<<<< HEAD
-export type response_body_28_5 = {
-    id: string;
-    email: string;
-    lastname: string;
-    firstname: string;
-    organizationRole: "STORE_KEEPER" | "PRODUCT_SHEET_MANAGER" | "ACCOUNTANT" | "OWNER";
-}
-=======
-<<<<<<< HEAD
 export type response_28_5 = {
     code: 401;
     ok: false;
     info: "organization.user.organizationRole.owner";
 } & {body: undefined};
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 
-export type response_28_5 = {
+export type response_28_6 = {
     code: 200;
     ok: true;
-    info: "organization.user";
-} & {body: response_body_28_5};
+    info: "organization.user.edited";
+} & {body: undefined};
 
-<<<<<<< HEAD
-export type request_body_29 = {
-    organizationRole?: ("STORE_KEEPER" | "PRODUCT_SHEET_MANAGER" | "ACCOUNTANT") | undefined;
-}
-=======
 export type response_28_7 = {
     code: 406;
     ok: false;
@@ -1518,18 +1183,15 @@ export type response_28_7 = {
 } & {body: undefined};
 
 export type response_28_8 = {
-=======
-export type response_28_7 = {
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
     code: 403;
     ok: false;
     info: "user.role.organization.invalid";
 } & {body: undefined};
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 
 export type parameters_29 = {
     params: {
         organizationId: string;
+        userId: string;
     };
 }
 
@@ -1563,36 +1225,33 @@ export type response_29_4 = {
     info: "organization.hasNotUser";
 } & {body: undefined};
 
-export type response_body_29_5 = {
-    id: string;
-    email: string;
-    lastname: string;
-    firstname: string;
-    organizationRole: "STORE_KEEPER" | "PRODUCT_SHEET_MANAGER" | "ACCOUNTANT" | "OWNER";
-}
-
-<<<<<<< HEAD
-export type response_29_6 = {
-    code: 200;
-    ok: true;
-    info: "organization.user.edited";
-} & {body: undefined};
-=======
 export type response_29_5 = {
-    code: 200;
-    ok: true;
-    info: "organization.user";
-} & {body: response_body_29_5};
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
+    code: 401;
+    ok: false;
+    info: "organization.user.organizationRole.owner";
+} & {body: undefined};
 
-export type request_body_30 = {
-    organizationRole?: ("STORE_KEEPER" | "PRODUCT_SHEET_MANAGER" | "ACCOUNTANT") | undefined;
-}
+export type response_29_6 = {
+    code: 204;
+    ok: true;
+    info: "organization.user.deleted";
+} & {body: undefined};
+
+export type response_29_7 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_29_8 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
 
 export type parameters_30 = {
     params: {
         organizationId: string;
-        userId: string;
     };
 }
 
@@ -1626,53 +1285,24 @@ export type response_30_4 = {
     info: "organization.hasNotUser";
 } & {body: undefined};
 
-export type response_30_5 = {
-    code: 401;
-    ok: false;
-    info: "organization.user.organizationRole.owner";
-} & {body: undefined};
+export type response_body_30_5 = {
+    id: string;
+    email: string;
+    lastname: string;
+    firstname: string;
+    organizationRole: "STORE_KEEPER" | "PRODUCT_SHEET_MANAGER" | "ACCOUNTANT" | "OWNER";
+}
 
-export type response_30_6 = {
-<<<<<<< HEAD
-    code: 204;
-    ok: true;
-    info: "organization.user.deleted";
-=======
-<<<<<<< HEAD
-    code: 409;
-    ok: false;
-    info: "products.unavailable";
-=======
+export type response_30_5 = {
     code: 200;
     ok: true;
-    info: "organization.user.edited";
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-} & {body: undefined};
-
-export type response_30_7 = {
-    code: 406;
-    ok: false;
-    info: "organization.hasNotUser";
-} & {body: undefined};
-
-export type response_30_8 = {
-    code: 403;
-    ok: false;
-    info: "user.role.organization.invalid";
-} & {body: undefined};
+    info: "organization.user";
+} & {body: response_body_30_5};
 
 export type parameters_31 = {
-<<<<<<< HEAD
     query?: {
         page?: number;
     } | undefined;
-=======
-    params: {
-        organizationId: string;
-        userId: string;
-    };
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 }
 
 export type response_31_0 = {
@@ -1700,12 +1330,7 @@ export type response_31_3 = {
 } & {body: undefined};
 
 export type response_31_4 = {
-<<<<<<< HEAD
     code: 404;
-=======
-<<<<<<< HEAD
-    code: 400;
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
@@ -1720,48 +1345,15 @@ export type response_body_31_5 = {
     logoUrl: string | null;
 }[]
 
-=======
-    code: 406;
-    ok: false;
-    info: "organization.hasNotUser";
-} & {body: undefined};
-
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 export type response_31_5 = {
-    code: 401;
-    ok: false;
-    info: "organization.user.organizationRole.owner";
-} & {body: undefined};
-
-export type response_31_6 = {
-    code: 204;
+    code: 200;
     ok: true;
-<<<<<<< HEAD
     info: "user.organizations";
-=======
-<<<<<<< HEAD
-    info: "notifications";
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 } & {body: response_body_31_5};
-=======
-    info: "organization.user.deleted";
-} & {body: undefined};
-
-export type response_31_7 = {
-    code: 406;
-    ok: false;
-    info: "organization.hasNotUser";
-} & {body: undefined};
-
-export type response_31_8 = {
-    code: 403;
-    ok: false;
-    info: "user.role.organization.invalid";
-} & {body: undefined};
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 
 export type request_body_32 = {
-    commandId: string;
+    productSheetId: string;
+    quantity?: number;
 }
 
 export type response_32_0 = {
@@ -1791,41 +1383,42 @@ export type response_32_3 = {
 export type response_32_4 = {
     code: 404;
     ok: false;
-    info: "command.notfound";
+    info: "productSheet.notfound";
 } & {body: undefined};
 
 export type response_32_5 = {
     code: 401;
     ok: false;
-    info: "command.wrong.user";
+    info: "cart.article.limit";
 } & {body: undefined};
 
-export type response_body_32_6 = {
-    sessionUrl: string;
+export type response_32_6 = {
+    code: 401;
+    ok: false;
+    info: "cart.quantity.limit";
+} & {body: undefined};
+
+export type response_32_7 = {
+    code: 409;
+    ok: false;
+    info: "product.unavailable";
+} & {body: undefined};
+
+export type response_body_32_8 = {
+    userId: string;
+    productSheetId: string;
+    quantity: number;
+    createdAt?: string;
 }
 
-export type response_32_6 = {
+export type response_32_8 = {
     code: 201;
     ok: true;
-    info: "session";
-} & {body: response_body_32_6};
+    info: "article.created";
+} & {body: response_body_32_8};
 
-<<<<<<< HEAD
 export type request_body_33 = {
-    productSheetId: string;
-    quantity?: number;
-=======
-export type parameters_33 = {
-<<<<<<< HEAD
-    params: {
-        organizationId: string;
-    };
-=======
-    query?: {
-        page?: number;
-    } | undefined;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+    commandId: string;
 }
 
 export type response_33_0 = {
@@ -1855,88 +1448,24 @@ export type response_33_3 = {
 export type response_33_4 = {
     code: 404;
     ok: false;
-<<<<<<< HEAD
-    info: "productSheet.notfound";
+    info: "command.notfound";
 } & {body: undefined};
 
 export type response_33_5 = {
     code: 401;
     ok: false;
-    info: "cart.article.limit";
+    info: "command.wrong.user";
 } & {body: undefined};
+
+export type response_body_33_6 = {
+    sessionUrl: string;
+}
 
 export type response_33_6 = {
-    code: 401;
-    ok: false;
-    info: "cart.quantity.limit";
-} & {body: undefined};
-
-export type response_33_7 = {
-    code: 409;
-    ok: false;
-    info: "product.unavailable";
-} & {body: undefined};
-
-export type response_body_33_8 = {
-    userId: string;
-    productSheetId: string;
-    quantity: number;
-    createdAt?: string;
-=======
-<<<<<<< HEAD
-    info: "organization.hasNotUser";
-=======
-    info: "user.notfound";
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-} & {body: undefined};
-
-export type response_body_33_5 = {
-    id: string;
-<<<<<<< HEAD
-    email: string;
-    lastname: string;
-    firstname: string;
-    organizationRole: "STORE_KEEPER" | "PRODUCT_SHEET_MANAGER" | "ACCOUNTANT" | "OWNER";
-}
-=======
-    name: string;
-    label: string | null;
-    ownerId: string;
-    suspended: boolean;
-    logoKey: string | null;
-    logoUrl: string | null;
-}[]
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-
-export type response_33_5 = {
-    code: 200;
-    ok: true;
-<<<<<<< HEAD
-    info: "organization.user";
-} & {body: response_body_33_5};
-
-export type parameters_34 = {
-    params: {
-        notificationId: number;
-    };
-=======
-    info: "user.organizations";
-} & {body: response_body_33_5};
-
-export type parameters_34 = {
-    query?: {
-        productSheetId?: string | undefined;
-        categoryName?: string | undefined;
-    } | undefined;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-}
-
-export type response_33_8 = {
     code: 201;
     ok: true;
-    info: "article.created";
-} & {body: response_body_33_8};
+    info: "session";
+} & {body: response_body_33_6};
 
 export type response_34_0 = {
     code: 401;
@@ -1973,58 +1502,16 @@ export type response_body_34_4 = {
 }[]
 
 export type response_34_4 = {
-<<<<<<< HEAD
     code: 200;
-=======
-<<<<<<< HEAD
-    code: 404;
-    ok: false;
-    info: "notification.notfound";
-} & {body: undefined};
-
-export type response_34_5 = {
-    code: 204;
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
     ok: true;
     info: "cart.fetched";
 } & {body: response_body_34_4};
 
-<<<<<<< HEAD
 export type parameters_35 = {
-    params: {
-        notificationId: number;
-    };
-=======
-export type request_body_35 = {
-    commandId: string;
-=======
-    code: 400;
-    ok: false;
-    info: "notification.invalidQuery";
-} & {body: undefined};
-
-export type response_body_34_5 = {
-    id: number;
-    productSheetId: string | null;
-    userId: string;
-    categoryName: string | null;
-    type: "PRODUCT_PROMOTION" | "PRODUCT_RESTOCK" | "NEW_PRODUCT_IN_CATEGORY" | "PRODUCT_NO_STOCK";
-}[]
-
-export type response_34_5 = {
-    code: 200;
-    ok: true;
-    info: "notifications";
-} & {body: response_body_34_5};
-
-export type request_body_35 = {
-    productSheetId: string;
-    type: "PRODUCT_PROMOTION" | "PRODUCT_RESTOCK";
-} | {
-    categoryName: string;
-    type: "NEW_PRODUCT_IN_CATEGORY";
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+    query?: {
+        productSheetId?: string | undefined;
+        categoryName?: string | undefined;
+    } | undefined;
 }
 
 export type response_35_0 = {
@@ -2052,67 +1539,31 @@ export type response_35_3 = {
 } & {body: undefined};
 
 export type response_35_4 = {
-    code: 404;
+    code: 400;
     ok: false;
-<<<<<<< HEAD
-    info: "notification.notfound";
-=======
-<<<<<<< HEAD
-    info: "command.notfound";
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+    info: "notification.invalidQuery";
 } & {body: undefined};
 
-export type response_35_5 = {
-    code: 204;
-    ok: true;
-    info: "notification.deleted";
-} & {body: undefined};
-
-export type parameters_36 = {
-<<<<<<< HEAD
-    params: {
-        productSheetReviewId: string;
-    };
-=======
-    query?: {
-        page?: number;
-    } | undefined;
-=======
-    info: "category.notfound";
-} & {body: undefined};
-
-export type response_35_5 = {
-    code: 404;
-    ok: false;
-    info: "productSheet.notfound";
-} & {body: undefined};
-
-export type response_35_6 = {
-    code: 409;
-    ok: false;
-    info: "notification.alreadySubscribed";
-} & {body: undefined};
-
-export type response_body_35_7 = {
+export type response_body_35_5 = {
     id: number;
     productSheetId: string | null;
     userId: string;
     categoryName: string | null;
     type: "PRODUCT_PROMOTION" | "PRODUCT_RESTOCK" | "NEW_PRODUCT_IN_CATEGORY" | "PRODUCT_NO_STOCK";
-}
+}[]
 
-export type response_35_7 = {
-    code: 201;
+export type response_35_5 = {
+    code: 200;
     ok: true;
-    info: "notification.created";
-} & {body: response_body_35_7};
+    info: "notifications";
+} & {body: response_body_35_5};
 
-export type parameters_36 = {
-    params: {
-        notificationId: number;
-    };
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+export type request_body_36 = {
+    productSheetId: string;
+    type: "PRODUCT_PROMOTION" | "PRODUCT_RESTOCK";
+} | {
+    categoryName: string;
+    type: "NEW_PRODUCT_IN_CATEGORY";
 }
 
 export type response_36_0 = {
@@ -2142,53 +1593,40 @@ export type response_36_3 = {
 export type response_36_4 = {
     code: 404;
     ok: false;
-<<<<<<< HEAD
-    info: "productSheetReview.notfound";
-=======
-<<<<<<< HEAD
-    info: "user.notfound";
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+    info: "category.notfound";
 } & {body: undefined};
 
 export type response_36_5 = {
-    code: 403;
+    code: 404;
     ok: false;
-    info: "productSheetReview.wrong.user";
+    info: "productSheet.notfound";
 } & {body: undefined};
 
 export type response_36_6 = {
-    code: 204;
-    ok: true;
-<<<<<<< HEAD
-    info: "productSheetReview.deleted";
+    code: 409;
+    ok: false;
+    info: "notification.alreadySubscribed";
 } & {body: undefined};
+
+export type response_body_36_7 = {
+    id: number;
+    productSheetId: string | null;
+    userId: string;
+    categoryName: string | null;
+    type: "PRODUCT_PROMOTION" | "PRODUCT_RESTOCK" | "NEW_PRODUCT_IN_CATEGORY" | "PRODUCT_NO_STOCK";
+}
+
+export type response_36_7 = {
+    code: 201;
+    ok: true;
+    info: "notification.created";
+} & {body: response_body_36_7};
 
 export type parameters_37 = {
     params: {
-        productSheetId: string;
+        notificationId: number;
     };
-    query?: {
-        page?: number;
-        userId?: string | undefined;
-    } | undefined;
-=======
-    info: "user.organizations";
-} & {body: response_body_36_5};
-=======
-    info: "notification.notfound";
-} & {body: undefined};
-
-export type response_36_5 = {
-    code: 204;
-    ok: true;
-    info: "notification.deleted";
-} & {body: undefined};
-
-export type request_body_37 = {
-    productSheetId: string;
-    quantity?: number;
 }
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 
 export type response_37_0 = {
     code: 401;
@@ -2217,34 +1655,32 @@ export type response_37_3 = {
 export type response_37_4 = {
     code: 404;
     ok: false;
-<<<<<<< HEAD
-    info: "user.notfound";
+    info: "notification.notfound";
 } & {body: undefined};
 
-export type response_body_37_5 = {
-    id: string;
-    email: string;
-    lastname: string;
-    firstname: string;
-    dateOfBirth?: string;
-    address: string;
-    primordialRole: "CUSTOMER" | "MODERATOR" | "CONTENTS_MASTER" | "ADMIN";
-    muted: boolean;
-    emailNotifcationsNewsletter: boolean;
-    emailNotifcationsProductStock: boolean;
-    emailNotifcationsPromotion: boolean;
-    emailNotifcationsNewProductInCategory: boolean;
-    hasOrganization: boolean;
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+export type response_37_5 = {
+    code: 204;
+    ok: true;
+    info: "notification.deleted";
+} & {body: undefined};
+
+export type parameters_38 = {
+    params: {
+        productSheetId: string;
+    };
+    query?: {
+        page?: number;
+        userId?: string | undefined;
+    } | undefined;
 }
 
-export type response_37_0 = {
+export type response_38_0 = {
     code: 404;
     ok: false;
     info: "prodcutSheet.notfound";
 } & {body: undefined};
 
-export type response_body_37_1 = {
+export type response_body_38_1 = {
     _id: string;
     userId: string;
     productSheetId: string;
@@ -2255,173 +1691,23 @@ export type response_body_37_1 = {
     check: boolean;
 }[]
 
-export type response_37_1 = {
+export type response_38_1 = {
     code: 200;
     ok: true;
     info: "productSheetReviews";
-} & {body: response_body_37_1};
+} & {body: response_body_38_1};
 
-export type request_body_38 = {
-<<<<<<< HEAD
+export type request_body_39 = {
     pseudo: string;
     content: string;
     rate: number;
 }
 
-export type parameters_38 = {
+export type parameters_39 = {
     params: {
         productSheetId: string;
     };
-=======
-    lastname?: string | undefined;
-    firstname?: string | undefined;
-    address?: string | undefined;
-    emailNotifcationsNewsletter?: boolean | undefined;
-    emailNotifcationsProductStock?: boolean | undefined;
-    emailNotifcationsPromotion?: boolean | undefined;
-    emailNotifcationsNewProductInCategory?: boolean | undefined;
-=======
-    info: "productSheet.notfound";
-} & {body: undefined};
-
-export type response_37_5 = {
-    code: 401;
-    ok: false;
-    info: "cart.article.limit";
-} & {body: undefined};
-
-export type response_37_6 = {
-    code: 401;
-    ok: false;
-    info: "cart.quantity.limit";
-} & {body: undefined};
-
-export type response_37_7 = {
-    code: 409;
-    ok: false;
-    info: "product.unavailable";
-} & {body: undefined};
-
-export type response_body_37_8 = {
-    userId: string;
-    productSheetId: string;
-    quantity: number;
-    createdAt?: string;
 }
-
-export type response_37_8 = {
-    code: 201;
-    ok: true;
-    info: "article.created";
-} & {body: response_body_37_8};
-
-export type parameters_38 = {
-    params: {
-        productSheetReviewId: string;
-    };
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-}
-
-export type response_38_0 = {
-    code: 401;
-    ok: false;
-    info: "access.token.invalid";
-} & {body: undefined};
-
-export type response_38_1 = {
-    code: 404;
-    ok: false;
-    info: "user.notfound";
-} & {body: undefined};
-
-export type response_38_2 = {
-    code: 401;
-    ok: false;
-    info: "accessToken.tooOld";
-} & {body: undefined};
-
-export type response_38_3 = {
-    code: 401;
-    ok: false;
-    info: "user.deleted";
-} & {body: undefined};
-
-export type response_38_4 = {
-<<<<<<< HEAD
-    code: 403;
-    ok: false;
-    info: "user.muted";
-=======
-<<<<<<< HEAD
-    code: 400;
-    ok: false;
-    info: "user.address.invalid";
-=======
-    code: 404;
-    ok: false;
-    info: "productSheetReview.notfound";
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-} & {body: undefined};
-
-export type response_38_5 = {
-<<<<<<< HEAD
-    code: 404;
-    ok: false;
-    info: "prodcutSheet.notfound";
-} & {body: undefined};
-
-export type response_38_6 = {
-    code: 409;
-    ok: false;
-    info: "productSheetReview.alreadyExist";
-} & {body: undefined};
-
-export type response_body_38_7 = {
-    _id: string;
-    userId: string;
-    productSheetId: string;
-    pseudo: string;
-    content?: string | undefined;
-    createdAt: Date;
-    rate: number;
-    check: boolean;
-}
-
-export type response_38_7 = {
-    code: 201;
-    ok: true;
-    info: "productSheetReview.created";
-} & {body: response_body_38_7};
-=======
-<<<<<<< HEAD
-    code: 200;
-    ok: true;
-    info: "user.edited";
-} & {body: response_body_38_5};
-=======
-    code: 403;
-    ok: false;
-    info: "productSheetReview.wrong.user";
-} & {body: undefined};
-
-export type response_38_6 = {
-    code: 204;
-    ok: true;
-    info: "productSheetReview.deleted";
-} & {body: undefined};
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-
-export type parameters_39 = {
-    params: {
-        promotionId: number;
-    };
-}
-<<<<<<< HEAD
-=======
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 
 export type response_39_0 = {
     code: 401;
@@ -2448,30 +1734,46 @@ export type response_39_3 = {
 } & {body: undefined};
 
 export type response_39_4 = {
-    code: 404;
+    code: 403;
     ok: false;
-    info: "promotion.notfound";
+    info: "user.muted";
 } & {body: undefined};
 
 export type response_39_5 = {
-    code: 204;
-    ok: true;
-    info: "promotion.deleted";
+    code: 404;
+    ok: false;
+    info: "prodcutSheet.notfound";
 } & {body: undefined};
 
 export type response_39_6 = {
-    code: 406;
+    code: 409;
     ok: false;
-    info: "organization.hasNotUser";
+    info: "productSheetReview.alreadyExist";
 } & {body: undefined};
+
+export type response_body_39_7 = {
+    _id: string;
+    userId: string;
+    productSheetId: string;
+    pseudo: string;
+    content?: string | undefined;
+    createdAt: Date;
+    rate: number;
+    check: boolean;
+}
 
 export type response_39_7 = {
-    code: 403;
-    ok: false;
-    info: "user.role.organization.invalid";
-} & {body: undefined};
+    code: 201;
+    ok: true;
+    info: "productSheetReview.created";
+} & {body: response_body_39_7};
 
-<<<<<<< HEAD
+export type parameters_40 = {
+    params: {
+        productSheetReviewId: string;
+    };
+}
+
 export type response_40_0 = {
     code: 401;
     ok: false;
@@ -2499,96 +1801,25 @@ export type response_40_3 = {
 export type response_40_4 = {
     code: 404;
     ok: false;
-    info: "user.notfound";
+    info: "productSheetReview.notfound";
 } & {body: undefined};
-
-export type response_body_40_5 = {
-    id: string;
-    email: string;
-    lastname: string;
-    firstname: string;
-    dateOfBirth?: string;
-    address: string;
-    primordialRole: "CUSTOMER" | "MODERATOR" | "CONTENTS_MASTER" | "ADMIN";
-    muted: boolean;
-    emailNotifcationsNewsletter: boolean;
-    emailNotifcationsProductStock: boolean;
-    emailNotifcationsPromotion: boolean;
-    emailNotifcationsNewProductInCategory: boolean;
-    hasOrganization: boolean;
-}
 
 export type response_40_5 = {
-    code: 200;
-    ok: true;
-<<<<<<< HEAD
-    info: "user";
-} & {body: response_body_40_5};
+    code: 403;
+    ok: false;
+    info: "productSheetReview.wrong.user";
+} & {body: undefined};
 
-export type request_body_41 = {
-    lastname?: string | undefined;
-    firstname?: string | undefined;
-    address?: string | undefined;
-    emailNotifcationsNewsletter?: boolean | undefined;
-    emailNotifcationsProductStock?: boolean | undefined;
-    emailNotifcationsPromotion?: boolean | undefined;
-    emailNotifcationsNewProductInCategory?: boolean | undefined;
-=======
+export type response_40_6 = {
+    code: 204;
+    ok: true;
     info: "productSheetReview.deleted";
 } & {body: undefined};
-=======
-export type parameters_40 = {
-    params: {
-        productSheetId: string;
-    };
-    query?: {
-        page?: number;
-        userId?: string | undefined;
-    } | undefined;
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-}
-
-export type response_40_0 = {
-    code: 404;
-    ok: false;
-    info: "prodcutSheet.notfound";
-} & {body: undefined};
-
-export type response_body_40_1 = {
-    _id: string;
-    userId: string;
-    productSheetId: string;
-    pseudo: string;
-    content?: string | undefined;
-    createdAt: Date;
-    rate: number;
-    check: boolean;
-}[]
-
-export type response_40_1 = {
-    code: 200;
-    ok: true;
-    info: "productSheetReviews";
-} & {body: response_body_40_1};
-
-export type request_body_41 = {
-    pseudo: string;
-    content: string;
-    rate: number;
-}
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 
 export type parameters_41 = {
     params: {
-        productSheetId: string;
+        promotionId: number;
     };
-<<<<<<< HEAD
-    query?: {
-        page?: number;
-        userId?: string | undefined;
-    } | undefined;
-=======
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 }
 
 export type response_41_0 = {
@@ -2597,21 +1828,6 @@ export type response_41_0 = {
     info: "access.token.invalid";
 } & {body: undefined};
 
-<<<<<<< HEAD
-=======
-export type response_body_41_1 = {
-    _id: string;
-    userId: string;
-    productSheetId: string;
-    pseudo: string;
-    content?: string | undefined;
-    createdAt: Date;
-    rate: number;
-    check: boolean;
-}[]
-
-<<<<<<< HEAD
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 export type response_41_1 = {
     code: 404;
     ok: false;
@@ -2631,77 +1847,28 @@ export type response_41_3 = {
 } & {body: undefined};
 
 export type response_41_4 = {
-    code: 400;
-    ok: false;
-    info: "user.address.invalid";
-} & {body: undefined};
-
-export type response_body_41_5 = string
-
-export type response_41_5 = {
-    code: 200;
-    ok: true;
-<<<<<<< HEAD
-    info: "user.edited";
-} & {body: response_body_41_5};
-=======
-    info: "productSheetReviews";
-} & {body: response_body_41_1};
-
-export type request_body_42 = {
-    pseudo: string;
-    content: string;
-    rate: number;
-}
-
-export type parameters_42 = {
-    params: {
-        productSheetId: string;
-    };
-}
-=======
-export type response_41_3 = {
-    code: 401;
-    ok: false;
-    info: "user.deleted";
-} & {body: undefined};
-
-export type response_41_4 = {
-    code: 403;
-    ok: false;
-    info: "user.muted";
-} & {body: undefined};
-
-export type response_41_5 = {
     code: 404;
     ok: false;
-    info: "prodcutSheet.notfound";
+    info: "promotion.notfound";
+} & {body: undefined};
+
+export type response_41_5 = {
+    code: 204;
+    ok: true;
+    info: "promotion.deleted";
 } & {body: undefined};
 
 export type response_41_6 = {
-    code: 409;
+    code: 406;
     ok: false;
-    info: "productSheetReview.alreadyExist";
+    info: "organization.hasNotUser";
 } & {body: undefined};
 
-export type response_body_41_7 = {
-    _id: string;
-    userId: string;
-    productSheetId: string;
-    pseudo: string;
-    content?: string | undefined;
-    createdAt: Date;
-    rate: number;
-    check: boolean;
-}
-
 export type response_41_7 = {
-    code: 201;
-    ok: true;
-    info: "productSheetReview.created";
-} & {body: response_body_41_7};
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
 
 export type response_42_0 = {
     code: 401;
@@ -2728,56 +1895,6 @@ export type response_42_3 = {
 } & {body: undefined};
 
 export type response_42_4 = {
-<<<<<<< HEAD
-    code: 204;
-=======
-<<<<<<< HEAD
-    code: 403;
-    ok: false;
-    info: "user.muted";
-} & {body: undefined};
-
-export type response_42_5 = {
-    code: 404;
-    ok: false;
-    info: "prodcutSheet.notfound";
-} & {body: undefined};
-
-export type response_42_6 = {
-    code: 409;
-    ok: false;
-    info: "productSheetReview.alreadyExist";
-} & {body: undefined};
-
-export type response_body_42_7 = {
-    _id: string;
-    userId: string;
-    productSheetId: string;
-    pseudo: string;
-    content?: string | undefined;
-    createdAt: Date;
-    rate: number;
-    check: boolean;
-}
-
-export type response_42_7 = {
-    code: 201;
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-    ok: true;
-    info: "user.delete";
-} & {body: undefined};
-
-export type parameters_43 = {
-<<<<<<< HEAD
-    query?: {
-        productSheetId?: string | undefined;
-        categoryName?: string | undefined;
-    } | undefined;
-=======
-    params: {
-        promotionId: number;
-    };
-=======
     code: 404;
     ok: false;
     info: "user.notfound";
@@ -2813,8 +1930,6 @@ export type request_body_43 = {
     emailNotifcationsProductStock?: boolean | undefined;
     emailNotifcationsPromotion?: boolean | undefined;
     emailNotifcationsNewProductInCategory?: boolean | undefined;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 }
 
 export type response_43_0 = {
@@ -2844,56 +1959,17 @@ export type response_43_3 = {
 export type response_43_4 = {
     code: 400;
     ok: false;
-<<<<<<< HEAD
-    info: "notification.invalidQuery";
-} & {body: undefined};
-
-export type response_body_43_5 = {
-    id: number;
-    productSheetId: string | null;
-    userId: string;
-    categoryName: string | null;
-    type: "PRODUCT_PROMOTION" | "PRODUCT_RESTOCK" | "NEW_PRODUCT_IN_CATEGORY" | "PRODUCT_NO_STOCK";
-}[]
-
-=======
-<<<<<<< HEAD
-    info: "promotion.notfound";
-} & {body: undefined};
-
-=======
     info: "user.address.invalid";
 } & {body: undefined};
 
 export type response_body_43_5 = string
 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 export type response_43_5 = {
     code: 200;
     ok: true;
-<<<<<<< HEAD
-    info: "notifications";
-} & {body: response_body_43_5};
-=======
-<<<<<<< HEAD
-    info: "promotion.deleted";
-} & {body: undefined};
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-
-export type request_body_44 = {
-    productSheetId: string;
-    type: "PRODUCT_PROMOTION" | "PRODUCT_RESTOCK";
-} | {
-    categoryName: string;
-    type: "NEW_PRODUCT_IN_CATEGORY";
-}
-
-=======
     info: "user.edited";
 } & {body: response_body_43_5};
 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 export type response_44_0 = {
     code: 401;
     ok: false;
@@ -2919,46 +1995,10 @@ export type response_44_3 = {
 } & {body: undefined};
 
 export type response_44_4 = {
-<<<<<<< HEAD
-    code: 404;
-    ok: false;
-    info: "category.notfound";
-} & {body: undefined};
-
-export type response_44_5 = {
-    code: 404;
-    ok: false;
-    info: "productSheet.notfound";
-} & {body: undefined};
-
-export type response_44_6 = {
-    code: 409;
-    ok: false;
-    info: "notification.alreadySubscribed";
-} & {body: undefined};
-
-export type response_body_44_7 = {
-    id: number;
-    productSheetId: string | null;
-    userId: string;
-    categoryName: string | null;
-    type: "PRODUCT_PROMOTION" | "PRODUCT_RESTOCK" | "NEW_PRODUCT_IN_CATEGORY" | "PRODUCT_NO_STOCK";
-}
-
-export type response_44_7 = {
-    code: 201;
-    ok: true;
-    info: "notification.created";
-} & {body: response_body_44_7};
-=======
-<<<<<<< HEAD
-    code: 403;
-=======
     code: 204;
     ok: true;
     info: "user.delete";
 } & {body: undefined};
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 
 export type response_45_0 = {
     code: 401;
@@ -2997,32 +2037,6 @@ export type response_45_5 = {
 } & {body: undefined};
 
 export type parameters_46 = {
-<<<<<<< HEAD
-    query?: {
-        name?: string | undefined;
-        page?: number;
-        take?: number;
-        withDisabled?: boolean | undefined;
-    };
-}
-
-export type response_body_46_0 = {
-    name: string;
-    disabled: boolean;
-    imageKey: string | null;
-    imageUrl: string | null;
-}[]
-
-export type response_46_0 = {
-    code: 200;
-    ok: true;
-    info: "categories";
-} & {body: response_body_46_0};
-
-export type request_body_47 = {
-    name: string;
-    disabled: boolean;
-=======
     params?: {
         commandId?: string;
     } | undefined;
@@ -3083,7 +2097,6 @@ export type parameters_47 = {
     params?: {
         commandId?: string;
     } | undefined;
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 }
 
 export type response_47_0 = {
@@ -3111,47 +2124,23 @@ export type response_47_3 = {
 } & {body: undefined};
 
 export type response_47_4 = {
-<<<<<<< HEAD
-=======
     code: 404;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
     ok: false;
     info: "command.notfound";
 } & {body: undefined};
 
-<<<<<<< HEAD
-export type response_body_44_5 = {
-=======
 export type response_47_5 = {
     code: 401;
     ok: false;
     info: "command.wrong.user";
 } & {body: undefined};
 
-export type response_body_47_6 = {
-    id: string;
-    firstname: string;
-    lastname: string;
-    status: "DONE" | "CANCELED" | "WAITING_PAYMENT" | "IN_PROGRESS" | "IN_DELIVERY";
-    userId: string;
-    deliveryAddress: string;
-    createdDate: Date;
-    price: number;
-    items: {
-        quantity: number;
-        processQuantity: number;
-        productSheetId: string;
-        productSheetName: string;
-        productSheetFirstImageUrl: string;
-        productSheetOrganizationName: string;
-        productSheetPrice: number;
-    }[];
-}
+export type response_body_47_6 = string
 
 export type response_47_6 = {
     code: 200;
     ok: true;
-    info: "command.found";
+    info: "command.invoice";
 } & {body: response_body_47_6};
 
 export type parameters_48 = {
@@ -3196,40 +2185,98 @@ export type response_48_5 = {
     info: "command.wrong.user";
 } & {body: undefined};
 
-export type response_body_48_6 = string
+export type response_body_48_6 = {
+    id: string;
+    firstname: string;
+    lastname: string;
+    status: "DONE" | "CANCELED" | "WAITING_PAYMENT" | "IN_PROGRESS" | "IN_DELIVERY";
+    userId: string;
+    deliveryAddress: string;
+    createdDate: Date;
+    price: number;
+    items: {
+        quantity: number;
+        processQuantity: number;
+        productSheetId: string;
+        productSheetName: string;
+        productSheetFirstImageUrl: string;
+        productSheetOrganizationName: string;
+        productSheetPrice: number;
+    }[];
+}
 
 export type response_48_6 = {
     code: 200;
     ok: true;
-    info: "command.invoice";
+    info: "command.found";
 } & {body: response_body_48_6};
 
+export type request_body_49 = {
+    status?: ("VERIFIED" | "UNVERIFIED" | "REMOVE") | undefined;
+}
+
 export type parameters_49 = {
-    query?: {
-        name?: string | undefined;
-        page?: number;
-        take?: number;
-        withDisabled?: boolean | undefined;
+    params: {
+        productSheetId: string;
     };
 }
 
-export type response_body_49_0 = {
-    name: string;
-    disabled: boolean;
-    imageKey: string | null;
-    imageUrl: string | null;
-}[]
-
 export type response_49_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_49_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_49_2 = {
+    code: 401;
+    ok: false;
+    info: "accessToken.tooOld";
+} & {body: undefined};
+
+export type response_49_3 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_49_4 = {
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_49_5 = {
+    code: 404;
+    ok: false;
+    info: "productSheet.notfound";
+} & {body: undefined};
+
+export type response_body_49_6 = {
+    id: string;
+    ref: string;
+    name: string;
+    description: string;
+    shortDescription: string;
+    price: number;
+    createdAt?: string;
+    updatedAt?: string;
+    organizationId: string;
+    variationGroup: string | null;
+    variationName: string | null;
+    warehouseId: string;
+}
+
+export type response_49_6 = {
     code: 200;
     ok: true;
-    info: "categories";
-} & {body: response_body_49_0};
-
-export type request_body_50 = {
-    name: string;
-    disabled: boolean;
-}
+    info: "productSheet.edited";
+} & {body: response_body_49_6};
 
 export type response_50_0 = {
     code: 401;
@@ -3256,213 +2303,255 @@ export type response_50_3 = {
 } & {body: undefined};
 
 export type response_50_4 = {
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
     code: 403;
     ok: false;
     info: "user.role.invalid";
 } & {body: undefined};
 
-<<<<<<< HEAD
-export type response_47_5 = {
-=======
+export type response_body_50_5 = ({
+    id: string;
+    priority: number;
+    type: "PARENT_CATEGORY";
+    parentCategoryName: string;
+} | {
+    id: string;
+    priority: number;
+    type: "CATEGORY";
+    categoryName: string;
+} | {
+    id: string;
+    priority: number;
+    type: "LINK";
+    url: string;
+    title: string;
+})[]
+
 export type response_50_5 = {
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-    code: 409;
-    ok: false;
-    info: "category.alreadyExist";
-} & {body: undefined};
-
-<<<<<<< HEAD
-export type response_body_47_6 = {
-=======
-export type response_body_50_6 = {
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-    name: string;
-    disabled: boolean;
-    imageKey: string | null;
-    imageUrl: string | null;
-}
-
-<<<<<<< HEAD
-export type response_47_6 = {
-    code: 201;
+    code: 200;
     ok: true;
-    info: "category.created";
-} & {body: response_body_47_6};
-
-export type request_body_48 = {
-=======
-export type response_50_6 = {
-    code: 201;
-    ok: true;
-    info: "category.created";
-} & {body: response_body_50_6};
+    info: "navigationItems";
+} & {body: response_body_50_5};
 
 export type request_body_51 = {
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-    name?: string | undefined;
-    disabled?: boolean | undefined;
-} | undefined
+    priority: number;
+    type: "PARENT_CATEGORY";
+    parentCategoryName: string;
+} | {
+    priority: number;
+    type: "CATEGORY";
+    categoryName: string;
+} | {
+    priority: number;
+    type: "LINK";
+    url: string;
+    title: string;
+}
 
-<<<<<<< HEAD
-export type parameters_48 = {
-=======
-export type parameters_51 = {
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+export type response_51_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_51_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_51_2 = {
+    code: 401;
+    ok: false;
+    info: "accessToken.tooOld";
+} & {body: undefined};
+
+export type response_51_3 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_51_4 = {
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_51_5 = {
+    code: 409;
+    ok: false;
+    info: "navigationItem.limit";
+} & {body: undefined};
+
+export type response_body_51_6 = {
+    id: string;
+    priority: number;
+    type: "PARENT_CATEGORY";
+    parentCategoryName: string;
+} | {
+    id: string;
+    priority: number;
+    type: "CATEGORY";
+    categoryName: string;
+} | {
+    id: string;
+    priority: number;
+    type: "LINK";
+    url: string;
+    title: string;
+}
+
+export type response_51_6 = {
+    code: 201;
+    ok: true;
+    info: "navigationItem.created";
+} & {body: response_body_51_6};
+
+export type request_body_52 = {
+    muted?: boolean | undefined;
+}
+
+export type parameters_52 = {
     params: {
-        categoryName: string;
+        userId: string;
     };
 }
 
-<<<<<<< HEAD
-export type response_48_0 = {
-=======
-export type response_51_0 = {
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+export type response_52_0 = {
     code: 401;
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
-<<<<<<< HEAD
-export type response_48_1 = {
-=======
-export type response_51_1 = {
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+export type response_52_1 = {
     code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
-<<<<<<< HEAD
-export type response_48_2 = {
-=======
-export type response_51_2 = {
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+export type response_52_2 = {
     code: 401;
     ok: false;
     info: "accessToken.tooOld";
 } & {body: undefined};
 
-<<<<<<< HEAD
-export type response_48_3 = {
-=======
-export type response_51_3 = {
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+export type response_52_3 = {
     code: 401;
     ok: false;
     info: "user.deleted";
 } & {body: undefined};
 
-<<<<<<< HEAD
-export type response_48_4 = {
-=======
-export type response_51_4 = {
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+export type response_52_4 = {
     code: 403;
     ok: false;
     info: "user.role.invalid";
 } & {body: undefined};
 
-<<<<<<< HEAD
-export type response_48_5 = {
-=======
-export type response_51_5 = {
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+export type response_52_5 = {
     code: 404;
     ok: false;
-    info: "category.notfound";
+    info: "user.notfound";
 } & {body: undefined};
 
-<<<<<<< HEAD
-export type response_48_6 = {
-=======
-export type response_51_6 = {
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-    code: 409;
+export type response_52_6 = {
+    code: 401;
     ok: false;
-    info: "category.alreadyExist";
+    info: "user.primordialRole.admin";
 } & {body: undefined};
 
-<<<<<<< HEAD
-export type response_body_48_7 = {
-=======
-export type response_body_51_7 = {
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-    name: string;
-    disabled: boolean;
-    imageKey: string | null;
-    imageUrl: string | null;
+export type response_52_7 = {
+    code: 200;
+    ok: true;
+    info: "user.edited";
+} & {body: undefined};
+
+export type parameters_53 = {
+    query?: {
+        random?: ("true" | "false") | undefined;
+        check?: ("true" | "false") | undefined;
+        page?: number | undefined;
+        take?: number;
+    } | undefined;
 }
 
-<<<<<<< HEAD
-export type response_48_7 = {
-    code: 200;
-    ok: true;
-    info: "category.edited";
-} & {body: response_body_48_7};
-
-export type response_49_0 = {
-=======
-export type response_51_7 = {
-    code: 200;
-    ok: true;
-    info: "category.edited";
-} & {body: response_body_51_7};
-
-export type response_52_0 = {
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+export type response_53_0 = {
     code: 401;
     ok: false;
     info: "access.token.invalid";
 } & {body: undefined};
 
-<<<<<<< HEAD
-export type response_49_1 = {
-=======
-export type response_52_1 = {
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+export type response_53_1 = {
     code: 404;
     ok: false;
     info: "user.notfound";
 } & {body: undefined};
 
-<<<<<<< HEAD
-export type response_49_2 = {
-=======
-export type response_52_2 = {
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+export type response_53_2 = {
     code: 401;
     ok: false;
     info: "accessToken.tooOld";
 } & {body: undefined};
 
-<<<<<<< HEAD
-export type response_49_3 = {
-=======
-export type response_52_3 = {
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+export type response_53_3 = {
     code: 401;
     ok: false;
     info: "user.deleted";
 } & {body: undefined};
 
-<<<<<<< HEAD
-export type response_49_4 = {
-=======
-export type response_52_4 = {
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+export type response_53_4 = {
     code: 403;
     ok: false;
     info: "user.role.invalid";
 } & {body: undefined};
 
-<<<<<<< HEAD
-export type response_body_49_5 = {
-=======
-export type response_body_52_5 = {
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+export type response_body_53_5 = {
+    _id: string;
+    userId: string;
+    productSheetId: string;
+    pseudo: string;
+    content?: string | undefined;
+    createdAt: Date;
+    rate: number;
+    check: boolean;
+}[]
+
+export type response_53_5 = {
+    code: 200;
+    ok: true;
+    info: "productSheetReviews";
+} & {body: response_body_53_5};
+
+export type response_54_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_54_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_54_2 = {
+    code: 401;
+    ok: false;
+    info: "accessToken.tooOld";
+} & {body: undefined};
+
+export type response_54_3 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_54_4 = {
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_body_54_5 = {
     id: string;
     ref: string;
     name: string;
@@ -3508,356 +2597,35 @@ export type response_body_52_5 = {
     }[] | undefined;
 }[]
 
-<<<<<<< HEAD
-export type response_49_5 = {
-=======
-<<<<<<< HEAD
-export type response_44_5 = {
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-    code: 200;
-    ok: true;
-    info: "fullProductSheets";
-} & {body: response_body_49_5};
-
-export type request_body_50 = {
-    status?: ("VERIFIED" | "UNVERIFIED" | "REMOVE") | undefined;
-}
-
-export type parameters_50 = {
-    params: {
-        productSheetId: string;
-    };
-}
-
-export type response_50_0 = {
-    code: 401;
-    ok: false;
-    info: "access.token.invalid";
-} & {body: undefined};
-
-export type response_50_1 = {
-    code: 404;
-    ok: false;
-    info: "user.notfound";
-} & {body: undefined};
-
-export type response_50_2 = {
-    code: 401;
-    ok: false;
-    info: "accessToken.tooOld";
-} & {body: undefined};
-
-export type response_50_3 = {
-    code: 401;
-    ok: false;
-    info: "user.deleted";
-} & {body: undefined};
-
-export type response_50_4 = {
-    code: 403;
-    ok: false;
-    info: "user.role.invalid";
-} & {body: undefined};
-
-export type response_50_5 = {
-    code: 404;
-    ok: false;
-    info: "productSheet.notfound";
-} & {body: undefined};
-
-export type response_body_50_6 = {
-    id: string;
-    ref: string;
-    name: string;
-    description: string;
-    shortDescription: string;
-    price: number;
-    createdAt?: string;
-    updatedAt?: string;
-    organizationId: string;
-    variationGroup: string | null;
-    variationName: string | null;
-    warehouseId: string;
-}
-
-export type response_50_6 = {
-    code: 200;
-    ok: true;
-    info: "productSheet.edited";
-} & {body: response_body_50_6};
-
-export type parameters_51 = {
-=======
-export type response_52_5 = {
-    code: 200;
-    ok: true;
-    info: "fullProductSheets";
-} & {body: response_body_52_5};
-
-export type parameters_53 = {
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-    headers: {
-        "content-type": string;
-        "content-length": number;
-    };
-    params: {
-        categoryName: string;
-    };
-}
-
-<<<<<<< HEAD
-export type response_51_0 = {
-    code: 401;
-    ok: false;
-    info: "access.token.invalid";
-} & {body: undefined};
-
-export type response_51_1 = {
-    code: 404;
-    ok: false;
-    info: "user.notfound";
-} & {body: undefined};
-
-export type response_51_2 = {
-    code: 401;
-    ok: false;
-    info: "accessToken.tooOld";
-} & {body: undefined};
-
-export type response_51_3 = {
-    code: 401;
-    ok: false;
-    info: "user.deleted";
-} & {body: undefined};
-
-export type response_51_4 = {
-    code: 403;
-    ok: false;
-    info: "user.role.invalid";
-} & {body: undefined};
-
-export type response_51_5 = {
-    code: 404;
-    ok: false;
-    info: "category.notfound";
-} & {body: undefined};
-
-export type response_51_6 = {
-    code: 400;
-    ok: false;
-    info: "category.image.missing";
-} & {body: undefined};
-
-export type response_body_51_7 = {
-    name: string;
-    disabled: boolean;
-    imageKey: string | null;
-    imageUrl: string | null;
-}
-
-export type response_51_7 = {
-    code: 201;
-    ok: true;
-    info: "category.image.updated";
-} & {body: response_body_51_7};
-
-export type parameters_52 = {
-    query?: {
-        random?: ("true" | "false") | undefined;
-        check?: ("true" | "false") | undefined;
-        page?: number | undefined;
-        take?: number;
-    } | undefined;
-}
-
-export type response_52_0 = {
-    code: 401;
-    ok: false;
-    info: "access.token.invalid";
-} & {body: undefined};
-
-export type response_52_1 = {
-    code: 404;
-    ok: false;
-    info: "user.notfound";
-} & {body: undefined};
-
-export type response_52_2 = {
-    code: 401;
-    ok: false;
-    info: "accessToken.tooOld";
-} & {body: undefined};
-
-export type response_52_3 = {
-    code: 401;
-    ok: false;
-    info: "user.deleted";
-} & {body: undefined};
-
-export type response_52_4 = {
-    code: 403;
-    ok: false;
-    info: "user.role.invalid";
-} & {body: undefined};
-
-export type response_body_52_5 = {
-    _id: string;
-    userId: string;
-    productSheetId: string;
-    pseudo: string;
-    content?: string | undefined;
-    createdAt: Date;
-    rate: number;
-    check: boolean;
-}[]
-
-export type response_52_5 = {
-    code: 200;
-    ok: true;
-    info: "productSheetReviews";
-} & {body: response_body_52_5};
-
-export type parameters_53 = {
-    params: {
-        parentCategoryName: string;
-    };
-}
-
-=======
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-export type response_53_0 = {
-    code: 401;
-    ok: false;
-    info: "access.token.invalid";
-} & {body: undefined};
-
-export type response_53_1 = {
-    code: 404;
-    ok: false;
-    info: "user.notfound";
-} & {body: undefined};
-
-export type response_53_2 = {
-    code: 401;
-    ok: false;
-    info: "accessToken.tooOld";
-} & {body: undefined};
-
-export type response_53_3 = {
-    code: 401;
-    ok: false;
-    info: "user.deleted";
-} & {body: undefined};
-
-export type response_53_4 = {
-    code: 403;
-    ok: false;
-    info: "user.role.invalid";
-} & {body: undefined};
-
-export type response_53_5 = {
-    code: 404;
-    ok: false;
-    info: "category.notfound";
-} & {body: undefined};
-
-export type response_53_6 = {
-    code: 400;
-    ok: false;
-    info: "category.image.missing";
-} & {body: undefined};
-
-export type response_body_53_7 = {
-    name: string;
-    disabled: boolean;
-    imageKey: string | null;
-    imageUrl: string | null;
-}
-
-export type response_53_7 = {
-    code: 201;
-    ok: true;
-    info: "category.image.updated";
-} & {body: response_body_53_7};
-
-export type request_body_54 = {
-    status?: ("VERIFIED" | "UNVERIFIED" | "REMOVE") | undefined;
-}
-
-export type parameters_54 = {
-    params: {
-        productSheetId: string;
-    };
-}
-
-export type response_54_0 = {
-    code: 401;
-    ok: false;
-    info: "access.token.invalid";
-} & {body: undefined};
-
-export type response_54_1 = {
-    code: 404;
-    ok: false;
-    info: "user.notfound";
-} & {body: undefined};
-
-export type response_54_2 = {
-    code: 401;
-    ok: false;
-    info: "accessToken.tooOld";
-} & {body: undefined};
-
-export type response_54_3 = {
-    code: 401;
-    ok: false;
-    info: "user.deleted";
-} & {body: undefined};
-
-export type response_54_4 = {
-    code: 403;
-    ok: false;
-    info: "user.role.invalid";
-} & {body: undefined};
-
 export type response_54_5 = {
-    code: 404;
-    ok: false;
-    info: "productSheet.notfound";
-} & {body: undefined};
-
-export type response_body_54_6 = {
-    id: string;
-    ref: string;
-    name: string;
-    description: string;
-    shortDescription: string;
-    price: number;
-    createdAt?: string;
-    updatedAt?: string;
-    organizationId: string;
-    variationGroup: string | null;
-    variationName: string | null;
-    warehouseId: string;
-}
-
-export type response_54_6 = {
     code: 200;
     ok: true;
-<<<<<<< HEAD
-    info: "parentCategory.category.linked";
-} & {body: undefined};
+    info: "fullProductSheets";
+} & {body: response_body_54_5};
+
+export type request_body_55 = {
+    id: string;
+    priority: number;
+    type: "PARENT_CATEGORY";
+    parentCategoryName: string;
+} | {
+    id: string;
+    priority: number;
+    type: "CATEGORY";
+    categoryName: string;
+} | {
+    id: string;
+    priority: number;
+    type: "LINK";
+    url: string;
+    title: string;
+}
 
 export type parameters_55 = {
     params: {
-        parentCategoryName: string;
-        categoryName: string;
+        navigationItemId: string;
     };
 }
-=======
-    info: "productSheet.edited";
-} & {body: response_body_54_6};
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 
 export type response_55_0 = {
     code: 401;
@@ -3889,66 +2657,52 @@ export type response_55_4 = {
     info: "user.role.invalid";
 } & {body: undefined};
 
-<<<<<<< HEAD
 export type response_55_5 = {
+    code: 404;
+    ok: false;
+    info: "navigationItem.notfound";
+} & {body: undefined};
+
+export type response_55_6 = {
+    code: 404;
+    ok: false;
+    info: "category.notfound";
+} & {body: undefined};
+
+export type response_55_7 = {
     code: 404;
     ok: false;
     info: "parentCategory.notfound";
 } & {body: undefined};
 
-export type response_55_6 = {
+export type response_body_55_8 = {
+    id: string;
+    priority: number;
+    type: "PARENT_CATEGORY";
+    parentCategoryName: string;
+} | {
+    id: string;
+    priority: number;
+    type: "CATEGORY";
+    categoryName: string;
+} | {
+    id: string;
+    priority: number;
+    type: "LINK";
+    url: string;
+    title: string;
+}
+
+export type response_55_8 = {
     code: 200;
     ok: true;
-    info: "parentCategory.category.untied";
-} & {body: undefined};
-
-export type request_body_56 = {
-    name?: string | undefined;
-}
+    info: "navigationItem.edited";
+} & {body: response_body_55_8};
 
 export type parameters_56 = {
     params: {
-        parentCategoryName: string;
+        navigationItemId: string;
     };
-=======
-export type response_body_55_5 = ({
-    id: string;
-    priority: number;
-    type: "PARENT_CATEGORY";
-    parentCategoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "CATEGORY";
-    categoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "LINK";
-    url: string;
-    title: string;
-})[]
-
-export type response_55_5 = {
-    code: 200;
-    ok: true;
-    info: "navigationItems";
-} & {body: response_body_55_5};
-
-export type request_body_56 = {
-    priority: number;
-    type: "PARENT_CATEGORY";
-    parentCategoryName: string;
-} | {
-    priority: number;
-    type: "CATEGORY";
-    categoryName: string;
-} | {
-    priority: number;
-    type: "LINK";
-    url: string;
-    title: string;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 }
 
 export type response_56_0 = {
@@ -3982,91 +2736,27 @@ export type response_56_4 = {
 } & {body: undefined};
 
 export type response_56_5 = {
-<<<<<<< HEAD
     code: 404;
     ok: false;
-    info: "parentCategory.notfound";
+    info: "navigationItem.notfound";
 } & {body: undefined};
 
 export type response_56_6 = {
-    code: 409;
-    ok: false;
-    info: "parentCategory.name.alreadyUse";
-} & {body: undefined};
-
-export type response_56_7 = {
-    code: 200;
+    code: 204;
     ok: true;
-    info: "parentCategory.edited";
+    info: "navigationItem.delete";
 } & {body: undefined};
-
-<<<<<<< HEAD
-export type request_body_57 = {
-    muted?: boolean | undefined;
-=======
-=======
-    code: 409;
-    ok: false;
-    info: "navigationItem.limit";
-} & {body: undefined};
-
-export type response_body_56_6 = {
-    id: string;
-    priority: number;
-    type: "PARENT_CATEGORY";
-    parentCategoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "CATEGORY";
-    categoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "LINK";
-    url: string;
-    title: string;
-}
-
-export type response_56_6 = {
-    code: 201;
-    ok: true;
-    info: "navigationItem.created";
-} & {body: response_body_56_6};
 
 export type request_body_57 = {
-    id: string;
-    priority: number;
-    type: "PARENT_CATEGORY";
-    parentCategoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "CATEGORY";
-    categoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "LINK";
-    url: string;
-    title: string;
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+    name?: string | undefined;
 }
 
 export type parameters_57 = {
     params: {
-<<<<<<< HEAD
-        userId: string;
+        parentCategoryName: string;
     };
 }
 
-=======
-        navigationItemId: string;
-    };
-}
-
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 export type response_57_0 = {
     code: 401;
     ok: false;
@@ -4098,92 +2788,28 @@ export type response_57_4 = {
 } & {body: undefined};
 
 export type response_57_5 = {
-<<<<<<< HEAD
-    code: 404;
-    ok: false;
-    info: "user.notfound";
-} & {body: undefined};
-
-export type response_57_6 = {
-    code: 401;
-    ok: false;
-    info: "user.primordialRole.admin";
-} & {body: undefined};
-
-export type response_57_7 = {
-=======
-<<<<<<< HEAD
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-    code: 200;
-    ok: true;
-    info: "user.edited";
-} & {body: undefined};
-
-<<<<<<< HEAD
-export type parameters_58 = {
-    query?: {
-        page?: number;
-        object?: string | undefined;
-    } | undefined;
-=======
-export type request_body_58 = {
-=======
-    code: 404;
-    ok: false;
-    info: "navigationItem.notfound";
-} & {body: undefined};
-
-export type response_57_6 = {
-    code: 404;
-    ok: false;
-    info: "category.notfound";
-} & {body: undefined};
-
-export type response_57_7 = {
     code: 404;
     ok: false;
     info: "parentCategory.notfound";
 } & {body: undefined};
 
-export type response_body_57_8 = {
-    id: string;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-    priority: number;
-    type: "PARENT_CATEGORY";
-    parentCategoryName: string;
-} | {
-<<<<<<< HEAD
-=======
-    id: string;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-    priority: number;
-    type: "CATEGORY";
-    categoryName: string;
-} | {
-<<<<<<< HEAD
-=======
-    id: string;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-    priority: number;
-    type: "LINK";
-    url: string;
-    title: string;
-<<<<<<< HEAD
-=======
-}
+export type response_57_6 = {
+    code: 409;
+    ok: false;
+    info: "parentCategory.name.alreadyUse";
+} & {body: undefined};
 
-export type response_57_8 = {
+export type response_57_7 = {
     code: 200;
     ok: true;
-    info: "navigationItem.edited";
-} & {body: response_body_57_8};
+    info: "parentCategory.edited";
+} & {body: undefined};
 
 export type parameters_58 = {
     params: {
-        navigationItemId: string;
+        parentCategoryName: string;
+        categoryName: string;
     };
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 }
 
 export type response_58_0 = {
@@ -4216,79 +2842,22 @@ export type response_58_4 = {
     info: "user.role.invalid";
 } & {body: undefined};
 
-export type response_body_58_5 = {
-    id: string;
-    object: string;
-    content: string;
-    createdAt: Date;
-    sendAt: Date;
-}[]
-
 export type response_58_5 = {
-<<<<<<< HEAD
-    code: 200;
-=======
-<<<<<<< HEAD
-    code: 409;
-    ok: false;
-    info: "navigationItem.limit";
-} & {body: undefined};
-
-export type response_body_58_6 = {
-    id: string;
-    priority: number;
-    type: "PARENT_CATEGORY";
-    parentCategoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "CATEGORY";
-    categoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "LINK";
-    url: string;
-    title: string;
-}
-
-export type response_58_6 = {
-    code: 201;
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-    ok: true;
-    info: "newsletters";
-} & {body: response_body_58_5};
-
-export type request_body_59 = {
-<<<<<<< HEAD
-    object: string;
-    content: string;
-    sendAt: Date;
-=======
-    name?: string | undefined;
-}
-=======
     code: 404;
     ok: false;
-    info: "navigationItem.notfound";
+    info: "parentCategory.notfound";
 } & {body: undefined};
 
 export type response_58_6 = {
-    code: 204;
+    code: 200;
     ok: true;
-    info: "navigationItem.delete";
+    info: "parentCategory.category.untied";
 } & {body: undefined};
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 
 export type parameters_59 = {
     params: {
-        parentCategoryName: string;
-<<<<<<< HEAD
-=======
-        categoryName: string;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
+        newsletterId: string;
     };
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 }
 
 export type response_59_0 = {
@@ -4321,61 +2890,23 @@ export type response_59_4 = {
     info: "user.role.invalid";
 } & {body: undefined};
 
-<<<<<<< HEAD
-export type response_body_59_5 = {
-=======
 export type response_59_5 = {
     code: 404;
     ok: false;
-    info: "parentCategory.notfound";
+    info: "newsletter.notfound";
 } & {body: undefined};
 
 export type response_59_6 = {
-<<<<<<< HEAD
-    code: 409;
-    ok: false;
-    info: "parentCategory.name.alreadyUse";
-} & {body: undefined};
-
-export type response_59_7 = {
-    code: 200;
+    code: 204;
     ok: true;
-    info: "parentCategory.edited";
-} & {body: undefined};
-
-export type request_body_60 = {
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-    id: string;
-    object: string;
-    content: string;
-    createdAt: Date;
-    sendAt: Date;
-}
-
-export type response_59_5 = {
-    code: 201;
-    ok: true;
-    info: "newsletter.created";
-} & {body: response_body_59_5};
-
-export type parameters_60 = {
-    params: {
-<<<<<<< HEAD
-        newsletterId: string;
-=======
-        navigationItemId: string;
-=======
-    code: 200;
-    ok: true;
-    info: "parentCategory.category.untied";
+    info: "newsletter.deleted";
 } & {body: undefined};
 
 export type parameters_60 = {
-    params: {
-        parentCategoryName: string;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-    };
+    query?: {
+        page?: number;
+        object?: string | undefined;
+    } | undefined;
 }
 
 export type response_60_0 = {
@@ -4408,93 +2939,24 @@ export type response_60_4 = {
     info: "user.role.invalid";
 } & {body: undefined};
 
-export type response_60_5 = {
-    code: 404;
-    ok: false;
-<<<<<<< HEAD
-    info: "newsletter.notfound";
-=======
-<<<<<<< HEAD
-    info: "navigationItem.notfound";
-=======
-    info: "parentCategory.notfound";
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-} & {body: undefined};
-
-export type response_body_60_6 = {
-    name: string;
-    disabled: boolean;
-    imageKey: string | null;
-    imageUrl: string | null;
+export type response_body_60_5 = {
+    id: string;
+    object: string;
+    content: string;
+    createdAt: Date;
+    sendAt: Date;
 }[]
 
-export type response_60_6 = {
-<<<<<<< HEAD
-    code: 204;
-=======
-<<<<<<< HEAD
-    code: 404;
-    ok: false;
-    info: "category.notfound";
-} & {body: undefined};
-=======
+export type response_60_5 = {
     code: 200;
     ok: true;
-    info: "parentCategory.categories";
-} & {body: response_body_60_6};
+    info: "newsletters";
+} & {body: response_body_60_5};
 
 export type request_body_61 = {
-    categoryName: string;
-}
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-
-export type response_60_7 = {
-    code: 404;
-    ok: false;
-    info: "parentCategory.notfound";
-} & {body: undefined};
-
-export type response_body_60_8 = {
-    id: string;
-    priority: number;
-    type: "PARENT_CATEGORY";
-    parentCategoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "CATEGORY";
-    categoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "LINK";
-    url: string;
-    title: string;
-}
-
-export type response_60_8 = {
-    code: 200;
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-    ok: true;
-    info: "newsletter.deleted";
-} & {body: undefined};
-
-export type parameters_61 = {
-<<<<<<< HEAD
-    query?: {
-        page?: number;
-        name?: string | undefined;
-    } | undefined;
-=======
-    params: {
-<<<<<<< HEAD
-        navigationItemId: string;
-=======
-        parentCategoryName: string;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-    };
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+    object: string;
+    content: string;
+    sendAt: Date;
 }
 
 export type response_61_0 = {
@@ -4529,73 +2991,23 @@ export type response_61_4 = {
 
 export type response_body_61_5 = {
     id: string;
-    name: string;
-    label: string | null;
-    ownerId: string;
-    suspended: boolean;
-    logoKey: string | null;
-    logoUrl: string | null;
-}[]
+    object: string;
+    content: string;
+    createdAt: Date;
+    sendAt: Date;
+}
 
 export type response_61_5 = {
-<<<<<<< HEAD
-    code: 200;
-=======
-    code: 404;
-    ok: false;
-<<<<<<< HEAD
-    info: "navigationItem.notfound";
-} & {body: undefined};
-
-export type response_61_6 = {
-    code: 204;
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+    code: 201;
     ok: true;
-    info: "organizations";
+    info: "newsletter.created";
 } & {body: response_body_61_5};
 
-<<<<<<< HEAD
-export type request_body_62 = {
-    name: string;
-    ownerId: string;
-=======
 export type parameters_62 = {
     query?: {
         page?: number;
-        object?: string | undefined;
+        name?: string | undefined;
     } | undefined;
-=======
-    info: "parentCategory.notfound";
-} & {body: undefined};
-
-export type response_61_6 = {
-    code: 404;
-    ok: false;
-    info: "category.notfound";
-} & {body: undefined};
-
-export type response_61_7 = {
-    code: 409;
-    ok: false;
-    info: "parentCategory.categories.limit";
-} & {body: undefined};
-
-export type response_61_8 = {
-    code: 201;
-    ok: true;
-    info: "parentCategory.category.linked";
-} & {body: undefined};
-
-export type request_body_62 = {
-    muted?: boolean | undefined;
-}
-
-export type parameters_62 = {
-    params: {
-        userId: string;
-    };
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 }
 
 export type response_62_0 = {
@@ -4628,37 +3040,7 @@ export type response_62_4 = {
     info: "user.role.invalid";
 } & {body: undefined};
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 export type response_body_62_5 = {
-    id: string;
-    object: string;
-    content: string;
-    createdAt: Date;
-    sendAt: Date;
-}[]
-
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-export type response_62_5 = {
-    code: 409;
-    ok: false;
-    info: "organization.alreadyExist";
-} & {body: undefined};
-
-export type response_62_6 = {
-    code: 404;
-    ok: false;
-    info: "user.notfound";
-} & {body: undefined};
-
-export type response_62_7 = {
-    code: 409;
-    ok: false;
-    info: "user.alreadyOwner";
-} & {body: undefined};
-
-export type response_body_62_8 = {
     id: string;
     name: string;
     label: string | null;
@@ -4666,55 +3048,17 @@ export type response_body_62_8 = {
     suspended: boolean;
     logoKey: string | null;
     logoUrl: string | null;
-}
+}[]
 
-export type response_62_8 = {
-    code: 201;
-    ok: true;
-    info: "organization.created";
-} & {body: response_body_62_8};
-
-export type request_body_63 = {
-<<<<<<< HEAD
-    suspended?: boolean | undefined;
-=======
-    object: string;
-    content: string;
-    sendAt: Date;
-=======
 export type response_62_5 = {
-    code: 404;
-    ok: false;
-    info: "user.notfound";
-} & {body: undefined};
-
-export type response_62_6 = {
-    code: 401;
-    ok: false;
-    info: "user.primordialRole.admin";
-} & {body: undefined};
-
-export type response_62_7 = {
     code: 200;
     ok: true;
-    info: "user.edited";
-} & {body: undefined};
+    info: "organizations";
+} & {body: response_body_62_5};
 
 export type request_body_63 = {
-    name?: string | undefined;
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-}
-
-export type parameters_63 = {
-    params: {
-<<<<<<< HEAD
-        organizationId: string;
-    };
-=======
-        parentCategoryName: string;
-    };
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+    name: string;
+    ownerId: string;
 }
 
 export type response_63_0 = {
@@ -4747,25 +3091,25 @@ export type response_63_4 = {
     info: "user.role.invalid";
 } & {body: undefined};
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-export type response_body_63_5 = {
-    id: string;
-    object: string;
-    content: string;
-    createdAt: Date;
-    sendAt: Date;
-}
-
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 export type response_63_5 = {
-    code: 404;
+    code: 409;
     ok: false;
-    info: "organization.notfound";
+    info: "organization.alreadyExist";
 } & {body: undefined};
 
-export type response_body_63_6 = {
+export type response_63_6 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_63_7 = {
+    code: 409;
+    ok: false;
+    info: "user.alreadyOwner";
+} & {body: undefined};
+
+export type response_body_63_8 = {
     id: string;
     name: string;
     label: string | null;
@@ -4775,139 +3119,37 @@ export type response_body_63_6 = {
     logoUrl: string | null;
 }
 
-export type response_63_6 = {
-    code: 200;
+export type response_63_8 = {
+    code: 201;
     ok: true;
-    info: "organization.edited";
-} & {body: response_body_63_6};
+    info: "organization.created";
+} & {body: response_body_63_8};
 
 export type parameters_64 = {
-<<<<<<< HEAD
     query?: {
-        page?: number;
         name?: string | undefined;
-        withCategories?: ("true" | "false") | undefined;
-    } | undefined;
-=======
-    params: {
-        organizationId: string;
-    };
-=======
-export type response_63_5 = {
-    code: 404;
-    ok: false;
-    info: "parentCategory.notfound";
-} & {body: undefined};
-
-export type response_63_6 = {
-    code: 409;
-    ok: false;
-    info: "parentCategory.name.alreadyUse";
-} & {body: undefined};
-
-export type response_63_7 = {
-    code: 200;
-    ok: true;
-    info: "parentCategory.edited";
-} & {body: undefined};
-
-export type parameters_64 = {
-    query?: {
         page?: number;
-        object?: string | undefined;
-    } | undefined;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+        take?: number;
+        withDisabled?: boolean | undefined;
+    };
 }
 
-export type response_64_0 = {
-    code: 401;
-    ok: false;
-    info: "access.token.invalid";
-} & {body: undefined};
-
-export type response_64_1 = {
-    code: 404;
-    ok: false;
-    info: "user.notfound";
-} & {body: undefined};
-
-export type response_64_2 = {
-    code: 401;
-    ok: false;
-    info: "accessToken.tooOld";
-} & {body: undefined};
-
-export type response_64_3 = {
-    code: 401;
-    ok: false;
-    info: "user.deleted";
-} & {body: undefined};
-
-export type response_64_4 = {
-    code: 403;
-    ok: false;
-    info: "user.role.invalid";
-} & {body: undefined};
-
-<<<<<<< HEAD
-export type response_body_64_5 = {
-=======
-<<<<<<< HEAD
-=======
-export type response_body_64_5 = {
-    id: string;
-    object: string;
-    content: string;
-    createdAt: Date;
-    sendAt: Date;
-}[]
-
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-export type response_64_5 = {
-    code: 404;
-    ok: false;
-    info: "organization.notfound";
-} & {body: undefined};
-
-export type response_body_64_6 = {
-    id: string;
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+export type response_body_64_0 = {
     name: string;
-    categories?: {
-        categoryName: string;
-    }[] | undefined;
+    disabled: boolean;
+    imageKey: string | null;
+    imageUrl: string | null;
 }[]
 
-export type response_64_5 = {
+export type response_64_0 = {
     code: 200;
     ok: true;
-<<<<<<< HEAD
-    info: "parentCategories";
-} & {body: response_body_64_5};
+    info: "categories";
+} & {body: response_body_64_0};
 
 export type request_body_65 = {
     name: string;
-=======
-<<<<<<< HEAD
-    info: "organization.edited";
-} & {body: response_body_64_6};
-
-export type parameters_65 = {
-    query?: {
-        page?: number;
-        name?: string | undefined;
-    } | undefined;
-=======
-    info: "newsletters";
-} & {body: response_body_64_5};
-
-export type request_body_65 = {
-    object: string;
-    content: string;
-    sendAt: Date;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+    disabled: boolean;
 }
 
 export type response_65_0 = {
@@ -4940,70 +3182,33 @@ export type response_65_4 = {
     info: "user.role.invalid";
 } & {body: undefined};
 
-<<<<<<< HEAD
-=======
-export type response_body_65_5 = {
-    id: string;
-<<<<<<< HEAD
-    name: string;
-    label: string | null;
-    ownerId: string;
-    suspended: boolean;
-    logoKey: string | null;
-    logoUrl: string | null;
-}[]
-
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 export type response_65_5 = {
     code: 409;
     ok: false;
-    info: "parentCategory.name.alreadyUse";
+    info: "category.alreadyExist";
 } & {body: undefined};
 
 export type response_body_65_6 = {
     name: string;
+    disabled: boolean;
+    imageKey: string | null;
+    imageUrl: string | null;
 }
 
 export type response_65_6 = {
     code: 201;
     ok: true;
-    info: "parentCategory.created";
+    info: "category.created";
 } & {body: response_body_65_6};
 
 export type request_body_66 = {
-<<<<<<< HEAD
-    check?: boolean | undefined;
+    suspended?: boolean | undefined;
 }
 
 export type parameters_66 = {
     params: {
-        productSheetReviewId: string;
+        organizationId: string;
     };
-=======
-    name: string;
-    ownerId: string;
-=======
-    object: string;
-    content: string;
-    createdAt: Date;
-    sendAt: Date;
-}
-
-export type response_65_5 = {
-    code: 201;
-    ok: true;
-    info: "newsletter.created";
-} & {body: response_body_65_5};
-
-export type parameters_66 = {
-    query?: {
-        random?: ("true" | "false") | undefined;
-        check?: ("true" | "false") | undefined;
-        page?: number | undefined;
-        take?: number;
-    } | undefined;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 }
 
 export type response_66_0 = {
@@ -5036,67 +3241,37 @@ export type response_66_4 = {
     info: "user.role.invalid";
 } & {body: undefined};
 
-<<<<<<< HEAD
 export type response_66_5 = {
     code: 404;
     ok: false;
-    info: "productSheetReview.notfound";
+    info: "organization.notfound";
 } & {body: undefined};
 
 export type response_body_66_6 = {
-    _id: string;
-    userId: string;
-    productSheetId: string;
-    pseudo: string;
-    content?: string | undefined;
-    createdAt: Date;
-    rate: number;
-    check: boolean;
+    id: string;
+    name: string;
+    label: string | null;
+    ownerId: string;
+    suspended: boolean;
+    logoKey: string | null;
+    logoUrl: string | null;
 }
 
 export type response_66_6 = {
     code: 200;
     ok: true;
-<<<<<<< HEAD
-    info: "productSheetReview.edited";
+    info: "organization.edited";
 } & {body: response_body_66_6};
+
+export type request_body_67 = {
+    name?: string | undefined;
+    disabled?: boolean | undefined;
+} | undefined
 
 export type parameters_67 = {
     params: {
-        productSheetReviewId: string;
+        categoryName: string;
     };
-=======
-    info: "organization.created";
-} & {body: response_body_66_8};
-=======
-export type response_body_66_5 = {
-    _id: string;
-    userId: string;
-    productSheetId: string;
-    pseudo: string;
-    content?: string | undefined;
-    createdAt: Date;
-    rate: number;
-    check: boolean;
-}[]
-
-export type response_66_5 = {
-    code: 200;
-    ok: true;
-    info: "productSheetReviews";
-} & {body: response_body_66_5};
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-
-export type parameters_67 = {
-    query?: {
-        page?: number;
-        name?: string | undefined;
-<<<<<<< HEAD
-        withCategories?: ("true" | "false") | undefined;
-=======
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-    } | undefined;
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 }
 
 export type response_67_0 = {
@@ -5129,58 +3304,39 @@ export type response_67_4 = {
     info: "user.role.invalid";
 } & {body: undefined};
 
-<<<<<<< HEAD
 export type response_67_5 = {
     code: 404;
     ok: false;
-    info: "productSheetReview.notfound";
+    info: "category.notfound";
 } & {body: undefined};
 
 export type response_67_6 = {
-    code: 204;
-    ok: true;
-    info: "productSheetReview.deleted";
+    code: 409;
+    ok: false;
+    info: "category.alreadyExist";
 } & {body: undefined};
 
-export type parameters_68 = {
-    params?: {
-        commandId?: string;
-    } | undefined;
-=======
-export type response_body_67_5 = {
-<<<<<<< HEAD
+export type response_body_67_7 = {
     name: string;
-    categories?: {
-        categoryName: string;
-    }[] | undefined;
-=======
-    id: string;
-    name: string;
-    label: string | null;
-    ownerId: string;
-    suspended: boolean;
-    logoKey: string | null;
-    logoUrl: string | null;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-}[]
+    disabled: boolean;
+    imageKey: string | null;
+    imageUrl: string | null;
+}
 
-export type response_67_5 = {
+export type response_67_7 = {
     code: 200;
     ok: true;
-<<<<<<< HEAD
-    info: "parentCategories";
-=======
-    info: "organizations";
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-} & {body: response_body_67_5};
+    info: "category.edited";
+} & {body: response_body_67_7};
 
-export type request_body_68 = {
-    name: string;
-<<<<<<< HEAD
-=======
-    ownerId: string;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+export type parameters_68 = {
+    headers: {
+        "content-type": string;
+        "content-length": number;
+    };
+    params: {
+        categoryName: string;
+    };
 }
 
 export type response_68_0 = {
@@ -5208,100 +3364,42 @@ export type response_68_3 = {
 } & {body: undefined};
 
 export type response_68_4 = {
-    code: 404;
+    code: 403;
     ok: false;
-    info: "command.notfound";
+    info: "user.role.invalid";
 } & {body: undefined};
 
 export type response_68_5 = {
-    code: 401;
-    ok: false;
-<<<<<<< HEAD
-    info: "command.wrong.user";
-=======
-<<<<<<< HEAD
-    info: "parentCategory.name.alreadyUse";
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-} & {body: undefined};
-
-export type response_body_68_6 = {
-    id: string;
-    firstname: string;
-    lastname: string;
-    status: "DONE" | "CANCELED" | "WAITING_PAYMENT" | "IN_PROGRESS" | "IN_DELIVERY";
-    userId: string;
-    deliveryAddress: string;
-    createdDate: Date;
-    price: number;
-    items: {
-        quantity: number;
-        processQuantity: number;
-        productSheetId: string;
-        productSheetName: string;
-        productSheetFirstImageUrl: string;
-        productSheetOrganizationName: string;
-        productSheetPrice: number;
-    }[];
-}
-
-export type response_68_6 = {
-    code: 200;
-    ok: true;
-    info: "command.found";
-} & {body: response_body_68_6};
-
-export type request_body_69 = {
-<<<<<<< HEAD
-    primordialRole?: ("CUSTOMER" | "CONTENTS_MASTER" | "MODERATOR") | undefined;
-    muted?: boolean | undefined;
-=======
-    check?: boolean | undefined;
-=======
-    info: "organization.alreadyExist";
-} & {body: undefined};
-
-export type response_68_6 = {
     code: 404;
     ok: false;
-    info: "user.notfound";
+    info: "category.notfound";
 } & {body: undefined};
 
-export type response_68_7 = {
-    code: 409;
+export type response_68_6 = {
+    code: 400;
     ok: false;
-    info: "user.alreadyOwner";
+    info: "category.image.missing";
 } & {body: undefined};
 
-export type response_body_68_8 = {
-    id: string;
+export type response_body_68_7 = {
     name: string;
-    label: string | null;
-    ownerId: string;
-    suspended: boolean;
-    logoKey: string | null;
-    logoUrl: string | null;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+    disabled: boolean;
+    imageKey: string | null;
+    imageUrl: string | null;
 }
 
-export type response_68_8 = {
+export type response_68_7 = {
     code: 201;
     ok: true;
-    info: "organization.created";
-} & {body: response_body_68_8};
+    info: "category.image.updated";
+} & {body: response_body_68_7};
 
 export type parameters_69 = {
-    params: {
-<<<<<<< HEAD
-        userId: string;
-=======
-<<<<<<< HEAD
-        productSheetReviewId: string;
-=======
-        newsletterId: string;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-    };
+    query?: {
+        page?: number;
+        name?: string | undefined;
+        withCategories?: ("true" | "false") | undefined;
+    } | undefined;
 }
 
 export type response_69_0 = {
@@ -5334,60 +3432,21 @@ export type response_69_4 = {
     info: "user.role.invalid";
 } & {body: undefined};
 
+export type response_body_69_5 = {
+    name: string;
+    categories?: {
+        categoryName: string;
+    }[] | undefined;
+}[]
+
 export type response_69_5 = {
-    code: 404;
-    ok: false;
-<<<<<<< HEAD
-    info: "user.notfound";
-=======
-<<<<<<< HEAD
-    info: "productSheetReview.notfound";
-=======
-    info: "newsletter.notfound";
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-} & {body: undefined};
-
-export type response_69_6 = {
-<<<<<<< HEAD
-    code: 401;
-    ok: false;
-    info: "user.primordialRole.admin";
-} & {body: undefined};
-
-export type response_69_7 = {
-=======
-<<<<<<< HEAD
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
     code: 200;
     ok: true;
-    info: "user.edited";
-} & {body: undefined};
-
-export type parameters_70 = {
-<<<<<<< HEAD
-    params?: {
-        commandId?: string;
-    } | undefined;
-=======
-    params: {
-        productSheetReviewId: string;
-=======
-    code: 204;
-    ok: true;
-    info: "newsletter.deleted";
-} & {body: undefined};
+    info: "parentCategories";
+} & {body: response_body_69_5};
 
 export type request_body_70 = {
-    suspended?: boolean | undefined;
-}
-
-export type parameters_70 = {
-    params: {
-        organizationId: string;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-    };
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+    name: string;
 }
 
 export type response_70_0 = {
@@ -5415,93 +3474,36 @@ export type response_70_3 = {
 } & {body: undefined};
 
 export type response_70_4 = {
-    code: 404;
+    code: 403;
     ok: false;
-    info: "command.notfound";
+    info: "user.role.invalid";
 } & {body: undefined};
 
 export type response_70_5 = {
-    code: 401;
+    code: 409;
     ok: false;
-<<<<<<< HEAD
-    info: "command.wrong.user";
-} & {body: undefined};
-
-export type response_body_70_6 = string
-
-=======
-<<<<<<< HEAD
-    info: "productSheetReview.notfound";
-} & {body: undefined};
-
-=======
-    info: "organization.notfound";
+    info: "parentCategory.name.alreadyUse";
 } & {body: undefined};
 
 export type response_body_70_6 = {
-    id: string;
     name: string;
-    label: string | null;
-    ownerId: string;
-    suspended: boolean;
-    logoKey: string | null;
-    logoUrl: string | null;
 }
 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 export type response_70_6 = {
-    code: 200;
+    code: 201;
     ok: true;
-<<<<<<< HEAD
-    info: "command.invoice";
+    info: "parentCategory.created";
 } & {body: response_body_70_6};
 
 export type request_body_71 = {
-    id: string;
-    priority: number;
-    type: "PARENT_CATEGORY";
-    parentCategoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "CATEGORY";
-    categoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "LINK";
-    url: string;
-    title: string;
+    primordialRole?: ("CUSTOMER" | "CONTENTS_MASTER" | "MODERATOR") | undefined;
+    muted?: boolean | undefined;
 }
 
 export type parameters_71 = {
     params: {
-        navigationItemId: string;
+        userId: string;
     };
-=======
-<<<<<<< HEAD
-    info: "productSheetReview.deleted";
-} & {body: undefined};
-
-export type parameters_71 = {
-    params?: {
-        commandId?: string;
-    } | undefined;
-=======
-    info: "organization.edited";
-} & {body: response_body_70_6};
-
-export type request_body_71 = {
-    check?: boolean | undefined;
-}
-
-export type parameters_71 = {
-    params: {
-        productSheetReviewId: string;
-    };
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 }
 
 export type response_71_0 = {
@@ -5537,104 +3539,29 @@ export type response_71_4 = {
 export type response_71_5 = {
     code: 404;
     ok: false;
-<<<<<<< HEAD
-    info: "navigationItem.notfound";
-=======
-<<<<<<< HEAD
-    info: "command.wrong.user";
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+    info: "user.notfound";
 } & {body: undefined};
 
 export type response_71_6 = {
-    code: 404;
+    code: 401;
     ok: false;
-    info: "category.notfound";
+    info: "user.primordialRole.admin";
 } & {body: undefined};
 
 export type response_71_7 = {
-    code: 404;
-    ok: false;
-    info: "parentCategory.notfound";
-} & {body: undefined};
-
-export type response_body_71_8 = {
-    id: string;
-<<<<<<< HEAD
-    priority: number;
-    type: "PARENT_CATEGORY";
-    parentCategoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "CATEGORY";
-    categoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "LINK";
-    url: string;
-    title: string;
-=======
-    firstname: string;
-    lastname: string;
-    status: "DONE" | "CANCELED" | "WAITING_PAYMENT" | "IN_PROGRESS" | "IN_DELIVERY";
-    userId: string;
-    deliveryAddress: string;
-    createdDate: Date;
-    price: number;
-    items: {
-        quantity: number;
-        processQuantity: number;
-        productSheetId: string;
-        productSheetName: string;
-        productSheetFirstImageUrl: string;
-        productSheetOrganizationName: string;
-        productSheetPrice: number;
-    }[];
-=======
-    info: "productSheetReview.notfound";
-} & {body: undefined};
-
-export type response_body_71_6 = {
-    _id: string;
-    userId: string;
-    productSheetId: string;
-    pseudo: string;
-    content?: string | undefined;
-    createdAt: Date;
-    rate: number;
-    check: boolean;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-}
-
-export type response_71_8 = {
     code: 200;
     ok: true;
-<<<<<<< HEAD
-    info: "navigationItem.edited";
-} & {body: response_body_71_8};
+    info: "user.edited";
+} & {body: undefined};
 
 export type parameters_72 = {
     params: {
-        navigationItemId: string;
-=======
-<<<<<<< HEAD
-    info: "command.found";
-=======
-    info: "productSheetReview.edited";
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-} & {body: response_body_71_6};
-
-export type parameters_72 = {
-    params: {
-<<<<<<< HEAD
-        newsletterId: string;
-=======
-        productSheetReviewId: string;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+        organizationId: string;
     };
+    query?: {
+        page?: number;
+        ref?: string | undefined;
+    } | undefined;
 }
 
 export type response_72_0 = {
@@ -5662,332 +3589,24 @@ export type response_72_3 = {
 } & {body: undefined};
 
 export type response_72_4 = {
-    code: 403;
+    code: 404;
     ok: false;
-    info: "user.role.invalid";
+    info: "organization.notfound";
 } & {body: undefined};
 
 export type response_72_5 = {
-    code: 404;
+    code: 406;
     ok: false;
-<<<<<<< HEAD
-    info: "navigationItem.notfound";
-=======
-<<<<<<< HEAD
-    info: "newsletter.notfound";
-=======
-    info: "productSheetReview.notfound";
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+    info: "organization.hasNotUser";
 } & {body: undefined};
 
 export type response_72_6 = {
-    code: 204;
-    ok: true;
-<<<<<<< HEAD
-    info: "navigationItem.delete";
-=======
-<<<<<<< HEAD
-    info: "newsletter.deleted";
-=======
-    info: "productSheetReview.deleted";
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-} & {body: undefined};
-
-export type parameters_73 = {
-<<<<<<< HEAD
-    params?: {
-        commandId?: string;
-    } | undefined;
-=======
-    params: {
-<<<<<<< HEAD
-        userId: string;
-=======
-        organizationId: string;
-    };
-    query: {
-        warehouseId: string;
-        page?: number;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-    };
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-}
-
-export type response_73_0 = {
-    code: 401;
-    ok: false;
-    info: "access.token.invalid";
-} & {body: undefined};
-
-export type response_73_1 = {
-    code: 404;
-    ok: false;
-    info: "user.notfound";
-} & {body: undefined};
-
-export type response_73_2 = {
-    code: 401;
-    ok: false;
-    info: "accessToken.tooOld";
-} & {body: undefined};
-
-export type response_73_3 = {
-    code: 401;
-    ok: false;
-    info: "user.deleted";
-} & {body: undefined};
-
-export type response_73_4 = {
-    code: 404;
-    ok: false;
-<<<<<<< HEAD
-    info: "command.notfound";
-=======
-<<<<<<< HEAD
-    info: "user.role.invalid";
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-} & {body: undefined};
-
-export type response_73_5 = {
-    code: 401;
-    ok: false;
-    info: "command.wrong.user";
-} & {body: undefined};
-
-export type response_body_73_6 = {
-    id: number;
-    idShip: string;
-    carrierName: "LA_POSTE";
-    commandId: string;
-    status: "DONE" | "CREATED" | "CARRIER_SUPPORTED" | "CARRIER_PROCESS" | "UNDELIVERABLE" | "DONE_OFFICE" | "BACK" | "BACK_DONE";
-    productsCount: number;
-}[]
-
-export type response_73_6 = {
-    code: 200;
-    ok: true;
-    info: "bundles.found";
-} & {body: response_body_73_6};
-
-export type parameters_74 = {
-<<<<<<< HEAD
-    params: {
-        organizationId: string;
-    };
-    query: {
-        warehouseId: string;
-        page?: number;
-    };
-=======
-    params?: {
-        commandId?: string;
-    } | undefined;
-=======
-    info: "organization.notfound";
-} & {body: undefined};
-
-export type response_73_5 = {
-    code: 406;
-    ok: false;
-    info: "organization.hasNotUser";
-} & {body: undefined};
-
-export type response_73_6 = {
     code: 403;
     ok: false;
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-export type response_73_7 = {
-    code: 404;
-    ok: false;
-    info: "warehouse.notfound";
-} & {body: undefined};
-
-export type response_body_73_8 = {
-    commandId: string;
-    firstname: string;
-    lastname: string;
-    address: string;
-    quantity: number;
-    createdAt?: string;
-}[]
-
-export type response_73_8 = {
-    code: 200;
-    ok: true;
-    info: "organizationCommandCollection";
-} & {body: response_body_73_8};
-
-export type request_body_74 = {
-    primordialRole?: ("CUSTOMER" | "CONTENTS_MASTER" | "MODERATOR") | undefined;
-    muted?: boolean | undefined;
-}
-
-export type parameters_74 = {
-    params: {
-        userId: string;
-    };
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-}
-
-export type response_74_0 = {
-    code: 401;
-    ok: false;
-    info: "access.token.invalid";
-} & {body: undefined};
-
-export type response_74_1 = {
-    code: 404;
-    ok: false;
-    info: "user.notfound";
-} & {body: undefined};
-
-export type response_74_2 = {
-    code: 401;
-    ok: false;
-    info: "accessToken.tooOld";
-} & {body: undefined};
-
-export type response_74_3 = {
-    code: 401;
-    ok: false;
-    info: "user.deleted";
-} & {body: undefined};
-
-export type response_74_4 = {
-    code: 403;
-    ok: false;
-<<<<<<< HEAD
-    info: "organization.notfound";
-=======
-<<<<<<< HEAD
-    info: "command.notfound";
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-} & {body: undefined};
-
-export type response_74_5 = {
-    code: 406;
-    ok: false;
-<<<<<<< HEAD
-    info: "organization.hasNotUser";
-=======
-    info: "command.wrong.user";
-=======
-    info: "user.role.invalid";
-} & {body: undefined};
-
-export type response_74_5 = {
-    code: 404;
-    ok: false;
-    info: "user.notfound";
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-} & {body: undefined};
-
-export type response_74_6 = {
-<<<<<<< HEAD
-    code: 403;
-    ok: false;
-    info: "user.role.organization.invalid";
-} & {body: undefined};
-
-export type response_74_7 = {
-    code: 404;
-    ok: false;
-    info: "warehouse.notfound";
-} & {body: undefined};
-
-export type response_body_74_8 = {
-    commandId: string;
-    firstname: string;
-    lastname: string;
-    address: string;
-    quantity: number;
-    createdAt?: string;
-}[]
-
-export type response_74_8 = {
-    code: 200;
-    ok: true;
-    info: "organizationCommandCollection";
-} & {body: response_body_74_8};
-=======
-<<<<<<< HEAD
-    code: 200;
-    ok: true;
-    info: "command.invoice";
-} & {body: response_body_74_6};
-=======
-    code: 401;
-    ok: false;
-    info: "user.primordialRole.admin";
-} & {body: undefined};
-
-export type response_74_7 = {
-    code: 200;
-    ok: true;
-    info: "user.edited";
-} & {body: undefined};
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-
-export type parameters_75 = {
-    params: {
-        organizationId: string;
-    };
-    query?: {
-        page?: number;
-        ref?: string | undefined;
-    } | undefined;
-}
-
-export type response_75_0 = {
-    code: 401;
-    ok: false;
-    info: "access.token.invalid";
-} & {body: undefined};
-
-export type response_75_1 = {
-    code: 404;
-    ok: false;
-    info: "user.notfound";
-} & {body: undefined};
-
-export type response_75_2 = {
-    code: 401;
-    ok: false;
-    info: "accessToken.tooOld";
-} & {body: undefined};
-
-export type response_75_3 = {
-    code: 401;
-    ok: false;
-    info: "user.deleted";
-} & {body: undefined};
-
-export type response_75_4 = {
-    code: 404;
-    ok: false;
-    info: "organization.notfound";
-} & {body: undefined};
-
-export type response_75_5 = {
-    code: 406;
-    ok: false;
-    info: "organization.hasNotUser";
-} & {body: undefined};
-
-export type response_75_6 = {
-    code: 403;
-    ok: false;
-    info: "user.role.organization.invalid";
-} & {body: undefined};
-
-export type response_body_75_7 = {
+export type response_body_72_7 = {
     id: string;
     ref: string;
     name: string;
@@ -6033,15 +3652,185 @@ export type response_body_75_7 = {
     }[] | undefined;
 }[]
 
-export type response_75_7 = {
+export type response_72_7 = {
     code: 200;
     ok: true;
     info: "organization.fullProductSheet";
-} & {body: response_body_75_7};
+} & {body: response_body_72_7};
+
+export type request_body_73 = {
+    check?: boolean | undefined;
+}
+
+export type parameters_73 = {
+    params: {
+        productSheetReviewId: string;
+    };
+}
+
+export type response_73_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_73_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_73_2 = {
+    code: 401;
+    ok: false;
+    info: "accessToken.tooOld";
+} & {body: undefined};
+
+export type response_73_3 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_73_4 = {
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_73_5 = {
+    code: 404;
+    ok: false;
+    info: "productSheetReview.notfound";
+} & {body: undefined};
+
+export type response_body_73_6 = {
+    _id: string;
+    userId: string;
+    productSheetId: string;
+    pseudo: string;
+    content?: string | undefined;
+    createdAt: Date;
+    rate: number;
+    check: boolean;
+}
+
+export type response_73_6 = {
+    code: 200;
+    ok: true;
+    info: "productSheetReview.edited";
+} & {body: response_body_73_6};
+
+export type parameters_74 = {
+    params: {
+        productSheetReviewId: string;
+    };
+}
+
+export type response_74_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_74_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_74_2 = {
+    code: 401;
+    ok: false;
+    info: "accessToken.tooOld";
+} & {body: undefined};
+
+export type response_74_3 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_74_4 = {
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_74_5 = {
+    code: 404;
+    ok: false;
+    info: "productSheetReview.notfound";
+} & {body: undefined};
+
+export type response_74_6 = {
+    code: 204;
+    ok: true;
+    info: "productSheetReview.deleted";
+} & {body: undefined};
+
+export type parameters_75 = {
+    params: {
+        parentCategoryName: string;
+    };
+}
+
+export type response_75_0 = {
+    code: 401;
+    ok: false;
+    info: "access.token.invalid";
+} & {body: undefined};
+
+export type response_75_1 = {
+    code: 404;
+    ok: false;
+    info: "user.notfound";
+} & {body: undefined};
+
+export type response_75_2 = {
+    code: 401;
+    ok: false;
+    info: "accessToken.tooOld";
+} & {body: undefined};
+
+export type response_75_3 = {
+    code: 401;
+    ok: false;
+    info: "user.deleted";
+} & {body: undefined};
+
+export type response_75_4 = {
+    code: 403;
+    ok: false;
+    info: "user.role.invalid";
+} & {body: undefined};
+
+export type response_75_5 = {
+    code: 404;
+    ok: false;
+    info: "parentCategory.notfound";
+} & {body: undefined};
+
+export type response_body_75_6 = {
+    name: string;
+    disabled: boolean;
+    imageKey: string | null;
+    imageUrl: string | null;
+}[]
+
+export type response_75_6 = {
+    code: 200;
+    ok: true;
+    info: "parentCategory.categories";
+} & {body: response_body_75_6};
+
+export type request_body_76 = {
+    categoryName: string;
+}
 
 export type parameters_76 = {
     params: {
-        organizationId: string;
+        parentCategoryName: string;
     };
 }
 
@@ -6070,46 +3859,42 @@ export type response_76_3 = {
 } & {body: undefined};
 
 export type response_76_4 = {
-    code: 404;
+    code: 403;
     ok: false;
-    info: "organization.notfound";
+    info: "user.role.invalid";
 } & {body: undefined};
 
 export type response_76_5 = {
-    code: 406;
+    code: 404;
     ok: false;
-    info: "organization.hasNotUser";
+    info: "parentCategory.notfound";
 } & {body: undefined};
 
 export type response_76_6 = {
-    code: 403;
+    code: 404;
     ok: false;
-    info: "user.role.organization.invalid";
+    info: "category.notfound";
 } & {body: undefined};
 
-export type response_body_76_7 = {
-    id: string;
-    name: string;
-    label: string | null;
-    ownerId: string;
-    suspended: boolean;
-    logoKey: string | null;
-    logoUrl: string | null;
-}
-
 export type response_76_7 = {
-    code: 200;
-    ok: true;
-    info: "organization.found";
-} & {body: response_body_76_7};
+    code: 409;
+    ok: false;
+    info: "parentCategory.categories.limit";
+} & {body: undefined};
 
-export type request_body_77 = {
-    label?: (string | null) | undefined;
-}
+export type response_76_8 = {
+    code: 201;
+    ok: true;
+    info: "parentCategory.category.linked";
+} & {body: undefined};
 
 export type parameters_77 = {
     params: {
         organizationId: string;
+    };
+    query: {
+        warehouseId: string;
+        page?: number;
     };
 }
 
@@ -6155,41 +3940,31 @@ export type response_77_6 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-export type response_body_77_7 = {
-    id: string;
-    name: string;
-    label: string | null;
-    ownerId: string;
-    suspended: boolean;
-    logoKey: string | null;
-    logoUrl: string | null;
-}
-
 export type response_77_7 = {
+    code: 404;
+    ok: false;
+    info: "warehouse.notfound";
+} & {body: undefined};
+
+export type response_body_77_8 = {
+    commandId: string;
+    firstname: string;
+    lastname: string;
+    address: string;
+    quantity: number;
+    createdAt?: string;
+}[]
+
+export type response_77_8 = {
     code: 200;
     ok: true;
-    info: "organization.edited";
-} & {body: response_body_77_7};
+    info: "organizationCommandCollection";
+} & {body: response_body_77_8};
 
 export type parameters_78 = {
-<<<<<<< HEAD
-    headers: {
-        "content-type": string;
-        "content-length": number;
-    };
-=======
-<<<<<<< HEAD
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
     params: {
         organizationId: string;
     };
-=======
-    query?: {
-        page?: number;
-        name?: string | undefined;
-        withCategories?: ("true" | "false") | undefined;
-    } | undefined;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 }
 
 export type response_78_0 = {
@@ -6217,19 +3992,24 @@ export type response_78_3 = {
 } & {body: undefined};
 
 export type response_78_4 = {
+    code: 404;
+    ok: false;
+    info: "organization.notfound";
+} & {body: undefined};
+
+export type response_78_5 = {
+    code: 406;
+    ok: false;
+    info: "organization.hasNotUser";
+} & {body: undefined};
+
+export type response_78_6 = {
     code: 403;
     ok: false;
-    info: "user.role.invalid";
+    info: "user.role.organization.invalid";
 } & {body: undefined};
 
-<<<<<<< HEAD
-export type response_78_7 = {
-    code: 400;
-    ok: false;
-    info: "organization.logo.missing";
-} & {body: undefined};
-
-export type response_body_78_8 = {
+export type response_body_78_7 = {
     id: string;
     name: string;
     label: string | null;
@@ -6239,40 +4019,20 @@ export type response_body_78_8 = {
     logoUrl: string | null;
 }
 
-export type response_78_8 = {
-    code: 201;
+export type response_78_7 = {
+    code: 200;
     ok: true;
-    info: "organization.logo.edited";
-} & {body: response_body_78_8};
+    info: "organization.found";
+} & {body: response_body_78_7};
+
+export type request_body_79 = {
+    label?: (string | null) | undefined;
+}
 
 export type parameters_79 = {
     params: {
         organizationId: string;
     };
-<<<<<<< HEAD
-    query?: {
-        page?: number;
-        name?: string | undefined;
-    } | undefined;
-=======
-=======
-export type response_body_78_5 = {
-    name: string;
-    categories?: {
-        categoryName: string;
-    }[] | undefined;
-}[]
-
-export type response_78_5 = {
-    code: 200;
-    ok: true;
-    info: "parentCategories";
-} & {body: response_body_78_5};
-
-export type request_body_79 = {
-    name: string;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 }
 
 export type response_79_0 = {
@@ -6300,18 +4060,17 @@ export type response_79_3 = {
 } & {body: undefined};
 
 export type response_79_4 = {
-    code: 403;
+    code: 404;
     ok: false;
-    info: "user.role.invalid";
+    info: "organization.notfound";
 } & {body: undefined};
 
 export type response_79_5 = {
-    code: 409;
+    code: 406;
     ok: false;
-    info: "parentCategory.name.alreadyUse";
+    info: "organization.hasNotUser";
 } & {body: undefined};
 
-<<<<<<< HEAD
 export type response_79_6 = {
     code: 403;
     ok: false;
@@ -6320,49 +4079,19 @@ export type response_79_6 = {
 
 export type response_body_79_7 = {
     id: string;
-    ref: string;
     name: string;
-    description: string;
-    shortDescription: string;
-    price: number;
-    createdAt?: string;
-    updatedAt?: string;
-    organizationId: string;
-    variationGroup: string | null;
-    variationName: string | null;
-    warehouseId: string;
-}[]
+    label: string | null;
+    ownerId: string;
+    suspended: boolean;
+    logoKey: string | null;
+    logoUrl: string | null;
+}
 
 export type response_79_7 = {
     code: 200;
     ok: true;
-    info: "productSheets.found";
+    info: "organization.edited";
 } & {body: response_body_79_7};
-
-export type request_body_80 = {
-<<<<<<< HEAD
-    ref: string;
-    name: string;
-    description: string;
-    shortDescription: string;
-    price: number;
-    warehouseId: string;
-    variationGroup?: string | undefined;
-    variationName?: string | undefined;
-=======
-    label?: (string | null) | undefined;
-=======
-export type response_body_79_6 = {
-    name: string;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-}
-
-export type response_79_6 = {
-    code: 201;
-    ok: true;
-    info: "parentCategory.created";
-} & {body: response_body_79_6};
 
 export type parameters_80 = {
     headers: {
@@ -6416,24 +4145,6 @@ export type response_80_6 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-<<<<<<< HEAD
-export type response_80_7 = {
-    code: 404;
-    ok: false;
-    info: "warehouse.notfound";
-} & {body: undefined};
-
-export type response_80_8 = {
-    code: 409;
-    ok: false;
-    info: "productSheet.ref.alreadyUse";
-} & {body: undefined};
-
-export type response_body_80_9 = {
-=======
-<<<<<<< HEAD
-export type response_body_80_7 = {
-=======
 export type response_80_7 = {
     code: 400;
     ok: false;
@@ -6441,62 +4152,29 @@ export type response_80_7 = {
 } & {body: undefined};
 
 export type response_body_80_8 = {
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
     id: string;
-    ref: string;
     name: string;
-    description: string;
-    shortDescription: string;
-    price: number;
-    createdAt?: string;
-    updatedAt?: string;
-    organizationId: string;
-    variationGroup: string | null;
-    variationName: string | null;
-    warehouseId: string;
+    label: string | null;
+    ownerId: string;
+    suspended: boolean;
+    logoKey: string | null;
+    logoUrl: string | null;
 }
 
-<<<<<<< HEAD
-export type response_80_9 = {
-    code: 201;
-    ok: true;
-    info: "productSheet.created";
-} & {body: response_body_80_9};
-=======
-<<<<<<< HEAD
-export type response_80_7 = {
-    code: 200;
-    ok: true;
-    info: "organization.edited";
-} & {body: response_body_80_7};
-=======
 export type response_80_8 = {
     code: 201;
     ok: true;
     info: "organization.logo.edited";
 } & {body: response_body_80_8};
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 
 export type parameters_81 = {
     params: {
         organizationId: string;
     };
-<<<<<<< HEAD
-    query?: {
-        page?: number;
-        email?: string | undefined;
-    } | undefined;
-=======
-<<<<<<< HEAD
-=======
     query?: {
         page?: number;
         name?: string | undefined;
     } | undefined;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 }
 
 export type response_81_0 = {
@@ -6536,39 +4214,6 @@ export type response_81_5 = {
 } & {body: undefined};
 
 export type response_81_6 = {
-<<<<<<< HEAD
-    code: 403;
-    ok: false;
-    info: "user.role.organization.invalid";
-} & {body: undefined};
-
-export type response_body_81_7 = {
-    id: string;
-    email: string;
-    lastname: string;
-    firstname: string;
-    organizationRole: "STORE_KEEPER" | "PRODUCT_SHEET_MANAGER" | "ACCOUNTANT" | "OWNER";
-}[]
-
-export type response_81_7 = {
-    code: 200;
-    ok: true;
-    info: "organization.users";
-} & {body: response_body_81_7};
-
-export type request_body_82 = {
-    email: string;
-    firstname: string;
-    lastname: string;
-    organizationRole: "STORE_KEEPER" | "PRODUCT_SHEET_MANAGER" | "ACCOUNTANT";
-}
-=======
-<<<<<<< HEAD
-    code: 200;
-    ok: true;
-    info: "bundle.status.stream";
-} & {body: undefined};
-=======
     code: 403;
     ok: false;
     info: "user.role.organization.invalid";
@@ -6605,8 +4250,6 @@ export type request_body_82 = {
     variationGroup?: string | undefined;
     variationName?: string | undefined;
 }
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 
 export type parameters_82 = {
     params: {
@@ -6657,37 +4300,6 @@ export type response_82_6 = {
 } & {body: undefined};
 
 export type response_82_7 = {
-<<<<<<< HEAD
-    code: 404;
-    ok: false;
-    info: "user.notfound";
-} & {body: undefined};
-
-export type response_82_8 = {
-    code: 409;
-    ok: false;
-    info: "organization.hasAlreadyUser";
-} & {body: undefined};
-
-export type response_82_9 = {
-    code: 201;
-    ok: true;
-    info: "organization.user.add";
-} & {body: undefined};
-=======
-<<<<<<< HEAD
-    code: 200;
-    ok: true;
-    info: "organization.users";
-} & {body: response_body_82_7};
-
-export type request_body_83 = {
-    email: string;
-    firstname: string;
-    lastname: string;
-    organizationRole: "STORE_KEEPER" | "PRODUCT_SHEET_MANAGER" | "ACCOUNTANT";
-}
-=======
     code: 404;
     ok: false;
     info: "warehouse.notfound";
@@ -6719,13 +4331,10 @@ export type response_82_9 = {
     ok: true;
     info: "productSheet.created";
 } & {body: response_body_82_9};
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 
 export type parameters_83 = {
     params: {
         organizationId: string;
-        commandId: string;
     };
     query?: {
         page?: number;
@@ -6775,40 +4384,6 @@ export type response_83_6 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-<<<<<<< HEAD
-export type response_83_7 = {
-    code: 404;
-    ok: false;
-    info: "command.notfound";
-} & {body: undefined};
-
-export type response_83_8 = {
-    code: 404;
-    ok: false;
-    info: "commandItem.missing";
-} & {body: undefined};
-
-export type response_body_83_9 = {
-    productSheetRef: string;
-    commandItemId: number;
-    commandId: string;
-    quantity: number;
-    processQuantity: number;
-    productSheetName: string;
-    productSheetId: string;
-    productSheetFirstImageUrl: string;
-}[]
-
-export type response_83_9 = {
-    code: 200;
-    ok: true;
-<<<<<<< HEAD
-    info: "organizationCommandDetailes";
-} & {body: response_body_83_9};
-=======
-    info: "organization.user.add";
-} & {body: undefined};
-=======
 export type response_body_83_7 = {
     id: string;
     email: string;
@@ -6829,27 +4404,11 @@ export type request_body_84 = {
     lastname: string;
     organizationRole: "STORE_KEEPER" | "PRODUCT_SHEET_MANAGER" | "ACCOUNTANT";
 }
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 
 export type parameters_84 = {
     params: {
         organizationId: string;
     };
-<<<<<<< HEAD
-    query?: {
-        page?: number;
-        facetValue?: string | undefined;
-    } | undefined;
-=======
-<<<<<<< HEAD
-    query: {
-        warehouseId: string;
-        page?: number;
-    };
-=======
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 }
 
 export type response_84_0 = {
@@ -6894,47 +4453,9 @@ export type response_84_6 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-<<<<<<< HEAD
-export type response_body_84_7 = {
-    type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
-    productSheetId: string;
-    value: string;
-=======
 export type response_84_7 = {
     code: 404;
     ok: false;
-<<<<<<< HEAD
-    info: "warehouse.notfound";
-} & {body: undefined};
-
-export type response_body_84_8 = {
-    commandId: string;
-    firstname: string;
-    lastname: string;
-    address: string;
-    quantity: number;
-    createdAt?: string;
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-}[]
-
-export type response_84_7 = {
-    code: 200;
-    ok: true;
-<<<<<<< HEAD
-    info: "productSheet.facets";
-} & {body: response_body_84_7};
-
-export type request_body_85 = {
-    idShip: string;
-    bundleItems: {
-        commandItemId: number;
-        sku: string;
-    }[];
-}
-=======
-    info: "organizationCommandCollection";
-} & {body: response_body_84_8};
-=======
     info: "user.notfound";
 } & {body: undefined};
 
@@ -6949,25 +4470,12 @@ export type response_84_9 = {
     ok: true;
     info: "organization.user.add";
 } & {body: undefined};
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 
 export type parameters_85 = {
     params: {
         organizationId: string;
         commandId: string;
     };
-<<<<<<< HEAD
-=======
-    query?: {
-        page?: number;
-<<<<<<< HEAD
-        name?: string | undefined;
-=======
-        facetValue?: string | undefined;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-    } | undefined;
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 }
 
 export type response_85_0 = {
@@ -7012,30 +4520,6 @@ export type response_85_6 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-<<<<<<< HEAD
-=======
-export type response_body_85_7 = {
-<<<<<<< HEAD
-    id: string;
-    ref: string;
-    name: string;
-    description: string;
-    shortDescription: string;
-    price: number;
-    createdAt?: string;
-    updatedAt?: string;
-    organizationId: string;
-    variationGroup: string | null;
-    variationName: string | null;
-    warehouseId: string;
-=======
-    type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
-    productSheetId: string;
-    value: string;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-}[]
-
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 export type response_85_7 = {
     code: 404;
     ok: false;
@@ -7043,70 +4527,27 @@ export type response_85_7 = {
 } & {body: undefined};
 
 export type response_85_8 = {
-    code: 400;
-    ok: false;
-    info: "commandItem.wrong.product";
-} & {body: undefined};
-
-export type response_85_9 = {
-    code: 400;
-    ok: false;
-    info: "organization.wrong.product";
-} & {body: undefined};
-
-export type response_85_10 = {
-    code: 400;
-    ok: false;
-    info: "commandItem.wrong.commandId";
-} & {body: undefined};
-
-export type response_85_11 = {
     code: 404;
     ok: false;
     info: "commandItem.missing";
 } & {body: undefined};
 
-export type response_85_12 = {
-    code: 404;
-    ok: false;
-    info: "product.missing";
-} & {body: undefined};
+export type response_body_85_9 = {
+    productSheetRef: string;
+    commandItemId: number;
+    commandId: string;
+    quantity: number;
+    processQuantity: number;
+    productSheetName: string;
+    productSheetId: string;
+    productSheetFirstImageUrl: string;
+}[]
 
-export type response_85_13 = {
-    code: 409;
-    ok: false;
-    info: "commandItem.alreadyCompleted";
-} & {body: undefined};
-
-export type response_85_14 = {
-    code: 409;
-    ok: false;
-    info: "commandItem.tooMuch.product";
-} & {body: undefined};
-
-export type response_85_15 = {
+export type response_85_9 = {
     code: 200;
     ok: true;
-<<<<<<< HEAD
-    info: "makeBundle";
-} & {body: undefined};
-=======
-<<<<<<< HEAD
-    info: "productSheets.found";
-} & {body: response_body_85_7};
-
-export type request_body_86 = {
-    ref: string;
-    name: string;
-    description: string;
-    shortDescription: string;
-    price: number;
-    warehouseId: string;
-    variationGroup?: string | undefined;
-    variationName?: string | undefined;
-=======
-    info: "productSheet.facets";
-} & {body: response_body_85_7};
+    info: "organizationCommandDetailes";
+} & {body: response_body_85_9};
 
 export type request_body_86 = {
     idShip: string;
@@ -7114,9 +4555,7 @@ export type request_body_86 = {
         commandItemId: number;
         sku: string;
     }[];
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 }
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 
 export type parameters_86 = {
     params: {
@@ -7167,150 +4606,9 @@ export type response_86_6 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-export type response_body_86_7 = {
-    x: number;
-    y: number;
-    w: number;
-    h: number;
-    i: number;
-    params: {
-        type: "line" | "bar" | "pie" | "donut" | "area";
-        filters: {
-            startDate: Date;
-            endDate: Date;
-            productSheetsId: string[];
-            priceMax?: number | undefined;
-            priceMin?: number | undefined;
-        } | {
-            startDate: Date;
-            endDate: Date;
-            categories?: string[] | undefined;
-            facets?: {
-                ACCESSORY?: string | undefined;
-                COLOR?: string | undefined;
-                DIAMETER?: string | undefined;
-                MATERIAL?: string | undefined;
-                SIZE?: string | undefined;
-                STIMULATION?: string | undefined;
-                TARGET?: string | undefined;
-            } | undefined;
-            priceMax?: number | undefined;
-            priceMin?: number | undefined;
-        };
-    } | {
-        type: "top";
-        filters: {
-            startDate: Date;
-            endDate: Date;
-            customfilterType: "categories" | "productSheetsId";
-            filterValue: string[];
-        };
-    } | {
-        type: "value";
-        filters: {
-            startDate: Date;
-            endDate: Date;
-            customfilterType: "category" | "productSheetId";
-            filterValue: string;
-        };
-    };
-}[]
-
 export type response_86_7 = {
-<<<<<<< HEAD
-    code: 200;
-=======
     code: 404;
     ok: false;
-<<<<<<< HEAD
-    info: "warehouse.notfound";
-} & {body: undefined};
-
-export type response_86_8 = {
-    code: 409;
-    ok: false;
-    info: "productSheet.ref.alreadyUse";
-} & {body: undefined};
-
-export type response_body_86_9 = {
-    id: string;
-    ref: string;
-    name: string;
-    description: string;
-    shortDescription: string;
-    price: number;
-    createdAt?: string;
-    updatedAt?: string;
-    organizationId: string;
-    variationGroup: string | null;
-    variationName: string | null;
-    warehouseId: string;
-}
-
-export type response_86_9 = {
-    code: 201;
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-    ok: true;
-    info: "gridStatCommand.found";
-} & {body: response_body_86_7};
-
-export type request_body_87 = {
-<<<<<<< HEAD
-    x: number;
-    y: number;
-    w: number;
-    h: number;
-    i: number;
-    params: {
-        type: "line" | "bar" | "pie" | "donut" | "area";
-        filters: {
-            startDate: Date;
-            endDate: Date;
-            productSheetsId: string[];
-            priceMax?: number | undefined;
-            priceMin?: number | undefined;
-        } | {
-            startDate: Date;
-            endDate: Date;
-            categories?: string[] | undefined;
-            facets?: {
-                ACCESSORY?: string | undefined;
-                COLOR?: string | undefined;
-                DIAMETER?: string | undefined;
-                MATERIAL?: string | undefined;
-                SIZE?: string | undefined;
-                STIMULATION?: string | undefined;
-                TARGET?: string | undefined;
-            } | undefined;
-            priceMax?: number | undefined;
-            priceMin?: number | undefined;
-        };
-    } | {
-        type: "top";
-        filters: {
-            startDate: Date;
-            endDate: Date;
-            customfilterType: "categories" | "productSheetsId";
-            filterValue: string[];
-        };
-    } | {
-        type: "value";
-        filters: {
-            startDate: Date;
-            endDate: Date;
-            customfilterType: "category" | "productSheetId";
-            filterValue: string;
-        };
-    };
-}[]
-=======
-    idShip: string;
-    bundleItems: {
-        commandItemId: number;
-        sku: string;
-    }[];
-}
-=======
     info: "command.notfound";
 } & {body: undefined};
 
@@ -7361,13 +4659,15 @@ export type response_86_15 = {
     ok: true;
     info: "makeBundle";
 } & {body: undefined};
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 
 export type parameters_87 = {
     params: {
         organizationId: string;
     };
+    query?: {
+        sku?: string | undefined;
+        page?: number;
+    } | undefined;
 }
 
 export type response_87_0 = {
@@ -7413,151 +4713,29 @@ export type response_87_6 = {
 } & {body: undefined};
 
 export type response_body_87_7 = {
-    x: number;
-    y: number;
-    w: number;
-    h: number;
-    i: number;
-    params: {
-        type: "line" | "bar" | "pie" | "donut" | "area";
-        filters: {
-            startDate: Date;
-            endDate: Date;
-            productSheetsId: string[];
-            priceMax?: number | undefined;
-            priceMin?: number | undefined;
-        } | {
-            startDate: Date;
-            endDate: Date;
-            categories?: string[] | undefined;
-            facets?: {
-                ACCESSORY?: string | undefined;
-                COLOR?: string | undefined;
-                DIAMETER?: string | undefined;
-                MATERIAL?: string | undefined;
-                SIZE?: string | undefined;
-                STIMULATION?: string | undefined;
-                TARGET?: string | undefined;
-            } | undefined;
-            priceMax?: number | undefined;
-            priceMin?: number | undefined;
-        };
-    } | {
-        type: "top";
-        filters: {
-            startDate: Date;
-            endDate: Date;
-            customfilterType: "categories" | "productSheetsId";
-            filterValue: string[];
-        };
-    } | {
-        type: "value";
-        filters: {
-            startDate: Date;
-            endDate: Date;
-            customfilterType: "category" | "productSheetId";
-            filterValue: string;
-        };
-    };
+    id: number;
+    productSku: string;
+    reason: string;
+    status: "WAITING_RETURN" | "REFUNDED" | "INVALID";
+    organizationId: string;
+    createdAt?: string;
 }[]
 
 export type response_87_7 = {
-<<<<<<< HEAD
-    code: 201;
-=======
-    code: 404;
-    ok: false;
-    info: "command.notfound";
-} & {body: undefined};
-
-export type response_87_8 = {
-<<<<<<< HEAD
-    code: 400;
-    ok: false;
-    info: "commandItem.wrong.product";
-} & {body: undefined};
-
-export type response_87_9 = {
-    code: 400;
-    ok: false;
-    info: "organization.wrong.product";
-} & {body: undefined};
-
-export type response_87_10 = {
-    code: 400;
-    ok: false;
-    info: "commandItem.wrong.commandId";
-} & {body: undefined};
-
-export type response_87_11 = {
-=======
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-    code: 404;
-    ok: false;
-    info: "commandItem.missing";
-} & {body: undefined};
-
-<<<<<<< HEAD
-export type response_87_12 = {
-    code: 404;
-    ok: false;
-    info: "product.missing";
-} & {body: undefined};
-
-export type response_87_13 = {
-    code: 409;
-    ok: false;
-    info: "commandItem.alreadyCompleted";
-} & {body: undefined};
-
-export type response_87_14 = {
-    code: 409;
-    ok: false;
-    info: "commandItem.tooMuch.product";
-} & {body: undefined};
-
-export type response_87_15 = {
     code: 200;
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
     ok: true;
-    info: "gridStatCommand.updated";
+    info: "productReturns";
 } & {body: response_body_87_7};
 
-export type parameters_88 = {
-<<<<<<< HEAD
-=======
-    headers: {
-        "content-type": string;
-        "content-length": number;
-    };
-=======
-export type response_body_87_9 = {
-    productSheetRef: string;
-    commandItemId: number;
-    commandId: string;
-    quantity: number;
-    processQuantity: number;
-    productSheetName: string;
-    productSheetId: string;
-    productSheetFirstImageUrl: string;
-}[]
-
-export type response_87_9 = {
-    code: 200;
-    ok: true;
-    info: "organizationCommandDetailes";
-} & {body: response_body_87_9};
+export type request_body_88 = {
+    sku: string;
+    reason: string;
+}
 
 export type parameters_88 = {
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
     params: {
         organizationId: string;
     };
-    query?: {
-        sku?: string | undefined;
-        page?: number;
-    } | undefined;
 }
 
 export type response_88_0 = {
@@ -7602,157 +4780,53 @@ export type response_88_6 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-<<<<<<< HEAD
-export type response_body_88_7 = {
+export type response_88_7 = {
+    code: 404;
+    ok: false;
+    info: "product.notfound";
+} & {body: undefined};
+
+export type response_88_8 = {
+    code: 406;
+    ok: false;
+    info: "product.wrong.organization";
+} & {body: undefined};
+
+export type response_88_9 = {
+    code: 406;
+    ok: false;
+    info: "product.wrong.status";
+} & {body: undefined};
+
+export type response_88_10 = {
+    code: 409;
+    ok: false;
+    info: "product.alreadyInRefundProcess";
+} & {body: undefined};
+
+export type response_body_88_11 = {
     id: number;
     productSku: string;
     reason: string;
     status: "WAITING_RETURN" | "REFUNDED" | "INVALID";
     organizationId: string;
     createdAt?: string;
-}[]
-
-export type response_88_7 = {
-    code: 200;
-=======
-<<<<<<< HEAD
-export type response_88_7 = {
-    code: 400;
-    ok: false;
-    info: "organization.logo.missing";
-} & {body: undefined};
-
-export type response_body_88_8 = {
-    id: string;
-    name: string;
-    label: string | null;
-    ownerId: string;
-    suspended: boolean;
-    logoKey: string | null;
-    logoUrl: string | null;
 }
-=======
-export type response_body_88_7 = {
-    x: number;
-    y: number;
-    w: number;
-    h: number;
-    i: number;
-    params: {
-        type: "line" | "bar" | "pie" | "donut" | "area";
-        filters: {
-            startDate: Date;
-            endDate: Date;
-            productSheetsId: string[];
-            priceMax?: number | undefined;
-            priceMin?: number | undefined;
-        } | {
-            startDate: Date;
-            endDate: Date;
-            categories?: string[] | undefined;
-            facets?: {
-                ACCESSORY?: string | undefined;
-                COLOR?: string | undefined;
-                DIAMETER?: string | undefined;
-                MATERIAL?: string | undefined;
-                SIZE?: string | undefined;
-                STIMULATION?: string | undefined;
-                TARGET?: string | undefined;
-            } | undefined;
-            priceMax?: number | undefined;
-            priceMin?: number | undefined;
-        };
-    } | {
-        type: "top";
-        filters: {
-            startDate: Date;
-            endDate: Date;
-            customfilterType: "categories" | "productSheetsId";
-            filterValue: string[];
-        };
-    } | {
-        type: "value";
-        filters: {
-            startDate: Date;
-            endDate: Date;
-            customfilterType: "category" | "productSheetId";
-            filterValue: string;
-        };
-    };
-}[]
 
-export type response_88_7 = {
-    code: 200;
-    ok: true;
-    info: "gridStatCommand.found";
-} & {body: response_body_88_7};
-
-export type request_body_89 = {
-    x: number;
-    y: number;
-    w: number;
-    h: number;
-    i: number;
-    params: {
-        type: "line" | "bar" | "pie" | "donut" | "area";
-        filters: {
-            startDate: Date;
-            endDate: Date;
-            productSheetsId: string[];
-            priceMax?: number | undefined;
-            priceMin?: number | undefined;
-        } | {
-            startDate: Date;
-            endDate: Date;
-            categories?: string[] | undefined;
-            facets?: {
-                ACCESSORY?: string | undefined;
-                COLOR?: string | undefined;
-                DIAMETER?: string | undefined;
-                MATERIAL?: string | undefined;
-                SIZE?: string | undefined;
-                STIMULATION?: string | undefined;
-                TARGET?: string | undefined;
-            } | undefined;
-            priceMax?: number | undefined;
-            priceMin?: number | undefined;
-        };
-    } | {
-        type: "top";
-        filters: {
-            startDate: Date;
-            endDate: Date;
-            customfilterType: "categories" | "productSheetsId";
-            filterValue: string[];
-        };
-    } | {
-        type: "value";
-        filters: {
-            startDate: Date;
-            endDate: Date;
-            customfilterType: "category" | "productSheetId";
-            filterValue: string;
-        };
-    };
-}[]
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-
-export type response_88_8 = {
+export type response_88_11 = {
     code: 201;
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
     ok: true;
-    info: "productReturns";
-} & {body: response_body_88_7};
-
-export type request_body_89 = {
-    sku: string;
-    reason: string;
-}
+    info: "productReturn.created";
+} & {body: response_body_88_11};
 
 export type parameters_89 = {
     params: {
         organizationId: string;
     };
+    query?: {
+        page?: number;
+        facetValue?: string | undefined;
+    } | undefined;
 }
 
 export type response_89_0 = {
@@ -7797,121 +4871,27 @@ export type response_89_6 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-<<<<<<< HEAD
-=======
 export type response_body_89_7 = {
-<<<<<<< HEAD
     type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
     productSheetId: string;
     value: string;
 }[]
 
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 export type response_89_7 = {
-    code: 404;
-    ok: false;
-    info: "product.notfound";
-} & {body: undefined};
-
-export type response_89_8 = {
-    code: 406;
-    ok: false;
-    info: "product.wrong.organization";
-} & {body: undefined};
-
-export type response_89_9 = {
-    code: 406;
-    ok: false;
-    info: "product.wrong.status";
-} & {body: undefined};
-
-export type response_89_10 = {
-    code: 409;
-    ok: false;
-    info: "product.alreadyInRefundProcess";
-} & {body: undefined};
-
-export type response_body_89_11 = {
-    id: number;
-    productSku: string;
-    reason: string;
-    status: "WAITING_RETURN" | "REFUNDED" | "INVALID";
-    organizationId: string;
-    createdAt?: string;
-}
-
-export type response_89_11 = {
-    code: 201;
+    code: 200;
     ok: true;
-<<<<<<< HEAD
-    info: "productReturn.created";
-} & {body: response_body_89_11};
-=======
     info: "productSheet.facets";
-=======
-    x: number;
-    y: number;
-    w: number;
-    h: number;
-    i: number;
-    params: {
-        type: "line" | "bar" | "pie" | "donut" | "area";
-        filters: {
-            startDate: Date;
-            endDate: Date;
-            productSheetsId: string[];
-            priceMax?: number | undefined;
-            priceMin?: number | undefined;
-        } | {
-            startDate: Date;
-            endDate: Date;
-            categories?: string[] | undefined;
-            facets?: {
-                ACCESSORY?: string | undefined;
-                COLOR?: string | undefined;
-                DIAMETER?: string | undefined;
-                MATERIAL?: string | undefined;
-                SIZE?: string | undefined;
-                STIMULATION?: string | undefined;
-                TARGET?: string | undefined;
-            } | undefined;
-            priceMax?: number | undefined;
-            priceMin?: number | undefined;
-        };
-    } | {
-        type: "top";
-        filters: {
-            startDate: Date;
-            endDate: Date;
-            customfilterType: "categories" | "productSheetsId";
-            filterValue: string[];
-        };
-    } | {
-        type: "value";
-        filters: {
-            startDate: Date;
-            endDate: Date;
-            customfilterType: "category" | "productSheetId";
-            filterValue: string;
-        };
-    };
-}[]
-
-export type response_89_7 = {
-    code: 201;
-    ok: true;
-    info: "gridStatCommand.updated";
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 } & {body: response_body_89_7};
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 
 export type parameters_90 = {
     params: {
         organizationId: string;
     };
     query?: {
-        sku?: string | undefined;
         page?: number;
+        sku?: string | undefined;
+        productSheetId?: string | undefined;
+        status?: ("WRONG" | "SOLD" | "IN_STOCK") | undefined;
     } | undefined;
 }
 
@@ -7958,24 +4938,23 @@ export type response_90_6 = {
 } & {body: undefined};
 
 export type response_body_90_7 = {
-    id: number;
-    productSku: string;
-    reason: string;
-    status: "WAITING_RETURN" | "REFUNDED" | "INVALID";
+    sku: string;
+    status: "WRONG" | "SOLD" | "IN_STOCK";
     organizationId: string;
-    createdAt?: string;
+    productSheetId: string;
+    productSheetName: string;
+    productSheetFirstImageUrl?: string | undefined;
+    warehouseId: string;
+    warehouseName: string;
+    createdAt: string;
+    updatedAt: string;
 }[]
 
 export type response_90_7 = {
     code: 200;
     ok: true;
-    info: "productReturns";
+    info: "products.found";
 } & {body: response_body_90_7};
-
-export type request_body_91 = {
-    sku: string;
-    reason: string;
-}
 
 export type parameters_91 = {
     params: {
@@ -8028,7 +5007,6 @@ export type response_91_6 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-<<<<<<< HEAD
 export type response_body_91_7 = {
     id: number;
     percentage: number;
@@ -8039,67 +5017,17 @@ export type response_body_91_7 = {
     reason: string;
 }[]
 
-=======
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 export type response_91_7 = {
-    code: 404;
-    ok: false;
-    info: "product.notfound";
-} & {body: undefined};
-
-export type response_91_8 = {
-    code: 406;
-    ok: false;
-    info: "product.wrong.organization";
-} & {body: undefined};
-
-export type response_91_9 = {
-    code: 406;
-    ok: false;
-    info: "product.wrong.status";
-} & {body: undefined};
-
-export type response_91_10 = {
-    code: 409;
-    ok: false;
-    info: "product.alreadyInRefundProcess";
-} & {body: undefined};
-
-export type response_body_91_11 = {
-    id: number;
-    productSku: string;
-    reason: string;
-    status: "WAITING_RETURN" | "REFUNDED" | "INVALID";
-    organizationId: string;
-    createdAt?: string;
-}
-
-export type response_91_11 = {
-    code: 201;
+    code: 200;
     ok: true;
-<<<<<<< HEAD
     info: "organization.promotions";
-=======
-<<<<<<< HEAD
-    info: "gridStatCommand.found";
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 } & {body: response_body_91_7};
-=======
-    info: "productReturn.created";
-} & {body: response_body_91_11};
 
 export type parameters_92 = {
     params: {
         organizationId: string;
     };
-    query?: {
-        page?: number;
-        sku?: string | undefined;
-        productSheetId?: string | undefined;
-        status?: ("WRONG" | "SOLD" | "IN_STOCK") | undefined;
-    } | undefined;
 }
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 
 export type response_92_0 = {
     code: 401;
@@ -8126,8 +5054,6 @@ export type response_92_3 = {
 } & {body: undefined};
 
 export type response_92_4 = {
-<<<<<<< HEAD
-=======
     code: 404;
     ok: false;
     info: "organization.notfound";
@@ -8138,55 +5064,6 @@ export type response_92_5 = {
     ok: false;
     info: "organization.hasNotUser";
 } & {body: undefined};
-<<<<<<< HEAD
-
-export type response_92_6 = {
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-    code: 403;
-    ok: false;
-    info: "user.role.invalid";
-} & {body: undefined};
-
-export type response_body_92_5 = ({
-    id: string;
-    priority: number;
-    type: "PARENT_CATEGORY";
-    parentCategoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "CATEGORY";
-    categoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "LINK";
-    url: string;
-    title: string;
-})[]
-
-export type response_92_5 = {
-    code: 200;
-    ok: true;
-    info: "navigationItems";
-} & {body: response_body_92_5};
-
-<<<<<<< HEAD
-export type request_body_93 = {
-    priority: number;
-    type: "PARENT_CATEGORY";
-    parentCategoryName: string;
-} | {
-    priority: number;
-    type: "CATEGORY";
-    categoryName: string;
-} | {
-    priority: number;
-    type: "LINK";
-    url: string;
-    title: string;
-=======
-=======
 
 export type response_92_6 = {
     code: 403;
@@ -8195,37 +5072,113 @@ export type response_92_6 = {
 } & {body: undefined};
 
 export type response_body_92_7 = {
-    sku: string;
-    status: "WRONG" | "SOLD" | "IN_STOCK";
-    organizationId: string;
-    productSheetId: string;
-    productSheetName: string;
-    productSheetFirstImageUrl?: string | undefined;
-    warehouseId: string;
-    warehouseName: string;
-    createdAt: string;
-    updatedAt: string;
+    x: number;
+    y: number;
+    w: number;
+    h: number;
+    i: number;
+    params: {
+        type: "line" | "bar" | "pie" | "donut" | "area";
+        filters: {
+            startDate: Date;
+            endDate: Date;
+            productSheetsId: string[];
+            priceMax?: number | undefined;
+            priceMin?: number | undefined;
+        } | {
+            startDate: Date;
+            endDate: Date;
+            categories?: string[] | undefined;
+            facets?: {
+                ACCESSORY?: string | undefined;
+                COLOR?: string | undefined;
+                DIAMETER?: string | undefined;
+                MATERIAL?: string | undefined;
+                SIZE?: string | undefined;
+                STIMULATION?: string | undefined;
+                TARGET?: string | undefined;
+            } | undefined;
+            priceMax?: number | undefined;
+            priceMin?: number | undefined;
+        };
+    } | {
+        type: "top";
+        filters: {
+            startDate: Date;
+            endDate: Date;
+            customfilterType: "categories" | "productSheetsId";
+            filterValue: string[];
+        };
+    } | {
+        type: "value";
+        filters: {
+            startDate: Date;
+            endDate: Date;
+            customfilterType: "category" | "productSheetId";
+            filterValue: string;
+        };
+    };
 }[]
 
 export type response_92_7 = {
     code: 200;
     ok: true;
-    info: "products.found";
+    info: "gridStatCommand.found";
 } & {body: response_body_92_7};
 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
+export type request_body_93 = {
+    x: number;
+    y: number;
+    w: number;
+    h: number;
+    i: number;
+    params: {
+        type: "line" | "bar" | "pie" | "donut" | "area";
+        filters: {
+            startDate: Date;
+            endDate: Date;
+            productSheetsId: string[];
+            priceMax?: number | undefined;
+            priceMin?: number | undefined;
+        } | {
+            startDate: Date;
+            endDate: Date;
+            categories?: string[] | undefined;
+            facets?: {
+                ACCESSORY?: string | undefined;
+                COLOR?: string | undefined;
+                DIAMETER?: string | undefined;
+                MATERIAL?: string | undefined;
+                SIZE?: string | undefined;
+                STIMULATION?: string | undefined;
+                TARGET?: string | undefined;
+            } | undefined;
+            priceMax?: number | undefined;
+            priceMin?: number | undefined;
+        };
+    } | {
+        type: "top";
+        filters: {
+            startDate: Date;
+            endDate: Date;
+            customfilterType: "categories" | "productSheetsId";
+            filterValue: string[];
+        };
+    } | {
+        type: "value";
+        filters: {
+            startDate: Date;
+            endDate: Date;
+            customfilterType: "category" | "productSheetId";
+            filterValue: string;
+        };
+    };
+}[]
+
 export type parameters_93 = {
     params: {
         organizationId: string;
     };
-    query?: {
-<<<<<<< HEAD
-        sku?: string | undefined;
-=======
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-        page?: number;
-    } | undefined;
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 }
 
 export type response_93_0 = {
@@ -8253,90 +5206,82 @@ export type response_93_3 = {
 } & {body: undefined};
 
 export type response_93_4 = {
-    code: 403;
+    code: 404;
     ok: false;
-    info: "user.role.invalid";
+    info: "organization.notfound";
 } & {body: undefined};
 
 export type response_93_5 = {
-    code: 409;
+    code: 406;
     ok: false;
-    info: "navigationItem.limit";
+    info: "organization.hasNotUser";
 } & {body: undefined};
 
-export type response_body_93_6 = {
-    id: string;
-    priority: number;
-    type: "PARENT_CATEGORY";
-    parentCategoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "CATEGORY";
-    categoryName: string;
-} | {
-    id: string;
-    priority: number;
-    type: "LINK";
-    url: string;
-    title: string;
-}
-
 export type response_93_6 = {
-<<<<<<< HEAD
-    code: 201;
-    ok: true;
-    info: "navigationItem.created";
-} & {body: response_body_93_6};
-=======
     code: 403;
     ok: false;
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
 export type response_body_93_7 = {
-    id: number;
-<<<<<<< HEAD
-    productSku: string;
-    reason: string;
-    status: "WAITING_RETURN" | "REFUNDED" | "INVALID";
-    organizationId: string;
-    createdAt?: string;
-=======
-    percentage: number;
-    startDate?: string;
-    endDate?: string;
-    productSheetName: string;
-    productSheetId: string;
-    reason: string;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
+    x: number;
+    y: number;
+    w: number;
+    h: number;
+    i: number;
+    params: {
+        type: "line" | "bar" | "pie" | "donut" | "area";
+        filters: {
+            startDate: Date;
+            endDate: Date;
+            productSheetsId: string[];
+            priceMax?: number | undefined;
+            priceMin?: number | undefined;
+        } | {
+            startDate: Date;
+            endDate: Date;
+            categories?: string[] | undefined;
+            facets?: {
+                ACCESSORY?: string | undefined;
+                COLOR?: string | undefined;
+                DIAMETER?: string | undefined;
+                MATERIAL?: string | undefined;
+                SIZE?: string | undefined;
+                STIMULATION?: string | undefined;
+                TARGET?: string | undefined;
+            } | undefined;
+            priceMax?: number | undefined;
+            priceMin?: number | undefined;
+        };
+    } | {
+        type: "top";
+        filters: {
+            startDate: Date;
+            endDate: Date;
+            customfilterType: "categories" | "productSheetsId";
+            filterValue: string[];
+        };
+    } | {
+        type: "value";
+        filters: {
+            startDate: Date;
+            endDate: Date;
+            customfilterType: "category" | "productSheetId";
+            filterValue: string;
+        };
+    };
 }[]
 
 export type response_93_7 = {
-    code: 200;
+    code: 201;
     ok: true;
-<<<<<<< HEAD
-    info: "productReturns";
+    info: "gridStatCommand.updated";
 } & {body: response_body_93_7};
-
-export type request_body_94 = {
-    sku: string;
-    reason: string;
-}
-=======
-    info: "organization.promotions";
-} & {body: response_body_93_7};
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 
 export type parameters_94 = {
     params: {
-        organizationId: string;
+        productSheetId: string;
     };
-    query?: {
-        page?: number;
-        name?: string | undefined;
-    } | undefined;
 }
 
 export type response_94_0 = {
@@ -8366,7 +5311,7 @@ export type response_94_3 = {
 export type response_94_4 = {
     code: 404;
     ok: false;
-    info: "organization.notfound";
+    info: "productSheet.notfound";
 } & {body: undefined};
 
 export type response_94_5 = {
@@ -8382,26 +5327,25 @@ export type response_94_6 = {
 } & {body: undefined};
 
 export type response_body_94_7 = {
-    id: string;
     name: string;
-    address: string;
-    organizationId: string;
+    disabled: boolean;
+    imageKey: string | null;
+    imageUrl: string | null;
 }[]
 
 export type response_94_7 = {
     code: 200;
     ok: true;
-    info: "warehouses.found";
+    info: "productSheet.categories";
 } & {body: response_body_94_7};
 
 export type request_body_95 = {
-    name: string;
-    address: string;
+    categoryName: string;
 }
 
 export type parameters_95 = {
     params: {
-        organizationId: string;
+        productSheetId: string;
     };
 }
 
@@ -8432,7 +5376,7 @@ export type response_95_3 = {
 export type response_95_4 = {
     code: 404;
     ok: false;
-    info: "organization.notfound";
+    info: "productSheet.notfound";
 } & {body: undefined};
 
 export type response_95_5 = {
@@ -8448,28 +5392,31 @@ export type response_95_6 = {
 } & {body: undefined};
 
 export type response_95_7 = {
-    code: 400;
+    code: 404;
     ok: false;
-    info: "warehouse.address.invalid";
+    info: "category.notfound";
 } & {body: undefined};
 
-export type response_body_95_8 = {
-    id: string;
-    name: string;
-    address: string;
-    organizationId: string;
-}
-
 export type response_95_8 = {
+    code: 409;
+    ok: false;
+    info: "productSheet.categories.limit";
+} & {body: undefined};
+
+export type response_95_9 = {
     code: 201;
     ok: true;
-    info: "warehouse.created";
-} & {body: response_body_95_8};
+    info: "productSheet.category.linked";
+} & {body: undefined};
 
 export type parameters_96 = {
     params: {
-        productSheetId: string;
+        organizationId: string;
     };
+    query?: {
+        page?: number;
+        name?: string | undefined;
+    } | undefined;
 }
 
 export type response_96_0 = {
@@ -8499,7 +5446,7 @@ export type response_96_3 = {
 export type response_96_4 = {
     code: 404;
     ok: false;
-    info: "productSheet.notfound";
+    info: "organization.notfound";
 } & {body: undefined};
 
 export type response_96_5 = {
@@ -8515,25 +5462,26 @@ export type response_96_6 = {
 } & {body: undefined};
 
 export type response_body_96_7 = {
+    id: string;
     name: string;
-    disabled: boolean;
-    imageKey: string | null;
-    imageUrl: string | null;
+    address: string;
+    organizationId: string;
 }[]
 
 export type response_96_7 = {
     code: 200;
     ok: true;
-    info: "productSheet.categories";
+    info: "warehouses.found";
 } & {body: response_body_96_7};
 
 export type request_body_97 = {
-    categoryName: string;
+    name: string;
+    address: string;
 }
 
 export type parameters_97 = {
     params: {
-        productSheetId: string;
+        organizationId: string;
     };
 }
 
@@ -8564,7 +5512,7 @@ export type response_97_3 = {
 export type response_97_4 = {
     code: 404;
     ok: false;
-    info: "productSheet.notfound";
+    info: "organization.notfound";
 } & {body: undefined};
 
 export type response_97_5 = {
@@ -8580,22 +5528,23 @@ export type response_97_6 = {
 } & {body: undefined};
 
 export type response_97_7 = {
-    code: 404;
+    code: 400;
     ok: false;
-    info: "category.notfound";
+    info: "warehouse.address.invalid";
 } & {body: undefined};
+
+export type response_body_97_8 = {
+    id: string;
+    name: string;
+    address: string;
+    organizationId: string;
+}
 
 export type response_97_8 = {
-    code: 409;
-    ok: false;
-    info: "productSheet.categories.limit";
-} & {body: undefined};
-
-export type response_97_9 = {
     code: 201;
     ok: true;
-    info: "productSheet.category.linked";
-} & {body: undefined};
+    info: "warehouse.created";
+} & {body: response_body_97_8};
 
 export type parameters_98 = {
     params: {
@@ -8790,16 +5739,6 @@ export type response_100_6 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-<<<<<<< HEAD
-export type response_body_100_7 = {
-<<<<<<< HEAD
-    id: string;
-    name: string;
-    address: string;
-    organizationId: string;
-}
-=======
-=======
 export type response_100_7 = {
     code: 400;
     ok: false;
@@ -8807,7 +5746,6 @@ export type response_100_7 = {
 } & {body: undefined};
 
 export type response_body_100_8 = {
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
     id: number;
     percentage: number;
     startDate?: string;
@@ -8815,27 +5753,13 @@ export type response_body_100_8 = {
     productSheetName: string;
     productSheetId: string;
     reason: string;
-<<<<<<< HEAD
-}[]
-=======
 }
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 
 export type response_100_8 = {
     code: 201;
     ok: true;
-<<<<<<< HEAD
-    info: "productSheet.warehouse";
-=======
-<<<<<<< HEAD
-    info: "organization.promotions";
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-} & {body: response_body_100_7};
-=======
     info: "promotion.created";
 } & {body: response_body_100_8};
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 
 export type parameters_101 = {
     params: {
@@ -8888,23 +5812,7 @@ export type response_101_6 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-<<<<<<< HEAD
 export type response_body_101_7 = {
-=======
-export type response_101_7 = {
-    code: 400;
-    ok: false;
-    info: "promotion.date.invalid";
-} & {body: undefined};
-
-<<<<<<< HEAD
-export type response_body_101_8 = {
-    id: number;
-    percentage: number;
-    startDate?: string;
-    endDate?: string;
-    productSheetName: string;
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
     productSheetId: string;
     quantity: number;
     date: Date;
@@ -8916,24 +5824,6 @@ export type response_101_7 = {
     info: "product.stockStory";
 } & {body: response_body_101_7};
 
-export type request_body_102 = {
-    percentage: number;
-    startDate: Date;
-    endDate: Date;
-    reason: string;
-}
-
-<<<<<<< HEAD
-=======
-export type response_101_8 = {
-    code: 201;
-    ok: true;
-    info: "promotion.created";
-} & {body: response_body_101_8};
-
-=======
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 export type parameters_102 = {
     params: {
         productSheetId: string;
@@ -8982,54 +5872,36 @@ export type response_102_6 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-<<<<<<< HEAD
-export type response_102_7 = {
-    code: 400;
-    ok: false;
-    info: "promotion.date.invalid";
-} & {body: undefined};
-=======
 export type response_body_102_7 = {
-<<<<<<< HEAD
-    productSheetId: string;
-    quantity: number;
-    date: Date;
-}[]
-=======
     id: string;
+    ref: string;
     name: string;
-    address: string;
+    description: string;
+    shortDescription: string;
+    price: number;
+    createdAt?: string;
+    updatedAt?: string;
     organizationId: string;
+    variationGroup: string | null;
+    variationName: string | null;
+    warehouseId: string;
 }
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 
 export type response_102_7 = {
     code: 200;
     ok: true;
-<<<<<<< HEAD
-    info: "product.stockStory";
+    info: "productSheet.found";
 } & {body: response_body_102_7};
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 
-export type response_body_102_8 = {
-    id: number;
-    percentage: number;
-    startDate?: string;
-    endDate?: string;
-    productSheetName: string;
-    productSheetId: string;
-    reason: string;
+export type request_body_103 = {
+    name?: string | undefined;
+    description?: string | undefined;
+    shortDescription?: string | undefined;
+    price?: number | undefined;
+    variationGroup?: string | undefined;
+    variationName?: string | undefined;
+    warehouseId?: string | undefined;
 }
-=======
-    info: "productSheet.warehouse";
-} & {body: response_body_102_7};
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-
-export type response_102_8 = {
-    code: 201;
-    ok: true;
-    info: "promotion.created";
-} & {body: response_body_102_8};
 
 export type parameters_103 = {
     params: {
@@ -9097,18 +5969,8 @@ export type response_body_103_7 = {
 export type response_103_7 = {
     code: 200;
     ok: true;
-    info: "productSheet.found";
+    info: "productSheet.edited";
 } & {body: response_body_103_7};
-
-export type request_body_104 = {
-    name?: string | undefined;
-    description?: string | undefined;
-    shortDescription?: string | undefined;
-    price?: number | undefined;
-    variationGroup?: string | undefined;
-    variationName?: string | undefined;
-    warehouseId?: string | undefined;
-}
 
 export type parameters_104 = {
     params: {
@@ -9160,36 +6022,20 @@ export type response_104_6 = {
 
 export type response_body_104_7 = {
     id: string;
-    ref: string;
     name: string;
-    description: string;
-    shortDescription: string;
-    price: number;
-    createdAt?: string;
-    updatedAt?: string;
+    address: string;
     organizationId: string;
-    variationGroup: string | null;
-    variationName: string | null;
-    warehouseId: string;
 }
 
 export type response_104_7 = {
     code: 200;
     ok: true;
-    info: "productSheet.edited";
+    info: "productSheet.warehouse";
 } & {body: response_body_104_7};
 
-<<<<<<< HEAD
-export type request_body_105 = {
-    value?: string | undefined;
-}
-
-=======
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 export type parameters_105 = {
     params: {
         productSheetId: string;
-        facetType: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
     };
 }
 
@@ -9235,48 +6081,15 @@ export type response_105_6 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-<<<<<<< HEAD
-=======
 export type response_body_105_7 = {
-<<<<<<< HEAD
-    id: string;
-    ref: string;
-    name: string;
-    description: string;
-    shortDescription: string;
-    price: number;
-    createdAt?: string;
-    updatedAt?: string;
-    organizationId: string;
-    variationGroup: string | null;
-    variationName: string | null;
-    warehouseId: string;
-}
-=======
     type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
     productSheetId: string;
     value: string;
 }[]
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 export type response_105_7 = {
-    code: 404;
-    ok: false;
-    info: "facet.notfound";
-} & {body: undefined};
-
-export type response_105_8 = {
     code: 200;
     ok: true;
-<<<<<<< HEAD
-    info: "facet.edited";
-} & {body: undefined};
-=======
-<<<<<<< HEAD
-    info: "productSheet.edited";
-} & {body: response_body_105_7};
-=======
     info: "productSheet.facets";
 } & {body: response_body_105_7};
 
@@ -9284,13 +6097,10 @@ export type request_body_106 = {
     type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
     value: string;
 }
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 
 export type parameters_106 = {
     params: {
         productSheetId: string;
-        facetType: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
     };
 }
 
@@ -9336,33 +6146,6 @@ export type response_106_6 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-export type response_body_106_7 = {
-    type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
-    productSheetId: string;
-    value: string;
-}[]
-
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-export type response_106_7 = {
-    code: 404;
-    ok: false;
-    info: "facet.notfound";
-} & {body: undefined};
-
-<<<<<<< HEAD
-export type response_106_8 = {
-    code: 204;
-    ok: true;
-    info: "facet.deleted";
-} & {body: undefined};
-=======
-export type request_body_107 = {
-    type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
-    value: string;
-=======
 export type response_106_7 = {
     code: 409;
     ok: false;
@@ -9381,16 +6164,9 @@ export type response_106_8 = {
     info: "facet.created";
 } & {body: response_body_106_8};
 
-export type request_body_107 = {
-    value?: string | undefined;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-}
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-
 export type parameters_107 = {
     params: {
         productSheetId: string;
-        facetType: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
     };
 }
 
@@ -9436,62 +6212,28 @@ export type response_107_6 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-<<<<<<< HEAD
 export type response_body_107_7 = {
-    type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
+    id: string;
     productSheetId: string;
-    value: string;
+    organizationId: string;
+    url: string;
+    key: string;
+    alt: string | null;
 }[]
-=======
-export type response_107_7 = {
-<<<<<<< HEAD
-    code: 409;
-    ok: false;
-    info: "productSheet.facet.alreadyExist";
-} & {body: undefined};
-
-export type response_body_107_8 = {
-    type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
-    productSheetId: string;
-    value: string;
-}
-=======
-    code: 404;
-    ok: false;
-    info: "facet.notfound";
-} & {body: undefined};
-
-export type response_107_8 = {
-    code: 200;
-    ok: true;
-    info: "facet.edited";
-} & {body: undefined};
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 
 export type response_107_7 = {
     code: 200;
     ok: true;
-    info: "productSheet.facets";
+    info: "productSheet.images";
 } & {body: response_body_107_7};
 
-export type request_body_108 = {
-    type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
-    value: string;
-}
-
 export type parameters_108 = {
+    headers: {
+        "content-type": string;
+        "content-length": number;
+    };
     params: {
-<<<<<<< HEAD
         productSheetId: string;
-=======
-<<<<<<< HEAD
-        sku: string;
-=======
-        productSheetId: string;
-        facetType: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
     };
 }
 
@@ -9538,46 +6280,40 @@ export type response_108_6 = {
 } & {body: undefined};
 
 export type response_108_7 = {
-<<<<<<< HEAD
     code: 409;
     ok: false;
-    info: "productSheet.facet.alreadyExist";
+    info: "product.images.limit";
 } & {body: undefined};
 
-export type response_body_108_8 = {
-    type: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
+export type response_108_8 = {
+    code: 400;
+    ok: false;
+    info: "productSheet.image.missing";
+} & {body: undefined};
+
+export type response_body_108_9 = {
+    id: string;
     productSheetId: string;
-    value: string;
+    organizationId: string;
+    url: string;
+    key: string;
+    alt: string | null;
 }
 
-export type response_108_8 = {
+export type response_108_9 = {
     code: 201;
     ok: true;
-    info: "facet.created";
-} & {body: response_body_108_8};
-=======
-<<<<<<< HEAD
-    code: 200;
-    ok: true;
-    info: "product.commandHistory";
-} & {body: response_body_108_7};
-=======
-    code: 404;
-    ok: false;
-    info: "facet.notfound";
-} & {body: undefined};
+    info: "productSheet.image.create";
+} & {body: response_body_108_9};
 
-export type response_108_8 = {
-    code: 204;
-    ok: true;
-    info: "facet.deleted";
-} & {body: undefined};
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+export type request_body_109 = {
+    value?: string | undefined;
+}
 
 export type parameters_109 = {
     params: {
-        sku: string;
+        productSheetId: string;
+        facetType: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
     };
 }
 
@@ -9608,7 +6344,7 @@ export type response_109_3 = {
 export type response_109_4 = {
     code: 404;
     ok: false;
-    info: "product.notfound";
+    info: "productSheet.notfound";
 } & {body: undefined};
 
 export type response_109_5 = {
@@ -9623,63 +6359,22 @@ export type response_109_6 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-export type response_body_109_7 = {
-    id: string;
-<<<<<<< HEAD
-    productSheetId: string;
-    organizationId: string;
-    url: string;
-    key: string;
-    alt: string | null;
-}[]
-=======
-<<<<<<< HEAD
-    name: string;
-    address: string;
-    organizationId: string;
-}
-=======
-    firstname: string;
-    lastname: string;
-    status: "DONE" | "CANCELED" | "WAITING_PAYMENT" | "IN_PROGRESS" | "IN_DELIVERY";
-    userId: string;
-    deliveryAddress: string;
-    createdDate: Date;
-    price: number;
-    items: {
-        quantity: number;
-        processQuantity: number;
-        productSheetId: string;
-        productSheetName: string;
-        productSheetFirstImageUrl: string;
-        productSheetOrganizationName: string;
-        productSheetPrice: number;
-    }[];
-}[]
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-
 export type response_109_7 = {
+    code: 404;
+    ok: false;
+    info: "facet.notfound";
+} & {body: undefined};
+
+export type response_109_8 = {
     code: 200;
     ok: true;
-<<<<<<< HEAD
-    info: "productSheet.images";
-=======
-<<<<<<< HEAD
-    info: "productSheet.warehouse";
-=======
-    info: "product.commandHistory";
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-} & {body: response_body_109_7};
+    info: "facet.edited";
+} & {body: undefined};
 
 export type parameters_110 = {
-    headers: {
-        "content-type": string;
-        "content-length": number;
-    };
     params: {
         productSheetId: string;
+        facetType: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
     };
 }
 
@@ -9725,65 +6420,21 @@ export type response_110_6 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-<<<<<<< HEAD
 export type response_110_7 = {
-    code: 409;
+    code: 404;
     ok: false;
-    info: "product.images.limit";
+    info: "facet.notfound";
 } & {body: undefined};
 
 export type response_110_8 = {
-    code: 400;
-    ok: false;
-    info: "productSheet.image.missing";
+    code: 204;
+    ok: true;
+    info: "facet.deleted";
 } & {body: undefined};
-=======
-export type response_body_110_7 = {
-    id: string;
-    productSheetId: string;
-    organizationId: string;
-    url: string;
-    key: string;
-    alt: string | null;
-}[]
-
-export type response_110_7 = {
-    code: 200;
-    ok: true;
-    info: "productSheet.images";
-} & {body: response_body_110_7};
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-
-export type response_body_110_9 = {
-    id: string;
-    productSheetId: string;
-    organizationId: string;
-    url: string;
-    key: string;
-    alt: string | null;
-}
-
-export type response_110_9 = {
-    code: 201;
-    ok: true;
-    info: "productSheet.image.create";
-} & {body: response_body_110_9};
 
 export type parameters_111 = {
-    headers: {
-        "content-type": string;
-        "content-length": number;
-    };
     params: {
-<<<<<<< HEAD
         sku: string;
-=======
-        productSheetId: string;
-<<<<<<< HEAD
-        facetType: "COLOR" | "SIZE" | "DIAMETER" | "TARGET" | "ACCESSORY" | "MATERIAL" | "STIMULATION";
-=======
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
     };
 }
 
@@ -9829,7 +6480,6 @@ export type response_111_6 = {
     info: "user.role.organization.invalid";
 } & {body: undefined};
 
-<<<<<<< HEAD
 export type response_body_111_7 = {
     id: string;
     firstname: string;
@@ -9849,52 +6499,12 @@ export type response_body_111_7 = {
         productSheetPrice: number;
     }[];
 }[]
-=======
-export type response_111_7 = {
-<<<<<<< HEAD
-    code: 404;
-    ok: false;
-    info: "facet.notfound";
-} & {body: undefined};
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 
 export type response_111_7 = {
     code: 200;
     ok: true;
-<<<<<<< HEAD
     info: "product.commandHistory";
 } & {body: response_body_111_7};
-=======
-    info: "facet.deleted";
-} & {body: undefined};
-=======
-    code: 409;
-    ok: false;
-    info: "product.images.limit";
-} & {body: undefined};
-
-export type response_111_8 = {
-    code: 400;
-    ok: false;
-    info: "productSheet.image.missing";
-} & {body: undefined};
-
-export type response_body_111_9 = {
-    id: string;
-    productSheetId: string;
-    organizationId: string;
-    url: string;
-    key: string;
-    alt: string | null;
-}
-
-export type response_111_9 = {
-    code: 201;
-    ok: true;
-    info: "productSheet.image.create";
-} & {body: response_body_111_9};
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 
 export type request_body_112 = {
     status?: ("IN_STOCK" | "WRONG") | undefined;
@@ -9967,9 +6577,14 @@ export type response_112_7 = {
     info: "product.edited";
 } & {body: response_body_112_7};
 
+export type request_body_113 = {
+    name?: string | undefined;
+    address?: string | undefined;
+}
+
 export type parameters_113 = {
     params: {
-        bundleId: number;
+        warehouseId: string;
     };
 }
 
@@ -10000,51 +6615,36 @@ export type response_113_3 = {
 export type response_113_4 = {
     code: 404;
     ok: false;
-    info: "bundle.notfound";
+    info: "warehouse.notfound";
 } & {body: undefined};
 
 export type response_113_5 = {
-    code: 401;
+    code: 406;
     ok: false;
-    info: "bundle.wrong.user";
+    info: "organization.hasNotUser";
 } & {body: undefined};
 
-export type response_body_113_6 = {
-    id: number;
-    idShip: string;
-    carrierName: "LA_POSTE";
-    commandId: string;
-    status: "DONE" | "CREATED" | "CARRIER_SUPPORTED" | "CARRIER_PROCESS" | "UNDELIVERABLE" | "DONE_OFFICE" | "BACK" | "BACK_DONE";
-    bundleProducts: {
-        name: string;
-        productSheetId: string;
-        imageUrl: string;
-        quantity: number;
-    }[];
-}
-
 export type response_113_6 = {
+    code: 403;
+    ok: false;
+    info: "user.role.organization.invalid";
+} & {body: undefined};
+
+export type response_113_7 = {
+    code: 400;
+    ok: false;
+    info: "warehouse.address.invalid";
+} & {body: undefined};
+
+export type response_113_8 = {
     code: 200;
     ok: true;
-    info: "bundle";
-} & {body: response_body_113_6};
-
-export type request_body_114 = {
-    name?: string | undefined;
-    address?: string | undefined;
-}
+    info: "warehouse.edited";
+} & {body: undefined};
 
 export type parameters_114 = {
     params: {
-<<<<<<< HEAD
         bundleId: number;
-=======
-<<<<<<< HEAD
-        productReturnId: number;
-=======
-        warehouseId: string;
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
     };
 }
 
@@ -10075,15 +6675,7 @@ export type response_114_3 = {
 export type response_114_4 = {
     code: 404;
     ok: false;
-<<<<<<< HEAD
     info: "bundle.notfound";
-=======
-<<<<<<< HEAD
-    info: "productReturn.notfound";
-=======
-    info: "warehouse.notfound";
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 } & {body: undefined};
 
 export type response_114_5 = {
@@ -10092,24 +6684,7 @@ export type response_114_5 = {
     info: "bundle.wrong.user";
 } & {body: undefined};
 
-<<<<<<< HEAD
 export type response_body_114_6 = {
-=======
-export type response_114_6 = {
-    code: 403;
-    ok: false;
-    info: "user.role.organization.invalid";
-} & {body: undefined};
-
-export type response_114_7 = {
-<<<<<<< HEAD
-    code: 406;
-    ok: false;
-    info: "productReturn.wrong.status";
-} & {body: undefined};
-
-export type response_body_114_8 = {
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
     id: number;
     idShip: string;
     carrierName: "LA_POSTE";
@@ -10126,25 +6701,8 @@ export type response_body_114_8 = {
 export type response_114_6 = {
     code: 200;
     ok: true;
-<<<<<<< HEAD
     info: "bundle";
 } & {body: response_body_114_6};
-=======
-    info: "productReturn.edited";
-} & {body: response_body_114_8};
-=======
-    code: 400;
-    ok: false;
-    info: "warehouse.address.invalid";
-} & {body: undefined};
-
-export type response_114_8 = {
-    code: 200;
-    ok: true;
-    info: "warehouse.edited";
-} & {body: undefined};
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 
 export type parameters_115 = {
     params: {
@@ -10648,57 +7206,27 @@ export type DefEnrichedDuplojsTo = {
 		| response_17_1
 		| response_17_2,
 } | {
-	path: "/users",
-	method: "GET",
-	body: unknown,
-	parameters: parameters_18,
-	response: response_18_0
-		| response_18_1
-		| response_18_2
-		| response_18_3
-		| response_18_4
-		| response_18_5,
-} | {
-	path: "/users",
-	method: "POST",
-	body: request_body_19,
-	parameters: undefined,
-	response: response_19_0
-		| response_19_1
-		| response_19_2
-		| response_19_3
-		| response_19_4,
-} | {
 	path: "/full-product-sheets-count",
 	method: "GET",
 	body: unknown,
-<<<<<<< HEAD
-	parameters: parameters_20,
-	response: response_20_0,
+	parameters: parameters_18,
+	response: response_18_0,
 } | {
 	path: "/computed-filters",
 	method: "GET",
 	body: unknown,
-	parameters: parameters_21,
-	response: response_21_0,
-=======
 	parameters: parameters_19,
 	response: response_19_0,
-<<<<<<< HEAD
-=======
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 } | {
 	path: "/login",
 	method: "POST",
-	body: request_body_22,
+	body: request_body_20,
 	parameters: undefined,
-<<<<<<< HEAD
-=======
 	response: response_20_0
 		| response_20_1
 		| response_20_2,
 } | {
-	path: "/users",
+	path: "/user/notifications",
 	method: "GET",
 	body: unknown,
 	parameters: parameters_21,
@@ -10706,224 +7234,117 @@ export type DefEnrichedDuplojsTo = {
 		| response_21_1
 		| response_21_2
 		| response_21_3
-		| response_21_4
-		| response_21_5,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-} | {
-	path: "/users",
-	method: "POST",
-	body: request_body_20,
-	parameters: undefined,
-<<<<<<< HEAD
-	response: response_20_0
-		| response_20_1
-		| response_20_2,
-=======
-	response: response_22_0
-		| response_22_1
-		| response_22_2
-		| response_22_3
-		| response_22_4,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-} | {
-	path: "/articles/{productSheetId}",
-	method: "DELETE",
-	body: unknown,
-	parameters: parameters_21,
-	response: response_21_0
-		| response_21_1
-		| response_21_2
-		| response_21_3
-		| response_21_4
-		| response_21_5,
+		| response_21_4,
 } | {
 	path: "/users",
 	method: "GET",
 	body: unknown,
 	parameters: parameters_22,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	response: response_22_0
 		| response_22_1
-		| response_22_2,
+		| response_22_2
+		| response_22_3
+		| response_22_4
+		| response_22_5,
 } | {
-	path: "/commands",
-	method: "GET",
-	body: unknown,
-	parameters: parameters_23,
+	path: "/users",
+	method: "POST",
+	body: request_body_23,
+	parameters: undefined,
 	response: response_23_0
 		| response_23_1
 		| response_23_2
 		| response_23_3
 		| response_23_4,
 } | {
-	path: "/user/notifications",
-	method: "GET",
+	path: "/articles/{productSheetId}",
+	method: "DELETE",
 	body: unknown,
 	parameters: parameters_24,
 	response: response_24_0
 		| response_24_1
 		| response_24_2
 		| response_24_3
-		| response_24_4,
+		| response_24_4
+		| response_24_5,
 } | {
-<<<<<<< HEAD
-	path: "/articles/{productSheetId}",
-=======
-<<<<<<< HEAD
 	path: "/image-product-sheet/{imageProductSheetId}",
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	method: "DELETE",
-=======
-	path: "/cart",
-	method: "GET",
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 	body: unknown,
-	parameters: undefined,
+	parameters: parameters_25,
 	response: response_25_0
 		| response_25_1
 		| response_25_2
 		| response_25_3
-<<<<<<< HEAD
 		| response_25_4
-		| response_25_5,
+		| response_25_5
+		| response_25_6
+		| response_25_7,
 } | {
-<<<<<<< HEAD
-	path: "/image-product-sheet/{imageProductSheetId}",
-	method: "DELETE",
-=======
-	path: "/commands",
-	method: "GET",
-=======
-		| response_25_4,
-} | {
-	path: "/articles/{productSheetId}",
-	method: "DELETE",
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-	body: unknown,
-	parameters: parameters_26,
+	path: "/make-command",
+	method: "POST",
+	body: request_body_26,
+	parameters: undefined,
 	response: response_26_0
 		| response_26_1
 		| response_26_2
 		| response_26_3
-<<<<<<< HEAD
 		| response_26_4
 		| response_26_5
 		| response_26_6
 		| response_26_7,
-=======
-<<<<<<< HEAD
-		| response_26_4,
-=======
-		| response_26_4
-		| response_26_5,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 } | {
-	path: "/make-command",
-	method: "POST",
-	body: request_body_27,
-	parameters: undefined,
+	path: "/commands",
+	method: "GET",
+	body: unknown,
+	parameters: parameters_27,
 	response: response_27_0
 		| response_27_1
 		| response_27_2
 		| response_27_3
-		| response_27_4
-		| response_27_5
-		| response_27_6
-		| response_27_7,
+		| response_27_4,
 } | {
-<<<<<<< HEAD
-	path: "/organizations/{organizationId}/user",
-	method: "GET",
-	body: unknown,
-=======
-<<<<<<< HEAD
 	path: "/organizations/{organizationId}/users/{userId}",
 	method: "PATCH",
 	body: request_body_28,
-=======
-	path: "/image-product-sheet/{imageProductSheetId}",
-	method: "DELETE",
-	body: unknown,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	parameters: parameters_28,
 	response: response_28_0
 		| response_28_1
 		| response_28_2
 		| response_28_3
 		| response_28_4
-<<<<<<< HEAD
-		| response_28_5,
-} | {
-	path: "/organizations/{organizationId}/users/{userId}",
-	method: "PATCH",
-	body: request_body_29,
-=======
 		| response_28_5
 		| response_28_6
-<<<<<<< HEAD
 		| response_28_7
 		| response_28_8,
 } | {
 	path: "/organizations/{organizationId}/users/{userId}",
 	method: "DELETE",
-=======
-		| response_28_7,
-} | {
-	path: "/organizations/{organizationId}/user",
-	method: "GET",
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 	body: unknown,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	parameters: parameters_29,
 	response: response_29_0
 		| response_29_1
 		| response_29_2
 		| response_29_3
 		| response_29_4
-		| response_29_5,
+		| response_29_5
+		| response_29_6
+		| response_29_7
+		| response_29_8,
 } | {
-<<<<<<< HEAD
-	path: "/organizations/{organizationId}/users/{userId}",
-	method: "DELETE",
+	path: "/organizations/{organizationId}/user",
+	method: "GET",
 	body: unknown,
 	parameters: parameters_30,
-=======
-<<<<<<< HEAD
-	path: "/make-command",
-	method: "POST",
-	body: request_body_30,
-	parameters: undefined,
-=======
-	path: "/organizations/{organizationId}/users/{userId}",
-	method: "PATCH",
-	body: request_body_30,
-	parameters: parameters_30,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	response: response_30_0
 		| response_30_1
 		| response_30_2
 		| response_30_3
 		| response_30_4
-		| response_30_5
-		| response_30_6
-		| response_30_7
-		| response_30_8,
+		| response_30_5,
 } | {
-<<<<<<< HEAD
 	path: "/user/organizations",
-=======
-<<<<<<< HEAD
-	path: "/product-notifications",
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	method: "GET",
-=======
-	path: "/organizations/{organizationId}/users/{userId}",
-	method: "DELETE",
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 	body: unknown,
 	parameters: parameters_31,
 	response: response_31_0
@@ -10931,12 +7352,9 @@ export type DefEnrichedDuplojsTo = {
 		| response_31_2
 		| response_31_3
 		| response_31_4
-		| response_31_5
-		| response_31_6
-		| response_31_7
-		| response_31_8,
+		| response_31_5,
 } | {
-	path: "/retry-command",
+	path: "/articles",
 	method: "POST",
 	body: request_body_32,
 	parameters: undefined,
@@ -10946,37 +7364,21 @@ export type DefEnrichedDuplojsTo = {
 		| response_32_3
 		| response_32_4
 		| response_32_5
-		| response_32_6,
+		| response_32_6
+		| response_32_7
+		| response_32_8,
 } | {
-<<<<<<< HEAD
-	path: "/articles",
+	path: "/retry-command",
 	method: "POST",
 	body: request_body_33,
 	parameters: undefined,
-=======
-<<<<<<< HEAD
-	path: "/organizations/{organizationId}/user",
-=======
-	path: "/user/organizations",
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-	method: "GET",
-	body: unknown,
-	parameters: parameters_33,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	response: response_33_0
 		| response_33_1
 		| response_33_2
 		| response_33_3
 		| response_33_4
-<<<<<<< HEAD
 		| response_33_5
-		| response_33_6
-		| response_33_7
-		| response_33_8,
-=======
-		| response_33_5,
-<<<<<<< HEAD
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+		| response_33_6,
 } | {
 	path: "/cart",
 	method: "GET",
@@ -10988,134 +7390,51 @@ export type DefEnrichedDuplojsTo = {
 		| response_34_3
 		| response_34_4,
 } | {
-<<<<<<< HEAD
-	path: "/product-notifications/{notificationId}",
-	method: "DELETE",
-	body: unknown,
-	parameters: parameters_35,
-=======
-	path: "/retry-command",
-=======
-} | {
 	path: "/product-notifications",
 	method: "GET",
 	body: unknown,
-	parameters: parameters_34,
-	response: response_34_0
-		| response_34_1
-		| response_34_2
-		| response_34_3
-		| response_34_4
-		| response_34_5,
-} | {
-	path: "/product-notifications",
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-	method: "POST",
-	body: request_body_35,
-	parameters: undefined,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+	parameters: parameters_35,
 	response: response_35_0
 		| response_35_1
 		| response_35_2
 		| response_35_3
 		| response_35_4
-<<<<<<< HEAD
 		| response_35_5,
 } | {
-	path: "/product-sheet-reviews/{productSheetReviewId}",
-	method: "DELETE",
-=======
-		| response_35_5
-<<<<<<< HEAD
-		| response_35_6,
-} | {
-	path: "/user/organizations",
-	method: "GET",
-=======
-		| response_35_6
-		| response_35_7,
-} | {
-	path: "/product-notifications/{notificationId}",
-	method: "DELETE",
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-	body: unknown,
-	parameters: parameters_36,
+	path: "/product-notifications",
+	method: "POST",
+	body: request_body_36,
+	parameters: undefined,
 	response: response_36_0
 		| response_36_1
 		| response_36_2
 		| response_36_3
 		| response_36_4
 		| response_36_5
-		| response_36_6,
+		| response_36_6
+		| response_36_7,
 } | {
-<<<<<<< HEAD
-	path: "/product-sheets/{productSheetId}/reviews",
-	method: "GET",
+	path: "/product-notifications/{notificationId}",
+	method: "DELETE",
 	body: unknown,
 	parameters: parameters_37,
-	response: response_37_0
-		| response_37_1,
-=======
-<<<<<<< HEAD
-	path: "/user",
-	method: "GET",
-	body: unknown,
-=======
-	path: "/articles",
-	method: "POST",
-	body: request_body_37,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-	parameters: undefined,
 	response: response_37_0
 		| response_37_1
 		| response_37_2
 		| response_37_3
 		| response_37_4
-<<<<<<< HEAD
 		| response_37_5,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+} | {
+	path: "/product-sheets/{productSheetId}/reviews",
+	method: "GET",
+	body: unknown,
+	parameters: parameters_38,
+	response: response_38_0
+		| response_38_1,
 } | {
 	path: "/product-sheets/{productSheetId}/reviews",
 	method: "POST",
-	body: request_body_38,
-<<<<<<< HEAD
-	parameters: parameters_38,
-=======
-	parameters: undefined,
-=======
-		| response_37_5
-		| response_37_6
-		| response_37_7
-		| response_37_8,
-} | {
-	path: "/product-sheet-reviews/{productSheetReviewId}",
-	method: "DELETE",
-	body: unknown,
-	parameters: parameters_38,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-	response: response_38_0
-		| response_38_1
-		| response_38_2
-		| response_38_3
-		| response_38_4
-<<<<<<< HEAD
-		| response_38_5
-		| response_38_6
-		| response_38_7,
-=======
-<<<<<<< HEAD
-		| response_38_5,
-=======
-		| response_38_5
-		| response_38_6,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-} | {
-	path: "/promotions/{promotionId}",
-	method: "DELETE",
-	body: unknown,
+	body: request_body_39,
 	parameters: parameters_39,
 	response: response_39_0
 		| response_39_1
@@ -11126,41 +7445,21 @@ export type DefEnrichedDuplojsTo = {
 		| response_39_6
 		| response_39_7,
 } | {
-<<<<<<< HEAD
-	path: "/user",
-	method: "GET",
-=======
-<<<<<<< HEAD
 	path: "/product-sheet-reviews/{productSheetReviewId}",
 	method: "DELETE",
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	body: unknown,
-	parameters: undefined,
+	parameters: parameters_40,
 	response: response_40_0
 		| response_40_1
 		| response_40_2
 		| response_40_3
 		| response_40_4
-		| response_40_5,
+		| response_40_5
+		| response_40_6,
 } | {
-<<<<<<< HEAD
-	path: "/user",
-	method: "PATCH",
-	body: request_body_41,
-	parameters: undefined,
-=======
-	path: "/product-sheets/{productSheetId}/reviews",
-=======
-	path: "/product-sheets/{productSheetId}/reviews",
-	method: "GET",
+	path: "/promotions/{promotionId}",
+	method: "DELETE",
 	body: unknown,
-	parameters: parameters_40,
-	response: response_40_0
-		| response_40_1,
-} | {
-	path: "/product-sheets/{productSheetId}/reviews",
-	method: "POST",
-	body: request_body_41,
 	parameters: parameters_41,
 	response: response_41_0
 		| response_41_1
@@ -11172,48 +7471,20 @@ export type DefEnrichedDuplojsTo = {
 		| response_41_7,
 } | {
 	path: "/user",
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 	method: "GET",
-	body: unknown,
-	parameters: parameters_41,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-	response: response_41_0
-		| response_41_1
-		| response_41_2
-		| response_41_3
-		| response_41_4
-		| response_41_5,
-} | {
-	path: "/user",
-	method: "DELETE",
 	body: unknown,
 	parameters: undefined,
 	response: response_42_0
 		| response_42_1
 		| response_42_2
 		| response_42_3
-<<<<<<< HEAD
-		| response_42_4,
-=======
 		| response_42_4
-<<<<<<< HEAD
-		| response_42_5
-		| response_42_6
-		| response_42_7,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-} | {
-	path: "/product-notifications",
-	method: "GET",
-	body: unknown,
-	parameters: parameters_43,
-=======
 		| response_42_5,
 } | {
 	path: "/user",
 	method: "PATCH",
 	body: request_body_43,
 	parameters: undefined,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 	response: response_43_0
 		| response_43_1
 		| response_43_2
@@ -11221,98 +7492,43 @@ export type DefEnrichedDuplojsTo = {
 		| response_43_4
 		| response_43_5,
 } | {
-<<<<<<< HEAD
-	path: "/product-notifications",
-	method: "POST",
-	body: request_body_44,
-=======
-<<<<<<< HEAD
-	path: "/full-product-sheets@moderator",
-	method: "GET",
-=======
 	path: "/user",
 	method: "DELETE",
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 	body: unknown,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	parameters: undefined,
 	response: response_44_0
 		| response_44_1
 		| response_44_2
 		| response_44_3
-<<<<<<< HEAD
-		| response_44_4
-<<<<<<< HEAD
-		| response_44_5
-		| response_44_6
-		| response_44_7,
-=======
-		| response_44_5,
-=======
 		| response_44_4,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 } | {
-	path: "/categories/{categoryName}",
-	method: "PATCH",
-	body: request_body_45,
-	parameters: parameters_45,
-	response: response_45_0
-		| response_45_1
-		| response_45_2
-		| response_45_3
-		| response_45_4
-		| response_45_5
-		| response_45_6
-		| response_45_7,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-} | {
-<<<<<<< HEAD
 	path: "/user/pull-data",
 	method: "POST",
 	body: unknown,
 	parameters: undefined,
-<<<<<<< HEAD
 	response: response_45_0
 		| response_45_1
 		| response_45_2
 		| response_45_3
 		| response_45_4
 		| response_45_5,
-=======
-=======
+} | {
 	path: "/commands/{commandId}/bundles",
 	method: "GET",
 	body: unknown,
 	parameters: parameters_46,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 	response: response_46_0
 		| response_46_1
 		| response_46_2
 		| response_46_3
 		| response_46_4
-<<<<<<< HEAD
-		| response_46_5,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-} | {
-	path: "/categories",
-	method: "GET",
-	body: unknown,
-	parameters: parameters_46,
-	response: response_46_0,
-} | {
-	path: "/categories",
-	method: "POST",
-	body: request_body_47,
-	parameters: undefined,
-=======
 		| response_46_5
 		| response_46_6,
 } | {
-	path: "/commands/{commandId}",
+	path: "/commands/{commandId}/invoice",
 	method: "GET",
 	body: unknown,
 	parameters: parameters_47,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 	response: response_47_0
 		| response_47_1
 		| response_47_2
@@ -11321,41 +7537,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_47_5
 		| response_47_6,
 } | {
-<<<<<<< HEAD
-	path: "/categories/{categoryName}",
-	method: "PATCH",
-	body: request_body_48,
-	parameters: parameters_48,
-	response: response_48_0
-		| response_48_1
-		| response_48_2
-		| response_48_3
-		| response_48_4
-		| response_48_5
-		| response_48_6
-		| response_48_7,
-} | {
-	path: "/full-product-sheets@moderator",
-=======
-<<<<<<< HEAD
-	path: "/categories",
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-	method: "GET",
-	body: unknown,
-	parameters: undefined,
-	response: response_49_0
-		| response_49_1
-		| response_49_2
-		| response_49_3
-		| response_49_4
-		| response_49_5,
-} | {
-	path: "/product-sheets/{productSheetId}@moderator",
-	method: "PATCH",
-	body: request_body_50,
-	parameters: parameters_50,
-=======
-	path: "/commands/{commandId}/invoice",
+	path: "/commands/{commandId}",
 	method: "GET",
 	body: unknown,
 	parameters: parameters_48,
@@ -11367,74 +7549,56 @@ export type DefEnrichedDuplojsTo = {
 		| response_48_5
 		| response_48_6,
 } | {
-	path: "/categories",
+	path: "/product-sheets/{productSheetId}@moderator",
+	method: "PATCH",
+	body: request_body_49,
+	parameters: parameters_49,
+	response: response_49_0
+		| response_49_1
+		| response_49_2
+		| response_49_3
+		| response_49_4
+		| response_49_5
+		| response_49_6,
+} | {
+	path: "/navigation-items",
 	method: "GET",
 	body: unknown,
-	parameters: parameters_49,
-	response: response_49_0,
-} | {
-	path: "/categories",
-	method: "POST",
-	body: request_body_50,
 	parameters: undefined,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 	response: response_50_0
 		| response_50_1
 		| response_50_2
 		| response_50_3
 		| response_50_4
-		| response_50_5
-		| response_50_6,
+		| response_50_5,
 } | {
-<<<<<<< HEAD
-	path: "/categories/{categoryName}/images",
-=======
-<<<<<<< HEAD
-	path: "/categories/{categoryName}/image",
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-	method: "PUT",
-	body: unknown,
-=======
-	path: "/categories/{categoryName}",
-	method: "PATCH",
+	path: "/navigation-items",
+	method: "POST",
 	body: request_body_51,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-	parameters: parameters_51,
+	parameters: undefined,
 	response: response_51_0
 		| response_51_1
 		| response_51_2
 		| response_51_3
 		| response_51_4
 		| response_51_5
-		| response_51_6
-		| response_51_7,
+		| response_51_6,
 } | {
-<<<<<<< HEAD
-	path: "/product-sheet-reviews",
-	method: "GET",
-	body: unknown,
-=======
-<<<<<<< HEAD
 	path: "/users/{userId}@moderator",
 	method: "PATCH",
 	body: request_body_52,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	parameters: parameters_52,
-=======
-	path: "/full-product-sheets@moderator",
-	method: "GET",
-	body: unknown,
-	parameters: undefined,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 	response: response_52_0
 		| response_52_1
 		| response_52_2
 		| response_52_3
 		| response_52_4
-		| response_52_5,
+		| response_52_5
+		| response_52_6
+		| response_52_7,
 } | {
-	path: "/categories/{categoryName}/image",
-	method: "PUT",
+	path: "/product-sheet-reviews",
+	method: "GET",
 	body: unknown,
 	parameters: parameters_53,
 	response: response_53_0
@@ -11442,316 +7606,139 @@ export type DefEnrichedDuplojsTo = {
 		| response_53_2
 		| response_53_3
 		| response_53_4
-		| response_53_5
-		| response_53_6
-		| response_53_7,
+		| response_53_5,
 } | {
-	path: "/product-sheets/{productSheetId}@moderator",
-	method: "PATCH",
-	body: request_body_54,
-	parameters: parameters_54,
+	path: "/full-product-sheets@moderator",
+	method: "GET",
+	body: unknown,
+	parameters: undefined,
 	response: response_54_0
 		| response_54_1
 		| response_54_2
 		| response_54_3
 		| response_54_4
-		| response_54_5
-		| response_54_6,
+		| response_54_5,
 } | {
-<<<<<<< HEAD
-	path: "/parent-categories/{parentCategoryName}/categories/{categoryName}",
-	method: "DELETE",
-	body: unknown,
-=======
-<<<<<<< HEAD
-	path: "/product-sheets/{productSheetId}@moderator",
+	path: "/navigation-items/{navigationItemId}",
 	method: "PATCH",
 	body: request_body_55,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	parameters: parameters_55,
-=======
-	path: "/navigation-items",
-	method: "GET",
-	body: unknown,
-	parameters: undefined,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 	response: response_55_0
 		| response_55_1
 		| response_55_2
 		| response_55_3
 		| response_55_4
-		| response_55_5,
+		| response_55_5
+		| response_55_6
+		| response_55_7
+		| response_55_8,
 } | {
-<<<<<<< HEAD
-	path: "/parent-categories/{parentCategoryName}",
-	method: "PATCH",
-	body: request_body_56,
-=======
-<<<<<<< HEAD
-	path: "/parent-categories/{parentCategoryName}/categories/{categoryName}",
+	path: "/navigation-items/{navigationItemId}",
 	method: "DELETE",
 	body: unknown,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	parameters: parameters_56,
-=======
-	path: "/navigation-items",
-	method: "POST",
-	body: request_body_56,
-	parameters: undefined,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 	response: response_56_0
 		| response_56_1
 		| response_56_2
 		| response_56_3
 		| response_56_4
 		| response_56_5
-		| response_56_6
-		| response_56_7,
+		| response_56_6,
 } | {
-<<<<<<< HEAD
-	path: "/users/{userId}@moderator",
+	path: "/parent-categories/{parentCategoryName}",
 	method: "PATCH",
 	body: request_body_57,
 	parameters: parameters_57,
-=======
-<<<<<<< HEAD
-	path: "/navigation-items",
-	method: "GET",
-	body: unknown,
-	parameters: undefined,
-=======
-	path: "/navigation-items/{navigationItemId}",
-	method: "PATCH",
-	body: request_body_57,
-	parameters: parameters_57,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	response: response_57_0
 		| response_57_1
 		| response_57_2
 		| response_57_3
 		| response_57_4
-<<<<<<< HEAD
 		| response_57_5
 		| response_57_6
 		| response_57_7,
 } | {
-	path: "/newsletters",
-	method: "GET",
-	body: unknown,
-	parameters: parameters_58,
-=======
-<<<<<<< HEAD
-		| response_57_5,
-} | {
-	path: "/navigation-items",
-	method: "POST",
-	body: request_body_58,
-	parameters: undefined,
-=======
-		| response_57_5
-		| response_57_6
-		| response_57_7
-		| response_57_8,
-} | {
-	path: "/navigation-items/{navigationItemId}",
+	path: "/parent-categories/{parentCategoryName}/categories/{categoryName}",
 	method: "DELETE",
 	body: unknown,
 	parameters: parameters_58,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	response: response_58_0
 		| response_58_1
 		| response_58_2
 		| response_58_3
 		| response_58_4
-		| response_58_5,
+		| response_58_5
+		| response_58_6,
 } | {
-<<<<<<< HEAD
-	path: "/newsletters",
-	method: "POST",
-	body: request_body_59,
-	parameters: undefined,
-=======
-<<<<<<< HEAD
-	path: "/parent-categories/{parentCategoryName}",
-	method: "PATCH",
-	body: request_body_59,
-=======
-	path: "/parent-categories/{parentCategoryName}/categories/{categoryName}",
+	path: "/newsletters/{newsletterId}",
 	method: "DELETE",
 	body: unknown,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 	parameters: parameters_59,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	response: response_59_0
 		| response_59_1
 		| response_59_2
 		| response_59_3
 		| response_59_4
-<<<<<<< HEAD
-		| response_59_5,
-} | {
-	path: "/newsletters/{newsletterId}",
-	method: "DELETE",
-	body: unknown,
-=======
 		| response_59_5
-<<<<<<< HEAD
-		| response_59_6
-		| response_59_7,
-} | {
-	path: "/navigation-items/{navigationItemId}",
-	method: "PATCH",
-	body: request_body_60,
-=======
 		| response_59_6,
 } | {
-	path: "/parent-categories/{parentCategoryName}/categories",
+	path: "/newsletters",
 	method: "GET",
 	body: unknown,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	parameters: parameters_60,
 	response: response_60_0
 		| response_60_1
 		| response_60_2
 		| response_60_3
 		| response_60_4
-		| response_60_5
-		| response_60_6,
+		| response_60_5,
 } | {
-<<<<<<< HEAD
-	path: "/organizations",
-	method: "GET",
-=======
-<<<<<<< HEAD
-	path: "/navigation-items/{navigationItemId}",
-	method: "DELETE",
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-	body: unknown,
-=======
-	path: "/parent-categories/{parentCategoryName}/categories",
+	path: "/newsletters",
 	method: "POST",
 	body: request_body_61,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-	parameters: parameters_61,
+	parameters: undefined,
 	response: response_61_0
 		| response_61_1
 		| response_61_2
 		| response_61_3
 		| response_61_4
-<<<<<<< HEAD
 		| response_61_5,
 } | {
 	path: "/organizations",
-	method: "POST",
-	body: request_body_62,
-	parameters: undefined,
-=======
-		| response_61_5
-<<<<<<< HEAD
-		| response_61_6,
-} | {
-	path: "/newsletters",
 	method: "GET",
 	body: unknown,
-=======
-		| response_61_6
-		| response_61_7
-		| response_61_8,
-} | {
-	path: "/users/{userId}@moderator",
-	method: "PATCH",
-	body: request_body_62,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 	parameters: parameters_62,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	response: response_62_0
 		| response_62_1
 		| response_62_2
 		| response_62_3
 		| response_62_4
-<<<<<<< HEAD
-		| response_62_5
-		| response_62_6
-		| response_62_7
-		| response_62_8,
-} | {
-	path: "/organizations/{organizationId}@admin",
-	method: "PATCH",
-=======
-<<<<<<< HEAD
 		| response_62_5,
 } | {
-	path: "/newsletters",
+	path: "/organizations",
 	method: "POST",
-=======
-		| response_62_5
-		| response_62_6
-		| response_62_7,
-} | {
-	path: "/parent-categories/{parentCategoryName}",
-	method: "PATCH",
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	body: request_body_63,
-	parameters: parameters_63,
+	parameters: undefined,
 	response: response_63_0
 		| response_63_1
 		| response_63_2
 		| response_63_3
 		| response_63_4
-<<<<<<< HEAD
-		| response_63_5
-		| response_63_6,
-} | {
-	path: "/parent-categories",
-	method: "GET",
-	body: unknown,
-=======
-<<<<<<< HEAD
-		| response_63_5,
-} | {
-	path: "/organizations/{organizationId}@admin",
-	method: "PATCH",
-	body: request_body_64,
-=======
 		| response_63_5
 		| response_63_6
-		| response_63_7,
+		| response_63_7
+		| response_63_8,
 } | {
-	path: "/newsletters",
+	path: "/categories",
 	method: "GET",
 	body: unknown,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	parameters: parameters_64,
-	response: response_64_0
-		| response_64_1
-		| response_64_2
-		| response_64_3
-		| response_64_4
-		| response_64_5,
+	response: response_64_0,
 } | {
-<<<<<<< HEAD
-	path: "/parent-categories",
+	path: "/categories",
 	method: "POST",
 	body: request_body_65,
 	parameters: undefined,
-=======
-<<<<<<< HEAD
-	path: "/organizations",
-	method: "GET",
-	body: unknown,
-	parameters: parameters_65,
-=======
-	path: "/newsletters",
-	method: "POST",
-	body: request_body_65,
-	parameters: undefined,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	response: response_65_0
 		| response_65_1
 		| response_65_2
@@ -11760,46 +7747,21 @@ export type DefEnrichedDuplojsTo = {
 		| response_65_5
 		| response_65_6,
 } | {
-<<<<<<< HEAD
-	path: "/product-sheet-reviews/{productSheetReviewId}",
+	path: "/organizations/{organizationId}@admin",
 	method: "PATCH",
 	body: request_body_66,
 	parameters: parameters_66,
-=======
-<<<<<<< HEAD
-	path: "/organizations",
-	method: "POST",
-	body: request_body_66,
-	parameters: undefined,
-=======
-	path: "/product-sheet-reviews",
-	method: "GET",
-	body: unknown,
-	parameters: parameters_66,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	response: response_66_0
 		| response_66_1
 		| response_66_2
 		| response_66_3
 		| response_66_4
-<<<<<<< HEAD
 		| response_66_5
 		| response_66_6,
 } | {
-<<<<<<< HEAD
-	path: "/product-sheet-reviews/{productSheetReviewId}@moderator",
-	method: "DELETE",
-=======
-	path: "/parent-categories",
-=======
-		| response_66_5,
-} | {
-	path: "/organizations",
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-	method: "GET",
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-	body: unknown,
+	path: "/categories/{categoryName}",
+	method: "PATCH",
+	body: request_body_67,
 	parameters: parameters_67,
 	response: response_67_0
 		| response_67_1
@@ -11807,23 +7769,13 @@ export type DefEnrichedDuplojsTo = {
 		| response_67_3
 		| response_67_4
 		| response_67_5
-		| response_67_6,
+		| response_67_6
+		| response_67_7,
 } | {
-<<<<<<< HEAD
-	path: "/commands/{commandId}",
-	method: "GET",
+	path: "/categories/{categoryName}/image",
+	method: "PUT",
 	body: unknown,
 	parameters: parameters_68,
-=======
-<<<<<<< HEAD
-	path: "/parent-categories",
-=======
-	path: "/organizations",
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-	method: "POST",
-	body: request_body_68,
-	parameters: undefined,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	response: response_68_0
 		| response_68_1
 		| response_68_2
@@ -11831,47 +7783,23 @@ export type DefEnrichedDuplojsTo = {
 		| response_68_4
 		| response_68_5
 		| response_68_6
-		| response_68_7
-		| response_68_8,
+		| response_68_7,
 } | {
-<<<<<<< HEAD
-	path: "/users/{userId}@admin",
-=======
-<<<<<<< HEAD
-	path: "/product-sheet-reviews/{productSheetReviewId}",
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-	method: "PATCH",
-	body: request_body_69,
-=======
-	path: "/newsletters/{newsletterId}",
-	method: "DELETE",
+	path: "/parent-categories",
+	method: "GET",
 	body: unknown,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 	parameters: parameters_69,
 	response: response_69_0
 		| response_69_1
 		| response_69_2
 		| response_69_3
 		| response_69_4
-		| response_69_5
-		| response_69_6
-		| response_69_7,
+		| response_69_5,
 } | {
-<<<<<<< HEAD
-	path: "/commands/{commandId}/invoice",
-	method: "GET",
-=======
-<<<<<<< HEAD
-	path: "/product-sheet-reviews/{productSheetReviewId}@moderator",
-	method: "DELETE",
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-	body: unknown,
-=======
-	path: "/organizations/{organizationId}@admin",
-	method: "PATCH",
+	path: "/parent-categories",
+	method: "POST",
 	body: request_body_70,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-	parameters: parameters_70,
+	parameters: undefined,
 	response: response_70_0
 		| response_70_1
 		| response_70_2
@@ -11880,21 +7808,9 @@ export type DefEnrichedDuplojsTo = {
 		| response_70_5
 		| response_70_6,
 } | {
-<<<<<<< HEAD
-	path: "/navigation-items/{navigationItemId}",
+	path: "/users/{userId}@admin",
 	method: "PATCH",
 	body: request_body_71,
-=======
-<<<<<<< HEAD
-	path: "/commands/{commandId}",
-	method: "GET",
-	body: unknown,
-=======
-	path: "/product-sheet-reviews/{productSheetReviewId}",
-	method: "PATCH",
-	body: request_body_71,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	parameters: parameters_71,
 	response: response_71_0
 		| response_71_1
@@ -11903,19 +7819,10 @@ export type DefEnrichedDuplojsTo = {
 		| response_71_4
 		| response_71_5
 		| response_71_6
-		| response_71_7
-		| response_71_8,
+		| response_71_7,
 } | {
-<<<<<<< HEAD
-	path: "/navigation-items/{navigationItemId}",
-=======
-<<<<<<< HEAD
-	path: "/newsletters/{newsletterId}",
-=======
-	path: "/product-sheet-reviews/{productSheetReviewId}@moderator",
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-	method: "DELETE",
+	path: "/organizations/{organizationId}/full-product-sheets",
+	method: "GET",
 	body: unknown,
 	parameters: parameters_72,
 	response: response_72_0
@@ -11924,23 +7831,12 @@ export type DefEnrichedDuplojsTo = {
 		| response_72_3
 		| response_72_4
 		| response_72_5
-		| response_72_6,
+		| response_72_6
+		| response_72_7,
 } | {
-<<<<<<< HEAD
-	path: "/commands/{commandId}/bundles",
-	method: "GET",
-	body: unknown,
-=======
-<<<<<<< HEAD
-	path: "/users/{userId}@admin",
+	path: "/product-sheet-reviews/{productSheetReviewId}",
 	method: "PATCH",
 	body: request_body_73,
-=======
-	path: "/organizations/{organizationId}/commands",
-	method: "GET",
-	body: unknown,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	parameters: parameters_73,
 	response: response_73_0
 		| response_73_1
@@ -11948,25 +7844,11 @@ export type DefEnrichedDuplojsTo = {
 		| response_73_3
 		| response_73_4
 		| response_73_5
-<<<<<<< HEAD
 		| response_73_6,
-=======
-		| response_73_6
-<<<<<<< HEAD
-		| response_73_7,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 } | {
-	path: "/organizations/{organizationId}/commands",
-	method: "GET",
+	path: "/product-sheet-reviews/{productSheetReviewId}@moderator",
+	method: "DELETE",
 	body: unknown,
-=======
-		| response_73_7
-		| response_73_8,
-} | {
-	path: "/users/{userId}@admin",
-	method: "PATCH",
-	body: request_body_74,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 	parameters: parameters_74,
 	response: response_74_0
 		| response_74_1
@@ -11974,20 +7856,9 @@ export type DefEnrichedDuplojsTo = {
 		| response_74_3
 		| response_74_4
 		| response_74_5
-<<<<<<< HEAD
-		| response_74_6
-		| response_74_7
-		| response_74_8,
-=======
-<<<<<<< HEAD
 		| response_74_6,
-=======
-		| response_74_6
-		| response_74_7,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 } | {
-	path: "/organizations/{organizationId}/full-product-sheets",
+	path: "/parent-categories/{parentCategoryName}/categories",
 	method: "GET",
 	body: unknown,
 	parameters: parameters_75,
@@ -11997,12 +7868,11 @@ export type DefEnrichedDuplojsTo = {
 		| response_75_3
 		| response_75_4
 		| response_75_5
-		| response_75_6
-		| response_75_7,
+		| response_75_6,
 } | {
-	path: "/organizations/{organizationId}",
-	method: "GET",
-	body: unknown,
+	path: "/parent-categories/{parentCategoryName}/categories",
+	method: "POST",
+	body: request_body_76,
 	parameters: parameters_76,
 	response: response_76_0
 		| response_76_1
@@ -12011,11 +7881,12 @@ export type DefEnrichedDuplojsTo = {
 		| response_76_4
 		| response_76_5
 		| response_76_6
-		| response_76_7,
+		| response_76_7
+		| response_76_8,
 } | {
-	path: "/organizations/{organizationId}",
-	method: "PATCH",
-	body: request_body_77,
+	path: "/organizations/{organizationId}/commands",
+	method: "GET",
+	body: unknown,
 	parameters: parameters_77,
 	response: response_77_0
 		| response_77_1
@@ -12024,19 +7895,11 @@ export type DefEnrichedDuplojsTo = {
 		| response_77_4
 		| response_77_5
 		| response_77_6
-		| response_77_7,
+		| response_77_7
+		| response_77_8,
 } | {
-<<<<<<< HEAD
-	path: "/organizations/{organizationId}/logo",
-	method: "PUT",
-=======
-<<<<<<< HEAD
-	path: "/organizations/{organizationId}/commands/{commandId}/details",
-=======
-	path: "/parent-categories",
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
+	path: "/organizations/{organizationId}",
 	method: "GET",
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	body: unknown,
 	parameters: parameters_78,
 	response: response_78_0
@@ -12044,46 +7907,26 @@ export type DefEnrichedDuplojsTo = {
 		| response_78_2
 		| response_78_3
 		| response_78_4
-<<<<<<< HEAD
 		| response_78_5
 		| response_78_6
-		| response_78_7
-		| response_78_8,
+		| response_78_7,
 } | {
-	path: "/organizations/{organizationId}/product-sheets",
-	method: "GET",
-	body: unknown,
-	parameters: parameters_79,
-=======
-		| response_78_5,
-} | {
-	path: "/parent-categories",
-	method: "POST",
+	path: "/organizations/{organizationId}",
+	method: "PATCH",
 	body: request_body_79,
-	parameters: undefined,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
+	parameters: parameters_79,
 	response: response_79_0
 		| response_79_1
 		| response_79_2
 		| response_79_3
 		| response_79_4
 		| response_79_5
-		| response_79_6,
+		| response_79_6
+		| response_79_7,
 } | {
-<<<<<<< HEAD
-	path: "/organizations/{organizationId}/product-sheets",
-	method: "POST",
-=======
-<<<<<<< HEAD
-	path: "/organizations/{organizationId}",
-	method: "PATCH",
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-	body: request_body_80,
-=======
 	path: "/organizations/{organizationId}/logo",
 	method: "PUT",
 	body: unknown,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 	parameters: parameters_80,
 	response: response_80_0
 		| response_80_1
@@ -12092,24 +7935,10 @@ export type DefEnrichedDuplojsTo = {
 		| response_80_4
 		| response_80_5
 		| response_80_6
-<<<<<<< HEAD
-		| response_80_7
-		| response_80_8
-		| response_80_9,
-} | {
-	path: "/organizations/{organizationId}/users",
-=======
-<<<<<<< HEAD
-		| response_80_7,
-} | {
-	path: "/bundles/{bundleId}/stream",
-=======
 		| response_80_7
 		| response_80_8,
 } | {
 	path: "/organizations/{organizationId}/product-sheets",
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	method: "GET",
 	body: unknown,
 	parameters: parameters_81,
@@ -12122,20 +7951,9 @@ export type DefEnrichedDuplojsTo = {
 		| response_81_6
 		| response_81_7,
 } | {
-<<<<<<< HEAD
-	path: "/organizations/{organizationId}/users",
-<<<<<<< HEAD
-	method: "POST",
-	body: request_body_82,
-=======
-	method: "GET",
-	body: unknown,
-=======
 	path: "/organizations/{organizationId}/product-sheets",
 	method: "POST",
 	body: request_body_82,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	parameters: parameters_82,
 	response: response_82_0
 		| response_82_1
@@ -12148,20 +7966,9 @@ export type DefEnrichedDuplojsTo = {
 		| response_82_8
 		| response_82_9,
 } | {
-<<<<<<< HEAD
-	path: "/organizations/{organizationId}/commands/{commandId}/details",
-	method: "GET",
-	body: unknown,
-=======
 	path: "/organizations/{organizationId}/users",
-<<<<<<< HEAD
-	method: "POST",
-	body: request_body_83,
-=======
 	method: "GET",
 	body: unknown,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	parameters: parameters_83,
 	response: response_83_0
 		| response_83_1
@@ -12172,19 +7979,9 @@ export type DefEnrichedDuplojsTo = {
 		| response_83_6
 		| response_83_7,
 } | {
-<<<<<<< HEAD
-	path: "/organizations/{organizationId}/facets",
-=======
-<<<<<<< HEAD
-	path: "/organizations/{organizationId}/commands",
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-	method: "GET",
-	body: unknown,
-=======
 	path: "/organizations/{organizationId}/users",
 	method: "POST",
 	body: request_body_84,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 	parameters: parameters_84,
 	response: response_84_0
 		| response_84_1
@@ -12193,27 +7990,13 @@ export type DefEnrichedDuplojsTo = {
 		| response_84_4
 		| response_84_5
 		| response_84_6
-<<<<<<< HEAD
-		| response_84_7,
-} | {
-	path: "/organizations/{organizationId}/commands/{commandId}/make-bundle",
-	method: "POST",
-	body: request_body_85,
-=======
 		| response_84_7
-<<<<<<< HEAD
-		| response_84_8,
-} | {
-	path: "/organizations/{organizationId}/product-sheets",
-=======
 		| response_84_8
 		| response_84_9,
 } | {
-	path: "/organizations/{organizationId}/facets",
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
+	path: "/organizations/{organizationId}/commands/{commandId}/details",
 	method: "GET",
 	body: unknown,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	parameters: parameters_85,
 	response: response_85_0
 		| response_85_1
@@ -12224,27 +8007,11 @@ export type DefEnrichedDuplojsTo = {
 		| response_85_6
 		| response_85_7
 		| response_85_8
-		| response_85_9
-		| response_85_10
-		| response_85_11
-		| response_85_12
-		| response_85_13
-		| response_85_14
-		| response_85_15,
+		| response_85_9,
 } | {
-<<<<<<< HEAD
-	path: "/organizations/{organizationId}/grid",
-	method: "GET",
-	body: unknown,
-=======
-<<<<<<< HEAD
-	path: "/organizations/{organizationId}/product-sheets",
-=======
 	path: "/organizations/{organizationId}/commands/{commandId}/make-bundle",
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 	method: "POST",
 	body: request_body_86,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	parameters: parameters_86,
 	response: response_86_0
 		| response_86_1
@@ -12253,19 +8020,8 @@ export type DefEnrichedDuplojsTo = {
 		| response_86_4
 		| response_86_5
 		| response_86_6
-<<<<<<< HEAD
-		| response_86_7,
-=======
 		| response_86_7
 		| response_86_8
-<<<<<<< HEAD
-		| response_86_9,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-} | {
-	path: "/organizations/{organizationId}/grid",
-	method: "PUT",
-	body: request_body_87,
-=======
 		| response_86_9
 		| response_86_10
 		| response_86_11
@@ -12274,10 +8030,9 @@ export type DefEnrichedDuplojsTo = {
 		| response_86_14
 		| response_86_15,
 } | {
-	path: "/organizations/{organizationId}/commands/{commandId}/details",
+	path: "/organizations/{organizationId}/product-returns",
 	method: "GET",
 	body: unknown,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 	parameters: parameters_87,
 	response: response_87_0
 		| response_87_1
@@ -12286,33 +8041,11 @@ export type DefEnrichedDuplojsTo = {
 		| response_87_4
 		| response_87_5
 		| response_87_6
-<<<<<<< HEAD
 		| response_87_7,
 } | {
 	path: "/organizations/{organizationId}/product-returns",
-	method: "GET",
-=======
-		| response_87_7
-		| response_87_8
-<<<<<<< HEAD
-		| response_87_9
-		| response_87_10
-		| response_87_11
-		| response_87_12
-		| response_87_13
-		| response_87_14
-		| response_87_15,
-} | {
-	path: "/organizations/{organizationId}/logo",
-	method: "PUT",
-=======
-		| response_87_9,
-} | {
-	path: "/organizations/{organizationId}/grid",
-	method: "GET",
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-	body: unknown,
+	method: "POST",
+	body: request_body_88,
 	parameters: parameters_88,
 	response: response_88_0
 		| response_88_1
@@ -12321,23 +8054,15 @@ export type DefEnrichedDuplojsTo = {
 		| response_88_4
 		| response_88_5
 		| response_88_6
-		| response_88_7,
+		| response_88_7
+		| response_88_8
+		| response_88_9
+		| response_88_10
+		| response_88_11,
 } | {
-<<<<<<< HEAD
-	path: "/organizations/{organizationId}/product-returns",
-	method: "POST",
-	body: request_body_89,
-=======
-<<<<<<< HEAD
 	path: "/organizations/{organizationId}/facets",
 	method: "GET",
 	body: unknown,
-=======
-	path: "/organizations/{organizationId}/grid",
-	method: "PUT",
-	body: request_body_89,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	parameters: parameters_89,
 	response: response_89_0
 		| response_89_1
@@ -12346,13 +8071,9 @@ export type DefEnrichedDuplojsTo = {
 		| response_89_4
 		| response_89_5
 		| response_89_6
-		| response_89_7
-		| response_89_8
-		| response_89_9
-		| response_89_10
-		| response_89_11,
+		| response_89_7,
 } | {
-	path: "/organizations/{organizationId}/product-returns",
+	path: "/organizations/{organizationId}/products",
 	method: "GET",
 	body: unknown,
 	parameters: parameters_90,
@@ -12365,19 +8086,9 @@ export type DefEnrichedDuplojsTo = {
 		| response_90_6
 		| response_90_7,
 } | {
-<<<<<<< HEAD
 	path: "/organizations/{organizationId}/promotions",
-=======
-<<<<<<< HEAD
-	path: "/organizations/{organizationId}/grid",
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	method: "GET",
 	body: unknown,
-=======
-	path: "/organizations/{organizationId}/product-returns",
-	method: "POST",
-	body: request_body_91,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 	parameters: parameters_91,
 	response: response_91_0
 		| response_91_1
@@ -12386,60 +8097,35 @@ export type DefEnrichedDuplojsTo = {
 		| response_91_4
 		| response_91_5
 		| response_91_6
-		| response_91_7
-		| response_91_8
-		| response_91_9
-		| response_91_10
-		| response_91_11,
+		| response_91_7,
 } | {
-<<<<<<< HEAD
-	path: "/navigation-items",
-	method: "GET",
-	body: unknown,
-	parameters: undefined,
-=======
-<<<<<<< HEAD
 	path: "/organizations/{organizationId}/grid",
-	method: "PUT",
-	body: request_body_92,
-=======
-	path: "/organizations/{organizationId}/products",
 	method: "GET",
 	body: unknown,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 	parameters: parameters_92,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	response: response_92_0
 		| response_92_1
 		| response_92_2
 		| response_92_3
 		| response_92_4
-		| response_92_5,
+		| response_92_5
+		| response_92_6
+		| response_92_7,
 } | {
-<<<<<<< HEAD
-	path: "/navigation-items",
-	method: "POST",
+	path: "/organizations/{organizationId}/grid",
+	method: "PUT",
 	body: request_body_93,
-	parameters: undefined,
-=======
-<<<<<<< HEAD
-	path: "/organizations/{organizationId}/product-returns",
-=======
-	path: "/organizations/{organizationId}/promotions",
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-	method: "GET",
-	body: unknown,
 	parameters: parameters_93,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	response: response_93_0
 		| response_93_1
 		| response_93_2
 		| response_93_3
 		| response_93_4
 		| response_93_5
-		| response_93_6,
+		| response_93_6
+		| response_93_7,
 } | {
-	path: "/organizations/{organizationId}/warehouses",
+	path: "/product-sheets/{productSheetId}/categories",
 	method: "GET",
 	body: unknown,
 	parameters: parameters_94,
@@ -12452,7 +8138,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_94_6
 		| response_94_7,
 } | {
-	path: "/organizations/{organizationId}/warehouses",
+	path: "/product-sheets/{productSheetId}/categories",
 	method: "POST",
 	body: request_body_95,
 	parameters: parameters_95,
@@ -12464,9 +8150,10 @@ export type DefEnrichedDuplojsTo = {
 		| response_95_5
 		| response_95_6
 		| response_95_7
-		| response_95_8,
+		| response_95_8
+		| response_95_9,
 } | {
-	path: "/product-sheets/{productSheetId}/categories",
+	path: "/organizations/{organizationId}/warehouses",
 	method: "GET",
 	body: unknown,
 	parameters: parameters_96,
@@ -12479,7 +8166,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_96_6
 		| response_96_7,
 } | {
-	path: "/product-sheets/{productSheetId}/categories",
+	path: "/organizations/{organizationId}/warehouses",
 	method: "POST",
 	body: request_body_97,
 	parameters: parameters_97,
@@ -12491,8 +8178,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_97_5
 		| response_97_6
 		| response_97_7
-		| response_97_8
-		| response_97_9,
+		| response_97_8,
 } | {
 	path: "/product-sheets/{productSheetId}/categories/{categoryName}",
 	method: "DELETE",
@@ -12522,19 +8208,9 @@ export type DefEnrichedDuplojsTo = {
 		| response_99_7
 		| response_99_8,
 } | {
-<<<<<<< HEAD
-	path: "/product-sheets/{productSheetId}/warehouse",
-=======
-<<<<<<< HEAD
-	path: "/organizations/{organizationId}/promotions",
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-	method: "GET",
-	body: unknown,
-=======
 	path: "/product-sheets/{productSheetId}/promotions",
 	method: "POST",
 	body: request_body_100,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 	parameters: parameters_100,
 	response: response_100_0
 		| response_100_1
@@ -12559,19 +8235,9 @@ export type DefEnrichedDuplojsTo = {
 		| response_101_6
 		| response_101_7,
 } | {
-<<<<<<< HEAD
-	path: "/product-sheets/{productSheetId}/promotions",
-	method: "POST",
-	body: request_body_102,
-=======
-<<<<<<< HEAD
-	path: "/product-sheets/{productSheetId}/stock-story",
-=======
-	path: "/product-sheets/{productSheetId}/warehouse",
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
+	path: "/product-sheets/{productSheetId}",
 	method: "GET",
 	body: unknown,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	parameters: parameters_102,
 	response: response_102_0
 		| response_102_1
@@ -12580,12 +8246,11 @@ export type DefEnrichedDuplojsTo = {
 		| response_102_4
 		| response_102_5
 		| response_102_6
-		| response_102_7
-		| response_102_8,
+		| response_102_7,
 } | {
 	path: "/product-sheets/{productSheetId}",
-	method: "GET",
-	body: unknown,
+	method: "PATCH",
+	body: request_body_103,
 	parameters: parameters_103,
 	response: response_103_0
 		| response_103_1
@@ -12596,9 +8261,9 @@ export type DefEnrichedDuplojsTo = {
 		| response_103_6
 		| response_103_7,
 } | {
-	path: "/product-sheets/{productSheetId}",
-	method: "PATCH",
-	body: request_body_104,
+	path: "/product-sheets/{productSheetId}/warehouse",
+	method: "GET",
+	body: unknown,
 	parameters: parameters_104,
 	response: response_104_0
 		| response_104_1
@@ -12609,19 +8274,9 @@ export type DefEnrichedDuplojsTo = {
 		| response_104_6
 		| response_104_7,
 } | {
-<<<<<<< HEAD
-	path: "/product-sheets/{productSheetId}/facets/{facetType}",
-=======
-<<<<<<< HEAD
-	path: "/product-sheets/{productSheetId}",
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-	method: "PATCH",
-	body: request_body_105,
-=======
 	path: "/product-sheets/{productSheetId}/facets",
 	method: "GET",
 	body: unknown,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 	parameters: parameters_105,
 	response: response_105_0
 		| response_105_1
@@ -12630,22 +8285,11 @@ export type DefEnrichedDuplojsTo = {
 		| response_105_4
 		| response_105_5
 		| response_105_6
-		| response_105_7
-		| response_105_8,
+		| response_105_7,
 } | {
-<<<<<<< HEAD
-	path: "/product-sheets/{productSheetId}/facets/{facetType}",
-	method: "DELETE",
-=======
 	path: "/product-sheets/{productSheetId}/facets",
-<<<<<<< HEAD
-	method: "GET",
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-	body: unknown,
-=======
 	method: "POST",
 	body: request_body_106,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 	parameters: parameters_106,
 	response: response_106_0
 		| response_106_1
@@ -12657,19 +8301,9 @@ export type DefEnrichedDuplojsTo = {
 		| response_106_7
 		| response_106_8,
 } | {
-<<<<<<< HEAD
-	path: "/product-sheets/{productSheetId}/facets",
-<<<<<<< HEAD
+	path: "/product-sheets/{productSheetId}/images",
 	method: "GET",
 	body: unknown,
-=======
-	method: "POST",
-=======
-	path: "/product-sheets/{productSheetId}/facets/{facetType}",
-	method: "PATCH",
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-	body: request_body_107,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	parameters: parameters_107,
 	response: response_107_0
 		| response_107_1
@@ -12680,20 +8314,9 @@ export type DefEnrichedDuplojsTo = {
 		| response_107_6
 		| response_107_7,
 } | {
-<<<<<<< HEAD
-	path: "/product-sheets/{productSheetId}/facets",
+	path: "/product-sheets/{productSheetId}/images",
 	method: "POST",
-	body: request_body_108,
-=======
-<<<<<<< HEAD
-	path: "/products/{sku}/commands-story",
-	method: "GET",
-=======
-	path: "/product-sheets/{productSheetId}/facets/{facetType}",
-	method: "DELETE",
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 	body: unknown,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	parameters: parameters_108,
 	response: response_108_0
 		| response_108_1
@@ -12703,19 +8326,12 @@ export type DefEnrichedDuplojsTo = {
 		| response_108_5
 		| response_108_6
 		| response_108_7
-		| response_108_8,
+		| response_108_8
+		| response_108_9,
 } | {
-<<<<<<< HEAD
-	path: "/product-sheets/{productSheetId}/images",
-=======
-<<<<<<< HEAD
-	path: "/product-sheets/{productSheetId}/warehouse",
-=======
-	path: "/products/{sku}/commands-story",
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-	method: "GET",
-	body: unknown,
+	path: "/product-sheets/{productSheetId}/facets/{facetType}",
+	method: "PATCH",
+	body: request_body_109,
 	parameters: parameters_109,
 	response: response_109_0
 		| response_109_1
@@ -12724,23 +8340,12 @@ export type DefEnrichedDuplojsTo = {
 		| response_109_4
 		| response_109_5
 		| response_109_6
-		| response_109_7,
+		| response_109_7
+		| response_109_8,
 } | {
-<<<<<<< HEAD
-	path: "/product-sheets/{productSheetId}/images",
-	method: "POST",
-	body: unknown,
-=======
-<<<<<<< HEAD
 	path: "/product-sheets/{productSheetId}/facets/{facetType}",
-	method: "PATCH",
-	body: request_body_110,
-=======
-	path: "/product-sheets/{productSheetId}/images",
-	method: "GET",
+	method: "DELETE",
 	body: unknown,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	parameters: parameters_110,
 	response: response_110_0
 		| response_110_1
@@ -12749,24 +8354,11 @@ export type DefEnrichedDuplojsTo = {
 		| response_110_4
 		| response_110_5
 		| response_110_6
-<<<<<<< HEAD
 		| response_110_7
-		| response_110_8
-		| response_110_9,
+		| response_110_8,
 } | {
-<<<<<<< HEAD
 	path: "/products/{sku}/commands-story",
 	method: "GET",
-=======
-	path: "/product-sheets/{productSheetId}/facets/{facetType}",
-	method: "DELETE",
-=======
-		| response_110_7,
-} | {
-	path: "/product-sheets/{productSheetId}/images",
-	method: "POST",
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	body: unknown,
 	parameters: parameters_111,
 	response: response_111_0
@@ -12776,17 +8368,7 @@ export type DefEnrichedDuplojsTo = {
 		| response_111_4
 		| response_111_5
 		| response_111_6
-<<<<<<< HEAD
 		| response_111_7,
-=======
-		| response_111_7
-<<<<<<< HEAD
-		| response_111_8,
-=======
-		| response_111_8
-		| response_111_9,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 } | {
 	path: "/products/{sku}",
 	method: "PATCH",
@@ -12801,9 +8383,9 @@ export type DefEnrichedDuplojsTo = {
 		| response_112_6
 		| response_112_7,
 } | {
-	path: "/bundles/{bundleId}",
-	method: "GET",
-	body: unknown,
+	path: "/warehouses/{warehouseId}",
+	method: "PATCH",
+	body: request_body_113,
 	parameters: parameters_113,
 	response: response_113_0
 		| response_113_1
@@ -12811,21 +8393,13 @@ export type DefEnrichedDuplojsTo = {
 		| response_113_3
 		| response_113_4
 		| response_113_5
-		| response_113_6,
+		| response_113_6
+		| response_113_7
+		| response_113_8,
 } | {
-<<<<<<< HEAD
 	path: "/bundles/{bundleId}",
 	method: "GET",
 	body: unknown,
-=======
-<<<<<<< HEAD
-	path: "/product-returns/{productReturnId}",
-=======
-	path: "/warehouses/{warehouseId}",
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-	method: "PATCH",
-	body: request_body_114,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	parameters: parameters_114,
 	response: response_114_0
 		| response_114_1
@@ -13180,55 +8754,24 @@ export interface EnrichedDuploTo<
 	>
 
 	get(
-		path: "/users", 
+		path: "/full-product-sheets-count", 
 		parameters ?: parameters_18 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_18_0
-		| response_18_1
-		| response_18_2
-		| response_18_3
-		| response_18_4
-		| response_18_5
-	>
-
-	post(
-		path: "/users", 
-		body: request_body_19,
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
-		interceptorParams?: interceptorParameter
-	): EnrichedRequestor<
-		response_19_0
-		| response_19_1
-		| response_19_2
-		| response_19_3
-		| response_19_4
-	>
-
-	get(
-		path: "/full-product-sheets-count", 
-		parameters ?: parameters_20 & BaseRequestParameters,
-		interceptorParams?: interceptorParameter
-	): EnrichedRequestor<
-		response_20_0
 	>
 
 	get(
 		path: "/computed-filters", 
-		parameters ?: parameters_21 & BaseRequestParameters,
+		parameters ?: parameters_19 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
-		response_21_0
+		response_19_0
 	>
 
 	post(
 		path: "/login", 
-<<<<<<< HEAD
-		body: request_body_22,
-=======
 		body: request_body_20,
-<<<<<<< HEAD
-=======
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -13238,7 +8781,7 @@ export interface EnrichedDuploTo<
 	>
 
 	get(
-		path: "/users", 
+		path: "/user/notifications", 
 		parameters ?: parameters_21 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -13247,34 +8790,25 @@ export interface EnrichedDuploTo<
 		| response_21_2
 		| response_21_3
 		| response_21_4
-		| response_21_5
 	>
 
-	post(
+	get(
 		path: "/users", 
-		body: request_body_22,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+		parameters ?: parameters_22 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_22_0
 		| response_22_1
 		| response_22_2
-<<<<<<< HEAD
-=======
 		| response_22_3
 		| response_22_4
-<<<<<<< HEAD
 		| response_22_5
-=======
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	>
 
-	get(
-		path: "/commands", 
-		parameters ?: parameters_23 & BaseRequestParameters,
+	post(
+		path: "/users", 
+		body: request_body_23,
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_23_0
@@ -13284,9 +8818,9 @@ export interface EnrichedDuploTo<
 		| response_23_4
 	>
 
-	get(
-		path: "/user/notifications", 
-		parameters ?: parameters_24 & BaseRequestParameters,
+	delete(
+		path: "/articles/{productSheetId}", 
+		parameters : parameters_24 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_24_0
@@ -13294,17 +8828,12 @@ export interface EnrichedDuploTo<
 		| response_24_2
 		| response_24_3
 		| response_24_4
+		| response_24_5
 	>
 
-<<<<<<< HEAD
 	delete(
-		path: "/articles/{productSheetId}", 
+		path: "/image-product-sheet/{imageProductSheetId}", 
 		parameters : parameters_25 & BaseRequestParameters,
-=======
-	get(
-		path: "/cart", 
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_25_0
@@ -13312,26 +8841,15 @@ export interface EnrichedDuploTo<
 		| response_25_2
 		| response_25_3
 		| response_25_4
-<<<<<<< HEAD
 		| response_25_5
+		| response_25_6
+		| response_25_7
 	>
 
-<<<<<<< HEAD
-	delete(
-		path: "/image-product-sheet/{imageProductSheetId}", 
-		parameters : parameters_26 & BaseRequestParameters,
-=======
-	get(
-		path: "/commands", 
-		parameters ?: parameters_26 & BaseRequestParameters,
-=======
-	>
-
-	delete(
-		path: "/articles/{productSheetId}", 
-		parameters : parameters_26 & BaseRequestParameters,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+	post(
+		path: "/make-command", 
+		body: request_body_26,
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_26_0
@@ -13339,22 +8857,14 @@ export interface EnrichedDuploTo<
 		| response_26_2
 		| response_26_3
 		| response_26_4
-<<<<<<< HEAD
 		| response_26_5
 		| response_26_6
 		| response_26_7
-=======
-<<<<<<< HEAD
-=======
-		| response_26_5
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	>
 
-	post(
-		path: "/make-command", 
-		body: request_body_27,
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+	get(
+		path: "/commands", 
+		parameters ?: parameters_27 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_27_0
@@ -13362,24 +8872,11 @@ export interface EnrichedDuploTo<
 		| response_27_2
 		| response_27_3
 		| response_27_4
-		| response_27_5
-		| response_27_6
-		| response_27_7
 	>
 
-<<<<<<< HEAD
-	get(
-		path: "/organizations/{organizationId}/user", 
-=======
-<<<<<<< HEAD
 	patch(
 		path: "/organizations/{organizationId}/users/{userId}", 
 		body: request_body_28,
-=======
-	delete(
-		path: "/image-product-sheet/{imageProductSheetId}", 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		parameters : parameters_28 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -13389,27 +8886,13 @@ export interface EnrichedDuploTo<
 		| response_28_3
 		| response_28_4
 		| response_28_5
-<<<<<<< HEAD
-=======
 		| response_28_6
 		| response_28_7
-<<<<<<< HEAD
 		| response_28_8
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	>
 
-	patch(
+	delete(
 		path: "/organizations/{organizationId}/users/{userId}", 
-<<<<<<< HEAD
-		body: request_body_29,
-=======
-=======
-	>
-
-	get(
-		path: "/organizations/{organizationId}/user", 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		parameters : parameters_29 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -13419,25 +8902,14 @@ export interface EnrichedDuploTo<
 		| response_29_3
 		| response_29_4
 		| response_29_5
+		| response_29_6
+		| response_29_7
+		| response_29_8
 	>
 
-<<<<<<< HEAD
-	delete(
-		path: "/organizations/{organizationId}/users/{userId}", 
+	get(
+		path: "/organizations/{organizationId}/user", 
 		parameters : parameters_30 & BaseRequestParameters,
-=======
-<<<<<<< HEAD
-	post(
-		path: "/make-command", 
-		body: request_body_30,
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
-=======
-	patch(
-		path: "/organizations/{organizationId}/users/{userId}", 
-		body: request_body_30,
-		parameters : parameters_30 & BaseRequestParameters,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_30_0
@@ -13446,20 +8918,11 @@ export interface EnrichedDuploTo<
 		| response_30_3
 		| response_30_4
 		| response_30_5
-		| response_30_6
-		| response_30_7
-		| response_30_8
 	>
 
-<<<<<<< HEAD
 	get(
 		path: "/user/organizations", 
 		parameters ?: parameters_31 & BaseRequestParameters,
-=======
-	delete(
-		path: "/organizations/{organizationId}/users/{userId}", 
-		parameters : parameters_31 & BaseRequestParameters,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_31_0
@@ -13468,13 +8931,10 @@ export interface EnrichedDuploTo<
 		| response_31_3
 		| response_31_4
 		| response_31_5
-		| response_31_6
-		| response_31_7
-		| response_31_8
 	>
 
 	post(
-		path: "/retry-command", 
+		path: "/articles", 
 		body: request_body_32,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
@@ -13486,23 +8946,14 @@ export interface EnrichedDuploTo<
 		| response_32_4
 		| response_32_5
 		| response_32_6
+		| response_32_7
+		| response_32_8
 	>
 
-<<<<<<< HEAD
 	post(
-		path: "/articles", 
+		path: "/retry-command", 
 		body: request_body_33,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
-=======
-	get(
-<<<<<<< HEAD
-		path: "/organizations/{organizationId}/user", 
-		parameters : parameters_33 & BaseRequestParameters,
-=======
-		path: "/user/organizations", 
-		parameters ?: parameters_33 & BaseRequestParameters,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_33_0
@@ -13512,25 +8963,11 @@ export interface EnrichedDuploTo<
 		| response_33_4
 		| response_33_5
 		| response_33_6
-		| response_33_7
-		| response_33_8
 	>
 
-<<<<<<< HEAD
 	get(
 		path: "/cart", 
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
-=======
-<<<<<<< HEAD
-	delete(
-		path: "/product-notifications/{notificationId}", 
-		parameters : parameters_34 & BaseRequestParameters,
-=======
-	get(
-		path: "/product-notifications", 
-		parameters ?: parameters_34 & BaseRequestParameters,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_34_0
@@ -13540,20 +8977,9 @@ export interface EnrichedDuploTo<
 		| response_34_4
 	>
 
-<<<<<<< HEAD
-	delete(
-		path: "/product-notifications/{notificationId}", 
-		parameters : parameters_35 & BaseRequestParameters,
-=======
-	post(
-<<<<<<< HEAD
-		path: "/retry-command", 
-=======
+	get(
 		path: "/product-notifications", 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-		body: request_body_35,
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+		parameters ?: parameters_35 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_35_0
@@ -13562,29 +8988,12 @@ export interface EnrichedDuploTo<
 		| response_35_3
 		| response_35_4
 		| response_35_5
-<<<<<<< HEAD
 	>
 
-	delete(
-		path: "/product-sheet-reviews/{productSheetReviewId}", 
-		parameters : parameters_36 & BaseRequestParameters,
-=======
-		| response_35_6
-<<<<<<< HEAD
-	>
-
-	get(
-		path: "/user/organizations", 
-		parameters ?: parameters_36 & BaseRequestParameters,
-=======
-		| response_35_7
-	>
-
-	delete(
-		path: "/product-notifications/{notificationId}", 
-		parameters : parameters_36 & BaseRequestParameters,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+	post(
+		path: "/product-notifications", 
+		body: request_body_36,
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_36_0
@@ -13594,75 +9003,34 @@ export interface EnrichedDuploTo<
 		| response_36_4
 		| response_36_5
 		| response_36_6
+		| response_36_7
 	>
 
-<<<<<<< HEAD
-	get(
-<<<<<<< HEAD
-		path: "/product-sheets/{productSheetId}/reviews", 
+	delete(
+		path: "/product-notifications/{notificationId}", 
 		parameters : parameters_37 & BaseRequestParameters,
-=======
-		path: "/user", 
-=======
-	post(
-		path: "/articles", 
-		body: request_body_37,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_37_0
 		| response_37_1
-<<<<<<< HEAD
-=======
 		| response_37_2
 		| response_37_3
 		| response_37_4
 		| response_37_5
-<<<<<<< HEAD
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	>
 
-	post(
+	get(
 		path: "/product-sheets/{productSheetId}/reviews", 
-		body: request_body_38,
-<<<<<<< HEAD
 		parameters : parameters_38 & BaseRequestParameters,
-=======
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
-=======
-		| response_37_6
-		| response_37_7
-		| response_37_8
-	>
-
-	delete(
-		path: "/product-sheet-reviews/{productSheetReviewId}", 
-		parameters : parameters_38 & BaseRequestParameters,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_38_0
 		| response_38_1
-		| response_38_2
-		| response_38_3
-		| response_38_4
-		| response_38_5
-<<<<<<< HEAD
-		| response_38_6
-		| response_38_7
-=======
-<<<<<<< HEAD
-=======
-		| response_38_6
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	>
 
-	delete(
-		path: "/promotions/{promotionId}", 
+	post(
+		path: "/product-sheets/{productSheetId}/reviews", 
+		body: request_body_39,
 		parameters : parameters_39 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -13676,71 +9044,27 @@ export interface EnrichedDuploTo<
 		| response_39_7
 	>
 
-<<<<<<< HEAD
-	get(
-		path: "/user", 
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
-=======
-<<<<<<< HEAD
 	delete(
 		path: "/product-sheet-reviews/{productSheetReviewId}", 
-=======
-	get(
-		path: "/product-sheets/{productSheetId}/reviews", 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 		parameters : parameters_40 & BaseRequestParameters,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_40_0
 		| response_40_1
-<<<<<<< HEAD
 		| response_40_2
 		| response_40_3
 		| response_40_4
 		| response_40_5
+		| response_40_6
 	>
 
-<<<<<<< HEAD
-	patch(
-		path: "/user", 
-		body: request_body_41,
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
-=======
-	get(
-		path: "/product-sheets/{productSheetId}/reviews", 
-=======
-	>
-
-	post(
-		path: "/product-sheets/{productSheetId}/reviews", 
-		body: request_body_41,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
+	delete(
+		path: "/promotions/{promotionId}", 
 		parameters : parameters_41 & BaseRequestParameters,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_41_0
 		| response_41_1
-<<<<<<< HEAD
-		| response_41_2
-		| response_41_3
-		| response_41_4
-		| response_41_5
-	>
-
-	delete(
-		path: "/user", 
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
-=======
-<<<<<<< HEAD
-	>
-
-	post(
-		path: "/product-sheets/{productSheetId}/reviews", 
-		body: request_body_42,
-		parameters : parameters_42 & BaseRequestParameters,
-=======
 		| response_41_2
 		| response_41_3
 		| response_41_4
@@ -13752,8 +9076,6 @@ export interface EnrichedDuploTo<
 	get(
 		path: "/user", 
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_42_0
@@ -13761,31 +9083,13 @@ export interface EnrichedDuploTo<
 		| response_42_2
 		| response_42_3
 		| response_42_4
-<<<<<<< HEAD
-	>
-
-	get(
-		path: "/product-notifications", 
-		parameters ?: parameters_43 & BaseRequestParameters,
-=======
 		| response_42_5
-<<<<<<< HEAD
-		| response_42_6
-		| response_42_7
-	>
-
-	delete(
-		path: "/promotions/{promotionId}", 
-		parameters : parameters_43 & BaseRequestParameters,
-=======
 	>
 
 	patch(
 		path: "/user", 
 		body: request_body_43,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_43_0
@@ -13796,19 +9100,8 @@ export interface EnrichedDuploTo<
 		| response_43_5
 	>
 
-<<<<<<< HEAD
-	post(
-		path: "/product-notifications", 
-		body: request_body_44,
-=======
-<<<<<<< HEAD
-	get(
-		path: "/full-product-sheets@moderator", 
-=======
 	delete(
 		path: "/user", 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -13817,32 +9110,6 @@ export interface EnrichedDuploTo<
 		| response_44_2
 		| response_44_3
 		| response_44_4
-<<<<<<< HEAD
-		| response_44_5
-<<<<<<< HEAD
-		| response_44_6
-		| response_44_7
-=======
-=======
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-	>
-
-	patch(
-		path: "/categories/{categoryName}", 
-		body: request_body_45,
-		parameters : parameters_45 & BaseRequestParameters,
-		interceptorParams?: interceptorParameter
-	): EnrichedRequestor<
-		response_45_0
-		| response_45_1
-		| response_45_2
-		| response_45_3
-		| response_45_4
-		| response_45_5
-<<<<<<< HEAD
-		| response_45_6
-		| response_45_7
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	>
 
 	post(
@@ -13860,21 +9127,6 @@ export interface EnrichedDuploTo<
 	>
 
 	get(
-		path: "/categories", 
-		parameters ?: parameters_46 & BaseRequestParameters,
-		interceptorParams?: interceptorParameter
-	): EnrichedRequestor<
-		response_46_0
-	>
-
-	post(
-		path: "/categories", 
-		body: request_body_47,
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
-=======
-	>
-
-	get(
 		path: "/commands/{commandId}/bundles", 
 		parameters ?: parameters_46 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
@@ -13889,9 +9141,8 @@ export interface EnrichedDuploTo<
 	>
 
 	get(
-		path: "/commands/{commandId}", 
+		path: "/commands/{commandId}/invoice", 
 		parameters ?: parameters_47 & BaseRequestParameters,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_47_0
@@ -13901,55 +9152,26 @@ export interface EnrichedDuploTo<
 		| response_47_4
 		| response_47_5
 		| response_47_6
-<<<<<<< HEAD
+	>
+
+	get(
+		path: "/commands/{commandId}", 
+		parameters ?: parameters_48 & BaseRequestParameters,
+		interceptorParams?: interceptorParameter
+	): EnrichedRequestor<
+		response_48_0
+		| response_48_1
+		| response_48_2
+		| response_48_3
+		| response_48_4
+		| response_48_5
+		| response_48_6
 	>
 
 	patch(
-		path: "/categories/{categoryName}", 
-		body: request_body_48,
-		parameters : parameters_48 & BaseRequestParameters,
-=======
-<<<<<<< HEAD
-		| response_47_7
-		| response_47_8
-=======
-	>
-
-	get(
-		path: "/commands/{commandId}/invoice", 
-		parameters ?: parameters_48 & BaseRequestParameters,
-		interceptorParams?: interceptorParameter
-	): EnrichedRequestor<
-		response_48_0
-		| response_48_1
-		| response_48_2
-		| response_48_3
-		| response_48_4
-		| response_48_5
-		| response_48_6
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-	>
-
-	get(
-		path: "/categories", 
-<<<<<<< HEAD
-		parameters ?: parameters_48 & BaseRequestParameters,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-		interceptorParams?: interceptorParameter
-	): EnrichedRequestor<
-		response_48_0
-		| response_48_1
-		| response_48_2
-		| response_48_3
-		| response_48_4
-		| response_48_5
-		| response_48_6
-		| response_48_7
-	>
-
-	get(
-		path: "/full-product-sheets@moderator", 
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
+		path: "/product-sheets/{productSheetId}@moderator", 
+		body: request_body_49,
+		parameters : parameters_49 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_49_0
@@ -13958,30 +9180,12 @@ export interface EnrichedDuploTo<
 		| response_49_3
 		| response_49_4
 		| response_49_5
+		| response_49_6
 	>
 
-<<<<<<< HEAD
-	patch(
-		path: "/product-sheets/{productSheetId}@moderator", 
-		body: request_body_50,
-		parameters : parameters_50 & BaseRequestParameters,
-=======
 	get(
-		path: "/product-sheet-reviews", 
-		parameters ?: parameters_50 & BaseRequestParameters,
-=======
-		parameters ?: parameters_49 & BaseRequestParameters,
-		interceptorParams?: interceptorParameter
-	): EnrichedRequestor<
-		response_49_0
-	>
-
-	post(
-		path: "/categories", 
-		body: request_body_50,
+		path: "/navigation-items", 
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_50_0
@@ -13990,19 +9194,12 @@ export interface EnrichedDuploTo<
 		| response_50_3
 		| response_50_4
 		| response_50_5
-		| response_50_6
 	>
 
-<<<<<<< HEAD
-	put(
-		path: "/categories/{categoryName}/images", 
-		body: unknown,
-=======
-	patch(
-		path: "/categories/{categoryName}", 
+	post(
+		path: "/navigation-items", 
 		body: request_body_51,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-		parameters : parameters_51 & BaseRequestParameters,
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_51_0
@@ -14012,25 +9209,12 @@ export interface EnrichedDuploTo<
 		| response_51_4
 		| response_51_5
 		| response_51_6
-		| response_51_7
 	>
 
-<<<<<<< HEAD
-	get(
-		path: "/product-sheet-reviews", 
-		parameters ?: parameters_52 & BaseRequestParameters,
-=======
-<<<<<<< HEAD
 	patch(
 		path: "/users/{userId}@moderator", 
 		body: request_body_52,
 		parameters : parameters_52 & BaseRequestParameters,
-=======
-	get(
-		path: "/full-product-sheets@moderator", 
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_52_0
@@ -14039,12 +9223,13 @@ export interface EnrichedDuploTo<
 		| response_52_3
 		| response_52_4
 		| response_52_5
+		| response_52_6
+		| response_52_7
 	>
 
-	put(
-		path: "/categories/{categoryName}/image", 
-		body: unknown,
-		parameters : parameters_53 & BaseRequestParameters,
+	get(
+		path: "/product-sheet-reviews", 
+		parameters ?: parameters_53 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_53_0
@@ -14053,14 +9238,11 @@ export interface EnrichedDuploTo<
 		| response_53_3
 		| response_53_4
 		| response_53_5
-		| response_53_6
-		| response_53_7
 	>
 
-	patch(
-		path: "/product-sheets/{productSheetId}@moderator", 
-		body: request_body_54,
-		parameters : parameters_54 & BaseRequestParameters,
+	get(
+		path: "/full-product-sheets@moderator", 
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_54_0
@@ -14069,24 +9251,12 @@ export interface EnrichedDuploTo<
 		| response_54_3
 		| response_54_4
 		| response_54_5
-		| response_54_6
 	>
 
-<<<<<<< HEAD
-	delete(
-		path: "/parent-categories/{parentCategoryName}/categories/{categoryName}", 
-=======
-<<<<<<< HEAD
 	patch(
-		path: "/product-sheets/{productSheetId}@moderator", 
+		path: "/navigation-items/{navigationItemId}", 
 		body: request_body_55,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		parameters : parameters_55 & BaseRequestParameters,
-=======
-	get(
-		path: "/navigation-items", 
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_55_0
@@ -14095,24 +9265,14 @@ export interface EnrichedDuploTo<
 		| response_55_3
 		| response_55_4
 		| response_55_5
+		| response_55_6
+		| response_55_7
+		| response_55_8
 	>
 
-<<<<<<< HEAD
-	patch(
-		path: "/parent-categories/{parentCategoryName}", 
-		body: request_body_56,
-=======
-<<<<<<< HEAD
 	delete(
-		path: "/parent-categories/{parentCategoryName}/categories/{categoryName}", 
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+		path: "/navigation-items/{navigationItemId}", 
 		parameters : parameters_56 & BaseRequestParameters,
-=======
-	post(
-		path: "/navigation-items", 
-		body: request_body_56,
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_56_0
@@ -14122,26 +9282,12 @@ export interface EnrichedDuploTo<
 		| response_56_4
 		| response_56_5
 		| response_56_6
-		| response_56_7
 	>
 
-<<<<<<< HEAD
 	patch(
-		path: "/users/{userId}@moderator", 
+		path: "/parent-categories/{parentCategoryName}", 
 		body: request_body_57,
 		parameters : parameters_57 & BaseRequestParameters,
-=======
-<<<<<<< HEAD
-	get(
-		path: "/navigation-items", 
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
-=======
-	patch(
-		path: "/navigation-items/{navigationItemId}", 
-		body: request_body_57,
-		parameters : parameters_57 & BaseRequestParameters,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_57_0
@@ -14150,33 +9296,13 @@ export interface EnrichedDuploTo<
 		| response_57_3
 		| response_57_4
 		| response_57_5
-<<<<<<< HEAD
 		| response_57_6
 		| response_57_7
-	>
-
-	get(
-		path: "/newsletters", 
-		parameters ?: parameters_58 & BaseRequestParameters,
-=======
-<<<<<<< HEAD
-	>
-
-	post(
-		path: "/navigation-items", 
-		body: request_body_58,
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
-=======
-		| response_57_6
-		| response_57_7
-		| response_57_8
 	>
 
 	delete(
-		path: "/navigation-items/{navigationItemId}", 
+		path: "/parent-categories/{parentCategoryName}/categories/{categoryName}", 
 		parameters : parameters_58 & BaseRequestParameters,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_58_0
@@ -14185,24 +9311,12 @@ export interface EnrichedDuploTo<
 		| response_58_3
 		| response_58_4
 		| response_58_5
+		| response_58_6
 	>
 
-<<<<<<< HEAD
-	post(
-		path: "/newsletters", 
-		body: request_body_59,
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
-=======
-<<<<<<< HEAD
-	patch(
-		path: "/parent-categories/{parentCategoryName}", 
-		body: request_body_59,
-=======
 	delete(
-		path: "/parent-categories/{parentCategoryName}/categories/{categoryName}", 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
+		path: "/newsletters/{newsletterId}", 
 		parameters : parameters_59 & BaseRequestParameters,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_59_0
@@ -14211,28 +9325,12 @@ export interface EnrichedDuploTo<
 		| response_59_3
 		| response_59_4
 		| response_59_5
-<<<<<<< HEAD
-	>
-
-	delete(
-		path: "/newsletters/{newsletterId}", 
-=======
 		| response_59_6
-<<<<<<< HEAD
-		| response_59_7
-	>
-
-	patch(
-		path: "/navigation-items/{navigationItemId}", 
-		body: request_body_60,
-=======
 	>
 
 	get(
-		path: "/parent-categories/{parentCategoryName}/categories", 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-		parameters : parameters_60 & BaseRequestParameters,
+		path: "/newsletters", 
+		parameters ?: parameters_60 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_60_0
@@ -14241,24 +9339,12 @@ export interface EnrichedDuploTo<
 		| response_60_3
 		| response_60_4
 		| response_60_5
-		| response_60_6
 	>
 
-<<<<<<< HEAD
-	get(
-		path: "/organizations", 
-		parameters ?: parameters_61 & BaseRequestParameters,
-=======
-<<<<<<< HEAD
-	delete(
-		path: "/navigation-items/{navigationItemId}", 
-=======
 	post(
-		path: "/parent-categories/{parentCategoryName}/categories", 
+		path: "/newsletters", 
 		body: request_body_61,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-		parameters : parameters_61 & BaseRequestParameters,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_61_0
@@ -14267,32 +9353,11 @@ export interface EnrichedDuploTo<
 		| response_61_3
 		| response_61_4
 		| response_61_5
-<<<<<<< HEAD
-	>
-
-	post(
-		path: "/organizations", 
-		body: request_body_62,
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
-=======
-		| response_61_6
-<<<<<<< HEAD
 	>
 
 	get(
-		path: "/newsletters", 
+		path: "/organizations", 
 		parameters ?: parameters_62 & BaseRequestParameters,
-=======
-		| response_61_7
-		| response_61_8
-	>
-
-	patch(
-		path: "/users/{userId}@moderator", 
-		body: request_body_62,
-		parameters : parameters_62 & BaseRequestParameters,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_62_0
@@ -14301,31 +9366,12 @@ export interface EnrichedDuploTo<
 		| response_62_3
 		| response_62_4
 		| response_62_5
-<<<<<<< HEAD
-		| response_62_6
-		| response_62_7
-		| response_62_8
-	>
-
-	patch(
-		path: "/organizations/{organizationId}@admin", 
-=======
-<<<<<<< HEAD
 	>
 
 	post(
-		path: "/newsletters", 
-=======
-		| response_62_6
-		| response_62_7
-	>
-
-	patch(
-		path: "/parent-categories/{parentCategoryName}", 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+		path: "/organizations", 
 		body: request_body_63,
-		parameters : parameters_63 & BaseRequestParameters,
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_63_0
@@ -14334,58 +9380,23 @@ export interface EnrichedDuploTo<
 		| response_63_3
 		| response_63_4
 		| response_63_5
-<<<<<<< HEAD
-		| response_63_6
-	>
-
-	get(
-		path: "/parent-categories", 
-		parameters ?: parameters_64 & BaseRequestParameters,
-=======
-<<<<<<< HEAD
-	>
-
-	patch(
-		path: "/organizations/{organizationId}@admin", 
-		body: request_body_64,
-		parameters : parameters_64 & BaseRequestParameters,
-=======
 		| response_63_6
 		| response_63_7
+		| response_63_8
 	>
 
 	get(
-		path: "/newsletters", 
+		path: "/categories", 
 		parameters ?: parameters_64 & BaseRequestParameters,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_64_0
-		| response_64_1
-		| response_64_2
-		| response_64_3
-		| response_64_4
-		| response_64_5
 	>
 
-<<<<<<< HEAD
 	post(
-		path: "/parent-categories", 
+		path: "/categories", 
 		body: request_body_65,
 		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
-=======
-<<<<<<< HEAD
-	get(
-		path: "/organizations", 
-		parameters ?: parameters_65 & BaseRequestParameters,
-=======
-	post(
-		path: "/newsletters", 
-		body: request_body_65,
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_65_0
@@ -14397,23 +9408,10 @@ export interface EnrichedDuploTo<
 		| response_65_6
 	>
 
-<<<<<<< HEAD
 	patch(
-		path: "/product-sheet-reviews/{productSheetReviewId}", 
+		path: "/organizations/{organizationId}@admin", 
 		body: request_body_66,
 		parameters : parameters_66 & BaseRequestParameters,
-=======
-<<<<<<< HEAD
-	post(
-		path: "/organizations", 
-		body: request_body_66,
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
-=======
-	get(
-		path: "/product-sheet-reviews", 
-		parameters ?: parameters_66 & BaseRequestParameters,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_66_0
@@ -14422,25 +9420,13 @@ export interface EnrichedDuploTo<
 		| response_66_3
 		| response_66_4
 		| response_66_5
-<<<<<<< HEAD
 		| response_66_6
 	>
 
-<<<<<<< HEAD
-	delete(
-		path: "/product-sheet-reviews/{productSheetReviewId}@moderator", 
+	patch(
+		path: "/categories/{categoryName}", 
+		body: request_body_67,
 		parameters : parameters_67 & BaseRequestParameters,
-=======
-	get(
-		path: "/parent-categories", 
-=======
-	>
-
-	get(
-		path: "/organizations", 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-		parameters ?: parameters_67 & BaseRequestParameters,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_67_0
@@ -14450,22 +9436,13 @@ export interface EnrichedDuploTo<
 		| response_67_4
 		| response_67_5
 		| response_67_6
+		| response_67_7
 	>
 
-<<<<<<< HEAD
-	get(
-		path: "/commands/{commandId}", 
-		parameters ?: parameters_68 & BaseRequestParameters,
-=======
-	post(
-<<<<<<< HEAD
-		path: "/parent-categories", 
-=======
-		path: "/organizations", 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-		body: request_body_68,
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+	put(
+		path: "/categories/{categoryName}/image", 
+		body: unknown,
+		parameters : parameters_68 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_68_0
@@ -14476,18 +9453,11 @@ export interface EnrichedDuploTo<
 		| response_68_5
 		| response_68_6
 		| response_68_7
-		| response_68_8
 	>
 
-<<<<<<< HEAD
-	patch(
-		path: "/users/{userId}@admin", 
-		body: request_body_69,
-=======
-	delete(
-		path: "/newsletters/{newsletterId}", 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-		parameters : parameters_69 & BaseRequestParameters,
+	get(
+		path: "/parent-categories", 
+		parameters ?: parameters_69 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_69_0
@@ -14496,25 +9466,12 @@ export interface EnrichedDuploTo<
 		| response_69_3
 		| response_69_4
 		| response_69_5
-		| response_69_6
-		| response_69_7
 	>
 
-<<<<<<< HEAD
-	get(
-		path: "/commands/{commandId}/invoice", 
-		parameters ?: parameters_70 & BaseRequestParameters,
-=======
-<<<<<<< HEAD
-	delete(
-		path: "/product-sheet-reviews/{productSheetReviewId}@moderator", 
-=======
-	patch(
-		path: "/organizations/{organizationId}@admin", 
+	post(
+		path: "/parent-categories", 
 		body: request_body_70,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-		parameters : parameters_70 & BaseRequestParameters,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_70_0
@@ -14526,23 +9483,10 @@ export interface EnrichedDuploTo<
 		| response_70_6
 	>
 
-<<<<<<< HEAD
 	patch(
-		path: "/navigation-items/{navigationItemId}", 
+		path: "/users/{userId}@admin", 
 		body: request_body_71,
 		parameters : parameters_71 & BaseRequestParameters,
-=======
-<<<<<<< HEAD
-	get(
-		path: "/commands/{commandId}", 
-		parameters ?: parameters_71 & BaseRequestParameters,
-=======
-	patch(
-		path: "/product-sheet-reviews/{productSheetReviewId}", 
-		body: request_body_71,
-		parameters : parameters_71 & BaseRequestParameters,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_71_0
@@ -14553,19 +9497,10 @@ export interface EnrichedDuploTo<
 		| response_71_5
 		| response_71_6
 		| response_71_7
-		| response_71_8
 	>
 
-	delete(
-<<<<<<< HEAD
-		path: "/navigation-items/{navigationItemId}", 
-=======
-<<<<<<< HEAD
-		path: "/newsletters/{newsletterId}", 
-=======
-		path: "/product-sheet-reviews/{productSheetReviewId}@moderator", 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+	get(
+		path: "/organizations/{organizationId}/full-product-sheets", 
 		parameters : parameters_72 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -14576,23 +9511,13 @@ export interface EnrichedDuploTo<
 		| response_72_4
 		| response_72_5
 		| response_72_6
+		| response_72_7
 	>
 
-<<<<<<< HEAD
-	get(
-		path: "/commands/{commandId}/bundles", 
-		parameters ?: parameters_73 & BaseRequestParameters,
-=======
-<<<<<<< HEAD
 	patch(
-		path: "/users/{userId}@admin", 
+		path: "/product-sheet-reviews/{productSheetReviewId}", 
 		body: request_body_73,
-=======
-	get(
-		path: "/organizations/{organizationId}/commands", 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 		parameters : parameters_73 & BaseRequestParameters,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_73_0
@@ -14602,30 +9527,11 @@ export interface EnrichedDuploTo<
 		| response_73_4
 		| response_73_5
 		| response_73_6
-<<<<<<< HEAD
 	>
 
-	get(
-		path: "/organizations/{organizationId}/commands", 
+	delete(
+		path: "/product-sheet-reviews/{productSheetReviewId}@moderator", 
 		parameters : parameters_74 & BaseRequestParameters,
-=======
-		| response_73_7
-<<<<<<< HEAD
-	>
-
-	get(
-		path: "/commands/{commandId}/invoice", 
-		parameters ?: parameters_74 & BaseRequestParameters,
-=======
-		| response_73_8
-	>
-
-	patch(
-		path: "/users/{userId}@admin", 
-		body: request_body_74,
-		parameters : parameters_74 & BaseRequestParameters,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_74_0
@@ -14635,19 +9541,10 @@ export interface EnrichedDuploTo<
 		| response_74_4
 		| response_74_5
 		| response_74_6
-<<<<<<< HEAD
-		| response_74_7
-		| response_74_8
-=======
-<<<<<<< HEAD
-=======
-		| response_74_7
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	>
 
 	get(
-		path: "/organizations/{organizationId}/full-product-sheets", 
+		path: "/parent-categories/{parentCategoryName}/categories", 
 		parameters : parameters_75 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -14658,11 +9555,11 @@ export interface EnrichedDuploTo<
 		| response_75_4
 		| response_75_5
 		| response_75_6
-		| response_75_7
 	>
 
-	get(
-		path: "/organizations/{organizationId}", 
+	post(
+		path: "/parent-categories/{parentCategoryName}/categories", 
+		body: request_body_76,
 		parameters : parameters_76 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -14674,11 +9571,11 @@ export interface EnrichedDuploTo<
 		| response_76_5
 		| response_76_6
 		| response_76_7
+		| response_76_8
 	>
 
-	patch(
-		path: "/organizations/{organizationId}", 
-		body: request_body_77,
+	get(
+		path: "/organizations/{organizationId}/commands", 
 		parameters : parameters_77 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -14690,22 +9587,12 @@ export interface EnrichedDuploTo<
 		| response_77_5
 		| response_77_6
 		| response_77_7
+		| response_77_8
 	>
 
-<<<<<<< HEAD
-	put(
-		path: "/organizations/{organizationId}/logo", 
-		body: unknown,
-=======
 	get(
-<<<<<<< HEAD
-		path: "/organizations/{organizationId}/commands/{commandId}/details", 
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+		path: "/organizations/{organizationId}", 
 		parameters : parameters_78 & BaseRequestParameters,
-=======
-		path: "/parent-categories", 
-		parameters ?: parameters_78 & BaseRequestParameters,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_78_0
@@ -14714,23 +9601,14 @@ export interface EnrichedDuploTo<
 		| response_78_3
 		| response_78_4
 		| response_78_5
-<<<<<<< HEAD
 		| response_78_6
 		| response_78_7
-		| response_78_8
 	>
 
-	get(
-		path: "/organizations/{organizationId}/product-sheets", 
-		parameters : parameters_79 & BaseRequestParameters,
-=======
-	>
-
-	post(
-		path: "/parent-categories", 
+	patch(
+		path: "/organizations/{organizationId}", 
 		body: request_body_79,
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
+		parameters : parameters_79 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_79_0
@@ -14740,22 +9618,12 @@ export interface EnrichedDuploTo<
 		| response_79_4
 		| response_79_5
 		| response_79_6
+		| response_79_7
 	>
 
-<<<<<<< HEAD
-	post(
-		path: "/organizations/{organizationId}/product-sheets", 
-=======
-<<<<<<< HEAD
-	patch(
-		path: "/organizations/{organizationId}", 
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-		body: request_body_80,
-=======
 	put(
 		path: "/organizations/{organizationId}/logo", 
 		body: unknown,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 		parameters : parameters_80 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -14767,27 +9635,11 @@ export interface EnrichedDuploTo<
 		| response_80_5
 		| response_80_6
 		| response_80_7
-<<<<<<< HEAD
-		| response_80_8
-		| response_80_9
-	>
-
-	get(
-		path: "/organizations/{organizationId}/users", 
-=======
-<<<<<<< HEAD
-	>
-
-	get(
-		path: "/bundles/{bundleId}/stream", 
-=======
 		| response_80_8
 	>
 
 	get(
 		path: "/organizations/{organizationId}/product-sheets", 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		parameters : parameters_81 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -14801,20 +9653,9 @@ export interface EnrichedDuploTo<
 		| response_81_7
 	>
 
-<<<<<<< HEAD
-	post(
-		path: "/organizations/{organizationId}/users", 
-		body: request_body_82,
-=======
-<<<<<<< HEAD
-	get(
-		path: "/organizations/{organizationId}/users", 
-=======
 	post(
 		path: "/organizations/{organizationId}/product-sheets", 
 		body: request_body_82,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		parameters : parameters_82 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -14830,19 +9671,8 @@ export interface EnrichedDuploTo<
 		| response_82_9
 	>
 
-<<<<<<< HEAD
-	get(
-		path: "/organizations/{organizationId}/commands/{commandId}/details", 
-=======
-<<<<<<< HEAD
-	post(
-		path: "/organizations/{organizationId}/users", 
-		body: request_body_83,
-=======
 	get(
 		path: "/organizations/{organizationId}/users", 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		parameters : parameters_83 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -14856,18 +9686,9 @@ export interface EnrichedDuploTo<
 		| response_83_7
 	>
 
-<<<<<<< HEAD
-	get(
-<<<<<<< HEAD
-		path: "/organizations/{organizationId}/facets", 
-=======
-		path: "/organizations/{organizationId}/commands", 
-=======
 	post(
 		path: "/organizations/{organizationId}/users", 
 		body: request_body_84,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		parameters : parameters_84 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -14879,27 +9700,12 @@ export interface EnrichedDuploTo<
 		| response_84_5
 		| response_84_6
 		| response_84_7
-<<<<<<< HEAD
-	>
-
-	post(
-		path: "/organizations/{organizationId}/commands/{commandId}/make-bundle", 
-		body: request_body_85,
-=======
 		| response_84_8
-<<<<<<< HEAD
-	>
-
-	get(
-		path: "/organizations/{organizationId}/product-sheets", 
-=======
 		| response_84_9
 	>
 
 	get(
-		path: "/organizations/{organizationId}/facets", 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+		path: "/organizations/{organizationId}/commands/{commandId}/details", 
 		parameters : parameters_85 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -14913,26 +9719,11 @@ export interface EnrichedDuploTo<
 		| response_85_7
 		| response_85_8
 		| response_85_9
-		| response_85_10
-		| response_85_11
-		| response_85_12
-		| response_85_13
-		| response_85_14
-		| response_85_15
 	>
 
-<<<<<<< HEAD
-	get(
-		path: "/organizations/{organizationId}/grid", 
-=======
 	post(
-<<<<<<< HEAD
-		path: "/organizations/{organizationId}/product-sheets", 
-=======
 		path: "/organizations/{organizationId}/commands/{commandId}/make-bundle", 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 		body: request_body_86,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		parameters : parameters_86 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -14944,18 +9735,8 @@ export interface EnrichedDuploTo<
 		| response_86_5
 		| response_86_6
 		| response_86_7
-<<<<<<< HEAD
-=======
 		| response_86_8
 		| response_86_9
-<<<<<<< HEAD
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
-	>
-
-	put(
-		path: "/organizations/{organizationId}/grid", 
-		body: request_body_87,
-=======
 		| response_86_10
 		| response_86_11
 		| response_86_12
@@ -14965,8 +9746,7 @@ export interface EnrichedDuploTo<
 	>
 
 	get(
-		path: "/organizations/{organizationId}/commands/{commandId}/details", 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
+		path: "/organizations/{organizationId}/product-returns", 
 		parameters : parameters_87 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -14978,33 +9758,11 @@ export interface EnrichedDuploTo<
 		| response_87_5
 		| response_87_6
 		| response_87_7
-<<<<<<< HEAD
 	>
 
-	get(
+	post(
 		path: "/organizations/{organizationId}/product-returns", 
-=======
-		| response_87_8
-		| response_87_9
-<<<<<<< HEAD
-		| response_87_10
-		| response_87_11
-		| response_87_12
-		| response_87_13
-		| response_87_14
-		| response_87_15
-	>
-
-	put(
-		path: "/organizations/{organizationId}/logo", 
-		body: unknown,
-=======
-	>
-
-	get(
-		path: "/organizations/{organizationId}/grid", 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+		body: request_body_88,
 		parameters : parameters_88 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -15016,22 +9774,14 @@ export interface EnrichedDuploTo<
 		| response_88_5
 		| response_88_6
 		| response_88_7
+		| response_88_8
+		| response_88_9
+		| response_88_10
+		| response_88_11
 	>
 
-<<<<<<< HEAD
-	post(
-		path: "/organizations/{organizationId}/product-returns", 
-		body: request_body_89,
-=======
-<<<<<<< HEAD
 	get(
 		path: "/organizations/{organizationId}/facets", 
-=======
-	put(
-		path: "/organizations/{organizationId}/grid", 
-		body: request_body_89,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		parameters : parameters_89 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -15043,14 +9793,10 @@ export interface EnrichedDuploTo<
 		| response_89_5
 		| response_89_6
 		| response_89_7
-		| response_89_8
-		| response_89_9
-		| response_89_10
-		| response_89_11
 	>
 
 	get(
-		path: "/organizations/{organizationId}/product-returns", 
+		path: "/organizations/{organizationId}/products", 
 		parameters : parameters_90 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -15064,18 +9810,8 @@ export interface EnrichedDuploTo<
 		| response_90_7
 	>
 
-<<<<<<< HEAD
 	get(
-<<<<<<< HEAD
 		path: "/organizations/{organizationId}/promotions", 
-=======
-		path: "/organizations/{organizationId}/grid", 
-=======
-	post(
-		path: "/organizations/{organizationId}/product-returns", 
-		body: request_body_91,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		parameters : parameters_91 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -15087,27 +9823,11 @@ export interface EnrichedDuploTo<
 		| response_91_5
 		| response_91_6
 		| response_91_7
-		| response_91_8
-		| response_91_9
-		| response_91_10
-		| response_91_11
 	>
 
-<<<<<<< HEAD
 	get(
-		path: "/navigation-items", 
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
-=======
-<<<<<<< HEAD
-	put(
 		path: "/organizations/{organizationId}/grid", 
-		body: request_body_92,
-=======
-	get(
-		path: "/organizations/{organizationId}/products", 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 		parameters : parameters_92 & BaseRequestParameters,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_92_0
@@ -15116,22 +9836,14 @@ export interface EnrichedDuploTo<
 		| response_92_3
 		| response_92_4
 		| response_92_5
+		| response_92_6
+		| response_92_7
 	>
 
-<<<<<<< HEAD
-	post(
-		path: "/navigation-items", 
+	put(
+		path: "/organizations/{organizationId}/grid", 
 		body: request_body_93,
-		parameters ?: UndefinedRequestParameters & BaseRequestParameters,
-=======
-	get(
-<<<<<<< HEAD
-		path: "/organizations/{organizationId}/product-returns", 
-=======
-		path: "/organizations/{organizationId}/promotions", 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 		parameters : parameters_93 & BaseRequestParameters,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
 		response_93_0
@@ -15141,10 +9853,11 @@ export interface EnrichedDuploTo<
 		| response_93_4
 		| response_93_5
 		| response_93_6
+		| response_93_7
 	>
 
 	get(
-		path: "/organizations/{organizationId}/warehouses", 
+		path: "/product-sheets/{productSheetId}/categories", 
 		parameters : parameters_94 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -15159,7 +9872,7 @@ export interface EnrichedDuploTo<
 	>
 
 	post(
-		path: "/organizations/{organizationId}/warehouses", 
+		path: "/product-sheets/{productSheetId}/categories", 
 		body: request_body_95,
 		parameters : parameters_95 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
@@ -15173,10 +9886,11 @@ export interface EnrichedDuploTo<
 		| response_95_6
 		| response_95_7
 		| response_95_8
+		| response_95_9
 	>
 
 	get(
-		path: "/product-sheets/{productSheetId}/categories", 
+		path: "/organizations/{organizationId}/warehouses", 
 		parameters : parameters_96 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -15191,7 +9905,7 @@ export interface EnrichedDuploTo<
 	>
 
 	post(
-		path: "/product-sheets/{productSheetId}/categories", 
+		path: "/organizations/{organizationId}/warehouses", 
 		body: request_body_97,
 		parameters : parameters_97 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
@@ -15205,7 +9919,6 @@ export interface EnrichedDuploTo<
 		| response_97_6
 		| response_97_7
 		| response_97_8
-		| response_97_9
 	>
 
 	delete(
@@ -15241,18 +9954,9 @@ export interface EnrichedDuploTo<
 		| response_99_8
 	>
 
-<<<<<<< HEAD
-	get(
-<<<<<<< HEAD
-		path: "/product-sheets/{productSheetId}/warehouse", 
-=======
-		path: "/organizations/{organizationId}/promotions", 
-=======
 	post(
 		path: "/product-sheets/{productSheetId}/promotions", 
 		body: request_body_100,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		parameters : parameters_100 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -15282,18 +9986,8 @@ export interface EnrichedDuploTo<
 		| response_101_7
 	>
 
-<<<<<<< HEAD
-	post(
-		path: "/product-sheets/{productSheetId}/promotions", 
-		body: request_body_102,
-=======
 	get(
-<<<<<<< HEAD
-		path: "/product-sheets/{productSheetId}/stock-story", 
-=======
-		path: "/product-sheets/{productSheetId}/warehouse", 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+		path: "/product-sheets/{productSheetId}", 
 		parameters : parameters_102 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -15305,11 +9999,11 @@ export interface EnrichedDuploTo<
 		| response_102_5
 		| response_102_6
 		| response_102_7
-		| response_102_8
 	>
 
-	get(
+	patch(
 		path: "/product-sheets/{productSheetId}", 
+		body: request_body_103,
 		parameters : parameters_103 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -15323,9 +10017,8 @@ export interface EnrichedDuploTo<
 		| response_103_7
 	>
 
-	patch(
-		path: "/product-sheets/{productSheetId}", 
-		body: request_body_104,
+	get(
+		path: "/product-sheets/{productSheetId}/warehouse", 
 		parameters : parameters_104 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -15339,14 +10032,8 @@ export interface EnrichedDuploTo<
 		| response_104_7
 	>
 
-<<<<<<< HEAD
-	patch(
-		path: "/product-sheets/{productSheetId}/facets/{facetType}", 
-		body: request_body_105,
-=======
 	get(
 		path: "/product-sheets/{productSheetId}/facets", 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
 		parameters : parameters_105 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -15358,22 +10045,11 @@ export interface EnrichedDuploTo<
 		| response_105_5
 		| response_105_6
 		| response_105_7
-		| response_105_8
 	>
 
-<<<<<<< HEAD
-	delete(
-		path: "/product-sheets/{productSheetId}/facets/{facetType}", 
-=======
-<<<<<<< HEAD
-	get(
-		path: "/product-sheets/{productSheetId}/facets", 
-=======
 	post(
 		path: "/product-sheets/{productSheetId}/facets", 
 		body: request_body_106,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		parameters : parameters_106 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -15388,19 +10064,8 @@ export interface EnrichedDuploTo<
 		| response_106_8
 	>
 
-<<<<<<< HEAD
 	get(
-		path: "/product-sheets/{productSheetId}/facets", 
-=======
-<<<<<<< HEAD
-	post(
-		path: "/product-sheets/{productSheetId}/facets", 
-=======
-	patch(
-		path: "/product-sheets/{productSheetId}/facets/{facetType}", 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-		body: request_body_107,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+		path: "/product-sheets/{productSheetId}/images", 
 		parameters : parameters_107 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -15414,19 +10079,9 @@ export interface EnrichedDuploTo<
 		| response_107_7
 	>
 
-<<<<<<< HEAD
 	post(
-		path: "/product-sheets/{productSheetId}/facets", 
-		body: request_body_108,
-=======
-<<<<<<< HEAD
-	get(
-		path: "/products/{sku}/commands-story", 
-=======
-	delete(
-		path: "/product-sheets/{productSheetId}/facets/{facetType}", 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+		path: "/product-sheets/{productSheetId}/images", 
+		body: unknown,
 		parameters : parameters_108 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -15439,18 +10094,12 @@ export interface EnrichedDuploTo<
 		| response_108_6
 		| response_108_7
 		| response_108_8
+		| response_108_9
 	>
 
-	get(
-<<<<<<< HEAD
-		path: "/product-sheets/{productSheetId}/images", 
-=======
-<<<<<<< HEAD
-		path: "/product-sheets/{productSheetId}/warehouse", 
-=======
-		path: "/products/{sku}/commands-story", 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
+	patch(
+		path: "/product-sheets/{productSheetId}/facets/{facetType}", 
+		body: request_body_109,
 		parameters : parameters_109 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -15462,22 +10111,11 @@ export interface EnrichedDuploTo<
 		| response_109_5
 		| response_109_6
 		| response_109_7
+		| response_109_8
 	>
 
-<<<<<<< HEAD
-	post(
-		path: "/product-sheets/{productSheetId}/images", 
-		body: unknown,
-=======
-<<<<<<< HEAD
-	patch(
+	delete(
 		path: "/product-sheets/{productSheetId}/facets/{facetType}", 
-		body: request_body_110,
-=======
-	get(
-		path: "/product-sheets/{productSheetId}/images", 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		parameters : parameters_110 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -15489,25 +10127,11 @@ export interface EnrichedDuploTo<
 		| response_110_5
 		| response_110_6
 		| response_110_7
-<<<<<<< HEAD
 		| response_110_8
-		| response_110_9
 	>
 
-<<<<<<< HEAD
 	get(
 		path: "/products/{sku}/commands-story", 
-=======
-	delete(
-		path: "/product-sheets/{productSheetId}/facets/{facetType}", 
-=======
-	>
-
-	post(
-		path: "/product-sheets/{productSheetId}/images", 
-		body: unknown,
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		parameters : parameters_111 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -15519,14 +10143,6 @@ export interface EnrichedDuploTo<
 		| response_111_5
 		| response_111_6
 		| response_111_7
-<<<<<<< HEAD
-=======
-		| response_111_8
-<<<<<<< HEAD
-=======
-		| response_111_9
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 	>
 
 	patch(
@@ -15545,8 +10161,9 @@ export interface EnrichedDuploTo<
 		| response_112_7
 	>
 
-	get(
-		path: "/bundles/{bundleId}", 
+	patch(
+		path: "/warehouses/{warehouseId}", 
+		body: request_body_113,
 		parameters : parameters_113 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<
@@ -15557,20 +10174,12 @@ export interface EnrichedDuploTo<
 		| response_113_4
 		| response_113_5
 		| response_113_6
+		| response_113_7
+		| response_113_8
 	>
 
-<<<<<<< HEAD
 	get(
 		path: "/bundles/{bundleId}", 
-=======
-	patch(
-<<<<<<< HEAD
-		path: "/product-returns/{productReturnId}", 
-=======
-		path: "/warehouses/{warehouseId}", 
->>>>>>> 258117b (fix: change trad for categoryCard notify new product)
-		body: request_body_114,
->>>>>>> 66825c2 (fix: change trad for categoryCard notify new product)
 		parameters : parameters_114 & BaseRequestParameters,
 		interceptorParams?: interceptorParameter
 	): EnrichedRequestor<

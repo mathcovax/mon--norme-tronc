@@ -6,6 +6,7 @@ import duploWhatWasSent from "@duplojs/what-was-sent";
 import duploZodAccelerator, { ZodAcceleratorError } from "@duplojs/zod-accelerator/plugin";
 import duploTypeGenerator from "@duplojs/to/plugin";
 import duploMultipart from "@duplojs/multipart";
+import "./utils/duplo/UnprocessableEntityHttpException";
 import "./env";
 
 declare global {
@@ -64,12 +65,20 @@ duplo.use(duploTypeGenerator, { outputFile: "../vue/src/lib/duploTo/EnrichedDupl
 
 if (ENV.ENVIRONMENT === "DEV") {
 	duplo.setDefaultErrorExtract((res, type, index, err: ZodAcceleratorError) => {
-		throw new BadRequestHttpException(`TYPE_ERROR.${type}.${index}`, err.message);
+		throw new UnprocessableEntityHttpException(`TYPE_ERROR.${type}.${index}`, err.message);
 	});
 }
 else {
 	duplo.setDefaultErrorExtract((res, type, index) => {
-		throw new BadRequestHttpException(`TYPE_ERROR.${type}.${index}`);
+		throw new UnprocessableEntityHttpException(`TYPE_ERROR.${type}.${index}`);
+	});
+
+	duplo.setErrorHandler((req, res, error) => {
+		if (error instanceof SyntaxError) {
+			throw new BadRequestHttpException("parsingBody.error");
+		}
+
+		throw new InternalServerErrorHttpException("server.error");
 	});
 }
 duplo.use(
