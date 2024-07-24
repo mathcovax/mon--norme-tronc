@@ -25,7 +25,7 @@ export function useGetFullProductSheetCount(query?: Query) {
 				{ disabledToast: true }
 			)
 			.info("fullProductSheetCount", (data) => {
-				fullProductSheetCount.value = Number(data);
+				fullProductSheetCount.value = Number(data.fullProductSheetCount);
 			})
 			.result;
 	}

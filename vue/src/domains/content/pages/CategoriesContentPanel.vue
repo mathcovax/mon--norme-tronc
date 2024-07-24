@@ -64,7 +64,7 @@ async function submitCreate() {
 
 	const result = await duploTo.enriched
 		.post(
-			"/category",
+			"/categories",
 			{ name: formFields.name, disabled: formFields.disabled }
 		)
 		.result;
@@ -75,7 +75,7 @@ async function submitCreate() {
 		
 		await duploTo
 			.put(
-				"/category/{categoryName}/image",
+				"/categories/{categoryName}/image",
 				formData,
 				{ params: { categoryName: result.data.name } }
 			)
@@ -109,7 +109,7 @@ async function submitPatch() {
 
 	const result = await duploTo.enriched
 		.patch(
-			"/category/{categoryName}",
+			"/categories/{categoryName}",
 			{ name: formFields.name, disabled: formFields.disabled },
 			{ params: { categoryName: formFields.oldName } }
 		)
@@ -122,7 +122,7 @@ async function submitPatch() {
 		
 			await duploTo
 				.put(
-					"/category/{categoryName}/image",
+					"/categories/{categoryName}/image",
 					formData,
 					{ params: { categoryName: formFields.name } }
 				)

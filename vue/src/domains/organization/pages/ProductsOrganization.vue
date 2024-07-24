@@ -107,7 +107,7 @@ async function submitPost() {
 
 	await duploTo.enriched
 		.post(
-			"/product-sheet/{productSheetId}/product",
+			"/product-sheets/{productSheetId}/products",
 			{ sku: formFields.sku, },
 			{ params: { productSheetId: currentFullProductSheet.value.id } }
 		)
@@ -124,7 +124,7 @@ async function toggleStatus(product: Product) {
 	if (product.status !== "WRONG" && product.status !== "IN_STOCK") return;
 	await duploTo.enriched
 		.patch(
-			"/product/{sku}",
+			"/products/{sku}",
 			{
 				status: product.status === "WRONG" ? "IN_STOCK" : "WRONG"
 			},

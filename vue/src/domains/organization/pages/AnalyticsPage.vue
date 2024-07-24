@@ -93,7 +93,7 @@ function deleteWidget() {
 
 	duploTo.enriched
 		.put(
-			"/organization/{organizationId}/grid",
+			"/organizations/{organizationId}/grid",
 			lastGrid,
 			{ params: { organizationId: params.value.organizationId } }
 		)
@@ -112,7 +112,7 @@ function saveLayout(layout: WidgetFull[]) {
 function updatePosition(layout: WidgetFull[]) {
 	return duploTo.enriched
 		.put(
-			"/organization/{organizationId}/grid",
+			"/organizations/{organizationId}/grid",
 			layout,
 			{ params: { organizationId: params.value.organizationId } }
 		)
@@ -175,7 +175,7 @@ async function submitLineAreaBar() {
 
 	duploTo.enriched
 		.put(
-			"/organization/{organizationId}/grid",
+			"/organizations/{organizationId}/grid",
 			lastGrid,
 			{ params: { organizationId: params.value.organizationId } }
 		)
@@ -218,7 +218,7 @@ async function submitValue() {
 
 	duploTo.enriched
 		.put(
-			"/organization/{organizationId}/grid",
+			"/organizations/{organizationId}/grid",
 			lastGrid,
 			{ params: { organizationId: params.value.organizationId } }
 		)
@@ -277,7 +277,7 @@ async function submitDonutPie() {
 
 	duploTo.enriched
 		.put(
-			"/organization/{organizationId}/grid",
+			"/organizations/{organizationId}/grid",
 			lastGrid,
 			{ params: { organizationId: params.value.organizationId } }
 		)
@@ -320,7 +320,7 @@ async function submitTop() {
 
 	duploTo.enriched
 		.put(
-			"/organization/{organizationId}/grid",
+			"/organizations/{organizationId}/grid",
 			lastGrid,
 			{ params: { organizationId: params.value.organizationId } }
 		)
@@ -341,7 +341,7 @@ onMounted(async () => {
 </script>
 
 <template>
-	<section>
+	<section class="h-full">
 		<h1 class="mb-12 text-3xl font-bold">
 			{{ $pt("title") }}
 		</h1>
@@ -636,7 +636,7 @@ onMounted(async () => {
 		</div>
 
 		<div 
-			class="w-full h-full flex justify-center items-center"
+			class="w-full h-full flex justify-center items-center text-black"
 			v-else
 		>
 			<p>{{ $pt("text.noData") }}</p>
@@ -646,23 +646,22 @@ onMounted(async () => {
 
 <style scoped>
 .vgl-layout {
-  --vgl-placeholder-bg: rgb(105, 105, 105);
-  border-radius: var(--radius);
+	--vgl-placeholder-bg: rgb(105, 105, 105);
+	border-radius: var(--radius);
 
 }
 
 :deep(.vgl-item:not(.vgl-item--placeholder)) {
-  background-color: transparent;
-  border: 1px solid black;
-  border-radius: var(--radius);
+	background-color: transparent;
+	border: 1px solid black;
+	border-radius: var(--radius);
 }
 
 :deep(.vgl-item--resizing) {
-  opacity: 90%;
+	opacity: 90%;
 }
 
 :deep(.vgl-item__resizer) {
 	margin: 0.2rem;
 }
-
 </style>

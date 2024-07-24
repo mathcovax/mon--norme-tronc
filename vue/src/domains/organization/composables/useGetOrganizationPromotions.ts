@@ -6,7 +6,7 @@ export function useGetOrganizationPromotions(organizationId: string) {
 	function getOrganizationPromotions(page?: number) {
 		return duploTo.enriched
 			.get(
-				"/organization/{organizationId}/promotions",
+				"/organizations/{organizationId}/promotions",
 				{ 
 					params: { organizationId },
 					query: { page }

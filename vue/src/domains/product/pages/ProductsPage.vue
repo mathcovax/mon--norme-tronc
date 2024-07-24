@@ -161,14 +161,14 @@ watch(
 					{{ $pt("emptySubtitle") }}
 				</p>
 
-				<TheButton 
+				<PrimaryButton
 					class="mt-4"
 					as-child
 				>
 					<RouterLink :to="{ name: CATEGORIES_PAGE }">
 						{{ $pt("buttonBack") }}
 					</RouterLink>
-				</TheButton>
+				</PrimaryButton>
 			</div>
 		</div>
 	</section>

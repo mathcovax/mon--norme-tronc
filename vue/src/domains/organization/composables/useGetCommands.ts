@@ -4,7 +4,7 @@ import { effect } from "vue";
 
 type Query = GetDef<
 	"GET",
-	"/organization/{organizationId}/commands"
+	"/organizations/{organizationId}/commands"
 >["parameters"]["query"]
 
 export function useGetCommands(organizationId: string, query?: Query) {
@@ -23,7 +23,7 @@ export function useGetCommands(organizationId: string, query?: Query) {
 
 		return duploTo.enriched
 			.get(
-				"/organization/{organizationId}/commands",
+				"/organizations/{organizationId}/commands",
 				{
 					params: {
 						organizationId,

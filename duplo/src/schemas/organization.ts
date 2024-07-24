@@ -7,7 +7,8 @@ export const organizationSchema = zod.object({
 	ownerId: zod.string(),
 	suspended: zod.boolean(),
 	logoKey: zod.string().nullable(),
-	logoUrl: zod.string().nullable()
+	logoUrl: zod.string().nullable(),
+	emailSupport: zod.string().nullable(),
 });
 
 export const organizationRolesTuple: TuplifyUnion<organization_role> = [
@@ -29,5 +30,5 @@ export const organizationUserSchema = zod.object({
 	email: zod.string(),
 	lastname: zod.string(),
 	firstname: zod.string(),
-	organizationRole: zod.enum(organizationRolesTuple)
+	organizationRole: zod.enum(organizationRolesTuple),
 });

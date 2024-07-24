@@ -60,7 +60,7 @@ export const useCartStore = defineStore(
 			if (userStore.isConnected) {
 				return duploTo.enriched
 					.post(
-						"/article",
+						"/articles",
 						{ 
 							productSheetId: addedArticle.productSheetId,
 							quantity: quantity,
@@ -100,7 +100,7 @@ export const useCartStore = defineStore(
 			if (userStore.isConnected) {
 				duploTo.enriched
 					.delete(
-						"/article/{productSheetId}",
+						"/articles/{productSheetId}",
 						{ params: { productSheetId } }
 					)
 					.then(getCart);

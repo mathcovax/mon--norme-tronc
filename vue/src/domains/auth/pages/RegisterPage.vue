@@ -18,7 +18,7 @@ async function submit() {
 	}
 
 	await duploTo.enriched.post(
-		"/register", 
+		"/users", 
 		{
 			fireBaseIdToken: query.value.fireBaseIdToken,
 			firstname: formFields.fistname,
@@ -53,6 +53,32 @@ async function submit() {
 					</div>
 
 					<SignUpForm @submit="submit">
+						<template #terms="{ modelValue, onUpdate }">
+							<div class="flex gap-2 items-center ">
+								<TheCheckbox
+									id="terms"
+									:checked="modelValue"
+									@update:checked="onUpdate"
+									class="col-span-12"
+								/>
+
+								<label
+									for="terms"
+									class="text-sm font-medium leading-none hover:cursor-pointer"
+								>{{ $t("label.terms") }}</label>
+							</div>
+
+							<small style="grid-column: span 12 / span 12;">
+								<a 
+									href="/cgu"
+									target="_blank"
+									class="hover:underline hover:text-sky-600"
+								>
+									{{ $pt("seeCgu") }}
+								</a>
+							</small>
+						</template>
+
 						<PrimaryButton
 							type="submit"
 							class="col-span-12"

@@ -6,7 +6,7 @@ export function useGetProductCommandStory() {
 	function getProductCommandStory(sku: string) {
 		return duploTo.enriched
 			.get(
-				"/product/{sku}/commands-story",
+				"/products/{sku}/commands-story",
 				{ 
 					params: { sku },
 				}

@@ -4,7 +4,7 @@ import type { FullProductSheet } from "@/lib/utils";
 type Query = Exclude<
 	GetDef<
 		"GET",
-		"/organization/{organizationId}/full-product-sheets"
+		"/organizations/{organizationId}/full-product-sheets"
 	>["parameters"]["query"],
 	undefined
 >
@@ -15,7 +15,7 @@ export function useGetFullProductSheet(organizationId: string) {
 	function getFullProductSheet(query: Query) {
 		return duploTo.enriched
 			.get(
-				"/organization/{organizationId}/full-product-sheets",
+				"/organizations/{organizationId}/full-product-sheets",
 				{
 					params: { organizationId },
 					query,

@@ -18,30 +18,27 @@ async function getRandomDocumentFullProductSheet() {
 	}
 }
 
-export const main = async () => {
-	try {
-		const client = await mongooseClient();
-		for (let i = 0; i < commandCount; i++) {
-			const fullProductSheet = await getRandomDocumentFullProductSheet(); 
-			await addFullCommandItem({ 
-				productSheet: {
-					id: fullProductSheet.id,
-					name: fullProductSheet.name,
-					ref: fullProductSheet.ref,
-					price: fullProductSheet.price,
-					categories: fullProductSheet.categories,
-					imageUrl: "beureur",
-					facets: fullProductSheet.facets,
-				},
+try {
+	const client = await mongooseClient();
+	for (let i = 0; i < commandCount; i++) {
+		const fullProductSheet = await getRandomDocumentFullProductSheet(); 
+		await addFullCommandItem({ 
+			productSheet: {
+				id: fullProductSheet.id,
+				name: fullProductSheet.name,
+				ref: fullProductSheet.ref,
+				price: fullProductSheet.price,
+				categories: fullProductSheet.categories,
+				imageUrl: "beureur",
+				facets: fullProductSheet.facets,
 			},
-			{ id: fullProductSheet.organization.id, name: fullProductSheet.organization.name }
-			);
-		}
-		await client.disconnect();
-		console.log("Done");
-	} catch (error) {
-		console.error(error);
-		process.exit(1);
+		},
+		{ id: fullProductSheet.organization.id, name: fullProductSheet.organization.name }
+		);
 	}
-};
-main();
+	await client.disconnect();
+	console.log("Done");
+} catch (error) {
+	console.error(error);
+	process.exit(1);
+}

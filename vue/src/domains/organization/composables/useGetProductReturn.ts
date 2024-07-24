@@ -4,7 +4,7 @@ import type { ProductReturn } from "@/lib/utils";
 type Query = Exclude<
 	GetDef<
 		"GET",
-		"/organization/{organizationId}/product-returns"
+		"/organizations/{organizationId}/product-returns"
 	>["parameters"]["query"],
 	undefined
 > 
@@ -16,7 +16,7 @@ export function useGetProductReturn(organizationId: string) {
 	function getProductReturn(query: Query) {
 		return duploTo.enriched
 			.get(
-				"/organization/{organizationId}/product-returns",
+				"/organizations/{organizationId}/product-returns",
 				{
 					params: { organizationId },
 					query,

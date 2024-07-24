@@ -72,7 +72,7 @@ const commandDetailes = ref<OrganizationCommandDetailes>([]);
 function openPopup(command: OrganizationCommandCollection[number]) {
 	duploTo.enriched
 		.get(
-			"/organization/{organizationId}/commands/{commandId}/details",
+			"/organizations/{organizationId}/commands/{commandId}/details",
 			{
 				params: {
 					organizationId: params.value.organizationId,
@@ -103,7 +103,7 @@ async function createBundle() {
 
 	duploTo.enriched
 		.post(
-			"/organization/{organizationId}/commands/{commandId}/make-bundle",
+			"/organizations/{organizationId}/commands/{commandId}/make-bundle",
 			formfield,
 			{
 				params: {

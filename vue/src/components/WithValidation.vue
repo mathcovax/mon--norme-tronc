@@ -3,6 +3,7 @@ interface Props {
 	title: string
 	content?: string
 	class?: HTMLElement["className"]
+	destructive?: boolean
 	disabled?: boolean
 }
 
@@ -48,6 +49,7 @@ const emit = defineEmits<{
 
 				<TheButton
 					size="lg"
+					:variant="props.destructive ? 'destructive' : 'default'"
 					@click="() => { emit('validate'); close(); }"
 				>
 					{{ $t("button.validate") }}

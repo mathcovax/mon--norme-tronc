@@ -68,7 +68,7 @@ async function submit() {
 
 	duploTo.enriched
 		.post(
-			"/product-sheet/{productSheetId}/promotions",
+			"/product-sheets/{productSheetId}/promotions",
 			{
 				percentage: formFields.percentage,
 				startDate: formFields.startDate,

@@ -47,7 +47,7 @@ async function submitNewsletter() {
 
 	await duploTo.enriched
 		.post(
-			"/newsletter",
+			"/newsletters",
 			{ object: formField.object, content: renderedContent, sendAt: formField.sendAt }
 		)
 		.info("newsletter.created", () => {
@@ -64,7 +64,7 @@ function deleteItem(item: Newsletter) {
 
 	duploTo.enriched
 		.delete(
-			"/newsletter/{newsletterId}",
+			"/newsletters/{newsletterId}",
 			{ params: { newsletterId: item.id } }
 		)
 		.info("newsletter.deleted", () => {

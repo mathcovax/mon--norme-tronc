@@ -46,7 +46,8 @@ export const hasOrganizationRole = duplo
 
 			if (currentOrganizationRole === "BELONG_TO") {
 				return {};
-			} else if (
+			} 
+			else if (
 				userOrganizationRole !== currentOrganizationRole &&
 				!organizationRolesHierarchy[userOrganizationRole].includes(currentOrganizationRole)
 			) {

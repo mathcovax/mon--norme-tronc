@@ -9,12 +9,10 @@ import { useReviewForm } from "../composables/useReviewForm";
 import ReviewCard from "../components/ReviewCard.vue";
 import { useGetSubscribedNotifications } from "../composables/useGetSusbcribedNotifications";
 
-const { CATEGORY_PAGE } = routerPageName;
-
 const $pt = usePageTranslate();
 const router = useRouter();
 const route = useRoute();
-const { EDITO_HOME } = routerPageName;
+const { EDITO_HOME, CATEGORY_PAGE, EDITO_ORGANIZATION_INFO } = routerPageName;
 
 const product = ref<FullProductSheet | null>(null);
 const productQuantity = ref(1);
@@ -30,7 +28,7 @@ const { ReviewForm, checkReviewForm, resetReviewForm } = useReviewForm();
 function getProductData() {
 	return duploTo.enriched
 		.get(
-			"/full-product-sheet/{productSheetId}",
+			"/full-product-sheets/{productSheetId}",
 			{ params: { productSheetId: params.value.productSheetId } }
 		)
 		.info("fullProductSheet", (data) => {
@@ -103,7 +101,7 @@ async function sendReview() {
 
 	duploTo.enriched
 		.post(
-			"/product-sheet/{productSheetId}/reviews",
+			"/product-sheets/{productSheetId}/reviews",
 			{
 				pseudo: formFields.pseudo,
 				content: formFields.content,
@@ -132,7 +130,7 @@ function getReview(owne?: boolean) {
 	
 	duploTo.enriched
 		.get(
-			"/product-sheet/{productSheetId}/reviews",
+			"/product-sheets/{productSheetId}/reviews",
 			{
 				params: {
 					productSheetId: params.value.productSheetId,
@@ -310,7 +308,7 @@ watch(
 					</PrimaryButton>
 				</div>
 
-				<div class="flex flex-col gap-2">
+				<div class="flex flex-col gap-2 mt-4">
 					<label
 						v-if="product.quantity === 0"
 						class="relative inline-flex items-center gap-2 cursor-pointer"
@@ -325,7 +323,7 @@ watch(
 					
 						<div class="w-11 h-6 bg-gray-200 dark:bg-light-gray peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-slate-950" />
 
-						<span class="inline-block opacity-50">Être notifié quand ce produit re-obtient du stock</span>
+						<span class="inline-block opacity-50">{{ $t("label.productStock") }}</span>
 
 					</label>
 
@@ -343,7 +341,7 @@ watch(
 
 						<div class="w-11 h-6 bg-gray-200 dark:bg-light-gray peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-slate-950" />
 
-						<span class="inline-block opacity-50">Être notifié quand ce produit est en promotion</span>
+						<span class="inline-block opacity-50">{{ $t("label.promotions") }}</span>
 
 					</label>
 				</div>
@@ -373,7 +371,12 @@ watch(
 					<span class="inline-block opacity-50">Vendu par :</span>
 
 					<div class="flex items-center gap-1">
-						<span class="inline-block opacity-50">{{ product.organization.name }}</span>
+						<RouterLink
+							:to="{ name: EDITO_ORGANIZATION_INFO, params: { organizationId: product.organization.id } }"
+							class="inline-block font-semibold opacity-50 hover:underline"
+						>
+							{{ product.organization.name }}
+						</RouterLink>
 
 						<img
 							v-if="product.organization.logoUrl"
@@ -457,10 +460,14 @@ watch(
 					:review="owneReview"
 					class="w-full"
 				>
-					<PrimaryButton class="absolute top-4 right-4">
+					<PrimaryButton
+						class="absolute top-4 right-4"
+						as-child
+					>
 						<TheIcon
 							icon="delete"
 							@click="deleteReview"
+							class="text-white"
 						/>
 					</PrimaryButton>
 				</ReviewCard>

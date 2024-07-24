@@ -10,7 +10,10 @@ const userStore = useUserStore();
 		<AdminMobileNavbar />
 
 		<div class="w-full flex-1 text-center md:text-start">
-			<span class=" text-xl">Bonjour {{ userStore.user?.firstname }} ! Vous êtes <strong>{{ userStore.user?.primordialRole }}</strong>.</span>
+			<span class=" text-xl">
+				{{ $t("layout.admin.hello", {value: userStore.user?.firstname}) }} 
+				<strong>{{ userStore.user?.primordialRole ? $t(`role.${userStore.user?.primordialRole}`) : "" }}</strong>.
+			</span>
 		</div>
 
 		<AdminDropdown />

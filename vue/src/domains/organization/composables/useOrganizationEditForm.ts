@@ -9,7 +9,12 @@ export function useOrganizationEditForm(organizationId: string) {
 		label: {
 			type: "text",
 			label: $pt("form.organizationLabel"),
-			zodSchema: zod.string().optional()
+			zodSchema: zod.string().max(36).optional()
+		},
+		emailSupport: {
+			type: "text",
+			label: $pt("form.emailSupport"),
+			zodSchema: zod.string().max(255).optional()
 		},
 		logo: {
 			type: "custom",
@@ -25,7 +30,7 @@ export function useOrganizationEditForm(organizationId: string) {
 
 	duploTo.enriched
 		.get(
-			"/organization/{organizationId}",
+			"/organizations/{organizationId}",
 			{ params: { organizationId } }
 		)
 		.info("organization.found", (data) => {

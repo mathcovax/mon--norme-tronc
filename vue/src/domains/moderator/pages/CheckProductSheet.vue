@@ -22,7 +22,7 @@ function patchProductSheet(status: FullProductSheet["status"]) {
 
 	duploTo.enriched
 		.patch(
-			"/product-sheet/{productSheetId}@moderator",
+			"/product-sheets/{productSheetId}@moderator",
 			{ status },
 			{
 				params: { productSheetId: currentFullProductSheet.value.id }

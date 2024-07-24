@@ -52,7 +52,7 @@ async function submit() {
 
 	duploTo.enriched
 		.post(
-			"/organization/{organizationId}/user",
+			"/organizations/{organizationId}/users",
 			{
 				email: formFields.email,
 				lastname: formFields.lastname,	
@@ -85,7 +85,7 @@ async function submitPatch() {
 
 	duploTo.enriched
 		.patch(
-			"/organization/{organizationId}/user/{userId}",
+			"/organizations/{organizationId}/users/{userId}",
 			{
 				organizationRole: formFields.organizationRole
 			},
@@ -105,7 +105,7 @@ function deleteUser() {
 
 	duploTo.enriched
 		.delete(
-			"/organization/{organizationId}/user/{userId}",
+			"/organizations/{organizationId}/users/{userId}",
 			{
 				params: { 
 					organizationId: params.value.organizationId, 

@@ -20,7 +20,7 @@ async function submit() {
 
 	await duploTo.enriched
 		.post(
-			"/organization",
+			"/organizations",
 			{
 				name: formFields.name,
 				ownerId: formFields.ownerId
@@ -71,7 +71,7 @@ function previous() {
 function suspended(organization: Organization) {
 	duploTo.enriched
 		.patch(
-			"/organization/{organizationId}@admin",
+			"/organizations/{organizationId}@admin",
 			{
 				suspended: !organization.suspended
 			},

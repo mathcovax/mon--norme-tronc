@@ -97,6 +97,12 @@ services:
       node-installer:
         condition: service_completed_successfully
     
+  mongo-viewer:
+    image: mongo-express
+    ports:
+      - 8081:8081
+    env_file: ./duplo/.env
+    
 volumes:
   postgres_data:
   mongo_data:

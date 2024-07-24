@@ -1,4 +1,4 @@
-import type { Bundle, CommandStatus, Facet, ProductReturn } from "@/lib/utils";
+import type { Bundle, CommandStatus, Facet, OrganizationRole, PrimordialRole, ProductReturn } from "@/lib/utils";
 
 export default {
 	page: {
@@ -21,6 +21,7 @@ export default {
 		[routerPageName.AUTH_REGISTER]: {
 			title: "Première visite ?",
 			subtitle: "Créez un compte pour accéder à nos services.",
+			seeCgu: "Voir les conditions générales d'utilisation",
 		},
 		[routerPageName.USER_EDIT_PROFIL]: {
 			title: "Mon profil",
@@ -104,6 +105,14 @@ export default {
 			relatedProducts: "Produits similaires",
 			noStock: "Plus de Stock.",
 			lte10: "Plus que {value} !",
+		},
+		[routerPageName.EDITO_ORGANIZATION_INFO]: {
+			label: {
+				id: "ID",
+				label: "Label",
+				emailSupport: "Email de support",
+				none: "Aucun",
+			}
 		},
 		[routerPageName.USER_CART]: {
 			title: "Mon panier",
@@ -272,11 +281,19 @@ export default {
 				title: "Créer une fiche produit",
 			};
 		},
+		[routerPageName.ORGANIZATION_HOME]: {
+			title: "Bienvenue sur le panneau de gestion de l'organisation",
+		}, 
 		[routerPageName.ORGANIZATION_EDIT]: {
+			title: "Modification de l'organisation",
 			form: {
 				logo: "Logo",
 				addLogo: "Ajouter un logo",
 				organizationLabel: "Label de l'organisation",
+				emailSupport: "Email de support",
+			},
+			label: {
+				noLogo: "Vous n'avez pas de logo. Ajoutez-en un !"
 			}
 		},
 		[routerPageName.ORGANIZATION_GET_WAREHOUSE]: {
@@ -507,7 +524,7 @@ export default {
 			text: {
 				top: "Classement",
 				deleteWidget: "Êtes-vous sur de vouloir supprimer ce widget ?",
-				notData: "Vous n'avez configurez aucun widget.",
+				noData: "Vous n'avez configurez aucun widget.",
 			}
 		},
 	},
@@ -616,7 +633,9 @@ export default {
 					title: "Aide",
 					clientSupport: "Support client",
 					deliveryDetails: "Détails de livraison",
-					generalConditions: "Conditions générales",
+					returnPolicy: "Politique de retour",
+					generalConditions: "Conditions générales d'utilisation",
+					termsOfSales: "Conditions générales de vente",
 					confidentialityPolicy: "Politique de confidentialité",
 				},
 				faqNav: {
@@ -636,6 +655,7 @@ export default {
 			}
 		},
 		admin: {
+			hello: "Bonjour {value} ! Vous êtes",
 			title: "Panneau d'administration",
 			nav: {
 				home: "Tableau de bord",
@@ -667,6 +687,7 @@ export default {
 			},
 		},
 		content: {
+			hello: "Bonjour {value} ! Vous êtes",
 			title: "Gestion du contenu",
 			nav: {
 				dashboard: "Tableau de bord",
@@ -704,12 +725,20 @@ export default {
 		MODERATOR: "Modérateur",
 		CONTENTS_MASTER: "Gestionnaire",
 		ADMIN: "Administrateur"
-	},
+	} satisfies Record<PrimordialRole, string>,
 	organizationRole: {
 		STORE_KEEPER: "Magasinier",
 		PRODUCT_SHEET_MANAGER: "Gestionaire de fiche produit",
 		ACCOUNTANT: "Comptable",
 		OWNER: "Propriétaire"
+	} satisfies Record<OrganizationRole, string>,
+	modal: {
+		age: {
+			title: "Vérification de l'âge",
+			content: "Vous devez avoir plus de 18 ans pour accéder à ce site.",
+			confirm: "J'ai plus de 18 ans",
+			cancel: "Je suis mineur",
+		},
 	},
 	toast: {
 		default: "Info",
@@ -744,7 +773,7 @@ export default {
 		newsletter: "S'abonner à la newsletter",
 		productStock: "Être notifié des restocks",
 		promotions: "Être notifié des promotions",
-		newProductsInCategory: "Être notifié des nouveautés",
+		newProductsInCategory: "Être notifié des nouveaux produits",
 		productSheet: "Fiche produit",
 		percentage: "Pourcentage (%)",
 		startDate: "Date de début",

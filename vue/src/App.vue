@@ -22,6 +22,8 @@ watch(
 		class="w-full h-full overflow-auto"
 	>
 		<RouterView />
+
+		<CheckAgeModal />
 	</div>
 
 	<TheToaster	/>

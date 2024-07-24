@@ -34,6 +34,7 @@ declare module 'vue' {
     ChartLegend: typeof import('./src/components/ui/chart/ChartLegend.vue')['default']
     ChartSingleTooltip: typeof import('./src/components/ui/chart/ChartSingleTooltip.vue')['default']
     ChartTooltip: typeof import('./src/components/ui/chart/ChartTooltip.vue')['default']
+    CheckAgeModal: typeof import('./src/components/CheckAgeModal.vue')['default']
     ClosingTag: typeof import('./src/components/ClosingTag.vue')['default']
     CommandDialog: typeof import('./src/components/ui/command/CommandDialog.vue')['default']
     CommandEmpty: typeof import('./src/components/ui/command/CommandEmpty.vue')['default']

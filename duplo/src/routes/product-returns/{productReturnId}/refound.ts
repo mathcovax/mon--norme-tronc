@@ -55,7 +55,7 @@ export const POST = (method: Methods, path: string) =>
 						}
 						return session.payment_intent;
 					});
-
+					
 				await stripe.refunds.create({
 					amount: formatPrice(unitPrice * 100),
 					payment_intent: paymentIntent

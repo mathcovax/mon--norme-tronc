@@ -5,7 +5,7 @@ export function useGetCategoriesCount() {
 		return duploTo.enriched
 			.get("/categories-count")
 			.info("categoriesCount", (data) => {
-				categoriesCount.value = data;
+				categoriesCount.value = data.categoriesCount;
 			})
 			.e(() => {
 				categoriesCount.value = 0;

@@ -32,7 +32,11 @@ export const POST = (method: Methods, path: string) =>
 				const { id, updatedAt } = pickup("user");
 				const accessToken = AccessToken.generate({ id, lastUpdateUser: updatedAt.getTime() });
 
-				throw new OkHttpException("user.logged", accessToken);
+				throw new OkHttpException("user.logged", { accessToken });
 			},
-			new IHaveSentThis(OkHttpException.code, "user.logged", zod.string())
+			new IHaveSentThis(
+				OkHttpException.code, 
+				"user.logged", 
+				zod.object({ accessToken: zod.string() })
+			)
 		);

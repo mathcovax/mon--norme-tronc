@@ -75,7 +75,7 @@ async function createRefund() {
 
 	duploTo.enriched
 		.post(
-			"/organization/{organizationId}/product-returns",
+			"/organizations/{organizationId}/product-returns",
 			{
 				sku: formField.sku,
 				reason: formField.reason,

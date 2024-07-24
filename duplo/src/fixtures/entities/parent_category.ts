@@ -11,6 +11,15 @@ export const makeParentCategory = (
 		}
 	});
 
+export const parentCategoryExist = (
+	name: string
+) => 
+	prisma.parent_category.findFirst({
+		where: {
+			name,
+		}
+	});
+
 export const addCategoryToParentCategory = (categoryName: string, parentCategoryName: string) => 
 	prisma.category_to_parent_category.create({
 		data: {

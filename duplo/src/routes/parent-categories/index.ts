@@ -1,4 +1,5 @@
-import { parentCategoryWithCategoriesNameSchema } from "@schemas/parentCategory";
+import { parentCategoryExistCheck } from "@checkers/parentCategory";
+import { parentCategorySchema, parentCategoryWithCategoriesNameSchema } from "@schemas/parentCategory";
 import { hasPrimordialRole } from "@security/hasPrimordialRole";
 import { stringBoolean } from "@utils/zod";
 
@@ -45,4 +46,39 @@ export const GET = (method: Methods, path: string) =>
 				throw new OkHttpException("parentCategories", parentCategories);
 			},
 			new IHaveSentThis(OkHttpException.code, "parentCategories", parentCategoryWithCategoriesNameSchema.array())
+		);
+
+/* METHOD : POST, PATH : /parent-categories */
+export const POST = (method: Methods, path: string) => 
+	hasPrimordialRole({ options: { primordialRole: "CONTENTS_MASTER" } })
+		.declareRoute(method, path)
+		.extract({
+			body: zod.object({
+				name: zod.string().max(255).min(3),
+			}).strip()
+		})
+		.check(
+			parentCategoryExistCheck, 
+			{
+				input: p => p("body").name,
+				result: "parentCategory.notfound",
+				catch: () => {
+					throw new ConflictHttpException("parentCategory.name.alreadyUse");
+				},
+			},
+			new IHaveSentThis(ConflictHttpException.code, "parentCategory.name.alreadyUse")
+		)
+		.handler(
+			async ({ pickup }) => {
+				const { name: parentCategoryName } = pickup("body");
+
+				const parentCategory = await prisma.parent_category.create({
+					data: {
+						name: parentCategoryName
+					}
+				});
+
+				throw new CreatedHttpException("parentCategory.created", parentCategory);
+			},
+			new IHaveSentThis(CreatedHttpException.code, "parentCategory.created", parentCategorySchema)
 		);

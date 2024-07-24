@@ -7,7 +7,11 @@ export const GET = (method: Methods, path: string) =>
 			async () => {
 				const categoriesCount = await prisma.category.count();
 
-				throw new OkHttpException("categoriesCount", categoriesCount);
+				throw new OkHttpException("categoriesCount", { categoriesCount });
 			},
-			new IHaveSentThis(OkHttpException.code, "categoriesCount", zod.number())
+			new IHaveSentThis(
+				OkHttpException.code, 
+				"categoriesCount", 
+				zod.object({ categoriesCount: zod.number() })
+			)
 		);

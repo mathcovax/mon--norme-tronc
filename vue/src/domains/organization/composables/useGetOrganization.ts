@@ -9,12 +9,13 @@ export function useGetOrganization(organizationId: string) {
 		suspended: false,
 		logoKey: "",
 		logoUrl: "",
+		emailSupport: ""
 	});
 
 	function getOrganization() {
 		return duploTo.enriched
 			.get(
-				"/organization/{organizationId}",
+				"/organizations/{organizationId}",
 				{ params: { organizationId } }
 			)
 			.info("organization.found", (data) => {

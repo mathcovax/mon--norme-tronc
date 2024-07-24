@@ -31,7 +31,7 @@ async function submit() {
 
 	await duploTo.enriched
 		.patch(
-			"/user/{userId}@admin",
+			"/users/{userId}@admin",
 			{
 				primordialRole: formFields.primordialRole,
 				muted: formFields.muted,
