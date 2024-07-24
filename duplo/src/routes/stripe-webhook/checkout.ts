@@ -1,5 +1,4 @@
 import { buffer } from "stream/consumers";
-import Stripe from "stripe";
 
 /* METHOD : POST, PATH : /stripe-webhook/checkout */
 export const POST = (method: Methods, path: string) => 
@@ -23,8 +22,7 @@ export const POST = (method: Methods, path: string) =>
 					);
 					return { stripeEvent };
 				} catch (err) {
-					return { stripeEvent: JSON.parse(signedBody.toString("utf-8")) as Stripe.Event };
-				// throw new UnauthorizedHttpException("stripeSignature.invalide");
+					throw new UnauthorizedHttpException("stripeSignature.invalide");
 				}
 			},
 			["stripeEvent"],
@@ -36,7 +34,7 @@ export const POST = (method: Methods, path: string) =>
 
 				if (
 					stripeEvent.type !== "checkout.session.completed" &&
-				stripeEvent.type !== "checkout.session.expired" 
+					stripeEvent.type !== "checkout.session.expired" 
 				) {
 					throw new BadRequestHttpException("stripeEvent.invalide.type");
 				}
