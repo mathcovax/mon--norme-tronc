@@ -36,7 +36,7 @@ async function submit () {
 
 	duploTo
 		.put(
-			"/organization/{organizationId}/logo",
+			"/organizations/{organizationId}/logo",
 			formData,
 			{ params: { organizationId: params.value.organizationId } }
 		);

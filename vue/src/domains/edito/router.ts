@@ -10,6 +10,7 @@ export const routerPageNameEdito = Object.freeze({
 	EDITO_FAQ_ACCOUNT: "faq-account",
 	EDITO_FAQ_PAYMENTS: "faq-payments",
 	EDITO_FAQ_COMMANDES: "faq-commandes",
+	EDITO_ORGANIZATION_INFO: "organization-info",
 });
 
 export default (): RouteRecordRaw[] => [
@@ -57,6 +58,11 @@ export default (): RouteRecordRaw[] => [
 		name: routerPageNameEdito.EDITO_FAQ_COMMANDES,
 		path: "/faq-commandes",
 		component: () => import("./pages/FaqCommandesPage.vue"),
+	},
+	{
+		name: routerPageNameEdito.EDITO_ORGANIZATION_INFO,
+		path: "/organization-info/:organizationId",
+		component: () => import("./pages/OrganizationInfoPage.vue"),
 	}
 ];
 

@@ -106,6 +106,14 @@ export default {
 			noStock: "Plus de Stock.",
 			lte10: "Plus que {value} !",
 		},
+		[routerPageName.EDITO_ORGANIZATION_INFO]: {
+			label: {
+				id: "ID",
+				label: "Label",
+				emailSupport: "Email de support",
+				none: "Aucun",
+			}
+		},
 		[routerPageName.USER_CART]: {
 			title: "Mon panier",
 			emptyTitle: "Votre panier est vide.",

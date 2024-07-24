@@ -52,7 +52,7 @@ export const GET = (method: Methods, path: string) =>
 		.handler(
 			async ({ pickup }) => {
 				const organization = pickup("organization");
-
+				
 				throw new OkHttpException("organization.found", organization);
 			},
 			new IHaveSentThis(OkHttpException.code, "organization.found", organizationSchema)
