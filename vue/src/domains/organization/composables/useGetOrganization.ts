@@ -9,6 +9,7 @@ export function useGetOrganization(organizationId: string) {
 		suspended: false,
 		logoKey: "",
 		logoUrl: "",
+		emailSupport: ""
 	});
 
 	function getOrganization() {

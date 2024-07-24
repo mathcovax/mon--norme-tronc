@@ -8,7 +8,10 @@ export const GET = (method: Methods, path: string) =>
 		.declareRoute(method, `${path}@moderator`)
 		.handler(
 			async () => {
-				const fullProductSheets = await fullProductSheetModel.aggregate([{ $sample: { size: 1 } }]);
+				const fullProductSheets = await fullProductSheetModel.aggregate([
+					{ $match: { status: "UNVERIFIED" } },
+					{ $sample: { size: 1 } },
+				]);
 
 				throw new OkHttpException("fullProductSheets", fullProductSheets);
 			},

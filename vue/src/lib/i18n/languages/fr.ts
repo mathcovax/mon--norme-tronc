@@ -282,6 +282,7 @@ export default {
 				logo: "Logo",
 				addLogo: "Ajouter un logo",
 				organizationLabel: "Label de l'organisation",
+				emailSupport: "Email de support",
 			},
 			label: {
 				noLogo: "Vous n'avez pas de logo. Ajoutez-en un !"

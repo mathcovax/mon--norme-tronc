@@ -9,4 +9,5 @@ export const organizationData: organization = {
 	logoKey: null,
 	logoUrl: null,
 	grid: "",
+	emailSupport: null
 };

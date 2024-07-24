@@ -63,7 +63,7 @@ async function submit() {
 		});
 
 		formFields.oldImages?.forEach(item => { 
-			if (formFields.images.find(i => item === i)) {
+			if (formFields.images.find(i => item.id === i.id)) {
 				return;
 			}
 

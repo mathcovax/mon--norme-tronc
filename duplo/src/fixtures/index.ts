@@ -1,8 +1,8 @@
 import { makeUser } from "./entities/user";
 import { addUserToOrganization, makeOrganization, organizationRolesTuple } from "./entities/organization";
-import { addProductSheetToCategory, makeCategory } from "./entities/category";
+import { addProductSheetToCategory, categoryExist, makeCategory } from "./entities/category";
 import { makeProductSheet } from "./entities/product_sheet";
-import { addCategoryToParentCategory, makeParentCategory } from "./entities/parent_category";
+import { addCategoryToParentCategory, makeParentCategory, parentCategoryExist } from "./entities/parent_category";
 import { makeImageProductSheet } from "./entities/image_product_sheet";
 import { makeWarehouse } from "./entities/warehouse";
 import { makeProduct } from "./entities/product";
@@ -34,7 +34,7 @@ const numberOf = Object.freeze({
 	randomImage: 100,
 	user: 150,
 	organization: 5,
-	productSheetRound: 10,
+	productSheetRound: 20,
 	productSheetByRound: 50,
 });
 
@@ -66,12 +66,20 @@ for (let index = 0; index <= (organizations.length*organizationRolesTuple.length
 await mapAsync(
 	Object.entries(categoryData),
 	async ([parentName, categories]) => {
-		await makeParentCategory({ name: parentName });
+		await parentCategoryExist(parentName)
+			.then(pc => pc ?? makeParentCategory({ name: parentName })); 
 		await mapAsync(
 			categories,
 			async (name) => {
-				await makeCategory(imageBuffers[Math.floor(Math.random() * imageBuffers.length)], { name });
-				await addCategoryToParentCategory(name, parentName);
+				await categoryExist(name).then(
+					c => c ?? makeCategory(
+						imageBuffers[Math.floor(Math.random() * imageBuffers.length)], 
+						{ name }
+					).then(() => {
+						addCategoryToParentCategory(name, parentName);
+						return undefined;
+					})
+				);
 			}
 		);
 	}

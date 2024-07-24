@@ -51,6 +51,7 @@ model organization {
     id                 String                 @id @default(uuid())
     name               String                 @unique @db.VarChar(255)
     label              String?                @db.VarChar(36)
+    emailSupport       String?                @db.VarChar(255)
     ownerId            String                 @unique
     owner              user                   @relation(fields: [ownerId], references: [id])
     suspended          Boolean                @default(false)
@@ -115,7 +116,7 @@ model newsletter {
     content   String   @db.Text
     createdAt DateTime @default(now())
     sendAt    DateTime @default(now())
-	isSent    Boolean  @default(false)
+    isSent    Boolean  @default(false)
 }
 
 model product_sheet {

@@ -40,6 +40,15 @@ export const makeCategory = async (
 	});
 };
 
+export const categoryExist = (
+	name: string
+) => 
+	prisma.category.findFirst({
+		where: {
+			name,
+		}
+	});
+
 export const addProductSheetToCategory = (productSheetId: string, categoryName: string) =>
 	prisma.product_sheet_to_category.create({
 		data: {

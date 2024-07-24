@@ -21,7 +21,8 @@ async function submit () {
 		.patch(
 			"/organizations/{organizationId}",
 			{
-				label: formFields.label === "" ? null : formFields.label
+				label: formFields.label,
+				emailSupport: formFields.emailSupport
 			},
 			{ params: { organizationId: params.value.organizationId } }
 		);

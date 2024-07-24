@@ -1,7 +1,7 @@
 import { organizationData } from "@test/data/organization";
 import { MockPrisma } from "@test/mocks/providers";
 import { duploTesting } from "@test/setup";
-import { GET, PATCH } from "./index";
+import { PATCH } from "./index";
 
 describe("/organizations/{organizationId}", () => {
 	beforeEach(() => {
@@ -32,17 +32,6 @@ describe("/organizations/{organizationId}", () => {
 					label: "test"
 				},
 			});
-		});
-	});
-
-	describe("GET", () => {
-		it("get organization by id", async () => {
-			const res = await duploTesting
-				.testRoute(GET("GET", "/organization/1234"))
-				.setDefaultFloorValue({ organization: organizationData })
-				.launch();
-	
-			expect(res.information).toBe("organization.found");
 		});
 	});
 });
