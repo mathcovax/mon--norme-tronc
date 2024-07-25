@@ -16,7 +16,6 @@ export const useOrganizationUserStore = defineStore(
 		
 
 		function fetchOrganizationValue() {
-			
 			duploTo.enriched
 				.get(
 					"/organizations/{organizationId}/user", 

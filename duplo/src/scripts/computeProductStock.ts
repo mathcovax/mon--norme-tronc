@@ -4,6 +4,7 @@ import { FindSlice } from "@utils/findSlice";
 import { PromiseList } from "./setup/promiseList";
 import { fullProductSheetModel, productStockModel } from "@mongoose/model";
 import { FullProductSheetSchema } from "@schemas/fullProductSheet";
+import { roundDate } from "@utils/roundDate";
 
 const fullProductSheetGenerator = FindSlice(
 	500,
@@ -14,7 +15,7 @@ const fullProductSheetGenerator = FindSlice(
 );
 
 const promiseList = new PromiseList(100);
-const today = new Date(new Date().toISOString().split("T")[0]);
+const today = roundDate(new Date());
 
 for await (const fullProductSheet of fullProductSheetGenerator) {
 	await promiseList.append(

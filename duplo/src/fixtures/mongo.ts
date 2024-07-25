@@ -8,10 +8,8 @@ const commandCount = 4000;
 
 async function getRandomDocumentFullProductSheet() {
 	try {
-		const count = await fullProductSheetModel.countDocuments();
-		const randomIndex = Math.floor(Math.random() * count);
-		const randomDoc = await fullProductSheetModel.findOne().skip(randomIndex);
-		return randomDoc as unknown as FullProductSheetSchema;
+		const [fps] = await fullProductSheetModel.aggregate<FullProductSheetSchema>([{ $sample: { size: 1 } }]);
+		return fps;
 	} catch (err) {
 		console.error(err);
 		throw err;

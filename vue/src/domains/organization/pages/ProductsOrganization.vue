@@ -151,7 +151,7 @@ const currentFullProductSheet = ref<FullProductSheet>();
 const startDate = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000); // 7 days ago
 function openPopup(fullProductSheet: FullProductSheet) {
 	currentFullProductSheet.value = fullProductSheet;
-	getProducts();
+	getProducts({ productSheetId: fullProductSheet.id });
 	getProductStockStory(fullProductSheet.id, { startDate: startDate });
 	popup.value?.open();
 }

@@ -46,7 +46,7 @@ function deleteReview() {
 
 	duploTo.enriched
 		.delete(
-			"/product-sheet-reviews/{productSheetReviewId}",
+			"/product-sheet-reviews/{productSheetReviewId}@moderator",
 			{ params: { productSheetReviewId: currentReview.value._id } }
 		)
 		.info("productSheetReview.deleted", () => {

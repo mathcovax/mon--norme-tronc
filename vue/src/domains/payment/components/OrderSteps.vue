@@ -32,7 +32,7 @@ function updateStep(currentStep: number, step: number) {
 					<TheIcon
 						icon="map-marker-outline"
 						size="2xl"
-						class="cursor-pointer"
+						class="cursor-pointe"
 						@click="updateStep(step, 1)"
 					/>
 				</div>

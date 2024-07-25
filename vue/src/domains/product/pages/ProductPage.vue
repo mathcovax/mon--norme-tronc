@@ -221,7 +221,7 @@ watch(
 				</div>
 			</div>
 
-			<div class="flex flex-col gap-4">
+			<div class="flex flex-col gap-4 w-full">
 				<h1 class="text-2xl font-bold lg:text-4xl">
 					{{ product.name }}
 					

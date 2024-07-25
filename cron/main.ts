@@ -33,6 +33,10 @@ const cronDefs: CronDef[] = [
 	},
 	{
 		time: "*/5 * * * *",
+		command: "npm -w duplo run computeProductStock",
+	},
+	{
+		time: "*/5 * * * *",
 		command: "npm -w duplo run notification:newProductInCategory",
 	},
 	{

@@ -78,12 +78,12 @@ export const POST = (method: Methods, path: string) =>
 					);
 
 					for await (const command of commandGenerator) {
-						writeStream.write(`commanId: ${command.id}`);
-						writeStream.write(`commandStatus: ${command.status}`);
-						writeStream.write(`commandCreatedAt: ${command.createdAt.toISOString()}`);
-						writeStream.write(`commandFirstname: ${command.firstname}`);
-						writeStream.write(`commandLastname: ${command.lastname}`);
-						writeStream.write(`commandAddress: ${command.address}`);
+						writeStream.write(`commanId: ${command.id}\n`);
+						writeStream.write(`commandStatus: ${command.status}\n`);
+						writeStream.write(`commandCreatedAt: ${command.createdAt.toISOString()}\n`);
+						writeStream.write(`commandFirstname: ${command.firstname}\n`);
+						writeStream.write(`commandLastname: ${command.lastname}\n`);
+						writeStream.write(`commandAddress: ${command.address}\n`);
 
 						writeStream.write("\n");
 
@@ -91,36 +91,36 @@ export const POST = (method: Methods, path: string) =>
 							const fullProductSheet = 
 								JSON.parse(commandItem.freezeProductSheet) as FullProductSheetSchema;
 
-							writeStream.write(`\tcommandItemId: ${commandItem.id}`);
-							writeStream.write(`\tcommandItemCanceled: ${commandItem.canceled}`);
-							writeStream.write(`\tcommandItemQuantity: ${commandItem.quantity}`);
-							writeStream.write(`\tcommandItemProcessQuantity: ${commandItem.processQuantity}`);
-							writeStream.write(`\tcommandItemProductSheetRef: ${fullProductSheet.ref}`);
-							writeStream.write(`\tcommandItemProductSheetId: ${fullProductSheet.id}`);
-							writeStream.write(`\tcommandItemProductSheetName: ${fullProductSheet.name}`);
-							writeStream.write(`\tcommandItemProductSheetPrice: ${fullProductSheet.price}`);
+							writeStream.write(`\tcommandItemId: ${commandItem.id}\n`);
+							writeStream.write(`\tcommandItemCanceled: ${commandItem.canceled}\n`);
+							writeStream.write(`\tcommandItemQuantity: ${commandItem.quantity}\n`);
+							writeStream.write(`\tcommandItemProcessQuantity: ${commandItem.processQuantity}\n`);
+							writeStream.write(`\tcommandItemProductSheetRef: ${fullProductSheet.ref}\n`);
+							writeStream.write(`\tcommandItemProductSheetId: ${fullProductSheet.id}\n`);
+							writeStream.write(`\tcommandItemProductSheetName: ${fullProductSheet.name}\n`);
+							writeStream.write(`\tcommandItemProductSheetPrice: ${fullProductSheet.price}\n`);
 
 							if (fullProductSheet.promotion) {
-								writeStream.write(`\tcommandItemProductSheetOriginalPrice: ${fullProductSheet.promotion.originalPrice}`);
-								writeStream.write(`\tcommandItemProductSheetPromotion: -${fullProductSheet.promotion.originalPrice}%`);
-								writeStream.write(`\tcommandItemProductSheetPromotionReason: ${fullProductSheet.promotion.reason}`);
+								writeStream.write(`\tcommandItemProductSheetOriginalPrice: ${fullProductSheet.promotion.originalPrice}\n`);
+								writeStream.write(`\tcommandItemProductSheetPromotion: -${fullProductSheet.promotion.originalPrice}%\n`);
+								writeStream.write(`\tcommandItemProductSheetPromotionReason: ${fullProductSheet.promotion.reason}\n`);
 							}
 
 							writeStream.write("\n");
 						});
 
 						command.bundles.forEach((bundle) => {
-							writeStream.write(`\tbundleId: ${bundle.id}`);
-							writeStream.write(`\tbundleIdShip: ${bundle.idShip}`);
-							writeStream.write(`\tbundleCreatedAt: ${bundle.createdAt}`);
-							writeStream.write(`\tbundleStatus: ${bundle.status}`);
-							writeStream.write(`\tbundleCarrierName: ${bundle.carrierName}`);
+							writeStream.write(`\tbundleId: ${bundle.id}\n`);
+							writeStream.write(`\tbundleIdShip: ${bundle.idShip}\n`);
+							writeStream.write(`\tbundleCreatedAt: ${bundle.createdAt}\n`);
+							writeStream.write(`\tbundleStatus: ${bundle.status}\n`);
+							writeStream.write(`\tbundleCarrierName: ${bundle.carrierName}\n`);
 
 							writeStream.write("\n");
 
 							bundle.products.map((p) => p.product).forEach(product => {
-								writeStream.write(`\t\tproductSku: ${product.sku}`);
-								writeStream.write(`\t\tproductProductSheetId: ${product.productSheetId}`);
+								writeStream.write(`\t\tproductSku: ${product.sku}\n`);
+								writeStream.write(`\t\tproductProductSheetId: ${product.productSheetId}\n`);
 
 								writeStream.write("\n");
 							});
@@ -128,9 +128,9 @@ export const POST = (method: Methods, path: string) =>
 						});
 
 						command.productReturns.forEach((productReturn) => {
-							writeStream.write(`\tproductReturnId: ${productReturn.id}`);
-							writeStream.write(`\tproductReturnProductSku: ${productReturn.productSku}`);
-							writeStream.write(`\tproductReturnCreatedAt: ${productReturn.createdAt}`);
+							writeStream.write(`\tproductReturnId: ${productReturn.id}\n`);
+							writeStream.write(`\tproductReturnProductSku: ${productReturn.productSku}\n`);
+							writeStream.write(`\tproductReturnCreatedAt: ${productReturn.createdAt}\n`);
 
 							writeStream.write("\n");
 						});

@@ -31,21 +31,21 @@ export const mustBeConnected = duplo
 		},
 		new IHaveSentThis(NotFoundHttpException.code, "user.notfound")
 	)
-	.cut(
-		({ pickup }) => {
-			const user = pickup("user");
-			const accessTokenContent = pickup("accessTokenContent");
-			const lastUpdateUser = new Date(accessTokenContent.lastUpdateUser);
+	// .cut(
+	// 	({ pickup }) => {
+	// 		const user = pickup("user");
+	// 		const accessTokenContent = pickup("accessTokenContent");
+	// 		const lastUpdateUser = new Date(accessTokenContent.lastUpdateUser);
 
-			if (user.updatedAt.getTime() !== lastUpdateUser.getTime()) {
-				throw new UnauthorizedHttpException("accessToken.tooOld");
-			}
+// 		if (user.updatedAt.getTime() !== lastUpdateUser.getTime()) {
+// 			throw new UnauthorizedHttpException("accessToken.tooOld");
+// 		}
 
-			return {};
-		},
-		[],
-		new IHaveSentThis(UnauthorizedHttpException.code, "accessToken.tooOld")
-	)
+	// 		return {};
+	// 	},
+	// 	[],
+	// 	new IHaveSentThis(UnauthorizedHttpException.code, "accessToken.tooOld")
+	// )
 	.cut(
 		({ pickup }) => {
 			const user = pickup("user");
