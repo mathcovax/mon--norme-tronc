@@ -1,100 +1,167 @@
-### Commande du projet
+<h2 align="center">
+  <a href="https://mon-enorme-tronc.fr/" alt="met uri">Mon Énorme Tronc</a>
+</h2>
+<div align="center">
+ <img src="./vue/public/images/logo.png" width="200" height="200" />
+</div>
 
-- Lancer le projet `npm run dev` (nécessite docker).
+<div align="center">
 
-- Générer le client prisma `npm run generate:prisma`.
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com) &nbsp;
+[![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com) &nbsp;
+[![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com) &nbsp;
+![GitHub Repo stars](https://img.shields.io/github/stars/ZeRiix/Portfolio?color=red&logo=github&style=for-the-badge) &nbsp;
+![GitHub forks](https://img.shields.io/github/forks/ZeRiix/Portfolio?color=red&logo=github&style=for-the-badge)
 
-- Faire une migration Primas en DEV :
+</div>
 
-  - `npm run dev`
-  - `npm run migrate:dev`
+<h3 align="center">
+    🔹
+    <a href="https://github.com/mathcovax/mon-enorme-tronc/issues/new">Report Bug</a> &nbsp; &nbsp;
+    🔹
+    <a href="https://github.com/mathcovax/mon-enorme-tronc/issues">Request Feature</a>
+</h3>
 
-- Ouvrire les studio:
-  - `npm run dev`
-  - `npm run studio`
+## Description
 
-### Convention pour GIT
+Mon Énorme Tronc est un projet de site e-commerce permettant de vendre des produits pour adultes en marketplace. Le projet est réalisé dans le cadre de la formation de développeur web à l'École Supérieure Génie Informatique (ESGI).
 
-- Les noms des commits doivent être semblables à : `feat(${issueNumber}): subject`, `fix(${issueNumber}): subject`, `docs(${issueNumber}): subject` ...
+## Démarrer le projet
 
-- Les noms des branches doivent être semblables à : `feat/${issueNumber}`, `fix/${issueNumber}`, `docs/${issueNumber}` ...
+1 - **Dupliquer le .env.example et renomé en .env**
 
-### Convention pour DUPLO
+```bash
+cp .env.example .env
+touch .env.local
+```
 
-- Tous les checkers doivent être créés dans le dossier `src/checkers`. Si vous importez un checker il faut utiliser le path `@checkers`.
+2 - **Récuperer les credentials firebase**
 
-- Toutes les `absractRoutes` et les `proccesses` concernant la sécurité (connexion, vérification supplémentaire...) doivent être créées dans le dossier `src/security`. Si vous importez depuis ce dossier, il faut utiliser le path `@security`.
+3 - **Récuperer les credentials stripe**
 
-- Si vous souhaitez créer un service, vous devez créer le fichier dans le dossier `src/services`. Les services doivent être des class avec des methods static. Si vous importez depuis ce dossier, il faut utiliser le path `@services`.
+4 - **Démarrer le projet**
 
-- Les noms des fichiers et des dossiers dans le dossier `src/routes` doivent être en `kebab-case`.
+```bash
+npm run dev
+```
 
-- Si vous avez une question et que Mathcovax n'est pas dispo, allez sur la [doc](https://github.com/duplojs/duplojs).
+5 - **Générer la base de donnée et la remplir avec des fixtures**
 
-- Les variables d'ENV doivent être utiliées depuis la variable globale `ENV`.
+```bash
+npm run generate:prisma
+npm run migrate:dev
+npm run indexing:productSheet
+npm run fixture
+```
 
-- Les variables d'ENV sont des valeurs "sensibles" (mdp d'un compte ou autre). Définissez les dans le fichier `.env.local` qui est ignore par git.
+:warning: **Pour plus d'informations, référez-vous au fichier : [instructions.md](./instructions.md)** :warning:
 
-### Convention pour VUE
+## Fabriquer avec
 
-- Le texte doit **impérativement** passer par i18n et non directement dans le markup.
+- [PostgreSQL](https://www.postgresql.org/) (base de donnée normalisée)
+- [Docker](https://www.docker.com/) (support)
+- [Vue.js](https://vuejs.org/) (front)
+- [DuploJs](https://github.com/duplojs/duplojs) (API)
+- [MongoDB](https://www.mongodb.com/) (base de donnée non normalisée)
 
-- Les noms des composants doivent être en `PascalCase` et être minimum composés de 2 mots. Si vous n'en trouvez qu'un seul, vous pouvez le prefixer par `The`. Exemple : `Button` -> `TheButton`.
+## Liste des tâches de MET
 
-- Le dossier `src/components` contient uniquement des composants globaux. Ils ont pour but d'être flexibles et de pouvoir être utilisés à plusieurs endroits. Si vous souhaitez créer des composants qui ne seront utilisés qu'à un seul endroit, vous devez les créer dans le dossier `components` d'un domaine. Exemple de location du dossier composants d'un domaine : `src/domains/product/components`.
+#### Tâches globales <img src="https://avatars.githubusercontent.com/u/70342449?v=4" width="16" alt="ZeRiix"/> <img src="https://avatars.githubusercontent.com/u/58041322?v=4" width="16" alt="Maubry94"/> <img src="https://avatars.githubusercontent.com/u/74609430?v=4" width="16" alt="Vitaalx"/> <img src="https://avatars.githubusercontent.com/u/98911237?v=4" width="16" alt="mathcovax"/>
 
-- Les noms des pages doivent être en `PascalCase` et être minimum composés de 2 mots. Si vous n'en trouvez qu'un seul, vous pouvez le sufixer par `Page`. Exemple : `Login` -> `LoginPage`.
+- [x] Authentification sécurisée
+- [x] Recherche de produits avancée
+- [x] Gestion d'alertes par e-mail
+- [x] Panier avec système de réservation
+- [x] Intégration de plateforme de paiement
+- [x] Gestion de livraison
+- [x] Gestion des stocks
+- [x] Historique de commande
+- [x] Panel d'administration avec rôles d'utilisateurs
 
-- Les noms des layouts doivent être en `PascalCase` et être minimum composés de 2 mots. Si vous n'en trouvez qu'un seul, vous pouvez le sufixer par `Layout`. Exemple : `Base` -> `BaseLayout`.
+<br>
 
-- Les routes doivent être en `kebab-case`.
+## Tâches détaillées
 
-- Les arguments des routes doivent être en `camelCase`.
+#### Fonctionnalités principales <img src="https://avatars.githubusercontent.com/u/70342449?v=4" width="16" alt="ZeRiix"/> <img src="https://avatars.githubusercontent.com/u/58041322?v=4" width="16" alt="Maubry94"/> <img src="https://avatars.githubusercontent.com/u/74609430?v=4" width="16" alt="Vitaalx"/> <img src="https://avatars.githubusercontent.com/u/98911237?v=4" width="16" alt="mathcovax"/>
 
-- La création d'un nouveau domain doit être disctuté en amont.
+- [x] Vendre n'importe quel type de produit
 
-- Les pages doivent être systématiquement associées à un domaine. Exemple de location du dossier de pages d'un domaine : `src/domains/product/pages`.
+#### Authentification <img src="https://avatars.githubusercontent.com/u/98911237?v=4" width="16" alt="mathcovax"/> <img src="https://avatars.githubusercontent.com/u/58041322?v=4" width="16" alt="Maubry94"/>
 
-- Le dossier `src/composables` contient uniquement des composables globaux. Ils ont pour but d'être flexibles et de pouvoir être utilisés à plusieurs endroits. Si vous souhaitez créer des composables qui ne seront utilisés qu'à un seul endroit, vous devez les créer dans le dossier `composables` d'un domaine. Exemple de location du dossier composables d'un domaine : `src/domains/product/composables`.
+- [x] Inscription avec confirmation par mail
+- [x] Connexion et prévention de la connexion si le compte n'est pas confirmé
 
-- Le dossier `src/stores` contient uniquement des stores globaux. Ils ont pour but d'être flexibles et de pouvoir être utilisés à plusieurs endroits. Si vous souhaitez créer un store qui ne sera utilisé que dans un seul domain, vous devez le créer dans le dossier `stores` d'un domaine. Exemple de location du dossier stores d'un domaine: `src/domains/product/stores`.
+#### Recherche de produits <img src="https://avatars.githubusercontent.com/u/98911237?v=4" width="16" alt="mathcovax"/> <img src="https://avatars.githubusercontent.com/u/58041322?v=4" width="16" alt="Maubry94"/> <img src="https://avatars.githubusercontent.com/u/74609430?v=4" width="16" alt="Vitaalx"/>
 
-- Les noms des fichiers `typescript` doivent être en `camelCase`.
+- [x] Recherche via entrée utilisateur
+  - [x] Par nom
+  - [x] Par description d'un produit
+  - [x] URL en tant que paramètre de recherche GET pour partage des termes de recherche
+- [x] Recherche facettée
+  - [x] Nom du produit
+  - [x] Catégorie du produit
+  - [x] Marque du produit
+  - [x] Prix avec minimum et maximum
+  - [x] Produit actuellement en promotion
+  - [x] Produit actuellement en stock
+  - [x] Facettes dans l'URL en tant que paramètre de recherche GET pour partage de la recherche
 
-- Quand une fonction est bind a un event de component, la fonction doit être une `function`.
+#### Gestion d'alertes par mail <img src="https://avatars.githubusercontent.com/u/74609430?v=4" width="16" alt="Vitaalx"/> <img src="https://avatars.githubusercontent.com/u/58041322?v=4" width="16" alt="Maubry94"/>
 
-### Obtenir les Credentials Firebase
+- [x] Visibilité de l'ensemble des alertes sur le compte client
+- [x] Alerte sur nouveaux produits d'une catégorie
+- [x] Alerte sur le restock d'un produit
+- [x] Alerte sur les changements de prix
+- [x] Inscription à la newsletter
+- [x] Pouvoir désactiver chaque alerte mail selon les préférences d'un utilisateur et les respecter
 
-- Aller sur [cette page](https://console.firebase.google.com/u/0/project/mon-enorme-tronc).
+#### Panier avec système de réservation <img src="https://avatars.githubusercontent.com/u/70342449?v=4" width="16" alt="ZeRiix"/>
 
-- Une fois connecté, aller dans `⚙️` > `Paramètres du projet` > `Comptes de service`.
+- [x] Réservation de 15 minutes
 
-- Cliquer sur `Générer une nouvelle clé privée`, (cela vous téléchargera un fichier json).
+#### Intégration d'une plateforme de paiement <img src="https://avatars.githubusercontent.com/u/70342449?v=4" width="16" alt="ZeRiix"/> <img src="https://avatars.githubusercontent.com/u/98911237?v=4" width="16" alt="mathcovax"/>
 
-- Placer le fichier json ici `duplo/firebase.credential.json`.
+- [x] Intégration d'une API de paiement (Stripe, Paypal, Autres)
+- [x] Création de liens de paiement uniques
+- [x] Possibilité d'effectuer un remboursement (avec facture d'avoir)
 
-### Guide de survie duplojs
+#### Gestion de la livraison <img src="https://avatars.githubusercontent.com/u/98911237?v=4" width="16" alt="mathcovax"/>
 
-l'élément principale qui vous permettera de debug c'est le champ `info` dans le header.
+- [x] Intégration d'une API de La Poste (ou du gouvernement)
 
-Les différente info que vous pouvez rencontré qui son r'envoyer par duplojs:
+#### Gestion des stocks <img src="https://avatars.githubusercontent.com/u/98911237?v=4" width="16" alt="mathcovax"/> <img src="https://avatars.githubusercontent.com/u/58041322?v=4" width="16" alt="Maubry94"/>
 
-- `INTERNAL_SERVER_ERROR` accompagner d'un status 500. Signifie qu'il y a ue une erreur pendant l'éxection des diférente étape de la route. Danse ce cas, il faut regader le body de la réponse, c'est ici que ce situe le détaile de l'erreur.
-- pas d'info mais code 500L. Si vous faite n'impote quoi cela peux arrivé, bonne chance ! vous pouvez quand même le contenu du body.
-- `NO_RESPONSE_SENT` acompagner d'un status 503. Signifie que vous n'avez pas envoyer de response. vérifier bien vos condition.
-- `NOTFOUND` accompagner d'un status 404. signifi que la route n'est pas enregister dans le router. Vérifier que vous utilisais la bonne méthod et le bon path.
-- `TYPE_ERROR...` accompagner d'un status 400. Signifi qu'un schema d'un de vos extract n'est pas valide. Vous pouvez véfifier le body pour avoir plus d'info.
-- `WHAT_WAS_SENT_ERROR` accompagner d'une 500. Signifi que votre contra de sortie n'a pas étais respstecter. Vérifié les class `IHaveSentThis` de votre route. Vous pouvais regarder le body et les headers `catch-info`et `catch-code` pour avoir plus d'information.
+- [x] Alerte en fin de stock
+- [x] Configuration des alertes (valeur absolue pour un produit)
+- [x] Graphique d'évolution des stocks au cours des derniers mois
 
-**Toute ces régle sont valide pour les TU.**
+#### Historique de commande <img src="https://avatars.githubusercontent.com/u/74609430?v=4" width="16" alt="Vitaalx"/> <img src="https://avatars.githubusercontent.com/u/98911237?v=4" width="16" alt="mathcovax"/>
 
-#### Comment Obtenir un access-token:
+- [x] Demande de facturation
+- [x] Demande de retour produit
+- [x] Recherche
+- [x] Commander à nouveau
 
-Les acces-token son générer par notre back-end et serre a nous identifier. **A ne pas confondre avec le idToken de firebase**. L'idToken de firebase nous serre a certifier l'appartenance d'une address email a un utilisateur, avec cela nous povons le trouvez en base de donner pour l'authentifier.
+#### Panel d'administration <img src="https://avatars.githubusercontent.com/u/70342449?v=4" width="16" alt="ZeRiix"/> <img src="https://avatars.githubusercontent.com/u/58041322?v=4" width="16" alt="Maubry94"/> <img src="https://avatars.githubusercontent.com/u/74609430?v=4" width="16" alt="Vitaalx"/> <img src="https://avatars.githubusercontent.com/u/98911237?v=4" width="16" alt="mathcovax"/>
 
-la façon la plus simple pour obtenir un access-token est de vous rendre sur `/login` et de clicker sur le button "Se connecter avec Google". Si c'est la premier fois ou que votre base est vide, vous serrez rediriger vers le formulaire d'enregistrement. Compléter le. une fois rediriger vers `/`. Vous povez allez cherchez l'access-token dans votre localStorage. **Attention a ne pas le coller plus d'une fois, sinon cela ne fonctionera pas**. l'info associer a un access-token invalide est `access.token.invalid`.
+- [x] CRUD sur l'ensemble des ressources
+- [x] Dashboard avec datavisualisation (pas juste des KPI)
+  - [x] Dashboard personnalisable sous forme de widgets
+- [x] “Suppression” de compte
+  - [x] Trouver une solution pour conserver les données d'un utilisateur en les rendant anonymes
+  - [x] Possibilité de se créer de nouveau un compte avec les mêmes identifiants
 
-#### Recource importante pouvant vous aider.
+#### Fonctionnalités bonus <img src="https://avatars.githubusercontent.com/u/70342449?v=4" width="16" alt="ZeRiix"/> <img src="https://avatars.githubusercontent.com/u/58041322?v=4" width="16" alt="Maubry94"/> <img src="https://avatars.githubusercontent.com/u/74609430?v=4" width="16" alt="Vitaalx"/> <img src="https://avatars.githubusercontent.com/u/98911237?v=4" width="16" alt="mathcovax"/>
 
-- Le studio prisma, lancer la commande `npm run studio` et rendez vous sur votre port `5555`. le studio est un DB viwer du point de vue de l'ORM. Il peut vous permettre de créer des entiter a la volez facilement.
-- Les swagger, il suffit que duplo sois lancer. rendez vous sur `/api/swagger`. il vous permettera de visualisé toute les routes est leurs paramétre.
+- [x] Gestion des données personnelles
+- [x] Opérations de promotion
+- [ ] Dashboard comptabilité
+- [x] Connexion en tant qu'utilisateur
+- [x] Options de livraison variées
+
+## Participants
+
+- [ZeRiix](https://github.com/ZeRiix) <img src="https://avatars.githubusercontent.com/u/70342449?v=4" width="16" alt="ZeRiix"/>
+- [Maubry94](https://github.com/Maubry94) <img src="https://avatars.githubusercontent.com/u/58041322?v=4" width="16" alt="Maubry94"/>
+- [Vitaalx](https://github.com/Vitaalx) <img src="https://avatars.githubusercontent.com/u/74609430?v=4" width="16" alt="Vitaalx"/>
+- [mathcovax](https://github.com/mathcovax) <img src="https://avatars.githubusercontent.com/u/98911237?v=4" width="16" alt="mathcovax"/>
