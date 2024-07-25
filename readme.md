@@ -1,11 +1,16 @@
 <h2 align="center">
   <a href="https://mon-enorme-tronc.fr/" alt="met uri">Mon Énorme Tronc</a>
 </h2>
+
+<br>
+
 <div align="center">
  <img src="./vue/public/images/logo.png" width="200" height="200" />
 </div>
 
 <div align="center">
+
+<br>
 
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com) &nbsp;
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com) &nbsp;
